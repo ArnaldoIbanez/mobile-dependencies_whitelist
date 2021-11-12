@@ -30,6 +30,8 @@ tracks {
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
     "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
+    "/credits/car_loan"(platform: "/", isAbstract: true) {}
+
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -200,6 +202,11 @@ tracks {
                         "not visible"
                 ]
         )
+        source_key(
+                required: false,
+                description: "Identifies the origin of the user",
+                type: PropertyType.String,
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -224,6 +231,29 @@ tracks {
                         "on_time",
                         "overdue",
                         "finished"
+                ]
+        )
+    }
+    "/credits/consumer/administrator_v2/go_where_can_use"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: true,
+                description: "Defines if the user accesses the FAQ of the button Know more",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+        list_status(
+                required: true,
+                description: "Defines if the user can increase his limit",
+                type: PropertyType.String,
+                values: [
+                        "black_list",
+                        "white_list"
                 ]
         )
     }
@@ -305,7 +335,9 @@ tracks {
     "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
-
+    "/credits/consumer/administrator_v2/dashboard/personal_loan_download"(platform: "/web/desktop", type: TrackType.Event) {
+         dashboard_status = 'on_time'
+    }
 
     /******************************************
      *       End: Consumers Administrator
@@ -952,4 +984,27 @@ tracks {
      /******************************************
      *    End: Self service
      ******************************************/
+
+    /******************************************
+    *    Start: Car Loan
+    ******************************************/
+    //Views
+    "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
+        push_variant(
+            required: true,
+            description: "Identifier for the flow of the push A, B or C",
+            type: PropertyType.String
+        )
+    }
+    //Events
+    "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
+        push_variant(
+            required: true,
+            description: "Identifier for the flow of the push A, B or C",
+            type: PropertyType.String
+        )
+    }
+    /******************************************
+    *    End: Car Loan
+    ******************************************/
 }

@@ -10,9 +10,9 @@ tracks {
     initiative = "1018"
 
     "/loyalty"(platform: "/", isAbstract: true) {
-        level(type: PropertyType.Numeric, required: false)
-        points(type: PropertyType.Numeric, required: false)
-        percentage(type: PropertyType.Numeric, required: false)
+        level(type: PropertyType.Numeric, required: false, description: "The user Loyalty level.")
+        points(type: PropertyType.Numeric, required: false, description: "User's Loyalty points.")
+        percentage(type: PropertyType.Numeric, required: false, description: "Percentage related to amount of points needed to reach next Loyalty level.")
         origin(required: false, values: ["mail", "push", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where was the path flow initiated from.")
     }
 
@@ -168,8 +168,8 @@ tracks {
     }
 
     "/loyalty/partners/comboplus/modal"(platform: "/", type: TrackType.View) {
-        type(required: false, description: "Action type"
-                ,values: ["widgetBuyLevel", "floating", "primary", "secondary", "close", "login", "activate"], type: PropertyType.String)
+        type(required: false, description: "Action type",values: ["widgetBuyLevel", "floating", "primary", "secondary", "close", "login", "activate"], type: PropertyType.String)
+        selected_option(required: false, description: "Option to pay if there is more than one", values: ["option-1", "option-2", "option-3", "option-4", "option-5", "option-6"], type: PropertyType.String)
     }
 
     "/loyalty/partners/comboplus/action"(platform: "/", type: TrackType.Event) {
@@ -218,5 +218,9 @@ tracks {
         payment_id(required: false, description: "Payment id", type: PropertyType.String)
         payment_status(required: false, description: "Payment status", type: PropertyType.String)
         content(required: false, description: "Specific content (banner, promo, etc.) shown in VDP (first step)", type: PropertyType.String)
+    }
+
+    "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event) {
+        status(required: true, description: "Diferentes estados que pueden tener los eventos del interstitial que pueden ser enviados por el BE o acciones de usuarios", type: PropertyType.String)
     }
 }

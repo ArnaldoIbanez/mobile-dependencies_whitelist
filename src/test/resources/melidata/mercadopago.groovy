@@ -628,7 +628,6 @@ trackTests {
         }
     }
 
-	
 
 	test("Share MGM Invite and Win") {
         "/merchant_acquisition/flows/share_mgm/invite_and_win"(platform:"/", type: TrackType.View) {}
@@ -638,14 +637,14 @@ trackTests {
         }
 
         "/merchant_acquisition/flows/share_mgm/invite_and_win/click_button_social_network"(platform:"/", type: TrackType.Event) {
-		  media = "WhatsApp" 
+		  media = "WhatsApp"
 		  product = "Point Plus"
         }
 
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_dashboard_awards" (platform: "/", type: TrackType.Event) {}
 
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_terms_of_use" (platform: "/", type: TrackType.Event) {}
-		
+
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_mgm_wallet" (platform: "/", type: TrackType.Event) {}
     }
 
@@ -946,6 +945,11 @@ trackTests {
             has_coupon = true
             coupon_code = "Y96XA"
             coupon_type = "default"
+            utm = [  
+                utm_source: "utm_source_value",
+                utm_medium: "utm_medium_value",
+                utm_campaign: "utm_campaign_value"
+            ]
         }
 
         "/point/landings/buy"(platform:"/", type: TrackType.Event) {
@@ -2341,6 +2345,10 @@ trackTests {
             product_id = "10"
         }
 
+        "/bill_payments/home/pay/clipboard"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Invoice
         "/bill_payments/invoices"(platform: "/mobile") {
             mandatory()
@@ -2541,6 +2549,23 @@ trackTests {
             mandatory()
         }
         "/bill_payments/ftu/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // FTU digitals receipts
+        "/bill_payments/ftu_digital_receipts"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_digital_receipts/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_digital_receipts/digital_receipts_optin"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_digital_receipts/terms"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2746,6 +2771,10 @@ trackTests {
             camera_flash = false
             timestamp = 1043
             barcode_format = "ITR40"
+        }
+
+        "/bill_payments/scan/scan_barcode"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
         }
 
         // New Scanner    
@@ -3140,6 +3169,481 @@ trackTests {
         }
 
         "/bill_payments/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        //home invoices/adhesion
+        "/bill_payments/home/adhesion_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/home/invoices"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // main category Scheduling
+        "/bill_payments/main_category/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/main_category/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+
+        "/bill_payments/main_category/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+
+        "/bill_payments/main_category/scheduling/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+            item = "item 2"
+        }
+
+        "/bill_payments/main_category/scheduling/empty_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+
+        "/bill_payments/main_category/scheduling/result_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+
+        //scheduling
+        // empty state ftu
+        "/bill_payments/empty_state_ftu/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state_ftu/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state_ftu/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state_ftu/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // empty state
+        "/bill_payments/empty_state/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // ftu kyc
+        "/bill_payments/ftu_kyc/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_kyc/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_kyc/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        //required data
+        "/bill_payments/required_data/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/scheduling/button_continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // confirm optin
+        "/bill_payments/confirm_optin/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/checkbox_selected"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/checkbox_unselected"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // confirm dda optin
+        "/bill_payments/confirm_digital_receipts_optin/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_digital_receipts_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_digital_receipts_optin/scheduling/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // optin list
+        "/bill_payments/optin_list/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling/search_entities_scheduling"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
+
+        // optout
+        "/bill_payments/optout/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optout/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optout/scheduling/reject_cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // optout dda
+        "/bill_payments/optout_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optout_dda/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optout_dda/scheduling/reject_cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // adhesion detail
+        "/bill_payments/adhesion_detail/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/message_button"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/notification_preference"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // adhesion detail dda
+        "/bill_payments/adhesion_detail_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail_dda/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail_dda/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optout
+        "/bill_payments/congrats_optout/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optout dda
+        "/bill_payments/congrats_optout_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout_dda/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optin
+        "/bill_payments/congrats_optin/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optin dda
+        "/bill_payments/congrats_optin_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin_dda/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Automatic debits
+        // empty state
+        "/bill_payments/empty_state/automatic_debit"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/automatic_debit/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // ftu kyc
+        "/bill_payments/ftu_kyc/automatic_debit"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_kyc/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_kyc/automatic_debit/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // main category Automatic Debits
+        "/bill_payments/main_category/automatic_debit"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/main_category/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+
+        "/bill_payments/main_category/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+
+        "/bill_payments/main_category/automatic_debit/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+            item = "item 2"
+        }
+
+        "/bill_payments/main_category/automatic_debit/empty_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+
+        "/bill_payments/main_category/automatic_debit/result_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+
+        //required data
+        "/bill_payments/required_data/automatic_debit"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/automatic_debit/button_continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // confirm optin
+        "/bill_payments/confirm_optin/automatic_debit"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/automatic_debit/checkbox_selected"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/automatic_debit/checkbox_unselected"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/automatic_debit/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optin
+        "/bill_payments/congrats_optin/automatic_debit"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/automatic_debit/scan_barcode"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/automatic_debit/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/automatic_debit/message_button"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/automatic_debit/go_to_adhesions"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // optin list
+        "/bill_payments/optin_list/automatic_debit"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/automatic_debit/search_entities_automatic_debit"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/automatic_debit"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
+
+        // adhesion detail
+        "/bill_payments/adhesion_detail/automatic_debit"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/automatic_debit/retry"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/automatic_debit/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optout dda
+        "/bill_payments/optout/automatic_debit"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optout/automatic_debit/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optout/automatic_debit/reject_cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optout
+        "/bill_payments/congrats_optout/automatic_debit"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout/automatic_debit/close"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout/automatic_debit/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -3829,6 +4333,16 @@ trackTests {
         }
     }
 
+    test("PASSWORD enrollment flow") {
+        "/auth/password_enrollment"(platform: "/", type: TrackType.View) {
+            transaction_id = "id"
+        }
+        "/auth/password_enrollment/confirm"(platform: "/", type: TrackType.Event) {
+            transaction_id = "id"
+            target = "continue"
+        }
+    }
+
     test("Device Attestation"){
         "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
             mode = "prefetch_only"
@@ -4032,6 +4546,9 @@ trackTests {
                 "transaction_custom": "0",
                 "opening_custom": "0"
             ]
+            fallback_disabled = false
+            screenlock_method_used = "biometrics"
+            biometrics_hash = "af21213819faed1923182dfc4217"
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -4053,6 +4570,7 @@ trackTests {
                 "transaction_custom": "0",
                 "opening_custom": "0"
             ]
+            fallback_disabled = false
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -4073,6 +4591,30 @@ trackTests {
                 "transaction_custom": "0",
                 "opening_custom": "0"
             ]
+            fallback_disabled = false
+            screenlock_method_used = "basic_screenlock"
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            elapsed_time = 50
+            result = "success"
+            transaction_information = [
+                "amount": "0",
+                "type": "other"
+            ]
+            config = [
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "100",
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
+            fallback_disabled = true
+            screenlock_method_used = "unknown"
         }
 
         "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -4930,12 +5472,183 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
-                "transaction_granularity_option": "daily_amount",
-                "transaction_accumulated_amount": "150",
-                "transaction": "disabled",
-                "opening_lock": "enabled",
-                "transaction_custom": "0",
-                "opening_custom": "0"
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "compile",
+                        "i": true,
+                ],
+                "r": [
+                        "b": "app_installed",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "runtime",
+                        "i": true,
+                ],
+                "r": [
+                        "b": "directory",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "files",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "symb",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "fail",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "fail",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "undetectable",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "undetectable",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "unknown",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                    "e": [
+                            "b": "off",
+                            "i": false,
+                    ],
+                    "r": [
+                            "b": "off",
+                            "i": false,
+                    ]
             ]
         }
     }
@@ -6117,4 +6830,36 @@ trackTests {
         }
     }
 
+    test("Crypto Sell/Buy and Hold") {
+        "/crypto/dashboard" (platform: "/mobile", type: TrackType.View) {}
+        "/crypto/detail" (platform: "/mobile", type: TrackType.View) {
+            market = "BTCBRL"
+        }
+        "/crypto/calculate" (platform: "/mobile", type: TrackType.View) {
+            operation = "BUY"
+            market = "BTCBRL"
+        }
+        "/crypto/review" (platform: "/mobile", type: TrackType.View) {
+            operation = "BUY"
+            market = "BTCBRL"
+            amount = 23.32
+
+        }
+        "/crypto/transaction/detail" (platform: "/mobile", type: TrackType.View) {
+            id = "9e588da2-f853-4266-a933-0f62f960345c"
+        }
+        "/crypto/transaction/list" (platform: "/mobile", type: TrackType.View) {
+            ticker = "BTC"
+        }
+        "/crypto/transaction/summary" (platform: "/mobile", type: TrackType.View) {
+            id = "9e588da2-f853-4266-a933-0f62f960345c"
+        }
+        "/crypto/transaction/complete" (platform: "/mobile", type: TrackType.Event) {
+            id = "9e588da2-f853-4266-a933-0f62f960345c"
+            ticker = "BTC"
+            operation = "SELL"
+            local_currency = "BRL"
+            state = "SUCCESS"
+        }
+    }
 }

@@ -723,7 +723,14 @@ trackTests {
             has_top_view = false
             has_important_view = false
             has_money_split_view = false
-            remedies = [ "cvv_request" ]
+            remedies = [ "cvv_request", extra_info = {
+                payment_method_type = "credit_card"
+                payment_method_id = "visa"
+                amount = "same"
+                installments = "same"
+                frictionless = "false"
+                card_size = "small"
+            }]
         }
 
         "/px_checkout/generic_error"(platform: "/mobile", type: TrackType.View) {
@@ -1823,6 +1830,7 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            from = "view"
         }
 
         "/px_checkout/result/error/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1847,12 +1855,17 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             type = "cvv_request"
             extra_info = {
-              payment_method_type = "credit_card"
-              payment_method_id = "master"
+                payment_method_type = "credit_card"
+                payment_method_id = "master"
+                amount = "same"
+                installments = "same"
+                frictionless = "false"
+                card_size = "small"
             }
             index = 1
             payment_status = "rejected"
             payment_status_detail = "cc_rejected_other_reason"
+            from = "view"
         }
 
         // Approved business
@@ -1981,12 +1994,17 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             type = "cvv_request"
             extra_info = {
-              payment_method_type = "credit_card"
-              payment_method_id = "master"
+                payment_method_type = "credit_card"
+                payment_method_id = "master"
+                amount = "same"
+                installments = "same"
+                frictionless = "false"
+                card_size = "small"
             }
             index = 1
             payment_status = "rejected"
             payment_status_detail = "cc_rejected_other_reason"
+            from = "view"
         }
 
         "/px_checkout/result/success/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
@@ -4363,6 +4381,7 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            from = "view"
         }
 
         "/px_checkout/result/error/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -4393,6 +4412,30 @@ trackTests {
             index = 1
             payment_status = "rejected"
             payment_status_detail = "cc_rejected_other_reason"
+            from = "view"
+        }
+
+        "/px_checkout/result/error/remedy/modal"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            flow_detail = {}
+            session_id = "091ebe90-0ef3-44cc-8c93-1e2781f83a33"
+            session_time = 124
+            checkout_type = "one_tap"
+            security_enabled = false
+            device_secured = true
+            experiments = "px_nativo/highlight_installments - scrolled_installments"
+        }
+
+        "/px_checkout/result/error/remedy/modal/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "d2deaaa1-f750-447f-aa66-b843b6108556"
+            flow_detail = {}
+            session_id = "091ebe90-0ef3-44cc-8c93-1e2781f83a33"
+            session_time = 124
+            checkout_type = "one_tap"
+            security_enabled = false
+            device_secured = true
+            experiments = "px_nativo/highlight_installments - scrolled_installments"
         }
 
         // Approved business

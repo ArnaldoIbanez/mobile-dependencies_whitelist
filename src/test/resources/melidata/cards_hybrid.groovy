@@ -323,12 +323,26 @@ trackTests {
             activities_status = "activities_with_error"
             credits = credit_card_data_error
         }
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = "[minicard, flap, activities, credit_activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
+            minicard_status = "virtual_only"
+            flap_status = "virtual_only"
+            message_status = "warning"
+            activities_status = "activities_with_error"
+            credit_activities_status: "credit_activities"
+        }
         "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "header_help"
         }
         "/cards/hybrid/dashboard/physical/tap"(platform:"/", type: TrackType.Event) {
             action = "header_help"
         }
+    }
+
+    // Dasboard Header Help  
+    test("cards hybrid dashboard header help") {
+        "/cards/hybrid/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
     }
     
     //Mini card: Tracking
@@ -604,6 +618,13 @@ trackTests {
         }
     }
 
+    //App2App Confirmation
+    test("App2App confirmation flow") {
+        "/cards/hybrid/app2app/facebook_pay_verification"(platform:"/mobile", type: TrackType.View) { }
+        "/cards/hybrid/app2app/facebook_pay_verification/confirmation"(platform:"/mobile", type: TrackType.Event) { }
+        "/cards/hybrid/app2app/facebook_pay_verification/close"(platform:"/mobile", type: TrackType.Event) { }
+    }
+
     //Feedback: Tracking
     test("cards hybrid dashboard feedback") {
         "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
@@ -712,8 +733,16 @@ trackTests {
             type = "congrats_type"
             insurance_offer = "banner"
         }
-        "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {
+        "/cards/acquisition/congrats"(platform: "/", type: TrackType.View) {
             type = "congrats_type"
+            insurance_offer = "label"
+        }
+        "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/android", type: TrackType.Event) {
+            type = "congrats_type"
+        }
+        "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/ios", type: TrackType.Event) {
+            type = "congrats_type"
+            url = "mercadopago://home"
         }
         "/cards/acquisition/congrats/tap"(platform:"/", type: TrackType.Event) {
             type = "congrats_type"
@@ -1149,6 +1178,11 @@ trackTests {
         "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
             reasons = ["debit_available_push_strategy_none", "reissue"]
         }
+        "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+            address_id = "1122334455"
+            is_warning_address = false
+        }
     }
     test("cards hybrid request physical challenge") {
         "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
@@ -1219,6 +1253,16 @@ trackTests {
         "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
             action = "card_request"
         }
+
+        "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
+            action = "edit_address"
+            address_id = "1122334455"
+            is_accurate = true
+            is_warning_address = false
+        }
+        "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
+            action = "add_new_address"
+        }
     }
 
     // Request: Review TyC
@@ -1249,6 +1293,11 @@ trackTests {
     test("cards hybrid physical success event"){
         "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {
             reasons = ["card_whitelist_physical_first", "reissue"]
+        }
+        "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["card_whitelist_physical_first", "reissue"]
+            address_id = "1122334455"
+            is_warning_address = false
         }
     }
 
@@ -1533,6 +1582,94 @@ trackTests {
         }
         "/cards/hybrid/card_helper/extraction/contingency/tap"(platform:"/", type: TrackType.Event) {
             action = "back_button"
+        }
+    }
+
+    // Tap4Auth
+    test("cards hybrid tap4Auth main screen") {
+        "/cards/hybrid/payment_authorization/main_screen"(platform:"/mobile", type: TrackType.View) {
+            amount = 200.38
+        }
+        "/cards/hybrid/payment_authorization/main_screen"(platform:"/mobile", type: TrackType.View) {
+            amount = 100.46
+        }
+        "/cards/hybrid/payment_authorization/main_screen/cta"(platform:"/mobile", type: TrackType.Event) {
+            action = "authorize"
+        }
+        "/cards/hybrid/payment_authorization/main_screen/cta"(platform:"/mobile", type: TrackType.Event) {
+            action = "no_authorize"
+        }
+    }
+    test("cards hybrid tap4Auth congrats") {
+        //View
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_physical"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_congrats_virtual"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_second_try"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_try"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_ttl_expired_physical"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_ttl_expired_virtual"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_already_responded"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_contingency_cancel_try"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_contingency_create_try"
+        }
+        // Events
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "understands"
+        }
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "setup_virtual"
+        }
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "pause_card"
+        }
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "home"
+        }
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "report_card"
+        }
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "dismiss"
         }
     }
 
@@ -1955,6 +2092,10 @@ trackTests {
         }
     }
 
+    test("cards hybrid nfc core start secure enrollment returns missing asset in response") {
+        "/cards/nfc/core/service/start_secure_enrollment/missing_asset_response"(platform:"/", type:TrackType.Event) {}
+    }
+
     test("cards hybrid nfc core start secure enrollment error") {
         "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
@@ -2056,6 +2197,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2065,6 +2208,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2074,6 +2219,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2083,6 +2230,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2092,6 +2241,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2101,6 +2252,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2110,6 +2263,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2119,6 +2274,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2128,6 +2285,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2137,6 +2296,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2146,6 +2307,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2155,6 +2318,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2164,6 +2329,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2173,6 +2340,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2182,6 +2351,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2191,6 +2362,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2200,6 +2373,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2209,6 +2384,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2218,6 +2395,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2227,6 +2406,8 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
         "/cards/nfc/enrollment/replenish_payment_keys/error"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
@@ -2236,10 +2417,26 @@ trackTests {
             cps_error_code = -1
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
+            token_id = "Some Token ID"
+            wallet_id = "Some Wallet ID"
         }
     }
 
     // ENROLLMENT DEVICE
+    
+    test("cards hybrid nfc enrollment device enrollment state") {
+        "/cards/nfc/enrollment/device_enrollment/state"(platform: "/", type: TrackType.Event) {
+            status = "enrollment_needed"
+        }
+    
+        "/cards/nfc/enrollment/device_enrollment/state"(platform: "/", type: TrackType.Event) {
+            status = "enrollment_complete"
+        }
+    
+        "/cards/nfc/enrollment/device_enrollment/state"(platform: "/", type: TrackType.Event) {
+            status = "enrollment_in_progress"
+        }
+    }
 
     test("cards hybrid nfc enrollment device enrollment success") {
         "/cards/nfc/enrollment/device_enrollment/success"(platform: "/", type: TrackType.Event) {
@@ -2254,6 +2451,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2263,6 +2461,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2272,6 +2471,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2281,6 +2481,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2290,6 +2491,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2299,6 +2501,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2308,6 +2511,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2317,6 +2521,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2326,6 +2531,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2335,6 +2541,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2344,6 +2551,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2353,6 +2561,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2362,6 +2571,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2371,6 +2581,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2380,6 +2591,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2389,6 +2601,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2398,6 +2611,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2407,6 +2621,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2416,6 +2631,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2425,6 +2641,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2434,6 +2651,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2443,6 +2661,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -2452,6 +2671,7 @@ trackTests {
             error_message = "error_message"
             http_status_code = -1
             cps_error_code = -1
+            wallet_id = "SomeWalletId"
             causing_exception = "SDK Exception"
             sdk_additional_info = "statusAdditionalInfo={}"
         }
@@ -3726,6 +3946,31 @@ trackTests {
             information = "The message processor: error_code + error message"
         }
     }
+    
+    test ("constraints before message processor information") {
+        "/cards/nfc/enrollment/tokenization/messageprocessor/constraints"(platform: "/", type: TrackType.Event) {
+            is_nfc_activated = true
+            is_token_ready = true
+            is_nfc_payments_initialized = true
+            is_default_tap_n_pay = true
+            is_restrictive = true
+            is_default_card = true
+            is_token_active = true
+            are_payment_keys_available = true
+            is_tap_n_pay_admitted_to_pay = true
+        }
+        "/cards/nfc/enrollment/tokenization/messageprocessor/constraints"(platform: "/", type: TrackType.Event) {
+            is_nfc_activated = false
+            is_token_ready = false
+            is_nfc_payments_initialized = false
+            is_default_tap_n_pay = false
+            is_restrictive = false
+            is_default_card = false
+            is_token_active = false
+            are_payment_keys_available = false
+            is_tap_n_pay_admitted_to_pay = false
+        }
+    }
 
     // NFC Payment
     test("cards hybrid nfc payment") {
@@ -3740,6 +3985,7 @@ trackTests {
             is_restrictive = false
             is_default_card = true
             tap_status = "success"
+            is_online_payment = true
             from = "tap: ScreenLockActivity"
             is_token_active = true
             are_payment_keys_available = true
@@ -3757,6 +4003,7 @@ trackTests {
             additional_info = "POS_COMM_DISCONNECTED error"
             is_default_card = true
             tap_status = "failure"
+            is_online_payment = false
             from = "preAuth: HomeActivity"
             is_token_active = true
             are_payment_keys_available = true
@@ -3846,9 +4093,13 @@ trackTests {
         "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
             has_money = false
         }
-        
+
         "/cards/nfc/enrollment/instructions/tap"(platform:"/", type: TrackType.View) {
             action = "close"
+        }
+        
+        "/cards/nfc/configuration/instructions/continue_button"(platform:"/", type: TrackType.View) {
+            url = "mercadopago://nfcpayments/payment?from=nfc_configuration_instruction"
         }
     }
 
@@ -3996,6 +4247,9 @@ trackTests {
         "/cards/nfc/identity_confirmation/tap"(platform: "/", type: TrackType.Event) {
             action = "primary"
         }
+        "/cards/nfc/identity_confirmation/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
     }
     
     // NFC_PREP_REPLENISHMENT
@@ -4014,7 +4268,15 @@ trackTests {
         "/cards/nfc/prep_replenishment/status"(platform: "/", type: TrackType.Event) {
             status = "null"
         }
-
-
+    }
+    
+    // NFC_DISABLED_PAYMENT_SERVICE
+    test("/cards/nfc/disabled_payment_error") {
+        "/cards/nfc/disabled_payment_error"(platform: "/", type: TrackType.Event) {
+            user_id_is_null = false
+        }
+        "/cards/nfc/disabled_payment_error"(platform: "/", type: TrackType.Event) {
+            user_id_is_null = true
+        }
     }
 }

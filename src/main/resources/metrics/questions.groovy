@@ -3,7 +3,7 @@ import com.ml.melidata.metrics.TagType
 
 metrics {
 
-    "questions"(description: "questions count", tags:[TagType.Important]) {
+    "questions"(description: "questions count", tags:[TagType.Important, TagType.CoreMetric]) {
         countsOn {
             condition {
                 path("/questions/ask/post")
@@ -15,10 +15,8 @@ metrics {
         }
     }
 
-    "qadb_search"(description: "qadb zqps generated ") {
-	startWith {
-     	   experiment(regex("qadb/.*"))
-	}
+    "qadb_search"(description: "qadb zqps generated ", tags:[TagType.CoreMetric]) {
+		experiment(regex("qadb/.*"))
 	    
         countsOn {
             condition {
@@ -28,9 +26,7 @@ metrics {
     }	
 	
    "qadb_zqp"(description: "qadb searches perform by user ") {
-	startWith {
-     	   experiment(regex("qadb/.*"))
-	}
+		experiment(regex("qadb/.*"))
 	    
         countsOn {
             condition {
@@ -41,9 +37,8 @@ metrics {
     }		
 
     "questions.pdp"(description: "Track PDP questions") {
-		startWith {
-			experiment(regex("qadb/.*"))
-		}
+		experiment(regex("qadb/.*"))
+
 		countsOn {
 		condition {
 			path("/questions/ask/post")
@@ -67,9 +62,8 @@ metrics {
     }
 
 	"questions.sameItem"(description: "questions count over same item") {
-		startWith {
-			experiment(regex("qadb/.*"))
-		}
+		experiment(regex("qadb/.*"))
+
 		countsOn {
 			condition {
 				path("/questions/ask/post")

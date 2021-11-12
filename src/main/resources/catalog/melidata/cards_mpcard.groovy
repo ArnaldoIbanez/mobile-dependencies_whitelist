@@ -189,6 +189,8 @@ tracks {
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
          dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
+
+    "/cards/mpcard/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
     
     "/cards/mpcard/dashboard/virtual"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -274,7 +276,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active"],
+            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active", "without_cards_and_card_request"],
             description: "Banner tapped"
           )
     }
@@ -1070,6 +1072,72 @@ tracks {
             description: "Action Tapped"
         )
     }
+
+    // Tap4Auth Flow
+    propertyDefinitions {
+            tap4auth_congrats_type (
+                description: "Tap4auth Congrats Type",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "user_accepted_congrats_physical",
+                        "user_rejected_congrats_physical",
+                        "user_accepted_congrats_virtual",
+                        "user_rejected_congrats_virtual",
+                        "user_rejected_congrats_virtual_second_try",
+                        "user_rejected_congrats_virtual_third_try",
+                        "user_accepted_ttl_expired_physical",
+                        "user_accepted_ttl_expired_virtual",
+                        "user_already_responded",
+                        "user_rejected_congrats_virtual_third_contingency_cancel_try",
+                        "user_rejected_congrats_virtual_third_contingency_create_try"
+                ]
+            )
+    }
+    propertyGroups {
+        tap4auth_congrats(tap4auth_congrats_type)
+    }
+
+    "/cards/mpcard/payment_authorization"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/payment_authorization/main_screen"(platform:"/mobile", type: TrackType.View) {
+        amount (
+            required: true, 
+            type: PropertyType.Numeric, 
+            description: "Amount of money through tap4Auth"
+        )
+     }
+     "/cards/mpcard/payment_authorization/main_screen/cta"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+         action (
+            required: true,
+            type: PropertyType.String,
+            values: ["authorize", "no_authorize"],
+            description: "Option chosen by Tap4Auth user"
+         )
+     }
+     "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) {
+         amount (
+            required: true, 
+            type: PropertyType.Numeric, 
+            description: "Amount of money through tap4Auth"
+        )
+        tap4auth_congrats
+     }
+     "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        tap4auth_congrats
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "understands",
+                "setup_virtual",
+                "home",
+                "pause_card",
+                "report_card",
+                "dismiss"
+                ],
+            description: "Button tapped by user"
+        )
+     }
 
     // Request: Pending Challenge
     "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {

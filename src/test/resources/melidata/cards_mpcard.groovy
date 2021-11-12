@@ -166,6 +166,12 @@ trackTests {
             action = "header_help"
         }
     }
+
+    // Dasboard Header Help  
+    test("cards mpcard dashboard header help") {
+        "/cards/mpcard/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
+    }
+
     // DASHBOARD Physical Unlock
     test("cards mpcard dashboard physical unlock") {
         "/cards/mpcard/dashboard/physical/unlock"(platform:"/", type: TrackType.Event) {
@@ -1346,6 +1352,94 @@ trackTests {
         }
         "/cards/mpcard/card_helper/extraction/contingency/tap"(platform:"/", type: TrackType.Event) {
             action = "back_button"
+        }
+    }
+
+    // Tap4Auth
+    test("cards mpcard tap4Auth main screen") {
+        "/cards/mpcard/payment_authorization/main_screen"(platform:"/mobile", type: TrackType.View) {
+            amount = 200.38
+        }
+        "/cards/mpcard/payment_authorization/main_screen"(platform:"/mobile", type: TrackType.View) {
+            amount = 100.46
+        }
+        "/cards/mpcard/payment_authorization/main_screen/cta"(platform:"/mobile", type: TrackType.Event) {
+            action = "authorize"
+        }
+        "/cards/mpcard/payment_authorization/main_screen/cta"(platform:"/mobile", type: TrackType.Event) {
+            action = "no_authorize"
+        }
+    }
+    test("cards hybrid tap4Auth congrats") {
+        //View
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_physical"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_congrats_virtual"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_second_try"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_try"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_ttl_expired_physical"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_ttl_expired_virtual"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_already_responded"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_contingency_cancel_try"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_contingency_create_try"
+        }
+        // Events
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "understands"
+        }
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "setup_virtual"
+        }
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "pause_card"
+        }
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "home"
+        }
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "report_card"
+        }
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "dismiss"
         }
     }
 }

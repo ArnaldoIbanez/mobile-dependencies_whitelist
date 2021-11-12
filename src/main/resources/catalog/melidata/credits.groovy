@@ -148,6 +148,9 @@ tracks {
         result(description: "Current status of the IV/KyC application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
         offer_type(description: "Offer Type on Approved Credits Lines", type: PropertyType.String, required: false, values: ["special_full_offer", "full_offer", "early_offer"])
     }
+    "/credits/consumer/opensea/risk_provider/share_data"(platform: "/", type: TrackType.Event) {
+        risk_provider(description: "Risk Integrator in congrats Open Sea", type: PropertyType.String, required: true, values: ["open_finance", "klippa"])
+    }
 
     /* Remedy MLM */
     "/credits/consumer/opensea/remedy/authorization"(platform: "/", type: TrackType.View) {}
@@ -172,6 +175,7 @@ tracks {
 
     "/credits/preferences"(platform: "/", isAbstract: true, type: TrackType.View) {
         initiative(
+            description: 'Credits optin initiatives',
             type: PropertyType.String,
             required: true,
             inheritable: true,
@@ -183,8 +187,10 @@ tracks {
                 'consumer_open_sea',
                 'consumer_personal_loan',
                 'consumer_administrator',
-                'credit_card_open_sea'
-            ]
+                'credit_card_open_sea',
+                'consumer_personal_loan_second_stage',
+                'consumer_open_sea_tx'
+            ],
         )
         step(
             type: PropertyType.String,
@@ -261,7 +267,7 @@ tracks {
 
     "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
-        sk(description: "Source key", type: PropertyType.String, required: false)
+        source_key(description: "Source key", type: PropertyType.String, required: false)
     }
 
     "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
@@ -271,7 +277,7 @@ tracks {
     }
 
     "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
-        sk(description: "Source key", type: PropertyType.String, required: false)
+        source_key(description: "Source key", type: PropertyType.String, required: false)
         prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
         virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
         physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
@@ -306,6 +312,11 @@ tracks {
                         "physical_card",
                         "virtual_card"
                 ]
+        )
+        source_key(
+                required: false,
+                description: "Identifies the origin of the user",
+                type: PropertyType.String,
         )
     }
 

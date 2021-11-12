@@ -46,7 +46,7 @@ tracks {
     //EXTERNAL
     //TODO revisar /external/XXX
 
-    "/external/"(platform: "/mobile", initiative : "1127") {
+    "/external/"(platform: "/mobile", initiative : "1358") {
         query(required: false)
         limit(type: PropertyType.Numeric, required: false)
         offset(type: PropertyType.Numeric, required: false)
@@ -140,7 +140,7 @@ tracks {
     }
 
     //Logout
-    "/logout"(platform: "/", isAbstract: true, initiative : "1127") {}
+    "/logout"(platform: "/", isAbstract: true, initiative : "1358") {}
     "/logout/modal"(platform: "/mobile") {
         action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
     }

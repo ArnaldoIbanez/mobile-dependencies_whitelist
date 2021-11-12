@@ -4,7 +4,7 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
     test("Security Settings") {
-        "/security_settings"(platform: "/", type: TrackType.View) { }
+        "/security_settings"(platform: "/", type: TrackType.View) {}
 
         "/security_settings"(platform: "/", type: TrackType.View) {
             registered_by_phone = true

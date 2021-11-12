@@ -100,19 +100,19 @@ trackTests {
             vehicle_id = "786"
         }
 
-        //Login driver on route duplicate
-        "/logistics/login/driver_on_route/duplicate"(platform: "/mobile", type: TrackType.View) {
-            defaultLocation()
-            route_id = "1234"
-            driver_id = "1234"
-            vehicle_id = "1234"
-            logistic_type = "last_mile"
-        }
-
         //Profile
         "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             driver_id = "987"
+        }
+
+        //Login duplicate driver warning
+        "/logistics/login/duplicate_driver_warning"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "1234"
+            driver_id = 1234
+            vehicle_id = 1234
+            logistic_id = "last_mile"
         }
 
         //Geolocation permission
@@ -167,6 +167,99 @@ trackTests {
 
         //Conciliation sorting ok
         "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View) {}
+
+        // Learning hub mile selector view
+        "/logistics/learning_hub/mile_selector"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+          driver_id = 1234
+        }
+
+        // Learning hub start disclaimer view
+        "/logistics/learning_hub/start_disclaimer"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+          driver_id = 1234
+        }
+
+        // Learning hub dismiss modal view
+        "/logistics/learning_hub/dismiss_modal"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+          driver_id = 1234
+        }
+
+        // Learning hub save selection event
+        "/logistics/learning_hub/mile_selector/save_selection"(platform: "/mobile", type: TrackType.Event){
+          defaultLocation()
+          driver_id = 1234
+        }
+
+        // Learning hub begin tutorial event
+        "/logistics/learning_hub/start_disclaimer/begin_tutorial"(platform: "/mobile", type: TrackType.Event){
+          defaultLocation()
+          driver_id = 1234
+        }
+
+        // Learning hub dismiss tutorial event
+        "/logistics/learning_hub/start_disclaimer/dismiss_tutorial"(platform: "/mobile", type: TrackType.Event){
+          defaultLocation()
+          driver_id = 1234
+        }
+
+        // Learning hub dismiss modal confirm event
+        "/logistics/learning_hub/dismiss_modal/confirm"(platform: "/mobile", type: TrackType.Event){
+          defaultLocation()
+          driver_id = 1234
+        }
+
+        // Login by ML disclaimer home
+        "/logistics/login_ml/login_by_ml_disclaimer"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+        }
+
+        // Login by ML identity disclaimer for KYC process
+        "/logistics/login_ml/kyc/identity_disclaimer"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+        }
+
+        // Login by ML identity disclaimer success for KYC process
+        "/logistics/login_ml/kyc/identity_disclaimer_successful"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+        }
+
+        // Login by ML role selector
+        "/logistics/login_ml/role_selector"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+        }
+
+        // Login by ML get driver by user failure
+        "/logistics/login_ml/provider/get_driver_by_user_fail"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+        }
+
+        // Login by ML driver or vehicle identify failure
+        "/logistics/login_ml/provider/driver_or_vehicle_identify_fail"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+          driver_id = 1234
+          vehicle_id = 1234
+          carrier_id = 1234
+        }
+
+        // Login by ML route sharing disclaimer in helper flow
+        "/logistics/login_ml/helper/route_sharing_disclaimer"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+        }
+
+        // Login by ML route sharing scanned warning in helper flow
+        "/logistics/login_ml/helper/route_sharing_scanned_warning"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+          driver_id = 1234
+          vehicle_id = 1234
+          carrier_id = 1234
+        }
+
+        // Login by ML route sharing scanner qr in helper flow
+        "/logistics/login_ml/helper/route_sharing_disclaimer/qr_detected"(platform: "/mobile", type: TrackType.View){
+            status ="invalid_format"
+        }
     }
 
     test("Testing Logistics Last Mile") {
@@ -197,11 +290,11 @@ trackTests {
         }
         "/logistics/profile/fiscalization_disclaimer/invoice"(platform: "/mobile", type: TrackType.View) {
             driver_id = 123
-            shipment_id = "123"
+            shipment_id = 123
         }
         "/logistics/profile/fiscalization_disclaimer/invoice_not_found"(platform: "/mobile", type: TrackType.View) {
             driver_id = 123
-            shipment_id = "123"
+            shipment_id = 123
         }
         "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
             pack_id = "124"
@@ -827,6 +920,7 @@ trackTests {
             driver_id = "123"
             packages = ["1", "2", "3"]
             full_vehicle_incident_id = "123"
+            stop_id = "123"
         }
         "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()

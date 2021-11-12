@@ -157,6 +157,7 @@ trackTests {
             dashboard_status = 'overdue'
             personalLoanAccessShown = 'banner'
             opt_in_separator = 'visible'
+            source_key = 'landing'
         }
         "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = 'overdue'
@@ -182,7 +183,7 @@ trackTests {
         "/credits/consumer/administrator_v2/suggested_modal/suggested_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
-
+        "/credits/consumer/administrator_v2/go_where_can_use"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
@@ -190,11 +191,16 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
             dashboard_status = "on_time"
         }
+        "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
+            dashboard_status = "on_time"
+            list_status = "black_list"
+        }
 
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'on_time'
             opt_in_separator = 'visible'
+            source_key = 'landing'
         }
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
@@ -265,6 +271,9 @@ trackTests {
         //Events
         "/credits/consumer/administrator/history/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/history/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {
+        }
+        "/credits/consumer/administrator_v2/dashboard/personal_loan_download"(platform: "/web/desktop", type: TrackType.Event) {
+             dashboard_status = 'on_time'
         }
         //Event PX Congrats Extra Component
         "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {
@@ -725,5 +734,14 @@ trackTests {
         /******************************************
         *    End: Self Service
         ******************************************/
+    }
+
+    test("Credits Car Loan") {
+        "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
+            push_variant = "A"
+        }
+        "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
+            push_variant = "A"
+        }
     }
 }

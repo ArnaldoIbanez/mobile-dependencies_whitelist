@@ -12,11 +12,12 @@ trackTests {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
-    test("Balance available") {
+    test("Balance") {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
     }
 
     test("Track Components Events") {
+
         "/banking/balance/print"(platform: "/", type: TrackType.View) {
             my_money_available = [
                 component_id: 'available',
@@ -34,12 +35,14 @@ trackTests {
         "/banking/balance/available_component"(platform: "/", type: TrackType.View) {
             my_money_available = [
                 component_id: 'available',
+                content_id: ['to_release_component']
             ]
         }
 
         "/banking/balance/card_available_component"(platform: "/", type: TrackType.View) {
             my_money_card_available = [
                 component_id: 'card_available',
+                content_id: ['to_release_component']
             ]
         }
 
@@ -116,6 +119,7 @@ trackTests {
         "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) {
             my_money_last_activities = [
                 component_id: 'last_activities',
+                content_id: [],
                 component_data: [
                     elements: 5
                 ]
@@ -125,12 +129,90 @@ trackTests {
         "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) {
             my_money_last_activities = [
                 component_id: 'last_activities',
+                content_id: [],
                 component_data: [
                     elements: 5,
                     status: 'disabled'
                 ]
             ]
         }
+
+       "/banking/balance/open_banking_component"(platform: "/", type: TrackType.View) {
+            my_money_open_banking = [
+                component_id: 'open_banking',
+                component_data: [
+                     elements: 5
+                ],
+                content_id: [
+                        'Mercado Pago',
+                        'Cadastrar conta'
+                ]
+             ]
+        }
+
+        "/banking/balance/debt_balance_component"(platform: "/", type: TrackType.View) {
+             my_money_debt_balance = [
+                  component_id: 'debt_balance',
+                  component_data: [
+                      status: 'printed'
+                 ]
+             ]
+         }
+
+        "/banking/balance/contingency_message_component"(platform: "/", type: TrackType.View) {
+             my_money_contingency_message = [
+                  component_id: 'contingency_message',
+                  component_data: [
+                      audience:"all",
+                      bu:"4",
+                      bu_line:"10",
+                      component_id:"card_contingencies",
+                      content_id:"test_contingencies_integration",
+                      flow:"20",
+                      logic:"user_journey",
+                      position:0
+                 ]
+             ]
+         }
+
+        "/banking/balance/accounts_list_component"(platform: "/", type: TrackType.View) {
+            my_money_accounts_list = [
+                  component_id: 'accounts_list',
+                  content_id: ['account']
+            ]
+        }
+
+        "/banking/balance/cards_list_component"(platform: "/", type: TrackType.View) {
+            my_money_cards_list = [
+                  component_id: 'cards_list',
+                  content_id: ['card']
+            ]
+        }
+
+        "/banking/balance/timestamp_component"(platform: "/", type: TrackType.View) {
+            my_money_timestamp = [
+                  component_id: 'timestamp',
+                  component_data: [
+                      last_update: '01/01/2021 00:00'
+                  ]
+            ]
+        }
+
+        "/banking/balance/bank_detail_component"(platform: "/", type: TrackType.View) {
+            my_money_bank_detail = [
+                  component_id: 'bank_detail',
+                  content_id: ['cards_list', 'accounts_list']
+            ]
+        }
+
+        "/banking/balance/crypto_balance_component"(platform: "/", type: TrackType.View) {
+             my_money_crypto_balance = [
+                  component_id: 'crypto',
+                  component_data: [
+                      status: 'printed'
+                 ]
+             ]
+         }
     }
 
     test("Balance to release") {
@@ -214,6 +296,19 @@ trackTests {
         "/banking/balance/open_banking"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
+        "/banking/balance/sections"(platform: "/", type: TrackType.Event) {
+            available = true
+            account = false
+            invested = false
+            to_release = false
+            embargo_invested = false
+            retained = false
+            shortcuts = ['money_in', 'money_out']
+            debts = true
+            cerc = true
+            crypto = false
+            activities = false
+        }
     }
 
     test("Movements") {
@@ -238,6 +333,11 @@ trackTests {
         }
         "/banking/movements/filters/open_datepicker"(platform: "/", type: TrackType.Event) {}
 
+
+        "/banking/movements/links/enter"(platform: "/", type: TrackType.Event) {
+            action = 'DOWNLOAD_BILLS'
+        }   
+
         "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
         "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {
             action_type = 'income'
@@ -249,6 +349,8 @@ trackTests {
             begin_date = '2020-12-22T00:00:00.000Z'
             end_date = '2021-01-06T23:59:59.999Z'
         }
+
+        "/banking/movements/message_uf/close_message"(platform: "/", type: TrackType.Event) {}
     }
 
     test("PNF") {
@@ -336,6 +438,62 @@ trackTests {
 
         "/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
 
+        "/regulations/cerc/optin_form"(platform: "/", type: TrackType.View) {}
+
+        "/regulations/cerc/optin_form/select"(platform: "/", type: TrackType.View) {}
+
+        "/regulations/cerc/optin_form/confirm"(platform: "/", type: TrackType.View) {}
+
+        "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.View) {}
+
+        "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin/go_optin_form"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin/optout_confirm"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin/optout_cancel"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin/optout"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin_form/select/form_submit"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin_form/confirm/form_edit"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin_form/confirm/form_confirm"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin_form/confirm/form_error_close"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin_form/congrats/help"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin_form/congrats/form_close"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
         "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
@@ -357,14 +515,6 @@ trackTests {
         }
 
         "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
-        }
-
-        "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
-        }
-
-        "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
     }

@@ -1,7 +1,7 @@
 package src.test.resources.melidata
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType;
+import com.ml.melidata.TrackType
 
 trackTests {
 
@@ -148,6 +148,7 @@ trackTests {
             product_type = 'sales_percentage_loan'
             variant = 'fixed_amount'
             is_kyc_compliant = false
+            campaign_id = 'amount_and_fee_improvement'
         }
         "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
             offer = [
@@ -208,6 +209,15 @@ trackTests {
             option = 30
             product_type = 'sales_percentage_loan'
         }
+        "/credits/merchant/enrollment/summary"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+            require_optin = false
+        }
 
         //Summary event
         "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/mobile/android", type: TrackType.Event) {
@@ -241,6 +251,17 @@ trackTests {
             product_type = 'sales_percentage_loan'
             has_prepaid = false
             loan_created_with_retry = false
+        }
+        "/credits/merchant/enrollment/congrats"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+            has_prepaid = false
+            loan_created_with_retry = false
+            require_optin = false
         }
 
         "/credits/merchant/enrollment/kyc_user_challenges_onboarding"(platform: "/mobile", type: TrackType.Event) {}
@@ -517,6 +538,7 @@ trackTests {
 
         "/credits/merchant/administrator"(platform: "/") {
            promise = 'none'
+           campaign_id = 'amount_and_fee_improvement'
         }
         "/credits/merchant/administrator"(platform: "/") {
            status = 'on_time'
@@ -628,6 +650,9 @@ trackTests {
                 fixed_term_map(),
                 sales_percentage_map()
             ]
+            from_optins = true
+            additional_info= 'collection_access'
+            from= 'home_mp'
         }
 
         "/credits/merchant/administrator/late_debt"(platform: "/mobile") {
@@ -745,6 +770,24 @@ trackTests {
             from = 'enrollment'
             additional_info = 'credit_line_taken'
         }
+
+        "/credits/merchant/checkout"(platform: "/mobile") {
+            amount_to_pay = '12345'
+            products = [
+                fixed_term_map(),
+                sales_percentage_map()
+            ]
+        }
+
+        "/credits/merchant/checkout"(platform: "/web") {
+            amount_to_pay = '12345'
+            products = [
+                fixed_term_map(),
+                sales_percentage_map()
+            ]
+        }
+
+        "/credits/merchant/checkout/error"(platform: "/web/desktop") {}
 
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
@@ -1103,6 +1146,17 @@ trackTests {
             default_amount = 1000
         }
 
+        "/credits/express_money/summary"(platform: "/mobile/android", type: TrackType.View) {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            default_payment_term = "7"
+            selected_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+            default_amount = 1000
+            require_optin = true
+        }
+
         "/credits/express_money/congrats"(platform: "/web/desktop") {
             requested_amount = 700
             max_amount = 1000
@@ -1175,6 +1229,18 @@ trackTests {
             default_amount = 500
         }
 
+        "/credits/express_money/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            has_prepaid = false
+            default_payment_term = "7"
+            selected_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+            default_amount = 500
+            require_optin = true
+        }
+
         "/credits/express_money/error"(platform: "/web/desktop") {
             reason = 'default'
         }
@@ -1193,6 +1259,20 @@ trackTests {
 
         "/credits/express_money/error"(platform: "/web/desktop") {
             reason = 'simulation'
+        }
+
+        "/credits/express_money/kyc_onboarding"(platform: "/web/desktop") {}
+
+        "/credits/express_money/kyc_onboarding"(platform: "/mobile/android") {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+        }
+
+        "/credits/express_money/kyc_onboarding"(platform: "/mobile/ios") {
+            requested_amount = 14000
+            max_amount = 30000
+            min_amount = 2000
         }
 
         "/credits/express_money/error"(platform: "/mobile/android") {
@@ -1366,38 +1446,46 @@ trackTests {
         "/credits/merchant/open_market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_files"
             flow="upsell_offer"
+            provider="unknown"
         }
 
         "/credits/merchant/open_market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping"
             flow="upsell_offer"
+            provider="quanto"
         }
 
         "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {
+            provider="open_finance"
             flow="upsell_offer"
         }
 
-        "/credits/merchant/open_market/financial_scraping/error"(platform: "/", type: TrackType.Event) {
+        "/credits/merchant/open_market/financial_scraping_started"(platform: "/", type: TrackType.Event) {
+            provider="quanto"
+            flow="request_offer"
+        }
+
+        "/credits/merchant/open_market/financial_scraping_error"(platform: "/", type: TrackType.Event) {
             reason = "integration_error"
             flow="upsell_offer"
         }
 
-        "/credits/merchant/open_market/financial_scraping/error"(platform: "/", type: TrackType.Event) {
+        "/credits/merchant/open_market/financial_scraping_error"(platform: "/", type: TrackType.Event) {
             reason = "generic"
             flow="upsell_offer"
         }
 
-        "/credits/merchant/open_market/financial_scraping/message"(platform: "/", type: TrackType.Event) {
+        "/credits/merchant/open_market/financial_scraping_message_shown"(platform: "/", type: TrackType.Event) {
             reason = "finished_flow"
             flow="upsell_offer"
         }
 
-        "/credits/merchant/open_market/financial_scraping/message"(platform: "/", type: TrackType.Event) {
+        "/credits/merchant/open_market/financial_scraping_message_shown"(platform: "/", type: TrackType.Event) {
             reason = "finished_session"
             flow="upsell_offer"
         }
 
-        "/credits/merchant/open_market/financial_scraping/message"(platform: "/", type: TrackType.Event) {
+        "/credits/merchant/open_market/financial_scraping_message_shown"(platform: "/", type: TrackType.Event) {
             reason = "not_available"
             flow="upsell_offer"
         }
@@ -1555,6 +1643,7 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'overdue'
             offer = ['payment_not_credited', 'create_promise']
+            source_key = 'landing'
         }
 
         //Events
@@ -1641,6 +1730,10 @@ trackTests {
         "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
             dashboard_status = "on_time"
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
+            dashboard_status = "on_time"
+            list_status = "black_list"
         }
 
         /******************************************
