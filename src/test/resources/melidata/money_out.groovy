@@ -127,12 +127,14 @@ trackTests {
       "/money_out/transfers/home/account_selected"(platform: "/", type: TrackType.Event) {
          type = "ted"
          search_account_filter = "false"
-         search_account_value = "22343242"
+         search_account_value = "die"
+         account_id = "234234"
       }
       "/money_out/transfers/home/delete_account_button_clicked"(platform: "/", type: TrackType.Event) {
          type = "ted"
          search_account_filter = "false"
-         search_account_value = "22343242"
+         search_account_value = "die"
+         account_id = "234234"
       }
       "/money_out/transfers/home/account_mark_favorite"(platform: "/", type: TrackType.Event) {
          type = "ted"
