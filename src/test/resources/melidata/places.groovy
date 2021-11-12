@@ -38,6 +38,16 @@ trackTests {
         }
     }
 
+    test("places operations invalid user validation view") {
+        def defaultTrackInformation = {
+            place_id = null
+        }
+
+        "/places/operations/init_validation/error/invalid_user"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+        }
+    }
+
     // Unified Screens
 	test("places operations unified qr scanner step") {
         def defaultTrackInformation = {
@@ -358,7 +368,7 @@ trackTests {
             place_id = "123456"
         }
 
-        "/places/operations/eturns/error/invalid_package_for_return"(platform: "/web", type: TrackType.View) {
+        "/places/operations/returns/error/invalid_package_for_return"(platform: "/web", type: TrackType.View) {
             defaultTrackInformation()
         }
     }

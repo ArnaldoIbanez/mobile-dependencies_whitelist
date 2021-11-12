@@ -118,6 +118,16 @@ trackTests {
             optionals()
         }
 
+        "/vis_credits/application_form/step_5"(platform: "/", type: TrackType.View) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/application_form/step_5/next_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
         "/vis_credits/congrats"(platform: "/", type: TrackType.View) {
             congrats_status = "APPROVED"
             mandatory()
