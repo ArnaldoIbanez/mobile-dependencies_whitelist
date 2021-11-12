@@ -75,6 +75,7 @@ tracks {
     "/checkout_off/payment/select_type"(platform: "/", type: TrackType.View) {
         opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
         opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
     }
 
     "/checkout_off/payment/select_stores"(platform: "/", type: TrackType.View) {}
@@ -88,7 +89,9 @@ tracks {
     "/checkout_off/payment/input_card/input_security_code"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/input_card/select_installment"(platform: "/", type: TrackType.View) {}
 
-    "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
+    }
 
     // Paypal tracks
     "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
@@ -124,7 +127,10 @@ tracks {
     "/checkout_off/billing"(platform: "/", isAbstract: true) {}
     "/checkout_off/billing/input_info"(platform: "/", type: TrackType.View) {}
 
-    "/checkout_off/review"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review"(platform: "/", type: TrackType.View) {
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
+    }
+    
     "/checkout_off/review/shield_kyc"(platform: "/", type: TrackType.View) {}
     "/checkout_off/review/challenge_kyc"(platform: "/", type: TrackType.View) {}
     "/checkout_off/review/challenge_second_factor_auth"(platform: "/", type: TrackType.View) {}
