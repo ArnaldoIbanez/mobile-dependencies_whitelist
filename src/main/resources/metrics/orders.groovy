@@ -452,7 +452,7 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("user.uid", null)
+				isNull("usr.uid")
 			}
 		}
 	}
