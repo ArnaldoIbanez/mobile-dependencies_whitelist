@@ -524,4 +524,108 @@ trackTests {
             defaultDriverAndRouteIds()
         }
     }
+
+    test("MercadoEnvios - Driver Apps - Testing Stops-Listing") {
+
+        def defaultStopsStatusData = {
+            stops = [
+                    pending: [2,3,4,5],
+                    retryable: [1,2],
+                    deliver: [7,8],
+                    partial: [9,10]
+            ]
+        }
+        def defaultRouteData = {
+            route_info= [
+                    route_id: "323232",
+                    driver_id: "2768",
+                    vehicle_id: "23232424",
+                    logistics_type: "LOGISTICS",
+                    logistics_subtype: "LASTMILE"
+            ]
+        }
+
+        "/driver/listing/list"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+            defaultStopsStatusData()
+        }
+
+        "/driver/listing/list/go_to_scanner"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+        }
+
+        "/driver/listing/list/go_to_profile"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+        }
+
+        "/driver/listing/list/go_to_map"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+        }
+
+        "/driver/listing/list/go_to_there"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+            stop_id = "3"
+            stop_status = "PENDING"
+        }
+
+        "/driver/listing/list/collapse"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+            group = "FINISHED"
+        }
+
+        "/driver/listing/list/go_to_rts"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+            defaultStopsStatusData()
+        }
+
+        "/driver/listing/map"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+            defaultStopsStatusData()
+        }
+
+        "/driver/listing/map/go_to_scanner"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+        }
+
+        "/driver/listing/stop"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+            stop_id = "1"
+            stop_status = "COMPLETED"
+            points = [1,3]
+            cargos = [2,4]
+        }
+
+        "/driver/listing/stop/go_to_there"(platform: "/mobile", type: TrackType.Event) {
+            defaultRouteData()
+            stop_id = "1"
+            stop_status = "PENDING"
+        }
+
+        "/driver/listing/stop/how_to_get"(platform: "/mobile", type: TrackType.Event) {
+            defaultRouteData()
+            stop_id = "1"
+            stop_status = "PENDING"
+        }
+
+        "/driver/listing/point"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+            point_id = "3"
+            point_status = "COMPLETED"
+            cargos = [2,4]
+        }
+
+        "/driver/listing/point/call_buyer"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+            point_id = "3"
+            point_status = "COMPLETED"
+            cargos = [2,4]
+        }
+
+        "/driver/listing/point/send_messages"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+            point_id = "3"
+            point_status = "COMPLETED"
+            cargos = [2,4]
+        }
+    }
 }
