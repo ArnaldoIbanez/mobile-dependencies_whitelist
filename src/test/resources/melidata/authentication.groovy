@@ -2508,14 +2508,14 @@ trackTests {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                reauth = "922e07ea-45c9-11ec-81d3-0242ac130003"
+                reauth_id = "922e07ea-45c9-11ec-81d3-0242ac130003"
             }
 
             "/authenticators/totp_in_app/enrollment/reauth"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                reauth = "922e07ea-45c9-11ec-81d3-0242ac130003"
+                reauth_id = "922e07ea-45c9-11ec-81d3-0242ac130003"
             }
         }
 
