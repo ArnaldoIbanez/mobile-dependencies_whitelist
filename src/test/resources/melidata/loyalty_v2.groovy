@@ -508,7 +508,16 @@ trackTests {
         "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             status = "timeout"
         }
+
+        "/loyalty/partners/interstitial-data"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            status = "timeout"
+        }
+
+        "/loyalty/partners/interstitial-data"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            status = "timeout"
+        }
     }
+
 
     test("Loyalty Level Buy") {
         "/loyalty/buylevel"(platform: "/", type: TrackType.View, business: "mercadopago") {
