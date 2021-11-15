@@ -97,6 +97,7 @@ trackTests {
 
     def enhancedInterventionInfoMock = [
             [
+                    intervention_tracking_id: "dd1ec405-0a55-4b55-aaa5-de29cc3ab5fb",
                     intervention_type: "FILTER_INTERVENTION",
                     class_type: "BRAND",
                     component_type: "pill",
@@ -104,6 +105,7 @@ trackTests {
                     results: []
             ],
             [
+                    intervention_tracking_id: "dd1ec405-0a42-4b55-aaa5-de29cc3ab5fz",
                     intervention_type: "FILTER_INTERVENTION",
                     class_type: "GENDER",
                     component_type: "pill",

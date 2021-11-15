@@ -148,6 +148,7 @@ tracks {
         available_ram_memory(required: false, type: PropertyType.Numeric, description: "Device available ram memory in bytes")
         vpn_connected(required: false, type: PropertyType.Boolean, description: "Device is connected to VPN or not")
         bluetooth_enabled(required: false, type: PropertyType.Boolean, description: "Bluetooth is enabled or not")
+        background_refresh(required: false, type: PropertyType.String, values: ["Enabled", "Disabled"], description: "Background app refresh status")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}

@@ -989,9 +989,21 @@ tracks {
     *    Start: Car Loan
     ******************************************/
     //Views
-    "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {}
+    "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
+        push_variant(
+            required: true,
+            description: "Identifier for the flow of the push A, B or C",
+            type: PropertyType.String
+        )
+    }
     //Events
-    "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {}
+    "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
+        push_variant(
+            required: true,
+            description: "Identifier for the flow of the push A, B or C",
+            type: PropertyType.String
+        )
+    }
     /******************************************
     *    End: Car Loan
     ******************************************/
