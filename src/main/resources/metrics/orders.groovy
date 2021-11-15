@@ -447,4 +447,13 @@ metrics {
 			}
 		}
 	}
+
+	"bids.noUid"(description: "/orders/ordercreated from feed with no UID", compute_order: true, tags:[TagType.CoreMetric]) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				isNull("usr.uid")
+			}
+		}
+	}
 }
