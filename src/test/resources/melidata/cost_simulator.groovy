@@ -13,7 +13,7 @@ trackTests {
     test("Renders error page") {
         "/cost_simulator/error" (platform: "/", type: TrackType.View) {
             error_id = "error_id"
-            error_message = "error"
+            error_message = ""
         }
     }
     test("One of the option is clicked") {
@@ -77,7 +77,7 @@ trackTests {
     }
     test("By clicking on the action see more / see less") {
         "/cost_simulator/simulation/result/detail" (platform: "/", type: TrackType.Event) {
-            selected_detail = "Ver menos detalles"
+            selected_detail = "view_more"
         }
     }
     test("A tooltip (triggered by a click in a row) was closed") {

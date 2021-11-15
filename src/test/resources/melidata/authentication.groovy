@@ -399,10 +399,16 @@ trackTests {
         "/auth/totp_in_app/validation/scan"(platform: "/", type: TrackType.View) {
             id = "id"
         }
+        "/auth/totp_in_app/validation/web_mobile"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
         "/auth/totp_in_app/validation/rejected"(platform: "/", type: TrackType.View) {
             id = "id"
         }
         "/auth/totp_in_app/validation/max_attempts"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/no_app"(platform: "/", type: TrackType.View) {
             id = "id"
         }
         "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
@@ -410,7 +416,17 @@ trackTests {
             status = "approved"
             event_type = "polling"
         }
+        "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "go_to_app"
+            event_type = "click"
+        }
         "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "decline_challenge"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/no_app/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             target = "decline_challenge"
             event_type = "click"
@@ -2458,12 +2474,14 @@ trackTests {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
+                enrollment_id = "71f0064a-45c9-11ec-81d3-0242ac130003"
             }
 
             "/authenticators/totp_in_app/enrollment/success"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
+                enrollment_id = "71f0064a-45c9-11ec-81d3-0242ac130003"
             }
 
             "/authenticators/totp_in_app/enrollment/success/on_click"(platform: "/mobile/android", type: TrackType.Event) {
@@ -2498,12 +2516,14 @@ trackTests {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
+                reauth_id = "922e07ea-45c9-11ec-81d3-0242ac130003"
             }
 
             "/authenticators/totp_in_app/enrollment/reauth"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
+                reauth_id = "922e07ea-45c9-11ec-81d3-0242ac130003"
             }
         }
 
@@ -2703,6 +2723,24 @@ trackTests {
                 client_id = "meli_px"
                 type_of_code = "transparent"
                 time_of_code = 1613587194
+            }
+
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/android", type: TrackType.Event) {
+                group_id = "4321-32211-567890"
+                operation = "enrollment"
+                client_id = "totp_in_app"
+                type_of_code = "transparent"
+                time_of_code = 1613587194
+                enrollment_id = "71f0064a-45c9-11ec-81d3-0242ac130003"
+            }
+
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/ios", type: TrackType.Event) {
+                group_id = "4321-32211-567890"
+                operation = "enrollment"
+                client_id = "totp_in_app"
+                type_of_code = "transparent"
+                time_of_code = 1613587194
+                enrollment_id = "71f0064a-45c9-11ec-81d3-0242ac130003"
             }
         }
     }

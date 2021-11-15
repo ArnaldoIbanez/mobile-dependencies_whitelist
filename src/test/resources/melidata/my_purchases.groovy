@@ -472,6 +472,10 @@ trackTests {
 			purchasesEventDataSet()
 		}
 
+		"/my_purchases/detail/click_insurance_link_modal"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
 		"/my_purchases/detail/click_go_to_insurance"(platform:"/", type: TrackType.Event) {
 			purchasesEventDataSet()
 		}
