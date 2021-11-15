@@ -376,6 +376,8 @@ tracks {
 
     "/auth/totp_in_app/validation/max_attempts"(platform: "/", type: TrackType.View) {}
 
+    "/auth/totp_in_app/validation/no_app"(platform: "/", type: TrackType.View) {}
+
     "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         status(type: PropertyType.String, required: true, values: ["approved", "rejected", "expired", "decline_challenge", "show_qr", "go_to_app"], description: "Describes element related to user action")
@@ -386,6 +388,12 @@ tracks {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         status(type: PropertyType.String, required: true, values: ["approved", "rejected", "expired", "update_qr", "decline_challenge"], description: "Describes element related to user action")
         event_type(type: PropertyType.String, required: true, values: ["polling", "click"], description: "Type of event")
+    }
+
+    "/auth/totp_in_app/validation/no_app/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, values: ["decline_challenge"], description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, description: "Type of event")
     }
 
     "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
