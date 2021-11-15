@@ -605,42 +605,46 @@ tracks {
     }
     //Dynamic Carousel Tracking
     def dynamic_carousel_description = objectSchemaDefinitions {
-        audience(required: false, type: PropertyType.String)
-        bu(required: false, type: PropertyType.String)
-        bu_line(required: false, type: PropertyType.String)
-        component_id(required: false, type: PropertyType.String)
-        content_id(required: false, type: PropertyType.String)
-        flow(required: false, type: PropertyType.String)
-        logic(required: false, type: PropertyType.String)
-        position(required: true, type: PropertyType.Numeric)
+        audience(required: false, type: PropertyType.String, name: "audience", description: "Field required by merch engine")
+        bu(required: false, type: PropertyType.String, name: "bu", description: "Field required by merch engine")
+        bu_line(required: false, type: PropertyType.String, name: "bu_line", description: "Field required by merch engine")
+        component_id(required: false, type: PropertyType.String, name: "component_id", description: "Field required by merch engine")
+        content_id(required: false, type: PropertyType.String, name: "content_id", description: "Field required by merch engine")
+        flow(required: false, type: PropertyType.String, name: "flow", description: "Field required by merch engine")
+        logic(required: false, type: PropertyType.String, name: "logic", description: "Field required by merch engine")
+        position(required: true, type: PropertyType.Numeric, name: "position", description: "Field required by merch engine")
     }
     "/cards/hybrid/dashboard/dynamic_carousel"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
         description (
             required: true,
             type: PropertyType.Map(dynamic_carousel_description),
-            description: "Carousel item tapped"
+            description: "Carousel item tapped",
+            name: "description"
           )
     }
     "/cards/hybrid/dashboard/dynamic_carousel/swipe"(platform:"/", type: TrackType.Event) {
         description (
             required: true,
             type: PropertyType.Map(dynamic_carousel_description),
-            description: "Carousel item swiped"
+            description: "Carousel item swiped",
+            name: "description"
           )
     }
     "/cards/hybrid/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
         description (
             required: true,
             type: PropertyType.Map(dynamic_carousel_description),
-            description: "Carousel item displayed"
+            description: "Carousel item displayed",
+            name: "description"
           )
     }
     "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
         description (
             required: true,
             type: PropertyType.Map(dynamic_carousel_description),
-            description: "Carousel item closed"
+            description: "Carousel item closed",
+            name: "description"
           )
     }
 
