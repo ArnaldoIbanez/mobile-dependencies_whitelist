@@ -88,7 +88,7 @@ tracks {
         subscription_partner(required: false, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
         discount_percent(required: false, description: "User discount", type: PropertyType.Numeric)
         origin(required: false, description: "Where was the vdp initiated from")
-        loyalty_level(type: PropertyType.Numeric, required: false, description: "User level")
+        loyalty_level(type: PropertyType.Numeric, required: false)
         plan_id(required: false, description: "User selected subscription plan id", type: PropertyType.Numeric)
     }
 
@@ -224,5 +224,5 @@ tracks {
         status(required: true, description: "Diferentes estados que pueden tener los eventos del interstitial que pueden ser enviados por el BE o acciones de usuarios", type: PropertyType.String)
     }
 
-    "/loyalty/partners/interstitial-data"(platform: "/", type: TrackType.Event) {}
+    "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event) {}
 }

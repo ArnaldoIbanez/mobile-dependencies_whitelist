@@ -509,9 +509,9 @@ trackTests {
             status = "timeout"
         }
 
-        "/loyalty/partners/interstitial-data"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
+        "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
 
-        "/loyalty/partners/interstitial-data"(platform: "/", type: TrackType.Event, business: "mercadolibre") {}
+        "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event, business: "mercadolibre") {}
     }
 
 
