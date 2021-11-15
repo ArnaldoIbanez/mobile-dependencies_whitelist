@@ -192,6 +192,18 @@ tracks {
         )
     }
 
+    "/credits/credit_card/upgrade/congrats/go_card_options"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Status from tap in go_card_options",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "approved",
+                        "pending"
+                ]
+        )
+    }
+
     // Error
     "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
         reason(type: PropertyType.String, required: false)

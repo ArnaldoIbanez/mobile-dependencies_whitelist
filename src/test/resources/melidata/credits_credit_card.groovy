@@ -319,6 +319,14 @@ trackTests {
             status = congrats_pending_status
         }
 
+        "/credits/credit_card/upgrade/congrats/go_card_options"(platform: "/", type: TrackType.Event, business: 'mercadopago') {
+            status = congrats_approved_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/go_card_options"(platform: "/", type: TrackType.Event, business: 'mercadopago') {
+            status = congrats_pending_status
+        }
+
         // Error ML
         "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
             reason = "Network error"
