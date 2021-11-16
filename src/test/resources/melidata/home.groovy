@@ -362,8 +362,8 @@ trackTests {
     }
 
     test("Home Dummy Experiments") {
-        "home/experiment"(platform: "mobile/android", type: TrackType.App) {
-            sync_retrieve_time = '1000000'
+        "/home/experiment"(platform: "/mobile/android", type: TrackType.App) {
+            sync_retrieve_time = 1000000
         }
     }
 }
