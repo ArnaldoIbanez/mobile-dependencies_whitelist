@@ -285,7 +285,7 @@ tracks {
     //Address Hub
     "/checkout/shipping/delivery_instructions"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/address_hub"(platform:"/", type: TrackType.View) {}
-    "/checkout/shipping/address_hub/change_address"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/address_hub/change_address"(platform:"/", type: TrackType.Event) {}
 
     //First Visit
     //Page
