@@ -104,6 +104,87 @@ tracks {
         )
     }
 
+    def account_rating = objectSchemaDefinitions {
+        rating(
+                description: "User reputation level",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "A",
+                        "B",
+                        "C"
+                ]
+        )
+    }
+    def withdraw_limit = objectSchemaDefinitions {
+        total(
+                description: "Total amount.",
+                type: PropertyType.Numeric,
+                required: true
+        )
+        available(
+                description: "Available amount.",
+                type: PropertyType.Numeric,
+                required: true
+        )
+    }
+    def unavailable_composition_item = objectSchemaDefinitions {
+        amount(
+                description: "amount",
+                type: PropertyType.Numeric,
+                required: true
+        )
+        type(
+                description: "type",
+                type: PropertyType.String,
+                required: true
+        )
+    }
+    def overlimit_data = objectSchemaDefinitions {
+        additional_percentage(
+                description: "Additional percentage.",
+                type: PropertyType.Numeric,
+                required: true
+        )
+        additional_amount(
+                description: "Additional amount.",
+                type: PropertyType.Numeric,
+                required: true
+        )
+        consumed(
+                description: "Amount consumed.",
+                type: PropertyType.Numeric,
+                required: true
+        )
+    }
+    def limit_data = objectSchemaDefinitions {
+        withdraw(
+                description: "Limits withdraw.",
+                type: PropertyType.Map(withdraw_limit),
+                required: true
+        )
+        total(
+                description: "Limits total.",
+                type: PropertyType.Numeric,
+                required: true
+        )
+        available(
+                description: "Limits available.",
+                type: PropertyType.Numeric,
+                required: true
+        )
+        unavailable_composition(
+                description: "Limits unavailable composition items.",
+                type: PropertyType.ArrayList(PropertyType.Map(unavailable_composition_item)),
+                required: true
+        )
+        over_limit(
+                description: "Overlimit data",
+                type: PropertyType.Map(overlimit_data),
+                required: true
+        )
+    }
+
     propertyDefinitions {
         amount_input(
             type: PropertyType.Map(amount_input_data),
@@ -204,8 +285,9 @@ tracks {
     "/credits/credit_card/disable"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/landing"(platform: "/web", isAbstract: true) {}
     "/credits/credit_card/waitlist"(platform: "/", isAbstract: true){}
+    "/credits/credit_card/benefits"(platform: "/", isAbstract: true){}
     "/credits/credit_card/block_card/virtual"(platform: "/", isAbstract: true){}
-
+    "/credits/credit_card/overlimit"(platform: "/", isAbstract: true){}
 
     /******************************************
      *       Start: Credit Card Payment
@@ -336,6 +418,15 @@ tracks {
 
     "/credits/credit_card/dashboard/load_credit_sections_event"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) { }
 
+    //overlimit button
+    "/credits/credit_card/dashboard/overlimit_button_action"(platform: "/", type: TrackType.Event) {
+        action (
+                required: true,
+                type: PropertyType.String,
+                values: ["overlimit_button_action"],
+                description: "overlimit button"
+        )
+    }
     /*********************************************
      *       End: Credit Card Dashboard
      *********************************************/
@@ -432,6 +523,94 @@ tracks {
      *       End: Credit Card Wait List
      *********************************************/
 
+
+    /***********************************************
+     *       Start: Credit Card Benefits
+     ***********************************************/
+
+    // Landings
+    "/credits/credit_card/benefits/landing"(platform: "/", type: TrackType.View) {}
+
+    /*********************************************
+     *       End: Credit Card Benefits
+     *********************************************/
+
+    /***********************************************
+     *       Start: Credit Card Overlimit
+     ***********************************************/
+    // Page view
+    "/credits/credit_card/overlimit"(platform: "/", type: TrackType.View) {
+        account(
+                description: "Account rating",
+                type: PropertyType.Map(account_rating),
+                required: true
+        )
+        limit(
+                description: "Limits data.",
+                type: PropertyType.Map(limit_data),
+                required: true
+        )
+        overlimit_status(
+                description: "Overlimit status",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "enable",
+                        "disable"
+                ]
+        )
+        overlimit_optin_status(
+                description: "Overlimit optin status",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "authorized",
+                        "not_authorized"
+                ]
+        )
+    }
+
+    // overlimit switch action
+    "/credits/credit_card/overlimit/switch_action"(platform: "/", type: TrackType.Event) {
+        status(
+                description: "Switch status.",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "enable",
+                        "disable"
+                ]
+        )
+    }
+
+    // overlimit optin action
+    "/credits/credit_card/overlimit/optin_action"(platform: "/", type: TrackType.Event) {
+        status(
+                description: "Optin status.",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "authorized",
+                        "not_authorized"
+                ]
+        )
+    }
+
+    // overlimit help button
+    "/credits/credit_card/overlimit/help_button"(platform: "/", type: TrackType.Event) {
+        action(
+                description: "Overlimit help button action.",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "help_button_tap"
+                ]
+        )
+    }
+
+    /*********************************************
+     *       End: Credit Card Overlimit
+     *********************************************/
 
     /***********************************************
      *       Start: Credit Card Reissue
