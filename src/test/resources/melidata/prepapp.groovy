@@ -367,6 +367,7 @@ trackTests {
         }
 
         "/prepapp/oms/backlog"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
             omsListDataSet()
         }
 
@@ -392,6 +393,7 @@ trackTests {
         }
 
         "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
             omsListDataSet()
         }
 
