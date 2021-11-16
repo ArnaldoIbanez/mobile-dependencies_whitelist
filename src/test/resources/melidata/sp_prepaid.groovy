@@ -739,6 +739,18 @@ trackTests {
             view_time()
         }
 
+        "/single_player/prepaid/error/not_enough_money/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/money_in"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
 
         // Blocked error
         "/single_player/prepaid/error/blocked"(platform: "/mobile", type: TrackType.View) {
@@ -1521,6 +1533,18 @@ trackTests {
         "/single_player/prepaid/error/not_enough_money/not_enough_money"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/money_in"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
         }
 
 
