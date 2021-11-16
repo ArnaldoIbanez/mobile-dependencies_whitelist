@@ -1480,7 +1480,7 @@ tracks {
         card_group
     }
 
-     "/cards/hybrid/setup/options"(platform: "/", type: TrackType.View) {
+     "/cards/hybrid/setup/options-wtv"(platform: "/", type: TrackType.View) {
          cards(
              required: true,
              type: PropertyType.ArrayList(PropertyType.Map(card_map)),
