@@ -29,5 +29,9 @@ trackTests {
         //Modal reset pin action
         "/point_devices/reset_pin/start"(platform: "/", type: TrackType.Event) {}
         "/point_devices/reset_pin/end"(platform: "/", type: TrackType.Event) {}
+
+        //Reactivate chips button action
+        "/point_devices/reactivate_chips/show_button"(platform: "/", type: TrackType.Event) {}
+        "/point_devices/reactivate_chips/click"(platform: "/", type: TrackType.Event) {}
     }
 }
