@@ -628,7 +628,6 @@ trackTests {
         }
     }
 
-	
 
 	test("Share MGM Invite and Win") {
         "/merchant_acquisition/flows/share_mgm/invite_and_win"(platform:"/", type: TrackType.View) {}
@@ -638,14 +637,14 @@ trackTests {
         }
 
         "/merchant_acquisition/flows/share_mgm/invite_and_win/click_button_social_network"(platform:"/", type: TrackType.Event) {
-		  media = "WhatsApp" 
+		  media = "WhatsApp"
 		  product = "Point Plus"
         }
 
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_dashboard_awards" (platform: "/", type: TrackType.Event) {}
 
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_terms_of_use" (platform: "/", type: TrackType.Event) {}
-		
+
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_mgm_wallet" (platform: "/", type: TrackType.Event) {}
     }
 
@@ -3230,6 +3229,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/empty_state_ftu/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // empty state
         "/bill_payments/empty_state/scheduling"(platform: "/mobile") {
             mandatory()
@@ -4307,16 +4310,27 @@ trackTests {
         "/auth/totp_in_app/validation/scan"(platform: "/", type: TrackType.View) {
             id = "id"
         }
+        "/auth/totp_in_app/validation/web_mobile"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
         "/auth/totp_in_app/validation/rejected"(platform: "/", type: TrackType.View) {
             id = "id"
         }
         "/auth/totp_in_app/validation/max_attempts"(platform: "/", type: TrackType.View) {
             id = "id"
         }
+        "/auth/totp_in_app/validation/no_app"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
         "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             status = "approved"
             event_type = "polling"
+        }
+        "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "go_to_app"
+            event_type = "click"
         }
         "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
             id = "id"
@@ -4326,6 +4340,11 @@ trackTests {
         "/auth/totp_in_app/validation/max_attempts/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             target = "go_home"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/no_app/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "decline_challenge"
             event_type = "click"
         }
     }
@@ -5563,12 +5582,183 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
-                "transaction_granularity_option": "daily_amount",
-                "transaction_accumulated_amount": "150",
-                "transaction": "disabled",
-                "opening_lock": "enabled",
-                "transaction_custom": "0",
-                "opening_custom": "0"
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "compile",
+                        "i": true,
+                ],
+                "r": [
+                        "b": "app_installed",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "runtime",
+                        "i": true,
+                ],
+                "r": [
+                        "b": "directory",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "files",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "symb",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "fail",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "fail",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "undetectable",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "undetectable",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "unknown",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                    "e": [
+                            "b": "off",
+                            "i": false,
+                    ],
+                    "r": [
+                            "b": "off",
+                            "i": false,
+                    ]
             ]
         }
     }
@@ -6750,4 +6940,36 @@ trackTests {
         }
     }
 
+    test("Crypto Sell/Buy and Hold") {
+        "/crypto/dashboard" (platform: "/mobile", type: TrackType.View) {}
+        "/crypto/detail" (platform: "/mobile", type: TrackType.View) {
+            market = "BTCBRL"
+        }
+        "/crypto/calculate" (platform: "/mobile", type: TrackType.View) {
+            operation = "BUY"
+            market = "BTCBRL"
+        }
+        "/crypto/review" (platform: "/mobile", type: TrackType.View) {
+            operation = "BUY"
+            market = "BTCBRL"
+            amount = 23.32
+
+        }
+        "/crypto/transaction/detail" (platform: "/mobile", type: TrackType.View) {
+            id = "9e588da2-f853-4266-a933-0f62f960345c"
+        }
+        "/crypto/transaction/list" (platform: "/mobile", type: TrackType.View) {
+            ticker = "BTC"
+        }
+        "/crypto/transaction/summary" (platform: "/mobile", type: TrackType.View) {
+            id = "9e588da2-f853-4266-a933-0f62f960345c"
+        }
+        "/crypto/transaction/complete" (platform: "/mobile", type: TrackType.Event) {
+            id = "9e588da2-f853-4266-a933-0f62f960345c"
+            ticker = "BTC"
+            operation = "SELL"
+            local_currency = "BRL"
+            state = "SUCCESS"
+        }
+    }
 }

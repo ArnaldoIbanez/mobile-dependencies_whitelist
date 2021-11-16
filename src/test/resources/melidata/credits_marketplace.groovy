@@ -157,6 +157,7 @@ trackTests {
             dashboard_status = 'overdue'
             personalLoanAccessShown = 'banner'
             opt_in_separator = 'visible'
+            source_key = 'landing'
         }
         "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = 'overdue'
@@ -199,6 +200,7 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'on_time'
             opt_in_separator = 'visible'
+            source_key = 'landing'
         }
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
@@ -732,5 +734,14 @@ trackTests {
         /******************************************
         *    End: Self Service
         ******************************************/
+    }
+
+    test("Credits Car Loan") {
+        "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
+            push_variant = "A"
+        }
+        "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
+            push_variant = "A"
+        }
     }
 }

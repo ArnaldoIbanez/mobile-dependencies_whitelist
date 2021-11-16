@@ -6,7 +6,7 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
-    initiative = "1048"
+    initiative = "1142"
 
     propertyDefinitions {
         site_id(required: true, type: PropertyType.String, description: "Site of current session integration")

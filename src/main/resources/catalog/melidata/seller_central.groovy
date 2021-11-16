@@ -146,6 +146,7 @@ tracks {
         rules_applied(required: true, type: PropertyType.String, description: "Type of rules applied to show this card", values: ['hard', 'soft', 'none'])
         with_random_order(required: true, type: PropertyType.Boolean, description: "Whether the order of the cards was randomized")
         tags(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Categories of the card (used for filtering)")
+        selected_tag(required: false, type: PropertyType.String, description: "Currently selected category")
     }
 
     def sellerCoachTag = objectSchemaDefinitions {
@@ -190,6 +191,11 @@ tracks {
     def categoryStructure = objectSchemaDefinitions {
         category_id(required: true, type: PropertyType.String, description: "The category id")
         domain_id(required: false, type: PropertyType.String, description: "The category domain id")
+    }
+
+    def processingOptionStructure = objectSchemaDefinitions {
+        day(required: true, type: PropertyType.String, description: "The day of the week", values: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"])
+        processing_time(required: true, type: PropertyType.String, description: "The processing time")
     }
 
     // --------------------------------------------------------------------------------------------------------------
@@ -353,6 +359,10 @@ tracks {
         packs(required: false, type: PropertyType.ArrayList(PropertyType.Map(packStructure)), description: "List of packs")
         categories(required: true, type: PropertyType.ArrayList(PropertyType.Map(categoryStructure)), description: "List of categories")
         logistic_type(required: true, type: PropertyType.String, description: "Logistic type of the shipment")
+
+        // Processing Time
+        logistic_types(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of logistic types")
+        processing_options(required: false, type: PropertyType.ArrayList(PropertyType.Map(processingOptionStructure)), description: "List of processing time options")
     }
 
     propertyGroups {
@@ -361,7 +371,6 @@ tracks {
         sellerCentralModifyCardsGroupMotors(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type)
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
-        sellerCentralSettingsGroup(seller_profile, reputation_level)
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
 
@@ -382,6 +391,10 @@ tracks {
         intentGroup(intent_type, intent_value)
         technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
         pictureIntentGroup(intent_type, pictures_info)
+
+        // Settings
+        sellerCentralSettingsGroup(seller_profile, reputation_level)
+        sellerCentralProcessingTimeGroup(user_type, seller_profile, reputation_level, logistic_types, processing_options)
 
         // Seller Metrics
         sellerMetricsContext(applied_filters, finish_period, start_period, from_previous, from_current, to_previous, to_current)
@@ -474,47 +487,33 @@ tracks {
     }
 
     // Seller coach
-    "/seller_central/seller_coach"(platform: "/", isAbstract: true) {}
-    "/seller_central/seller_coach/summary"(platform: "/", isAbstract: true) {}
-    "/seller_central/seller_coach/summary/recommendation"(platform: "/", isAbstract: true) {
-        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+    "/seller_central/seller_coach"(platform: "/", isAbstract: true) {
         power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
         reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
-        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
         user_session_id(required: true, type: PropertyType.String, description: "User's session uuid")
+        source(required: true, type: PropertyType.String, description: "Frontend where the track was generated")
     }
-    "/seller_central/seller_coach/summary/recommendation/open"(platform: "/", type: TrackType.Event) {}
-    "/seller_central/seller_coach/summary/recommendation/dismiss"(platform: "/", type: TrackType.Event) {}
-    "/seller_central/seller_coach/summary/recommendation/bookmark"(platform: "/", type: TrackType.Event) {}
-    "/seller_central/seller_coach/summary/recommendation/unbookmark"(platform: "/", type: TrackType.Event) {}
-    "/seller_central/seller_coach/summary/cards_view"(platform: "/", type: TrackType.View) {
-        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
-        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
-        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
-        cards(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachCard)), description: "Card clicked")
-        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
-        user_session_id(required: true, type: PropertyType.String, description: "User's session uuid")
+    "/seller_central/seller_coach/recommendation"(platform: "/", isAbstract: true) {
+        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card actioned")
     }
-    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/", type: TrackType.Event) {
-        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
-        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
-        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
-        page(required: true, type: PropertyType.Numeric, description: "Target page scrolled")
-        scroll_type(required: true, type: PropertyType.String, values: ['prev', 'next'], description: "Target page scrolled")
-        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
-        user_session_id(required: true, type: PropertyType.String, description: "User's session uuid")
+    "/seller_central/seller_coach/recommendation/open"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/recommendation/dismiss"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/recommendation/bookmark"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/recommendation/unbookmark"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/recommendation/apply"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/recommendations/display"(platform: "/", type: TrackType.View) {
+        cards(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachCard)), description: "Cards viewed")
     }
-    "/seller_central/seller_coach/summary/tags"(platform: "/", type: TrackType.View) {
-        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
-        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
-        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
-        tags(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachTag)), description: "Tags viewed", inheritable: false)
-        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
-        user_session_id(required: true, type: PropertyType.String, description: "User's session uuid")
-    }
-    "/seller_central/seller_coach/summary/tags/select_tag"(platform: "/", type: TrackType.Event) {
+    "/seller_central/seller_coach/tag/select"(platform: "/", type: TrackType.Event) {
         tag(required: true, type: PropertyType.Map(sellerCoachTag), description: "Tag clicked")
+    }
+    "/seller_central/seller_coach/tags/display"(platform: "/", type: TrackType.View) {
+        tags(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachTag)), description: "Tags viewed")
+    }
+    "/seller_central/seller_coach/carousel/scroll"(platform: "/", type: TrackType.Event) {
+        page(required: true, type: PropertyType.Numeric, description: "Target page scrolled")
+        scroll_type(required: true, type: PropertyType.String, values: ['prev', 'next'], description: "Direction of the scroll")
     }
 
 
@@ -599,21 +598,21 @@ tracks {
     "/seller_central/listings/hunting/sell_with_full"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task", "user_restriction"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
         action(required: false, type: PropertyType.String, description: "The action used in the communication if applies")
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task", "user_restriction"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
         action(required: false, type: PropertyType.String, description: "The action used in the communication if applies")
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task", "user_restriction"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
         action(required: false, type: PropertyType.String, description: "The action used in the communication if applies")
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
@@ -1126,6 +1125,17 @@ tracks {
         row_id(required: true, type: PropertyType.String, description: "Row Id")
     }
 
+    // PROCESSING TIME SECTION
+
+    "/seller_central/settings/processing_time"(platform: "/", type: TrackType.View) {
+        sellerCentralProcessingTimeGroup
+    }
+
+    "/seller_central/settings/processing_time/action"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "The action id", values: ["CONFIRM", "CANCEL"])
+        sellerCentralProcessingTimeGroup
+    }
+
     // SALES SECTION
 
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
@@ -1591,7 +1601,7 @@ tracks {
 
     "/seller_central/metrics/stock_full"(platform: "/web", type: TrackType.View) {
         sellerCentralUserSales
-        origin(required: false, type: PropertyType.String, description: "View where the event has been called",  name: "origin", values: ["metrics", "fulfillment", "stranded", "aging", "fee_storage", "summary" ])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called",  name: "origin")
     }
 
     "/seller_central/metrics/stock_full"(platform: "/web/mobile", type: TrackType.View) {}
@@ -2393,6 +2403,14 @@ tracks {
     "/seller_central/promotions/collapsible/opened"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/promotions/massive"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/add"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/massive/delete"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/massive/modify"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/massive/offline"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/promotions/massive/editor"(platform: "/", type: TrackType.View) {}
 

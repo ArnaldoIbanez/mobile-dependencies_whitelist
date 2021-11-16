@@ -15,6 +15,7 @@ tracks {
     "/money_out/cashout"(platform: "/", isAbstract: true) {}
     "/money_out/cashout/onboarding"(platform: "/", isAbstract: true) {}
     "/money_out/transfers/mlm"(platform: "/", isAbstract: true) {}
+    "/money_out/transfers/home"(platform: "/", isAbstract: true) {}
 
     // Cashout ticket tracks
     "/money_out/cashout/ticket"(platform: "/", type: TrackType.View) {}
@@ -114,7 +115,16 @@ tracks {
     "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/account_selected"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
+        type (required_:false, description: "Indicate if account is bank account")
+        search_account_filter (required_:false, description: "Indicate if filter view")
+        search_account_value (required_:false, description: "Indicate if text filter")
+        account_id (required_:false, description: "Indicate if account id")
+    }
+    "/money_out/transfers/home/delete_account_button_clicked"(platform: "/", type: TrackType.Event) {
+        type (required_:false, description: "Indicate if account is bank account")
+        search_account_filter (required_:false, description: "Indicate if filter view")
+        search_account_value (required_:false, description: "Indicate if text filter")
+        account_id (required_:false, description: "Indicate if account id")
     }
     "/money_out/transfers/home/account_mark_favorite"(platform: "/", type: TrackType.Event) {
         type (required_:false, description: "Indicate if account is ted or mp")
@@ -130,6 +140,11 @@ tracks {
     "/money_out/transfers/home/faq_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/profile_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/scheduled_transfers_selected"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/recent_filter_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/filter_recents"(platform: "/", type: TrackType.View) {}
+    "/money_out/transfers/home/filter_recents/back_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/filter_recents/clear_field_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/filter_recents/empty_view"(platform: "/", type: TrackType.View) {}
 
     //Transfer Hub - Scheduled Transfers
     "/money_out/transfers/scheduled_transfers_list"(platform: "/", type: TrackType.View) {}
@@ -405,6 +420,13 @@ tracks {
     "/pix/home/keys/copy"(platform: "/", type: TrackType.Event) {}
     "/pix/home/keys/share"(platform: "/", type: TrackType.Event) {}
     "/pix/home/keys/new"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/qr"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/detail"(platform: "/", type: TrackType.Event) {}
+
+    //Home Pix MLB - Action Keys
+    "/pix/home/keys/action"(platform: "/", isAbstract: true) {}
+    "/pix/home/keys/action/cpf"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/action/pix_keys"(platform: "/", type: TrackType.Event) {}
 
     //Home Pix MLB - Cadastrar Keys
     "/pix/home/banner"(platform: "/", isAbstract: true) {}
@@ -434,4 +456,7 @@ tracks {
     "/pix/home/ftu/close"(platform: "/", type: TrackType.Event) {}  
     "/pix/home/ftu/confirm"(platform: "/", type: TrackType.Event) {}
     "/pix/home/ftu/cancel"(platform: "/", type: TrackType.Event) {}
+
+    //Home Pix MLB - Insurtech Banner
+    "/pix/home/insurtech_banner"(platform: "/", type: TrackType.Event) {}
 }

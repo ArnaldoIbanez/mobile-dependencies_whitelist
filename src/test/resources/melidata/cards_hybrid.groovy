@@ -339,6 +339,11 @@ trackTests {
             action = "header_help"
         }
     }
+
+    // Dasboard Header Help  
+    test("cards hybrid dashboard header help") {
+        "/cards/hybrid/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
+    }
     
     //Mini card: Tracking
     test("cards hybrid dashboard mini card tracking") {
@@ -586,6 +591,20 @@ trackTests {
     }
     test("cards hybrid dashboard dynamic carousel Swiped") {
         "/cards/hybrid/dashboard/dynamic_carousel/swipe"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "3",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 0
+            ]
+        }
+    }
+    test("cards hybrid dashboard dynamic carousel show item") {
+        "/cards/hybrid/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
             description = [
                 audience: "audience example",
                 bu: "3",

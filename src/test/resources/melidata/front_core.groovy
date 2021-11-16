@@ -558,12 +558,13 @@ trackTests {
                                     name: "Mc Donalds",
                                     purchase_id: 12345678,
                                     purchase_state: "paid",
+                                    purchase_detail_label: "Sigue el estado de tu pedido",
                                     action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                     component_version: 3,
                                     status_label: [
-                                            name: "en curso",
-                                            icon: "icon_key",
-                                            color: "#FFFFFF"
+                                            status_name: "en curso",
+                                            status_icon: "icon_key",
+                                            status_color: "#FFFFFF"
                                     ],
                                     stepper: [
                                             stepper_version: 1,
@@ -582,12 +583,13 @@ trackTests {
                                     name: "Mc Donalds",
                                     purchase_id: 1234583,
                                     purchase_state: "canceled",
+                                    purchase_detail_label: "Sigue el estado de tu pedido",
                                     action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                     component_version: 2,
                                     status_label: [
-                                            name: "en curso",
-                                            icon: "icon_key",
-                                            color: "#FFFFFF"
+                                            status_name: "en curso",
+                                            status_icon: "icon_key",
+                                            status_color: "#FFFFFF"
                                     ]
                             ]
                     ]
@@ -1031,20 +1033,21 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="order_status"
             component_id="card_component_0"
-            index: 0
-            store_id: 30091709
-            collector_id: 1234567
-            name: "Mc Donalds"
-            purchase_id: 12345678
-            purchase_state: "paid"
-            action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home"
-            component_version: 3
-            status_label: [
-                    name: "en curso",
-                    icon: "icon_key",
-                    color: "#FFFFFF"
+            index= 0
+            store_id= 30091709
+            store_name= "Mc Donalds"
+            collector_id= 1234567
+            purchase_id= 12345678
+            purchase_state= "paid"
+            purchase_detail_label= "Sigue el estado de tu pedido"
+            action_target= "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home"
+            component_version= 3
+            status_label= [
+                    status_name: "en curso",
+                    status_icon: "icon_key",
+                    status_color: "#FFFFFF"
             ]
-            stepper: [
+            stepper= [
                     stepper_version: 1,
                     total_steps: 4,
                     current_step: 2,
@@ -1052,9 +1055,6 @@ trackTests {
                             completed_steps: "#FF22FF",
                             pending_steps: "#002200"
                     ]
-            ]
-            metadata_user:[
-                    type: "payer"
             ]
         }
     }
@@ -1081,6 +1081,18 @@ trackTests {
             partner="multi-partner"
             metadata_user:[
                 type: "payer"
+            ]
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Buy Level Subscription") {
+        "/wallet_home/section/tap/buy_level_subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="buy_level_subscription"
+            component_id="cta"
+            level=4
+            metadata_user:[
+                    type: "payer"
             ]
         }
     }
@@ -1857,6 +1869,11 @@ trackTests {
                     ordinal: 16,
                     content_type : 'complete'
             ]
+            buy_level_subscription= [
+                    content_type : 'complete',
+                    ordinal: 17,
+                    level: 2,
+            ]
             metadata = [
                 accessibility_voice: false
             ]
@@ -2038,6 +2055,11 @@ trackTests {
             complaints_book= [
                     ordinal: 16,
                     content_type : 'complete'
+            ]
+            buy_level_subscription= [
+                    content_type : 'complete',
+                    ordinal: 17,
+                    level: 2,
             ]
             metadata = [
                 accessibility_voice: true
@@ -2263,6 +2285,14 @@ trackTests {
         "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://loyalty"
             section_id="subscription"
+            component_id="cta"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Buy Level Subscription") {
+        "/wallet_home/section/tap/buy_level_subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="buy_level_subscription"
             component_id="cta"
         }
     }
