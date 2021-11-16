@@ -74,7 +74,7 @@ tracks {
 
         packs(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Packs being handled")
         order_number(required: true, type: PropertyType.Numeric, description:  "Order number of the pack")
-        pack_status(required: true, type: PropertyType.String, description: "Information about pack status")
+        status(required: true, type: PropertyType.String, description: "Information about pack status")
     }
 
     propertyGroups {
@@ -95,7 +95,7 @@ tracks {
         override_temperature_data(item_id, variation_id, item_temperature, parcel_temperature)
         item_ids_data(item_id, variation_id)
         packs_data(packs)
-        pack_details(order_number, pack_status)
+        pack_details(order_number, status)
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
