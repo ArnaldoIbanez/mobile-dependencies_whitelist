@@ -643,4 +643,7 @@ tracks {
         carrier_id(required: true, type: PropertyType.Numeric, description: "The id of the carrier", inheritable: false)
         route_id(required: false, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
     }
+    "/logistics/login_ml/helper/route_sharing_disclaimer/qr_detected"(platform: "/mobile", type: TrackType.View) {
+        status(required: true, type: PropertyType.String,  values: ["ok", "already_registered", "invalid_format"], description: "The feedback of the scan for an specific QR.", inheritable: false)
+    }
 }

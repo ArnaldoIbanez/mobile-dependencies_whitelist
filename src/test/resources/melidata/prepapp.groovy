@@ -211,6 +211,11 @@ trackTests {
             ]
         }
 
+        def packDetailsDataSet = {
+            order_number = 2000001892783456
+            status = "read_to_pic"
+        }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TEST TRACKS PREPARATION APP - GENERAL
@@ -362,6 +367,7 @@ trackTests {
         }
 
         "/prepapp/oms/backlog"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
             omsListDataSet()
         }
 
@@ -377,11 +383,17 @@ trackTests {
             sellerDataSet()
         }
 
-        "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
-            omsListDataSet()
+        "/prepapp/oms/backlog/unbind"(platform:"/", type: TrackType.Event) {
+            sellerDataSet()
         }
 
-        "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.Event) {
+        "/prepapp/oms/backlog/detail"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
+            packDetailsDataSet()
+        }
+
+        "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
             omsListDataSet()
         }
 
@@ -395,7 +407,7 @@ trackTests {
         }
 
         "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View) {
-            omsListDataSet()
+            sellerDataSet()
         }
     }
 }

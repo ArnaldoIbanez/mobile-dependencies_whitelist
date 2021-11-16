@@ -82,6 +82,7 @@ tracks {
         my_money_accounts_list(required: true, type: PropertyType.Map(component_definition), description: "Bank account list component print")
         my_money_cards_list(require: true, type: PropertyType.Map(component_definition), description: "Bank cards list component print")
         my_money_timestamp(required: true, type: PropertyType.Map(component_definition), description: "Bank resource timestamp component print")
+        my_money_crypto_balance(required: true, type: PropertyType.Map(component_definition), description: "Crypto balance component print")
     }
 
     propertyGroups {
@@ -166,6 +167,9 @@ tracks {
         bankDetailPrint (
                 my_money_bank_detail
         )
+        cardCryptoPrint (
+                my_money_crypto_balance
+        )
     }
 
     // MP Banking
@@ -183,6 +187,7 @@ tracks {
     "/banking/balance/open_banking_component"(platform: "/", type: TrackType.View) { openBankingPrint }
     "/banking/balance/debt_balance_component"(platform: "/", type: TrackType.View) { debtBalancePrint }
     "/banking/balance/contingency_message_component"(platform: "/", type: TrackType.View) { contingencyMessagePrint }
+    "/banking/balance/crypto_balance_component"(platform: "/", type: TrackType.View) { cardCryptoPrint }
 
     // Components ToRelease
     "/banking/to_release/print"(platform: "/", type: TrackType.View) { toReleasePrint }
@@ -274,6 +279,10 @@ tracks {
     "/banking/movements/reports"(platform: "/", isAbstract: true) {}
     "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) { movementsReportsCreate }
     "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
+
+    // Movements - Message for Unified Billing
+    "/banking/movements/message_uf/close_message"(platform: "/", type: TrackType.Event) {}
+
 
     // MP Balance - Merch Engine Events Credits
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}

@@ -73,6 +73,8 @@ tracks {
         parcel_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about parcel temperature")
 
         packs(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Packs being handled")
+        order_number(required: true, type: PropertyType.Numeric, description:  "Order number of the pack")
+        status(required: true, type: PropertyType.String, description: "Information about pack status")
     }
 
     propertyGroups {
@@ -93,6 +95,7 @@ tracks {
         override_temperature_data(item_id, variation_id, item_temperature, parcel_temperature)
         item_ids_data(item_id, variation_id)
         packs_data(packs)
+        pack_details(order_number, status)
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -265,6 +268,15 @@ tracks {
         seller_data
     }
 
+    "/prepapp/oms/backlog/unbind"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        seller_data
+    }
+
+    "/prepapp/oms/backlog/detail"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        seller_data
+        pack_details
+    }
+
     "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
         oms_list
     }
@@ -278,7 +290,7 @@ tracks {
         seller_data
     }
 
-    "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View) {
+    "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        seller_data
     }
-
 }
