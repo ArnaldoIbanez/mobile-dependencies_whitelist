@@ -2893,8 +2893,10 @@ trackTests {
 
     }
 
-    test("Mobile platform onetap") {
+        test("Mobile platform onetap") {
         "/checkout/onetap/billing" (platform:"/mobile/android", type: TrackType.View) {}
+        "/checkout/onetap/billing/physical_person"(platform:"/mobile/android", type: TrackType.View) {}
+        "/checkout/onetap/billing/legal_person"(platform:"/mobile/android", type: TrackType.View) {}
 
         "/checkout/onetap/error" (platform:"/mobile/android", type: TrackType.View) {}
 
@@ -2905,10 +2907,21 @@ trackTests {
         "/checkout/onetap/screenlock" (platform:"/mobile/android", type: TrackType.View) {}
 
         "/checkout/onetap/shipping/select_option" (platform:"/mobile/android", type: TrackType.View) {}
+        "/checkout/onetap/shipping/address_hub"(platform:"/mobile/android", type: TrackType.View) {}
 
         "/checkout/onetap/payment/input_card" (platform:"/mobile/android", type: TrackType.View) {}
 
         "/checkout/onetap/payment/input_sec_code" (platform:"/mobile/android", type: TrackType.View) {}
+        "/checkout/onetap/payment/select_installments"(platform:"/mobile/android", type: TrackType.View) {}
+        
+        "/checkout/onetap/last_call"(platform:"/mobile/android", type: TrackType.View) {}
+    
+        "/checkout/onetap/ftu"(platform:"/mobile/android", type: TrackType.View) {}
+    
+        "/checkout/onetap/discount_info"(platform:"/mobile/android", type: TrackType.View) {}
+   
+        "/checkout/onetap/main/select_installments"(platform:"/mobile/android", type: TrackType.Event) {}
+        "/checkout/onetap/main/error_select_installments"(platform:"/mobile/android", type: TrackType.Event) {}
     }
 
     test("Mobile platform split") {
