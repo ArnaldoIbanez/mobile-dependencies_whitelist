@@ -26,7 +26,7 @@ class CatalogLinter {
         linters.add(new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList]))
         linters.add(new PropertyNameBlackListLinter(
                 ["data", "extra_info", "extra_data", "extra", "event_data"],
-                ["platform", "user", "device", "name", "required", "description", "mode"],
+                ["platform", "user", "device", "name", "mode"],
                 ["user_id", "site_id", "colaborator_id", "business", "site", "experiment", "experiments"])
         )
     }
