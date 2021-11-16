@@ -605,6 +605,16 @@ tracks {
     }
     //Dynamic Carousel Tracking
     def dynamic_carousel_description = objectSchemaDefinitions {
+        audience(required: false, type: PropertyType.String)
+        bu(required: false, type: PropertyType.String)
+        bu_line(required: false, type: PropertyType.String)
+        component_id(required: false, type: PropertyType.String)
+        content_id(required: false, type: PropertyType.String)
+        flow(required: false, type: PropertyType.String)
+        logic(required: false, type: PropertyType.String)
+        position(required: true, type: PropertyType.Numeric)
+    }
+    def dynamic_carousel_description_standard = objectSchemaDefinitions {
         audience(required: false, type: PropertyType.String, name: "audience", description: "Field required by merch engine")
         bu(required: false, type: PropertyType.String, name: "bu", description: "Field required by merch engine")
         bu_line(required: false, type: PropertyType.String, name: "bu_line", description: "Field required by merch engine")
@@ -619,22 +629,20 @@ tracks {
         description (
             required: true,
             type: PropertyType.Map(dynamic_carousel_description),
-            description: "Carousel item tapped",
-            name: "description"
+            description: "Carousel item tapped"
           )
     }
     "/cards/hybrid/dashboard/dynamic_carousel/swipe"(platform:"/", type: TrackType.Event) {
         description (
             required: true,
             type: PropertyType.Map(dynamic_carousel_description),
-            description: "Carousel item swiped",
-            name: "description"
+            description: "Carousel item swiped"
           )
     }
     "/cards/hybrid/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
         description (
             required: true,
-            type: PropertyType.Map(dynamic_carousel_description),
+            type: PropertyType.Map(dynamic_carousel_description_standard),
             description: "Carousel item displayed",
             name: "description"
           )
