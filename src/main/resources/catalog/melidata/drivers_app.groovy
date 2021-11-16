@@ -414,29 +414,41 @@ tracks
     //Tracks for module stops-listing
 
     "/driver/listing/list"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
-        stops(type: PropertyType.Map(stops_status_listing_definition), required: true, description: "Specifies the current list of stops status")
+        stops_info(type: PropertyType.Map(stops_status_listing_definition), required: true, description: "Specifies the current list of stops status")
     }
 
     "/driver/listing/list/go_to_scanner"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
     }
 
     "/driver/listing/list/go_to_profile"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
     }
 
     "/driver/listing/list/go_to_map"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
     }
 
     "/driver/listing/list/go_to_there"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
         stop_id(required: false, type: PropertyType.String, description: "Specifies the current stop id")
         stop_status(required: false, type: PropertyType.String, description: "Specifies the current stop status")
     }
 
     "/driver/listing/list/collapse"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
         group(required: true, type: PropertyType.String,
                 values: ["PENDING", "FINISHED"],
@@ -444,58 +456,76 @@ tracks
     }
 
     "/driver/listing/list/go_to_rts"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
-        stops(type: PropertyType.Map(stops_status_listing_definition), required: true, description: "Specifies the current list of stops status")
+        stops_info(type: PropertyType.Map(stops_status_listing_definition), required: true, description: "Specifies the current list of stops status")
     }
 
     "/driver/listing/map"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
-        stops(type: PropertyType.Map(stops_status_listing_definition), required: true, description: "Specifies the current list of stops status")
+        stops_info(type: PropertyType.Map(stops_status_listing_definition), required: true, description: "Specifies the current list of stops status")
     }
 
     "/driver/listing/map/go_to_scanner"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
     }
 
     "/driver/listing/stop"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
         stop_id(required: true, type: PropertyType.String, description: "Specifies the current stop id")
         stop_status(required: true, type: PropertyType.String, description: "Specifies the current stop status")
-        points(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of points")
-        cargos(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of cargos")
+        points(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of points")
+        cargos(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of cargos")
     }
 
     "/driver/listing/stop/go_to_there"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
         stop_id(required: true, type: PropertyType.String, description: "Specifies the current stop id")
         stop_status(required: true, type: PropertyType.String, description: "Specifies the current stop status")
     }
 
     "/driver/listing/stop/how_to_get"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
         stop_id(required: true, type: PropertyType.String, description: "Specifies the current stop id")
         stop_status(required: true, type: PropertyType.String, description: "Specifies the current stop status")
     }
 
     "/driver/listing/point"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
         point_id(required: true, type: PropertyType.String, description: "Specifies the current point id")
         point_status(required: true, type: PropertyType.String, description: "Specifies the current point status")
-        cargos(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of cargos")
+        cargos(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of cargos")
     }
 
     "/driver/listing/point/call_buyer"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
         point_id(required: true, type: PropertyType.String, description: "Specifies the current point id")
         point_status(required: true, type: PropertyType.String, description: "Specifies the current point status")
-        cargos(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of cargos")
+        cargos(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of cargos")
     }
 
     "/driver/listing/point/send_messages"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
         point_id(required: true, type: PropertyType.String, description: "Specifies the current point id")
         point_status(required: true, type: PropertyType.String, description: "Specifies the current point status")
-        cargos(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of cargos")
+        cargos(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of cargos")
     }
 }
 
