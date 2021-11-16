@@ -741,14 +741,17 @@ trackTests {
 
         "/single_player/prepaid/error/not_enough_money/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
         "/single_player/prepaid/error/not_enough_money/money_in"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
         "/single_player/prepaid/error/not_enough_money/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
 
@@ -1537,14 +1540,17 @@ trackTests {
 
         "/single_player/prepaid/error/not_enough_money/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
         "/single_player/prepaid/error/not_enough_money/money_in"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
         "/single_player/prepaid/error/not_enough_money/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
 
