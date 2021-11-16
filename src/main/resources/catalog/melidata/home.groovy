@@ -261,6 +261,13 @@ tracks {
     // Supermarket
     "/home/supermarket"(platform: "/", type: TrackType.View) {}
 
+
+    // Dummy Sync Experiment
+    "/home/experiment"(platform: "/mobile/android", type: TrackType.App) {
+        sync_retrieve_time(required: true, description: "the time in ns it took to get 'homesAAFast' forced and sync", type: PropertyType.Numeric)
+    }
+
+
     //Server Side
     "/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
 
