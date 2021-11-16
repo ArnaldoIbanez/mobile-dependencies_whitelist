@@ -360,4 +360,10 @@ trackTests {
         "/home/motors"(platform: "/web/mobile", type: TrackType.Event) {}
         "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
     }
+
+    test("Home Dummy Experiments") {
+        "/home/experiment"(platform: "/mobile/android", type: TrackType.App) {
+            sync_retrieve_time = 1000000
+        }
+    }
 }
