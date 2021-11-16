@@ -154,7 +154,7 @@ tracks {
 
     //Address Hub Message for CPG FRESH
     "/cart/checkout/address_hub/hide_no_coverage_address"(platform: "/", type: TrackType.Event) {}
-    
+
     "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
     "/cart/checkout/shipping"(platform:"/", isAbstract: true) {}
 
