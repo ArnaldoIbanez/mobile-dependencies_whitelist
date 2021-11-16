@@ -83,6 +83,7 @@ class CatalogLinter {
             } catch (CatalogException e) {
                 splitPath = parentPath.split("/")
                 parentPath = splitPath.take(splitPath.size() - 1).join("/")
+                if(!parentPath) parentPath = "/"
             }
         }
 
