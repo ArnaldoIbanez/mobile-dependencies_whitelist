@@ -543,12 +543,14 @@ tracks {
         account(
                 description: "Account rating",
                 type: PropertyType.Map(account_rating),
-                required: true
+                required: true,
+                inheritable:false
         )
         limit(
                 description: "Limits data.",
                 type: PropertyType.Map(limit_data),
-                required: true
+                required: true,
+                inheritable:false
         )
         overlimit_status(
                 description: "Overlimit status",
@@ -557,7 +559,8 @@ tracks {
                 values: [
                         "enable",
                         "disable"
-                ]
+                ],
+                inheritable:false
         )
         overlimit_optin_status(
                 description: "Overlimit optin status",
@@ -566,7 +569,8 @@ tracks {
                 values: [
                         "authorized",
                         "not_authorized"
-                ]
+                ],
+                inheritable:false
         )
     }
 
