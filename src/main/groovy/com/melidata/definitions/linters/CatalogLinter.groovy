@@ -26,7 +26,7 @@ class CatalogLinter {
         linters.add(new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList]))
         linters.add(new PropertyNameBlackListLinter(
                 ["data", "extra_info", "extra_data", "extra", "event_data"],
-                ["platform", "user", "device", "name", "required", "description", "mode"],
+                ["platform", "user", "device", "name", "mode"],
                 ["user_id", "site_id", "colaborator_id", "business", "site", "experiment", "experiments"])
         )
     }
@@ -57,9 +57,7 @@ class CatalogLinter {
                     newDefinition.properties.keySet().removeAll(prodDef.properties.keySet())
                 }
             } catch(CatalogException e) {
-                List<String> splitPath = newDefinition.path.split("/")
-                String parentPath = splitPath.take(splitPath.size() - 1).join("/")
-                def parentDef = prodCatalog.getTrackDefinition(new Track(parentPath, newDefinition.type, newDefinition.platform))
+                def parentDef = findParent(newDefinition, prodCatalog)
 
                 newDefinition.properties.keySet().removeAll(parentDef.properties.keySet())
             }
@@ -70,6 +68,25 @@ class CatalogLinter {
         }
 
         return isValid
+    }
+
+    def findParent(TrackDefinition newDefinition, Catalog catalog) {
+        List<String> splitPath = newDefinition.path.split("/")
+        String parentPath = splitPath.take(splitPath.size() - 1).join("/")
+        def parentNotFound = true
+        def parentDef
+
+        while(parentNotFound) {
+            try {
+                parentDef = catalog.getTrackDefinition(new Track(parentPath, newDefinition.type, newDefinition.platform))
+                parentNotFound = false
+            } catch (CatalogException e) {
+                splitPath = parentPath.split("/")
+                parentPath = splitPath.take(splitPath.size() - 1).join("/")
+            }
+        }
+
+        return parentDef
     }
 
     private Catalog getLocalDefinitions(String catalogName) {
