@@ -46,24 +46,23 @@ class CatalogLinter {
 
 
         localDefinitions.forEach {newDefinition ->
-            def isNew = true
-
             try {
                 def prodDef = prodCatalog.getTrackDefinition(new Track(newDefinition.path, newDefinition.type, newDefinition.platform))
 
-                if(prodDefinitions.any {newDefinition.equals(it)}) {
-                    isNew = false
-                } else {
+                //If the definition has a change, we validate its properties
+                if(!prodDefinitions.any {newDefinition.equals(it)}) {
                     newDefinition.properties.keySet().removeAll(prodDef.properties.keySet())
+                    if(!linters.every {it.validateProperties(newDefinition)}) {
+                        isValid = false
+                    }
                 }
             } catch(CatalogException e) {
                 def parentDef = findParent(newDefinition, prodCatalog)
 
                 newDefinition.properties.keySet().removeAll(parentDef.properties.keySet())
-            }
-
-            if(isNew && !linters.every {it.passValidation(newDefinition)}) {
-                isValid = false
+                if(!linters.every {it.passValidation(newDefinition)}) {
+                    isValid = false
+                }
             }
         }
 
@@ -83,6 +82,7 @@ class CatalogLinter {
             } catch (CatalogException e) {
                 splitPath = parentPath.split("/")
                 parentPath = splitPath.take(splitPath.size() - 1).join("/")
+                if(!parentPath) parentPath = "/"
             }
         }
 
