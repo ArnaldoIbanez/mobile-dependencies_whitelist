@@ -1473,6 +1473,9 @@ trackTests {
             cards = []
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            action = "overlimit_credit_card"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
             product_type = "chip_prepaid"
             action = "reissue"
         }
