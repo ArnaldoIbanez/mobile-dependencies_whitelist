@@ -598,21 +598,21 @@ tracks {
     "/seller_central/listings/hunting/sell_with_full"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task", "user_restriction"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
         action(required: false, type: PropertyType.String, description: "The action used in the communication if applies")
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task", "user_restriction"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
         action(required: false, type: PropertyType.String, description: "The action used in the communication if applies")
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task", "user_restriction"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
         action(required: false, type: PropertyType.String, description: "The action used in the communication if applies")
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
