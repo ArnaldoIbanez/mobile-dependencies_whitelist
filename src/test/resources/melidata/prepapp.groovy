@@ -211,6 +211,11 @@ trackTests {
             ]
         }
 
+        def packDetailsDataSet = {
+            order_number = 2000001892783456
+            status = "read_to_pic"
+        }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TEST TRACKS PREPARATION APP - GENERAL
@@ -379,6 +384,11 @@ trackTests {
 
         "/prepapp/oms/backlog/unbind"(platform:"/", type: TrackType.Event) {
             sellerDataSet()
+        }
+
+        "/prepapp/oms/backlog/detail"(platform:"/", type: TrackType.Event) {
+            sellerDataSet()
+            packDetailsDataSet()
         }
 
         "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
