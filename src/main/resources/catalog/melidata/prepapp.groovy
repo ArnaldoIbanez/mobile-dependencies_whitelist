@@ -272,7 +272,7 @@ tracks {
         seller_data
     }
 
-    "/prepapp/oms/backlog/detail"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/prepapp/oms/backlog/detail"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
         seller_data
         pack_details
     }

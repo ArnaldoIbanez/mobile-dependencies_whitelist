@@ -386,7 +386,7 @@ trackTests {
             sellerDataSet()
         }
 
-        "/prepapp/oms/backlog/detail"(platform:"/", type: TrackType.Event) {
+        "/prepapp/oms/backlog/detail"(platform:"/", type: TrackType.View) {
             sellerDataSet()
             packDetailsDataSet()
         }
