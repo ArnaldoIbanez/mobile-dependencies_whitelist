@@ -154,6 +154,8 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS listings Filters
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    "/seller_central/listings/list/filters"(platform: "/", type: TrackType.View) {}
+
     "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
         // TODO remove checkedFilters when the rollout mshops finsh
         checkedFilters(required: false, type: PropertyType.ArrayList, description: "Id of the action")

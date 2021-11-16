@@ -603,6 +603,20 @@ trackTests {
             ]
         }
     }
+    test("cards hybrid dashboard dynamic carousel show item") {
+        "/cards/hybrid/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "3",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 0
+            ]
+        }
+    }
     test("cards hybrid dashboard dynamic carousel Closed") {
         "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
             description = [
