@@ -10,7 +10,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1305"
+    initiative = "1322"
 	
     "/reseller" (platform: "/mobile", isAbstract: true) {
         session_id(required: true, type: PropertyType.String, description: "Internal session id")
