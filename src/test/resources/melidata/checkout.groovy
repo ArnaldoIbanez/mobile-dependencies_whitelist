@@ -2251,6 +2251,7 @@ trackTests {
         //Address Hub
         "/checkout/shipping/delivery_instructions"(platform:"/",dataSet)
         "/checkout/shipping/address_hub"(platform:"/", dataSet)
+        "/checkout/shipping/address_hub/change_address"(platform:"/", dataSet)
         // Addresses
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
