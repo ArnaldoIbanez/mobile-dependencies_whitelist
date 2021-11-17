@@ -197,6 +197,7 @@ tracks {
         mandatory
         step_information
         view_time
+        item_structure
     }
 
 
@@ -230,6 +231,11 @@ tracks {
         view_time
     }
     "/single_player/prepaid/recommended_products/understood_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        view_time
+    }
+    "/single_player/prepaid/recommended_products/info_balance"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         step_information
         view_time
@@ -413,6 +419,9 @@ tracks {
         view_time
     }
     "/single_player/prepaid/break_pre_one_tap/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/break_pre_one_tap/checkout"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 

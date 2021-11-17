@@ -126,11 +126,15 @@ tracks {
     }    
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-    // TRACKS listings Item Description
+    // TRACKS listings Item Modify detail
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     "/seller_central/listings/row/item_description"(platform: "/", type: TrackType.Event) {
         channelGroup
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS listings situacional cell
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
         moderation_id(required: true, type: PropertyType.String, description: "Moderation id")
@@ -141,9 +145,17 @@ tracks {
         health_id(required: true, type: PropertyType.String, description: "Health id")
         channelGroup
     }
+
+     "/seller_central/listings/row/win_catalog"(platform: "/", type: TrackType.Event) {
+        push_id(required: true, type: PropertyType.String, description: "push for win or improve in catalog publications")
+        item_state(required: true, type: PropertyType.String, description: "condition of item ")
+        channelGroup
+    }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS listings Filters
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    "/seller_central/listings/list/filters"(platform: "/", type: TrackType.View) {}
+
     "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
         // TODO remove checkedFilters when the rollout mshops finsh
         checkedFilters(required: false, type: PropertyType.ArrayList, description: "Id of the action")

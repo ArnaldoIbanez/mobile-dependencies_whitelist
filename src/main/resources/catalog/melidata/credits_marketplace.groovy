@@ -30,6 +30,8 @@ tracks {
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
     "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
+    "/credits/car_loan"(platform: "/", isAbstract: true) {}
+
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -982,4 +984,27 @@ tracks {
      /******************************************
      *    End: Self service
      ******************************************/
+
+    /******************************************
+    *    Start: Car Loan
+    ******************************************/
+    //Views
+    "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
+        push_variant(
+            required: true,
+            description: "Identifier for the flow of the push A, B or C",
+            type: PropertyType.String
+        )
+    }
+    //Events
+    "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
+        push_variant(
+            required: true,
+            description: "Identifier for the flow of the push A, B or C",
+            type: PropertyType.String
+        )
+    }
+    /******************************************
+    *    End: Car Loan
+    ******************************************/
 }

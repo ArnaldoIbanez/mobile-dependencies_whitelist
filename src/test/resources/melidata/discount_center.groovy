@@ -164,6 +164,30 @@ trackTests {
         }
     }
 
+    test("Mercado Pago discount center payers vsp tap on delivery whatsapp component") {
+        "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                actionable_info: [
+                    [
+                        marketplace_index: 0,
+                        marketplace_type: "actionable_info",
+                        segment_id: "delivery_whatsapp",
+                        items: [
+                            [
+                                index: 0,
+                                store_id: 30359526,
+                                collector_id: 374890028,
+                                tracking_id: "delivery_whatsapp"
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+            session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            product_type= "delivery"
+        }
+    }
+
         test("Mercado Pago discount center payers vsp tap filter") {
         "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
             components = [

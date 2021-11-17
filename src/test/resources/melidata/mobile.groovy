@@ -217,6 +217,7 @@ trackTests {
             available_ram_memory = 612724736
             vpn_connected = false
             bluetooth_enabled = true
+            background_refresh = "Enabled"
         }
 
         "/devices/metadata"(platform:"/mobile", business: "mercadopago") {
@@ -243,6 +244,7 @@ trackTests {
             available_ram_memory = 612724736
             vpn_connected = false
             bluetooth_enabled = true
+            background_refresh = "Disabled"
         }
     }
 

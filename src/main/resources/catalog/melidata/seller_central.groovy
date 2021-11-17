@@ -360,7 +360,8 @@ tracks {
         logistic_type(required: true, type: PropertyType.String, description: "Logistic type of the shipment")
 
         // Processing Time
-        processing_options(required: true, type: PropertyType.ArrayList(PropertyType.Map(processingOptionStructure)), description: "List of processing time options")
+        logistic_types(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of logistic types")
+        processing_options(required: false, type: PropertyType.ArrayList(PropertyType.Map(processingOptionStructure)), description: "List of processing time options")
     }
 
     propertyGroups {
@@ -369,8 +370,6 @@ tracks {
         sellerCentralModifyCardsGroupMotors(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type)
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
-        sellerCentralSettingsGroup(seller_profile, reputation_level)
-        sellerCentralProcessingTimeGroup(seller_profile, reputation_level, processing_options)
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
 
@@ -391,6 +390,10 @@ tracks {
         intentGroup(intent_type, intent_value)
         technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
         pictureIntentGroup(intent_type, pictures_info)
+
+        // Settings
+        sellerCentralSettingsGroup(seller_profile, reputation_level)
+        sellerCentralProcessingTimeGroup(user_type, seller_profile, reputation_level, logistic_types, processing_options)
 
         // Seller Metrics
         sellerMetricsContext(applied_filters, finish_period, start_period, from_previous, from_current, to_previous, to_current)
@@ -1138,7 +1141,7 @@ tracks {
     // PROCESSING TIME SECTION
 
     "/seller_central/settings/processing_time"(platform: "/", type: TrackType.View) {
-        sellerCentralSettingsGroup
+        sellerCentralProcessingTimeGroup
     }
 
     "/seller_central/settings/processing_time/action"(platform: "/", type: TrackType.Event) {
@@ -1611,7 +1614,7 @@ tracks {
 
     "/seller_central/metrics/stock_full"(platform: "/web", type: TrackType.View) {
         sellerCentralUserSales
-        origin(required: false, type: PropertyType.String, description: "View where the event has been called",  name: "origin", values: ["metrics", "fulfillment", "stranded", "aging", "fee_storage", "summary" ])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called",  name: "origin")
     }
 
     "/seller_central/metrics/stock_full"(platform: "/web/mobile", type: TrackType.View) {}
