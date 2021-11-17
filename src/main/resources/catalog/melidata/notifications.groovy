@@ -1248,7 +1248,22 @@ tracks {
       "/notification/fraud_poc_trust_vote_second_score"(platform: "/") {}
       "/notification/fraud_kyc_validation"(platform: "/") {}
 
-      //Loyalty
+      //Fraud Remedies
+      "/notification/fraud_remedies_identity_start_second_score"(platform: "/") {
+          payment_id(required: true, type: PropertyType.String, description: "Payment Id of payment pending validation")
+      }
+      "/notification/fraud_remedies_identity_reminder_second_score"(platform: "/") {
+          payment_id(required: true, type: PropertyType.String, description: "Payment Id of payment pending validation")
+      }
+      "/notification/fraud_remedies_card_start_second_score"(platform: "/") {
+          payment_id(required: true, type: PropertyType.String, description: "Payment Id of payment pending validation")
+      }
+      "/notification/fraud_remedies_card_reminder_second_score"(platform: "/") {
+          payment_id(required: true, type: PropertyType.String, description: "Payment Id of payment pending validation")
+      }
+
+
+    //Loyalty
       "/notification/loyalty"(platform: "/") {}
       "/notification/loyalty_welcome"(platform: "/") {}
       "/notification/loyalty_milestone"(platform: "/") {}

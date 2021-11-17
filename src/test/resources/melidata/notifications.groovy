@@ -520,6 +520,30 @@ trackTests {
             latest_news_type= "fraud_delivery_cancellation_mp"
             latest_news_id= "fraud_delivery_cancellation_mp-143816022-MLB1013046714"
         }
+        "/notification_center/fraud_remedies_identity_start_second_score"(platform: "/mobile") {
+            latest_news_type= "fraud_remedies_identity_start_second_score"
+            latest_news_id= "fraud_remedies_identity_start_second_score-222222222-123456789"
+            event_type = "open"
+            payment_id = 123456789
+        }
+        "/notification_center/fraud_remedies_identity_reminder_second_score"(platform: "/mobile") {
+            latest_news_type= "fraud_remedies_identity_reminder_second_score"
+            latest_news_id= "fraud_remedies_identity_reminder_second_score-222222222-123456789"
+            event_type = "open"
+            payment_id = 123456789
+        }
+        "/notification_center/fraud_remedies_card_start_second_score"(platform: "/mobile") {
+            latest_news_type= "fraud_remedies_card_start_second_score"
+            latest_news_id= "fraud_remedies_card_start_second_score-222222222-123456789"
+            event_type = "open"
+            payment_id = 123456789
+        }
+        "/notification_center/fraud_remedies_card_reminder_second_score"(platform: "/mobile") {
+            latest_news_type= "fraud_remedies_card_reminder_second_score"
+            latest_news_id= "fraud_remedies_card_reminder_second_score-222222222-123456789"
+            event_type = "open"
+            payment_id = 123456789
+        }
         "/notification_center/fbm_withdrawals_delayed"(platform: "/mobile") {
             latest_news_type= "fbm_withdrawals_delayed"
             latest_news_id= "fbm_withdrawals_delayed-143816022-MLB1013046714"
