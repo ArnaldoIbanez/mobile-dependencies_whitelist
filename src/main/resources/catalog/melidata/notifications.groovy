@@ -1249,18 +1249,10 @@ tracks {
       "/notification/fraud_kyc_validation"(platform: "/") {}
 
       //Fraud Remedies
-      "/notification/fraud_remedies_identity_start_second_score"(platform: "/") {
-          payment_id(required: true, type: PropertyType.String, description: "Payment Id of payment pending validation")
-      }
-      "/notification/fraud_remedies_identity_reminder_second_score"(platform: "/") {
-          payment_id(required: true, type: PropertyType.String, description: "Payment Id of payment pending validation")
-      }
-      "/notification/fraud_remedies_card_start_second_score"(platform: "/") {
-          payment_id(required: true, type: PropertyType.String, description: "Payment Id of payment pending validation")
-      }
-      "/notification/fraud_remedies_card_reminder_second_score"(platform: "/") {
-          payment_id(required: true, type: PropertyType.String, description: "Payment Id of payment pending validation")
-      }
+      "/notification/fraud_remedies_identity_start_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_identity_reminder_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_card_start_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_card_reminder_second_score"(platform: "/") {}
 
 
     //Loyalty
