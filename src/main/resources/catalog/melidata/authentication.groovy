@@ -653,7 +653,7 @@ tracks {
     // Biometrics / Screenlock    
     "/screenlock"(platform: "/mobile", isAbstract: true, initiative: 1375) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "specify user enrollment screenlock status")
-        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"], description: "specify security type on user device")
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "specify security type on user device")
     }
     
     "/screenlock/challenge"(platform: "/mobile", type: TrackType.View) {
