@@ -2175,6 +2175,9 @@ tracks {
     "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/", type: TrackType.Event) {
         news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
     }
+    "/notification_center/pm_om_notification-before_automatically_cancel"(platform: "/", type: TrackType.Event) {
+        news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
+    }
 
     // Delay Compensation
     "/notification/shipping_delay_compensation_cashback"(platform: "/"){
