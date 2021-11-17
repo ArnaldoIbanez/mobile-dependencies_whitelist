@@ -5339,25 +5339,25 @@ trackTests {
             news_type= "fraud_remedies_identity_start_second_score"
             news_id= "fraud_remedies_identity_start_second_score-222222222-123456789"
             event_type = "open"
-            payment_id = 123456789
+            payment_id = "123456789"
         }
         "/notification/fraud_remedies_identity_reminder_second_score"(platform: "/mobile") {
             news_type= "fraud_remedies_identity_reminder_second_score"
             news_id= "fraud_remedies_identity_reminder_second_score-222222222-123456789"
             event_type = "open"
-            payment_id = 123456789
+            payment_id = "123456789"
         }
         "/notification/fraud_remedies_card_start_second_score"(platform: "/mobile") {
             news_type= "fraud_remedies_card_start_second_score"
             news_id= "fraud_remedies_card_start_second_score-222222222-123456789"
             event_type = "open"
-            payment_id = 123456789
+            payment_id = "123456789"
         }
         "/notification/fraud_remedies_card_reminder_second_score"(platform: "/mobile") {
             news_type= "fraud_remedies_card_reminder_second_score"
             news_id= "fraud_remedies_card_reminder_second_score-222222222-123456789"
             event_type = "open"
-            payment_id = 123456789
+            payment_id = "123456789"
         }
         "/notification/da_kyc_manual_review"(platform: "/mobile"){
             news_id= "123"
