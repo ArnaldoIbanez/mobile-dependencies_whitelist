@@ -408,7 +408,7 @@ tracks {
 
     }
 
-    "/search/input/suggestion"(platform: "/") {}
+    "/search/input/suggestion"(platform: "/", type: TrackType.Event) {}
 
     "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
         carousels(required:true, PropertyType.ArrayList(PropertyType.Map(category_definition)))
@@ -528,7 +528,7 @@ tracks {
         advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
     }
 
-    "/search/bill_payments/main_category/result_search"(platform: "/") {}
-    "/search/failure/back"(platform: "/") {}
-    "/search/zrp"(platform: "/") {}
+    "/search/bill_payments/main_category/result_search"(platform: "/", type: TrackType.Event) {}
+    "/search/failure/back"(platform: "/", type: TrackType.Event) {}
+    "/search/zrp"(platform: "/", type: TrackType.Event) {}
 }
