@@ -2158,8 +2158,20 @@ tracks {
     }
 
     // Fraud Remedies
-    "/notification_center/fraud_remedies_card_reminder_second_score"(platform: "/", type: TrackType.Event) {}
-    "/notification_center/fraud_remedies_card_start_second_score"(platform: "/", type: TrackType.Event) {}
-    "/notification_center/fraud_remedies_identity_reminder_second_score"(platform: "/", type: TrackType.Event) {}
-    "/notification_center/fraud_remedies_identity_start_second_score"(platform: "/", type: TrackType.Event) {}
+    "/notification_center/fraud_remedies_card_reminder_second_score"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/fraud_remedies_card_start_second_score"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/fraud_remedies_identity_reminder_second_score"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/fraud_remedies_identity_start_second_score"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
 }
