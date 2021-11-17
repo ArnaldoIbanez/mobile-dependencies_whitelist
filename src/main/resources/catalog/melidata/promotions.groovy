@@ -54,7 +54,7 @@ tracks {
       fulfillment(required: true, type: PropertyType.Boolean)
 
       promotion_type(required: true, type: PropertyType.String,
-              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "LIGHTNING_DEAL", "BUY_BOX_WINNER", "others"], description: "Type of promotion")
+              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "deal_of_the_day", "LIGHTNING_DEAL", "lightning", "BUY_BOX_WINNER", "others"], description: "Type of promotion")
       available_quantity(required: false, type: PropertyType.Numeric)
       tags(required: false, type: PropertyType.ArrayList(PropertyType.String))
 
