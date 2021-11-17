@@ -247,13 +247,13 @@ tracks {
         user_profile_type(required: true, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
         top_keywords(required: false, description: 'lists the seo keywords', type: PropertyType.ArrayList(PropertyType.Map(top_keyword_definition)))
     }
-    
+
     propertyGroups {
         add_data_search(query, limit, offset, total, category_id, domain, category_path, sort_id, filters, displayed_filters, autoselected_filters, view_mode, results, promise_items,  billboards,
-            pads,  pads_info,  catalog_product_id,  show_supermarket_carousel,  show_apparel_carousel,  tracking_id,  sparkle_info,  best_seller_info,  highlights_info,  tag_tracking_info, 
+            pads,  pads_info,  catalog_product_id,  show_supermarket_carousel,  show_apparel_carousel,  tracking_id,  sparkle_info,  best_seller_info,  highlights_info,  tag_tracking_info,
             original_search_filter, containers_flow, backend_data,  merch_data,  official_stores_carousel_shown,  items_with_logos,  pdp_grouped_search,  pdp_info,  promoted_items,  location_info, shop_status,
             shop_id, shop_name, shop_domain, interventions)
-        add_data_search_web(only_in_type, click_banner, banner, related_searches, related_searches_info, canonical, autosuggest, landing, upper_funnel, geolocation, layout_forced, shown_as_product, 
+        add_data_search_web(only_in_type, click_banner, banner, related_searches, related_searches_info, canonical, autosuggest, landing, upper_funnel, geolocation, layout_forced, shown_as_product,
             has_logos, geo_search, available_filters, user_zone, is_googlebot, pdp_rows, carousel_filters, pdp_highlight_enabled, seo, user_profile_type, top_keywords)
     }
 
@@ -408,6 +408,8 @@ tracks {
 
     }
 
+    "/search/input/suggestion"(platform: "/") {}
+
     "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
         carousels(required:true, PropertyType.ArrayList(PropertyType.Map(category_definition)))
     }
@@ -455,8 +457,8 @@ tracks {
 
     "/search/map_link"(platform: "/", type: TrackType.Event) {
     }
-    
-    "/search/map"(platform: "/web", type: TrackType.Event) {        
+
+    "/search/map"(platform: "/web", type: TrackType.Event) {
     }
 
     "/search/map/carousel"(platform: "/web", type: TrackType.Event) {
@@ -526,4 +528,7 @@ tracks {
         advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
     }
 
+    "/search/bill_payments/main_category/result_search"(platform: "/") {}
+    "/search/failure/back"(platform: "/") {}
+    "/search/zrp"(platform: "/") {}
 }
