@@ -30,6 +30,6 @@ tracks {
     }
 
     "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-        banking_v2balance(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
+        "banking_v2balance"(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
     }
 }
