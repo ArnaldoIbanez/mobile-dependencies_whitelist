@@ -32,7 +32,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Action Event Name",
-            values: ["PRINT", "REPRINT", "CANCEL", "CLOSE_STORE", "OPEN_STORE", "CHANGE_STORE_STATUS"]
+            values: ["PRINT", "REPRINT", "REJECT", "CANCEL", "AUTOMATIC_CANCEL", "CLOSE_STORE", "OPEN_STORE", "CHANGE_STORE_STATUS"]
         )
         session_type(
             required: true,
