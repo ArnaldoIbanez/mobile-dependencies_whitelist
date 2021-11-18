@@ -62,15 +62,22 @@ tracks {
         opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }
 
-    propertyDefinitions {
-        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "Screenlock Operating System status upon view")
-    }
-    
     // Biometrics
     "/security_settings/screenlock"(platform: "/mobile", type: TrackType.View) {
-        os_status
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "Screenlock Operating System status upon view")
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+    }
+
+    // Granularity
+    "/security_settings/screenlock/granularity_transaction"(platform: "/mobile", type: TrackType.View) {}
+
+    "/security_settings/screenlock/granularity_opening"(platform: "/mobile", type: TrackType.View) {}
+
+    "/security_settings/screenlock/granularity_closing"(platform: "/mobile", type: TrackType.View) {}
+
+    "/security_settings/screenlock/granularity"(platform: "/mobile", type: TrackType.Event) {
+        config_name(type: PropertyType.String, required: true, values: ["transaction", "opening_lock"], description: "Which granularity was selected")
     }
 
     "/security_settings/screenlock/toggle"(platform: "/mobile", type: TrackType.Event) { 
@@ -81,30 +88,4 @@ tracks {
     "/security_settings/screenlock/toggle/modal"(platform: "/mobile", type: TrackType.View) {}
 
     "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile", type: TrackType.Event) {}
-
-    // Granularity
-    "/security_settings/screenlock/granularity"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
-        os_status
-        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
-        config_name(type: PropertyType.String, required: true, values: ["transaction", "opening_lock"], description: "Which granularity was selected")
-    }
-
-    "/security_settings/screenlock/granularity_transaction"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        os_status
-        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
-        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
-    }
-
-    "/security_settings/screenlock/granularity_opening"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        os_status
-        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
-        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
-    }
-
-    "/security_settings/screenlock/granularity_closing"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        os_status
-        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
-        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
-    }
 }
