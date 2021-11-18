@@ -29,6 +29,14 @@ tracks {
         categoryProperties
     }
 
+    // Generic Erros
+    "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.View) {}
+
+    // Onboarding
+    "/bill_payments/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/onboarding/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
     // Home
     "/bill_payments/home"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/home/back"(platform: "/mobile", type: TrackType.Event) {}
@@ -37,6 +45,7 @@ tracks {
     "/bill_payments/home/scan_barcode"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/home/search_entities"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/home/activity"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/home/activate_digital_invoices"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/home/pay"(platform: "/mobile", type: TrackType.Event) {
         barcode(required: false, type: PropertyType.String, description: "the barcode used to pay")
         product_id(required: false, type: PropertyType.String, description: "the product id used to pay")
@@ -115,6 +124,7 @@ tracks {
     "/bill_payments/info_screen/confirm_unsubscribe_services"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/info_screen/search_entities"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/info_screen/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/info_screen/revision_data"(platform: "/mobile", type: TrackType.Event) {}
 
     // Dialog
     "/bill_payments/dialog"(platform: "/mobile", type: TrackType.View) {
@@ -257,6 +267,9 @@ tracks {
     "/bill_payments/category_details/empty_search"(platform: "/mobile", type: TrackType.Event) {
         search (required:true, type: PropertyType.String, description: "The searched string")
     }
+
+    "/bill_payments/main_category/pay"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/category_details/pay"(platform: "/mobile", type: TrackType.Event) {}
 
     "/bill_payments/main_category/close"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/main_category/back"(platform: "/mobile", type: TrackType.Event) {}
