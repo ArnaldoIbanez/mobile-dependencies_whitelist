@@ -17,7 +17,7 @@ trackTests {
 
     test("Mercadopago Home print") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            :'banking_v2-balance' = [
+            {banking_v2-balance} = [
                     [
                             component_id: "balance",
                             balance_histogram: 6.0,
