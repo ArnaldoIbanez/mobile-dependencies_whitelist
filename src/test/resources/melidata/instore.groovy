@@ -3629,4 +3629,44 @@ trackTests {
             enabled = false
         }
     }
+
+    test("Instore - Store Hub") {
+        "/store-hub/view"(platform:"/mobile", type: TrackType.View) {
+            from = "notification"
+        }
+        
+        "/store-hub/view"(platform:"/web", type: TrackType.View) {
+            from = "none"
+        }
+
+        "/store-hub/status"(platform:"/", type: TrackType.Event) {
+            seller_status = "active"
+            visible_stores = 1
+            non_visible_stores = 2
+            pending_stores = 0
+        }
+
+        "/store-hub/actions/seller_data"(platform:"/", type: TrackType.Event) {
+            type = "with_problem"
+        }
+
+        "/store-hub/actions/store_address"(platform:"/", type: TrackType.Event) {
+            store_id = 32472003
+        }
+
+        "/store-hub/actions/view_map"(platform:"/", type: TrackType.Event) {
+            store_id = 32472003
+        }
+
+        "/store-hub/actions/result"(platform:"/", type: TrackType.Event) {
+            type = "seller"
+            result = "success"
+        }
+
+        "/store-hub/actions/result"(platform:"/", type: TrackType.Event) {
+            type = "store"
+            result = "failure"
+            store_id = 32472003
+        }
+    }
 }
