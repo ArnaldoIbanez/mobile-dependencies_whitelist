@@ -14,16 +14,29 @@ import com.ml.melidata.TrackType
 trackTests {
 
     defaultBusiness = "mercadopago"
-    balanceId = "banking_v2-balancee"
 
     test("Mercadopago Home print") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            $balanceId = [
+            /*banking_v2-balance = [
                     [
                             component_id: "balance",
                             balance_histogram: 6.0,
                             hidden: false,
                             pending_balance: false
+                    ]
+            ],*/
+            shortcuts = [
+                    [
+                            component_id: "business_stores_pos",
+                            group_position: 6.0,
+                            is_favorite: false,
+                            content_id: "general",
+                            group_id: "business",
+                            hasLabel: false.
+                            from: "section",
+                            user_profile: "newbie",
+                            enabled: true,
+                            has_aware: false
                     ]
             ]
         }
