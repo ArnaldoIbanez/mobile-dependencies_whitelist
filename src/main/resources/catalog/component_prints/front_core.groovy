@@ -32,6 +32,6 @@ tracks {
     }
 
     "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-        balanceId(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
+        $balanceId(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
     }
 }
