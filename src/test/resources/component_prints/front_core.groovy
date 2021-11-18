@@ -32,7 +32,7 @@ trackTests {
                             is_favorite: false,
                             content_id: "general",
                             group_id: "business",
-                            hasLabel: false.
+                            hasLabel: false,
                             from: "section",
                             user_profile: "newbie",
                             enabled: true,
