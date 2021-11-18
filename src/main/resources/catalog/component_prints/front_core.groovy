@@ -15,7 +15,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    def balanceId = "banking_v2-balance"
+    balanceId = "banking_v2-balance"
 
     def banking_action_item_definition = objectSchemaDefinitions {
         component_id(type: PropertyType.String, required: true, description: "Action id")
