@@ -14,7 +14,7 @@ import com.ml.melidata.TrackType
 trackTests {
 
     defaultBusiness = "mercadopago"
-    balanceId = "banking_v2-balance"
+    balanceId = "banking_v2-balancee"
 
     test("Mercadopago Home print") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
