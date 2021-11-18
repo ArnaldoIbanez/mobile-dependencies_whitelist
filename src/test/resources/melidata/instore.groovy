@@ -3631,15 +3631,8 @@ trackTests {
     }
 
     test("Instore - Store Hub") {
-        "/store-hub/view"(platform:"/mobile", type: TrackType.View) {
-            from = "notification"
-        }
-        
-        "/store-hub/view"(platform:"/web", type: TrackType.View) {
-            from = "none"
-        }
-
         "/store-hub/status"(platform:"/", type: TrackType.Event) {
+            from = "none"
             seller_status = "active"
             visible_stores = 1
             non_visible_stores = 2
