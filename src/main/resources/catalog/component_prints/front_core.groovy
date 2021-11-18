@@ -49,7 +49,7 @@ tracks {
 
     "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
         //banking_v2-balance(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
-        //banking_v2-balance(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
+        //banking_v2-actions(required: false, type: PropertyType.Map(banking_action_item_definition), description: "The balance information")
         shortcuts(required: false, type: PropertyType.Map(shortcut_item_definition), description: "Shortcuts")
         discount_center(required: false, type: PropertyType.Map(discount_center_item_definition), description: "Shortcuts")
     }
