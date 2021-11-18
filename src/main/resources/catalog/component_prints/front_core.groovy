@@ -16,10 +16,10 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     def banking_action_item_definition = objectSchemaDefinitions {
-        component_id(type: PropertyType.String, required: true, description: "")
-        content_id(type: PropertyType.String, required: true, description: "")
-        position(type: PropertyType.Numeric, required: true, description: "")
-        enabled(type: PropertyType.Boolean, required: true, description: "")
+        component_id(type: PropertyType.String, required: true, description: "Action id")
+        content_id(type: PropertyType.String, required: true, description: "Content id")
+        position(type: PropertyType.Numeric, required: true, description: "Position")
+        enabled(type: PropertyType.Boolean, required: true, description: "Enabled")
     }
 
     def banking_balance_item_definition = objectSchemaDefinitions {
@@ -29,16 +29,8 @@ tracks {
         pending_balance(required: true, type: PropertyType.Boolean, description: "Balance pending")
     }
 
-    def banking_balance_definition = objectSchemaDefinitions {
-        banking_v2-balance(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_balance_item_definition)), description: "")
-    }
-
-    def banking_actions_definition = objectSchemaDefinitions {
-        banking_v2-actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_action_item_definition)), description: "")
-    }
-
     "/wallet_home/prints" (platform: "/mobile", type: TrackType.View) {
-        banking_v2-balance(required: false, type: PropertyType.Map(banking_balance_definition), description: "The balance information")
-        banking_v2-actions(required: false, type: PropertyType.Map(banking_actions_definition), description: "The actions information")
+        banking_v2-balance(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
+        banking_v2-actions(required: false, type: PropertyType.Map(banking_action_item_definition), description: "The actions information")
     }
 }
