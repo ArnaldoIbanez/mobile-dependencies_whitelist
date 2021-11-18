@@ -2302,6 +2302,23 @@ trackTests {
             collector_id = "123456"
         }
 
+        // Generic Erros
+        "/bill_payments/generic_error/retry"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/connection_error/retry"(platform: "/mobile") {
+            mandatory()
+        }
+
+        // Onboarding
+        "/bill_payments/onboarding"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/onboarding/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Home
          "/bill_payments/home"(platform: "/mobile") {
             mandatory()
@@ -2328,6 +2345,10 @@ trackTests {
         }
 
         "/bill_payments/home/activity"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/home/activate_digital_invoices"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2540,6 +2561,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/info_screen/revision_data"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // FTU
         "/bill_payments/ftu"(platform: "/mobile") {
             mandatory()
@@ -2709,11 +2734,19 @@ trackTests {
             mandatory()
             categoryProperties()
         }
+        "/bill_payments/main_category/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
         "/bill_payments/category_details/close"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
         }
         "/bill_payments/category_details/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+        "/bill_payments/category_details/pay"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
         }
