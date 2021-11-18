@@ -9,7 +9,7 @@ trackTests {
 
   test("seller central listing main page") {
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
-  
+
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
       view_id = "listing"
       sub_view_id = "mshops"
@@ -244,7 +244,14 @@ trackTests {
 
   test("seller central listings row 4ta cell") {
      "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
-      moderation_id = "ID"
+      sub_view_id = "marketplace"
+       items = [[
+               reason: "OPT_OBEY_MODERATION",
+               item_id: "MCO212144fdfa"
+                ],[
+               reason: "OPT_MODERATION",
+               item_id: "MCA1456494VVV"
+              ]]
     }
 
     "/seller_central/listings/row/health"(platform: "/", type: TrackType.Event) {
