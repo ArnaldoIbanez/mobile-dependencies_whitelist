@@ -5335,7 +5335,22 @@ trackTests {
             news_id = "123"
             event_type = "open"
         }
-
+        "/notification/fraud_remedies_identity_start_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_identity_start_second_score-222222222-123456789"
+            event_type = "open"
+        }
+        "/notification/fraud_remedies_identity_reminder_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_identity_reminder_second_score-222222222-123456789"
+            event_type = "open"
+        }
+        "/notification/fraud_remedies_card_start_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_card_start_second_score-222222222-123456789"
+            event_type = "open"
+        }
+        "/notification/fraud_remedies_card_reminder_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_card_reminder_second_score-222222222-123456789"
+            event_type = "open"
+        }
         "/notification/da_kyc_manual_review"(platform: "/mobile"){
             news_id= "123"
             event_type= "open"
@@ -9780,7 +9795,30 @@ trackTests {
             latest_news_type= "fraud_kyc_validation"
             latest_news_id= "fraud-kyc_validation-186785675"
         }
-
+        "/notification_center/fraud_remedies_identity_start_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_identity_start_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_identity_start_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_identity_start_second_score"
+            status= "read"
+        }
+        "/notification_center/fraud_remedies_identity_reminder_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_identity_reminder_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_identity_reminder_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_identity_reminder_second_score"
+            status= "read"
+        }
+        "/notification_center/fraud_remedies_card_start_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_card_start_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_card_start_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_card_start_second_score"
+            status= "read"
+        }
+        "/notification_center/fraud_remedies_card_reminder_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_card_reminder_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_card_reminder_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_card_reminder_second_score"
+            status= "read"
+        }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
             latest_news_id= "prepaid_card-delayed_p1-186785675-76283123"
