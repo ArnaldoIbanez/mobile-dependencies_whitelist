@@ -43,9 +43,14 @@ tracks {
         has_aware(required: true, type: PropertyType.Boolean, description: "Has aware")
     }
 
+    def discount_center_item_definition = objectSchemaDefinitions {
+        component_id(required: true, type: PropertyType.String, description: "Component id")
+    }
+
     "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
         //banking_v2-balance(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
         //banking_v2-balance(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
         shortcuts(required: false, type: PropertyType.Map(shortcut_item_definition), description: "Shortcuts")
+        discount_center(required: false, type: PropertyType.Map(discount_center_item_definition), description: "Shortcuts")
     }
 }

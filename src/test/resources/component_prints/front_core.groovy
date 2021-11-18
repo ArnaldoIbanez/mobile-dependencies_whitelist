@@ -38,6 +38,12 @@ trackTests {
                             enabled: true,
                             has_aware: false
                     ]
+            ],
+            discount_center = [
+                    [
+                            component_id: "discount_center_container",
+
+                    ]
             ]
         }
     }
