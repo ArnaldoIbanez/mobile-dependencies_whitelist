@@ -15,6 +15,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    nameA = ['banking_v2-balance']
+
     def banking_action_item_definition = objectSchemaDefinitions {
         component_id(type: PropertyType.String, required: true, description: "Action id")
         content_id(type: PropertyType.String, required: true, description: "Content id")
@@ -30,6 +32,6 @@ tracks {
     }
 
     "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-        {banking_v2-balance}(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
+        {it -> "banking_v2-balance"}(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
     }
 }
