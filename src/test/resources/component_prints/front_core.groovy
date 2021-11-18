@@ -15,16 +15,21 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-    test("Mercadopago Home print") {
+    test("Mercadopago Home print banking balance") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            /*banking_v2-balance = [
+            banking_v2-balance = [
                     [
                             component_id: "balance",
                             balance_histogram: 6.0,
                             hidden: false,
                             pending_balance: false
                     ]
-            ],*/
+            ]
+        }
+    }
+
+    test("Mercadopago Home print shortcuts") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             shortcuts = [
                     [
                             component_id: "business_stores_pos",
@@ -38,7 +43,12 @@ trackTests {
                             enabled: true,
                             has_aware: false
                     ]
-            ],
+            ]
+        }
+    }
+
+    test("Mercadopago Home print discount_center") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             discount_center = [
                     [
                             component_id: "discount_center_container"
