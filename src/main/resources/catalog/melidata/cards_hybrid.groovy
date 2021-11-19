@@ -1481,7 +1481,8 @@ tracks {
                 'reissue',
                 'change_limits',
                 'change_pin',
-                'disable_credit_card'
+                'disable_credit_card',
+                'overlimit_credit_card'
             ]
         )
     }
