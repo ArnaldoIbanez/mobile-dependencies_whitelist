@@ -49,9 +49,9 @@ trackTests {
 
     test("Mercadopago Home print discount_center") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            discount_centerr = [
+            discount_center = [
                     [
-                            component_id: "discount_center_container"
+                            component_idd: "discount_center_container"
                     ]
             ]
         }
