@@ -28,7 +28,7 @@ trackTests {
         }
     }*/
 
-    test("Mercadopago Home print shortcuts") {
+    /*test("Mercadopago Home print shortcuts") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             shortcuts = [
                     [
@@ -45,7 +45,7 @@ trackTests {
                     ]
             ]
         }
-    }
+    }*/
 
     test("Mercadopago Home print discount_center") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
