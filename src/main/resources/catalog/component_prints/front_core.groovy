@@ -29,7 +29,7 @@ tracks {
         pending_balance(required: true, type: PropertyType.Boolean, description: "Balance pending")
     }
 
-    def shortcut_item_definition = objectSchemaDefinitions {
+    def shortcuts_item_definition = objectSchemaDefinitions {
         component_id(required: true, type: PropertyType.String, description: "Component id")
         group_position(required: true, type: PropertyType.Numeric, description: "Group position")
         is_favorite(required: true, type: PropertyType.Boolean, description: "Is favorite")
@@ -86,8 +86,8 @@ tracks {
     "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
         //banking_v2-balance(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
         //banking_v2-actions(required: false, type: PropertyType.Map(banking_action_item_definition), description: "The balance information")
-        shortcuts(required: false, type: PropertyType.Map(shortcut_item_definition), description: "Shortcuts")
-        discount_center(required: false, type: PropertyType.Map(discount_center_item_definition), description: "Shortcuts")
+        shortcuts(required: false, type: PropertyType.ArrayList(PropertyType.Map(shortcuts_item_definition)), description: "Shortcuts")
+        discount_center(required: false, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "Shortcuts")
         //cross_selling(required: false, type: PropertyType.Map(cross_selling_item_definition), description: "Cross selling")
         //benefits(required: false, type: PropertyType.Map(benefits_item_definition), description: "Benefits")
         //activities(required: false, type: PropertyType.Map(activities_item_definition), description: "Activities")
