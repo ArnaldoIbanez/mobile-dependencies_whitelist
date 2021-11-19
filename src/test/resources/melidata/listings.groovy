@@ -244,7 +244,8 @@ trackTests {
 
   test("seller central listings row 4ta cell") {
      "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
-      sub_view_id = "marketplace"
+       moderation_id = "OPT_OBEY_MODERATION"
+       sub_view_id = "marketplace"
        items = [[
                reason: "OPT_OBEY_MODERATION",
                item_id: "MCO212144fdfa"

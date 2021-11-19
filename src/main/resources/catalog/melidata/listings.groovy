@@ -137,6 +137,7 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
+        moderation_id(required: false, type: PropertyType.String, description: "Moderation id")
         items(required: false, type: PropertyType.ArrayList(PropertyType.Map(rowItemStructure)), description: "moderation reason and item id")
         channelGroup
     }
