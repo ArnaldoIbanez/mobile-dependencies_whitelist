@@ -52,6 +52,9 @@ trackTests {
             discount_center = [
                     [
                             component_idd: "discount_center_container"
+                    ],
+                    [
+                            component_id: "discount_container"
                     ]
             ]
         }
