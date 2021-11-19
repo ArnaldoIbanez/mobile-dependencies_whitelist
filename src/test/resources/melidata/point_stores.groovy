@@ -2,14 +2,17 @@ package src.test.resources.melidata
 import com.ml.melidata.TrackType
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
-test("Stores frontend admin") {
+trackTests {
+    defaultBusiness = "mercadopago"
+    
+    test("Stores frontend admin") {
         "/stores/create"(platform: "/web", type: TrackType.View) {}
         "/stores/create_poses"(platform: "/web", type: TrackType.View) {}
         "/stores/create_schedule/start"(platform: "/web", type: TrackType.View) {}
         "/stores/create_schedule/end"(platform: "/web", type: TrackType.Event) {}
         "/stores/create_delivery/start"(platform: "/web", type: TrackType.View) {}
         "/stores/create_delivery/end"(platform: "/web", type: TrackType.Event) {
-        types = 'both'
+            types = 'both'
         }
         "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
         "/stores/list"(platform: "/web", type: TrackType.View) {}
@@ -18,7 +21,7 @@ test("Stores frontend admin") {
         "/stores/update_schedule/end"(platform: "/web", type: TrackType.Event) {}
         "/stores/update_delivery/start"(platform: "/web", type: TrackType.View) {}
         "/stores/update_delivery/end"(platform: "/web", type: TrackType.Event) {
-        types = 'both'
+            types = 'both'
         }
         "/stores/details"(platform: "/web", type: TrackType.View) {}
         "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
@@ -31,28 +34,28 @@ test("Stores frontend admin") {
         "/stores/device/device_issues"(platform: "/web", type: TrackType.Event) {}
         "/stores/device/out_of_paper"(platform: "/web", type: TrackType.Event) {}
         "/stores/device/associate/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
+            tab_context = "/stores/details_pos"
         }
         "/stores/device/associate/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
+            tab_context = "/stores/details_devices"
         }
         "/stores/device/associate/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
+            tab_context = "/stores/details_pos"
         }
         "/stores/device/associate/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
+            tab_context = "/stores/details_devices"
         }
         "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
+            tab_context = "/stores/details_pos"
         }
-         "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
+            "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
+            tab_context = "/stores/details_devices"
         }
         "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
+            tab_context = "/stores/details_pos"
         }
-         "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
+            "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
+            tab_context = "/stores/details_devices"
         }
 
         "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
@@ -61,7 +64,7 @@ test("Stores frontend admin") {
         "/stores/create_schedule/end"(platform: "/web/mobile", type: TrackType.Event) {}
         "/stores/create_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/create_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
-        types = 'pickup'
+            types = 'pickup'
         }
         "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/list"(platform: "/web/mobile", type: TrackType.View) {}
@@ -70,7 +73,7 @@ test("Stores frontend admin") {
         "/stores/update_schedule/end"(platform: "/web/mobile", type: TrackType.Event) {}
         "/stores/update_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/update_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
-        types = 'pickup'
+            types = 'pickup'
         }
         "/stores/details"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/pos/create"(platform: "/web/mobile", type: TrackType.View) {}
@@ -83,15 +86,16 @@ test("Stores frontend admin") {
         "/stores/device/device_issues"(platform: "/web/mobile", type: TrackType.Event) {}
         "/stores/device/out_of_paper"(platform: "/web/mobile", type: TrackType.Event) {}
         "/stores/device/associate/start"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
+            tab_context = "/stores/details_pos"
         }
         "/stores/device/associate/start"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
+            tab_context = "/stores/details_devices"
         }
         "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
+            tab_context = "/stores/details_pos"
         }
         "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
+            tab_context = "/stores/details_devices"
         }
     }
+}
