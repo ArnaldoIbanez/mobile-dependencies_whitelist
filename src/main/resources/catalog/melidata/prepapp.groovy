@@ -285,7 +285,7 @@ tracks {
         seller_data
     }
 
-    "/prepapp/oms/routes/filter"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+    "/prepapp/oms/routes/filter"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         seller_data
     }
 
