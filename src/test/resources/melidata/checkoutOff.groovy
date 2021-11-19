@@ -1,4 +1,4 @@
-package src.test.resources.melidata
+package melidata
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -7,6 +7,20 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     test("Checkout Off - MercadoPago") {
+
+        def preference_object = [
+            back_urls: "success: https://www.bionutrients.com.ar/compra-confirmada.html",
+            redirect_urls: "success: https://www.bionutrients.com.ar/compra-confirmada.html",
+            default_card_id: "342528580",
+            default_installments: 2,
+            default_payment_method_id: "visa",
+            excluded_payment_methods: [["id": "visa"], ["id": "master"]],
+            excluded_payment_types: [["id": "ticket"], ["id": "atm"]],
+            coupon_code: 1212,
+            coupon_labels: ["test", "test"],
+            auto_return: "test",
+        ]
+        
         def defaultProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
             product_id = "BC32A4JU643001OI3920"
@@ -41,6 +55,7 @@ trackTests {
             shipping_method = "standard"
             shipping_local_pickup = false
             shipping_free = true
+            preference = preference_object
         }
 
         def launchingDefaultProperties = {
@@ -78,6 +93,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             items_quantity = 2
+            preference = preference_object
         }
 
         def launchingOnlyRequiredProperties = {
@@ -544,6 +560,20 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Checkout Off - MercadoLibre") {
+
+        def preference_object = [
+            back_urls: "success: https://www.bionutrients.com.ar/compra-confirmada.html",
+            redirect_urls: "success: https://www.bionutrients.com.ar/compra-confirmada.html",
+            default_card_id: "342528580",
+            default_installments: 2,
+            default_payment_method_id: "visa",
+            excluded_payment_methods: [["id": "visa"], ["id": "master"]],
+            excluded_payment_types: [["id": "ticket"], ["id": "atm"]],
+            coupon_code: 1212,
+            coupon_labels: ["test", "test"],
+            auto_return: "test",
+        ]
+
         def defaultProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
             product_id = "BC32A4JU643001OI3920"
@@ -578,6 +608,7 @@ trackTests {
             shipping_method = "standard"
             shipping_local_pickup = false
             shipping_free = true
+            preference = preference_object
         }
 
         def launchingDefaultProperties = {
@@ -615,6 +646,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             items_quantity = 2
+            preference = preference_object
         }
 
         def launchingOnlyRequiredProperties = {
