@@ -83,15 +83,13 @@ tracks {
         component_id(required: true, type: PropertyType.String, description: "Component id")
     }
 
-    def map = [:]
-
     "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-        //banking_v2\u2010balance(required: false, type: PropertyType.Map(banking_balance_item_definition), description: "The balance information")
-        map.'banking_v2-actions'(required: false, type: PropertyType.Map(banking_action_item_definition), description: "The balance information")
+        //banking_v2-balance(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_balance_item_definition), description: "The balance information")
+        //banking_v2-actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_action_item_definition), description: "The balance information")
         shortcuts(required: false, type: PropertyType.ArrayList(PropertyType.Map(shortcuts_item_definition)), description: "Shortcuts")
         discount_center(required: false, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "Shortcuts")
-        //cross_selling(required: false, type: PropertyType.Map(cross_selling_item_definition), description: "Cross selling")
-        //benefits(required: false, type: PropertyType.Map(benefits_item_definition), description: "Benefits")
+        //cross_selling(required: false, type: PropertyType.ArrayList(PropertyType.Map(cross_selling_item_definition)), description: "Cross selling")
+        //benefits(required: false, type: PropertyType.ArrayList(PropertyType.Map(benefits_item_definition)), description: "Benefits")
         //activities(required: false, type: PropertyType.Map(activities_item_definition), description: "Activities")
         //repentance_button(required: false, type: PropertyType.Map(repentance_button_item_definition), description: "Repentance button")
         //bcra_regulation(required: false, type: PropertyType.Map(bcra_regulation_item_definition), description: "BCRA regulation")

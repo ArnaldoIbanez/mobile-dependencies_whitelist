@@ -32,7 +32,7 @@ trackTests {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             shortcuts = [
                     [
-                            component_idd: "business_stores_pos",
+                            component_id: "business_stores_pos",
                             group_position: 6.0,
                             is_favorite: false,
                             content_id: "general",
