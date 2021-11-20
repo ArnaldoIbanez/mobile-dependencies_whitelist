@@ -1126,15 +1126,14 @@ trackTests {
 
     test("Mercadopago Home Tap - carousel") {
         "/wallet_home/section/tap/carousel" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr",
+            link = "mercadopago://instore/scan_qr"
             section_id="carousel"
-
         }
     }
 
     test("Mercadopago Home Tap - Ad carousel") {
         "/wallet_home/section/tap/ad_carousel" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr",
+            link = "mercadopago://instore/scan_qr"
             section_id="ad carousel"
         }
     }
