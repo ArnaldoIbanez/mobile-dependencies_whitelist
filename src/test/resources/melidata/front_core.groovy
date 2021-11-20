@@ -1125,11 +1125,15 @@ trackTests {
     }
 
     test("Mercadopago Home Tap - carousel") {
-        "/wallet_home/section/tap/carousel" (platform: "/mobile", type: TrackType.Event) {}
+        "/wallet_home/section/tap/carousel" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+        }
     }
 
     test("Mercadopago Home Tap - Ad carousel") {
-        "/wallet_home/section/tap/ad_carousel" (platform: "/mobile", type: TrackType.Event) {}
+        "/wallet_home/section/tap/ad_carousel" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+        }
     }
 
     test("Mercadopago Home Tap v3 - shortcuts") {
