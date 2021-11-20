@@ -31,6 +31,8 @@ trackTests {
             id = "point"
         }
 
+        "/navigation_sections/container_id"(platform: "/mobile", type: TrackType.View) {}
+
         "/navigation_sections/navigation_menu/opened" (platform: "/mobile", type: TrackType.Event) {}
 
         "/navigation_sections/navigation_menu_ml/opened" (platform: "/mobile", type: TrackType.Event) {}
@@ -62,6 +64,8 @@ trackTests {
         "/navigation_sections/your_business_v2/tap" (platform: "/mobile", type: TrackType.Event) {
             id = "point"
         }
+
+        "/navigation_sections/container_id"(platform: "/mobile", type: TrackType.View) {}
 
         "/navigation_sections/navigation_menu/opened" (platform: "/mobile", type: TrackType.Event) {}
     }
