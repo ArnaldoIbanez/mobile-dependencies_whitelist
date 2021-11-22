@@ -46,7 +46,7 @@ tracks {
             description: "Exception Stack"
         )
         session_id(
-            required: true,
+            required: false,
             type: PropertyType.String,
             description: "Session Id"
         )
@@ -66,24 +66,24 @@ tracks {
             description: "Session date updated"
         )
         session_store_id(
-           required: true,
+           required: false,
             type: PropertyType.String,
             description: "Session Store Id"
         )
         purchase_id(
-            required: true,
+            required: false,
             type: PropertyType.Numeric,
             description: "Purchased Id"
         )
         sale_id(
-            required: true,
+            required: false,
             type: PropertyType.Numeric,
-            description: "Purchased Id"
+            description: "Sale Id"
         )
     }
 
     propertyGroups {
-        actionGroup(opening_hours_today, seller_id, store_id, action_type,session_store_id, purchase_id, sale_id, exception)
+        actionGroup(opening_hours_today, seller_id, store_id, action_type,session_id,session_store_id, purchase_id, sale_id, exception)
         sessionGroup(session_id, seller_id, session_type, date, created_at, updated_at)
     }
 
