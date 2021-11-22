@@ -3629,4 +3629,72 @@ trackTests {
             enabled = false
         }
     }
+
+    test("Instore - QR Onboarding") {
+        "/instore/onboarding/scan_qr"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            current_step = "scan_qr"
+            next_steps = []
+        }
+
+        "/instore/onboarding/scan_qr"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            current_step = "scan_qr"
+            next_steps = ["buyer_qr"]
+        }
+
+        "/instore/onboarding/scan_qr/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            current_step = "scan_qr"
+            next_steps = ["buyer_qr"]
+        }
+
+        "/instore/onboarding/scan_qr/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            current_step = "scan_qr"
+            next_steps = ["buyer_qr"]
+        }
+
+        "/instore/onboarding/scan_qr/done"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            current_step = "scan_qr"
+            next_steps = ["buyer_qr"]
+        }
+
+        "/instore/onboarding/scan_qr/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            current_step = "scan_qr"
+            next_steps = ["buyer_qr"]
+        }
+
+        "/instore/onboarding/buyer_qr"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            current_step = "buyer_qr"
+            next_steps = []
+        }
+
+        "/instore/onboarding/buyer_qr/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            current_step = "buyer_qr"
+            next_steps = []
+        }
+
+        "/instore/onboarding/buyer_qr/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            current_step = "buyer_qr"
+            next_steps = []
+        }
+
+        "/instore/onboarding/buyer_qr/done"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            current_step = "buyer_qr"
+            next_steps = []
+        }
+
+        "/instore/onboarding/buyer_qr/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            current_step = "buyer_qr"
+            next_steps = []
+        }
+    }
 }
