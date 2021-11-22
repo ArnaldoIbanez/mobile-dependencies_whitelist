@@ -34,6 +34,7 @@ tracks {
     // Blocking screen
     "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}
     "/asset_management/blocker"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/operator_blocker"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/legal_entity_selector"(platform: "/mobile", type: TrackType.View) {}
 
     // Challenges
@@ -53,6 +54,7 @@ tracks {
     "/asset_management/challenge_gender"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_terms_and_conditions_company"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_terms_and_conditions_operator"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_selfie"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_selfie_bad_quality"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_company_relationship"(platform: "/mobile", type: TrackType.View) {}
