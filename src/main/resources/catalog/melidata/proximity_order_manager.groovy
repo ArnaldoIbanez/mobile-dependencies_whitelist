@@ -15,7 +15,7 @@ tracks {
     propertyDefinitions {
         opening_hours_today(
             required: false,
-            type: PropertyType.ArrayList(PropertyType.Map(opening_hour_definition)), 
+            type: PropertyType.ArrayList(PropertyType.Map(opening_hour_definition)),
             description: "Opening Hours"
         )
         seller_id(
@@ -32,7 +32,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Action Event Name",
-            values: ["PRINT", "REPRINT", "REJECT", "CANCEL", "AUTOMATIC_CANCEL", "CLOSE_STORE", "OPEN_STORE", "CHANGE_STORE_STATUS"]
+            values: ["PRINT", "REPRINT", "REJECT", "CANCEL", "AUTOMATIC_CANCEL", "CLOSE_STORE", "OPEN_STORE", "CHANGE_STORE_STATUS", "ORDER_DETAILS", "CONFIRM_ORDER"]
         )
         session_type(
             required: true,
@@ -65,10 +65,25 @@ tracks {
             type: PropertyType.String,
             description: "Session date updated"
         )
+        session_store_id(
+           required: true,
+            type: PropertyType.String,
+            description: "Session Store Id"
+        )
+        purchase_id(
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Purchased Id"
+        )
+        sale_id(
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Purchased Id"
+        )
     }
 
     propertyGroups {
-        actionGroup(opening_hours_today, seller_id, store_id, action_type, exception)
+        actionGroup(opening_hours_today, seller_id, store_id, action_type,session_store_id, purchase_id, sale_id, exception)
         sessionGroup(session_id, seller_id, session_type, date, created_at, updated_at)
     }
 
