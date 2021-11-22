@@ -151,6 +151,105 @@ trackTests {
             user_disabled = false
         }
 
+        "/chargebacks/payer/close_operation_detail"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/back_action_operation_detail"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/select_remedy/chargeback_detail"(platform: "/", type: TrackType.View) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/select_remedy/chargeback_management"(platform: "/", type: TrackType.View) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/action_chargeback_detail"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/close_action_onboarding"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/close_onboarding"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/show_onboarding"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/show_detail_modal"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/explain_chargeback_management"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/recognize_chargeback_management"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
         /* MercadoLibre*/
 
         "/chargebacks/payer/list"(platform: "/", business:"mercadolibre", type: TrackType.View) {}
@@ -298,6 +397,105 @@ trackTests {
             problem_id = "TKO_UNRECOGNIZED_MLB"
             payer_id = 306162056
             user_disabled = true
+        }
+
+        "/chargebacks/payer/close_operation_detail"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/back_action_operation_detail"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/select_remedy/chargeback_detail"(platform: "/", business:"mercadolibre", type: TrackType.View) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/select_remedy/chargeback_management"(platform: "/", business:"mercadolibre", type: TrackType.View) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/action_chargeback_detail"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/close_action_onboarding"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/close_onboarding"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/show_onboarding"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/show_detail_modal"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/explain_chargeback_management"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+        }
+
+        "/chargebacks/payer/recognize_chargeback_management"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
         }
 
     }
