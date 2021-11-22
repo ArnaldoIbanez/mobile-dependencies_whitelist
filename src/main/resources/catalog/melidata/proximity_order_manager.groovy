@@ -65,11 +65,23 @@ tracks {
             type: PropertyType.String,
             description: "Session date updated"
         )
+        sale_id(
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Sale Id"
+        )
+        sale_type(
+            required: true,
+            type: PropertyType.String,
+            description: "Sale Event Name",
+            values: ["RECEIVE", "PUSH", "DELETE", "DELETE_BY_TTL"]
+        )
     }
 
     propertyGroups {
         actionGroup(opening_hours_today, seller_id, store_id, action_type, exception)
         sessionGroup(session_id, seller_id, session_type, date, created_at, updated_at)
+        saleGroup(sale_id, seller_id, store_id, sale_type, session_id, exception)
     }
 
     "/proximity_order_manager" (platform: "/", isAbstract: true) {}
@@ -86,5 +98,9 @@ tracks {
 
     "/proximity_order_manager/session" (platform: "/", type: TrackType.Event) {
         sessionGroup
+    }
+
+    "/proximity_order_manager/sale" (platform: "/", type: TrackType.Event) {
+        saleGroup
     }
 }
