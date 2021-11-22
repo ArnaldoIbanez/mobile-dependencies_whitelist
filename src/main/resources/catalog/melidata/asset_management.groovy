@@ -54,7 +54,6 @@ tracks {
     "/asset_management/challenge_gender"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_terms_and_conditions_company"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/challenge_terms_and_conditions_operator"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_selfie"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_selfie_bad_quality"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_company_relationship"(platform: "/mobile", type: TrackType.View) {}
@@ -74,6 +73,8 @@ tracks {
     "/asset_management/congrats_error"(platform: "/web", type: TrackType.View) {}
 
     // Terms & Conditions Views
+    "/asset_management/terms_and_conditions_operator"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/terms_and_conditions_operator"(platform: "/web", type: TrackType.View) {}
     "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/terms_and_conditions"(platform: "/web", type: TrackType.View) {}
     "/asset_management/accept_tyc"(platform: "/mobile", type: TrackType.View) {}

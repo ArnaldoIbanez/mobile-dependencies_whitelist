@@ -69,6 +69,8 @@ trackTests {
         // Terms & Conditions Views
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}
         "/asset_management/terms_and_conditions"(platform: "/web") {}
+        "/asset_management/terms_and_conditions_operator"(platform: "/mobile") {}
+        "/asset_management/terms_and_conditions_operator"(platform: "/web") {}
         "/asset_management/accept_tyc"(platform: "/mobile", type: TrackType.View) {}
         "/asset_management/accept_tyc"(platform: "/web", type: TrackType.View) {}
         "/asset_management/accepted_tyc"(platform: "/mobile", type: TrackType.Event) {}
@@ -304,7 +306,6 @@ trackTests {
         "/asset_management/challenge_terms_and_conditions"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/challenge_birthdate"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/challenge_company_relationship"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/challenge_terms_and_conditions_operator"(platform: "/mobile") {}
         "/asset_management/challenge_identification"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/challenge_identifier_type"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/challenge_identity"(platform: "/mobile", business: "mercadolibre") {}
@@ -313,7 +314,6 @@ trackTests {
         "/asset_management/challenge_selfie"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/challenge_selfie_bad_quality"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/challenge_terms_and_conditions_company"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/challenge_terms_and_conditions_operator"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/challenge_address"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/challenge_phone"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile", business: "mercadolibre") {}
