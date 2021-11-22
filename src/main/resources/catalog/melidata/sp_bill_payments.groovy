@@ -35,6 +35,7 @@ tracks {
 
     // Onboarding
     "/bill_payments/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/onboarding/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/onboarding/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
     // Home
@@ -77,6 +78,7 @@ tracks {
 
     // Invoice delete success
     "/bill_payments/invoices/delete/success"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/invoices/delete/success/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/invoices/delete/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
     // Invoice menu
@@ -86,8 +88,8 @@ tracks {
     "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/menu/notification_preference"(platform: "/mobile", type: TrackType.Event) {}
 
-    //Invoices suscription
-    "/bill_payments/invoices/suscription"(platform: "/mobile", type: TrackType.Event) {
+    //Invoices subscription
+    "/bill_payments/invoices/subscription"(platform: "/mobile", type: TrackType.Event) {
         entity (required: true, type: PropertyType.String, description: "The chosen item entity")
     }
 
@@ -223,6 +225,7 @@ tracks {
     "/bill_payments/new_scan/type_qr"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/new_scan/click"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/new_scan/read"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/new_scan/scan_barcode"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/new_scan/info_message"(platform: "/mobile", type: TrackType.View) {
         label(required: true, type: PropertyType.String, description: "the label the info message")
     }
@@ -351,6 +354,7 @@ tracks {
     }
 
     "/bill_payments/contingency_screen/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/contingency_screen/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/contingency_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
     // schedule payment
@@ -392,6 +396,7 @@ tracks {
     // schedule payment cancel
     "/bill_payments/schedule_payment/cancel"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/schedule_payment/cancel/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/cancel/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/schedule_payment/cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
     // schedule payment retry
@@ -570,6 +575,7 @@ tracks {
     "/bill_payments/congrats_optin/automatic_debit"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats_optin/automatic_debit/scan_barcode"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats_optin/automatic_debit/message_button"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats_optin/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats_optin/automatic_debit/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats_optin/automatic_debit/go_to_adhesions"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -597,6 +603,10 @@ tracks {
     // congrat optout
     "/bill_payments/congrats_optout/automatic_debit"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats_optout/automatic_debit/close"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats_optout/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats_optout/automatic_debit/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
+    // Withoutbill
+    "/bill_payments/withoutbill"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/withoutbill/back"(platform: "/mobile", type: TrackType.Event) {}
 }
