@@ -931,13 +931,13 @@ tracks {
     }
 
     "/instore/onboarding/scan_qr"(platform: "/mobile", type: TrackType.View){}
-    "/instore/onboarding/scan_qr/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/onboarding/scan_qr/close"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/onboarding/scan_qr/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/onboarding/scan_qr/done"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/onboarding/scan_qr/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/onboarding/buyer_qr"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/onboarding/buyer_qr/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/onboarding/buyer_qr/close"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/onboarding/buyer_qr/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/onboarding/buyer_qr/done"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/onboarding/buyer_qr/back"(platform: "/mobile", type: TrackType.Event) {}
