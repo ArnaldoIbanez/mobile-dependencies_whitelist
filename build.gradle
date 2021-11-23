@@ -83,7 +83,7 @@ task testAll (dependsOn: 'classes', type: JavaExec) {
             "mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving-app",
             "mlo-mon-consumer-upsell-no-neg", "mlo-mon-consumer-bhv-mlm", "mlo-mon-consumers-upsell-full", "mlo-mon-cx-male-med-mld", "mlo-mon-cx-oneclick-mld-nlp",
             "mlo-mon-iv-tools-same-person-model", "mlo-mon-fraud-mktplace-conflictbuyer-m", "mlo-mon-fraud-marketplace-vis-denounce", "mlo-mon-pf-mktplace-fco-partner",
-            "mlo-mon-cx-confirm-mld", "mlo-mon-fda-fraud-marketplace", "mlo-mon-bpp-deferral-v2"]
+            "mlo-mon-cx-confirm-mld", "mlo-mon-fda-fraud-marketplace", "mlo-mon-bpp-deferral-v2", "mlo-mon-iv-tools-same-person-model-mlm"]
 }
 
 task uploadAll(type:JavaExec) {
@@ -99,7 +99,7 @@ task uploadAll(type:JavaExec) {
     "mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving-app",
     "mlo-mon-consumer-upsell-no-neg", "mlo-mon-consumer-bhv-mlm", "mlo-mon-consumers-upsell-full", "mlo-mon-cx-male-med-mld", "mlo-mon-cx-oneclick-mld-nlp",
     "mlo-mon-iv-tools-same-person-model", "mlo-mon-fraud-mktplace-conflictbuyer-m", "mlo-mon-fraud-marketplace-vis-denounce", "mlo-mon-pf-mktplace-fco-partner",
-    "mlo-mon-cx-confirm-mld", "mlo-mon-fda-fraud-marketplace", "mlo-mon-bpp-deferral-v2"]
+    "mlo-mon-cx-confirm-mld", "mlo-mon-fda-fraud-marketplace", "mlo-mon-bpp-deferral-v2", "mlo-mon-iv-tools-same-person-model-mlm"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
@@ -432,6 +432,12 @@ task testMonitoringBppDeferralV2(dependsOn: 'classes', type: JavaExec) {
     args = ["mlo-mon-bpp-deferral-v2"]
 }
 
+task testMonitoringIvToolsSamePersonModelMlm(dependsOn: 'classes', type: JavaExec) {
+    main = 'com.melidata.definitions.task.CatalogTest'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-iv-tools-same-person-model-mlm"]
+}
+
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
     main = 'com.melidata.definitions.task.MetricsTest'
     classpath = sourceSets.main.runtimeClasspath
@@ -450,7 +456,7 @@ task uploadAllCatalog(type:JavaExec) {
     "mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving-app",
     "mlo-mon-consumer-upsell-no-neg", "mlo-mon-consumer-bhv-mlm", "mlo-mon-consumers-upsell-full", "mlo-mon-cx-male-med-mld", "mlo-mon-cx-oneclick-mld-nlp",
     "mlo-mon-iv-tools-same-person-model", "mlo-mon-fraud-mktplace-conflictbuyer-m","mlo-mon-fraud-marketplace-vis-denounce", "mlo-mon-pf-mktplace-fco-partner",
-    "mlo-mon-cx-confirm-mld", "mlo-mon-fda-fraud-marketplace", "mlo-mon-bpp-deferral-v2"]
+    "mlo-mon-cx-confirm-mld", "mlo-mon-fda-fraud-marketplace", "mlo-mon-bpp-deferral-v2", "mlo-mon-iv-tools-same-person-model-mlm"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -781,6 +787,12 @@ task uploadMonitoringBppDeferralV2(type: JavaExec) {
     main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
     args = ["mlo-mon-bpp-deferral-v2"]
+}
+
+task uploadMonitoringIvToolsSamePersonModelMlm(type: JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-iv-tools-same-person-model-mlm"]
 }
 
 task uploadMetrics(type:JavaExec) {

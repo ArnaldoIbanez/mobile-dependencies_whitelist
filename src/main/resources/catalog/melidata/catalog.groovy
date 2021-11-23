@@ -204,6 +204,7 @@ catalog {
         include business, "mp_digital_account.groovy"
         include business, "mpfrontcore.groovy"
         include business, "payments_digital_accounts.groovy"
+        include business, "benefits.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
@@ -291,6 +292,7 @@ catalog {
         include business, "pospayment.groovy"
         include business, "crypto.groovy"
         include business, "investment.groovy"
+        include business, "pricing_point.groovy"
     }
 
     mercadoshops.each { business ->
