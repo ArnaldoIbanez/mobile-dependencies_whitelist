@@ -2671,7 +2671,7 @@ tracks {
         result (
             type: PropertyType.String,
             required: true,
-            values: ["SUCCESS", "FAILURE", "CAN_NOT_PROCEED"],
+            values: ["SUCCESS", "FAILURE", "CAN_NOT_PROCEED", "RETRY"],
             description: "Type of digitize card result values"
         )
     }

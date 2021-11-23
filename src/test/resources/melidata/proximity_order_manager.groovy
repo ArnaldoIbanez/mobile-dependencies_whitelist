@@ -27,6 +27,10 @@ trackTests {
             seller_id = 1
             store_id = 2
             action_type = "CLOSE_STORE"
+            purchase_id = 123
+            sale_id = 222
+            session_id = "123"
+            session_store_id = "1234"
         }
     }
 
