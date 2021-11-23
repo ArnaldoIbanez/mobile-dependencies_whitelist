@@ -3643,7 +3643,7 @@ trackTests {
             next_steps = ["buyer_qr"]
         }
 
-        "/instore/onboarding/scan_qr/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+        "/instore/onboarding/scan_qr/close"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             current_step = "scan_qr"
             next_steps = ["buyer_qr"]
@@ -3673,7 +3673,7 @@ trackTests {
             next_steps = []
         }
 
-        "/instore/onboarding/buyer_qr/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+        "/instore/onboarding/buyer_qr/close"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             current_step = "buyer_qr"
             next_steps = []
