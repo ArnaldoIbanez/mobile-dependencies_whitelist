@@ -401,6 +401,10 @@ trackTests {
             sellerDataSet()
         }
 
+        "/prepapp/oms/routes/filter"(platform:"/", type: TrackType.Event) {
+            sellerDataSet()
+        }
+
         "/prepapp/oms/routes/print"(platform:"/", type: TrackType.Event) {
             eventLabelData()
             sellerDataSet()

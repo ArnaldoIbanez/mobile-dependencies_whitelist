@@ -25,7 +25,7 @@ class CatalogLinter {
         //linters.add(new RequireValuesLinter(["mode", "type"]))
         linters.add(new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList]))
         linters.add(new PropertyNameBlackListLinter(
-                ["data", "extra_info", "extra_data", "extra", "event_data"],
+                ["data", "extra_info", "extra_data", "extra", "event_data", "payload", "response"],
                 ["platform", "user", "device", "name", "mode"],
                 ["user_id", "site_id", "colaborator_id", "business", "site", "experiment", "experiments"])
         )
@@ -44,6 +44,7 @@ class CatalogLinter {
         def localDefinitions = localCatalog.platformTree.allDefinitions
         def prodDefinitions = prodCatalog.platformTree.allDefinitions
 
+        def newPaths = []
 
         localDefinitions.forEach {newDefinition ->
             try {
@@ -57,36 +58,24 @@ class CatalogLinter {
                     }
                 }
             } catch(CatalogException e) {
-                def parentDef = findParent(newDefinition, prodCatalog)
+                def key = newDefinition.platform + "-" + newDefinition.path
+                if (!newPaths.contains(key)) {
+                    def inheritedProperties = []
+                    newPaths.add(key)
 
-                newDefinition.properties.keySet().removeAll(parentDef.properties.keySet())
-                if(!linters.every {it.passValidation(newDefinition)}) {
-                    isValid = false
+                    newDefinition.properties.forEach { name, property ->
+                        if(property.inherited) inheritedProperties.add(name)
+                    }
+
+                    newDefinition.properties.keySet().removeAll(inheritedProperties)
+                    if(!linters.every {it.passValidation(newDefinition)}) {
+                        isValid = false
+                    }
                 }
             }
         }
 
         return isValid
-    }
-
-    def findParent(TrackDefinition newDefinition, Catalog catalog) {
-        List<String> splitPath = newDefinition.path.split("/")
-        String parentPath = splitPath.take(splitPath.size() - 1).join("/")
-        def parentNotFound = true
-        def parentDef
-
-        while(parentNotFound) {
-            try {
-                parentDef = catalog.getTrackDefinition(new Track(parentPath, newDefinition.type, newDefinition.platform))
-                parentNotFound = false
-            } catch (CatalogException e) {
-                splitPath = parentPath.split("/")
-                parentPath = splitPath.take(splitPath.size() - 1).join("/")
-                if(!parentPath) parentPath = "/"
-            }
-        }
-
-        return parentDef
     }
 
     private Catalog getLocalDefinitions(String catalogName) {

@@ -2737,6 +2737,9 @@ trackTests {
             ]
         }
 
+        "/insurtech/protections/detail/cards/error"(platform:"/", type: TrackType.View) {
+        }
+
         "/insurtech/protections/detail/begin_claim"(platform:"/web", type: TrackType.View) {
             client_device = [
                 brand: "Samsung",
