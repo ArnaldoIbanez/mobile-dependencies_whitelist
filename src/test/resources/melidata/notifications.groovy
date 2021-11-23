@@ -988,6 +988,12 @@ trackTests {
             latest_news_type= "asset_management_warm_up"
             status= "read"
         }
+        "/notification_center/asset_management_missing_docs"(platform: "/mobile"){
+            newsgroup_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_type= "missing_docs"
+            status= "read"
+        }
         "/notification_center/asset_management_investing"(platform: "/mobile"){
             newsgroup_id= "asset_management-investing-186785675-76283123"
             latest_news_id= "asset_management-investing-186785675-76283123"
@@ -5921,6 +5927,11 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/asset_management_missing_docs"(platform: "/mobile") {
+            news_id = "asset-management_missing_docs-12345678-123123"
+            event_type = "shown"
+        }
+
         "/notification/asset_management_pending"(platform: "/mobile") {
             news_id = "asset-management_pending-12345678-123123"
             event_type = "shown"
@@ -8608,6 +8619,12 @@ trackTests {
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
             latest_news_type= "asset_management_warm_up"
+            status= "read"
+        }
+        "/notification_center/asset_management_missing_docs"(platform: "/mobile"){
+            newsgroup_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_type= "asset_management_missing_docs"
             status= "read"
         }
         "/notification_center/asset_management_investing"(platform: "/mobile"){
@@ -13619,6 +13636,11 @@ trackTests {
 
         "/notification/asset_management_warm_up"(platform: "/mobile") {
             news_id = "asset-management_warm_up-12345678-123123"
+            event_type = "shown"
+        }
+        
+        "/notification/asset_management_missing_docs"(platform: "/mobile") {
+            news_id = "asset-management_missing_docs-12345678-123123"
             event_type = "shown"
         }
 

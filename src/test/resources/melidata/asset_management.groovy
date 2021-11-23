@@ -23,6 +23,7 @@ trackTests {
 
         // Blocking screen
         "/asset_management/blocker"(platform: "/mobile") {}
+        "/asset_management/operator_blocker"(platform: "/mobile") {}
         "/asset_management/legal_entity_selector"(platform: "/mobile") {}
         "/asset_management/legal_entity_continue"(platform: "/mobile") {}
         "/asset_management/legal_entity_block"(platform: "/mobile") {}
@@ -68,6 +69,8 @@ trackTests {
         // Terms & Conditions Views
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}
         "/asset_management/terms_and_conditions"(platform: "/web") {}
+        "/asset_management/terms_and_conditions_operator"(platform: "/mobile") {}
+        "/asset_management/terms_and_conditions_operator"(platform: "/web") {}
         "/asset_management/accept_tyc"(platform: "/mobile", type: TrackType.View) {}
         "/asset_management/accept_tyc"(platform: "/web", type: TrackType.View) {}
         "/asset_management/accepted_tyc"(platform: "/mobile", type: TrackType.Event) {}
@@ -280,6 +283,7 @@ trackTests {
 
         // Blocking screen
         "/asset_management/blocker"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/operator_blocker"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/legal_entity_selector"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/legal_entity_continue"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/legal_entity_block"(platform: "/mobile", business: "mercadolibre") {}

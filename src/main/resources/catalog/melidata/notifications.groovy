@@ -1337,6 +1337,10 @@ tracks {
       }
 
     //Asset Management
+    "/notification_center/asset_management_missing_docs"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification/asset_management_warm_up"(platform: "/mobile") {}
     "/notification/asset_management_investing"(platform: "/mobile") {}
     "/notification/asset_management_pending"(platform: "/mobile") {}
@@ -1346,6 +1350,7 @@ tracks {
     "/notification/asset_management_underage_approved"(platform: "/mobile") {}
     "/notification/asset_management_underage_rejected"(platform: "/mobile") {}
     "/notification/asset_management_underage_request"(platform: "/mobile") {}
+    "/notification/asset_management_missing_docs"(platform: "/mobile") {}
 
 
     //Campañas
