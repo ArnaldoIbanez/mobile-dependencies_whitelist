@@ -3140,6 +3140,10 @@ trackTests {
             action = "digitize_card_result"
             result = "CAN_NOT_PROCEED"
         }
+        "/cards/nfc/enrollment/digitize_card/result"(platform:"/", type:TrackType.Event) {
+            action = "digitize_card_result"
+            result = "RETRY"
+        }
     }
 
     test("cards hybrid nfc enrollment digitalize card error") {
