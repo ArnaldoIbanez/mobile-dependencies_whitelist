@@ -18,7 +18,6 @@ tracks {
     "/navigation_sections/your_profile"(platform: "/mobile", type: TrackType.View) {}
     "/navigation_sections/your_business"(platform: "/mobile", type: TrackType.View) {}
     "/navigation_sections/your_business_v2"(platform: "/mobile", type: TrackType.View) {}
-    "/navigation_sections/container_id"(platform: "/mobile", type: TrackType.View) {}
 
     // Events
     "/navigation_sections/navigation_menu/opened"(platform: "/mobile", type: TrackType.Event) {}
