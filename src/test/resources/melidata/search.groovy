@@ -686,7 +686,7 @@ trackTests {
         "/search/map/faceted_search"(platform: "/web") {
             defaultSearchInformation()
             defaultWebTrack()
-        }       
+        }
         "/search/search_map"(platform: "/") {
             defaultSearchInformation()
         }
@@ -881,6 +881,22 @@ trackTests {
         "/search/advertising"(platform: "/", type: TrackType.Event) {
             advertising_id = "sky"
         }
+    }
+
+    test("Saerch Bill Payments Main Category Results Search") {
+        "/search/bill_payments/main_category/result_search"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Search Failure Back") {
+        "/search/failure/back"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Search Input Suggestion") {
+        "/search/input/suggestion"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Search Zero Results Page") {
+        "/search/zrp"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Search shop dimentions") {
