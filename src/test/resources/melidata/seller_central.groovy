@@ -2270,8 +2270,8 @@ trackTests {
     "/seller_central/sales/detail/billing_info"(platform: "/mobile", type: TrackType.View) {}
   }
 
-  test("seller central sales detail datepicker") {
-    "/seller_central/sales/detail/datepicker"(platform: "/mobile", type: TrackType.View) {}
+  test("seller central sales detail date picker") {
+    "/seller_central/sales/detail/date_picker"(platform: "/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales detail buyer information") {
