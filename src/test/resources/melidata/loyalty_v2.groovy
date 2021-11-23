@@ -553,8 +553,8 @@ trackTests {
 
     test("Loyalty Drawer") {
 
-        "/loyalty/drawer/pill"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
+        "/loyalty/drawer/pill"(platform: "/", type: TrackType.View, business: "mercadopago") {}
 
-        "/loyalty/drawer/pill"(platform: "/", type: TrackType.Event, business: "mercadolibre") {}
+        "/loyalty/drawer/pill"(platform: "/", type: TrackType.View, business: "mercadolibre") {}
     }
 }

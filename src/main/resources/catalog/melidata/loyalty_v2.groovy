@@ -226,5 +226,5 @@ tracks {
 
     "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event) {}
 
-    "/loyalty/drawer/pill"(platform: "/", type: TrackType.Event) {}
+    "/loyalty/drawer/pill"(platform: "/", type: TrackType.View) {}
 }
