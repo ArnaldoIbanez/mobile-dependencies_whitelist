@@ -132,7 +132,7 @@ tracks {
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
         is_pdp(serverSide: true) // -> Lo completa Melidata automaticamente
         orders(required: true, description: "orders associated to the purchase", PropertyType.ArrayList(PropertyType.String))
-        tags(name: "tags", serverSide: true, required: true, description: "purchase tags", type:PropertyType.ArrayList) // -> Lo completa Melidata automaticamente
+        tags(name: "tags", serverSide: true, required: true, description: "purchase tags", type:PropertyType.ArrayList(PropertyType.String)) // -> Lo completa Melidata automaticamente
     }
 
 }
