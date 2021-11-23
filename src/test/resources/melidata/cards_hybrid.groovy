@@ -1898,6 +1898,34 @@ trackTests {
     }
 
     // NFC Enrollment
+    
+    test("enrollment started") {
+        "/cards/nfc/enrollment"(platform:"/", type: TrackType.Event) {
+            from = "new_auth_method"
+        }
+        "/cards/nfc/enrollment"(platform:"/", type: TrackType.Event) {
+            from = "user_interaction"
+        }
+        "/cards/nfc/enrollment"(platform:"/", type: TrackType.Event) {
+            from = "automatic_enrollment"
+        }
+        "/cards/nfc/enrollment"(platform:"/", type: TrackType.Event) {
+            from = "new_card"
+        }
+        "/cards/nfc/enrollment"(platform:"/", type: TrackType.Event) {
+            from = "combo_feature"
+        }
+        "/cards/nfc/enrollment"(platform:"/", type: TrackType.Event) {
+            from = "on_demand"
+        }
+        "/cards/nfc/enrollment"(platform:"/", type: TrackType.Event) {
+            from = "push_lost"
+        }
+        "/cards/nfc/enrollment"(platform:"/", type: TrackType.Event) {
+            from = "unknown"
+        }
+    }
+    
     test("enrollment worker success") {
         "/cards/nfc/enrollment/success"(platform:"/", type: TrackType.Event) {
             action = "enrollment_worker_success"

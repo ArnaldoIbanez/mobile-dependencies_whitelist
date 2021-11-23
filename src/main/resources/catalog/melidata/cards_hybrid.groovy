@@ -31,7 +31,6 @@ tracks {
     "/cards/mp-card"(platform: "/", isAbstract: true) { }
     "/cards/mp-card/hybrid"(platform: "/", isAbstract: true) { }
     "/cards/nfc"(platform: "/", isAbstract: true) { }
-    "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/tokenization"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/tokenization/wipe_data"(platform: "/", isAbstract: true) { }
@@ -1969,6 +1968,15 @@ tracks {
 
     // ENROLLMENT-NFC
 
+    "/cards/nfc/enrollment"(platform: "/", type: TrackType.Event) {
+        from (
+            required: true,
+            type: PropertyType.String,
+            inheritable: false,
+            description: "Enrollment started in {from} flow"
+        )
+    }
+    
     "/cards/nfc/enrollment/success"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
