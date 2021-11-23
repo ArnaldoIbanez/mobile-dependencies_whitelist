@@ -9,7 +9,11 @@ trackTests {
     test("Chargebacks payer frontend tracks") {
 
         "/chargebacks"(platform: "/", type: TrackType.View) {}
-        "/chargebacks/payer"(platform: "/", type: TrackType.View) {}
+        "/chargebacks/payer"(platform: "/", type: TrackType.View) {
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            payer_id = 306162056
+        }
         "/chargebacks/payer/list"(platform: "/", type: TrackType.View) {}
 
         "/chargebacks/payer/viewdetail"(platform: "/", type: TrackType.Event) {
@@ -34,6 +38,7 @@ trackTests {
             item_id = "MLA673024191"
             payment_id = "3536747103"
             user_disabled = false
+            payer_id = 306162056
         }
 
         "/chargebacks/payer/attach"(platform: "/", type: TrackType.Event) {
@@ -71,6 +76,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             problem_id = "DUPLICATED_PAYMENT"
+            payer_id = 306162056
         }
 
         "/chargebacks/payer/change_reason"(platform: "/", type: TrackType.Event) {
@@ -80,6 +86,7 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
             user_disabled = false
+            payer_id = 306162056
         }
 
         "/chargebacks/payer/attach_main"(platform: "/", type: TrackType.Event) {
@@ -129,6 +136,7 @@ trackTests {
             user_disabled = false
             repayment_status = "CANCELLED"
             category_path = ["MLM1000", "MLM189492", "MLM190998"]
+            payer_id = 306162056
         }
 
         "/chargebacks/payer/pay-again"(platform: "/", type: TrackType.Event) {
@@ -283,6 +291,7 @@ trackTests {
             item_id = "MLA673024191"
             payment_id = "3536747103"
             user_disabled = false
+            payer_id = 306162056
         }
 
         "/chargebacks/payer/attach"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -319,6 +328,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             problem_id = "DUPLICATED_PAYMENT"
+            payer_id = 306162056
         }
 
         "/chargebacks/payer/change_reason"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -328,6 +338,7 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
             user_disabled = false
+            payer_id = 306162056
         }
 
         "/chargebacks/payer/attach_main"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -377,6 +388,7 @@ trackTests {
             user_disabled = false
             repayment_status = "CANCELLED"
             category_path = ["MLM1000", "MLM189492", "MLM190998"]
+            payer_id = 306162056
         }
 
         "/chargebacks/payer/pay-again"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -406,6 +418,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
         "/chargebacks/payer/back_action_operation_detail"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -415,6 +428,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
         "/chargebacks/payer/select_remedy/chargeback_detail"(platform: "/", business:"mercadolibre", type: TrackType.View) {
@@ -424,6 +438,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
         "/chargebacks/payer/select_remedy/chargeback_management"(platform: "/", business:"mercadolibre", type: TrackType.View) {
@@ -433,6 +448,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
         "/chargebacks/payer/action_chargeback_detail"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -442,6 +458,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
         "/chargebacks/payer/close_action_onboarding"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -451,6 +468,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
         "/chargebacks/payer/close_onboarding"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -460,6 +478,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
         "/chargebacks/payer/show_onboarding"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -469,6 +488,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
         "/chargebacks/payer/show_detail_modal"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -478,6 +498,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
         "/chargebacks/payer/explain_chargeback_management"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -487,6 +508,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
         "/chargebacks/payer/recognize_chargeback_management"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -496,6 +518,7 @@ trackTests {
             payment_id = "3536747103"
             user_disabled = false
             payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
     }

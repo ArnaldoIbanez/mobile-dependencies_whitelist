@@ -15,9 +15,9 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item id")
         case_id(required: true, type: PropertyType.String, description: "CBK case id")
         payment_id(required: true, type: PropertyType.String, description: "Payment id")
-        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
+        user_disabled(required: false, type: PropertyType.Boolean, description: "is user disabled")
         payer_id(required: true, type: PropertyType.Numeric, description: "Payer id")
-        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Item's category tree")
     }
 
     "/chargebacks/payer/list"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
