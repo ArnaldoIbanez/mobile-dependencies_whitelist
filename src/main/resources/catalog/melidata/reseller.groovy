@@ -11,10 +11,6 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     initiative = "1322"
-
-    propertyDefinitions {
-        torch_enabled(required: true, type: PropertyType.Boolean, inheritable: true, description: "The flag indicate if torch is enabled")
-    }
 	
     "/reseller" (platform: "/mobile", isAbstract: true) {
         session_id(required: true, type: PropertyType.String, description: "Internal session id")
@@ -27,10 +23,10 @@ tracks {
     }
     "/reseller/scanner/back" (platform: "/mobile", type: TrackType.Event) {}
     "/reseller/scanner/torch" (platform: "/mobile", type: TrackType.Event) {
-        torch_enabled
+        torch_enabled(required: true, type: PropertyType.Boolean, inheritable: true, description: "The flag indicate if torch is enabled")
     }
     "/reseller/scanner/scanned" (platform: "/mobile", type: TrackType.Event) {
-        torch_enabled
+        torch_enabled(required: true, type: PropertyType.Boolean, inheritable: true, description: "The flag indicate if torch is enabled")
         code(required: true, type: PropertyType.String, inheritable: false, description: "The scanned code")
     }
     "/reseller/scanner/camera_permission" (platform: "/mobile", type: TrackType.View) {}
