@@ -234,7 +234,7 @@ tracks {
 
     def metadata_user_definition = objectSchemaDefinitions {
         type(type: PropertyType.String, required: true, values: ['payer', 'seller', 'newbie'], description: "The user profile")
-        is_minor(type: PropertyType.Boolean, required: false, description: "If the user is minor")
+        is_minor(type: PropertyType.Boolean, required: true, description: "If the user is minor")
     }
 
     def loyalty_section_definition = objectSchemaDefinitions {
