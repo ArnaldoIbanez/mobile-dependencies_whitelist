@@ -522,7 +522,7 @@ tracks {
     "/seller_central/seller_coach/coachmark/display"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/coachmark/action"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/accompaniment"(platform: "/", isAbstract: true) {
-        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card displayed when the module was actioned")
+        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card displayed")
         previous_page(required: true, type: PropertyType.String, description: "Frontend the user came from")
     }
     "/seller_central/seller_coach/accompaniment/display"(platform: "/", type: TrackType.Event) {}
