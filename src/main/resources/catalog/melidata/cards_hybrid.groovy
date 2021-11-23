@@ -1481,7 +1481,8 @@ tracks {
                 'reissue',
                 'change_limits',
                 'change_pin',
-                'disable_credit_card'
+                'disable_credit_card',
+                'overlimit_credit_card'
             ]
         )
     }
@@ -2670,7 +2671,7 @@ tracks {
         result (
             type: PropertyType.String,
             required: true,
-            values: ["SUCCESS", "FAILURE", "CAN_NOT_PROCEED"],
+            values: ["SUCCESS", "FAILURE", "CAN_NOT_PROCEED", "RETRY"],
             description: "Type of digitize card result values"
         )
     }
