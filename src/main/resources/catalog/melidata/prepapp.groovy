@@ -67,7 +67,7 @@ tracks {
         
         page(required: true, type: PropertyType.Numeric, description: "Number of the page the user is on")
         page_count(required: true, type: PropertyType.Numeric, description: "Number of the total pages in the backlog")
-        filters(required: true, type: PropertyType.ArrayList, description: "Object that represent the filters implemented in the list")
+        filters(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Object that represent the filters implemented in the list")
         
         item_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about item temperature")
         parcel_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about parcel temperature")
@@ -255,21 +255,17 @@ tracks {
         oms_list
     }
 
-    "/prepapp/oms/backlog/filter"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        seller_data
+    "/prepapp/oms/backlog/filter"(platform:"/", type: TrackType.Event) {
     }
 
-    "/prepapp/oms/backlog/download"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        seller_data
+    "/prepapp/oms/backlog/download"(platform:"/", type: TrackType.Event) {
         packs_data
     }
 
-    "/prepapp/oms/backlog/prioritize"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        seller_data
+    "/prepapp/oms/backlog/prioritize"(platform:"/", type: TrackType.Event) {
     }
 
-    "/prepapp/oms/backlog/unbind"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        seller_data
+    "/prepapp/oms/backlog/unbind"(platform:"/", type: TrackType.Event) {
     }
 
     "/prepapp/oms/backlog/detail"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
