@@ -95,36 +95,39 @@ metrics {
         experiment(regex(experimentsRegex))
 
         countsOn{
-            or(
-                path('/cards/nfc/configuration/hub'),
-                and (
-                    equals('path','/cards/nfc/configuration/hub/step/tap'),
-                    or(
-                        equals('event_data.action', 'step_tap_and_pay'),
-                        equals('event_data.action', 'step_pin'),
-                        equals('event_data.action', 'step_nfc'),
-                        equals('event_data.action', 'step_nfc_freeze')
+            condition{
+                or(
+                    path('/cards/nfc/configuration/hub'),
+                    and (
+                        equals('path','/cards/nfc/configuration/hub/step/tap'),
+                        or(
+                            equals('event_data.action', 'step_tap_and_pay'),
+                            equals('event_data.action', 'step_pin'),
+                            equals('event_data.action', 'step_nfc'),
+                            equals('event_data.action', 'step_nfc_freeze')
+                        )
                     )
                 )
-            )
                 equals('application.business', 'mercadopago')
+            }
         }
     }
     'cards.nfc.hub.enrollment'(description: 'Counts when a user enter to Nfc Enrollment Hub using Mercado Pago app') {
         experiment(regex(experimentsRegex))
 
         countsOn{
-            or(
-                path('/cards/nfc/enrollment/hub'),
-                and(
-                    equals('path', '/cards/nfc/enrollment/hub/step/tap'),
-                    or(
-                        equals('event_data.action', 'step_tap_and_pay'),
-                        equals('event_data.action', 'step_pin'),
-                        equals('event_data.action', 'step_nfc')
+            condition{
+                or(
+                    path('/cards/nfc/enrollment/hub'),
+                    and(
+                        equals('path', '/cards/nfc/enrollment/hub/step/tap'),
+                        or(
+                            equals('event_data.action', 'step_tap_and_pay'),
+                            equals('event_data.action', 'step_pin'),
+                            equals('event_data.action', 'step_nfc')
+                        )
                     )
                 )
-            )
                 equals('application.business', 'mercadopago')
         }
     }
