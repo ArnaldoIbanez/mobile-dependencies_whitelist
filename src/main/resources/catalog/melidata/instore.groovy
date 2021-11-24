@@ -925,9 +925,9 @@ tracks {
     }
 
     // Store Hub
-    "/store-hub"(platform: "/", isAbstract: true) {}
+    "/store_hub"(platform: "/", isAbstract: true) {}
 
-    "/store-hub/status"(platform: "/", type: TrackType.Event) {
+    "/store_hub/status"(platform: "/", type: TrackType.Event) {
         from(required: true, type: PropertyType.String, description: "Source of the hub load", values: ['notification', 'kyc', 'stores', 'none'])
         seller_status(required: true, type: PropertyType.String, description: "Activity status of the seller", values: ['active', 'inactive'])
         visible_stores(required: true, type: PropertyType.Numeric, description: "Amount of visible stores")
@@ -935,21 +935,21 @@ tracks {
         pending_stores(required: true, type: PropertyType.Numeric, description: "Amount of pending stores")
     }
 
-    "/store-hub/actions"(platform: "/", isAbstract: true) {}
+    "/store_hub/actions"(platform: "/", isAbstract: true) {}
 
-    "/store-hub/actions/seller_data"(platform: "/", type: TrackType.Event) {
+    "/store_hub/actions/seller_data"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Visible type of seller upon clicking the seller-data action", values: ['with_problem', 'with_pending', 'organic'])
     }
 
-    "/store-hub/actions/store_address"(platform: "/", type: TrackType.Event) {
+    "/store_hub/actions/store_address"(platform: "/", type: TrackType.Event) {
         store_id(required: true, type: PropertyType.Numeric, description: "Store ID of the store with the wrong address")
     }
 
-    "/store-hub/actions/view_map"(platform: "/", type: TrackType.Event) {
+    "/store_hub/actions/view_map"(platform: "/", type: TrackType.Event) {
         store_id(required: true, type: PropertyType.Numeric, description: "Store ID of the viewed store")
     }
 
-    "/store-hub/actions/result"(platform: "/", type: TrackType.Event) {
+    "/store_hub/actions/result"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Source type of the action", values: ['seller', 'store'])
         result(required: true, type: PropertyType.String, description: "Result of the action", values: ['success', 'back', 'failure'])
         store_id(required: false, type: PropertyType.Numeric, description: "Store ID (for store results only)")

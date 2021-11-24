@@ -3631,7 +3631,7 @@ trackTests {
     }
 
     test("Instore - Store Hub") {
-        "/store-hub/status"(platform:"/", type: TrackType.Event) {
+        "/store_hub/status"(platform:"/", type: TrackType.Event) {
             from = "none"
             seller_status = "active"
             visible_stores = 1
@@ -3639,24 +3639,24 @@ trackTests {
             pending_stores = 0
         }
 
-        "/store-hub/actions/seller_data"(platform:"/", type: TrackType.Event) {
+        "/store_hub/actions/seller_data"(platform:"/", type: TrackType.Event) {
             type = "with_problem"
         }
 
-        "/store-hub/actions/store_address"(platform:"/", type: TrackType.Event) {
+        "/store_hub/actions/store_address"(platform:"/", type: TrackType.Event) {
             store_id = 32472003
         }
 
-        "/store-hub/actions/view_map"(platform:"/", type: TrackType.Event) {
+        "/store_hub/actions/view_map"(platform:"/", type: TrackType.Event) {
             store_id = 32472003
         }
 
-        "/store-hub/actions/result"(platform:"/", type: TrackType.Event) {
+        "/store_hub/actions/result"(platform:"/", type: TrackType.Event) {
             type = "seller"
             result = "success"
         }
 
-        "/store-hub/actions/result"(platform:"/", type: TrackType.Event) {
+        "/store_hub/actions/result"(platform:"/", type: TrackType.Event) {
             type = "store"
             result = "failure"
             store_id = 32472003
