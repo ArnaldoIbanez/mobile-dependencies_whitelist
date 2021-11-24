@@ -2,6 +2,7 @@ package catalog.melidata
 
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
+import jdk.nashorn.internal.objects.annotations.Property
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -788,6 +789,23 @@ tracks {
     "/seller_central/modify/variations"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
     }
+    "/seller_central/modify/variations/chart/create"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+    }
+    "/seller_central/modify/variations/chart/modify"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+    }
+    "/seller_central/modify/variations/chart/clone"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+    }
+    "/seller_central/modify/chart/confirm"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+        action(required: true, description: "Action to confirm", type: PropertyType.String)
+    }
+    "/seller_central/modify/chart/return"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+        action(required: true, description: "Action to confirm", type: PropertyType.String)
+    }
 
     "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroupMotors
@@ -1547,7 +1565,7 @@ tracks {
         selected_problem(required: true, type: PropertyType.String, description: "Problem selected ID")
         problem_type(required: true, type: PropertyType.String, description: "Problem type", values: ["L1", "L2"])
     }
-    
+
     // Delayed Shipping - My Attention
 
     "/seller_central/metrics/attention/delayed_shippings"(platform: "/web", type: TrackType.View) {

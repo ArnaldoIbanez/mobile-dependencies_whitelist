@@ -5388,6 +5388,48 @@ trackTests {
             sales_channels = ["marketplace", "mshops"]
         }
     }
+    test("SYI v4 Create GdT"){
+        "/sell/item_data/chart/create"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            domain_id = "MLA_SNEAKERS"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
+    test("SYI v4 Create GdT"){
+        "/sell/item_data/chart/modify"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            domain_id = "MLA_SNEAKERS"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
+    test("SYI v4 Create GdT"){
+        "/sell/item_data/chart/clone"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            domain_id = "MLA_SNEAKERS"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
     test("SYI v4 phone confirm"){
         "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web/mobile", type: TrackType.Event){
             category_id = "MLA390784"
