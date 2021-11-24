@@ -1248,7 +1248,14 @@ tracks {
       "/notification/fraud_poc_trust_vote_second_score"(platform: "/") {}
       "/notification/fraud_kyc_validation"(platform: "/") {}
 
-      //Loyalty
+      //Fraud Remedies
+      "/notification/fraud_remedies_identity_start_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_identity_reminder_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_card_start_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_card_reminder_second_score"(platform: "/") {}
+
+
+    //Loyalty
       "/notification/loyalty"(platform: "/") {}
       "/notification/loyalty_welcome"(platform: "/") {}
       "/notification/loyalty_milestone"(platform: "/") {}
@@ -1330,6 +1337,10 @@ tracks {
       }
 
     //Asset Management
+    "/notification_center/asset_management_missing_docs"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification/asset_management_warm_up"(platform: "/mobile") {}
     "/notification/asset_management_investing"(platform: "/mobile") {}
     "/notification/asset_management_pending"(platform: "/mobile") {}
@@ -1339,6 +1350,7 @@ tracks {
     "/notification/asset_management_underage_approved"(platform: "/mobile") {}
     "/notification/asset_management_underage_rejected"(platform: "/mobile") {}
     "/notification/asset_management_underage_request"(platform: "/mobile") {}
+    "/notification/asset_management_missing_docs"(platform: "/mobile") {}
 
 
     //Campañas
@@ -2092,6 +2104,10 @@ tracks {
     "/notification/under_age_responsible_authorization_legacy"(platform: "/") {}
     "/notification/under_age_minor_rejected"(platform: "/") {}
     "/notification/under_age_minor_approved"(platform: "/") {}
+    "/notification/under_age_responsible_info_ml"(platform: "/") {}
+    "/notification/under_age_responsible_authorization_legacy_ml"(platform: "/") {}
+    "/notification/under_age_minor_rejected_ml"(platform: "/") {}
+    "/notification/under_age_minor_approved_ml"(platform: "/") {}
 
     "/notification/institutional_generic"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")

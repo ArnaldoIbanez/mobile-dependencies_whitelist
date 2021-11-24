@@ -124,6 +124,22 @@ trackTests {
             latest_news_type= "under_age_minor_approved"
             latest_news_id= "under_age_minor_approved-186785675"
         }
+        "/notification_center/under_age_responsible_info_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_info"
+            latest_news_id= "under_age-responsible_info-186785675"
+        }
+        "/notification_center/under_age_responsible_authorization_legacy_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_authorization_legacy"
+            latest_news_id= "under_age_responsible_authorization_legacy-186785675"
+        }
+        "/notification_center/under_age_minor_rejected_ml"(platform: "/") {
+            latest_news_type= "under_age_minor_rejected"
+            latest_news_id= "under_age_minor_rejected-186785675"
+        }
+        "/notification_center/under_age_minor_approved_ml"(platform: "/") {
+            latest_news_type= "under_age_minor_approved"
+            latest_news_id= "under_age_minor_approved-186785675"
+        }
         "/notification_center/loyalty"(platform: "/mobile"){
             newsgroup_id= "LOYALTY-48422892"
             status= "unread"
@@ -970,6 +986,12 @@ trackTests {
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
             latest_news_type= "asset_management_warm_up"
+            status= "read"
+        }
+        "/notification_center/asset_management_missing_docs"(platform: "/mobile"){
+            newsgroup_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_type= "missing_docs"
             status= "read"
         }
         "/notification_center/asset_management_investing"(platform: "/mobile"){
@@ -5335,7 +5357,22 @@ trackTests {
             news_id = "123"
             event_type = "open"
         }
-
+        "/notification/fraud_remedies_identity_start_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_identity_start_second_score-222222222-123456789"
+            event_type = "open"
+        }
+        "/notification/fraud_remedies_identity_reminder_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_identity_reminder_second_score-222222222-123456789"
+            event_type = "open"
+        }
+        "/notification/fraud_remedies_card_start_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_card_start_second_score-222222222-123456789"
+            event_type = "open"
+        }
+        "/notification/fraud_remedies_card_reminder_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_card_reminder_second_score-222222222-123456789"
+            event_type = "open"
+        }
         "/notification/da_kyc_manual_review"(platform: "/mobile"){
             news_id= "123"
             event_type= "open"
@@ -5887,6 +5924,11 @@ trackTests {
 
         "/notification/asset_management_warm_up"(platform: "/mobile") {
             news_id = "asset-management_warm_up-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_missing_docs"(platform: "/mobile") {
+            news_id = "asset-management_missing_docs-12345678-123123"
             event_type = "shown"
         }
 
@@ -7618,6 +7660,26 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/under_age_responsible_info_ml"(platform: "/") {
+            news_id = "under_age-responsible_info-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_authorization_legacy_ml"(platform: "/") {
+            news_id = "under_age_responsible_authorization_legacy-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_rejected_ml"(platform: "/") {
+            news_id = "under_age_minor_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_approved_ml"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         //NFC
 
@@ -7757,6 +7819,22 @@ trackTests {
             latest_news_id= "under_age_minor_rejected-186785675"
         }
         "/notification_center/under_age_minor_approved"(platform: "/") {
+            latest_news_type= "under_age_minor_approved"
+            latest_news_id= "under_age_minor_approved-186785675"
+        }
+        "/notification_center/under_age_responsible_info_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_info"
+            latest_news_id= "under_age-responsible_info-186785675"
+        }
+        "/notification_center/under_age_responsible_authorization_legacy_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_authorization_legacy"
+            latest_news_id= "under_age_responsible_authorization_legacy-186785675"
+        }
+        "/notification_center/under_age_minor_rejected_ml"(platform: "/") {
+            latest_news_type= "under_age_minor_rejected"
+            latest_news_id= "under_age_minor_rejected-186785675"
+        }
+        "/notification_center/under_age_minor_approved_ml"(platform: "/") {
             latest_news_type= "under_age_minor_approved"
             latest_news_id= "under_age_minor_approved-186785675"
         }
@@ -8541,6 +8619,12 @@ trackTests {
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
             latest_news_type= "asset_management_warm_up"
+            status= "read"
+        }
+        "/notification_center/asset_management_missing_docs"(platform: "/mobile"){
+            newsgroup_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_type= "asset_management_missing_docs"
             status= "read"
         }
         "/notification_center/asset_management_investing"(platform: "/mobile"){
@@ -9780,7 +9864,30 @@ trackTests {
             latest_news_type= "fraud_kyc_validation"
             latest_news_id= "fraud-kyc_validation-186785675"
         }
-
+        "/notification_center/fraud_remedies_identity_start_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_identity_start_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_identity_start_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_identity_start_second_score"
+            status= "read"
+        }
+        "/notification_center/fraud_remedies_identity_reminder_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_identity_reminder_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_identity_reminder_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_identity_reminder_second_score"
+            status= "read"
+        }
+        "/notification_center/fraud_remedies_card_start_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_card_start_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_card_start_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_card_start_second_score"
+            status= "read"
+        }
+        "/notification_center/fraud_remedies_card_reminder_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_card_reminder_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_card_reminder_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_card_reminder_second_score"
+            status= "read"
+        }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
             latest_news_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -13531,6 +13638,11 @@ trackTests {
             news_id = "asset-management_warm_up-12345678-123123"
             event_type = "shown"
         }
+        
+        "/notification/asset_management_missing_docs"(platform: "/mobile") {
+            news_id = "asset-management_missing_docs-12345678-123123"
+            event_type = "shown"
+        }
 
         "/notification/asset_management_pending"(platform: "/mobile") {
             news_id = "asset-management_pending-12345678-123123"
@@ -16179,6 +16291,26 @@ trackTests {
             notification_type= "deep_linking"
         }
         "/notification/under_age_minor_approved"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_info_ml"(platform: "/") {
+            news_id = "under_age-responsible_info-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_authorization_legacy_ml"(platform: "/") {
+            news_id = "under_age_responsible_authorization_legacy-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_rejected_ml"(platform: "/") {
+            news_id = "under_age_minor_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_approved_ml"(platform: "/") {
             news_id = "under_age_minor_approved-186785675"
             event_type = "open"
             notification_type= "deep_linking"

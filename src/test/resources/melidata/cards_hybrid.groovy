@@ -1487,6 +1487,9 @@ trackTests {
             cards = []
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            action = "overlimit_credit_card"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
             product_type = "chip_prepaid"
             action = "reissue"
         }
@@ -3136,6 +3139,10 @@ trackTests {
         "/cards/nfc/enrollment/digitize_card/result"(platform:"/", type:TrackType.Event) {
             action = "digitize_card_result"
             result = "CAN_NOT_PROCEED"
+        }
+        "/cards/nfc/enrollment/digitize_card/result"(platform:"/", type:TrackType.Event) {
+            action = "digitize_card_result"
+            result = "RETRY"
         }
     }
 

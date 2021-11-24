@@ -299,6 +299,199 @@ trackTests {
 			]
 		}
 
+		def listEmptySearchDataSet = {
+			total = 0
+			query = "mayonesa"
+			page = 1
+			filters = [
+				date: "-1M"
+			]
+		}
+
+		def listSearchDataSet = {
+			total = 31
+			query = "mayonesa"
+			page = 1
+			filters = [
+				date: "-1M"
+			]
+			rows = [
+				[
+					grouping_info: [
+						pack_id: "2000002763770298",
+						grouped_by: "pack",
+						purchase_id: "1000002075482664"
+					],
+					items: [
+						"MLB1977301739"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002763766814",
+						grouped_by: "pack",
+						purchase_id: "1000002075482438"
+					],
+					items: [
+						"MLB1977301739"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002762928528",
+						grouped_by: "order",
+						purchase_id: "1000002075119936",
+						order_id: "5019167366"
+					],
+					items: [
+						"MLB1977301739",
+						"MLB1977310888"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002762928529",
+						grouped_by: "pack",
+						purchase_id: "1000002075119936"
+					],
+					items: [
+						"MLB1967649771",
+						"MLB1977301739",
+						"MLB1977310888"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002760488101",
+						grouped_by: "pack",
+						purchase_id: "1000002074013977"
+					],
+					items: [
+						"MLB1977301739"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002760488102",
+						grouped_by: "pack",
+						purchase_id: "1000002074013977"
+					],
+					items: [
+						"MLB1977299756",
+						"MLB1977301739",
+						"MLB1977310888"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002760475733",
+						grouped_by: "pack",
+						purchase_id: "1000002074015005"
+					],
+					items: [
+						"MLB1977299756",
+						"MLB1977301739",
+						"MLB1977310888"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002757013133",
+						grouped_by: "pack",
+						purchase_id: "1000002072432602"
+					],
+					items: [
+						"MLB1977301739",
+						"MLB1977310888",
+						"MLB1977316400"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002757013132",
+						grouped_by: "pack",
+						purchase_id: "1000002072432602"
+					],
+					items: [
+						"MLB1977301739"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002756994087",
+						grouped_by: "pack",
+						purchase_id: "1000002072425126"
+					],
+					items: [
+						"MLB1977301739"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002756994088",
+						grouped_by: "pack",
+						purchase_id: "1000002072425126"
+					],
+					items: [
+						"MLB1977301739",
+						"MLB1977310888",
+						"MLB1977316400"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002756563850",
+						grouped_by: "pack",
+						purchase_id: "1000002072220894"
+					],
+					items: [
+						"MLB1977301739",
+						"MLB1977310888",
+						"MLB1977337025"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002756563848",
+						grouped_by: "pack",
+						purchase_id: "1000002072220894"
+					],
+					items: [
+						"MLB1977301739"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "2000002755020950",
+						grouped_by: "pack",
+						purchase_id: "1000002071495689"
+					],
+					items: [
+						"MLB1977301739",
+						"MLB1977310888"
+					]
+				],
+				[
+					grouping_info: [
+						pack_id: "4992536979",
+						grouped_by: "order",
+						purchase_id: "4992536979",
+						order_id: "4992536979"
+					],
+					items: [
+						"MLB1977301739"
+					]
+				]
+			]
+		}
+
+		def listDefaultSearchDataSet = listSearchDataSet >> {
+			query = ""
+			filters = [
+				date: "ALL"
+			]
+		}
+
 		//------------------------------------------------------------------------------------------------------------------------------------------------------
 		// TEST TRACKS MY PURCHASES STATUS
 		//------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -519,6 +712,15 @@ trackTests {
 		//------------------------------------------------------------------------------------------------------------------------------------------------------
 
 		"/my_purchases/list"(platform:"/", type: TrackType.View) {
+			listSearchDataSet()
+		}
+
+		"/my_purchases/list"(platform:"/", type: TrackType.View) {
+			listEmptySearchDataSet()
+		}
+
+		"/my_purchases/list"(platform:"/", type: TrackType.View) {
+			listDefaultSearchDataSet()
 		}
 
 		"/my_purchases/list/repurchase/add_to_cart"(platform:"/", type: TrackType.Event) {

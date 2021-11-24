@@ -292,6 +292,7 @@ catalog {
         include business, "pospayment.groovy"
         include business, "crypto.groovy"
         include business, "investment.groovy"
+        include business, "pricing_point.groovy"
     }
 
     mercadoshops.each { business ->
