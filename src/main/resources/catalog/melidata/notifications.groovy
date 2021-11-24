@@ -924,6 +924,14 @@ tracks {
           case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
       }
 
+      //Melichat
+      "/notification/melichat_message_mp"(platform: "/") {
+          case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
+      }
+      "/notification/melichat_message_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
+      }
+
       //Compliance Support
       "/notification/compliance_support_validations"(platform: "/") {}
 

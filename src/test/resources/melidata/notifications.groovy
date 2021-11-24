@@ -1474,6 +1474,11 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/melichat_message_ml"(platform: "/mobile"){
+            case_id= 12345678
+            event_type = "sent"
+        }
+
         "/notification/instore_discover_activities"(platform: "/mobile"){
             news_id = "instore-discover_activities-321953606"
             event_type = "sent"
@@ -4715,6 +4720,11 @@ trackTests {
         }
 
         "/notification/cx_question_mp"(platform: "/mobile"){
+            case_id= 12345678
+            event_type = "sent"
+        }
+
+        "/notification/melichat_message_mp"(platform: "/mobile"){
             case_id= 12345678
             event_type = "sent"
         }
