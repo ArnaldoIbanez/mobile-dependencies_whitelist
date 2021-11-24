@@ -277,17 +277,14 @@ tracks {
         oms_list
     }
 
-    "/prepapp/oms/routes/delete"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        seller_data
+    "/prepapp/oms/routes/delete"(platform:"/", type: TrackType.Event) {
     }
 
-    "/prepapp/oms/routes/filter"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        seller_data
+    "/prepapp/oms/routes/filter"(platform:"/", type: TrackType.Event) {
     }
 
-    "/prepapp/oms/routes/print"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/prepapp/oms/routes/print"(platform:"/", type: TrackType.Event) {
         label_data
-        seller_data
     }
 
     "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {

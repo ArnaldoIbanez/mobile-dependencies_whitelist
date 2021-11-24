@@ -404,16 +404,16 @@ trackTests {
         }
 
         "/prepapp/oms/routes/delete"(platform:"/", type: TrackType.Event) {
-            sellerDataSet()
+            omsListDataSet()
         }
 
         "/prepapp/oms/routes/filter"(platform:"/", type: TrackType.Event) {
-            sellerDataSet()
+            omsListDataSet()
         }
 
         "/prepapp/oms/routes/print"(platform:"/", type: TrackType.Event) {
             eventLabelData()
-            sellerDataSet()
+            omsListDataSet()
         }
 
         "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View) {
