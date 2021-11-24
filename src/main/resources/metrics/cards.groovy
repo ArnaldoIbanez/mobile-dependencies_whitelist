@@ -129,6 +129,7 @@ metrics {
                     )
                 )
                 equals('application.business', 'mercadopago')
+            }
         }
     }
 }
