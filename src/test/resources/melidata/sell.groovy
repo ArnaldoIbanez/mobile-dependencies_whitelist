@@ -5388,7 +5388,7 @@ trackTests {
             sales_channels = ["marketplace", "mshops"]
         }
     }
-    test("SYI v4 Create GdT"){
+    test("SYI v4 create GdT"){
         "/sell/item_data/chart/create"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             domain_id = "MLA_SNEAKERS"
@@ -5402,7 +5402,7 @@ trackTests {
             sales_channels = ["marketplace", "mshops"]
         }
     }
-    test("SYI v4 Create GdT"){
+    test("SYI v4 modify GdT"){
         "/sell/item_data/chart/modify"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             domain_id = "MLA_SNEAKERS"
@@ -5416,7 +5416,7 @@ trackTests {
             sales_channels = ["marketplace", "mshops"]
         }
     }
-    test("SYI v4 Create GdT"){
+    test("SYI v4 clone GdT"){
         "/sell/item_data/chart/clone"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             domain_id = "MLA_SNEAKERS"

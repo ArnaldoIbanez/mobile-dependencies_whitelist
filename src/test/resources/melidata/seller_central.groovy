@@ -1190,48 +1190,71 @@ trackTests {
     }
   }
 
-  test("SYI v4 Create GdT"){
+  test("Seller central Create GdT"){
     "/seller_central/modify/variations/chart/create"(platform: "/web", type: TrackType.Event){
-      seller_profile = "ADVANCED"
-      domain_id = "MLA_SNEAKERS"
-      seller_segment = "professional_sellers"
-      session_id = "123-update-abc123"
-      vertical = "core"
       item_type = "default"
-      seller_reputation = "green"
-      list_mode = "LIST"
-      user_shops_status = "active"
-      sales_channels = ["marketplace", "mshops"]
+      category_id = "MLA390784"
+      domain_id = "MLA_SNEAKERS"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      category_domain = "MLA-FRAGRANCES"
+      category_path = ["MLA1234", "MLA12345"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
     }
   }
 
-  test("SYI v4 Create GdT"){
+  test("Seller central Modify GdT"){
     "/seller_central/modify/variations/chart/modify"(platform: "/web", type: TrackType.Event){
-      seller_profile = "ADVANCED"
-      domain_id = "MLA_SNEAKERS"
-      seller_segment = "professional_sellers"
-      session_id = "123-update-abc123"
-      vertical = "core"
       item_type = "default"
-      seller_reputation = "green"
-      list_mode = "LIST"
-      user_shops_status = "active"
-      sales_channels = ["marketplace", "mshops"]
+      category_id = "MLA390784"
+      domain_id = "MLA_SNEAKERS"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      category_domain = "MLA-FRAGRANCES"
+      category_path = ["MLA1234", "MLA12345"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
     }
   }
 
-  test("SYI v4 Create GdT"){
+  test("Seller central Clone GdT"){
     "/seller_central/modify/variations/chart/clone"(platform: "/web", type: TrackType.Event){
-      seller_profile = "ADVANCED"
-      domain_id = "MLA_SNEAKERS"
-      seller_segment = "professional_sellers"
-      session_id = "123-update-abc123"
-      vertical = "core"
       item_type = "default"
-      seller_reputation = "green"
-      list_mode = "LIST"
-      user_shops_status = "active"
-      sales_channels = ["marketplace", "mshops"]
+      category_id = "MLA390784"
+      domain_id = "MLA_SNEAKERS"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      category_domain = "MLA-FRAGRANCES"
+      category_path = ["MLA1234", "MLA12345"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+    }
+  }
+
+  test("Seller central GdT return"){
+    "/seller_central/modify/chart/return"(platform: "/web", type: TrackType.Event){
+      item_type = "default"
+      domain_id = "MLA_SNEAKERS"
+      action = "create"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+    }
+  }
+
+  test("Seller central GdT confirm"){
+    "/seller_central/modify/chart/confirm"(platform: "/web", type: TrackType.Event){
+      item_type = "default"
+      domain_id = "MLA_SNEAKERS"
+      action = "create"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
     }
   }
 
@@ -1241,8 +1264,6 @@ trackTests {
       category_id = "MLA390784"
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
-      category_domain = "MLA-FRAGRANCES"
-      category_path = ["MLA1234", "MLA12345"]
       seller_profile = "ADVANCED"
       seller_reputation = "5_green"
       listing_type = "gold_pro"
