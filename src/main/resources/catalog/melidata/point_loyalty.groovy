@@ -3,71 +3,87 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
-    initiative = "1299"
+    initiative = "1349"
 
-    "/point/loyalty/register/congrats"(platform:"/web", type: TrackType.View) {
-     }
+    "/point/loyalty/phone_register"(platform: "/web", type: TrackType.View) { 
+    }
+
+    "/point/loyalty/phone_register/continue_button"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/retry_phone_register"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/point/loyalty/retry_phone_register/continue_button"(platform: "/web", type: TrackType.Event) {
+    }
 
     "/point/loyalty/register/status"(platform: "/web", type: TrackType.View) {
         status(required: true, description: "Status of token user", values: ["active", "expired"])
     }
 
-    "/point/loyalty/register/failure"(platform: "/web", type: TrackType.View) {
-        error_message(required: true, type: PropertyType.String, description: "Generic error message")
+    "/point/loyalty/register/tyc"(platform: "/web", type: TrackType.Event) {
     }
 
-    "/point/loyalty/register/form_field/invalid"(platform: "/web", type: TrackType.Event) { 
+    "/point/loyalty/register/faq"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/register/privacy"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/register/submit"(platform: "/web", type: TrackType.Event) {
+    }
+    
+    "/point/loyalty/register/congrats"(platform:"/web", type: TrackType.View) {
+    }
+
+    "/point/loyalty/register/form_field/invalid"(platform: "/web", type: TrackType.Event) {     
         field_name(required: true, type: PropertyType.String, description: "Field name")
         error_message(required: true, type: PropertyType.String, description: "error message")
     }
 
-    "/point/loyalty/register/faq"(platform: "/web", type: TrackType.Event) { }
-
-    "/point/loyalty/register/tyc"(platform: "/web", type: TrackType.Event) { }
-
-    "/point/loyalty/phone_register"(platform: "/web", type: TrackType.View) { }
-    
-    "/point/loyalty/cashback/exchange"(platform: "/web", type: TrackType.View) { }
-
-    "/point/loyalty/feedback_sms"(platform: "/web", type: TrackType.View) { }
-
-    "/point/loyalty/modal"(platform: "/web", type: TrackType.Event) { 
-        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    "/point/loyalty/register/accept"(platform: "/web", type: TrackType.Event) {
     }
 
-    "/point/loyalty/cashback/tooltip"(platform: "/web", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    "/point/loyalty/register/congrats/optout"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/register/congrats/optout/cancel"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/register/congrats/optout/confirm"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/cashback/exchange"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/point/loyalty/cashback/exchange/tooltip"(platform: "/web", type: TrackType.Event) {
      }
-
-    "/point/loyalty/cashback/continue"(platform: "/web", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    
+    "/point/loyalty/cashback/exchange/modal"(platform: "/web", type: TrackType.Event) { 
     }
 
-    "/point/loyalty/cashback/apply"(platform: "/web", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    "/point/loyalty/cashback/exchange/modal/faq"(platform: "/web", type: TrackType.Event) { 
     }
 
-    "/point/loyalty/cashback/quit"(platform: "/web", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    "/point/loyalty/cashback/exchange/modal/close"(platform: "/web", type: TrackType.Event) { 
     }
 
-    "/point/loyalty/customer/change"(platform: "/web", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    "/point/loyalty/cashback/exchange/customer/quit"(platform: "/web", type: TrackType.Event) {
     }
 
-    "/point/loyalty/customer/quit"(platform: "/web", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    "/point/loyalty/cashback/exchange/continue"(platform: "/web", type: TrackType.Event) {
     }
 
-    "/point/loyalty/cashback/middle"(platform: "/web", type: TrackType.View) {
+    "/point/loyalty/cashback/exchange/continue_without_cashback"(platform: "/web", type: TrackType.Event) {
     }
 
-    "/point/loyalty/cashback/middle/continue"(platform: "/web", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    "/point/loyalty/cashback/exchange/feedback"(platform: "/web", type: TrackType.View) {
     }
 
-    "/point/loyalty/cashback/middle/reject"(platform: "/web", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    "/point/loyalty/cashback/exchange/feedback/continue"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/cashback/exchange/feedback/customer_quit"(platform: "/web", type: TrackType.Event) {
     }
 
     "/point/loyalty/config/welcome"(platform: "/web", type: TrackType.View) {
@@ -76,17 +92,42 @@ tracks {
     "/point/loyalty/config/program"(platform: "/web", type: TrackType.View) {
     }
 
+    "/point/loyalty/config/submit"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/config/program/tyc"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/config/program/modal"(platform: "/web", type: TrackType.Event) {
+    }
+
     "/point/loyalty/config/congrats"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/point/loyalty/config/congrats/go_metrics"(platform: "/web", type: TrackType.Event) {
     }
 
     "/point/loyalty/config/metrics"(platform: "/web", type: TrackType.View) {
     }
 
-     "/point/loyalty/config/program/restart"(platform: "/web", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    "/point/loyalty/config/metrics/faq"(platform: "/web", type: TrackType.Event) {
     }
 
-    "/point/loyalty/config/faq"(platform: "/web", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    "/point/loyalty/config/program/restart"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/config/metrics/edit"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/config/program/update"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/config/program/cancel"(platform: "/web", type: TrackType.Event) {
+    }
+    
+    "/point/loyalty/config/program/optout/cancel"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/point/loyalty/config/program/optout/continue"(platform: "/web", type: TrackType.Event) {
     }
 }
