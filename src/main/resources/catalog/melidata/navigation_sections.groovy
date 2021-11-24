@@ -22,8 +22,6 @@ tracks {
     // Events
     "/navigation_sections/navigation_menu/opened"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/navigation_sections/navigation_menu_ml/opened"(platform: "/mobile", type: TrackType.Event) {}
-
     "/navigation_sections/navigation_menu_mp/tap"(platform: "/mobile", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Section id tapped")
     }

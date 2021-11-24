@@ -32,8 +32,6 @@ trackTests {
         }
 
         "/navigation_sections/navigation_menu/opened" (platform: "/mobile", type: TrackType.Event) {}
-
-        "/navigation_sections/navigation_menu_ml/opened" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     defaultBusiness = "mercadopago"
