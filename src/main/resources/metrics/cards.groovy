@@ -78,7 +78,7 @@ metrics {
                     '/cards/nfc/acquisition/create_nfc_card',
                     '/cards/nfc/enrollment/instructions'),
                 and(
-                    equals('path', '/cards/nfc/enrollment/tokenization/new_card_push/success')
+                    equals('path', '/cards/nfc/enrollment/tokenization/new_card_push/success'),
                     or(
                         equals('event_data.action', 'new_card_push_received_success'),
                         equals('event_data.information', 'tokenization completed event')
