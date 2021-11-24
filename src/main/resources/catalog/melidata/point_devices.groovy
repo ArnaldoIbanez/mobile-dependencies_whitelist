@@ -49,7 +49,6 @@ tracks {
     /**
     * Reactivate chips button action
     */
-    "/point_devices/reactivate_chips"(platform: "/", isAbstract: true) {}
+    "/point_devices/reactivate_chips"(platform: "/", type: TrackType.View) {}
     "/point_devices/reactivate_chips/start"(platform: "/", type: TrackType.Event) {}
-    "/point_devices/reactivate_chips/show_button"(platform: "/", type: TrackType.Event) {}
 }
