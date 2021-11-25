@@ -1345,6 +1345,8 @@ tracks {
 
     "/seller_central/sales/detail/billing_info"(platform: "/mobile", type: TrackType.View) {}
 
+    "/seller_central/sales/detail/date_picker"(platform: "/mobile", type: TrackType.View) {}
+
     "/seller_central/sales/detail/buyer_info"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/buyer_info/action"(platform: "/mobile", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "ID of buyer info action")
