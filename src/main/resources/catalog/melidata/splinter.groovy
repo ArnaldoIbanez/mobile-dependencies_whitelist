@@ -20,6 +20,20 @@ tracks {
         deal_print_id(required: false, type: PropertyType.String, description: "Unique deal id hash")
     }
 
+    /*
+     * Splinter new definition
+     */
+    "/splinter/landing"(platform: "/",  type: TrackType.View) {
+        deal_print_id(required: false, type: PropertyType.String, description: "Unique deal id hash")
+        items_ids(required: false, type: PropertyType.ArrayList, description: "List of carousel items id")
+        context(required: false, type: PropertyType.String, description: "Landing context takeover/normal   ")
+        module(required: false, type: PropertyType.String, description: "Bussiness unit")
+        group(required: false, type: PropertyType.String, description: "Vertical")
+        content(required: false, type: PropertyType.String, description: "Tipo de landing")
+        filters(required: false, type: PropertyType.Map(filters_definition), description: "Filters applied")
+    }
+
+
     // Pageviews
     "/splinter"(platform: "/", isAbstract: true) {}
     "/splinter/landing"(platform: "/", isAbstract: true) {}
@@ -30,7 +44,6 @@ tracks {
     "/splinter/landing/mkt"(platform: "/", isAbstract: true) {}
     "/splinter/landing/mkt/vertical"(platform: "/", isAbstract: true) {}
     "/splinter/landing/cl"(platform: "/", isAbstract: true) {}
-
     "/splinter/landing/all/deals"(platform: "/",  type: TrackType.View) {
         deal_print_id(required: false, type: PropertyType.String, description: "Unique deal id hash")
     }

@@ -18,6 +18,20 @@ trackTests {
 
   }
 
+  // new definition for splinter
+  test("splinter landings - new definition") {
+      "/splinter/landing" (platform:"/web/desktop", type: TrackType.View) {
+        deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        items_ids = []
+        context = 'takeover-landing'
+        module = 'core'
+        group = 'tier1'
+        content = '/black-friday'
+        filters = { deal_id = "MLA7763" }
+      }
+
+  }
+
     // pageviews
 
   test("splinter landings - deals") {
