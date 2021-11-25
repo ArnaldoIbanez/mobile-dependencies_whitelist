@@ -48,5 +48,5 @@ tracks {
         type(required: true, type: PropertyType.String, inheritable: false, description: "The error type")
         can_retry(required: true, type: PropertyType.Boolean, inheritable: false, description: "The flag indicate if the user can retry")
     }
-    "/reseller/scanner/error/retry" (platform: "/mobile", type: TrackType.View) {}
+    "/reseller/scanner/error/retry" (platform: "/mobile", type: TrackType.Event) {}
 }

@@ -71,7 +71,7 @@ trackTests {
             can_retry = false
         }
 
-        "/reseller/scanner/error/retry" (platform: "/mobile", type: TrackType.View) {
+        "/reseller/scanner/error/retry" (platform: "/mobile", type: TrackType.Event) {
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
