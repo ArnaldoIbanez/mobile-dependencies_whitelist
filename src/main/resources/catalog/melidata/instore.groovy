@@ -281,6 +281,7 @@ tracks {
     "/instore/waiting/gas_add_card/add_card"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/gas_add_card/skip"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/gas_add_card/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/gas_add_card/add"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {}
     "/instore/waiting/gas_pump/next"(platform: "/mobile", type: TrackType.Event) {}
