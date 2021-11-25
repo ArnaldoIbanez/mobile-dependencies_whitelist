@@ -1,12 +1,11 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
 
 
 metrics {
 
-    "relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent") {
-        startWith {
-            experiment("sell/full_relist_single_item")
-        }
+    "relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent", deprecation_date:"2020/08/12") {
+        experiment("sell/full_relist_single_item")
 
         countsOn {
             condition {
@@ -19,10 +18,8 @@ metrics {
         }
     }
 
-    "relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent") {
-        startWith {
-            experiment("sell/full_relist_single_item")
-        }
+    "relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent", deprecation_date:"2020/08/12") {
+        experiment("sell/full_relist_single_item")
 
         countsOn {
             condition {
@@ -35,10 +32,8 @@ metrics {
         }
     }
 
-    "upgrade_listing"(description: "upgrade listing success for sell experiments") {
-        startWith {
-            experiment("sell/congrats_upgrade_listing_type")
-        }
+    "upgrade_listing"(description: "upgrade listing success for sell experiments", deprecation_date:"2020/08/12") {
+        experiment("sell/congrats_upgrade_listing_type")
 
         countsOn {
             condition {
@@ -47,10 +42,8 @@ metrics {
         }
     }
 
-    "seller_central/goal_achieved"(description: "Goal achieved") {
-        startWith {
-            experiment("sell/health-goals_order")
-        }
+    "seller_central/goal_achieved"(description: "Goal achieved", deprecation_date:"2020/08/12") {
+        experiment("sell/health-goals_order")
 
         countsOn {
             condition {
@@ -62,10 +55,8 @@ metrics {
         }
     }
 
-    "publish_congrats"(description: "Selling flow new item published - Does not track congrats view") {
-        startWith {
-            experiment(regex("sell/.*"))
-        }
+    "publish_congrats"(description: "Selling flow new item published - Does not track congrats view", tags:[TagType.Important]) {
+        experiment(regex("sell/.*"))
 
         countsOn {
             condition {
@@ -75,9 +66,7 @@ metrics {
     }
 
     "sell_upgrade_intention"(description: "Intention for upgrading - Selling flow") {
-        startWith {
-            experiment(regex("sell/.*"))
-        }
+        experiment(regex("sell/.*"))
 
         countsOn {
             condition {
@@ -86,10 +75,8 @@ metrics {
         }
     }
 
-    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow") {
-        startWith {
-            experiment(regex("sell/.*"))
-        }
+    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow", tags:[TagType.Important, TagType.CoreMetric]) {
+        experiment(regex("sell/.*|vis/.*|pdp/postContactSYIRedirect|sparkle/vis/.*"))
 
         countsOn {
             condition {

@@ -14,12 +14,25 @@ trackTests {
             item_id = "MLM2222222"
         }
 
+        "/quotation/details"(platform: "/") {
+            item_id = "MLM2222222"
+            source = "carousel"
+        }
+
         "/quotation/details"(platform: "/web") {
             item_id = "MLM2222222"
             seller_id = 123456789
             category_id = "MLM170531"
             vertical = "REAL_ESTATE"
             error_type = ""
+            model_id = "102B"
+            unit_id = 23544349337
+            source = "vip"
+        }
+
+        "/quotation/details"(platform: "/mobile") {
+            item_id = "MLM2222222"
+            vertical = "REAL_ESTATE"
             model_id = "102B"
             unit_id = 23544349337
         }
@@ -29,6 +42,14 @@ trackTests {
             vertical = "REAL_ESTATE"
             model_id = "102B"
             unit_id = 23544349337
+        }
+
+        "/quotation/details"(platform: "/mobile") {
+            item_id = "MLM2222222"
+            vertical = "REAL_ESTATE"
+            model_id = "102B"
+            unit_id = 23544349337
+            source = "primary"
         }
     }
 
@@ -43,13 +64,40 @@ trackTests {
             model_id = "102B"
             unit_id = 23544349337
         }
+
+        "/quotation/details/unregistered"(platform: "/web") {
+            item_id = "MLM2222222"
+            seller_id = 123456789
+            category_id = "MLM170531"
+            vertical = "REAL_ESTATE"
+            error_type = ""
+            model_id = "102B"
+            unit_id = 23544349337
+            source = "vip"
+        }
     }
 
-    test("Quotation :: Show select models tracking event") {
+    test("Quotation :: Show select models tracking event old web vip") {
 
         "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
             item_id = "MLM2222222"
             source = "primary"
+        }
+    }
+
+    test("Quotation :: Show select models tracking event new vpp") {
+
+        "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+            source = "primary"
+            seller_id = 123456789
+            buying_mode= "classified"
+            category_path= ["MLA1540","MLA122258"]
+            item_condition = "new"
+            item_seller_type = "normal"
+            item_status = "active"
+            listing_type_id = "gold_premium"
+            deal_ids = []
         }
     }
 
@@ -112,6 +160,7 @@ trackTests {
             item_id = "MLM2222222"
             model_id = "102B"
             unit_id = "54321"
+            source = "vip"
         }
 
         "/quotation/quote_intention"(platform: "/web", type: TrackType.Event) {
@@ -243,6 +292,14 @@ trackTests {
             item_id = "MLM2222222"
             model_id = "102B"
             unit_id = 54321
+        }
+    }
+
+    test("Quotation :: Click Credits Link") {
+        "/quotation/credits_intention/card"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLC12345"
+            source = "congrats_link"
+            unit_id = 98123
         }
     }
 }

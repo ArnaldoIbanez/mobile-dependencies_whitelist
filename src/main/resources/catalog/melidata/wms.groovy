@@ -137,8 +137,12 @@ tracks {
         warehouse_id(required: false, type: PropertyType.String,
                 description: "Id of the warehouse to track")
     }
-    "/wms/login_successful"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/login_successful"(platform: "/mobile/android", type: TrackType.Event) {
+        serial_number(required: true, type: PropertyType.String, description: "serial number")
+        user_nickname(required: true, type: PropertyType.String, description: "user nickname")
+    }
     "/wms/logout_successful"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/logout/inactive"(platform: "/mobile/android", type: TrackType.Event) {}
 
     "/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {}
@@ -199,10 +203,14 @@ tracks {
         putaway_id(required: false, type: PropertyType.Numeric, description: "Put away id")
         inventory_id(required: false, type: PropertyType.String, description: "inventory id")
     }
+
+    "/wms/sorter/scan_origin"(platform: "/mobile/android", type: TrackType.View) {}
+
     "/wms/receiving/device/printer/mobile/reprint"(platform: "/mobile/android", type: TrackType.Event) {
         receiving_id(required: true, type: PropertyType.Numeric, description: "Id of the receiving to track")
         volume_label(required: true, type: PropertyType.String, description: "Volume label to track")
     }
+
 
     /* Cycle count tracks */
     "/wms/cycle_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {

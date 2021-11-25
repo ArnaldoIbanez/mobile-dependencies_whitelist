@@ -4,7 +4,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1127"
+    initiative = "1362"
 
     "/user_blocker"(platform: "/", isAbstract: true) {}
 
@@ -14,6 +14,9 @@ tracks {
     }
     "/user_blocker/webview"(platform: "/", type: TrackType.View) {}
     "/user_blocker/redirect"(platform: "/", type: TrackType.View, isAbstract: true) {}
+    "/user_blocker/shield/error"(platform: "/", type: TrackType.View) {
+        verbose(required: false, type: PropertyType.String, description: "the error description")
+    }
 
     //Redirect events
     "/user_blocker/redirect/load"(platform: "/", type: TrackType.Event) {
@@ -52,6 +55,8 @@ tracks {
     //Finish events
     "/user_blocker/finish"(platform: "/", type: TrackType.Event) {
         deeplink(required: true, type: PropertyType.String, description: "the redirect deeplink")
+        dismiss_shield(required: false, type: PropertyType.String, description: "if an optional shield was dismissed")
+        duration(required: false, type: PropertyType.String, description: "the duration in which the shield will not be shown in seconds")
     }
 
     //async mode events

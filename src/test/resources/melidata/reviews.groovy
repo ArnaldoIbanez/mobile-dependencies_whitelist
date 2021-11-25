@@ -19,6 +19,12 @@ trackTests {
             item_id="MLA533657947"
         }
 
+        def seeMoreTrack = {
+            item_id="MLA834078638"
+            catalog_product_id="MLA15243603"
+            context="PDP"
+        }
+
         def dataSetCongrats = {
             item_id="MLA533657947"
             review_length=321
@@ -51,9 +57,15 @@ trackTests {
             type = "detail"
         }
 
+        def reviews_tab_track = {
+            item_id="MLA533657947"
+            catalog_product_id="MLA15243603"
+            type = "all"
+        }
+
         "/reviews/form"(platform:"/", dataSetForm)
 
-        "/reviews/edit"(platform:"/", dataSet)
+        "/reviews/edit"(platform:"/", dataSetForm)
 
         "/reviews/congrats/delete"(platform:"/", dataSet)
 
@@ -68,6 +80,9 @@ trackTests {
         "/reviews"(platform:"/email", dataSet)
 
         "/reviews/show"(platform:"/", vipTrack)
-    }
 
+        "/reviews/see_more"(platform: "/", seeMoreTrack)
+
+        "/reviews/tab"(platform: "/", reviews_tab_track)
+    }
 }

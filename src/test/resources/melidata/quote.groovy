@@ -814,6 +814,17 @@ trackTests {
             seller_id = 23423423
         }
 
+        //Create Quote Demand Event with new vip version
+        "/quote_demand/buyer/create/submit_quote_demand"(platform: "/",type: TrackType.Event) {
+            vertical = "services"
+            category_id= "MLA123214"
+            category_path = ["MLA123", "MLA123"]
+            item_id = "MLA77777"
+            buyer_id= 234234324
+            seller_id = 23423423
+            vip_version = "new"
+        }
+
         //Create Quote Demand
         "/quote_demand/buyer/create"(platform: "/",type: TrackType.View) {
             vertical = "services"
@@ -823,7 +834,7 @@ trackTests {
             seller_id = 23423423
         }
 
-        //Create Quote Demand Event
+        //Create Quote Demand Event without buyer id
         "/quote_demand/buyer/create/submit_quote_demand"(platform: "/",type: TrackType.Event) {
             vertical = "services"
             category_id= "MLA123214"

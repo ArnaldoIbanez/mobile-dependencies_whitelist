@@ -12,53 +12,205 @@ tracks {
     propertyDefinitions {
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")
-        shipment_id(required: true, type: PropertyType.Numeric,
-                description: "ID of shipment being validated for reception.")
-        display(required: true, type: PropertyType.String, values: ["browser", "standalone", "none"],
-                description: "Specifies the display mode app is running as.")
-        validation_error(required: true, type: PropertyType.String,
-                values: ["duplicated", "invalid_shipment", "not_found", "internal_error", "no_connection"],
-                description: "Specifies what kind of validation error happened.")
-        camera_error(required: true, type: PropertyType.String,
-                values: ["not_allowed", "blocked"],
-                description: "Specifies what kind of camera error happened.")
     }
 
     propertyGroups {
-        place_view(place_id, display)
-        place_shipment(place_id, shipment_id, display)
-        place_validation(place_id, shipment_id, display, validation_error)
-        place_camera(place_id, display, camera_error)
+        mandatory(place_id)
     }
+
+	// Generic
 
     "/places"(platform: "/web", isAbstract: true) {}
 
-    "/places/home"(platform: "/web", type: TrackType.View) {
-        place_view
+    "/places/operations/home"(platform: "/web", type: TrackType.View) {
+            place_id(required: false, type: PropertyType.String,
+            	description: "ID of place (agency) user operates in.")
     }
 
-    "/places/reception"(platform: "/web", type: TrackType.View) {
-        place_view
+	"/places/operations/init_validation/error/invalid_user"(platform: "/web", type: TrackType.View) {
+         place_id(required: false, type: PropertyType.String,
+            	description: "ID of place (agency) user operates in.")
     }
 
-    "/places/reception/congrats"(platform: "/web", type: TrackType.View) {
-        place_view
+	// Unified Screens
+	"/places/operations/unified/qr_scanner"(platform: "/web", type: TrackType.View) {
+        mandatory
     }
 
-    "/places/reception/list/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
-        place_shipment
+	"/places/operations/unified/helper_info_qr_scanner"(platform: "/web", type: TrackType.View) {
+        mandatory
     }
 
-    "/places/reception/manual"(platform: "/web", type: TrackType.Event) {
-        place_shipment
+	"/places/operations/unified/helper_info_manual_input"(platform: "/web", type: TrackType.View) {
+        mandatory
     }
 
-    "/places/reception/validate_shipment/error"(platform: "/web", type: TrackType.Event) {
-        place_validation
+	// Identification Views
+	"/places/operations/identification/buyer_returns"(platform: "/web", type: TrackType.View) {
+		mandatory
     }
 
-    "/places/reception/access_camera/error"(platform: "/web", type: TrackType.Event) {
-        place_camera
+	"/places/operations/identification/containers"(platform: "/web", type: TrackType.View) {
+        mandatory
     }
 
+	"/places/operations/identification/inbounds"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/identification/returns"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	// Inbounds
+	"/places/operations/inbounds/containers/qr_scanner"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/inbounds/multiple_scanner"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/inbounds/congrats"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/inbounds/containers/congrats"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/inbounds/error/containers_screen"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/inbounds/error/invalid_input_format_data"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/inbounds/error/congrats"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/inbounds/error/invalid_scan"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	// Outbounds
+	"/places/operations/outbounds/early_pickup"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/outbounds/package_identification"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/outbounds/package_qr_scanner"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/outbounds/package_delivery_to_buyer"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/outbounds/package_delivery_issue_buyer_report"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/outbounds/package_issue_report"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/outbounds/package_delivery_congrats"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/outbounds/reports_package_rejected_reason"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/outbounds/error/status"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/outbounds/error/package_scan_validation"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/outbounds/error/reports_package_problem"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/outbounds/error/invalid_qr_driver"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	// Returns
+	"/places/operations/returns/qr_scanner"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/returns/qr_driver_scanner"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/returns/scan_qr_driver_instruction"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/returns/delivery_congrats"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/returns/error/invalid_package_for_return"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	// Buyer Returns
+	"/places/operations/buyer_returns/content_qr_scan"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/buyer_returns/error/content_scan_validation"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+	"/places/operations/buyer_returns/error/invalid_phrase"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+    "/places/operations/buyer_returns/error/label_qr_scanned_first"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+    "/places/operations/buyer_returns/error/label_duplicated_validation"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+    "/places/operations/buyer_returns/error/label_qr_scan_validation"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+    "/places/operations/buyer_returns/label_printed_issue"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+    "/places/operations/buyer_returns/label_scan"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+    "/places/operations/buyer_returns/label_printed_verification"(platform: "/web", type: TrackType.View) {
+        mandatory
+    }
+
+    "/places/operations/buyer_returns/reception_congrats"(platform: "/web", type: TrackType.View) {
+    	mandatory
+    }
+
+	// Events
+    "/places/operations/geolocation_error"(platform: "/web", type: TrackType.Event) {
+        geolocation_error_message(required: true, type: PropertyType.String,
+                description: "Specifies the error occurred when trying to get geolocation.")
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
 }

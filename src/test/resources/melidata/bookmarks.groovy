@@ -77,10 +77,17 @@ trackTests {
             context = "/search"
         }
 
-        "/bookmarks/show_ZRP" (type: TrackType.Event) {
+        "/bookmarks/show_zrp" (type: TrackType.Event) {
             item_id = "MLA533657947"
             context = "/search"
         }
+
+        "/bookmarks/change_page" (type: TrackType.Event) {
+            page = 1
+            context = "/myml"
+        }
+
+        "/bookmarks/widget/see_all" (type: TrackType.Event) {}
 
     }
 }

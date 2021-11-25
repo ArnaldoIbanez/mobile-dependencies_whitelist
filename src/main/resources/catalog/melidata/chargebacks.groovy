@@ -10,7 +10,15 @@ tracks {
     initiative = "1100"
 
     "/chargebacks"(platform: "/", isAbstract: true) {}
-    "/chargebacks/payer"(platform: "/", isAbstract: true) {}
+    "/chargebacks/payer"(platform: "/", isAbstract: true) {
+        category_id(required: false, type: PropertyType.String, description: "Category id")
+        item_id(required: false, type: PropertyType.String, description: "Item id")
+        case_id(required: true, type: PropertyType.String, description: "CBK case id")
+        payment_id(required: true, type: PropertyType.String, description: "Payment id")
+        user_disabled(required: false, type: PropertyType.Boolean, description: "is user disabled")
+        payer_id(required: true, type: PropertyType.Numeric, description: "Payer id")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Item's category tree")
+    }
 
     "/chargebacks/payer/list"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
 
@@ -167,5 +175,38 @@ tracks {
         user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
         repayment_status(required: false, type: PropertyType.String, description: "Repayment status")
         category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
+    }
+
+    "/chargebacks/payer/close_operation_detail"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/chargebacks/payer/back_action_operation_detail"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/chargebacks/payer/select_remedy/chargeback_detail"(platform: "/", type: TrackType.View) {
+    }
+
+    "/chargebacks/payer/select_remedy/chargeback_management"(platform: "/", type: TrackType.View) {
+    }
+
+    "/chargebacks/payer/action_chargeback_detail"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/chargebacks/payer/close_action_onboarding"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/chargebacks/payer/close_onboarding"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/chargebacks/payer/show_onboarding"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/chargebacks/payer/show_detail_modal"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/chargebacks/payer/explain_chargeback_management"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/chargebacks/payer/recognize_chargeback_management"(platform: "/", type: TrackType.Event) {
     }
 }
