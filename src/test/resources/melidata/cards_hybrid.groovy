@@ -4188,6 +4188,13 @@ trackTests {
             are_payment_keys_avaliable = false
         }
     }
+
+    // NFC Button Mini Card
+    test("show button nfc in mini card") {
+        "/cards/cardwidget/show/nfcbutton"(platform: "/mobile", type: TrackType.Event) {
+            time_in_seconds = 18500
+        }
+    }
     
     // NFC status
     test ("cards hybrid nfc feature nfc status") {

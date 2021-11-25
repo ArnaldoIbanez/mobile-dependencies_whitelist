@@ -3258,7 +3258,17 @@ tracks {
             required: true,
             type: PropertyType.Boolean,
         )
+    }  
+
+    // NFC Button Mini Card
+    "/cards/cardwidget/show/nfcbutton"(platform: "/mobile", type: TrackType.Event) {
+        time_in_seconds (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Delay to show nfc button"
+        )
     }
+
     
     // NFC-PRODUCT-METRICS
     // -------------------
