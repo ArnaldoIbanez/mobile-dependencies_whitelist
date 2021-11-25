@@ -761,6 +761,8 @@ tracks {
 
     "/insurtech/protections/detail/cards/full_coverage"(platform:"/", type: TrackType.Event) {}
 
+    "/insurtech/protections/detail/cards/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {}
+
     "/insurtech/protections/detail/begin_claim"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
     }
