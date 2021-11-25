@@ -272,6 +272,7 @@ catalog {
         include business, "qr_journey.groovy"
         include business, "fees_installments.groovy"
         include business, "point_devices.groovy"
+        include business, "point_stores.groovy"
         include business, "proximity_marketplace.groovy"
         include business, "proximity_order_manager.groovy"
         include business, "my_business_challenges.groovy"
