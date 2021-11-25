@@ -26,6 +26,9 @@ tracks {
     "/dynamic_feature/started"(platform: "/mobile", type: TrackType.Event) {}
     "/dynamic_feature/launched"(platform: "/mobile", type: TrackType.Event) {}
     "/dynamic_feature/dispatched"(platform: "/mobile", type: TrackType.Event) {}
-    "/dynamic_feature/installed"(platform: "/mobile", type: TrackType.Event) {}
+    "/dynamic_feature/installed"(platform: "/mobile", type: TrackType.Event) {
+        flow_time( required: false, description: "flow time", type: PropertyType.Numeric)
+        download_time( required: false, description: "download time for module", type: PropertyType.Numeric)
+    }
 
 }
