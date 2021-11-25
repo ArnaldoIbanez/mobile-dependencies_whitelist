@@ -740,7 +740,7 @@ trackTests {
             product_type = "proximity"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            marketplace_state = "normal"
+            marketplace_state = "update_app_shield"
             marketplace_filters = [
                     "sushi"
             ]
