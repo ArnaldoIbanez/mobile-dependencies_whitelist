@@ -501,7 +501,6 @@ tracks {
     "/seller_central/seller_coach/recommendation/dismiss"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/bookmark"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/unbookmark"(platform: "/", type: TrackType.Event) {}
-    "/seller_central/seller_coach/recommendation/apply"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendations/display"(platform: "/", type: TrackType.View) {
         cards(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachCard)), description: "Cards viewed")
     }
@@ -515,6 +514,28 @@ tracks {
         page(required: true, type: PropertyType.Numeric, description: "Target page scrolled")
         scroll_type(required: true, type: PropertyType.String, values: ['prev', 'next'], description: "Direction of the scroll")
     }
+    "/seller_central/seller_coach/module"(platform: "/", isAbstract: true) {
+        card(required: false, type: PropertyType.Map(sellerCoachCard), description: "Card displayed when the module was actioned")
+    }
+    "/seller_central/seller_coach/module/open"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/module/close"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/coachmark/display"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/coachmark/action"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/accompaniment"(platform: "/", isAbstract: true) {
+        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card displayed")
+        previous_page(required: true, type: PropertyType.String, description: "Frontend the user came from")
+    }
+    "/seller_central/seller_coach/accompaniment/display"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/accompaniment/action"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/accompaniment/apply"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/congrats"(platform: "/", isAbstract: true) {
+        previous_page(required: true, type: PropertyType.String, description: "Frontend the user came from")
+        last_recommendation(required: true, type: PropertyType.Boolean, description: "Whether it's the last recommendation of the set for that user")
+    }
+    "/seller_central/seller_coach/congrats/display"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/congrats/action"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/empty_state/display"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/empty_state/action"(platform: "/", type: TrackType.Event) {}
 
 
     //LISTING SECTION
