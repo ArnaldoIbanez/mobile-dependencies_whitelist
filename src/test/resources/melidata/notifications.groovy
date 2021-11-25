@@ -2585,6 +2585,12 @@ trackTests {
             latest_news_type= "single_player_recharge_success_mp"
             latest_news_id= "single_player_recharge_success_mp-143816022-MLB1013046714"
         }
+        "/notification_center/single_player_self_service_schedule_new_debt"(platform: "/") {
+            latest_news_type= "single_player_self_service_schedule_new_debt"
+            latest_news_id= "single_player_self_service_schedule_new_debt-143816022-MLB1013046714"
+            debt_id=1234
+            seller_name="Hendel"
+        }
 
         "/notification_center/shipping_moderation_cross_docking_release_below"(platform: "/mobile"){
             latest_news_type= "shipping_moderation_cross_docking_release_below"
@@ -7422,6 +7428,12 @@ trackTests {
             news_id = "single_player_payment_reminder_expiring_grouped_debt_123"
             event_type = "open"
             debt_id=123
+        }
+        "/notification/single_player_self_service_schedule_new_debt"(platform: "/mobile") {
+            news_id = "single_player-self_service_schedule_new_debt-315571651-123456789"
+            event_type = "open"
+            debt_id=123
+            seller_name="Hendel"
         }
 
         "/notification/orders_new"(platform: "/mobile") {
