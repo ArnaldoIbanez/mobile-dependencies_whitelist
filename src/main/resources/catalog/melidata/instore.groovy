@@ -945,7 +945,7 @@ tracks {
     // Store Hub
     "/store_hub"(platform: "/", isAbstract: true) {}
 
-    "/store_hub/status"(platform: "/", type: TrackType.Event) {
+    "/store_hub/status"(platform: "/", type: TrackType.View) {
         from(required: true, type: PropertyType.String, description: "Source of the hub load", values: ['notification', 'kyc', 'stores', 'none'])
         seller_status(required: true, type: PropertyType.String, description: "Activity status of the seller", values: ['active', 'inactive'])
         visible_stores(required: true, type: PropertyType.Numeric, description: "Amount of visible stores")
