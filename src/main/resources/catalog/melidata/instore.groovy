@@ -927,6 +927,7 @@ tracks {
     //Onboarding
     "/instore/onboarding"(platform: "/mobile", isAbstract: true) {
         current_step(required: true, PropertyType.String, description: "a string used to know the identifier of current step", values: ['scan_qr','buyer_qr'])
+        back_steps(required: true, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the identifier of back steps")
         next_steps(required: true, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the identifier of next steps")
     }
 
