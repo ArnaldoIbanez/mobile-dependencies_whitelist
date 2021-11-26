@@ -196,6 +196,7 @@ catalog {
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
+        include business, "vis_supply.groovy"
     }
 
     mercadopago.each { business ->
@@ -366,6 +367,7 @@ catalog {
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
         include business, "collaborators.groovy"
+        include business, "vis_supply.groovy"
     }
 
 }
