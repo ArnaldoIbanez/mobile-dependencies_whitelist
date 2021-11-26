@@ -3629,6 +3629,11 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/melichat_message_ml"(platform: "/mobile"){
+            case_id= 12345678
+            event_type = "sent"
+        }
+
         "/notification/instore_discover_activities"(platform: "/mobile"){
             news_id = "instore-discover_activities-321953606"
             event_type = "sent"
@@ -14060,6 +14065,11 @@ trackTests {
 
         "/notification/compliance_support_validations"(platform: "/mobile") {
             event_type = "shown"
+        }
+
+        "/notification/melichat_message_mp"(platform: "/mobile"){
+            case_id= 12345678
+            event_type = "sent"
         }
 
         "/notification/fraud_cash_release_iv"(platform: "/mobile") {
