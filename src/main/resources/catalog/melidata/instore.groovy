@@ -186,6 +186,11 @@ tracks {
     "/instore/error/invalid_user_seller_uif/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/invalid_user_seller_uif/abort"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/error/identification_number"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/identification_number/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/identification_number/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/identification_number/retry"(platform: "/mobile", type: TrackType.Event) {}
+
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
@@ -276,6 +281,7 @@ tracks {
     "/instore/waiting/gas_add_card/add_card"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/gas_add_card/skip"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/gas_add_card/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/gas_add_card/add"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {}
     "/instore/waiting/gas_pump/next"(platform: "/mobile", type: TrackType.Event) {}
