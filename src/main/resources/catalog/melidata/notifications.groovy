@@ -2044,6 +2044,12 @@ tracks {
     "/notification/single_player_scheduled_payment_pixtransfer_grouped_reminder"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_pixtransfer_solo_reminder"(platform: "/mobile") {}
 
+    //Single player - Self-Service
+    "/notification/single_player_self_service_schedule_new_debt"(platform: "/mobile") {
+        debt_id(required: true, type: PropertyType.Numeric, description: "Corresponds to the id of the debt payer that is showing")
+        seller_name(required: true, type: PropertyType.String, description: "Corresponds to the name of the seller that is showing")
+    }
+
     //Shipping
     "/notification/shipping_moderation_cross_docking_release_below"(platform: "/") {}
     "/notification/shipping_moderation_cross_docking_recovery"(platform: "/") {}
