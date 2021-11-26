@@ -6949,7 +6949,7 @@ test("seller central catalog optin v2 item plus card show") {
   }
 
   test("seller central catalog optin v2 MASSIVE product_problem") {
-      "/seller_central/catalog/optin_v2/massive/product_problem/confrim"(platform: "/web", type: TrackType.Event) {
+      "/seller_central/catalog/optin_v2/massive/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
         moderated = true
         item_id = "MLA835425554"
         domain_id = "MLA-CELLPHONES"
