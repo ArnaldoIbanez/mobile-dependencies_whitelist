@@ -12,7 +12,7 @@ trackTests {
     }
 
     test("Point loyalty phone register continue button") {
-        "/point/loyalty/phone_register/continue_button"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/phone_register/continue"(platform: "/web", type: TrackType.Event) {
         }
     }
 
@@ -22,7 +22,7 @@ trackTests {
     }
 
     test("Point loyalty retry phone register continue button") {
-        "/point/loyalty/retry_phone_register/continue_button"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/retry_phone_register/continue"(platform: "/web", type: TrackType.Event) {
         }
     }
 
@@ -64,14 +64,14 @@ trackTests {
     }
 
     test("Point loyalty form field invalid") {
-        "/point/loyalty/register/form_field/invalid"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/register/invalid"(platform: "/web", type: TrackType.Event) {
              field_name= "email"
              error_message= "is required"
         }
     }
 
     test("Point loyalty register accept terms form") {
-        "/point/loyalty/register/accept"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/register/accept_terms"(platform: "/web", type: TrackType.Event) {
         }
     }
 
@@ -95,24 +95,24 @@ trackTests {
         }
     }
     
-    test("Point loyalty tooltip component in cashback exchange view") {   
-        "/point/loyalty/cashback/exchange/tooltip"(platform: "/web", type: TrackType.Event) {
+    test("Point loyalty tooltip component with information about reward in cashback exchange view") {   
+        "/point/loyalty/cashback/exchange/reward_information"(platform: "/web", type: TrackType.Event) {
         }
     }
 
-    test("Point loyalty modal component in cashback exchange view") {   
-        "/point/loyalty/cashback/exchange/modal"(platform: "/web", type: TrackType.Event) {
+    test("Point loyalty modal component with details about reward in cashback exchange view") {   
+        "/point/loyalty/cashback/exchange/reward_detail"(platform: "/web", type: TrackType.Event) {
         }
     }
 
     test("Point loyalty faq link in modal component into cashback exchange view") {   
-        "/point/loyalty/cashback/exchange/modal/faq"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/cashback/exchange/reward_detail/faq"(platform: "/web", type: TrackType.Event) {
         }
     }
 
 
     test("Point loyalty close button in modal component into cashback exchange view") {   
-        "/point/loyalty/cashback/exchange/modal/close"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/cashback/exchange/reward_detail/close"(platform: "/web", type: TrackType.Event) {
         }
     }
 

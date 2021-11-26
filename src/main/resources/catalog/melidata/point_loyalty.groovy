@@ -8,13 +8,13 @@ tracks {
     "/point/loyalty/phone_register"(platform: "/web", type: TrackType.View) { 
     }
 
-    "/point/loyalty/phone_register/continue_button"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/phone_register/continue"(platform: "/web", type: TrackType.Event) {
     }
 
     "/point/loyalty/retry_phone_register"(platform: "/web", type: TrackType.View) {
     }
 
-    "/point/loyalty/retry_phone_register/continue_button"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/retry_phone_register/continue"(platform: "/web", type: TrackType.Event) {
     }
 
     "/point/loyalty/register/status"(platform: "/web", type: TrackType.View) {
@@ -36,12 +36,12 @@ tracks {
     "/point/loyalty/register/congrats"(platform:"/web", type: TrackType.View) {
     }
 
-    "/point/loyalty/register/form_field/invalid"(platform: "/web", type: TrackType.Event) {     
+    "/point/loyalty/register/invalid"(platform: "/web", type: TrackType.Event) {     
         field_name(required: true, type: PropertyType.String, description: "Field name")
         error_message(required: true, type: PropertyType.String, description: "error message")
     }
 
-    "/point/loyalty/register/accept"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/register/accept_terms"(platform: "/web", type: TrackType.Event) {
     }
 
     "/point/loyalty/register/congrats/optout"(platform: "/web", type: TrackType.Event) {
@@ -56,16 +56,16 @@ tracks {
     "/point/loyalty/cashback/exchange"(platform: "/web", type: TrackType.View) {
     }
 
-    "/point/loyalty/cashback/exchange/tooltip"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/cashback/exchange/reward_information"(platform: "/web", type: TrackType.Event) {
      }
     
-    "/point/loyalty/cashback/exchange/modal"(platform: "/web", type: TrackType.Event) { 
+    "/point/loyalty/cashback/exchange/reward_detail"(platform: "/web", type: TrackType.Event) { 
     }
 
-    "/point/loyalty/cashback/exchange/modal/faq"(platform: "/web", type: TrackType.Event) { 
+    "/point/loyalty/cashback/exchange/reward_detail/faq"(platform: "/web", type: TrackType.Event) { 
     }
 
-    "/point/loyalty/cashback/exchange/modal/close"(platform: "/web", type: TrackType.Event) { 
+    "/point/loyalty/cashback/exchange/reward_detail/close"(platform: "/web", type: TrackType.Event) { 
     }
 
     "/point/loyalty/cashback/exchange/customer/quit"(platform: "/web", type: TrackType.Event) {
