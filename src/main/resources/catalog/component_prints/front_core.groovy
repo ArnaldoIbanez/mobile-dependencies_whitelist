@@ -140,7 +140,7 @@ tracks {
     }
 
     "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-        banking_v2-balance(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_balance_item_definition), description: "The balance information")
+        //banking_v2-balance(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_balance_item_definition), description: "The balance information")
         //banking_v2-actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_action_item_definition), description: "The balance information")
         //banking_v2-cards(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_cards_item_definition), description: "The cardsinformation")
         shortcuts(required: false, type: PropertyType.ArrayList(PropertyType.Map(shortcuts_item_definition)), description: "Shortcuts")
