@@ -6926,6 +6926,50 @@ test("seller central catalog optin v2 item plus card show") {
           ]
      }
   }
+
+  test("seller central catalog optin v2 MASSIVE product_problem") {
+      "/seller_central/catalog/optin_v2/massive/product_problem"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        original_catalog_product_id = "MLA15149561"
+        variations_list_id = [
+              91658971456,
+              91658971451,
+              91658971460,
+              91658971464,
+              91658971468,
+              91658971472,
+              91658971476,
+              91658971480,
+              91658971486
+          ]
+     }
+  }
+
+  test("seller central catalog optin v2 MASSIVE product_problem") {
+      "/seller_central/catalog/optin_v2/massive/product_problem/confrim"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        original_catalog_product_id = "MLA15149561"
+        variations_list_id = [
+              91658971456,
+              91658971451,
+              91658971460,
+              91658971464,
+              91658971468,
+              91658971472,
+              91658971476,
+              91658971480,
+              91658971486
+          ]
+        wrong_type = "WRONG_SIZE_CHART"
+     }
+  }
+
   /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   |                                             END OPTIN V2                                                    |
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
