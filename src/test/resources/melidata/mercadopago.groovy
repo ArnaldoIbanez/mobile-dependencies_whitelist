@@ -832,6 +832,12 @@ trackTests {
         "/merchant_acquisition/flows/point_reverse/info"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/point_reverse/address"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/point_reverse/success"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/chip/reactivation"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/shipping/details"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/repair/screening/details"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/devolution/screening"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/devolution/info"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/repair/info"(platform:"/", type: TrackType.View) {}
     }
 
     test("MP-MA Flow QR") {
