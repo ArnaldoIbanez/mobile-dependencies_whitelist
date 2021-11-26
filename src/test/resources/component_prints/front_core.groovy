@@ -41,7 +41,9 @@ trackTests {
                             from: "section",
                             user_profile: "newbie",
                             enabled: true,
-                            has_aware: false
+                            logic: "business",
+                            has_aware: false,
+                            has_ripple: false
                     ]
             ]
         }
