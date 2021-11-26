@@ -15,7 +15,7 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-    /*test("Mercadopago Home print banking balance") {
+    test("Mercadopago Home print banking balance") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             banking_v2-balance = [
                     [
@@ -26,7 +26,7 @@ trackTests {
                     ]
             ]
         }
-    }*/
+    }
 
     /*test("Mercadopago Home print shortcuts") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
@@ -53,7 +53,7 @@ trackTests {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             discount_center = [
                     [
-                            "component_idd": "discount_center_container"
+                            component_idd: "discount_center_container"
                     ]
             ]
         }
