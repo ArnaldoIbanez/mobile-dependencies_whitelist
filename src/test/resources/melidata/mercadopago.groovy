@@ -2303,10 +2303,10 @@ trackTests {
         }
 
         // Generic Erros
-        "/bill_payments/generic_error/retry"(platform: "/mobile") {
+        "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
-        "/bill_payments/connection_error/retry"(platform: "/mobile") {
+        "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
