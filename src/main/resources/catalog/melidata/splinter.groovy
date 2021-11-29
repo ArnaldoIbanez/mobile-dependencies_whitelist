@@ -9,7 +9,7 @@ tracks {
     initiative = "1202"
     defaultBusiness = "mercadolibre"
     def filters_definition = objectSchemaDefinitions {
-        deal_id(type: PropertyType.String, required: false)
+        deal_id(type: PropertyType.String, required: false, description: "Unique deal id")
     }
 
     //Landings Deals - retrocompatibility
