@@ -98,7 +98,7 @@ tracks {
     "/point/loyalty/config/program/tyc"(platform: "/web", type: TrackType.Event) {
     }
 
-    "/point/loyalty/config/program/modal"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/config/program/more_information"(platform: "/web", type: TrackType.Event) {
     }
 
     "/point/loyalty/config/congrats"(platform: "/web", type: TrackType.View) {

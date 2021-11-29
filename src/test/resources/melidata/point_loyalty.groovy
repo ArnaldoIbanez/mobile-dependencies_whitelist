@@ -170,7 +170,7 @@ trackTests {
     }
     
     test("Point loyalty config program click open modal") {   
-        "/point/loyalty/config/program/modal"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/config/program/more_information"(platform: "/web", type: TrackType.Event) {
         }
     }
 
