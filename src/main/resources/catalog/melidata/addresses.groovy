@@ -116,4 +116,16 @@ tracks {
     "/addresses/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
         start_loading(required: true, type: PropertyType.String, description: "The datetime when the map started loading")
     }
+
+    /* HUB addresses
+        List of tracks associated with the address list used by multiple streams
+    */
+    "/addresses/hub_address/action_message_review"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "Message displayed in the warning")
+    }
+    "/addresses/hub_address/action_use_tag"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, values: ["default_selling_address","shipping"], description: "Tag used and selected by the user")
+    }
+    "/addresses/hub_address/action_use_delete"(platform:"/", type: TrackType.Event) {}
+    "/addresses/hub_address/action_modify_address"(platform:"/", type: TrackType.Event) {}
 }

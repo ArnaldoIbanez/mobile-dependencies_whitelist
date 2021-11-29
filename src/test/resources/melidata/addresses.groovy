@@ -180,6 +180,19 @@ trackTests {
          }
     }
 
+    test("Addresses - Hub Action and Message warning") {
+        "/addresses/hub_address/action_message_review"(platform:"/", type: TrackType.Event){
+            label = "Faltan datos en su domicilio"
+            context = "MY_ML"
+        }
+        "/addresses/hub_address/action_use_tag"(platform:"/", type: TrackType.Event){
+            label = "default_selling_address"
+            context = "MY_ML"
+        }
+        "/addresses/hub_address/action_use_delete"(platform: "/", type: TrackType.Event) { }
+        "/addresses/hub_address/action_modify_address"(platform: "/", type: TrackType.Event) { }
+    }
+
     defaultBusiness = "mercadopago"
 
     test("Addresses - Test the views") {
@@ -352,5 +365,18 @@ trackTests {
         "/addresses/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
             start_loading = "2021-02-24 12:12:12"
          }
+    }
+
+    test("Addresses - Hub Action and Message warning") {
+        "/addresses/hub_address/action_message_review"(platform:"/", type: TrackType.Event){
+            label = "Faltan datos en su domicilio"
+            context = "MY_ML"
+        }
+        "/addresses/hub_address/action_use_tag"(platform:"/", type: TrackType.Event){
+            label = "default_selling_address"
+            context = "MY_ML"
+        }
+        "/addresses/hub_address/action_use_delete"(platform: "/", type: TrackType.Event) { }
+        "/addresses/hub_address/action_modify_address"(platform: "/", type: TrackType.Event) { }
     }
 }
