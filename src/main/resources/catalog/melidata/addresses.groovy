@@ -120,12 +120,15 @@ tracks {
     /* HUB addresses
         List of tracks associated with the address list used by multiple streams
     */
-    "/addresses/hub_address/action_message_review"(platform:"/", type: TrackType.Event) {
+
+    "/addresses/hub_address/address"(platform: "/", isAbstract: true) {}
+
+    "/addresses/hub_address/address/message_review"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "Message displayed in the warning")
     }
-    "/addresses/hub_address/action_use_tag"(platform:"/", type: TrackType.Event) {
+    "/addresses/hub_address/address/use"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, values: ["default_selling_address","shipping"], description: "Tag used and selected by the user")
     }
-    "/addresses/hub_address/action_use_delete"(platform:"/", type: TrackType.Event) {}
-    "/addresses/hub_address/action_modify_address"(platform:"/", type: TrackType.Event) {}
+    "/addresses/hub_address/address/delete"(platform:"/", type: TrackType.Event) {}
+    "/addresses/hub_address/address/modify"(platform:"/", type: TrackType.Event) {}
 }
