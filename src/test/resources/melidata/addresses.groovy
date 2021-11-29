@@ -181,16 +181,16 @@ trackTests {
     }
 
     test("Addresses - Hub Action and Message warning") {
-        "/addresses/hub_address/action_message_review"(platform:"/", type: TrackType.Event){
+        "/addresses/hub_address/address/message_review"(platform:"/", type: TrackType.Event){
             label = "Faltan datos en su domicilio"
             context = "MY_ML"
         }
-        "/addresses/hub_address/action_use_tag"(platform:"/", type: TrackType.Event){
+        "/addresses/hub_address/address/use"(platform:"/", type: TrackType.Event){
             label = "default_selling_address"
             context = "MY_ML"
         }
-        "/addresses/hub_address/action_use_delete"(platform: "/", type: TrackType.Event) { }
-        "/addresses/hub_address/action_modify_address"(platform: "/", type: TrackType.Event) { }
+        "/addresses/hub_address/address/delete"(platform: "/", type: TrackType.Event) { }
+        "/addresses/hub_address/address/modify"(platform: "/", type: TrackType.Event) { }
     }
 
     defaultBusiness = "mercadopago"
