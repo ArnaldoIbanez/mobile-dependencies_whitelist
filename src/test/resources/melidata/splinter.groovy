@@ -15,6 +15,9 @@ trackTests {
       "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
 
   }
@@ -23,12 +26,15 @@ trackTests {
   test("splinter landings - new definition") {
       "/splinter/landing" (platform:"/web/desktop", type: TrackType.View) {
         deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
-        context = 'normal-landing'
+        context = 'takeover-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         items_ids = []
         context = 'takeover-landing'
-        module = 'core'
-        group = 'tier1'
-        content = '/black-friday'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         filters = { deal_id = "MLA7763" }
       }
 
@@ -40,6 +46,9 @@ trackTests {
     "/splinter/landing/all/deals" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -47,6 +56,9 @@ trackTests {
       "/splinter/landing/all/tier1" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -54,6 +66,9 @@ trackTests {
       "/splinter/landing/all/video" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -61,6 +76,9 @@ trackTests {
       "/splinter/landing/all/discovery" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -68,6 +86,9 @@ trackTests {
       "/splinter/landing/all/communicationals" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -75,6 +96,9 @@ trackTests {
       "/splinter/landing/all/sparkle" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -82,6 +106,9 @@ trackTests {
       "/splinter/landing/all/promotions" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -89,6 +116,9 @@ trackTests {
       "/splinter/landing/all/vertical/moda" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -96,6 +126,9 @@ trackTests {
       "/splinter/landing/all/vertical/belleza" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -103,6 +136,9 @@ trackTests {
         "/splinter/landing/all/vertical/beleza" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -110,6 +146,9 @@ trackTests {
       "/splinter/landing/all/vertical/juguetes" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -117,6 +156,9 @@ trackTests {
         "/splinter/landing/all/vertical/juguetes" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -124,6 +166,9 @@ trackTests {
       "/splinter/landing/all/vertical/deportes" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -131,6 +176,9 @@ trackTests {
         "/splinter/landing/all/vertical/esportes" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -138,6 +186,9 @@ trackTests {
       "/splinter/landing/all/vertical/electronica" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -145,6 +196,9 @@ trackTests {
         "/splinter/landing/all/vertical/eletronico" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -152,6 +206,9 @@ trackTests {
       "/splinter/landing/all/vertical/hogar" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -159,6 +216,9 @@ trackTests {
         "/splinter/landing/all/vertical/casa" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -166,6 +226,9 @@ trackTests {
       "/splinter/landing/all/vertical/servicios" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
           context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
       }
   }
 
@@ -173,6 +236,9 @@ trackTests {
         "/splinter/landing/all/vertical/servicos" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -180,6 +246,9 @@ trackTests {
         "/splinter/landing/mkt/deals" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -187,6 +256,9 @@ trackTests {
         "/splinter/landing/mkt/tier1" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -194,6 +266,9 @@ trackTests {
         "/splinter/landing/mkt/video" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -201,6 +276,9 @@ trackTests {
         "/splinter/landing/mkt/discovery" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -208,6 +286,9 @@ trackTests {
         "/splinter/landing/mkt/communicationals" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -215,6 +296,9 @@ trackTests {
         "/splinter/landing/mkt/sparkle" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -222,6 +306,9 @@ trackTests {
         "/splinter/landing/mkt/promotions" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -229,6 +316,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/moda" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -236,6 +326,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/belleza" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -243,6 +336,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/beleza" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -250,6 +346,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/juguetes" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -257,6 +356,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/juguetes" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -264,6 +366,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/deportes" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -271,6 +376,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/esportes" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -278,6 +386,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/electronica" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -285,6 +396,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/eletronico" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -292,6 +406,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/hogar" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -299,6 +416,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/casa" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -306,6 +426,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/servicios" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -313,6 +436,9 @@ trackTests {
         "/splinter/landing/mkt/vertical/servicos" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -320,6 +446,9 @@ trackTests {
         "/splinter/landing/adv/producto" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -327,6 +456,9 @@ trackTests {
         "/splinter/landing/adv/produto" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -334,6 +466,9 @@ trackTests {
         "/splinter/landing/adv/especiales" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -341,6 +476,9 @@ trackTests {
         "/splinter/landing/adv/especial" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -348,6 +486,9 @@ trackTests {
         "/splinter/landing/adv/store" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -355,6 +496,9 @@ trackTests {
         "/splinter/landing/adv/deals" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
@@ -362,6 +506,9 @@ trackTests {
         "/splinter/landing/cl/portal_inmobiliario" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
             context = 'normal-landing'
+            module = 'core'
+            group = 'tier1'
+            content = '/black-friday'
         }
     }
 
