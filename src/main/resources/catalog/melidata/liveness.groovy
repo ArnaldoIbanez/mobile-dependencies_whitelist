@@ -74,7 +74,7 @@ tracks {
                 "redirect",
                 "activate_camera"
         ], description: "Type of actions")
-        extra_data(type: PropertyType.String, required: false, description: "Extra data")
+        ran(type: PropertyType.String, required: false, description: "Extra data")
     }
 
     "/liveness/permissions/ask"(platform: "/mobile", type: TrackType.Event) {}
