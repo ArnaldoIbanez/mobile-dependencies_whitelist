@@ -51,7 +51,7 @@ trackTests {
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
 
-        "/reseller/congrats" (platform: "/mobile", type: TrackType.Event) {
+        "/reseller/congrats" (platform: "/mobile", type: TrackType.View) {
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
             status = "rejected"
         }

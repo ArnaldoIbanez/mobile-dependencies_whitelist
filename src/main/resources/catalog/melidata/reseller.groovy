@@ -35,8 +35,8 @@ tracks {
     "/reseller/scanner/camera_permission/configuration" (platform: "/mobile", type: TrackType.Event) {}
 
     //Congrats
-    "/reseller/congrats" (platform: "/mobile", type: TrackType.Event) {
-        status(required: true, type: PropertyType.String, inheritable: false, description: "The status of transaction")
+    "/reseller/congrats" (platform: "/mobile", type: TrackType.View) {
+        status(required: true, type: PropertyType.String, values: ["success", "pending", "rejected", "warning"], inheritable: false, description: "The status of transaction")
     }
     "/reseller/congrats/close" (platform: "/mobile", type: TrackType.Event) {}
     "/reseller/congrats/continue" (platform: "/mobile", type: TrackType.Event) {
