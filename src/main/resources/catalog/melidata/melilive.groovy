@@ -29,7 +29,7 @@ tracks {
     def exit_stream_info_definition = objectSchemaDefinitions {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
         title(required: true, type: PropertyType.String, description: "Broadcast title")
-        status(required: true, type: PropertyType.String, values: ["SCHEDULED", "LIVE", "ENDED"], description: "Current status of the broadcast")
+        status(required: true, type: PropertyType.String, values: ["SCHEDULED", "LIVE", "ENDED", "RECORDED"], description: "Current status of the broadcast")
         time_elapsed(required: false, type: PropertyType.Numeric, description: "Time viewer was watching the stream")
         viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
     }
@@ -37,7 +37,7 @@ tracks {
     def group_stream_info_definition = objectSchemaDefinitions {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
         title(required: true, type: PropertyType.String, description: "Broadcast title")
-        status(required: true, type: PropertyType.String, values: ["LIVE", "ENDED"], description: "Current status of the broadcast")
+        status(required: true, type: PropertyType.String, values: ["LIVE", "ENDED", "RECORDED"], description: "Current status of the broadcast")
         viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
     }
 
@@ -45,7 +45,7 @@ tracks {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
         title(required: true, type: PropertyType.String, description: "Broadcast title")
         url(required: true, type: PropertyType.String, description: "Shared URL")
-        status(required: true, type: PropertyType.String, values: ["SCHEDULED","LIVE", "ENDED"], description: "Current status of the broadcast")
+        status(required: true, type: PropertyType.String, values: ["SCHEDULED","LIVE", "ENDED", "RECORDED"], description: "Current status of the broadcast")
         viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
     }
 
