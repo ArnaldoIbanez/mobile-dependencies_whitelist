@@ -420,7 +420,7 @@ tracks {
     "/splinter/landing"(platform: "/", isAbstract: true) {}
     "/splinter/landing"(platform: "/",  type: TrackType.View) {
         deal_print_id(required: true, type: PropertyType.String, description: "Unique deal id hash")
-        items_ids(required: false, type: PropertyType.ArrayList, description: "List of carousel items id")
+        items_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of carousel items id")
         context(required: true, type: PropertyType.String, description: "Landing context takeover/normal   ")
         module(required: true, type: PropertyType.String, description: "Bussiness unit")
         group(required: true, type: PropertyType.String, description: "Vertical")
