@@ -943,9 +943,9 @@ tracks {
     "/instore/onboarding/buyer_qr/back"(platform: "/mobile", type: TrackType.Event) {}
 
     // Store Hub
-    "/store_hub"(platform: "/", isAbstract: true) {}
+    "/stores/store_hub"(platform: "/", isAbstract: true, initiative: '1322') {}
 
-    "/store_hub/status"(platform: "/", type: TrackType.View) {
+    "/stores/store_hub/status"(platform: "/", type: TrackType.View) {
         from(required: true, type: PropertyType.String, description: "Source of the hub load", values: ['notification', 'kyc', 'stores', 'none'])
         seller_status(required: true, type: PropertyType.String, description: "Activity status of the seller", values: ['active', 'inactive'])
         visible_stores(required: true, type: PropertyType.Numeric, description: "Amount of visible stores")
@@ -953,21 +953,21 @@ tracks {
         pending_stores(required: true, type: PropertyType.Numeric, description: "Amount of pending stores")
     }
 
-    "/store_hub/actions"(platform: "/", isAbstract: true) {}
+    "/stores/store_hub/actions"(platform: "/", isAbstract: true) {}
 
-    "/store_hub/actions/seller_data"(platform: "/", type: TrackType.Event) {
+    "/stores/store_hub/actions/seller_data"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Visible type of seller upon clicking the seller-data action", values: ['with_problem', 'with_pending', 'organic'])
     }
 
-    "/store_hub/actions/store_address"(platform: "/", type: TrackType.Event) {
+    "/stores/store_hub/actions/store_address"(platform: "/", type: TrackType.Event) {
         store_id(required: true, type: PropertyType.Numeric, description: "Store ID of the store with the wrong address")
     }
 
-    "/store_hub/actions/view_map"(platform: "/", type: TrackType.Event) {
+    "/stores/store_hub/actions/view_map"(platform: "/", type: TrackType.Event) {
         store_id(required: true, type: PropertyType.Numeric, description: "Store ID of the viewed store")
     }
 
-    "/store_hub/actions/result"(platform: "/", type: TrackType.Event) {
+    "/stores/store_hub/actions/result"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Source type of the action", values: ['seller', 'store'])
         result(required: true, type: PropertyType.String, description: "Result of the action", values: ['success', 'back', 'failure'])
         store_id(required: false, type: PropertyType.Numeric, description: "Store ID (for store results only)")
