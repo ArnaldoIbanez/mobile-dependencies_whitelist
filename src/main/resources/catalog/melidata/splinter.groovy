@@ -14,12 +14,12 @@ tracks {
     }
 
     propertyDefinitions {
-        deal_print_id(required: false, type: PropertyType.String, description: "Unique deal id hash", inheritable:false)
+        deal_print_id(required: false, type: PropertyType.String, description: "Unique deal id hash")
         items_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of carousel items id")
         filters(required: false, type: PropertyType.Map(filters_definition), description: "Filters applied")
-        category(required: false, type: PropertyType.String, description: "Landing category", values: ["landings"])
-        action(required: false, type: PropertyType.String, description: "Name of the campaign")
-        label(required: false, type: PropertyType.String, description: "Component related info")
+        category(required: true, type: PropertyType.String, description: "Landing category", values: ["landings"])
+        action(required: true, type: PropertyType.String, description: "Name of the campaign")
+        label(required: true, type: PropertyType.String, description: "Component related info")
         context(required: true, type: PropertyType.String, description: "Landing context takeover/normal")
         module(required: true, type: PropertyType.String, description: "Bussiness unit")
         group(required: true, type: PropertyType.String, description: "Vertical")
@@ -27,7 +27,8 @@ tracks {
     }
 
     propertyGroups {
-        all_landings(deal_print_id, items_ids, filters, category, action, label, context, module, group, content)
+        splinter_views(deal_print_id, items_ids, filters, context, module, group, content)
+        splinter_events(filters, category, action, label, module, group, content)
     }
 
 
@@ -35,6 +36,13 @@ tracks {
      * Splinter pageViews new definition
      */
     "/splinter/landing"(platform: "/") {
-        all_landings
+        splinter_views
+    }
+
+    /*
+     * Splinter events new definition
+     */
+    "/splinter/landing/event"(platform: "/", type: TrackType.Event) {
+        splinter_events
     }
 }

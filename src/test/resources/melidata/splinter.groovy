@@ -22,7 +22,7 @@ trackTests {
 
   // events
   test("splinter landings - event") {
-    "/splinter/landing"(platform: "/",  type: TrackType.Event) {
+    "/splinter/landing/event"(platform: "/",  type: TrackType.Event) {
         category = "landings"
         action = "test-landings"
         label = "button_4_ver_mas"
