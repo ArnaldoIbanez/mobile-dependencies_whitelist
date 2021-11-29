@@ -2475,6 +2475,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/menu/to_subscription_detail"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Invoices subscription
         "/bill_payments/invoices/subscription"(platform: "/mobile", type: TrackType.Event) {
             mandatory()

@@ -87,6 +87,7 @@ tracks {
     "/bill_payments/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/menu/notification_preference"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/menu/to_subscription_detail"(platform: "/mobile", type: TrackType.Event) {}
 
     //Invoices subscription
     "/bill_payments/invoices/subscription"(platform: "/mobile", type: TrackType.Event) {
