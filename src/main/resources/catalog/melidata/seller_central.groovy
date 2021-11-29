@@ -2241,14 +2241,14 @@ tracks {
 
     "/seller_central/catalog/optin_v2/massive/congrats/success"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroupV2Massive
-        products_qty(required: false, description: "Quantity products to publish", type: PropertyType.Numeric)
-        invalidates_qty(required: false, description: "Quantity products to invalidate", type: PropertyType.Numeric)
+        products_qty(required: true, description: "Quantity products to publish", type: PropertyType.Numeric)
+        invalidates_qty(required: true, description: "Quantity products to invalidate", type: PropertyType.Numeric)
     }
 
     "/seller_central/catalog/optin_v2/massive/congrats/warning"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroupV2Massive
         products_qty(required: false, description: "Quantity products to publish", type: PropertyType.Numeric)
-        invalidates_qty(required: false, description: "Quantity products to invalidate", type: PropertyType.Numeric)
+        invalidates_qty(required: true, description: "Quantity products to invalidate", type: PropertyType.Numeric)
         reason(required: true, description: "Reason of warning congrats", type: PropertyType.String,  values: ["REQUIRE_ATTR_NOT_COMPLETE", "INACTIVE_PRODUCT", "CATALOG_NOT_REQUIRED", "PRODUCT_HAS_ERRORS_SUGGESTED", "WRONG_V0_PRODUCT", "PRODUCT_HAS_ERRORS", "IS_A_KIT", "INVALIDATE"])
     }
 
