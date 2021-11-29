@@ -17,7 +17,7 @@ tracks {
     "/point/loyalty/retry_phone_register/continue"(platform: "/web", type: TrackType.Event) {
     }
 
-    "/point/loyalty/register/status"(platform: "/web", type: TrackType.View) {
+    "/point/loyalty/register/link"(platform: "/web", type: TrackType.View) {
         status(required: true, description: "Status of token user", values: ["active", "expired"])
     }
 
