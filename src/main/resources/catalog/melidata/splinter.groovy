@@ -419,12 +419,12 @@ tracks {
      */
     "/splinter/landing"(platform: "/", isAbstract: true) {}
     "/splinter/landing"(platform: "/",  type: TrackType.View) {
-        deal_print_id(required: false, type: PropertyType.String, description: "Unique deal id hash")
+        deal_print_id(required: true, type: PropertyType.String, description: "Unique deal id hash")
         items_ids(required: false, type: PropertyType.ArrayList, description: "List of carousel items id")
-        context(required: false, type: PropertyType.String, description: "Landing context takeover/normal   ")
-        module(required: false, type: PropertyType.String, description: "Bussiness unit")
-        group(required: false, type: PropertyType.String, description: "Vertical")
-        content(required: false, type: PropertyType.String, description: "Tipo de landing")
+        context(required: true, type: PropertyType.String, description: "Landing context takeover/normal   ")
+        module(required: true, type: PropertyType.String, description: "Bussiness unit")
+        group(required: true, type: PropertyType.String, description: "Vertical")
+        content(required: true, type: PropertyType.String, description: "Tipo de landing")
         filters(required: false, type: PropertyType.Map(filters_definition), description: "Filters applied")
     }
 }
