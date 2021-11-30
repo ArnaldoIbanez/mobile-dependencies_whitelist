@@ -41,6 +41,19 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home print Assets") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            banking_v2_assets = [
+                    [
+                            component_id: "assets",
+                            content_id: "assets1",
+                            investment_counter: 1,
+                            optin_process: "precess"
+                    ]
+            ]
+        }
+    }
+
     test("Mercadopago Home print BankingCards") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             banking_v2_cards = [
@@ -49,6 +62,30 @@ trackTests {
                             prepaid: true,
                             component_id: "cards",
                             debit: true
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home print BankingMPCard") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            banking_v2_mpcard = [
+                    [
+                            pill: "novo",
+                            has_card: true,
+                            component_id: "mpcard",
+                            nfc_status: true
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home print BankingOpenBankingAccounts") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            banking_v2_open_banking_accounts = [
+                    [
+                            quantity: 2,
+                            component_id: "cards"
                     ]
             ]
         }
@@ -191,4 +228,53 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home print Survey") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            survey = [
+                    [
+                            component_id: "survey1"
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home print Subscription") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            subscription = [
+                    [
+                            component_id: "subscription1"
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home print BuyLevelSubscription") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            buy_level_subscription = [
+                    [
+                            component_id: "buy_level_subscription1"
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home print RepentanceButton") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            repentance_button = [
+                    [
+                            component_id: "repentance_button1"
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home print BcraRegulation") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            bcra_regulation = [
+                    [
+                            component_id: "bcra_regulation1"
+                    ]
+            ]
+        }
+    }
 }

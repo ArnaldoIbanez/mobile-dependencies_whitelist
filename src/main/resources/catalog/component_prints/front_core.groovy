@@ -29,11 +29,30 @@ tracks {
         enabled(type: PropertyType.Boolean, required: true, description: "Enabled")
     }
 
+    def banking_assets_item_definition = objectSchemaDefinitions {
+        content_id(type: PropertyType.String, required: true, description: "Quantity")
+        investment_counter(type: PropertyType.Numeric, required: false, description: "Investment counter")
+        component_id(type: PropertyType.String, required: true, description: "Component id")
+        optin_process(type: PropertyType.String, required: false, description: "Debit")
+    }
+
     def banking_cards_item_definition = objectSchemaDefinitions {
         quantity(type: PropertyType.Numeric, required: true, description: "Quantity")
         prepaid(type: PropertyType.Boolean, required: true, description: "Prepaid")
-        component_id(type: PropertyType.String, required: true, description: "Action id")
+        component_id(type: PropertyType.String, required: true, description: "Component id")
         debit(type: PropertyType.Boolean, required: true, description: "Debit")
+    }
+
+    def banking_mpcard_item_definition = objectSchemaDefinitions {
+        pill(type: PropertyType.String, required: false, description: "Quantity")
+        has_card(type: PropertyType.Boolean, required: true, description: "Prepaid")
+        component_id(type: PropertyType.String, required: false, description: "Component id")
+        nfc_status(type: PropertyType.Map, required: false, description: "Debit")
+    }
+
+    def banking_open_banking_accounts_item_definition = objectSchemaDefinitions {
+        quantity(type: PropertyType.Numeric, required: true, description: "Quantity")
+        component_id(type: PropertyType.String, required: true, description: "Component id")
     }
 
     def shortcuts_item_definition = objectSchemaDefinitions {
@@ -142,7 +161,10 @@ tracks {
     "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
         banking_v2_balance(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_balance_item_definition)), description: "The balance information")
         banking_v2_actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_action_item_definition)), description: "The balance information")
-        banking_v2_cards(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_cards_item_definition)), description: "The cardsinformation")
+        banking_v2_assets(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_assets_item_definition)), description: "The assets information")
+        banking_v2_cards(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_cards_item_definition)), description: "The cards information")
+        banking_v2_mpcard(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_mpcard_item_definition)), description: "The MP card information")
+        banking_v2_open_banking_accounts(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_open_banking_accounts_item_definition)), description: "The open banking accounts information")
         shortcuts(required: false, type: PropertyType.ArrayList(PropertyType.Map(shortcuts_item_definition)), description: "Shortcuts")
         discount_center(required: false, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "Discount center")
         pendings(required: false, type: PropertyType.ArrayList(PropertyType.Map(pendings_item_definition)), description: "Pendings")
