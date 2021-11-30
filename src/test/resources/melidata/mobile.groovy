@@ -104,6 +104,22 @@ trackTests {
         }
     }
 
+    test("Short URL Request: Error") {
+        "/navigation/short_url"(platform:"/mobile/ios") {
+            is_success = false
+            tidy_id = "2WQoXPS"
+            error_code = "400"
+        }
+    }
+
+    test("Short URL Request: Success") {
+        "/navigation/short_url"(platform:"/mobile/ios") {
+            is_success = true
+            tidy_id = "2WQoZHP"
+            error_code = ""
+        }
+    }
+
     test("Mobile Navigation Tabs"){
         "/navigation/tabs"(platform: "/mobile/ios", type: TrackType.Event) {
             action = "TAB_SELECTED"
