@@ -61,7 +61,7 @@ trackTests {
         }
 
         "/reseller/congrats/continue" (platform: "/mobile", type: TrackType.Event) {
-            action_id = "go_to_root"
+            action_id = "home"
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
 

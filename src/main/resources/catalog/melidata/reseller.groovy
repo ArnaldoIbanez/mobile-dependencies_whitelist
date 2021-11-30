@@ -19,7 +19,7 @@ tracks {
         seller_id(required: true, type: PropertyType.String, inheritable: false, description: "The seller id")
         store_id(required: true, type: PropertyType.String, inheritable: false, description: "The store  id")
         campaign_zone_id(required: true, type: PropertyType.String, inheritable: false, description: "The campaign zone id")
-        show_store_in_map(required: true, type: PropertyType.String, inheritable: false, description: "The flag indicates if store is shown on map")
+        show_store_in_map(required: true, type: PropertyType.String, values: ["true", "false"], inheritable: false, description: "The flag indicates if store is shown on map")
     }
     "/reseller/scanner/back" (platform: "/mobile", type: TrackType.Event) {}
     "/reseller/scanner/torch" (platform: "/mobile", type: TrackType.Event) {
@@ -40,12 +40,12 @@ tracks {
     }
     "/reseller/congrats/close" (platform: "/mobile", type: TrackType.Event) {}
     "/reseller/congrats/continue" (platform: "/mobile", type: TrackType.Event) {
-        action_id(required: true, type: PropertyType.String, inheritable: false, description: "The action that the user did in the congrats view")
+        action_id(required: true, type: PropertyType.String, values: ["home", "scanner"], inheritable: false, description: "The action that the user did in the congrats view")
     }
 
     //Error
     "/reseller/scanner/error" (platform: "/mobile", type: TrackType.View) {
-        type(required: true, type: PropertyType.String, inheritable: false, description: "The error type")
+        type(required: true, type: PropertyType.String, values: ["invalid_params", "service_error"], inheritable: false, description: "The error type")
         can_retry(required: true, type: PropertyType.Boolean, inheritable: false, description: "The flag indicate if the user can retry")
     }
     "/reseller/scanner/error/retry" (platform: "/mobile", type: TrackType.Event) {}
