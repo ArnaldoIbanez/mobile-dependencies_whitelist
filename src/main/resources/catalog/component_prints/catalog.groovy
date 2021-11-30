@@ -27,9 +27,6 @@ catalog {
 
     all.each { business ->
         include business, "tracking.groovy"
-    }
-
-    mercadopago.each { business ->
         include business, "front_core.groovy"
     }
 }

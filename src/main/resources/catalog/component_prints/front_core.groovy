@@ -15,6 +15,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = '1074'
+
     def banking_balance_item_definition = objectSchemaDefinitions {
         component_id(required: true, type: PropertyType.String, description: "Balance id")
         balance_histogram(required: true, type: PropertyType.Numeric, description: "Balance histogram")
@@ -158,14 +160,25 @@ tracks {
         component_id(type: PropertyType.String, required: true, description: "Buy level subscription id")
     }
 
-    "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-        banking_v2_balance(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_balance_item_definition)), description: "The balance information")
-        banking_v2_actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_action_item_definition)), description: "The balance information")
-        banking_v2_assets(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_assets_item_definition)), description: "The assets information")
-        banking_v2_cards(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_cards_item_definition)), description: "The cards information")
-        banking_v2_mpcard(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_mpcard_item_definition)), description: "The MP card information")
-        banking_v2_open_banking_accounts(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_open_banking_accounts_item_definition)), description: "The open banking accounts information")
+    def metadata_user_item_definition = objectSchemaDefinitions {
+        is_minor(type: PropertyType.Boolean, required: false, description: "Minor")
+        type(type: PropertyType.String, required: true, description: "User type")
+    }
+
+    def ifpe_regulation_item_definition = objectSchemaDefinitions {
+        is_minor(type: PropertyType.Boolean, required: false, description: "Minor")
+    }
+
+    "/wallet_home/print" (platform: "/", type: TrackType.View) {
+        "banking_v2-balance"(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_balance_item_definition)), description: "The balance information")
+        "banking_v2-actions"(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_action_item_definition)), description: "The balance information")
+        "banking_v2-assets"(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_assets_item_definition)), description: "The assets information")
+        "banking_v2-cards"(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_cards_item_definition)), description: "The cards information")
+        "banking_v2-mpcard"(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_mpcard_item_definition)), description: "The MP card information")
+        "banking_v2-open_banking_accounts"(required: false, type: PropertyType.ArrayList(PropertyType.Map(banking_open_banking_accounts_item_definition)), description: "The open banking accounts information")
         shortcuts(required: false, type: PropertyType.ArrayList(PropertyType.Map(shortcuts_item_definition)), description: "Shortcuts")
+        metadata_user(required: false, type: PropertyType.ArrayList(PropertyType.Map(metadata_user_item_definition)), description: "User type")
+        ifpe_regulation(required: false, type: PropertyType.ArrayList(PropertyType.Map(ifpe_regulation_item_definition)), description: "IFPE regulation")
         discount_center(required: false, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "Discount center")
         pendings(required: false, type: PropertyType.ArrayList(PropertyType.Map(pendings_item_definition)), description: "Pendings")
         loyalty(required: false, type: PropertyType.ArrayList(PropertyType.Map(loyalty_item_definition)), description: "Loyalty")
