@@ -317,7 +317,7 @@ trackTests {
 
         "/liveness/action"(platform: "/mobile/android") {
             type = "start_liveness"
-            ran = "extra"
+            info = "info"
         }
 
         "/liveness/action"(platform: "/mobile/android") {
@@ -399,7 +399,7 @@ trackTests {
 
         "/liveness/action"(platform: "/mobile/ios") {
             type = "start_liveness"
-            ran = "extra"
+            info = "extra"
         }
 
         "/liveness/action"(platform: "/mobile/ios") {
