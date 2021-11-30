@@ -17,7 +17,7 @@ trackTests {
 
     test("Mercadopago Home print BankingBalance") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            banking_v2_balance = [
+            "banking_v2-balance" = [
                     [
                             component_id: "balance",
                             balance_histogram: 6.0,
@@ -30,7 +30,7 @@ trackTests {
 
     test("Mercadopago Home print BankingActions") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            banking_v2_actions = [
+            "banking_v2-actions" = [
                     [
                             component_id: "actions",
                             content_id: "action1",
@@ -43,7 +43,7 @@ trackTests {
 
     test("Mercadopago Home print Assets") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            banking_v2_assets = [
+            "banking_v2-assets" = [
                     [
                             component_id: "assets",
                             content_id: "assets1",
@@ -56,7 +56,7 @@ trackTests {
 
     test("Mercadopago Home print BankingCards") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            banking_v2_cards = [
+            "banking_v2-cards" = [
                     [
                             quantity: 2,
                             prepaid: true,
@@ -69,7 +69,7 @@ trackTests {
 
     test("Mercadopago Home print BankingMPCard") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            banking_v2_mpcard = [
+            "banking_v2-mpcard" = [
                     [
                             pill: "novo",
                             has_card: true,
@@ -82,7 +82,7 @@ trackTests {
 
     test("Mercadopago Home print BankingOpenBankingAccounts") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            banking_v2_open_banking_accounts = [
+            "banking_v2-open_banking_accounts" = [
                     [
                             quantity: 2,
                             component_id: "cards"
