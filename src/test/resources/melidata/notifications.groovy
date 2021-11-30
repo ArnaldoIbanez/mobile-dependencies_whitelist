@@ -3385,6 +3385,10 @@ trackTests {
             news_id = "credits_consumer_chatbot_payment_promise_info_v2-21680059-20180516"
             event_type = "shown"
         }
+        "/notification/credits_consumer_chatbot_general_trouble"(platform: "/") {
+            news_id = "credits_consumer_chatbot_general_trouble-21680059-20180516"
+            event_type = "shown"
+        }
 
         
         "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/mobile") {
