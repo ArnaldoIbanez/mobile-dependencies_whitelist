@@ -379,6 +379,18 @@ tracks {
         mshopsGroup
     }
 
+    "/mercado_shops/marketing/phone_verification"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
+    "/mercado_shops/marketing/phone_verification/first_step"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
+    "/mercado_shops/marketing/phone_verification/second_step"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
     "/mercado_shops/marketing/instagram-shopping"(platform: "/", type: TrackType.View){
         mshopsGroup
     }
@@ -701,4 +713,6 @@ tracks {
 
     "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){}
     "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/discounts/create/boleto"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/discounts/create/traditional"(platform: "/", type: TrackType.View){}
 }
