@@ -12,6 +12,8 @@ trackTests {
         "/combos/print"(platform: "/") {
         }
 
+        "/combos"(platform: "/") {
+        }
 
         "/combos/add_to_cart"(platform: "/") {
             backend_id= "machinalis-vip-combos"
