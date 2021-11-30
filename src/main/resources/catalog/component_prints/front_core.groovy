@@ -94,7 +94,7 @@ tracks {
 
     def activities_item_definition = objectSchemaDefinitions {
         component_id(required: true, type: PropertyType.String, description: "Component id")
-        contains_rta(required: true, type: PropertyType.Boolean, description: "Contains RTA")
+        contains_rta(required: false, type: PropertyType.Boolean, description: "Contains RTA")
     }
 
     def repentance_button_item_definition = objectSchemaDefinitions {
@@ -149,13 +149,13 @@ tracks {
         loyalty(required: false, type: PropertyType.ArrayList(PropertyType.Map(loyalty_item_definition)), description: "Loyalty")
         cross_selling(required: false, type: PropertyType.ArrayList(PropertyType.Map(cross_selling_item_definition)), description: "Cross selling")
         benefits(required: false, type: PropertyType.ArrayList(PropertyType.Map(benefits_item_definition)), description: "Benefits")
-        prepaid_banner(required: false, type: PropertyType.Map(prepaid_banner_item_definition), description: "Prepaid banner")
-        credits(required: false, type: PropertyType.Map(credits_item_definition), description: "Credits")
-        activities(required: false, type: PropertyType.Map(activities_item_definition), description: "Activities")
-        survey(required: false, type: PropertyType.Map(survey_item_definition), description: "Survey")
-        subscription(required: false, type: PropertyType.Map(subscription_item_definition), description: "Subscription")
-        buy_level_subscription(required: false, type: PropertyType.Map(buy_level_subscription_item_definition), description: "Buy level subscription")
-        repentance_button(required: false, type: PropertyType.Map(repentance_button_item_definition), description: "Repentance button")
-        bcra_regulation(required: false, type: PropertyType.Map(bcra_regulation_item_definition), description: "BCRA regulation")
+        prepaid_banner(required: false, type: PropertyType.ArrayList(PropertyType.Map(prepaid_banner_item_definition)), description: "Prepaid banner")
+        credits(required: false, type: PropertyType.ArrayList(PropertyType.Map(credits_item_definition)), description: "Credits")
+        activities(required: false, type: PropertyType.ArrayList(PropertyType.Map(activities_item_definition)), description: "Activities")
+        survey(required: false, type: PropertyType.ArrayList(PropertyType.Map(survey_item_definition)), description: "Survey")
+        subscription(required: false, type: PropertyType.ArrayList(PropertyType.Map(subscription_item_definition)), description: "Subscription")
+        buy_level_subscription(required: false, type: PropertyType.ArrayList(PropertyType.Map(buy_level_subscription_item_definition)), description: "Buy level subscription")
+        repentance_button(required: false, type: PropertyType.ArrayList(PropertyType.Map(repentance_button_item_definition)), description: "Repentance button")
+        bcra_regulation(required: false, type: PropertyType.ArrayList(PropertyType.Map(bcra_regulation_item_definition)), description: "BCRA regulation")
     }
 }

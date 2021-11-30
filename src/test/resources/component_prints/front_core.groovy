@@ -15,7 +15,7 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-    test("Mercadopago Home print banking balance") {
+    test("Mercadopago Home print BankingBalance") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             banking_v2_balance = [
                     [
@@ -28,7 +28,7 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home print banking balance") {
+    test("Mercadopago Home print BankingActions") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             banking_v2_actions = [
                     [
@@ -41,7 +41,7 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home print banking balance") {
+    test("Mercadopago Home print BankingCards") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             banking_v2_cards = [
                     [
@@ -54,7 +54,7 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home print shortcuts") {
+    test("Mercadopago Home print Shortcuts") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             shortcuts = [
                     [
@@ -75,7 +75,7 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home print discount_center") {
+    test("Mercadopago Home print DiscountCenter") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             discount_center = [
                     [
@@ -85,7 +85,7 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home print pendings") {
+    test("Mercadopago Home print Pendings") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             pendings = [
                     [
@@ -104,19 +104,19 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home print loyalty") {
+    test("Mercadopago Home print Loyalty") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             loyalty = [
                     [
-                            component_id: "discount_center_container"
-                            level: 2
+                            component_id: "discount_center_container",
+                            level: 2,
                             percentage: 10
                     ]
             ]
         }
     }
 
-    test("Mercadopago Home print cross selling") {
+    test("Mercadopago Home print CrossSelling") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             cross_selling = [
                     [
@@ -134,7 +134,7 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home print benefits") {
+    test("Mercadopago Home print Benefits") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             benefits = [
                     [
@@ -152,9 +152,9 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home print prepaid banner") {
+    test("Mercadopago Home print PrepaidBanner") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            prepaid_banner1 = [
+            prepaid_banner = [
                     [
                             component_id: "banner1",
                             audience: "audience1",
@@ -169,4 +169,26 @@ trackTests {
             ]
         }
     }
+
+    test("Mercadopago Home print Credits") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            credits = [
+                    [
+                            component_id: "banner1"
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home print Activities") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            activities = [
+                    [
+                            component_id: "banner1",
+                            contains_rta: false
+                    ]
+            ]
+        }
+    }
+
 }
