@@ -172,7 +172,7 @@ tracks {
 
     // MP Mobile Point Catalog
 
-    "/catalog"(platform: "/mobile", type: TrackType.View, initiative: "1029") {}
+    "/catalog"(platform: "/mobile", type: TrackType.View, initiative: "1296") {}
     "/catalog/create_product"(platform: "/mobile", type: TrackType.View) {}
     "/catalog/create_product/picture"(platform: "/mobile", type: TrackType.View) {}
     "/catalog/discount"(platform: "/mobile", type: TrackType.View) {}

@@ -100,6 +100,7 @@ catalog {
         include business, "bulk_edit.groovy"
         include business, "pdf_viewer.groovy"
         include business, "fraud_challenges.groovy"
+        include business, "device_health.groovy"
     }
 
     mercadolibre.each { business ->
@@ -196,6 +197,7 @@ catalog {
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
+        include business, "vis_supply.groovy"
     }
 
     mercadopago.each { business ->
@@ -272,6 +274,7 @@ catalog {
         include business, "qr_journey.groovy"
         include business, "fees_installments.groovy"
         include business, "point_devices.groovy"
+        include business, "point_stores.groovy"
         include business, "proximity_marketplace.groovy"
         include business, "proximity_order_manager.groovy"
         include business, "my_business_challenges.groovy"
@@ -365,6 +368,7 @@ catalog {
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
         include business, "collaborators.groovy"
+        include business, "vis_supply.groovy"
     }
 
 }

@@ -281,6 +281,9 @@ trackTests {
         "/banking/activities/row"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
+        "/banking/activities/action"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
         "/banking/debts/action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
