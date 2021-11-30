@@ -9,8 +9,6 @@ trackTests {
 
     test("Combos :: Show congrats details tracking RE") {
 
-    "/combos"(platform: "/") {}
-
     "/combos/print"(platform: "/") {
           backend_id= "machinalis-vip-combos"
           client = "vip-combos"
@@ -50,7 +48,7 @@ trackTests {
           quantity = 1
           experiments: null
     }
-    
+
     }
     
 }
