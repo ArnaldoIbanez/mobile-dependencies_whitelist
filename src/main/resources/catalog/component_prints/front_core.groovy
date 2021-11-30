@@ -166,7 +166,7 @@ tracks {
     }
 
     def ifpe_regulation_item_definition = objectSchemaDefinitions {
-        is_minor(type: PropertyType.Boolean, required: false, description: "Minor")
+        component_id(type: PropertyType.String, required: true, description: "Regulation id")
     }
 
     "/wallet_home/print" (platform: "/", type: TrackType.View) {
