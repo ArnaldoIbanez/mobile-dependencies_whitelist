@@ -275,10 +275,6 @@ trackTests {
             id = "id--fury"
             dismiss_type = "decline_button"
         }
-        "/auth/account_recovery/landing/dismiss"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            dismiss_type = "back_browser"
-        }
         "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
             id = "id--fury"
             dismiss_type = "decline_button"
@@ -302,10 +298,6 @@ trackTests {
         }
         "/auth/account_recovery/confirm/cancel"(platform: "/", type: TrackType.Event) {
             id = "id--fury"
-        }
-        "/auth/account_recovery/confirm/back"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            back_type = "back_browser"
         }
         "/auth/account_recovery/confirm/back"(platform: "/mobile", type: TrackType.Event) {
             id = "id--fury"

@@ -275,7 +275,7 @@ tracks {
     "/auth/account_recovery/landing/start"(platform: "/", type: TrackType.Event) {}
 
     "/auth/account_recovery/landing/dismiss"(platform: "/", type: TrackType.Event) {
-        dismiss_type(type: PropertyType.String, required: true, values: ["back_button", "back_native", "back_browser", "decline_button"], description: "Action user triggers to dismiss Recovery flow")
+        dismiss_type(type: PropertyType.String, required: true, values: ["back_button", "back_native", "decline_button"], description: "Action user triggers to dismiss Recovery flow")
     }
 
     "/auth/account_recovery/on_hold/go_home"(platform: "/", type: TrackType.Event) {}
@@ -287,7 +287,7 @@ tracks {
     "/auth/account_recovery/confirm/cancel"(platform: "/", type: TrackType.Event) {}
 
     "/auth/account_recovery/confirm/back"(platform: "/", type: TrackType.Event) {
-        back_type(type: PropertyType.String, required: true, values: ["back_button", "back_native", "back_browser"], description: "Action user triggers to go back to previous step")
+        back_type(type: PropertyType.String, required: true, values: ["back_button", "back_native"], description: "Action user triggers to go back to previous step")
     }
 
     "/auth/account_recovery/congrats/go_home"(platform: "/", type: TrackType.Event) {}
