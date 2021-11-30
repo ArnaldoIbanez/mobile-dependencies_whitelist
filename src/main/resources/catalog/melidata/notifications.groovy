@@ -2227,6 +2227,23 @@ tracks {
     "/notification/moneyin_cca_approved"(platform: "/") {}
     "/notification/moneyin_cca_rejected"(platform: "/") {}
 
+    // Money In Open Finance
+    "/notification_center/moneyin_open_finance_approved"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/moneyin_open_finance_in_process"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/moneyin_open_finance_rejected"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification/moneyin_open_finance_approved"(platform: "/") {}
+    "/notification/moneyin_open_finance_in_process"(platform: "/") {}
+    "/notification/moneyin_open_finance_rejected"(platform: "/") {}
+
     // Cards virtual
     "/notification/card_first_use_incentive_virtual_first_day_am"(platform: "/mobile") {}
     "/notification/card_first_use_incentive_virtual_first_day_no_am"(platform: "/mobile") {}

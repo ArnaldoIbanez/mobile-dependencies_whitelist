@@ -10426,6 +10426,19 @@ trackTests {
             latest_news_id= "moneyin_cca-rejected-12345678"
         }
 
+        "/notification_center/moneyin_open_finance_approved"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_approved"
+            latest_news_id= "moneyin_open_finance-approved-12345678"
+        }
+        "/notification_center/moneyin_open_finance_in_process"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_rejected"
+            latest_news_id= "moneyin_open_finance-rejected-12345678"
+        }
+        "/notification_center/moneyin_open_finance_rejected"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_rejected"
+            latest_news_id= "moneyin_open_finance-rejected-12345678"
+        }
+
         "/notification_center/disbursement_kwai_received"(platform: "/") {
             latest_news_type= "disbursement_kwai_received"
             latest_news_id= "disbursement_kwai-received-12345678"
@@ -15296,6 +15309,19 @@ trackTests {
         
         "/notification/moneyin_cca_rejected"(platform: "/") {
             news_id = "moneyin_cca-rejected-12345678"
+            event_type = "open"
+        }
+
+        "/notification/moneyin_open_finance_approved"(platform: "/") {
+            news_id = "moneyin_open_finance-approved-12345678"
+            event_type = "open"
+        }
+        "/notification/moneyin_open_finance_in_process"(platform: "/") {
+            news_id = "moneyin_open_finance-in_process-12345678"
+            event_type = "open"
+        }
+        "/notification/moneyin_open_finance_rejected"(platform: "/") {
+            news_id = "moneyin_open_finance-rejected-12345678"
             event_type = "open"
         }
     }
