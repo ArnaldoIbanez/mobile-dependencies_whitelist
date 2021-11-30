@@ -15298,6 +15298,10 @@ trackTests {
             news_id = "moneyin_cca-rejected-12345678"
             event_type = "open"
         }
+
+        "/notification/open_finance_consent_recovery"(platform: "/mobile") {
+            event_type = "open"
+        }
     }
 
     defaultBusiness = "mercadolibre"
