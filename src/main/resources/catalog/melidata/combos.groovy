@@ -14,7 +14,7 @@ tracks {
     initiative = "1024"
 
 
-    def combos_info = objectSchemaDefinitions {
+    propertyDefinitions {
         backend_id(required: true, type: PropertyType.String, description: "Unique string that identifies the backend used to create the recommendation")
         client(required: true, type: PropertyType.String, description: "Unique string that identifies the spot")
         track_info(required: false, type: PropertyType.Map)
@@ -26,21 +26,25 @@ tracks {
         experiments(required: false, type: PropertyType.ArrayList, description: "Experiment Info")
     }
 
+    propertyGroups {
+        combosGroup(backend_id, client, item_id, track_info, has_errors, item, items, action, quantity, experiments)
+    }
+
     "/combos" (platform: "/"){}
    
     "/combos/print" (platform: "/"){}
 
 
     "/combos/add_to_cart"(platform: "/", type: TrackType.Event) {
-       recommendations(type: PropertyType.Map(combos_info), description: "Tracking info for combos component click add to cart.", required: true)
+      combosGroup
     }
 
     "/combos/checked"(platform: "/", type: TrackType.Event) {
-       recommendations(type: PropertyType.Map(combos_info), description: "Tracking info for combos component click checkbox.", required: true)
+       combosGroup
     }
 
-    "/combos/view"(platform: "/") {
-        recommendations(type: PropertyType.Map(combos_info), description: "Tracking info for combos component.", required: true)
+    "/combos/view"(platform: "/", type: TrackType.View) {
+        combosGroup
     }
 
 }
