@@ -104,14 +104,62 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home print loyalty") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            loyalty = [
+                    [
+                            component_id: "discount_center_container"
+                            level: 2
+                            percentage: 10
+                    ]
+            ]
+        }
+    }
+
     test("Mercadopago Home print cross selling") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             cross_selling = [
                     [
-                            component_id: "pending",
+                            component_id: "ad1",
                             audience: "audience1",
                             bu: "mp",
                             content_id: "security",
+                            action_id: "action1",
+                            bu_line: "bu",
+                            logic: "logic",
+                            position: 1,
+                            flow: "flow"
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home print benefits") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            benefits = [
+                    [
+                            component_id: "benefit1",
+                            audience: "audience1",
+                            bu: "mp",
+                            content_id: "security",
+                            action_id: "action1",
+                            bu_line: "bu",
+                            logic: "logic",
+                            position: 1,
+                            flow: "flow"
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home print prepaid banner") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            prepaid_banner1 = [
+                    [
+                            component_id: "banner1",
+                            audience: "audience1",
+                            bu: "mp",
+                            content_id: "promo1",
                             action_id: "action1",
                             bu_line: "bu",
                             logic: "logic",
