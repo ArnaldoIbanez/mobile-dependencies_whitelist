@@ -4191,8 +4191,8 @@ trackTests {
 
     // NFC Button Mini Card
     test("show button nfc in mini card") {
-        "/cards/cardwidget/show/nfcbutton"(platform: "/mobile", type: TrackType.Event) {
-            time_in_seconds = 18500
+        "/cards/cardwidget/button/nfc"(platform: "/mobile", type: TrackType.View) {
+            delay_in_seconds = 18500
         }
     }
     

@@ -3261,8 +3261,8 @@ tracks {
     }  
 
     // NFC Button Mini Card
-    "/cards/cardwidget/show/nfcbutton"(platform: "/mobile", type: TrackType.Event) {
-        time_in_seconds (
+    "/cards/cardwidget/button/nfc"(platform: "/mobile", type: TrackType.View) {
+        delay_in_seconds (
             required: true,
             type: PropertyType.Numeric,
             description: "Delay to show nfc button"
