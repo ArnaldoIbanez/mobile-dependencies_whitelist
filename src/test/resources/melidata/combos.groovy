@@ -7,7 +7,7 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-    test("Combos :: Show congrats details tracking RE") {
+    test("Combos :: Show congrats details tracking") {
 
     "/combos/print"(platform: "/") {
           backend_id= "machinalis-vip-combos"
