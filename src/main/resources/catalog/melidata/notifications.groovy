@@ -244,6 +244,7 @@ tracks {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
     "/notification/credits_consumer_congrats_personal_loans"(platform: "/") {}
+    "/notification/credits_consumer_registration_journey_mp"(platform: "/") {}
     "/notification/credits_consumer_expired_mp_first_notice"(platform: "/") {
         loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")

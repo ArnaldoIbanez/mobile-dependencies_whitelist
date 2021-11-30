@@ -3440,6 +3440,10 @@ trackTests {
             news_id = "credits_consumer_congrats_personal_loans-21680059-20180516"
             event_type = "shown"
         }
+        "/notification/credits_consumer_registration_journey_mp"(platform: "/mobile") {
+            news_id = "credits_consumer_registration_journey_mp-21680059-20180516"
+            event_type = "shown"
+        }
         "/notification/credits_consumer_expired_last_notice"(platform: "/mobile") {
             news_id = "credits_consumer_expired_last_notice-21680059-20180516"
             event_type = "shown"
