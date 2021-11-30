@@ -28,6 +28,32 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home print banking balance") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            banking_v2_actions = [
+                    [
+                            component_id: "actions",
+                            content_id: "action1",
+                            position: 1,
+                            enabled: true
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home print banking balance") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            banking_v2_cards = [
+                    [
+                            quantity: 2,
+                            prepaid: true,
+                            component_id: "cards",
+                            debit: true
+                    ]
+            ]
+        }
+    }
+
     test("Mercadopago Home print shortcuts") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             shortcuts = [
@@ -53,10 +79,46 @@ trackTests {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             discount_center = [
                     [
-                            component_idd: "discount_center_container"
+                            component_id: "discount_center_container"
                     ]
             ]
         }
     }
 
+    test("Mercadopago Home print pendings") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            pendings = [
+                    [
+                            logic: "logic",
+                            criticality: 2,
+                            position: 1,
+                            from: "section",
+                            content_id: "security",
+                            flow: "flow",
+                            bu_line: "bu",
+                            component_id: "pending",
+                            bu: "mp",
+                            audience: "audience1"
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home print cross selling") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            cross_selling = [
+                    [
+                            component_id: "pending",
+                            audience: "audience1",
+                            bu: "mp",
+                            content_id: "security",
+                            action_id: "action1",
+                            bu_line: "bu",
+                            logic: "logic",
+                            position: 1,
+                            flow: "flow"
+                    ]
+            ]
+        }
+    }
 }
