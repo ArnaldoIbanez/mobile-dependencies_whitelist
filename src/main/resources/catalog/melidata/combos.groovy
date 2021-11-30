@@ -15,8 +15,6 @@ tracks {
     initiative = "1024"
 
 
-
-    "/combos" (platform: "/"){}
    
     "/combos/print" (platform: "/"){}
 
