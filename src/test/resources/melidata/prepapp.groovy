@@ -163,6 +163,13 @@ trackTests {
             scan_mode = "handheld"
         }
 
+        def parcelDetailDataSet = {
+            seller = [
+                    meli_id: 123456
+            ]
+            scan_mode = "handheld"
+        }
+
         def omsListDataSet = {
             seller = [
                     meli_id: 123456
@@ -362,6 +369,26 @@ trackTests {
 
         "/prepapp/stagein/location/input"(platform:"/", type: TrackType.View) {
             stageinDataSet()
+        }
+
+        //------------------------------------------------------------------------------------------------------------------------------------------------------
+        // TEST TRACKS PREPARATION APP - STAGE IN SECTION
+        //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        "/prepapp/parcel/scan"(platform:"/", type: TrackType.View) {
+            parcelDetailDataSet()
+        }
+
+        "/prepapp/parcel/input"(platform:"/", type: TrackType.View) {
+            parcelDetailDataSet()
+        }
+
+        "/prepapp/parcel/no_pickup"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
+        }
+
+        "/prepapp/parcel/detail"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------

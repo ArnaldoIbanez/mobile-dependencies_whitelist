@@ -58,17 +58,17 @@ tracks {
         // ml
 
         finish_enabled(required: true, type: PropertyType.Boolean, description: "Status true when the picked is finished")
-        
+
         items_total(required: true, type: PropertyType.Numeric, description: "Total items in the pack")
         items_found(required: true, type: PropertyType.Numeric, description: "Total found items in the pack")
         items_not_found(required: true, type: PropertyType.Numeric, description: "Total not found items in the pack")
         item_id(required: true, type: PropertyType.String, description: "Id item")
         variation_id(required: true, type: PropertyType.String, description: "Id variation item")
-        
+
         page(required: true, type: PropertyType.Numeric, description: "Number of the page the user is on")
         page_count(required: true, type: PropertyType.Numeric, description: "Number of the total pages in the backlog")
         filters(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Object that represent the filters implemented in the list")
-        
+
         item_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about item temperature")
         parcel_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about parcel temperature")
 
@@ -96,6 +96,7 @@ tracks {
         item_ids_data(item_id, variation_id)
         packs_data(packs)
         pack_details(order_number, status)
+        tote_detail()
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -241,6 +242,26 @@ tracks {
 
     "/prepapp/stagein/location/input"(platform:"/", type: TrackType.View) {
         scan_mode_data
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS PREPARATION APP TOTE DETAIL SECTION
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/prepapp/parcel/scan"(platform:"/", type: TrackType.View) {
+        scan_mode_data
+    }
+
+    "/prepapp/parcel/input"(platform:"/", type: TrackType.View) {
+        scan_mode_data
+    }
+
+    "/prepapp/parcel/no_pickup"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        seller_data
+    }
+
+    "/prepapp/parcel/detail"(platform:"/", type: TrackType.View) {
+        seller_data
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
