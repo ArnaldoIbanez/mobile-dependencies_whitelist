@@ -22,7 +22,7 @@ tracks {
         item(required: true, type: PropertyType.String, description: "Unique string that identifies the recommendation from were the item comes from")
         items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList)
         action(required: false, type: PropertyType.String, description: "User action")
-        quantity(required: false, type: PropertyType.Number, description: "Items selected at the moment")
+        quantity(required: false, type: PropertyType.Numeric, description: "Items selected at the moment")
         experiments(required: false, type: PropertyType.ArrayList, description: "Experiment Info")
     }
 
