@@ -16,6 +16,15 @@ trackTests {
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
   }
 
+  test("seller central listing action open modal") {
+    "/seller_central/listings/action/open_modal"(platform: "/", type: TrackType.Event) {
+      action_id = "LINK"
+      item_id = "MLA803422062"
+      inventory_id = "KDKQ55183"
+      view_id = "fulfillment"
+    }
+  }
+
   test("seller central listing action") {
     "/seller_central/listings/action/confirm"(platform: "/", type: TrackType.Event) {
       action_id = "MODIFY"
