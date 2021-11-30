@@ -10,12 +10,6 @@ trackTests {
     test("Combos :: Show congrats details tracking") {
 
         "/combos/print"(platform: "/") {
-            backend_id= "machinalis-vip-combos"
-            client = "vip-combos"
-            track_info = null
-            has_errors = false
-            item = "MLB1001877141"
-            items = []
         }
 
         "/combos/add_to_cart"(platform: "/") {
