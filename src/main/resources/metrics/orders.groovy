@@ -329,8 +329,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("event_data.items.item.catalog_product_id", property("catalog_product_id")),
-				equals("application.business", "mercadolibre")
+				and(
+					equals("event_data.items.item.catalog_product_id", property("catalog_product_id")),
+				    equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
@@ -341,8 +343,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("event_data.items.item.catalog_parent_id", property("catalog_parent_id")),
-				equals("application.business", "mercadolibre")
+				and(
+					equals("event_data.items.item.catalog_parent_id", property("catalog_parent_id")),
+					equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
@@ -354,8 +358,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("event_data.items.item.id", property("item_ids")),
-				equals("application.business", "mercadolibre")
+				and(
+					equals("event_data.items.item.id", property("item_ids")),
+					equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
