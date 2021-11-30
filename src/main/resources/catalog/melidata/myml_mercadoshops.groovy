@@ -712,7 +712,13 @@ tracks {
     }
 
     "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){}
-    "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){}
-    "/mercado_shops/discounts/create/boleto"(platform: "/", type: TrackType.View){}
-    "/mercado_shops/discounts/create/traditional"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+    "/mercado_shops/discounts/create/boleto"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+    "/mercado_shops/discounts/create/traditional"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 }
