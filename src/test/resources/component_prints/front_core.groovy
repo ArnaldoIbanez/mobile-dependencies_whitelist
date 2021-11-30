@@ -17,7 +17,7 @@ trackTests {
 
     test("Mercadopago Home print banking balance") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
-            banking_v2-balance = [
+            banking_v2_balance = [
                     [
                             component_id: "balance",
                             balance_histogram: 6.0,
@@ -28,7 +28,7 @@ trackTests {
         }
     }
 
-    /*test("Mercadopago Home print shortcuts") {
+    test("Mercadopago Home print shortcuts") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             shortcuts = [
                     [
@@ -47,7 +47,7 @@ trackTests {
                     ]
             ]
         }
-    }*/
+    }
 
     test("Mercadopago Home print discount_center") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
