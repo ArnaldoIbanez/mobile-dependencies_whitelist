@@ -16,9 +16,8 @@ trackTests {
         "/combos/add_to_cart"(platform: "/") {
             backend_id= "machinalis-vip-combos"
             client = "vip-combos"
-            itemc = "MLB1001877141"
+            item = "MLB1001877141"
             items = []
-            actions = "add_to_cart"
             quantity = 1
             experiments: null
         }
@@ -29,7 +28,6 @@ trackTests {
             client = "vip-combos"
             item = "MLB1001877141"
             items = []
-            actions = "checked"
             quantity = 1
             experiments: null
         }
@@ -37,7 +35,7 @@ trackTests {
         "/combos/view"(platform: "/") {
             backend_id= "machinalis-vip-combos"
             client = "vip-combos"
-            itemc = "MLB1001877141"
+            item = "MLB1001877141"
             items = []
             quantity = 1
             experiments: null
