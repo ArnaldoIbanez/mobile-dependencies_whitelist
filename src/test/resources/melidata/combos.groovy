@@ -19,7 +19,6 @@ trackTests {
             item = "MLB1001877141"
             items = []
             quantity = 1
-            experiments: null
         }
 
 
@@ -29,7 +28,6 @@ trackTests {
             item = "MLB1001877141"
             items = []
             quantity = 1
-            experiments: null
         }
 
         "/combos/view"(platform: "/") {
@@ -38,7 +36,6 @@ trackTests {
             item = "MLB1001877141"
             items = []
             quantity = 1
-            experiments: null
         }
         
     }

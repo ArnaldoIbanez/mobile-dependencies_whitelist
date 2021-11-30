@@ -29,7 +29,6 @@ tracks {
         item(required: true, type: PropertyType.String, description: "Unique string that identifies the recommendation from were the item comes from")
         items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList)
         quantity(required: false, type: PropertyType.Numeric, description: "Items selected at the moment")
-        experiments(required: false, type: PropertyType.ArrayList, description: "Experiment Info")
     }
 
     "/combos/checked"(platform: "/", type: TrackType.Event) {
@@ -40,7 +39,6 @@ tracks {
         item(required: true, type: PropertyType.String, description: "Unique string that identifies the recommendation from were the item comes from")
         items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList)
         quantity(required: false, type: PropertyType.Numeric, description: "Items selected at the moment")
-        experiments(required: false, type: PropertyType.ArrayList, description: "Experiment Info")
     }
 
     "/combos/view"(platform: "/", type: TrackType.View) {
@@ -51,7 +49,6 @@ tracks {
         item(required: true, type: PropertyType.String, description: "Unique string that identifies the recommendation from were the item comes from")
         items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList)
         quantity(required: false, type: PropertyType.Numeric, description: "Items selected at the moment")
-        experiments(required: false, type: PropertyType.ArrayList, description: "Experiment Info")
     }
 
 }
