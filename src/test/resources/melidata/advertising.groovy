@@ -320,6 +320,8 @@ trackTests {
         "/advertising/privacy/business_partners/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
             switch_status = "inactive"
         }
+
+
     }
 
     test("Advertising upselling") {
@@ -2777,6 +2779,72 @@ trackTests {
         "/advertising/pads2/manager/paused_modal/bb_campaign/confirm"(platform: "/", type: TrackType.Event) {
             campaign_id = 1234
         }
+
+        "/advertising/pads2/manager/comp_metrics"(platform: "/", type: TrackType.View) {
+            campaign_name = "nombre test"
+            campaign_id = 22329822
+            status = "active"
+            budget = 7000
+            trtarget = 2000
+            strategy = "profitability"
+            impression_share = 30
+            lost_impression_share_by_budget = 30
+            lost_impression_share_by_ad_rank = 40
+            acos_benchmark = 30
+        }
+
+        "/advertising/pads2/manager/comp_metrics/is_helper"(platform: "/", type: TrackType.Event) {
+            campaign_name = "nombre test"
+            campaign_id = 22329822
+            status = "active"
+            budget = 7000
+            trtarget = 2000
+            strategy = "profitability"
+            impression_share = 30
+            lost_impression_share_by_budget = 30
+            lost_impression_share_by_ad_rank = 40
+            acos_benchmark = 30
+        }
+
+        "/advertising/pads2/manager/comp_metrics/lisb_helper"(platform: "/", type: TrackType.Event) {
+            campaign_name = "nombre test"
+            campaign_id = 22329822
+            status = "active"
+            budget = 7000
+            trtarget = 2000
+            strategy = "profitability"
+            impression_share = 30
+            lost_impression_share_by_budget = 30
+            lost_impression_share_by_ad_rank = 40
+            acos_benchmark = 30
+        }
+
+        "/advertising/pads2/manager/comp_metrics/lisar_helper"(platform: "/", type: TrackType.Event) {
+            campaign_name = "nombre test"
+            campaign_id = 22329822
+            status = "active"
+            budget = 7000
+            trtarget = 2000
+            strategy = "profitability"
+            impression_share = 30
+            lost_impression_share_by_budget = 30
+            lost_impression_share_by_ad_rank = 40
+            acos_benchmark = 30
+        }
+
+        "/advertising/pads2/manager/comp_metrics/more_info"(platform: "/", type: TrackType.Event) {
+            campaign_name = "nombre test"
+            campaign_id = 22329822
+            status = "active"
+            budget = 7000
+            trtarget = 2000
+            strategy = "profitability"
+            impression_share = 30
+            lost_impression_share_by_budget = 30
+            lost_impression_share_by_ad_rank = 40
+            acos_benchmark = 30
+        }
+
     }
 
 }
