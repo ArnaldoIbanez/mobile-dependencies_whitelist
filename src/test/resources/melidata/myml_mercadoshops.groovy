@@ -566,13 +566,13 @@ trackTests {
             shop_name = "Test Shop"
             ref = ""
         }
-        "/mercado_shops/marketing/phone_verification/first_step"(platform: "/", type: TrackType.View) {
+        "/mercado_shops/marketing/phone_verification/choose_verification_method"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
         }
-        "/mercado_shops/marketing/phone_verification/second_step"(platform: "/", type: TrackType.View) {
+        "/mercado_shops/marketing/phone_verification/provide_verification_code"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"

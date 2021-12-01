@@ -383,11 +383,11 @@ tracks {
         mshopsGroup
     }
 
-    "/mercado_shops/marketing/phone_verification/first_step"(platform: "/", type: TrackType.View){
+    "/mercado_shops/marketing/phone_verification/choose_verification_method"(platform: "/", type: TrackType.View){
         mshopsGroup
     }
 
-    "/mercado_shops/marketing/phone_verification/second_step"(platform: "/", type: TrackType.View){
+    "/mercado_shops/marketing/phone_verification/provide_verification_code"(platform: "/", type: TrackType.View){
         mshopsGroup
     }
 
