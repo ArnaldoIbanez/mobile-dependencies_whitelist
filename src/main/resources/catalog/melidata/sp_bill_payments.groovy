@@ -30,8 +30,13 @@ tracks {
     }
 
     // Generic Erros
-    "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.Event) {
+        api_url(required: false, type: PropertyType.String, description: "the url where the error occurred")
+    }
+
+    "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.Event) {
+        api_url(required: false, type: PropertyType.String, description: "the url where the error occurred")
+    }
 
     // Onboarding
     "/bill_payments/onboarding"(platform: "/mobile", type: TrackType.View) {}
