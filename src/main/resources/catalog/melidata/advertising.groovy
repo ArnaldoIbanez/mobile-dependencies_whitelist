@@ -2304,4 +2304,22 @@ tracks {
 
     "/advertising/pads2/hub/bb_campaign/view_campaign"(platform: "/", type: TrackType.Event) {}
 
+    //Buybox Retention Modal
+
+    "/advertising/pads2/hub/paused_modal/bb_campaign"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/hub/paused_modal/bb_campaign/reverse"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/paused_modal/bb_campaign/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/paused_modal/bb_campaign"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/paused_modal/bb_campaign/reverse"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/paused_modal/bb_campaign/confirm"(platform: "/", type: TrackType.Event) {}
+
 }
