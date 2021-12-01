@@ -15,8 +15,10 @@ tracks {
     initiative = "1024"
 
 
-   
-    "/combos/print" (platform: "/", isAbstract: true){}
+    "/combos"(platform:"/", isAbstract: true) {
+    }
+    
+    "/combos/print" (platform: "/"){}
 
 
     "/combos/add_to_cart"(platform: "/", type: TrackType.Event) {
