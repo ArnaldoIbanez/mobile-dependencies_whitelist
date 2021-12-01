@@ -2333,7 +2333,6 @@ tracks {
         impression_share(required: true, type: PropertyType.Numeric, description: "Impression share related to campaign")
         lost_impression_share_by_budget(required: true, type: PropertyType.Numeric, description: "Impression share lost by budget related to campaig")
         lost_impression_share_by_ad_rank(required: true, type: PropertyType.Numeric, description: "Impression share lost by ad rank related to campaig")
-        acos_benchmark(required: false, type: PropertyType.Numeric, description: "ACOS benchmark related to campaign")
     }
 
     "/advertising/pads2/manager/comp_metrics/is_helper"(platform: "/", type: TrackType.Event) {}

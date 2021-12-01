@@ -2790,7 +2790,6 @@ trackTests {
             impression_share = 30
             lost_impression_share_by_budget = 30
             lost_impression_share_by_ad_rank = 40
-            acos_benchmark = 30
         }
 
         "/advertising/pads2/manager/comp_metrics/is_helper"(platform: "/", type: TrackType.Event) {
@@ -2803,7 +2802,6 @@ trackTests {
             impression_share = 30
             lost_impression_share_by_budget = 30
             lost_impression_share_by_ad_rank = 40
-            acos_benchmark = 30
         }
 
         "/advertising/pads2/manager/comp_metrics/lisb_helper"(platform: "/", type: TrackType.Event) {
@@ -2816,7 +2814,6 @@ trackTests {
             impression_share = 30
             lost_impression_share_by_budget = 30
             lost_impression_share_by_ad_rank = 40
-            acos_benchmark = 30
         }
 
         "/advertising/pads2/manager/comp_metrics/lisar_helper"(platform: "/", type: TrackType.Event) {
@@ -2829,7 +2826,6 @@ trackTests {
             impression_share = 30
             lost_impression_share_by_budget = 30
             lost_impression_share_by_ad_rank = 40
-            acos_benchmark = 30
         }
 
         "/advertising/pads2/manager/comp_metrics/more_info"(platform: "/", type: TrackType.Event) {
@@ -2842,7 +2838,6 @@ trackTests {
             impression_share = 30
             lost_impression_share_by_budget = 30
             lost_impression_share_by_ad_rank = 40
-            acos_benchmark = 30
         }
 
     }
