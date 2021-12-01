@@ -294,6 +294,12 @@ trackTests {
         "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             product_type = "delivery"
+            marketplace_state = "empty"
+            marketplace_state_reason = "no stores in zone"
+            marketplace_filters = [
+                    "sushi",
+                    "pizza"
+            ]
         }
     }
 
@@ -733,8 +739,11 @@ trackTests {
             ]
             product_type = "proximity"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            product_type= "delivery"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            marketplace_state = "update_app_shield"
+            marketplace_filters = [
+                    "sushi"
+            ]
         }
     }
 
@@ -1080,7 +1089,7 @@ trackTests {
             product_type = "delivery"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            product_type= "proximity"
+            marketplace_state = "empty"
         }
     }
 

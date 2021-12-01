@@ -285,6 +285,7 @@ tracks {
     //Address Hub
     "/checkout/shipping/delivery_instructions"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/address_hub"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/address_hub/change_address"(platform:"/", type: TrackType.Event) {}
 
     //First Visit
     //Page
@@ -1645,6 +1646,9 @@ tracks {
 
     //Billing info
     "/checkout/onetap/billing"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/onetap/billing/physical_person"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/onetap/billing/legal_person"(platform: "/mobile", type: TrackType.View) {}
+
 
     //ERROR
     "/checkout/onetap/error"(platform: "/mobile", type: TrackType.View) {}
@@ -1661,11 +1665,26 @@ tracks {
     //SHIPPING
     "/checkout/onetap/shipping"(platform: "/mobile", isAbstract: true) {}
     "/checkout/onetap/shipping/select_option"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/onetap/shipping/address_hub"(platform: "/mobile", type: TrackType.View) {}
 
     //PAYMENT
     "/checkout/onetap/payment"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/onetap/payment/input_card"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/onetap/payment/input_card"(platform: "/mobile", type: TrackType.View) {}
     "/checkout/onetap/payment/input_sec_code"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/onetap/payment/select_installments"(platform: "/mobile", type: TrackType.View) {}
+
+    //LAST CALL
+    "/checkout/onetap/last_call"(platform: "/mobile", type: TrackType.View) {}
+    
+    //FTU
+    "/checkout/onetap/ftu"(platform: "/mobile", type: TrackType.View) {}
+    
+    //DISCOUNT
+    "/checkout/onetap/discount_info"(platform: "/mobile", type: TrackType.View) {}
+   
+    //SELECT INSTALLMENTS
+    "/checkout/onetap/main/select_installments"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/onetap/main/error_select_installments"(platform: "/mobile", type: TrackType.Event) {}
 
     // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     // Fin mobile platform onetap

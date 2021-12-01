@@ -250,6 +250,7 @@ trackTests {
             mandatory()
             step_information()
             view_time()
+            item_structure()
         }
 
 
@@ -472,6 +473,11 @@ trackTests {
             view_time()
         }
         "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/break_pre_one_tap/checkout"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -729,6 +735,21 @@ trackTests {
         }
 
         "/single_player/prepaid/error/not_enough_money/not_enough_money"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/money_in"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -1027,6 +1048,7 @@ trackTests {
             mandatory()
             step_information()
             view_time()
+            item_structure()
         }
 
 
@@ -1248,6 +1270,10 @@ trackTests {
             view_time()
         }
         "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/break_pre_one_tap/checkout"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -1508,6 +1534,21 @@ trackTests {
         }
 
         "/single_player/prepaid/error/not_enough_money/not_enough_money"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/money_in"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }

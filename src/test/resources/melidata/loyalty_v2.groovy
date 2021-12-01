@@ -508,7 +508,12 @@ trackTests {
         "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             status = "timeout"
         }
+
+        "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
+
+        "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event, business: "mercadolibre") {}
     }
+
 
     test("Loyalty Level Buy") {
         "/loyalty/buylevel"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -544,5 +549,12 @@ trackTests {
             content = "special-promo"
         }
 
+    }
+
+    test("Loyalty Drawer") {
+
+        "/loyalty/drawer/pill"(platform: "/", type: TrackType.View, business: "mercadopago") {}
+
+        "/loyalty/drawer/pill"(platform: "/", type: TrackType.View, business: "mercadolibre") {}
     }
 }

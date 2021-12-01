@@ -202,13 +202,24 @@ trackTests {
         }
 
         def packsDownloadDataSet = {
+            seller = [
+                    meli_id: 123456
+            ]
+            page = 1
+            page_count = 12
+            filters = [
+                    "status:ready_to_pick",
+                    "route:pending"
+            ]
             packs = [
                     2000002751055068,
                     2000002751041421
             ]
-            seller = [
-                    meli_id: 123456
-            ]
+        }
+
+        def packDetailsDataSet = {
+            order_number = 2000001892783456
+            status = "read_to_pic"
         }
 
 
@@ -362,11 +373,12 @@ trackTests {
         }
 
         "/prepapp/oms/backlog"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
             omsListDataSet()
         }
 
         "/prepapp/oms/backlog/filter"(platform:"/", type: TrackType.Event) {
-            sellerDataSet()
+            omsListDataSet()
         }
 
         "/prepapp/oms/backlog/download"(platform:"/", type: TrackType.Event) {
@@ -374,24 +386,34 @@ trackTests {
         }
 
         "/prepapp/oms/backlog/prioritize"(platform:"/", type: TrackType.Event) {
-            sellerDataSet()
+            omsListDataSet()
         }
 
         "/prepapp/oms/backlog/unbind"(platform:"/", type: TrackType.Event) {
+            omsListDataSet()
+        }
+
+        "/prepapp/oms/backlog/detail"(platform:"/", type: TrackType.View) {
             sellerDataSet()
+            packDetailsDataSet()
         }
 
         "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
             omsListDataSet()
         }
 
         "/prepapp/oms/routes/delete"(platform:"/", type: TrackType.Event) {
-            sellerDataSet()
+            omsListDataSet()
+        }
+
+        "/prepapp/oms/routes/filter"(platform:"/", type: TrackType.Event) {
+            omsListDataSet()
         }
 
         "/prepapp/oms/routes/print"(platform:"/", type: TrackType.Event) {
             eventLabelData()
-            sellerDataSet()
+            omsListDataSet()
         }
 
         "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View) {

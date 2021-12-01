@@ -334,6 +334,7 @@ trackTests {
         //Address Hub
         "/cart/checkout/shipping/delivery_instructions"(platform:"/", dataSet)
         "/cart/checkout/shipping/address_hub"(platform:"/", dataSet)
+        "/cart/checkout/shipping/address_hub/change_address"(platform:"/", dataSet)
 
         // Addresses
         // Page

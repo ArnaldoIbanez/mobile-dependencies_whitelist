@@ -8,6 +8,7 @@ trackTests {
     test("Point Devices views") {
         //Main list view
         "/point_devices/list"(platform: "/", type: TrackType.View) {}
+        "/point_devices/reactivate_chips"(platform: "/", type: TrackType.View) {}
     }
 
     test("Point Devices events") {
@@ -29,5 +30,8 @@ trackTests {
         //Modal reset pin action
         "/point_devices/reset_pin/start"(platform: "/", type: TrackType.Event) {}
         "/point_devices/reset_pin/end"(platform: "/", type: TrackType.Event) {}
+
+        //Reactivate chips button action
+        "/point_devices/reactivate_chips/start"(platform: "/", type: TrackType.Event) {}
     }
 }

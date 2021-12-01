@@ -100,6 +100,7 @@ catalog {
         include business, "bulk_edit.groovy"
         include business, "pdf_viewer.groovy"
         include business, "fraud_challenges.groovy"
+        include business, "device_health.groovy"
     }
 
     mercadolibre.each { business ->
@@ -196,6 +197,7 @@ catalog {
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
+        include business, "vis_supply.groovy"
     }
 
     mercadopago.each { business ->
@@ -204,6 +206,7 @@ catalog {
         include business, "mp_digital_account.groovy"
         include business, "mpfrontcore.groovy"
         include business, "payments_digital_accounts.groovy"
+        include business, "benefits.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
@@ -240,6 +243,7 @@ catalog {
         include business, "profile_engine.groovy"
         include business, "pos_management.groovy"
         include business, "discount_center.groovy"
+        include business, "reseller.groovy"
         include business, "discount_center_touchpoints.groovy"
         include business, "external.groovy"
         include business, "pos_billings.groovy"
@@ -271,6 +275,7 @@ catalog {
         include business, "qr_journey.groovy"
         include business, "fees_installments.groovy"
         include business, "point_devices.groovy"
+        include business, "point_stores.groovy"
         include business, "proximity_marketplace.groovy"
         include business, "proximity_order_manager.groovy"
         include business, "my_business_challenges.groovy"
@@ -290,6 +295,8 @@ catalog {
         include business, "cost_simulator.groovy"
         include business, "pospayment.groovy"
         include business, "crypto.groovy"
+        include business, "investment.groovy"
+        include business, "pricing_point.groovy"
     }
 
     mercadoshops.each { business ->
@@ -362,6 +369,7 @@ catalog {
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
         include business, "collaborators.groovy"
+        include business, "vis_supply.groovy"
     }
 
 }

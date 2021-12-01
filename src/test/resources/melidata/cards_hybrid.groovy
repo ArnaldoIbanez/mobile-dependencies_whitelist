@@ -603,6 +603,20 @@ trackTests {
             ]
         }
     }
+    test("cards hybrid dashboard dynamic carousel show item") {
+        "/cards/hybrid/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "3",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 0
+            ]
+        }
+    }
     test("cards hybrid dashboard dynamic carousel Closed") {
         "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
             description = [
@@ -1471,6 +1485,9 @@ trackTests {
         }
         "/cards/hybrid/setup/options"(platform:"/", type: TrackType.View) {
             cards = []
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            action = "overlimit_credit_card"
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
             product_type = "chip_prepaid"
@@ -3123,6 +3140,10 @@ trackTests {
             action = "digitize_card_result"
             result = "CAN_NOT_PROCEED"
         }
+        "/cards/nfc/enrollment/digitize_card/result"(platform:"/", type:TrackType.Event) {
+            action = "digitize_card_result"
+            result = "RETRY"
+        }
     }
 
     test("cards hybrid nfc enrollment digitalize card error") {
@@ -4165,6 +4186,13 @@ trackTests {
             is_default_card = false
             is_nfc_activated = false
             are_payment_keys_avaliable = false
+        }
+    }
+
+    // NFC Button Mini Card
+    test("show button nfc in mini card") {
+        "/cards/cardwidget/button/nfc"(platform: "/mobile", type: TrackType.View) {
+            delay_in_seconds = 18500
         }
     }
     

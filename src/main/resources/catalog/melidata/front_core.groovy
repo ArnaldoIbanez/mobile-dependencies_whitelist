@@ -234,6 +234,7 @@ tracks {
 
     def metadata_user_definition = objectSchemaDefinitions {
         type(type: PropertyType.String, required: true, values: ['payer', 'seller', 'newbie'], description: "The user profile")
+        is_minor(type: PropertyType.Boolean, required: true, description: "If the user is minor")
     }
 
     def loyalty_section_definition = objectSchemaDefinitions {
@@ -254,6 +255,7 @@ tracks {
         content_type(type: PropertyType.String, required: false, values: ['partial','default','complete'],  description: "Content information type")
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
         level(type: PropertyType.Numeric, required: false, description: "The user's loyalty level")
+        percentage(type: PropertyType.Numeric, required: false, description: "The user's loyalty level percentage")
     }
 
     def shortcuts_section_definition = objectSchemaDefinitions {
@@ -692,7 +694,12 @@ tracks {
 
     "/wallet_home/section/tap/buy_level_subscription" (platform: "/mobile", type: TrackType.Event) {
         level(required: false, type: PropertyType.Numeric, description: "Loyalty level")
+        percentage(required: false, type: PropertyType.Numeric, description: "Loyalty level percentage")
     }
+
+    "/wallet_home/section/tap/carousel" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/ad_carousel" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/shortcuts"(platform: "/mobile", type: TrackType.Event) {
         from(type: PropertyType.String, required: true, values: ['section', 'sheet'])
@@ -749,6 +756,10 @@ tracks {
     "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+        walletHomeMerchEngineFields
+    }
+
+    "/wallet_home/section/tap/prepaid_banner/close" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields
     }
 

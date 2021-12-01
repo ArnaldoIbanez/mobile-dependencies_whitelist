@@ -244,6 +244,7 @@ tracks {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
     "/notification/credits_consumer_congrats_personal_loans"(platform: "/") {}
+    "/notification/credits_consumer_registration_journey_mp"(platform: "/") {}
     "/notification/credits_consumer_expired_mp_first_notice"(platform: "/") {
         loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
@@ -359,6 +360,14 @@ tracks {
           case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
       }
       "/notification/cx_question_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
+      }
+
+      //Melichat
+      "/notification/melichat_message_mp"(platform: "/mobile") {
+          case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
+      }
+      "/notification/melichat_message_ml"(platform: "/mobile") {
           case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
       }
 
@@ -1248,7 +1257,14 @@ tracks {
       "/notification/fraud_poc_trust_vote_second_score"(platform: "/") {}
       "/notification/fraud_kyc_validation"(platform: "/") {}
 
-      //Loyalty
+      //Fraud Remedies
+      "/notification/fraud_remedies_identity_start_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_identity_reminder_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_card_start_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_card_reminder_second_score"(platform: "/") {}
+
+
+    //Loyalty
       "/notification/loyalty"(platform: "/") {}
       "/notification/loyalty_welcome"(platform: "/") {}
       "/notification/loyalty_milestone"(platform: "/") {}
@@ -1330,6 +1346,10 @@ tracks {
       }
 
     //Asset Management
+    "/notification_center/asset_management_missing_docs"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification/asset_management_warm_up"(platform: "/mobile") {}
     "/notification/asset_management_investing"(platform: "/mobile") {}
     "/notification/asset_management_pending"(platform: "/mobile") {}
@@ -1339,6 +1359,7 @@ tracks {
     "/notification/asset_management_underage_approved"(platform: "/mobile") {}
     "/notification/asset_management_underage_rejected"(platform: "/mobile") {}
     "/notification/asset_management_underage_request"(platform: "/mobile") {}
+    "/notification/asset_management_missing_docs"(platform: "/mobile") {}
 
 
     //Campañas
@@ -2024,6 +2045,12 @@ tracks {
     "/notification/single_player_scheduled_payment_pixtransfer_grouped_reminder"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_pixtransfer_solo_reminder"(platform: "/mobile") {}
 
+    //Single player - Self-Service
+    "/notification/single_player_self_service_schedule_new_debt"(platform: "/mobile") {
+        debt_id(required: true, type: PropertyType.Numeric, description: "Corresponds to the id of the debt payer that is showing")
+        seller_name(required: true, type: PropertyType.String, description: "Corresponds to the name of the seller that is showing")
+    }
+
     //Shipping
     "/notification/shipping_moderation_cross_docking_release_below"(platform: "/") {}
     "/notification/shipping_moderation_cross_docking_recovery"(platform: "/") {}
@@ -2092,6 +2119,10 @@ tracks {
     "/notification/under_age_responsible_authorization_legacy"(platform: "/") {}
     "/notification/under_age_minor_rejected"(platform: "/") {}
     "/notification/under_age_minor_approved"(platform: "/") {}
+    "/notification/under_age_responsible_info_ml"(platform: "/") {}
+    "/notification/under_age_responsible_authorization_legacy_ml"(platform: "/") {}
+    "/notification/under_age_minor_rejected_ml"(platform: "/") {}
+    "/notification/under_age_minor_approved_ml"(platform: "/") {}
 
     "/notification/institutional_generic"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")

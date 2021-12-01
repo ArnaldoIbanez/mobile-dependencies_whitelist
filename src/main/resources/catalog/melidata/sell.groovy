@@ -1259,6 +1259,15 @@ tracks {
         sellGroupSYI
         mshopsGroup
     }
+    "/sell/item_data/chart/create"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+    }
+    "/sell/item_data/chart/modify"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+    }
+    "/sell/item_data/chart/clone"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+    }
 
     "/sell/item_conditions/seller_contact/phone"(platform: "/web", type: TrackType.View) {}
     "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web", type: TrackType.Event) {}

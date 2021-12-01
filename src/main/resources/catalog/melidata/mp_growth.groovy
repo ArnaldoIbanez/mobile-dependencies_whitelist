@@ -235,6 +235,12 @@ tracks {
     "/merchant_acquisition/flows/point_reverse/info"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/point_reverse/address"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/point_reverse/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/chip/reactivation"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/shipping/details"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/repair/screening/details"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/devolution/screening"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/devolution/info"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/repair/info"(platform:"/", type: TrackType.View) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}

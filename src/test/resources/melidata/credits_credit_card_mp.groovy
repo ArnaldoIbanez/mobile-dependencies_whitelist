@@ -93,6 +93,27 @@ trackTests {
             cause: "payment"
     ]
 
+    def withdraw_limit_data = [
+            total: 100,
+            available: 50
+    ]
+    def unavailable_composition_item = [
+            amount: 10,
+            type: "pending"
+    ]
+    def overlimit_data = [
+            additional_percentage: 5,
+            additional_amount: 10,
+            consumed: 5
+    ]
+    def limit_data = [
+            withdraw: withdraw_limit_data,
+            total: 200,
+            available: 50,
+            unavailable_composition: [unavailable_composition_item],
+            over_limit: overlimit_data
+    ]
+
     test("Credits Credit Card - Payment tests") {
         /***********************************************
          *       Start: Credit Card Payment
@@ -696,6 +717,11 @@ trackTests {
 
         //Dashboard Event Request calling dashboard when rendering skeleton is Empty
         "/credits/credit_card/dashboard/load_credit_sections_event"(platform: "/", type: TrackType.Event) { }
+
+        //overlimit button
+        "/credits/credit_card/dashboard/overlimit_button_action"(platform: "/", type: TrackType.Event) {
+            action = "overlimit_button_action"
+        }
     }
         /*********************************************
          *       End: Credit Card Dashboard
@@ -789,6 +815,52 @@ trackTests {
              *       End: Credit Card Wait List
              ***********************************************/
         }
+
+        test("Credits Credit Card - Benefits tests") {
+            /***********************************************
+             *       Start: Credit Card Benefits
+             ***********************************************/
+
+            // Landing
+            "/credits/credit_card/benefits/landing"(platform: "/", type: TrackType.View) {}
+
+            /***********************************************
+             *       End: Credit Card Benefits
+             ***********************************************/
+        }
+
+        test("Credits Credit Card - Overlimit tests") {
+            /***********************************************
+             *       Start: Credit Card Overlimit
+             ***********************************************/
+            // Page view
+            "/credits/credit_card/overlimit"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+                limit = limit_data
+                overlimit_status = "enable"
+                overlimit_optin_status = "authorized"
+            }
+
+            // overlimit switch action
+            "/credits/credit_card/overlimit/switch_action"(platform: "/", type: TrackType.Event) {
+                status = "enable"
+            }
+
+            // overlimit optin action
+            "/credits/credit_card/overlimit/optin_action"(platform: "/", type: TrackType.Event) {
+                status = "authorized"
+            }
+
+            // overlimit help button
+            "/credits/credit_card/overlimit/help_button"(platform: "/", type: TrackType.Event) {
+                action = "help_button_tap"
+            }
+
+            /***********************************************
+             *       End: Credit Card Overlimit
+             ***********************************************/
+        }
+
         test("Credits Credit Card - Reissue tests") {
             /***********************************************
              *       Start: Credit Card Reissue
