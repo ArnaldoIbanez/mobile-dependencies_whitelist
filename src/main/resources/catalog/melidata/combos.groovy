@@ -16,7 +16,7 @@ tracks {
 
 
    
-    "/combos/print" (platform: "/"){}
+    "/combos/print" (platform: "/", isAbstract: true){}
 
 
     "/combos/add_to_cart"(platform: "/", type: TrackType.Event) {
