@@ -3022,7 +3022,7 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/congrats/success/warning_pay_hour"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 

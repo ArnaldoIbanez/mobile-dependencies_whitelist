@@ -341,9 +341,9 @@ tracks {
     "/bill_payments/congrats"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats/success"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/congrats/success/activate_digital_invoices"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats/success/warning_pay_hour"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats/success/activate_digital_invoices"(platform: "/mobile", type: TrackType.Event) {}
 
     // search
     "/bill_payments/search"(platform: "/mobile", type: TrackType.View) {}
