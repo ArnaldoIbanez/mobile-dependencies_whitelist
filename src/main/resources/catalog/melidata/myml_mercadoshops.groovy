@@ -711,14 +711,12 @@ tracks {
         status(required: true, type: PropertyType.String, description: "Discount State", values: ['ACTIVE', 'INACTIVE'])
     }
 
-    "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){}
-    "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){
+    "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){
         mshopsGroup
+        discount_type(required: true, type: PropertyType.String, description: "Promotion type", values: ['COUPON', 'BOLETO', 'TRADITIONAL'])
     }
-    "/mercado_shops/discounts/create/boleto"(platform: "/", type: TrackType.View){
-        mshopsGroup
-    }
-    "/mercado_shops/discounts/create/traditional"(platform: "/", type: TrackType.View){
+
+    "/mercado_shops/discounts/create/select_promotion"(platform: "/", type: TrackType.View){
         mshopsGroup
     }
 }
