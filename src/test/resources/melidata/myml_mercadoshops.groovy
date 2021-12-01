@@ -1097,7 +1097,7 @@ trackTests {
             shop_name = "Test Shop"
             discount_type = "COUPON"
         }
-        "/mercado_shops/discounts/create/select_promotion"(platform: "/", type: TrackType.View){
+        "/mercado_shops/discounts/select_promotion"(platform: "/", type: TrackType.View){
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
