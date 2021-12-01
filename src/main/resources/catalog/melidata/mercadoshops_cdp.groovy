@@ -10,7 +10,6 @@ tracks {
     initiative = "1129"
 
     propertyDefinitions {
-
         // USER INFORMATION
         user_type(required: true, type: PropertyType.String, description: "User type")
         seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
@@ -31,6 +30,7 @@ tracks {
     }
 
     propertyGroups {
+        // PROMOFF
         promoffDocumentDownload(user_type, seller_profile, seller_reputation, seller_segment, file_id, promotion_id, promotion_type, categories, filters)
         promoffDocumentUpload(user_type, seller_profile, seller_reputation, seller_segment, file_id, promotion_id, promotion_type, excel_type, min_discount, max_discount, average_discount)
         promoffDocumentError(user_type, seller_profile, seller_reputation, seller_segment, file_id, promotion_id, promotion_type, errors)
