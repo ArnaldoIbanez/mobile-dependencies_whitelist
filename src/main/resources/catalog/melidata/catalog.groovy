@@ -316,6 +316,7 @@ catalog {
         include business, "vip.groovy"
         include business, "hub_mshops.groovy"
         include business, "myml_mercadoshops.groovy"
+        include business, "mercadoshops_cdp.groovy"
     }
 
     mercadoads.each { business ->
