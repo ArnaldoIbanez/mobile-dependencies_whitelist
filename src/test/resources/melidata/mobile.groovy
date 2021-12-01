@@ -105,7 +105,7 @@ trackTests {
     }
 
     test("Short URL Request: Error") {
-        "/navigation/short_url"(platform:"/mobile/ios") {
+        "/navigation/short_url"(platform:"/mobile/ios", type: TrackType.Event) {
             is_success = false
             tidy_id = "2WQoXPS"
             error_code = "400"
@@ -113,7 +113,7 @@ trackTests {
     }
 
     test("Short URL Request: Success") {
-        "/navigation/short_url"(platform:"/mobile/ios") {
+        "/navigation/short_url"(platform:"/mobile/ios", type: TrackType.Event) {
             is_success = true
             tidy_id = "2WQoZHP"
             error_code = ""
