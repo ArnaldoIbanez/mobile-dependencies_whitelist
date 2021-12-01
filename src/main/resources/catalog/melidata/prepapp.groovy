@@ -248,7 +248,7 @@ tracks {
     // TRACKS PREPARATION APP TOTE DETAIL SECTION
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    "/prepapp/parcel"(platform:"/", type: TrackType.View) {
+    "/prepapp/parcel"(platform:"/", isAbstract: true) {
         seller_data
     }
 
@@ -260,12 +260,10 @@ tracks {
         scan_mode_data
     }
 
-    "/prepapp/parcel/no_pickup"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
-        seller_data
+    "/prepapp/parcel/no_pickup"(platform:"/", type: TrackType.View) {
     }
 
     "/prepapp/parcel/detail"(platform:"/", type: TrackType.View) {
-        seller_data
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
