@@ -317,7 +317,10 @@ trackTests {
 
         "/liveness/action"(platform: "/mobile/android") {
             type = "start_liveness"
-            info = "info"
+        }
+
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "automatic_start_liveness"
         }
 
         "/liveness/action"(platform: "/mobile/android") {
@@ -399,7 +402,10 @@ trackTests {
 
         "/liveness/action"(platform: "/mobile/ios") {
             type = "start_liveness"
-            info = "extra"
+        }
+
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "automatic_start_liveness"
         }
 
         "/liveness/action"(platform: "/mobile/ios") {
