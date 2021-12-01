@@ -372,8 +372,12 @@ trackTests {
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
-        // TEST TRACKS PREPARATION APP - STAGE IN SECTION
+        // TEST TRACKS PREPARATION APP - PARCEL DETAIL SECTION
         //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        "/prepapp/parcel"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
+        }
 
         "/prepapp/parcel/scan"(platform:"/", type: TrackType.View) {
             parcelDetailDataSet()

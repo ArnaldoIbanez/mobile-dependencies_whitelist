@@ -248,6 +248,10 @@ tracks {
     // TRACKS PREPARATION APP TOTE DETAIL SECTION
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    "/prepapp/parcel"(platform:"/", type: TrackType.View) {
+        seller_data
+    }
+
     "/prepapp/parcel/scan"(platform:"/", type: TrackType.View) {
         scan_mode_data
     }
