@@ -750,7 +750,7 @@ trackTests {
             widget_id="pix"
         }
         "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
-            id="pix_qr"
+            action_id="pix_qr"
         }
 
         // -------------Open Finance - Money In-------------

@@ -521,7 +521,7 @@ tracks {
         widget_id(required:false, type: PropertyType.String, description:"indicates what widget the user select")
     }
     "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
-        id(required:false, type: PropertyType.String, description:"indicates what widget action is selected")
+        action_id(required:false, type: PropertyType.String, description:"indicates what widget action is selected")
     }
 
     // -------------Open Finance - Money In-------------
@@ -591,7 +591,7 @@ tracks {
     "/money_in/static_resources/network_error"(platform:"/", type: TrackType.Event){
         error(required:true, description:"Network Error Message")
     }
-    
+
     //MLB Calculator Catalog
     "/money_in/calculator/card_info/go_to_pix"(platform: "/", type: TrackType.Event) {}
     "/money_in/calculator/init/bacen"(platform: "/", type: TrackType.Event) {}
