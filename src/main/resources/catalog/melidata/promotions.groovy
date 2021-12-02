@@ -65,10 +65,6 @@ tracks {
       pos(required: false, type: PropertyType.Numeric, description: "Position of the item in the response")
       cbt(required: false, type: PropertyType.Boolean, description: "Cross border trade true/false")
 
-        item_clicks(required: false, type: PropertyType.Numeric)
-        conversion_rate(required: false, type: PropertyType.Numeric)
-        expected_clicks(required: false, type: PropertyType.Numeric)
-
         model_version(required: false, type: PropertyType.String, description: "Model used to order the items")
         position_prior(required: false, type: PropertyType.Numeric, 
                 description: "Item's position calculated by prior_score")
