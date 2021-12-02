@@ -10,12 +10,6 @@ class CatalogLintTask {
     static void main(String[] args) {
         def status = true
 
-        def context = System.getenv('BUILD_CONTEXT')
-        def parser = new JsonSlurper()
-        def json = parser.parseText(context)
-        
-        println(json['git_is_merge'])
-
         CatalogLinter cl = new CatalogLinter()
         args.each { catalogName ->
             status = status && cl.run(catalogName)
