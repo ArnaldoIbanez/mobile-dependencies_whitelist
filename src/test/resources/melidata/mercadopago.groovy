@@ -5093,7 +5093,7 @@ trackTests {
 
     test("Screenlock config") {
         "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
-            os_status = "biometrics"
+            os_status = "face_id"
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
@@ -5106,7 +5106,7 @@ trackTests {
         }
 
         "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
-            os_status = "basic_screenlock"
+            os_status = "touch_id"
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",

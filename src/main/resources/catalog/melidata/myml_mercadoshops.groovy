@@ -379,6 +379,18 @@ tracks {
         mshopsGroup
     }
 
+    "/mercado_shops/marketing/phone_verification"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
+    "/mercado_shops/marketing/phone_verification/choose_verification_method"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
+    "/mercado_shops/marketing/phone_verification/provide_verification_code"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
     "/mercado_shops/marketing/instagram-shopping"(platform: "/", type: TrackType.View){
         mshopsGroup
     }
@@ -699,6 +711,12 @@ tracks {
         status(required: true, type: PropertyType.String, description: "Discount State", values: ['ACTIVE', 'INACTIVE'])
     }
 
-    "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){}
-    "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){
+        mshopsGroup
+        discount_type(required: true, type: PropertyType.String, description: "Promotion type", values: ['COUPON', 'BOLETO', 'TRADITIONAL'])
+    }
+
+    "/mercado_shops/discounts/select_promotion"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 }
