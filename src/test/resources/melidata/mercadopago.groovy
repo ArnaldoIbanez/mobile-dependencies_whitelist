@@ -832,6 +832,12 @@ trackTests {
         "/merchant_acquisition/flows/point_reverse/info"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/point_reverse/address"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/point_reverse/success"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/chip/reactivation"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/shipping/details"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/repair/screening/details"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/devolution/screening"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/devolution/info"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/repair/info"(platform:"/", type: TrackType.View) {}
     }
 
     test("MP-MA Flow QR") {
@@ -2303,10 +2309,10 @@ trackTests {
         }
 
         // Generic Erros
-        "/bill_payments/generic_error/retry"(platform: "/mobile") {
+        "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
-        "/bill_payments/connection_error/retry"(platform: "/mobile") {
+        "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2472,6 +2478,10 @@ trackTests {
         }
 
         "/bill_payments/menu/notification_preference"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/menu/to_subscription_detail"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -5083,7 +5093,7 @@ trackTests {
 
     test("Screenlock config") {
         "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
-            os_status = "biometrics"
+            os_status = "face_id"
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
@@ -5096,7 +5106,7 @@ trackTests {
         }
 
         "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
-            os_status = "basic_screenlock"
+            os_status = "touch_id"
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",

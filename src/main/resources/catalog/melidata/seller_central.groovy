@@ -371,6 +371,7 @@ tracks {
 
         sellerCentralCatalogOptinGroupV2(item_id, category_id, domain_id, variation_id, moderated, original_catalog_product_id, suggested_correction_product_id)
         sellerCentralCatalogOptinGroupV2Variations(item_id, category_id, domain_id, variations_list_id, original_catalog_product_id)
+        sellerCentralCatalogOptinGroupV2Massive(item_id, category_id, domain_id, variations_list_id, original_catalog_product_id, moderated)
 
         sellerCentralCatalogSuggestionGroup(category_domain, item_id, catalog_product_id, reputation_level, seller_profile, seller_segment, session_id, user_type)
 
@@ -695,6 +696,13 @@ tracks {
 
     "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
         hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
+    }
+
+    "/seller_central/listings/action/open_modal"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "Action id")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
+        item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
+        inventory_id(required: false, type: PropertyType.String, description: "Inventory id to which the action is executed")
     }
 
     //LISTING SECTION - TABS
@@ -2054,13 +2062,13 @@ tracks {
 
     "/seller_central/catalog/optin_v2/congrats"(platform: "/web", isAbstract: true) {}
 
-    "/seller_central/catalog/optin_v2/congrats/success"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin_v2/congrats/success"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroupV2
         confirmed_item_plus(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
         suggested_correction(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
     }
 
-    "/seller_central/catalog/optin_v2/congrats/warning"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin_v2/congrats/warning"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroupV2
         reason(required: false, description: "Reason of warning congrats", type: PropertyType.String,  values: ["INACTIVE_PRODUCT", "CATALOG_NOT_REQUIRED", "PRODUCT_HAS_ERRORS_SUGGESTED", "WRONG_V0_PRODUCT", "PRODUCT_HAS_ERRORS", "IS_A_KIT"])
         suggested_correction(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
@@ -2173,7 +2181,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin_v2/item_plus_step/pictures/confirm"(platform: "/web", type: TrackType.Event) {
-        sellerCentralCatalogOptinGroupV
+        sellerCentralCatalogOptinGroupV2
     }
 
     "/seller_central/catalog/optin_v2/item_plus_step/gtin"(platform: "/web", type: TrackType.View) {
@@ -2225,6 +2233,73 @@ tracks {
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     |                                             END OPTIN V2                                                    |
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    |                                           OPTIN V2 - MASSIVE                                                |
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    "/seller_central/catalog/optin_v2/massive"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/optin_v2/massive/init"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/congrats"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/optin_v2/massive/congrats/success"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+        products_qty(required: true, description: "Quantity products to publish", type: PropertyType.Numeric)
+        invalidates_qty(required: true, description: "Quantity products to invalidate", type: PropertyType.Numeric)
+    }
+
+    "/seller_central/catalog/optin_v2/massive/congrats/warning"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+        products_qty(required: false, description: "Quantity products to publish", type: PropertyType.Numeric)
+        invalidates_qty(required: true, description: "Quantity products to invalidate", type: PropertyType.Numeric)
+        reason(required: true, description: "Reason of warning congrats", type: PropertyType.String,  values: ["REQUIRE_ATTR_NOT_COMPLETE", "INACTIVE_PRODUCT", "CATALOG_NOT_REQUIRED", "PRODUCT_HAS_ERRORS_SUGGESTED", "WRONG_V0_PRODUCT", "PRODUCT_HAS_ERRORS", "IS_A_KIT", "INVALIDATE"])
+    }
+
+    "/seller_central/catalog/optin_v2/massive/product_comparator"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/product_comparator/selected"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2Massive
+        comparison_selected(required: true, description: "Comparison selected", type: PropertyType.String,  values: ["SAME_PRODUCT", "WRONG_PRODUCT"])
+    }
+
+    "/seller_central/catalog/optin_v2/massive/attributes_matcher"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/attributes_matcher/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/review"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/review/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2Massive
+        products_qty(required: false, description: "Quantity products to publish", type: PropertyType.Numeric)
+        invalidates_qty(required: false, description: "Quantity products to invalidate", type: PropertyType.Numeric)
+    }
+
+    "/seller_central/catalog/optin_v2/massive/user_leaves"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/product_problem"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2Massive
+        wrong_type(required: true, description: "Wrong Type", type: PropertyType.String,  values: ["KIT", "PRODUCT_ERRORS", "OTHER", "WRONG_SIZE_CHART"])
+    }
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    |                                        END OPTIN V2 - MASSIVE                                               |
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     // + Paths for seller-centrall product suggestion
