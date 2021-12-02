@@ -63,15 +63,8 @@ tracks {
       lightning_deal_configuration(required: false, type: PropertyType.Map(lightningDealConfigurationDefinition), description: "Configuration for the item if is lighting deal")
       deal_of_the_day_configuration(required: false, type: PropertyType.Map(dealOfTheDayConfigurationDefinition), description: "Configuration for the item if is deal of the day")
       pos(required: false, type: PropertyType.Numeric, description: "Position of the item in the response")
-      cbt(required: false, type: PropertyType.String, description: "Cross border trade")
 
-
-        item_clicks(required: false, type: PropertyType.Numeric)
-        conversion_rate(required: false, type: PropertyType.Numeric)
-        expected_clicks(required: false, type: PropertyType.Numeric)
-
-
-        model_version(required: false, type: PropertyType.String)
+        model_version(required: false, type: PropertyType.String, description: "Model used to order the items")
         position_prior(required: false, type: PropertyType.Numeric, 
                 description: "Item's position calculated by prior_score")
         position_posterior(required: false, type: PropertyType.Numeric, 
