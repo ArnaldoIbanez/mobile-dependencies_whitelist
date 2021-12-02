@@ -133,6 +133,13 @@ tracks {
         is_pdp(serverSide: true) // -> Lo completa Melidata automaticamente
         orders(required: true, description: "orders associated to the purchase", PropertyType.ArrayList(PropertyType.String))
         tags(name: "tags", serverSide: true, required: true, description: "purchase tags", type:PropertyType.ArrayList(PropertyType.String)) // -> Lo completa Melidata automaticamente
+
+        free_shipping_packs(name: "free_shipping_packs", serverSide: true, required: true, description: "amount of packs with free shipping", type:PropertyType.Numeric) // -> Lo completa Melidata automaticamente
+        discount_packs(name: "discount_packs", serverSide: true, required: true, description: "amount of packs whose shipping price is not zero but is less than base cost", type:PropertyType.Numeric) // -> Lo completa Melidata automaticamente
+        all_free_shipping_packs(name: "all_free_shipping_packs", serverSide: true, required: true, description: "true if all packs have free shipping", type:PropertyType.Boolean) // -> Lo completa Melidata automaticamente
+        partial_free_shipping_packs(name: "partial_free_shipping_packs", serverSide: true, required: true, description: "true if one pack does not have free shipping", type:PropertyType.Boolean) // -> Lo completa Melidata automaticamente
+        is_free_shipping_purchase(name: "is_free_shipping_purchase", serverSide: true, required: true, description: "true if all fulfillment packs have free shipping", type:PropertyType.Boolean) // -> Lo completa Melidata automaticamente
+
     }
 
 }
