@@ -15,6 +15,19 @@ tracks {
     initiative = "1024"
 
 
+    def item_definition = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "currency symbol")
+        category_id(required: true, type: PropertyType.Numeric, description: "Price item")
+        variation(required: false, type: PropertyType.Map(item_definition), description: "Balance hidden by user")
+    }
+
+    def items_definition = objectSchemaDefinitions {
+        currency_id(required: true, type: PropertyType.String, description: "currency symbol")
+        price(required: true, type: PropertyType.Numeric, description: "Price item")
+        item(required: true, type: PropertyType.Map(item_definition), description: "Balance hidden by user")
+        quantity(required: true, type: PropertyType.Numeric, description: "Balance pending")
+    }
+
 
     "/combos"(platform:"/", isAbstract: true) {
     }
@@ -27,7 +40,7 @@ tracks {
         client(required: true, type: PropertyType.String, description: "Unique string that identifies the spot")
         has_errors(required: false, type: PropertyType.Boolean, description: "The recommendation has to be hidden because it has errors.")
         item(required: true, type: PropertyType.String, description: "Unique string that identifies the recommendation from were the item comes from")
-        items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList)
+        items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList(PropertyType.Map(items_definition)))
         quantity(required: false, type: PropertyType.Numeric, description: "Items selected at the moment")
     }
 
@@ -36,7 +49,7 @@ tracks {
         client(required: true, type: PropertyType.String, description: "Unique string that identifies the spot")
         has_errors(required: false, type: PropertyType.Boolean, description: "The recommendation has to be hidden because it has errors.")
         item(required: true, type: PropertyType.String, description: "Unique string that identifies the recommendation from were the item comes from")
-        items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList)
+        items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList(PropertyType.Map(items_definition)))
         quantity(required: false, type: PropertyType.Numeric, description: "Items selected at the moment")
     }
 
@@ -45,7 +58,7 @@ tracks {
         client(required: true, type: PropertyType.String, description: "Unique string that identifies the spot")
         has_errors(required: false, type: PropertyType.Boolean, description: "The recommendation has to be hidden because it has errors.")
         item(required: true, type: PropertyType.String, description: "Unique string that identifies the recommendation from were the item comes from")
-        items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList)
+        items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList(PropertyType.Map(items_definition)))
         quantity(required: false, type: PropertyType.Numeric, description: "Items selected at the moment")
     }
 
