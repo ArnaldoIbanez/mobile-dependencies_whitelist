@@ -97,7 +97,13 @@ trackTests {
     
     test("Point loyalty reward information") {
         "/point/loyalty/cashback/exchange/reward/information"(platform: "/web", type: TrackType.Event) {
-             register_complete = true
+             register_complete= true
+        }
+    }
+    
+    test("Point loyalty reward information") {
+        "/point/loyalty/cashback/exchange/reward/information"(platform: "/web", type: TrackType.Event) {
+             register_complete= false
         }
     }
 
