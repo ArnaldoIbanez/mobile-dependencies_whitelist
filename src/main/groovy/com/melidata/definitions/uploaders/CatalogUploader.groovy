@@ -6,6 +6,7 @@ import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.manager.storage.CatalogService
 import com.ml.melidata.manager.storage.S3Service
+import groovy.json.JsonSlurper
 
 
 class CatalogUploader {
@@ -44,9 +45,17 @@ class CatalogUploader {
 
     static void main(String[] args) {
 
-        args.each { catalogName ->
-            println("Uploading catalog ${catalogName}")
-            new CatalogUploader(catalogName).upload()
+        def context = System.getenv('BUILD_CONTEXT')
+        def parser = new JsonSlurper()
+        def json = parser.parseText(context)
+
+        if(json && json['git_is_merge']) {
+            args.each { catalogName ->
+                println("Uploading catalog ${catalogName}")
+                new CatalogUploader(catalogName).upload()
+            }
+        } else {
+            println("Melidata upload is only available on productive environments, you probably shouldnt be doing this")
         }
     }
 
