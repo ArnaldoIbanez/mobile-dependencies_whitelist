@@ -8,7 +8,6 @@ class CatalogLintTask {
 
     static void main(String[] args) {
         def status = true
-
         CatalogLinter cl = new CatalogLinter()
         args.each { catalogName ->
             status = status && cl.run(catalogName)

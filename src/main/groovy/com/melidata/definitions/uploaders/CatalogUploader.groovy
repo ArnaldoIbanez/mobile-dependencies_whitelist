@@ -44,9 +44,15 @@ class CatalogUploader {
 
     static void main(String[] args) {
 
-        args.each { catalogName ->
-            println("Uploading catalog ${catalogName}")
-            new CatalogUploader(catalogName).upload()
+        def context = System.getenv('BUILD_CONTEXT')
+        def parser = new JsonSlurper()
+        def json = parser.parseText(context)
+
+        if(json && json['git_is_merge']) {
+            args.each { catalogName ->
+                println("Uploading catalog ${catalogName}")
+                new CatalogUploader(catalogName).upload()
+            }
         }
     }
 
