@@ -108,13 +108,13 @@ trackTests {
     }
 
     test("Point loyalty faq link in modal component into cashback exchange view") {   
-        "/point/loyalty/cashback/exchange/reward/information/faq"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/cashback/exchange/information/faq"(platform: "/web", type: TrackType.Event) {
         }
     }
 
 
     test("Point loyalty close button in modal component into cashback exchange view") {   
-        "/point/loyalty/cashback/exchange/reward/information/close"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/cashback/exchange/information/close"(platform: "/web", type: TrackType.Event) {
         }
     }
 

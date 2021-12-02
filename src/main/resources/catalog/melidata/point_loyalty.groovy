@@ -60,10 +60,10 @@ tracks {
         register_complete(required: true, type: PropertyType.Boolean, description: 'status of register customer')
     }
 
-    "/point/loyalty/cashback/exchange/reward/information/faq"(platform: "/web", type: TrackType.Event) { 
+    "/point/loyalty/cashback/exchange/information/faq"(platform: "/web", type: TrackType.Event) { 
     }
 
-    "/point/loyalty/cashback/exchange/reward/information/close"(platform: "/web", type: TrackType.Event) { 
+    "/point/loyalty/cashback/exchange/information/close"(platform: "/web", type: TrackType.Event) { 
     }
 
     "/point/loyalty/cashback/exchange/customer/quit"(platform: "/web", type: TrackType.Event) {

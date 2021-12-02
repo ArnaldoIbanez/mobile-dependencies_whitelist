@@ -832,6 +832,12 @@ trackTests {
         "/merchant_acquisition/flows/point_reverse/info"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/point_reverse/address"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/point_reverse/success"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/chip/reactivation"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/shipping/details"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/repair/screening/details"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/devolution/screening"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/devolution/info"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/repair/info"(platform:"/", type: TrackType.View) {}
     }
 
     test("MP-MA Flow QR") {
@@ -2302,6 +2308,27 @@ trackTests {
             collector_id = "123456"
         }
 
+        // Generic Erros
+        "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Onboarding
+        "/bill_payments/onboarding"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/onboarding/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/onboarding/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Home
          "/bill_payments/home"(platform: "/mobile") {
             mandatory()
@@ -2328,6 +2355,10 @@ trackTests {
         }
 
         "/bill_payments/home/activity"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/home/activate_digital_invoices"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2403,6 +2434,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/invoices/delete/success/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/invoices/delete/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -2446,8 +2481,12 @@ trackTests {
             mandatory()
         }
 
-        // Invoices susucription
-        "/bill_payments/invoices/suscription"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/menu/to_subscription_detail"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Invoices subscription
+        "/bill_payments/invoices/subscription"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             entity = "HBO"
         }
@@ -2537,6 +2576,10 @@ trackTests {
         }
 
         "/bill_payments/info_screen/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/revision_data"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2709,11 +2752,19 @@ trackTests {
             mandatory()
             categoryProperties()
         }
+        "/bill_payments/main_category/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
         "/bill_payments/category_details/close"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
         }
         "/bill_payments/category_details/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+        "/bill_payments/category_details/pay"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
         }
@@ -2799,6 +2850,10 @@ trackTests {
         }
 
         "/bill_payments/new_scan/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/scan_barcode"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2993,6 +3048,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/contingency_screen/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/contingency_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -3093,6 +3152,10 @@ trackTests {
         }
 
         "/bill_payments/schedule_payment/cancel/pay_another_service"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/cancel/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -3565,6 +3628,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/congrats_optin/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/congrats_optin/automatic_debit/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -3643,7 +3710,20 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/congrats_optout/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/congrats_optout/automatic_debit/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Withoutbill
+        "/bill_payments/withoutbill"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/withoutbill/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -5013,7 +5093,7 @@ trackTests {
 
     test("Screenlock config") {
         "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
-            os_status = "biometrics"
+            os_status = "face_id"
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
@@ -5026,7 +5106,7 @@ trackTests {
         }
 
         "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
-            os_status = "basic_screenlock"
+            os_status = "touch_id"
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
@@ -6187,100 +6267,6 @@ trackTests {
         }
         "/single_player/open_deep_link"(platform: "/web/mobile", type: TrackType.Event) {
             activity = "transport"
-        }
-    }
-
-    test("Stores frontend admin") {
-        "/stores/create"(platform: "/web", type: TrackType.View) {}
-        "/stores/create_poses"(platform: "/web", type: TrackType.View) {}
-        "/stores/create_schedule/start"(platform: "/web", type: TrackType.View) {}
-        "/stores/create_schedule/end"(platform: "/web", type: TrackType.Event) {}
-        "/stores/create_delivery/start"(platform: "/web", type: TrackType.View) {}
-        "/stores/create_delivery/end"(platform: "/web", type: TrackType.Event) {
-        types = 'both'
-        }
-        "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
-        "/stores/list"(platform: "/web", type: TrackType.View) {}
-        "/stores/update"(platform: "/web", type: TrackType.View) {}
-        "/stores/update_schedule/start"(platform: "/web", type: TrackType.View) {}
-        "/stores/update_schedule/end"(platform: "/web", type: TrackType.Event) {}
-        "/stores/update_delivery/start"(platform: "/web", type: TrackType.View) {}
-        "/stores/update_delivery/end"(platform: "/web", type: TrackType.Event) {
-        types = 'both'
-        }
-        "/stores/details"(platform: "/web", type: TrackType.View) {}
-        "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
-        "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
-        "/stores/standalone_pos"(platform: "/web", type: TrackType.View) {}
-        "/stores/move_pos"(platform: "/web", type: TrackType.View) {}
-        "/stores/details_pos"(platform: "/web", type: TrackType.View) {}
-        "/stores/details_devices"(platform: "/web", type: TrackType.View) {}
-        "/stores/details_collaborators"(platform: "/web", type: TrackType.View) {}
-        "/stores/device/device_issues"(platform: "/web", type: TrackType.Event) {}
-        "/stores/device/out_of_paper"(platform: "/web", type: TrackType.Event) {}
-        "/stores/device/associate/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-        "/stores/device/associate/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
-        }
-        "/stores/device/associate/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-        "/stores/device/associate/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
-        }
-        "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-         "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
-        }
-        "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-         "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
-        }
-
-        "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/create_poses"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/create_schedule/start"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/create_schedule/end"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/stores/create_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/create_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
-        types = 'pickup'
-        }
-        "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/list"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/update"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/update_schedule/start"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/update_schedule/end"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/stores/update_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/update_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
-        types = 'pickup'
-        }
-        "/stores/details"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/pos/create"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/standalone_pos"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/move_pos"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/details_pos"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/details_devices"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/details_collaborators"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/device/device_issues"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/stores/device/out_of_paper"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/stores/device/associate/start"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-        "/stores/device/associate/start"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
-        }
-        "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-        "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
         }
     }
 
