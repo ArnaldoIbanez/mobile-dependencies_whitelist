@@ -6,6 +6,7 @@ import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.manager.storage.CatalogService
 import com.ml.melidata.manager.storage.S3Service
+import groovy.json.JsonSlurper
 
 
 class CatalogUploader {
