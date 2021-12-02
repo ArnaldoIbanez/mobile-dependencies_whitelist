@@ -11,6 +11,6 @@ trackTests {
     }
 
     test("User Tax File (Legajo Eletronico Unico)") {
-        "/billing/summary"(platform: "/") {}
+        "/taxes/user-tax-file"(platform: "/") {}
     }
 }
