@@ -3,6 +3,8 @@ package com.melidata.definitions.task
 import com.melidata.definitions.uploaders.CatalogUploader
 import com.melidata.definitions.uploaders.MetricsUploader
 import com.melidata.definitions.uploaders.WhitelistPathUploader
+import groovy.json.JsonSlurper
+
 
 class UploadManager {
 
