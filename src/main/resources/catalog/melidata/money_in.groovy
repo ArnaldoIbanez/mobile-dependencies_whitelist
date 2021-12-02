@@ -591,24 +591,7 @@ tracks {
     "/money_in/static_resources/network_error"(platform:"/", type: TrackType.Event){
         error(required:true, description:"Network Error Message")
     }
-
-    //Nuevo hub Money In v2
-    "/money_in/hub"(platform:"/", type: TrackType.View){}
-    "/money_in/hub/select"(platform:"/", type: TrackType.Event){
-        payment_method_id (required:false, type: PropertyType.String, description: "indicates the id of the payment method")
-    }
-    "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
     
-    "/money_in/hub/widget/shown"(platform:"/", type: TrackType.Event){
-        widget_id (required:true, type: PropertyType.String, description: "Indicates the id of the widget shown")
-    }
-    "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
-        widget_id (required:true, type: PropertyType.String, description: "Indicates the id of the widget selected")
-    }
-    "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
-        action_id (required:true, type: PropertyType.String, description: "Indicates the widget action id")
-    }
-
     //MLB Calculator Catalog
     "/money_in/calculator/card_info/go_to_pix"(platform: "/", type: TrackType.Event) {}
     "/money_in/calculator/init/bacen"(platform: "/", type: TrackType.Event) {}
