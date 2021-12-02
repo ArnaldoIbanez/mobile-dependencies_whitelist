@@ -574,11 +574,11 @@ trackTests {
         "/money_in/debin/hub/edit_account/error"(platform:"/",type: TrackType.Event){}
 
         //TD to Debin (Bottom Sheet experience)
-        "money_in/calculator/bottom_sheet"(platform:"/", type: TrackType.View){}
-        "money_in/calculator/bottom_sheet/select"(platform:"/", type: TrackType.Event){
+        "/money_in/calculator/bottom_sheet"(platform:"/", type: TrackType.View){}
+        "/money_in/calculator/bottom_sheet/select"(platform:"/", type: TrackType.Event){
             account_number="111111111111111111121"
         }
-        "money_in/calculator/bottom_sheet/edit_amount"(platform:"/", type: TrackType.Event){}
+        "/money_in/calculator/bottom_sheet/edit_amount"(platform:"/", type: TrackType.Event){}
 
         //TD to debin - Onboarding
         "/money_in/debin/td_to_debin_onboarding"(platform:"/", type: TrackType.View){}
