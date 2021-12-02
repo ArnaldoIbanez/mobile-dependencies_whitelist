@@ -550,4 +550,11 @@ trackTests {
         }
 
     }
+
+    test("Loyalty Drawer") {
+
+        "/loyalty/drawer/pill"(platform: "/", type: TrackType.View, business: "mercadopago") {}
+
+        "/loyalty/drawer/pill"(platform: "/", type: TrackType.View, business: "mercadolibre") {}
+    }
 }

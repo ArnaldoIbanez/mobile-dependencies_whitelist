@@ -1124,6 +1124,20 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap - carousel") {
+        "/wallet_home/section/tap/carousel" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="carousel"
+        }
+    }
+
+    test("Mercadopago Home Tap - Ad carousel") {
+        "/wallet_home/section/tap/ad_carousel" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="ad carousel"
+        }
+    }
+
     test("Mercadopago Home Tap v3 - shortcuts") {
         "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1873,6 +1887,7 @@ trackTests {
                     content_type : 'complete',
                     ordinal: 17,
                     level: 2,
+                    percentage: 17
             ]
             metadata = [
                 accessibility_voice: false
@@ -2060,6 +2075,7 @@ trackTests {
                     content_type : 'complete',
                     ordinal: 17,
                     level: 2,
+                    percentage: 17
             ]
             metadata = [
                 accessibility_voice: true
@@ -2638,6 +2654,22 @@ trackTests {
                 bu_line = "default"
                 logic = "user_journey"
                 flow = "default"
+            }
+        }
+
+        test("Mercadopago Home Tap v3 - Prepaid Banner [${business}]") {
+            "/wallet_home/section/tap/prepaid_banner/close" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "cross_selling_item1"
+                section_id = "cross_selling"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
             }
         }
 

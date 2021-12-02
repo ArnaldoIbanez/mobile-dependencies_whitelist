@@ -237,6 +237,7 @@ tracks {
     "/banking/calendar/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/calendar/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/activities/row"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/activities/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}

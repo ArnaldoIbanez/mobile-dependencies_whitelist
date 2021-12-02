@@ -294,6 +294,7 @@ trackTests {
         "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             product_type = "delivery"
+            address_id = "123456789"
             marketplace_state = "empty"
             marketplace_state_reason = "no stores in zone"
             marketplace_filters = [
@@ -738,6 +739,7 @@ trackTests {
                 ]
             ]
             product_type = "proximity"
+            address_id = "123456789"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_state = "update_app_shield"
@@ -1087,6 +1089,7 @@ trackTests {
                 ] 
             ]
             product_type = "delivery"
+            address_id = "123456789"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_state = "empty"
@@ -1141,6 +1144,7 @@ trackTests {
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            address_id = "123456789"
         }
 
         "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
@@ -1190,6 +1194,7 @@ trackTests {
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            address_id = "123456789"
         }
 
         "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
