@@ -71,10 +71,10 @@ tracks {
                 "close",
                 "back",
                 "start_liveness",
-                "automatic_start_liveness",
                 "redirect",
                 "activate_camera"
         ], description: "Type of actions")
+        start_on_ready(type: PropertyType.Boolean, required: false, description: "Start action on ready")
     }
 
     "/liveness/permissions/ask"(platform: "/mobile", type: TrackType.Event) {}
