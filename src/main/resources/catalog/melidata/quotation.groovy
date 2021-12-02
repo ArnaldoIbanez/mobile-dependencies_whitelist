@@ -7,7 +7,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1075"
+    initiative = "1041"
 
     propertyDefinitions {
         seller_id(required: true, type:PropertyType.Numeric, inheritable: false)
@@ -38,6 +38,8 @@ tracks {
     //Quotation :: Details
     "/quotation/details"(platform: "/") {
         item_id(required: true, type:PropertyType.String,description: "Item id")
+        source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
+                description: "Source where item models are called")
     }
 
     "/quotation/details"(platform: "/web") {
@@ -56,6 +58,16 @@ tracks {
 
     "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
         source(required: true, type:PropertyType.String,description: "Origen de donde se llego al selector de modelos")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_agency, etc")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        item_status(required: false, type: PropertyType.String, description: "Whenever the items is active, closed or paused")
+        seller_id(required: false, type: PropertyType.Numeric)
+        buying_mode(required: false, type: PropertyType.String, values: ["classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
     }
 
     "/quotation/details/unregistered/show"(platform: "/web", type: TrackType.Event) {
@@ -89,8 +101,9 @@ tracks {
     //Quotation :: Quote intention
     "/quotation/quote_intention"(platform: "/mobile", type: TrackType.Event) {
         item_id(required: true, type:PropertyType.String, description: "Item id")
-        model_id(required: true, type:PropertyType.String, description: "Model id")
-        unit_id(required: true, type:PropertyType.String, description: "Unit id")
+        model_id(required: false, type:PropertyType.String, description: "Model id")
+        unit_id(required: false, type:PropertyType.String, description: "Unit id")
+        source(required: false, type:PropertyType.String, description: "Origen where the model was selected")
     }
 
     "/quotation/quote_intention"(platform: "/web", type: TrackType.Event) {

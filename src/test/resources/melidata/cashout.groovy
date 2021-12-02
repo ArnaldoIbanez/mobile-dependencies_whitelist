@@ -22,14 +22,23 @@ trackTests {
         cashout_method = "rapipago"
     }
 
-    "/cashout/hub/kyc/onboarding"(platform: "/", type: TrackType.View) {}
-    "/cashout/hub/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
-    "/cashout/hub/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
+    "/cashout/hub/lighthouses"(platform: "/", type: TrackType.View) {}
+
+    "/cashout/hub/lighthouses/details"(platform: "/", type: TrackType.View) {
+        id = "8"
+    }
+    "/cashout/hub/lighthouses/details/scanqr"(platform: "/", type: TrackType.Event) {
+        id = "8"
+    }
 
     "/cashout/hub/congrats"(platform: "/") {}
     "/cashout/hub/congrats/success"(platform: "/", type: TrackType.View) {}
     "/cashout/hub/congrats/success/continue"(platform: "/", type: TrackType.Event) {}
     "/cashout/hub/congrats/success/close"(platform: "/", type: TrackType.Event) {}
+
+    "/cashout/modal"(platform: "/", type: TrackType.View) {}
+    "/cashout/modal/close"(platform: "/", type: TrackType.Event) {}
+    "/cashout/modal/withdraw"(platform: "/", type: TrackType.Event) {}
 
     "/cashout/extracash"(platform: "/") {}
     "/cashout/extracash/onboarding"(platform: "/", type: TrackType.View) {}

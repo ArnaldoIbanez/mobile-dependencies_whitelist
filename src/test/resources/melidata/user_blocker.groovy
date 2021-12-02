@@ -9,6 +9,9 @@ trackTests {
         "/user_blocker/shield"(platform: "/mobile") {}
         "/user_blocker/webview"(platform: "/mobile") {}
         "/user_blocker/redirect"(platform: "/mobile") {}
+        "/user_blocker/shield/error"(platform: "/mobile") {
+            verbose = "se agoto el tiempo de espera"
+        }
 
         //Redirect events
         "/user_blocker/redirect/load"(platform: "/") {
@@ -54,6 +57,13 @@ trackTests {
             deeplink = "mercadopago://home"
         }
 
+        //Finish with an optional dismissible shield
+        "/user_blocker/finish"(platform: "/") {
+            deeplink = "mercadopago://home"
+            dismiss_shield = "true"
+            duration = "86400"
+        }
+
         //Async mode events
         "/user_blocker/async_mode_load"(platform: "/") {
             label = "service_success"
@@ -65,6 +75,9 @@ trackTests {
         "/user_blocker/shield"(platform: "/mobile", business: "mercadolibre") {}
         "/user_blocker/webview"(platform: "/mobile", business: "mercadolibre") {}
         "/user_blocker/redirect"(platform: "/mobile", business: "mercadolibre") {}
+        "/user_blocker/shield/error"(platform: "/mobile", business: "mercadolibre") {
+            verbose = "se agoto el tiempo de espera"
+        }
 
         //Redirect events
         "/user_blocker/redirect/load"(platform: "/", business: "mercadolibre") {
@@ -108,6 +121,13 @@ trackTests {
         //Finish events
         "/user_blocker/finish"(platform: "/", business: "mercadolibre") {
             deeplink = "meli://home"
+        }
+
+        //Finish with an optional dismissible shield
+        "/user_blocker/finish"(platform: "/", business: "mercadolibre") {
+            deeplink = "meli://home"
+            dismiss_shield = "true"
+            duration = "86400"
         }
 
         //Async mode events

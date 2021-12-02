@@ -1,6 +1,7 @@
                     package src.test.resources.melidata
 
                     import com.ml.melidata.TrackType
+
                     import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
                     trackTests {
@@ -140,6 +141,18 @@
                                 payment_channel= "point"
                             }
 
+                            "/pos_seller/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+                                to_flow = "fcu"
+                                reason = "user_in_whitelist"
+                            }
+                            "/pos_seller/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+                                to_flow = "legacy"
+                                reason = "network_request_failed"
+                            }
+                            "/pos_seller/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+                                to_flow = "legacy"
+                                reason = "user_not_in_whitelist"
+                            }
                         }
 
 
@@ -403,9 +416,10 @@
                         }
 
                         //Vouchers
-                        "/pos_seller/vouchers/sodexo"(platform: "/web", type: TrackType.View) {}
-                        "/pos_seller/vouchers/access-denied"(platform: "/web", type: TrackType.View) {}
-                        "/pos_seller/vouchers/error"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/vouchers"(platform: "/", type: TrackType.View) {}
+                        "/pos_seller/vouchers/detail"(platform: "/", type: TrackType.View) { voucher_name = "alelo" }
+                        "/pos_seller/vouchers/access_denied"(platform: "/", type: TrackType.View) {}
+                        "/pos_seller/vouchers/error"(platform: "/", type: TrackType.View) {}
                          
                         /**
                         *MISC
@@ -454,5 +468,61 @@
                         "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
                     }
 
-} 
+                    test("pos seller track generics") {
 
+                        "/pos_seller/point/ftu/continue"(platform: "/mobile", type: TrackType.Event) {
+                            is_ftu = true
+                        }
+
+                        "/pos_seller/point/ftu/buy"(platform: "/mobile", type: TrackType.Event) {
+                            url = "https://mercadopago.com"
+                        }
+
+                        "/pos_seller/point/pairing/selection"(platform: "/mobile", type: TrackType.Event) {
+                            poi_type = "DSPREAD_CR100"
+                        }
+
+                        "/settings/point/device"(platform: "/mobile", type: TrackType.View) {
+                            poi_type = "DSPREAD_CR100"
+                        }
+                        "/pos_seller/point/device/update/error"(platform: "/mobile", type: TrackType.View) {
+                            type = "Unknown"
+                        }
+                    }
+
+                    test("pos seller SPoC") {
+                        "/pos_seller/point/spoc/shield"(platform: "/mobile", type: TrackType.View) {
+                            shield_type = "outdated"
+                        }
+                        "/pos_seller/point/spoc/shield/select"(platform: "/mobile", type: TrackType.Event) {
+                            option = "updated"
+                        }
+                        "/pos_seller/point/spoc/installments/method"(platform: "/mobile", type: TrackType.View) {
+                            amount = 20.00
+                            items = 4
+                        }
+                        "/pos_seller/point/spoc/installments/method/select"(platform: "/mobile", type: TrackType.Event) {
+                            method = "PCJ"
+                        }
+                        "/settings/device/update/error/shield"(platform: "/mobile", type: TrackType.View) {
+                            type = "Unknown"
+                        }
+                        "/pos_seller/point/spoc/sp_actions"(platform: "/mobile", type: TrackType.Event) {
+                            redirect = "help"
+                        }
+                        "/pos_seller/point/error/declined"(platform: "/mobile", type: TrackType.Event) {
+                            poi = "1234ABCDFG"
+                            code = "2010"
+                            error_type = "offline"
+                        }
+                        "/pos_seller/point/installments/select"(platform: "/mobile", type: TrackType.Event) {
+                            installment = 24
+                        }
+                        "/pos_seller/point/signature"(platform: "/mobile", type: TrackType.View) {
+                            payment_id = "700123456"
+                        }
+                        "/pos_seller/point/congrats"(platform: "/mobile", type: TrackType.View) {
+                            payment_id = "70012345"
+                        }
+                    }
+}

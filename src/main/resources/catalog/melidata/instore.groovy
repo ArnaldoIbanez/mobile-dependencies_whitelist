@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = '1218'
+    initiative = '1322'
 
     def propertyCampaignDetail  = objectSchemaDefinitions {
         source(required: false, type: PropertyType.String, description:  "indicates the component that starts capaign")
@@ -20,12 +20,15 @@ tracks {
 
     def propertyLocationExtraInfo  = objectSchemaDefinitions {
         flow(required: true, type: PropertyType.String, description: "payment flow")
+        context(required: false, type: PropertyType.String, values: propertyContextValues, description: "Context from where permission landing was called")
     }
 
     def propertyFiltersModal = objectSchemaDefinitions {
     	tag(required: false, type: PropertyType.String, description:  "tag of filter")
         value(required: false, type: PropertyType.String, description:  "value of filter")
     }
+
+    def propertyContextValues  = ["/instore", "/instore/map", "/instore/map/location_button"]
 
     /**
     * INSTORES Screen Tracks
@@ -183,11 +186,16 @@ tracks {
     "/instore/error/invalid_user_seller_uif/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/invalid_user_seller_uif/abort"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/error/identification_number"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/identification_number/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/identification_number/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/identification_number/retry"(platform: "/mobile", type: TrackType.Event) {}
+
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         new_session(required: false, PropertyType.Boolean, description: "indicates if a new session_id was created")
-        context(required: true, PropertyType.String, values: ["/instore", "/instore/map"])
+        context(required: true, PropertyType.String, values: propertyContextValues)
     }
 
     "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
@@ -273,6 +281,7 @@ tracks {
     "/instore/waiting/gas_add_card/add_card"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/gas_add_card/skip"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/gas_add_card/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/gas_add_card/add"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {}
     "/instore/waiting/gas_pump/next"(platform: "/mobile", type: TrackType.Event) {}
@@ -488,6 +497,9 @@ tracks {
         type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: true, inheritable: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
         display_at_least_one_store(required: false, inheritable: false, PropertyType.Boolean, description: "whether the map is being forced to show the nearest store or not")
+        stored_address(required: false, inheritable: false, PropertyType.Boolean, description: "True if the location from the deeplink is an stored address")
+        location_permission_enabled(required: false, PropertyType.Boolean)
+        device_gps_enabled(required: false, PropertyType.Boolean)
     }
     "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
@@ -503,7 +515,9 @@ tracks {
         store_id(required: true, PropertyType.String, description: "the store's id")
         store_location(required: true, PropertyType.String, description: "the stores lat and long")
     }
-    "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {
+        has_permission(required: false, inheritable: false, PropertyType.Boolean, description: "true if the app has permissions before the user tapped on the location button")
+    }
     "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
         southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
@@ -914,5 +928,54 @@ tracks {
 
     "/scanner/smart_context/torch/tapped"(platform: "/mobile", type: TrackType.Event) {
         enabled(required: true, PropertyType.Boolean)
+    }
+
+    //Onboarding
+    "/instore/onboarding"(platform: "/mobile", isAbstract: true) {
+        current_step(required: true, PropertyType.String, description: "a string used to know the identifier of current step", values: ['scan_qr','buyer_qr'])
+        back_steps(required: true, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the identifier of back steps")
+        next_steps(required: true, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the identifier of next steps")
+    }
+
+    "/instore/onboarding/scan_qr"(platform: "/mobile", type: TrackType.View){}
+    "/instore/onboarding/scan_qr/close"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/onboarding/scan_qr/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/onboarding/scan_qr/done"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/onboarding/scan_qr/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/onboarding/buyer_qr"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/onboarding/buyer_qr/close"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/onboarding/buyer_qr/done"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/onboarding/buyer_qr/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Store Hub
+    "/stores/store_hub"(platform: "/", isAbstract: true, initiative: '1322') {}
+
+    "/stores/store_hub/status"(platform: "/", type: TrackType.View) {
+        from(required: true, type: PropertyType.String, description: "Source of the hub load", values: ['notification', 'kyc', 'stores', 'none'])
+        seller_status(required: true, type: PropertyType.String, description: "Activity status of the seller", values: ['active', 'inactive'])
+        visible_stores(required: true, type: PropertyType.Numeric, description: "Amount of visible stores")
+        non_visible_stores(required: true, type: PropertyType.Numeric, description: "Amount of non-visible stores")
+        pending_stores(required: true, type: PropertyType.Numeric, description: "Amount of pending stores")
+    }
+
+    "/stores/store_hub/actions"(platform: "/", isAbstract: true) {}
+
+    "/stores/store_hub/actions/seller_data"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Visible type of seller upon clicking the seller-data action", values: ['with_problem', 'with_pending', 'organic'])
+    }
+
+    "/stores/store_hub/actions/store_address"(platform: "/", type: TrackType.Event) {
+        store_id(required: true, type: PropertyType.Numeric, description: "Store ID of the store with the wrong address")
+    }
+
+    "/stores/store_hub/actions/view_map"(platform: "/", type: TrackType.Event) {
+        store_id(required: true, type: PropertyType.Numeric, description: "Store ID of the viewed store")
+    }
+
+    "/stores/store_hub/actions/result"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Source type of the action", values: ['seller', 'store'])
+        result(required: true, type: PropertyType.String, description: "Result of the action", values: ['success', 'back', 'failure'])
+        store_id(required: false, type: PropertyType.Numeric, description: "Store ID (for store results only)")
     }
 }

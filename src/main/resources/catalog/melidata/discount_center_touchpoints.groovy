@@ -10,7 +10,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1218"
+    initiative = "1305"
 	
     "/discount_center" (platform: "/mobile", isAbstract: true) {}
     "/discount_center/payers" (platform: "/mobile", isAbstract: true) {}
@@ -25,12 +25,13 @@ tracks {
         checkout_type(required: false, type: PropertyType.String, description: "Checkout type")
         collector_id(required: false, description: "Collector external id")
         security_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric or passcode validation to make a payment")
+        device_secured(required: false, type: PropertyType.Boolean, description: "If the user has pin/pattern/password in the device, only tracked in android by decision")
         category(type: PropertyType.String, required: false, description: "The category id")
         experiments(required: false, type: PropertyType.String, description: "Active experiments")
     }
 
     propertyGroups {
-        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, category, experiments)
+        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, device_secured, category, experiments)
     }
 
     def touchpoint_item_definition = objectSchemaDefinitions {

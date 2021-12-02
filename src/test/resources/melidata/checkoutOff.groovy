@@ -1,4 +1,4 @@
-package src.test.resources.melidata
+package melidata
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -7,6 +7,20 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     test("Checkout Off - MercadoPago") {
+
+        def preference_object = [
+            back_urls: "success: https://www.bionutrients.com.ar/compra-confirmada.html",
+            redirect_urls: "success: https://www.bionutrients.com.ar/compra-confirmada.html",
+            default_card_id: "342528580",
+            default_installments: 2,
+            default_payment_method_id: "visa",
+            excluded_payment_methods: [["id": "visa"], ["id": "master"]],
+            excluded_payment_types: [["id": "ticket"], ["id": "atm"]],
+            coupon_code: 1212,
+            coupon_labels: ["test", "test"],
+            auto_return: "test",
+        ]
+        
         def defaultProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
             product_id = "BC32A4JU643001OI3920"
@@ -31,6 +45,31 @@ trackTests {
             discount_type = "cosmetic"
             discount_percent = 10
             checkout_open_mode = "v2_checkout_redirect"
+            items_quantity = 2
+            app_candidate = true
+            client_id = 470234553122
+            errors = ["code: 13253, description: Collector user without key enabled for QR render"]
+            visible_components = ["discharge": "qr"]
+            sponsor_id: 12345678
+            shipping_mode = "me2"
+            shipping_method = "standard"
+            shipping_local_pickup = false
+            shipping_free = true
+            preference = preference_object
+        }
+
+        def launchingDefaultProperties = {
+            productive = true
+            collector_id = 1010101001
+            preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
+            operation_type = "regular_payment"
+            app_candidate = true
+            client_id = 470234553122
+        }
+
+        def openSeaDefaultProperties = {
+            opensea_status = "approved"
+            opensea_message_shown = true
         }
 
         def finishDefaultProperties = {
@@ -41,6 +80,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            items_quantity = 2
             congrats_status = "success"
         }
 
@@ -52,6 +92,12 @@ trackTests {
             payment_quantity = 1
             total_amount = 100.00
             currency_id = "ARS"
+            items_quantity = 2
+            preference = preference_object
+        }
+
+        def launchingOnlyRequiredProperties = {
+            productive = true
         }
 
         def finishOnlyRequiredProperties = {
@@ -84,6 +130,8 @@ trackTests {
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
+            credits_pre_approved_line = false
         }
 
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
@@ -116,10 +164,12 @@ trackTests {
 
         "/checkout_off/payment/card_express"(platform: "/web/mobile") {
             defaultProperties()
+            credits_pre_approved_line = false
         }
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
@@ -134,6 +184,10 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingDefaultProperties()
+        }
+
         // Tokenizer product final screen.
         "/checkout_off/payment/processing"(platform: "/web/mobile") {
             defaultProperties()
@@ -145,6 +199,7 @@ trackTests {
 
         "/checkout_off/review"(platform: "/web/mobile") {
             defaultProperties()
+            credits_pre_approved_line = false
         }
 
         "/checkout_off/review/shield_kyc"(platform: "/web/mobile") {
@@ -172,6 +227,14 @@ trackTests {
         }
 
         "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
             defaultProperties()
         }
 
@@ -226,6 +289,16 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -242,6 +315,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -349,6 +427,14 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -400,6 +486,16 @@ trackTests {
             finishOnlyRequiredProperties()
         }
 
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
@@ -420,6 +516,11 @@ trackTests {
             finishOnlyRequiredProperties()
         }
 
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         // Properties not necessary but minimum
         "/checkout_off/error"(platform: "/web/mobile") {
             product_id = "BC32A4JU643001OI3920"
@@ -432,6 +533,10 @@ trackTests {
 
         // Properties not necessary
         "/checkout_off/loading"(platform: "/web/mobile") {
+        }
+
+        "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingOnlyRequiredProperties()
         }
 
         // MP personalFrontend
@@ -455,6 +560,20 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Checkout Off - MercadoLibre") {
+
+        def preference_object = [
+            back_urls: "success: https://www.bionutrients.com.ar/compra-confirmada.html",
+            redirect_urls: "success: https://www.bionutrients.com.ar/compra-confirmada.html",
+            default_card_id: "342528580",
+            default_installments: 2,
+            default_payment_method_id: "visa",
+            excluded_payment_methods: [["id": "visa"], ["id": "master"]],
+            excluded_payment_types: [["id": "ticket"], ["id": "atm"]],
+            coupon_code: 1212,
+            coupon_labels: ["test", "test"],
+            auto_return: "test",
+        ]
+
         def defaultProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
             product_id = "BC32A4JU643001OI3920"
@@ -479,6 +598,31 @@ trackTests {
             discount_type = "cosmetic"
             discount_percent = 10
             checkout_open_mode = "v2_checkout_redirect"
+            items_quantity = 2
+            app_candidate = true
+            client_id = 470234553122
+            errors = ["code: 13253, description: Collector user without key enabled for QR render"]
+            visible_components = ["discharge": "qr"]
+            sponsor_id: 12345678
+            shipping_mode = "me2"
+            shipping_method = "standard"
+            shipping_local_pickup = false
+            shipping_free = true
+            preference = preference_object
+        }
+
+        def launchingDefaultProperties = {
+            productive = true
+            collector_id = 1010101001
+            preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
+            operation_type = "regular_payment"
+            app_candidate = true
+            client_id = 470234553122
+        }
+
+        def openSeaDefaultProperties = {
+            opensea_status = "approved"
+            opensea_message_shown = true
         }
 
         def finishDefaultProperties = {
@@ -501,15 +645,22 @@ trackTests {
             payment_quantity = 1
             total_amount = 100.00
             currency_id = "ARS"
+            items_quantity = 2
+            preference = preference_object
+        }
+
+        def launchingOnlyRequiredProperties = {
+            productive = true
         }
 
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
             payment_status = "approved"
-            payment_id = "5408994392"        
+            payment_id = "5408994392"
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            items_quantity = 2
             congrats_status = "success"
         }
 
@@ -533,6 +684,7 @@ trackTests {
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
@@ -569,6 +721,7 @@ trackTests {
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
@@ -581,6 +734,10 @@ trackTests {
 
         "/checkout_off/payment/card/split_second"(platform: "/web/mobile") {
             defaultProperties()
+        }
+
+        "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingDefaultProperties()
         }
 
         // Tokenizer product final screen.
@@ -621,6 +778,14 @@ trackTests {
         }
 
         "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
             defaultProperties()
         }
 
@@ -675,6 +840,16 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -691,6 +866,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -798,6 +978,14 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -849,6 +1037,16 @@ trackTests {
             finishOnlyRequiredProperties()
         }
 
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
@@ -869,6 +1067,11 @@ trackTests {
             finishOnlyRequiredProperties()
         }
 
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         // Properties not necessary but minimum
         "/checkout_off/error"(platform: "/web/mobile") {
             product_id = "BC32A4JU643001OI3920"
@@ -881,6 +1084,10 @@ trackTests {
 
         // Properties not necessary
         "/checkout_off/loading"(platform: "/web/mobile") {
+        }
+
+        "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingOnlyRequiredProperties()
         }
 
         // MP personalFrontend

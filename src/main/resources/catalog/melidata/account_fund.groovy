@@ -6,7 +6,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1149"
+    initiative = "1240"
 
     /**
      * ACCOUNT FUND Screen Tracks
@@ -24,6 +24,9 @@ tracks {
     "/account_fund/amount/preset"(platform: "/", type: TrackType.Event) {
         preset (required:true, description: "Amount preset button value", values: ["30", "60", "120", "240", "500", "1000", "2000", "5000"])
     }
+
+    // Home MoneyIn
+    "/account_fund/payment_types"(platform: "/", type: TrackType.View) {}
 
     // Amount warning modal
     "/account_fund/amount/warning"(platform: "/", type: TrackType.View) {}
@@ -59,6 +62,10 @@ tracks {
     "/account_fund/mi_cvu/edit_alias/save"(platform: "/", type: TrackType.Event) {}
     "/account_fund/mi_cvu/edit_alias/save/success"(platform: "/", type: TrackType.View) {}
     "/account_fund/mi_cvu/edit_alias/save/fail"(platform: "/", type: TrackType.View) {}
+    "/account_fund/mi_cvu/transfer_help"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/mi_cvu/share"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/mi_cvu/menu_help"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/mi_cvu/edit_alias/menu_help"(platform: "/", type: TrackType.Event) {}
     
     "/account_fund/cvu/copy_alias"(platform: "/", type: TrackType.Event) {}
     "/account_fund/cvu/copy_cvu"(platform: "/", type: TrackType.Event) {}
@@ -80,4 +87,19 @@ tracks {
         bank (required:true, description: "Bank to display instructions for")
     }
     "/account_fund/cvu/main/help"(platform: "/", type: TrackType.Event) {}
+
+    // Kyc
+    "/account_fund/kyc/continue"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/kyc/close"(platform: "/", type: TrackType.Event) {}
+
+    //account data mlc
+
+    "/account_fund/account_data/home"(platform: "/", type: TrackType.View) {}
+    "/account_fund/account_data/faq"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/account_data/copy"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/account_data/share"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/account_data/modal/kyc"(platform: "/", type: TrackType.View) {}
+    "/account_fund/account_data/modal/kyc/close"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/account_data/modal/kyc/continue"(platform: "/", type: TrackType.Event) {}
+
 }

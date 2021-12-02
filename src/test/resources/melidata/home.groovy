@@ -48,6 +48,20 @@ trackTests {
         }
     }
 
+    test("Test Official store tracking") {
+        def dataSet = {
+            official_store_name = "test123"
+            official_store_id = 123
+        }
+
+        "/home/category/real_estate/official_store/developer/action"(platform: "/", type: TrackType.Event, dataSet)
+        "/home/category/real_estate/official_store/developer/print"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/official_store/developer/all_brands"(platform: "/", type: TrackType.Event) {}
+        "/home/category/real_estate/official_store/realtor/action"(platform: "/", type: TrackType.Event, dataSet)
+        "/home/category/real_estate/official_store/realtor/print"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/official_store/realtor/all_brands"(platform: "/", type: TrackType.Event) {}
+    }
+
     test("Home core tracking") {
         "/home"(platform: "/mobile") {
             mp_installed = true
@@ -182,6 +196,18 @@ trackTests {
 
     }
 
+    test("Motors home popup show"){
+        "/home/category/motors/popup_meli"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Motors home popup accept"){
+        "/home/category/motors/popup_meli/accept"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Motors home popup deny"){
+        "/home/category/motors/popup_meli/deny"(platform: "/", type: TrackType.Event) {}
+    }
+
     test("Home Server Side") {
         def dataSet = {
             component_count = 25
@@ -241,6 +267,70 @@ trackTests {
         "/home"(platform: "/web", dataSet)
     }
 
+    test("Home Main Slider Mobile") {
+        def dataSet = {
+            component_count = 25
+            newbie = true
+            home_version = 'new'
+            is_logged = true
+            realestates = {
+                main_slider = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = 2
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/mobile", dataSet)
+    }
+
+    test("Home Main Slider Web") {
+        def dataSet = {
+            realestates = {
+                main_slider = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = '2'
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/web", dataSet)
+    }
+
+    test("Home Collections Web") {
+        def dataSet = {
+            realestates = {
+                collections = [
+                        {
+                            audience = '2'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '1'
+                            logic = '2'
+                            position = '4'
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/web", dataSet)
+    }
+
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
@@ -269,5 +359,11 @@ trackTests {
     test("Home Motors Sell Action") {
         "/home/motors"(platform: "/web/mobile", type: TrackType.Event) {}
         "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
+    }
+
+    test("Home Dummy Experiments") {
+        "/home/experiment"(platform: "/mobile/android", type: TrackType.App) {
+            sync_retrieve_time = 1000000
+        }
     }
 }

@@ -150,11 +150,26 @@ trackTests {
             challenge = "pass"
             tracking_id = "123"
         }
+        "/login/auth/challenge/help"(platform: "/web", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
+            source = "default"
+        }
+        "/login/auth/challenge/help"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
+        }
         "/login/auth/challenge/decline"(platform: "/web", type: TrackType.View) {
             challenge = "pass"
             source = "QUESTION"
             tracking_id = "123"
         }
+        "/login/auth/challenge/click_incomplete_registration"(platform: "/", type: TrackType.Event) {
+            challenge = "user"
+            source = "EXPLICIT"
+            tracking_id = "123"
+        }
+
         "/logout"(platform: "/", type: TrackType.Event) {
             source = "MSL"
         }
@@ -235,57 +250,56 @@ trackTests {
     }
 
     test("Account recovery flow") {
+        "/auth/account_recovery/restrict"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
         "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
         }
         "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
+        }
+        "/auth/account_recovery/expired"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
         }
         "/auth/account_recovery/confirm"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
         }
         "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "validate_identity_button"
-            is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
-            is_webview = true
         }
         "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
-            is_webview = true
+        }
+        "/auth/account_recovery/expired/go_home"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
         }
         "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "confirm_button"
-            is_webview = true
         }
         "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "cancel_button"
-            is_webview = true
         }
         "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
-            is_webview = true
         }
     }
 
@@ -381,7 +395,58 @@ trackTests {
         }
     }
 
+    test("TOTP_IN_APP flow") {
+        "/auth/totp_in_app/validation/scan"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/web_mobile"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/rejected"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/max_attempts"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/no_app"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "approved"
+            event_type = "polling"
+        }
+        "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "go_to_app"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "decline_challenge"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/no_app/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "decline_challenge"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/max_attempts/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "go_home"
+            event_type = "click"
+        }
+    }
 
+    test("PASSWORD enrollment flow") {
+        "/auth/password_enrollment"(platform: "/", type: TrackType.View) {
+            transaction_id = "id"
+        }
+        "/auth/password_enrollment/confirm"(platform: "/", type: TrackType.Event) {
+            transaction_id = "id"
+            target = "continue"
+        }
+    }
 
     test("Multi Step Login Android") {
         "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
@@ -436,6 +501,15 @@ trackTests {
             user = [nickname: "nickname", email:"email@email.com"]
             errors = ["user_not_found"]
         }
+        "/login/auth/challenge/help"(platform: "/web", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
+            source = "default"
+        }
+        "/login/auth/challenge/help"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
+        }
         "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
         }
@@ -451,6 +525,30 @@ trackTests {
         "/login/auth/phone_validation/sms_detection/autodetect_code_success"(platform: "/mobile", type: TrackType.Event) {}
 
         "/login/auth/phone_validation/sms_detection/autodetect_code_failure"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Multi Step Login Web") {
+      "/login/auth/challenge"(platform: "/web", type: TrackType.View) {
+        reauthentication = false
+        recaptcha = false
+        challenge = "pass"
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+        has_error = false
+      }
+      "/login/auth/challenge/submit"(platform: "/web", type: TrackType.View) {
+        reauthentication = false
+        challenge = "pass"
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+      }
+      "/login/auth/success"(platform: "/web", type: TrackType.View) {
+        rememberme_enabled = true
+        is_otp = false
+        is_admin_otp = false
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+      }
     }
 
     test("Device Attestation"){
@@ -761,10 +859,62 @@ trackTests {
                 client_type = "mobile"
             }
 
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "mobile"
+                social_option = "Google"
+            }
+
             "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
                 flow = "registration"
                 client_type = "mobile"
                 validation_status = "success"
+            }
+
+            "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+                flow = "registration"
+                client_type = "mobile"
+                validation_status = "success"
+                social_option = "Google"
+            }
+
+            "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {
+                flow = "login"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {
+                flow = "login"
+                client_type = "web"
+            }
+
+            "/authenticators/email_validation/enter_code/open_email_app"(platform: "/mobile/android", type: TrackType.Event) {
+                flow = "registration_v3"
+                client_type = "mobile"
+                packages = ["com.emailAppPackage1.android", "com.emailAppPackage2.android"]
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link"(platform: "/mobile/android", type: TrackType.Event) {
+                flow = "registration_v3"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "web"
+                cause = "opened_with_browser"
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "web"
+                cause = "incorrect_code"
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "mobile"
+                cause = "native_not_listening"
             }
 
             "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
@@ -782,6 +932,122 @@ trackTests {
             }
         }
 
+        test("Face validation - Authentication") {
+          "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
+                error_code = "server_error"
+          }
+          "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
+                error_code = "validation_error"
+          }
+          "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
+                error_code = "max_attempts"
+          }
+          "/authenticators/face_validation/error/decline"(platform: "/", type: TrackType.Event) {
+                error_code = "validation_error"
+          }
+          "/authenticators/face_validation/error/retry"(platform: "/", type: TrackType.Event) {
+                error_code = "validation_error"
+          }
+        }
+
+        test("Biometrics / Reauth - Screenlock Challenge") {
+            "/screenlock/challenge"(platform: "/mobile/android", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+                valid_params = true
+            }
+
+            "/screenlock/challenge"(platform: "/mobile/ios", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                valid_params = false
+            }
+
+            "/screenlock/challenge"(platform: "/mobile/ios", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "face_id"
+                valid_params = false
+            }
+
+            "/screenlock/challenge/start"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+            }
+
+            "/screenlock/challenge/start"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                transaction_id = "123"
+            }
+
+            "/screenlock/challenge/end"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+                elapsed_time = 3
+                result = "success"
+            }
+
+            "/screenlock/challenge/end"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+                error = "error in screenlock"
+                elapsed_time = 5
+                result = "error"
+            }
+
+            "/screenlock/challenge/finish"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+                challenge_time = 10
+            }
+
+            "/screenlock/challenge/finish"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                transaction_id = "123"
+                challenge_time = 10
+            }
+
+            "/screenlock/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+            }
+
+            "/screenlock/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+            }
+
+            "/screenlock/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "face_id"
+            }
+
+            "/screenlock/challenge/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+            }
+
+            "/screenlock/challenge/error/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "none"
+                transaction_id = "123"
+            }
+
+            "/screenlock/challenge/error/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "touch_id"
+                transaction_id = "123"
+            }
+        }
+
         test("Biometrics / Screenlock") {
             "/screenlock/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
                 flow_id = "flow"
@@ -792,7 +1058,7 @@ trackTests {
             "/screenlock/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
                 flow_id = "flow"
                 enrollment_status = "disabled"
-                os_status = "biometrics"
+                os_status = "touch_id"
             }
 
             "/screenlock/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -806,11 +1072,16 @@ trackTests {
                     "type": "transactional"
                 ]
                 config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
+                fallback_disabled = false
+                screenlock_method_used = "biometrics"
+                biometrics_hash = "af21213819faed1923182dfc4217"
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -824,18 +1095,26 @@ trackTests {
                     "amount": "0",
                     "type": "non_transactional"
                 ]
+                applock_flowlock_information = [
+                        "enabled": "enabled",
+                        "elapsed_time": 10,
+                        "screenlock_validated":false
+                ]
                 config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
+                fallback_disabled = false
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
                 flow_id = "flow"
                 enrollment_status = "enabled"
-                os_status = "basic_screenlock"
+                os_status = "face_id"
                 elapsed_time = 50
                 result = "success"
                 transaction_information = [
@@ -843,6 +1122,109 @@ trackTests {
                     "type": "other"
                 ]
                 config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                fallback_disabled = false
+                screenlock_method_used = "basic_screenlock"
+            }
+
+            "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                from = "security_status"
+                config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                remote_config = "enabled"
+                last_status_expired = true
+                called = true
+            }
+
+            "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                from = "force_block_refresh"
+                config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                remote_config = "enabled"
+                called = true
+            }
+
+            "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "face_id"
+                from = "force_block_refresh"
+                config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                remote_config = "enabled"
+                called = true
+            }
+
+            "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                result = "success"
+                from = "security_status"
+                response = [
+                    "type": "SECURITY_BLOCKER",
+                    "app_lock": true,
+                    "flow_lock": true
+                ]
+                config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                result = "error"
+                from = "force_block_refresh"
+                config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "face_id"
+                result = "error"
+                from = "force_block_refresh"
+                config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -868,6 +1250,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "basic_screenlock"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -881,6 +1265,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "basic_screenlock"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -893,6 +1279,22 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "both_enrolled"
+            }
+
+            "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "touch_id"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -906,6 +1308,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -919,6 +1323,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -931,6 +1337,8 @@ trackTests {
                 enrollment_status = "disabled"
                 os_status = "basic_screenlock"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "disabled",
                         "transaction_custom": "0",
@@ -945,6 +1353,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -958,6 +1368,8 @@ trackTests {
                 os_status = "basic_screenlock"
                 dismissible = "disabled"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "disabled",
                         "transaction_custom": "0",
@@ -972,6 +1384,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -986,12 +1400,30 @@ trackTests {
                 dismissible = "disabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
-                scenario = "auto_enroll"
+                scenario = "blocker_enrolled"
+            }
+
+            "/screenlock/security_blocker/ok"(platform: "/mobile/ios", type: TrackType.Event) {
+                from = "login"
+                enrollment_status = "enabled"
+                dismissible = "disabled"
+                os_status = "face_id"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "blocker_enrolled"
             }
 
             "/screenlock/security_blocker/configure"(platform: "/mobile/android", type: TrackType.Event) {
@@ -1000,6 +1432,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1014,6 +1448,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1028,6 +1464,24 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "auto_enroll"
+            }
+
+            "/screenlock/security_blocker/dismiss"(platform: "/mobile/ios", type: TrackType.Event) {
+                from = "campaign"
+                enrollment_status = "enabled"
+                dismissible = "enabled"
+                os_status = "touch_id"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1050,6 +1504,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1061,6 +1517,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1072,6 +1530,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1083,6 +1543,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1090,10 +1552,55 @@ trackTests {
                 ]
             }
 
+            "/screenlock/opening_lock/error_presenting"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                vc_exists = false
+                modal_presented = false
+            }
+
+            "/screenlock/opening_lock/error_presenting"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                vc_exists = true
+                modal_presented = true
+            }
+
+            "/screenlock/opening_lock/error_routing"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+            // Screenlock Status
             "/screenlock/status"(platform: "/mobile/android", type: TrackType.Event) {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1105,13 +1612,185 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
+                h = [
+                        "e": [
+                                "b": "compile",
+                                "i": true,
+                        ],
+                        "r": [
+                                "b": "app_installed",
+                                "i": true,
+                        ]
+                ]
             }
 
+            "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                h = [
+                        "e": [
+                                "b": "runtime",
+                                "i": true,
+                        ],
+                        "r": [
+                                "b": "directory",
+                                "i": true,
+                        ]
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                h = [
+                        "e": [
+                                "b": "unknown",
+                                "i": false,
+                        ],
+                        "r": [
+                                "b": "files",
+                                "i": true,
+                        ]
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                h = [
+                        "e": [
+                                "b": "unknown",
+                                "i": false,
+                        ],
+                        "r": [
+                                "b": "symb",
+                                "i": true,
+                        ]
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                h = [
+                        "e": [
+                                "b": "fail",
+                                "i": false,
+                        ],
+                        "r": [
+                                "b": "fail",
+                                "i": false,
+                        ]
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                h = [
+                        "e": [
+                                "b": "undetectable",
+                                "i": false,
+                        ],
+                        "r": [
+                                "b": "undetectable",
+                                "i": false,
+                        ]
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                h = [
+                        "e": [
+                                "b": "unknown",
+                                "i": false,
+                        ],
+                        "r": [
+                                "b": "unknown",
+                                "i": false,
+                        ]
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                h = [
+                        "e": [
+                                "b": "off",
+                                "i": false,
+                        ],
+                        "r": [
+                                "b": "off",
+                                "i": false,
+                        ]
+                ]
+            }
         }
 
         test("IFPE auth restrictions") {
@@ -1208,39 +1887,954 @@ trackTests {
 
         test("Remove Session") {
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "sharedPreferences"
+                strategy_used = "both"
                 keepnite_is_on = true
                 api_version = true
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "localStorage"
+                strategy_used = "both"
                 keepnite_is_on = true
                 api_version = true
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "sharedPreferences"
+                strategy_used = "both"
                 keepnite_is_on = false
                 api_version = false
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "localStorage"
+                strategy_used = "both"
                 keepnite_is_on = false
                 api_version = false
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "sharedPreferences"
+                strategy_used = "both"
                 keepnite_is_on = true
                 api_version = false
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "localStorage"
+                strategy_used = "both"
                 keepnite_is_on = false
                 api_version = true
+            }
+        }
+
+        test("Migrate Session") {
+            "/login/migrate_session"(platform: "/mobile", type: TrackType.Event) {
+                migration_is_ok = true
+                keepnite_is_on = false
+                keepnite_remove_is_on = true
+            }
+
+            "/login/migrate_session"(platform: "/mobile", type: TrackType.Event) {
+                migration_is_ok = false
+                keepnite_is_on = true
+                keepnite_remove_is_on = false
+            }
+
+            "/login/migrate_session"(platform: "/mobile", type: TrackType.Event) {
+                migration_is_ok = true
+                keepnite_is_on = false
+                keepnite_remove_is_on = false
+            }
+
+            "/login/migrate_session"(platform: "/mobile", type: TrackType.Event) {
+                migration_is_ok = false
+                keepnite_is_on = true
+                keepnite_remove_is_on = true
+            }
+        }
+
+        test("Reauth Native") {
+            //Login Module
+            "/login/transactional/success"(platform: "/mobile/android", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "grant_code"
+                tracking_id = "1"
+            }
+
+            "/login/transactional/success"(platform: "/mobile/ios", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "grant_code"
+                tracking_id = "1"
+            }
+
+            "/login/transactional/error"(platform: "/mobile/android", type: TrackType.View) {
+                authentication_id = "1"
+                error = "server"
+            }
+
+            "/login/transactional/error"(platform: "/mobile/ios", type: TrackType.View) {
+                authentication_id = "1"
+                error = "server"
+            }
+
+            "/login/transactional/challenge"(platform: "/mobile/android", type: TrackType.View) {
+                authentication_id = "1"
+                challenge = "test1"
+                tracking_id = "1"
+            }
+
+            "/login/transactional/challenge"(platform: "/mobile/ios", type: TrackType.View) {
+                authentication_id = "1"
+                challenge = "test1"
+                tracking_id = "1"
+            }
+
+            "/login/transactional/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
+                authentication_id = "1"
+                challenge = "test1"
+                errors = ["un error", "dos errores"]
+                tracking_id = "1"
+            }
+
+            "/login/transactional/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
+                authentication_id = "1"
+                challenge = "test1"
+                errors = ["un error", "dos errores"]
+                tracking_id = "1"
+            }
+
+            "/login/transactional/challenge/decline"(platform: "/mobile/android", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "test1_decline"
+                tracking_id = "1"
+            }
+
+            "/login/transactional/challenge/decline"(platform: "/mobile/ios", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "test1_decline"
+                tracking_id = "1"
+            }
+
+            "/login/transactional/challenge/submit"(platform: "/mobile/android", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "test1_submit"
+                tracking_id = "1"
+            }
+
+            "/login/transactional/challenge/submit"(platform: "/mobile/ios", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "test1_submit"
+                tracking_id = "1"
+            }
+
+            //Operation Start
+            "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+            }
+
+            "/reauth/operation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+            }
+
+            "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+            }
+
+            "/reauth/operation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+            }
+
+            "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "withdraw"
+                amount = "10.0"
+            }
+
+            "/reauth/operation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "withdraw"
+                amount = "10.0"
+            }
+
+            //Operation Status
+            "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                reauth_status = "created"
+                transaction_id = "1"
+            }
+
+           "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                reauth_status = "created"
+                transaction_id = "1"
+            }
+
+            "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                reauth_status = "not_needed"
+                transaction_id = "3"
+            }
+
+           "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "2"
+                flow_type = "other"
+                reauth_status = "not_needed"
+                transaction_id = "3"
+            }
+
+            "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                reauth_status = "created"
+                transaction_id = "3"
+                amount = "10.0"
+            }
+
+            "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                reauth_status = "created"
+                transaction_id = "4"
+                amount = "10.0"
+            }
+
+            "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                reauth_status = "client_error"
+                transaction_id = "3"
+                amount = "10.0"
+            }
+
+           "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "2"
+                flow_type = "other"
+                reauth_status = "server_error"
+                transaction_id = "3"
+                amount = "10.0"
+            }
+
+            //Operation End - Success
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                result = "success"
+                transaction_id = "1"
+                reauth_status = "created"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                result = "success"
+                transaction_id = "2"
+                reauth_status = "created"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "success"
+                transaction_id = "3"
+                reauth_status = "created"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "success"
+                transaction_id = "4"
+                reauth_status = "created"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "withdraw"
+                result = "success"
+                transaction_id = "1"
+                reauth_status = "created"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "withdraw"
+                result = "success"
+                transaction_id = "2"
+                reauth_status = "created"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                result = "success"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                result = "success"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "success"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "success"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "withdraw"
+                amount = "10.0"
+                result = "success"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "withdraw"
+                amount = "10.0"
+                result = "success"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+                elapsed_time = 1.0
+            }
+
+            //Operation End - Error
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                result = "error"
+                error = "Ups error :S"
+                reauth_status = "error"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                result = "error"
+                error = "Ups error :S"
+                reauth_status = "error"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "error"
+                error = "Ups error :S"
+                reauth_status = "error"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "error"
+                error = "Ups error :S"
+                reauth_status = "error"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "withdraw"
+                result = "error"
+                error = "Ups error :S"
+                reauth_status = "error"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "withdraw"
+                result = "error"
+                error = "Ups error :S"
+                reauth_status = "error"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            //Operation End - Cancel
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                result = "cancel"
+                reauth_status = "created"
+                transaction_id = "4"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                result = "cancel"
+                reauth_status = "created"
+                transaction_id = "4"
+                screenlock_validated = false
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                result = "cancel"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                result = "cancel"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "withdraw"
+                result = "cancel"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+                elapsed_time = 1.0
+            }
+
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "withdraw"
+                result = "cancel"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+                elapsed_time = 1.0
+            }
+            //Reauth Retry
+            "/reauth/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+            }
+            "/reauth/error/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+            }
+            "/reauth/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "payment"
+                amount = "10.0"
+            }
+            "/reauth/error/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "payment"
+                amount = "10.0"
+            }
+            //Reauth Close
+            "/reauth/error/close"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+            }
+            "/reauth/error/close"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+            }
+            "/reauth/error/close"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "payment"
+                amount = "10.0"
+            }
+            "/reauth/error/close"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "payment"
+                amount = "10.0"
+            }
+
+            "/reauth/error/close"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "withdraw"
+                amount = "10.0"
+            }
+            "/reauth/error/close"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "withdraw"
+                amount = "10.0"
+            }
+            "/reauth/error"(platform: "/mobile/android", type: TrackType.View) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+            }
+            "/reauth/error"(platform: "/mobile/ios", type: TrackType.View) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+            }
+        }
+
+        test("Login conversion tracks ") {
+            "/login/auth/challenge/help"(platform: "/web", type: TrackType.Event) {
+                challenge = "email_or_nickname_or_phone"
+                tracking_id = "123"
+                source = "default"
+            }
+            "/login/auth/challenge/help"(platform: "/mobile", type: TrackType.Event) {
+                challenge = "email_or_nickname_or_phone"
+                tracking_id = "123"
+            }
+        }
+
+        test("Reauthentication event ") {
+            "/reauthentication"(platform: "/", type: TrackType.Event) {
+                operation_id = "change_password"
+                reauth_id = "a4f835e5-27ee-47a7-af74-e5f01afc0a72"
+                reauth_type = "DEFAULT"
+                flow_type = "OTHER"
+                reauth_status = "OPEN"
+                reauth_risk = "LOW"
+                user_ato_risk = "LOW"
+                recently_logged_in = true
+            }
+
+            "/reauthentication"(platform: "/", type: TrackType.Event) {
+                operation_id = "payment-operation"
+                reauth_id = "a4f835e5-27ee-47a7-af74-e5f01afc0a72"
+                reauth_type = "DEFAULT"
+                flow_type = "PAYMENT"
+                reauth_status = "CLOSED"
+                reauth_risk = "HIGH"
+                elapsed_time = "1234567899"
+                user_ato_risk = "LOW"
+                amount = "500"
+                recently_logged_in = false
+                requested_factors = "ENTER_PASSWORD/TOTP"
+            }
+        }
+
+        test("Enrollment TotpInApp in Login") {
+            "/authenticators/totp_in_app/enrollment/transparent"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+            }
+
+            "/authenticators/totp_in_app/enrollment/transparent"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+            }
+
+            "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+                status = false
+                type_of_error = "server_error"
+            }
+
+            "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+                status = false
+                type_of_error = "server_error"
+            }
+        }
+
+        test("Enrollment TotpInApp from Security Settings") {
+            "/authenticators/totp_in_app/enrollment"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+            }
+
+            "/authenticators/totp_in_app/enrollment"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+            }
+
+            "/authenticators/totp_in_app/enrollment/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                action = "activate"
+            }
+
+            "/authenticators/totp_in_app/enrollment/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                action = "activate"
+            }
+
+            "/authenticators/totp_in_app/enrollment/success"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                enrollment_id = "71f0064a-45c9-11ec-81d3-0242ac130003"
+            }
+
+            "/authenticators/totp_in_app/enrollment/success"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                enrollment_id = "71f0064a-45c9-11ec-81d3-0242ac130003"
+            }
+
+            "/authenticators/totp_in_app/enrollment/success/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                action = "understood"
+            }
+
+            "/authenticators/totp_in_app/enrollment/success/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                action = "understood"
+            }
+
+            "/authenticators/totp_in_app/enrollment/error"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                type_of_error = "server_error"
+            }
+
+            "/authenticators/totp_in_app/enrollment/error"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                type_of_error = "server_error"
+            }
+
+            "/authenticators/totp_in_app/enrollment/reauth"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                reauth_id = "922e07ea-45c9-11ec-81d3-0242ac130003"
+            }
+
+            "/authenticators/totp_in_app/enrollment/reauth"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                reauth_id = "922e07ea-45c9-11ec-81d3-0242ac130003"
+            }
+        }
+
+        test("TotpInApp / Qr Token") {
+            "/authenticators/totp_in_app/conformity"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "qr_token"
+            }
+
+            "/authenticators/totp_in_app/conformity"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "qr_token"
+            }
+
+            "/authenticators/totp_in_app/conformity/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "qr_token"
+                action = "confirm"
+            }
+
+            "/authenticators/totp_in_app/conformity/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "qr_token"
+                action = "confirm"
+            }
+
+            "/authenticators/totp_in_app/conformity/cancel"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "qr_token"
+            }
+
+            "/authenticators/totp_in_app/conformity/cancel"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "qr_token"
+            }
+
+            "/authenticators/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "qr_token"
+                action = "not_now"
+            }
+
+            "/authenticators/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "qr_token"
+                action = "not_now"
+            }
+
+            "/authenticators/totp_in_app/conformity/error"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "qr_token"
+                type_of_error = "invalid_code"
+            }
+
+            "/authenticators/totp_in_app/conformity/error"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "qr_token"
+                type_of_error = "invalid_code"
+            }
+        }
+
+        test("TotpInApp / WebMobile") {
+            "/authenticators/totp_in_app/conformity"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+                referrer = "org.mozilla.firefox"
+            }
+
+            "/authenticators/totp_in_app/conformity"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+            }
+
+            "/authenticators/totp_in_app/conformity/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+                action = "cancel"
+            }
+
+            "/authenticators/totp_in_app/conformity/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+                action = "cancel"
+            }
+
+            "/authenticators/totp_in_app/conformity/success"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+            }
+
+            "/authenticators/totp_in_app/conformity/success"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+            }
+
+            "/authenticators/totp_in_app/conformity/success/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+                action = "understood"
+            }
+
+            "/authenticators/totp_in_app/conformity/success/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+                action = "understood"
+            }
+
+            "/authenticators/totp_in_app/conformity/cancel"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+            }
+
+            "/authenticators/totp_in_app/conformity/cancel"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+            }
+
+            "/authenticators/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+                action = "not_now"
+            }
+
+            "/authenticators/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+                action = "not_now"
+            }
+
+            "/authenticators/totp_in_app/conformity/error"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+                type_of_error = "invalid_code"
+            }
+
+            "/authenticators/totp_in_app/conformity/error"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+                type_of_error = "invalid_code"
+            }
+        }
+
+        test("Buid Code") {
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+                operation = "transactional"
+                type_of_code = "transparent"
+                time_of_code = 1613587194
+            }
+
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+                operation = "transactional"
+                type_of_code = "transparent"
+                time_of_code = 1613587194
+            }
+
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/android", type: TrackType.Event) {
+                group_id = "4321-32211-567890"
+                operation = "transactional"
+                client_id = "meli_px"
+                type_of_code = "transparent"
+                time_of_code = 1613587194
+            }
+
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/ios", type: TrackType.Event) {
+                group_id = "4321-32211-567890"
+                operation = "transactional"
+                client_id = "meli_px"
+                type_of_code = "transparent"
+                time_of_code = 1613587194
+            }
+
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/android", type: TrackType.Event) {
+                group_id = "4321-32211-567890"
+                operation = "enrollment"
+                client_id = "totp_in_app"
+                type_of_code = "transparent"
+                time_of_code = 1613587194
+                enrollment_id = "71f0064a-45c9-11ec-81d3-0242ac130003"
+            }
+
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/ios", type: TrackType.Event) {
+                group_id = "4321-32211-567890"
+                operation = "enrollment"
+                client_id = "totp_in_app"
+                type_of_code = "transparent"
+                time_of_code = 1613587194
+                enrollment_id = "71f0064a-45c9-11ec-81d3-0242ac130003"
             }
         }
     }

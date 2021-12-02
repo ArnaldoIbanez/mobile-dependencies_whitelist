@@ -9,10 +9,30 @@ tracks {
     initiative = "1129"
 
     propertyDefinitions {
-        shop_id(required: true, type: PropertyType.Numeric)
-        shop_domain(required: true, type: PropertyType.String)
-        shop_name(required: true, type: PropertyType.String)
-        operator_id(required: false, type: PropertyType.Numeric)
+        shop_id(
+            description: "Unique Shop identifier",
+            name: "shop_id",
+            required: true,
+            type: PropertyType.Numeric,
+        )
+        shop_domain(
+            description: "Domain registered by the seller",
+            name: "shop_domain",
+            required: true,
+            type: PropertyType.String,
+        )
+        shop_name(
+            description: "Name of the shop",
+            name: "shop_name",
+            required: true,
+            type: PropertyType.String,
+        )
+        operator_id(
+            description: "Unique identifier of the operator",
+            name: "operator_id",
+            required: false,
+            type: PropertyType.Numeric
+        )
         delegation_status(
             required: true,
             type: PropertyType.String,
@@ -22,13 +42,23 @@ tracks {
                 'ERROR', 'DELEGATION_ERROR', 'ACTIVE', 'DELEGATION_CEASED'
             ]
         )
-        success(required: true, type: PropertyType.Boolean, description: "The request was fulfilled successfully")
-        error_code(required: false, type: PropertyType.String)
-
         ref(
+            description: "Additional information from where the user is coming",
+            name: "ref",
             required: false,
             type: PropertyType.String,
-            description: "Additional information from where the user is coming"
+        )
+        success(
+            description: "The request was fulfilled successfully",
+            name: "success",
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        error_code(
+            description: "Error code in case something went wrong",
+            name: "error_code",
+            required: false,
+            type: PropertyType.String
         )
     }
 
@@ -68,7 +98,9 @@ tracks {
 
     "/mercado_shops/access_denied"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/admin"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/admin"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/admin/welcome"(platform: "/", type: TrackType.View){}
 
@@ -84,10 +116,10 @@ tracks {
         sidebar_name(
                 required: false,
                 type: PropertyType.String,
-                values: ['AFIP', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT',
-                         'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GENERAL', 'GRID',
+                values: ['AFIP', 'AFIP_FROM_SHOP_NAME', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT',
+                         'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FISCAL_DATA_FROM_SHOP_NAME', 'FOOTER', 'GENERAL', 'GRID',
                          'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE', 'LOGO', 'MENU', 'MOSAIC', 'PRICE_AND_IMAGE',
-                         'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS',
+                         'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SHOP_INFO', 'SLIDER', 'SOCIAL_NETWORKS',
                          'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TABBED_CAROUSEL', 'TEXT_BANNER', 'FISCAL_DATA',
                          'FOOTER_MESSAGE', 'WHATSAPP']
         )
@@ -229,6 +261,32 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/quick_setup"(platform: "/", isAbstract: true) {}
+
+    "/mercado_shops/admin/quick_setup/name_and_logo"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/name_and_logo/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/quick_setup/contact_data"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/contact_data/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/quick_setup/theme"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/theme/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/quick_setup/theme/details"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/theme/details/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/deactivate_form"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/admin/deactivate"(platform: "/", type: TrackType.Event){
@@ -252,13 +310,21 @@ tracks {
         )
     }
 
-    "/mercado_shops/admin/unavailable"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/admin/unavailable"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/domains/summary"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/domains/summary"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/domains/subdomain"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/domains/subdomain"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/domains/delegation_form"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/domains/delegation_form"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/domains/emails"(platform: "/", type: TrackType.View){
         mx_registers(required: true, type: PropertyType.ArrayList, description: "Array of copied registers")
@@ -272,9 +338,13 @@ tracks {
         dns_list(required: true, type: PropertyType.ArrayList, description: "Array of dns registers to copy")
     }
 
-    "/mercado_shops/domains/congrats"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/domains/congrats"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/domains/error_details"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/domains/error_details"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/domains/delegation_init"(platform: "/", type: TrackType.Event){
         domain(required: true, type: PropertyType.String, description: "New domain to delegate")
@@ -305,27 +375,81 @@ tracks {
 
     "/mercado_shops/marketing"(platform: "/", isAbstract: true) {}
 
-    "/mercado_shops/marketing/summary"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/summary"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/marketing/google_analytics"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/phone_verification"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
+    "/mercado_shops/marketing/phone_verification/choose_verification_method"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
+    "/mercado_shops/marketing/phone_verification/provide_verification_code"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
+    "/mercado_shops/marketing/instagram-shopping"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
+    "/mercado_shops/marketing/google_analytics"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/google_analytics/save"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
 
-    "/mercado_shops/marketing/google_analytics/open_faqs"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/google_analytics/open_faqs"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
 
-    "/mercado_shops/marketing/google_analytics/cancel"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/google_analytics/cancel"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
 
-    "/mercado_shops/marketing/google_analytics/context_help"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/google_analytics/context_help"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
 
     "/mercado_shops/marketing/google_analytics/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
 
-    "/mercado_shops/marketing/google_ads"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/google_tag_manager"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/marketing/google_ads/confirmation"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/google_tag_manager/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_tag_manager/open_faqs"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_tag_manager/cancel"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_tag_manager/context_help"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_tag_manager/delete"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_ads"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
+    "/mercado_shops/marketing/google_ads/confirmation"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/google_ads/confirmation/save"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
@@ -338,7 +462,9 @@ tracks {
         mshopsEventGroup
     }
 
-    "/mercado_shops/marketing/google_ads/intention"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/google_ads/intention"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/google_ads/intention/save"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
@@ -352,7 +478,9 @@ tracks {
         mshopsEventGroup
     }
 
-    "/mercado_shops/marketing/google_ads/remarketing"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/google_ads/remarketing"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/google_ads/remarketing/save"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
@@ -365,7 +493,9 @@ tracks {
         mshopsEventGroup
     }
 
-    "/mercado_shops/marketing/facebook_pixel"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook_pixel"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/facebook_pixel/save"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
@@ -379,7 +509,9 @@ tracks {
         mshopsEventGroup
     }
 
-    "/mercado_shops/marketing/google_search_console"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/google_search_console"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/google_search_console/upload"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
@@ -400,13 +532,19 @@ tracks {
         mshopsEventGroup
     }
 
-    "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/themes"(platform: "/", type: TrackType.View, isAbstract: true){}
 
-    "/mercado_shops/themes/customize"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/themes/customize"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/themes/customize/upload"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
@@ -418,31 +556,56 @@ tracks {
         mshopsEventGroup
     }
 
-    "/mercado_shops/custom-categories/summary"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/custom-categories/summary"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/marketing/facebook"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/marketing/facebook/store"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/facebook/store/link_with_facebook"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
 
-    "/mercado_shops/marketing/facebook/store/fan_pages"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store/fan_pages"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/marketing/facebook/store/business_manager"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store/business_manager"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/marketing/facebook/store/user_procedure"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store/user_procedure"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/marketing/facebook/store/pixel_activation"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store/introduction"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
+
+    "/mercado_shops/marketing/facebook/store/pixel_activation"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/facebook/store/pixel_activation/active"(platform: "/", type: TrackType.Event){}
 
-    "/mercado_shops/marketing/facebook/store/context_help"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook/store/context_help"(platform: "/", type: TrackType.Event){
+        mshopsGroup
+        mshopsEventGroup
+    }
 
-    "/mercado_shops/marketing/facebook/store/meta_tag_configuration"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store/meta_tag_configuration"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/marketing/facebook/store/domain_verification"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store/domain_verification"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/facebook/store/domain_verification/save"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
@@ -464,11 +627,15 @@ tracks {
 
     "/mercado_shops/marketing/google/shopping/resume"(platform: "/", type: TrackType.Event){}
 
-    "/mercado_shops/marketing/google_shopping_smart"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/google_shopping_smart"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/google_shopping_smart/context_help"(platform: "/", type: TrackType.Event){}
 
-    "/mercado_shops/marketing/google_shopping_smart/campaign"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/google_shopping_smart/campaign"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/google_shopping_smart/campaign/set"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
@@ -478,7 +645,9 @@ tracks {
 
     // GOOGLE SHOPPING DASHBOARD
 
-    "/mercado_shops/marketing/google_shopping_smart/dashboard"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/google_shopping_smart/dashboard"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/marketing/google_shopping_smart/dashboard/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
@@ -502,9 +671,13 @@ tracks {
 
     "/mercado_shops/marketing/google_shopping_smart/dashboard/context_help"(platform: "/", type: TrackType.Event){}
 
-    "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
-    "/mercado_shops/marketing/instagram/context_help"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/instagram/context_help"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 
     "/mercado_shops/hub"(platform: "/", isAbstract: true){}
 
@@ -538,6 +711,12 @@ tracks {
         status(required: true, type: PropertyType.String, description: "Discount State", values: ['ACTIVE', 'INACTIVE'])
     }
 
-    "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){}
-    "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){
+        mshopsGroup
+        discount_type(required: true, type: PropertyType.String, description: "Promotion type", values: ['COUPON', 'BOLETO', 'TRADITIONAL'])
+    }
+
+    "/mercado_shops/discounts/select_promotion"(platform: "/", type: TrackType.View){
+        mshopsGroup
+    }
 }

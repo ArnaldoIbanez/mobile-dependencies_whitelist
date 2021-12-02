@@ -23,6 +23,7 @@ trackTests {
 
         // Blocking screen
         "/asset_management/blocker"(platform: "/mobile") {}
+        "/asset_management/operator_blocker"(platform: "/mobile") {}
         "/asset_management/legal_entity_selector"(platform: "/mobile") {}
         "/asset_management/legal_entity_continue"(platform: "/mobile") {}
         "/asset_management/legal_entity_block"(platform: "/mobile") {}
@@ -58,14 +59,18 @@ trackTests {
         "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile") {}
 
         // Congrats View
-        "/asset_management/congrats_success"(platform: "/mobile", type: TrackType.View) {}
-        "/asset_management/congrats_success"(platform: "/web", type: TrackType.View) {}
+         "/asset_management/congrats_success"(platform: "/", type: TrackType.View) {}
+         "/asset_management/congrats_success"(platform: "/", type: TrackType.View) {
+            congratsName = 'idCongrats'
+        }
         "/asset_management/congrats_error"(platform: "/mobile", type: TrackType.View) {}
         "/asset_management/congrats_error"(platform: "/web", type: TrackType.View) {}
 
         // Terms & Conditions Views
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}
         "/asset_management/terms_and_conditions"(platform: "/web") {}
+        "/asset_management/terms_and_conditions_operator"(platform: "/mobile") {}
+        "/asset_management/terms_and_conditions_operator"(platform: "/web") {}
         "/asset_management/accept_tyc"(platform: "/mobile", type: TrackType.View) {}
         "/asset_management/accept_tyc"(platform: "/web", type: TrackType.View) {}
         "/asset_management/accepted_tyc"(platform: "/mobile", type: TrackType.Event) {}
@@ -94,8 +99,6 @@ trackTests {
         // Opt-out
         "/asset_management/opt_out"(platform: "/mobile") {}
         "/asset_management/opt_out"(platform: "/web") {}
-        "/asset_management/result_stop_investing"(platform: "/mobile") {}
-        "/asset_management/result_stop_investing"(platform: "/web") {}
 
         // Detail
         "/asset_management/investment_detail"(platform: "/mobile") {}
@@ -107,36 +110,27 @@ trackTests {
 
         "/asset_management/landing"(platform: "/web") {}
         "/asset_management/invest"(platform: "/web") {}
-        "/asset_management/investment_report"(platform: "/web") {
+        "/asset_management/investment_report"(platform: "/") {
             year = "2018"
             quarter = "1"
         }
-        "/asset_management/investment_report"(platform: "/web") {
+        "/asset_management/investment_report"(platform: "/") {
             year = "2018"
             quarter = "2"
         }
-        "/asset_management/investment_report"(platform: "/web") {
+        "/asset_management/investment_report"(platform: "/") {
             year = "2018"
             quarter = "3"
         }
-        "/asset_management/investment_report"(platform: "/web") {
+        "/asset_management/investment_report"(platform: "/") {
             year = "2018"
             quarter = "4"
         }
-        "/asset_management/investment_report"(platform: "/web") {
-            year = "2018"
-        }
+        "/asset_management/investment_report"(platform: "/") {}
 
         // Operations
         "/asset_management/operations"(platform: "/mobile") {} // new name
         "/asset_management/operations/detail"(platform: "/mobile") {} // specific operation
-
-        // Congrats
-        "/asset_management/result_investing"(platform: "/mobile") {}
-        "/asset_management/result_unavailable"(platform: "/mobile") {}
-        "/asset_management/result_investing_company/approved"(platform: "/mobile") {}
-        "/asset_management/result_investing_company/pending"(platform: "/mobile") {}
-        "/asset_management/result_investing_company/rejected"(platform: "/mobile") {}
 
         // Faqs
         "/asset_management/faqs"(platform: "/mobile") {}
@@ -257,19 +251,25 @@ trackTests {
         }
         
         //Invest Section
-        //"/asset_management/invest_section"(platform: "/") {}
         "/asset_management/invest_section/empty_no_money"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/empty_no_returns"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/money_to_invest"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/all_invested"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/automatic_invest_ready"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/auto_enabled"(platform: "/", type: TrackType.View) {}
+        "/asset_management/invest_section/not_enough_money_nor_returns"(platform: "/", type: TrackType.View) {}
+        "/asset_management/invest_section/enough_money_or_returns"(platform: "/", type: TrackType.View) {}
+        "/asset_management/invest_section/max_udis_reached"(platform: "/", type: TrackType.View) {}
+        "/asset_management/invest_section/max_udis_not_reached"(platform: "/", type: TrackType.View) {}
 
         "/asset_management/invest_section/show_estimated_yield"(platform: "/", type: TrackType.Event) {}
         "/asset_management/invest_section/click_button_empty_no_money"(platform: "/", type: TrackType.Event) {}
         "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", type: TrackType.Event) {}
         "/asset_management/invest_section/click_button_edit_amount"(platform: "/", type: TrackType.Event) {}
         "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", type: TrackType.Event) {}
+
+        //Update App
+        "/asset_management/update_app"(platform: "mobile", type: TrackType.View) {}
     
         // Meli tests
 
@@ -283,6 +283,7 @@ trackTests {
 
         // Blocking screen
         "/asset_management/blocker"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/operator_blocker"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/legal_entity_selector"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/legal_entity_continue"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/legal_entity_block"(platform: "/mobile", business: "mercadolibre") {}
@@ -326,8 +327,6 @@ trackTests {
 
         // Opt-out
         "/asset_management/opt_out"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_stop_investing"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_stop_investing"(platform: "/web", business: "mercadolibre") {}
 
         // Detail
         "/asset_management/investment_detail"(platform: "/mobile", business: "mercadolibre") {
@@ -346,36 +345,34 @@ trackTests {
 
         "/asset_management/landing"(platform: "/web", business: "mercadolibre") {}
         "/asset_management/invest"(platform: "/web", business: "mercadolibre") {}
-        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {
+        "/asset_management/investment_report"(platform: "/", business: "mercadolibre") {
             year = "2018"
             quarter = "1"
         }
-        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {
+        "/asset_management/investment_report"(platform: "/", business: "mercadolibre") {
             year = "2018"
             quarter = "2"
         }
-        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {
+        "/asset_management/investment_report"(platform: "/", business: "mercadolibre") {
             year = "2018"
             quarter = "3"
         }
-        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {
+        "/asset_management/investment_report"(platform: "/", business: "mercadolibre") {
             year = "2018"
             quarter = "4"
         }
-        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {
-            year = "2018"
-        }
+        "/asset_management/investment_report"(platform: "/", business: "mercadolibre") {}
 
         // Operations
         "/asset_management/operations"(platform: "/mobile", business: "mercadolibre") {} // new name
         "/asset_management/operations/detail"(platform: "/mobile", business: "mercadolibre") {} // specific operation
 
         // Congrats
-        "/asset_management/result_investing"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_unavailable"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_investing_company/approved"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_investing_company/pending"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_investing_company/rejected"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/congrats_success"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/congrats_success"(platform: "/", business: "mercadolibre") {
+            congratsName = "idCongrats"
+        }
+        
 
         // Faqs
         "/asset_management/faqs"(platform: "/mobile", business: "mercadolibre") {}
@@ -471,8 +468,6 @@ trackTests {
         "/asset_management/activities"(platform: "/web", business: "mercadolibre") {}
         "/asset_management/bind_reports"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/bind_reports"(platform: "/web", business: "mercadolibre") {}
-        "/asset_management/congrats_success"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/congrats_success"(platform: "/web", business: "mercadolibre") {}
         "/asset_management/congrats_error"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/congrats_error"(platform: "/web", business: "mercadolibre") {}
         "/asset_management/kyc_blocker"(platform: "/mobile", business: "mercadolibre") {}
@@ -510,12 +505,79 @@ trackTests {
         "/asset_management/invest_section/all_invested"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/automatic_invest_ready"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/auto_enabled"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/not_enough_money_nor_returns"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/enough_money_or_returns"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/max_udis_reached"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/max_udis_not_reached"(platform: "/", business: "mercadolibre") {}
 
         "/asset_management/invest_section/show_estimated_yield"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/click_button_empty_no_money"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/click_button_edit_amount"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", business: "mercadolibre") {}
-      
+
+        //UpdateApp
+        "/asset_management/update_app"(platform: "/mobile", business: "mercadolibre") {}
+
+        //Kyc Onboarding
+        "/asset_management/kyc_onboarding"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/kyc_onboarding/send_to_kyc"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/kyc_onboarding/show_more"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/kyc_onboarding"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/kyc_onboarding/send_to_kyc"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/kyc_onboarding/show_more"(platform: "/mobile", business: "mercadolibre") {}
+
+        //Redirect onbaording mobile
+        "/asset_management/kyc_web_blocker"(platform: "/web", type: TrackType.View) {}
+        "/asset_management/kyc_web_blocker/play_store"(platform: "/web", type: TrackType.Event) {}
+        "/asset_management/kyc_web_blocker/app_store"(platform: "/web", type: TrackType.Event) {}
+        "/asset_management/kyc_web_blocker"(platform: "/web",  business: "mercadolibre") {}
+        "/asset_management/kyc_web_blocker/play_store"(platform: "/web",  business: "mercadolibre") {}
+        "/asset_management/kyc_web_blocker/app_store"(platform: "/web",  business: "mercadolibre") {}
+
+
+        //Loading gbm
+        "/asset_management/loading_gbm"(platform: "/", type: TrackType.View) {}
+        "/asset_management/loading_gbm"(platform: "/", business: "mercadolibre") {}
+
+        //status blocker
+        "/asset_management/status_blocker"(platform: "/mobile", type: TrackType.View, business: "mercadolibre") {}
+        "/asset_management/status_blocker/go_to_home"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/status_blocker/know_requirements"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/status_blocker/contact_bind"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        
+        "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {}
+        "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {
+            status_id = 'pending'
+        }
+
+        //blocker v2
+        "/asset_management/blocker_v2/go_to_home"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/how_to_complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/know_documentation"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/know_requirements"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/contact_bind"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+
+        "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
+            blocker_type = 'kyc'
+        }
+        "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
+            blocker_type = 'pending'
+        }
+
+        // Underage Onboarding
+        "/asset_management/underage_onboarding"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/underage_onboarding"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/underage_onboarding/send_approval_request"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/underage_onboarding/send_approval_request"(platform: "/mobile", business: "mercadolibre") {}
+        
+        // TYC Tutor
+        "/asset_management/terms_and_conditions_tutor"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/terms_and_conditions_tutor"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/terms_and_conditions_tutor/accepted_tyc_tutor"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/terms_and_conditions_tutor/accepted_tyc_tutor"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/terms_and_conditions_tutor/rejected_tyc_tutor"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/terms_and_conditions_tutor/rejected_tyc_tutor"(platform: "/mobile", business: "mercadolibre") {}
     }
 }

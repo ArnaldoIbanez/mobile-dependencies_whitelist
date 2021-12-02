@@ -20,14 +20,23 @@ tracks {
         cashout_method (required:true, description: "Selected cashout method")
     }
 
-    "/cashout/hub/kyc/onboarding"(platform: "/", type: TrackType.View) {}
-    "/cashout/hub/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
-    "/cashout/hub/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
+    "/cashout/hub/lighthouses"(platform: "/", type: TrackType.View) {}
+
+    "/cashout/hub/lighthouses/details"(platform: "/", type: TrackType.View) {
+        id (required:true, description: "Selected lighthouse id")
+    }
+    "/cashout/hub/lighthouses/details/scanqr"(platform: "/", type: TrackType.Event) {
+        id (required:true, description: "Selected lighthouse id")
+    }
 
     "/cashout/hub/congrats"(platform: "/", isAbstract: true) {}
     "/cashout/hub/congrats/success"(platform: "/", type: TrackType.View) {}
     "/cashout/hub/congrats/success/continue"(platform: "/", type: TrackType.Event) {}
     "/cashout/hub/congrats/success/close"(platform: "/", type: TrackType.Event) {}
+
+    "/cashout/modal"(platform: "/", type: TrackType.View) {}
+    "/cashout/modal/close"(platform: "/", type: TrackType.Event) {}
+    "/cashout/modal/withdraw"(platform: "/", type: TrackType.Event) {}
 
     "/cashout/extracash"(platform: "/", isAbstract: true) {}
     "/cashout/extracash/onboarding"(platform: "/", type: TrackType.View) {}

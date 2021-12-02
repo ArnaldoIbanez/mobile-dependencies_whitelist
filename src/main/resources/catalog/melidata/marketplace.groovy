@@ -22,7 +22,7 @@ tracks {
     def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
     def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
 
-    "/"(platform: "/", isAbstract: true, initiative: "1145") {
+    "/"(platform: "/", isAbstract: true) {
         //Recommendations data
         recommendations (required: false, description: "Recommendations data map")
         // has_errors,
@@ -46,7 +46,7 @@ tracks {
     //EXTERNAL
     //TODO revisar /external/XXX
 
-    "/external/"(platform: "/mobile", initiative : "1127") {
+    "/external/"(platform: "/mobile", initiative : "1358") {
         query(required: false)
         limit(type: PropertyType.Numeric, required: false)
         offset(type: PropertyType.Numeric, required: false)
@@ -113,7 +113,7 @@ tracks {
 
     // siguientes tracks no pertenecen a mobile-arquitectura, sino que es de otro team que trackea sobre /landing
 
-    "/landing/brands"(platform: "/mobile", isAbstract: true, initiative : "1063"){}
+    "/landing/brands"(platform: "/mobile", isAbstract: true, initiative : "1104"){}
 
     "/landing/brands/abort"(platform: "/mobile") {
         query(required:true, type: PropertyType.String, descripcion:"Query used in screen")
@@ -140,7 +140,7 @@ tracks {
     }
 
     //Logout
-    "/logout"(platform: "/", isAbstract: true, initiative : "1127") {}
+    "/logout"(platform: "/", isAbstract: true, initiative : "1358") {}
     "/logout/modal"(platform: "/mobile") {
         action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
     }
