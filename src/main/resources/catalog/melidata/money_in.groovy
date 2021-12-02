@@ -362,10 +362,7 @@ tracks {
     "/money_in/debin/hub/error_delete"(platform:"/",type: TrackType.Event){}
 
     //Debin edit account
-    "/money_in/debin/hub/edit_account"(platform:"/",type: TrackType.View){}
-    "/money_in/debin/hub/edit_account/edit"(platform:"/",type: TrackType.Event){
-        description(required:false, type:PropertyType.String, description: "contains the description of the account")
-    }
+    "/money_in/debin/hub/edit_account/edit"(platform:"/",type: TrackType.Event){}
     "/money_in/debin/hub/edit_account/error"(platform:"/",type: TrackType.Event){}
 
     //TD to Debin (Bottom Sheet experience)
@@ -431,9 +428,6 @@ tracks {
          status(required:false, description:"status",values:["error", "rejected"])
     }
     "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
-    "/money_in/debin/congrats/action"(platform:"/", type: TrackType.Event){
-         action_name(required:false, type: PropertyType.String, description:"action executed by the user")
-    }
     "/money_in/debin/congrats/callback"(platform:"/", type: TrackType.Event){
          callback(required:false,type: PropertyType.String, description: "callback for another teams")
     }
