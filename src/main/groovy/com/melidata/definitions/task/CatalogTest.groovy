@@ -7,6 +7,7 @@ import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 class CatalogTest {
     static void main(String[] args) {
         def status = true
+        println(System.getenv('BUILD_CONTEXT'))
         args.each { catalogName ->
             CatalogDsl.setBaseDir("src/main/resources/catalog/" + catalogName + "/")
 
