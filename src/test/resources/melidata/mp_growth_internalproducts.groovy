@@ -14,4 +14,8 @@ trackTests {
         "/landing/checkouts" (platform: "/web") {}
     }
 
+    test("Landing mercadopago internal products buyer credits") {
+        "/landing/buyers" (platform: "/web") {}
+    }
+
 }

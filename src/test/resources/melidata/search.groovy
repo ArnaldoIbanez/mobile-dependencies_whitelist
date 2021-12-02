@@ -79,7 +79,10 @@ trackTests {
         ],
         discount_volume : [],
         same_day : [],
-        next_day : []
+        next_day : [],
+        supermarket_partnership: [
+          [item_id: "MLB510446224", position: 3, type: "sometype", seller_id: 742220069]
+        ]
     ]
 
     def promiseInfo = [
@@ -90,6 +93,25 @@ trackTests {
     def originalSearchFilterInfo = [
             filter_id  : "cpg",
             filter_value: "yes",
+    ]
+
+    def enhancedInterventionInfoMock = [
+            [
+                    intervention_tracking_id: "dd1ec405-0a55-4b55-aaa5-de29cc3ab5fb",
+                    intervention_type: "FILTER_INTERVENTION",
+                    class_type: "BRAND",
+                    component_type: "pill",
+                    position: 0,
+                    results: []
+            ],
+            [
+                    intervention_tracking_id: "dd1ec405-0a42-4b55-aaa5-de29cc3ab5fz",
+                    intervention_type: "FILTER_INTERVENTION",
+                    class_type: "GENDER",
+                    component_type: "pill",
+                    position: 6,
+                    results: []
+            ]
     ]
 
     test("Search core tracking") {
@@ -144,6 +166,8 @@ trackTests {
                     "user_zone": "X1"
             ]
             original_search_filter: originalSearchFilterInfo
+            containers_flow: "N/A"
+            enhanced_intervention_info: enhancedInterventionInfoMock
         }
 
         def defaultWebTrack = {
@@ -283,6 +307,7 @@ trackTests {
                     "city_id": "SP-BR",
                     "user_zone": "X1"
             ]
+            enhanced_intervention_info: enhancedInterventionInfoMock
         }
 
         def category_definition = {
@@ -451,7 +476,6 @@ trackTests {
                             "type" : "PDP"
                     ]
             ]
-            review_pages = ["ventilador", "nintendo"]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -643,8 +667,25 @@ trackTests {
         "/search/map_link"(platform: "/") {
             defaultSearchInformation()
         }
-        "/search/map/carousel"(platform: "/") {
+        "/search/map"(platform: "/web") {
             defaultSearchInformation()
+            defaultWebTrack()
+        }
+        "/search/map/carousel"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }
+        "/search/map/vip_access"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }
+        "/search/map/pagination"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }
+        "/search/map/faceted_search"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
         }
         "/search/search_map"(platform: "/") {
             defaultSearchInformation()
@@ -839,6 +880,54 @@ trackTests {
     test("Search Advertising banners") {
         "/search/advertising"(platform: "/", type: TrackType.Event) {
             advertising_id = "sky"
+        }
+    }
+
+    test("Saerch Bill Payments Main Category Results Search") {
+        "/search/bill_payments/main_category/result_search"(platform: "/", type: TrackType.Event) {
+            limit = 50
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            view_mode = "LIST"
+            results = []
+        }
+    }
+
+    test("Search Failure Back") {
+        "/search/failure/back"(platform: "/", type: TrackType.Event) {
+            limit = 50
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            view_mode = "LIST"
+            results = []
+        }
+    }
+
+    test("Search Input Suggestion") {
+        "/search/input/suggestion"(platform: "/", type: TrackType.Event) {
+            limit = 50
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            view_mode = "LIST"
+            results = []
+        }
+    }
+
+    test("Search Zero Results Page") {
+        "/search/zrp"(platform: "/", type: TrackType.Event) {
+            limit = 50
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            view_mode = "LIST"
+            results = []
         }
     }
 

@@ -5,7 +5,7 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    defaultBusiness = "mercadolibre"
+    defaultBusiness = "mercadoenvios"
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS PREPARATION APP GENERAL
@@ -41,12 +41,18 @@ trackTests {
 
         def contextDataSet = {
             context = "auth"
+            seller = [
+                    meli_id: 123456
+            ]
         }
 
         def pickingDataSet = {
             pickup = [
                     id: 123456,
                     wave_id: 123456
+            ]
+            seller = [
+                    meli_id: 123456
             ]
         }
 
@@ -59,6 +65,9 @@ trackTests {
             items_total = 10
             items_found = 8
             items_not_found = 2
+            seller = [
+                    meli_id: 123456
+            ]
         }
 
         def pickedListDataSet = {
@@ -69,6 +78,9 @@ trackTests {
             items_total = 10
             items_found = 8
             items_not_found = 2
+            seller = [
+                    meli_id: 123456
+            ]
         }
 
         def productScanDataSet = {
@@ -81,6 +93,9 @@ trackTests {
             scan_mode = "handheld"
             items_total = 10
             items_found = 8
+            seller = [
+                    meli_id: 123456
+            ]
         }
 
         def scanModeDataSet = {
@@ -89,6 +104,9 @@ trackTests {
                     wave_id: 123456
             ]
             scan_mode = "handheld"
+            seller = [
+                    meli_id: 123456
+            ]
         }
 
         def productWeightUnitDataSet = {
@@ -101,6 +119,9 @@ trackTests {
             scan_mode = "handheld"
             measure = "g"
             items_total = 10
+            seller = [
+                    meli_id: 123456
+            ]
         }
 
         def productQuantityDataSet = {
@@ -112,6 +133,9 @@ trackTests {
             variation_id = "VAR123456"
             measure = "g"
             items_total = 10
+            seller = [
+                    meli_id: 123456
+            ]
         }
 
         def productNotFoundOrLessDataSet = {
@@ -121,6 +145,9 @@ trackTests {
             ]
             item_id = "ID123456"
             variation_id = "VAR123456"
+            seller = [
+                    meli_id: 123456
+            ]
         }
 
         def sellerDataSet = {
@@ -146,6 +173,53 @@ trackTests {
                     "status:ready_to_pick",
                     "route:pending"
             ]
+        }
+
+        def overrideTemperatureDataSet = {
+            pickup = [
+                    id: 123456,
+                    wave_id: 123456
+            ]
+            item_id = "ID123456"
+            variation_id = "VAR123456"
+            item_temperature = "DRY"
+            parcel_temperature = "FROZEN"
+            seller = [
+                    meli_id: 123456
+            ]
+        }
+
+        def itemIdsDataSet = {
+            pickup = [
+                    id: 123456,
+                    wave_id: 123456
+            ]
+            item_id = "ID123456"
+            variation_id = "VAR123456"
+            seller = [
+                    meli_id: 123456
+            ]
+        }
+
+        def packsDownloadDataSet = {
+            seller = [
+                    meli_id: 123456
+            ]
+            page = 1
+            page_count = 12
+            filters = [
+                    "status:ready_to_pick",
+                    "route:pending"
+            ]
+            packs = [
+                    2000002751055068,
+                    2000002751041421
+            ]
+        }
+
+        def packDetailsDataSet = {
+            order_number = 2000001892783456
+            status = "read_to_pic"
         }
 
 
@@ -207,9 +281,11 @@ trackTests {
         }
 
         "/prepapp/picking/pickup_list/filter_pending"(platform:"/", type: TrackType.Event) {
+            sellerDataSet()
         }
 
         "/prepapp/picking/pickup_list/filter_not_found"(platform:"/", type: TrackType.Event) {
+            sellerDataSet()
         }
 
         "/prepapp/picking/picked_list"(platform:"/", type: TrackType.View) {
@@ -244,6 +320,14 @@ trackTests {
             scanModeDataSet()
         }
 
+        "/prepapp/picking/parcel/wrong_temperature"(platform: "/", type: TrackType.View) {
+            overrideTemperatureDataSet()
+        }
+
+        "/prepapp/picking/parcel/conservation_change"(platform: "/", type: TrackType.View) {
+            itemIdsDataSet()
+        }
+
         "/prepapp/picking/product/not_found"(platform:"/", type: TrackType.View) {
             productNotFoundOrLessDataSet()
         }
@@ -253,6 +337,7 @@ trackTests {
         }
 
         "/prepapp/picking/no_pickup"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -288,35 +373,51 @@ trackTests {
         }
 
         "/prepapp/oms/backlog"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
             omsListDataSet()
         }
 
         "/prepapp/oms/backlog/filter"(platform:"/", type: TrackType.Event) {
-        }
-
-        "/prepapp/oms/backlog/download"(platform:"/", type: TrackType.Event) {
-        }
-
-        "/prepapp/oms/backlog/prioritize"(platform:"/", type: TrackType.Event) {
-        }
-
-        "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
             omsListDataSet()
         }
 
-        "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.Event) {
+        "/prepapp/oms/backlog/download"(platform:"/", type: TrackType.Event) {
+            packsDownloadDataSet()
+        }
+
+        "/prepapp/oms/backlog/prioritize"(platform:"/", type: TrackType.Event) {
+            omsListDataSet()
+        }
+
+        "/prepapp/oms/backlog/unbind"(platform:"/", type: TrackType.Event) {
+            omsListDataSet()
+        }
+
+        "/prepapp/oms/backlog/detail"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
+            packDetailsDataSet()
+        }
+
+        "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
+            sellerDataSet()
             omsListDataSet()
         }
 
         "/prepapp/oms/routes/delete"(platform:"/", type: TrackType.Event) {
+            omsListDataSet()
+        }
+
+        "/prepapp/oms/routes/filter"(platform:"/", type: TrackType.Event) {
+            omsListDataSet()
         }
 
         "/prepapp/oms/routes/print"(platform:"/", type: TrackType.Event) {
             eventLabelData()
+            omsListDataSet()
         }
 
         "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View) {
-            omsListDataSet()
+            sellerDataSet()
         }
     }
 }

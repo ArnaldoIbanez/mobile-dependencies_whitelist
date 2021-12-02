@@ -57,6 +57,16 @@ trackTests {
             item_with_garex = true
             total_amount_including_garex = 1869.89
             stored_cards_quantity = 3
+            //Contiene la informacion de cada descuento disponible.
+            available_promotions = [
+                    [
+                            campaign_id: "P-MLB123",
+                            type: "rebate",
+                            original_value: 250,
+                            value: 50,
+                            items: ["MLB1561278487"]
+                    ]
+            ]
         }
         "/buy_intention"(platform:"/mobile/android") {
             buyIntentionDataSet()
@@ -153,6 +163,18 @@ trackTests {
             buyIntentionDataSet()
             context = "garex"
             checkout_flow="cart"
+        }
+
+         "/buy_intention"(platform: "/"){
+            buyIntentionDataSet()
+            context = "garex"
+            checkout_flow="cart"
+        }
+
+        "/buy_intention"(platform: "/"){
+            buyIntentionDataSet()
+            context = "garex"
+            checkout_flow="direct"
         }
 
     }

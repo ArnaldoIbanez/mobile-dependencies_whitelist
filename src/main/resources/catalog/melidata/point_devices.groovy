@@ -9,40 +9,46 @@ tracks {
     /**
     * Point devices section tracks
     */
-    "/point/devices"(platform: "/", isAbstract: true) {}
+    "/point_devices"(platform: "/", isAbstract: true) {}
  
     /**
     * Main list view
     */
-    "/point/devices/list"(platform: "/", type: TrackType.View) {}
+    "/point_devices/list"(platform: "/", type: TrackType.View) {}
 
     /**
     * Actions with redirect
     */
-    "/point/devices/out_of_paper"(platform: "/", type: TrackType.Event) {}
-    "/point/devices/issues"(platform: "/", type: TrackType.Event) {}
-    "/point/devices/change_owner"(platform: "/", type: TrackType.Event) {}
-    "/point/devices/cards_promos"(platform: "/", type: TrackType.Event) {}
-    "/point/devices/connect"(platform: "/", type: TrackType.Event) {}
+    "/point_devices/out_of_paper"(platform: "/", type: TrackType.Event) {}
+    "/point_devices/issues"(platform: "/", type: TrackType.Event) {}
+    "/point_devices/change_owner"(platform: "/", type: TrackType.Event) {}
+    "/point_devices/cards_promos"(platform: "/", type: TrackType.Event) {}
+    "/point_devices/connect"(platform: "/", type: TrackType.Event) {}
 
     /**
     * Modal associate action
     */
-    "/point/devices/associate"(platform: "/", isAbstract: true) {}
-    "/point/devices/associate/start"(platform: "/", type: TrackType.Event) {}
-    "/point/devices/associate/end"(platform: "/", type: TrackType.Event) {}
+    "/point_devices/associate"(platform: "/", isAbstract: true) {}
+    "/point_devices/associate/start"(platform: "/", type: TrackType.Event) {}
+    "/point_devices/associate/end"(platform: "/", type: TrackType.Event) {}
 
     /**
     * Modal delete action
     */
-    "/point/devices/delete"(platform: "/", isAbstract: true) {}
-    "/point/devices/delete/start"(platform: "/", type: TrackType.Event) {}
-    "/point/devices/delete/end"(platform: "/", type: TrackType.Event) {}
+    "/point_devices/delete"(platform: "/", isAbstract: true) {}
+    "/point_devices/delete/start"(platform: "/", type: TrackType.Event) {}
+    "/point_devices/delete/end"(platform: "/", type: TrackType.Event) {}
 
     /**
     * Modal reset pin action
     */
-    "/point/devices/reset_pin"(platform: "/", isAbstract: true) {}
-    "/point/devices/reset_pin/start"(platform: "/", type: TrackType.Event) {}
-    "/point/devices/reset_pin/end"(platform: "/", type: TrackType.Event) {}
+    "/point_devices/reset_pin"(platform: "/", isAbstract: true) {}
+    "/point_devices/reset_pin/start"(platform: "/", type: TrackType.Event) {}
+    "/point_devices/reset_pin/end"(platform: "/", type: TrackType.Event) {}
+
+    /**
+    * Reactivate chips button action
+    */
+    "/point_devices/reactivate_chips"(platform: "/", type: TrackType.View) {}
+    "/point_devices/reactivate_chips/start"(platform: "/", type: TrackType.Event) {}
 }

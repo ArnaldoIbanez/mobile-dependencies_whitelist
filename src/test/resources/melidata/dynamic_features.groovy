@@ -17,7 +17,6 @@ trackTests {
         "/dynamic_feature/failed"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
             failed_reason = "some failed reason"
-            static_deeplink = "meli://old_deeplink"
             mode="on_demand"
         }
         "/dynamic_feature/started"(platform: "/mobile", type: TrackType.Event) {
@@ -46,6 +45,8 @@ trackTests {
             dynamic_deeplink = "meli://new_deeplink"
             static_deeplink = "meli://old_deeplink"
             mode="on_demand"
+            flow_time = 10
+            download_time = 20
         }
     }
 
@@ -86,6 +87,8 @@ trackTests {
             dynamic_deeplink = "meli://new_deeplink"
             static_deeplink = "meli://old_deeplink"
             mode="background"
+            flow_time = 50
+            download_time = 100
         }
     }
 }
