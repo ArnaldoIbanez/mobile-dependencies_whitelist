@@ -95,24 +95,20 @@ trackTests {
         }
     }
     
-    test("Point loyalty tooltip component with information about reward in cashback exchange view") {   
-        "/point/loyalty/cashback/exchange/reward_information"(platform: "/web", type: TrackType.Event) {
-        }
-    }
-
-    test("Point loyalty modal component with details about reward in cashback exchange view") {   
-        "/point/loyalty/cashback/exchange/reward_detail"(platform: "/web", type: TrackType.Event) {
+    test("Point loyalty reward information") {
+        "/point/loyalty/cashback/exchange/reward/information"(platform: "/web", type: TrackType.Event) {
+             register_complete = true
         }
     }
 
     test("Point loyalty faq link in modal component into cashback exchange view") {   
-        "/point/loyalty/cashback/exchange/reward_detail/faq"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/cashback/exchange/reward/information/faq"(platform: "/web", type: TrackType.Event) {
         }
     }
 
 
     test("Point loyalty close button in modal component into cashback exchange view") {   
-        "/point/loyalty/cashback/exchange/reward_detail/close"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/cashback/exchange/reward/information/close"(platform: "/web", type: TrackType.Event) {
         }
     }
 

@@ -56,16 +56,14 @@ tracks {
     "/point/loyalty/cashback/exchange"(platform: "/web", type: TrackType.View) {
     }
 
-    "/point/loyalty/cashback/exchange/reward_information"(platform: "/web", type: TrackType.Event) {
-     }
-    
-    "/point/loyalty/cashback/exchange/reward_detail"(platform: "/web", type: TrackType.Event) { 
+    "/point/loyalty/cashback/exchange/reward/information"(platform: "/web", type: TrackType.Event) {
+        register_complete(required: true, type: PropertyType.Boolean, description: 'status of register customer')
     }
 
-    "/point/loyalty/cashback/exchange/reward_detail/faq"(platform: "/web", type: TrackType.Event) { 
+    "/point/loyalty/cashback/exchange/reward/information/faq"(platform: "/web", type: TrackType.Event) { 
     }
 
-    "/point/loyalty/cashback/exchange/reward_detail/close"(platform: "/web", type: TrackType.Event) { 
+    "/point/loyalty/cashback/exchange/reward/information/close"(platform: "/web", type: TrackType.Event) { 
     }
 
     "/point/loyalty/cashback/exchange/customer/quit"(platform: "/web", type: TrackType.Event) {
