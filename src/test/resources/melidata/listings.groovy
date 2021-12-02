@@ -374,6 +374,10 @@ trackTests {
         "/seller_central/listings/setup_mshop"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("go to landing shops") {
+        "/seller_central/listings/landing_mshop"(platform: "/", type: TrackType.Event) {}
+    }
+
     test("seller central listings list description legacy") {
         "/seller_central/listings/list/item_description"(platform: "/", type: TrackType.Event) {}
 
