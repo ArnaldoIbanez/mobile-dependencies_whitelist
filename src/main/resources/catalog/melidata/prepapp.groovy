@@ -96,7 +96,6 @@ tracks {
         item_ids_data(item_id, variation_id)
         packs_data(packs)
         pack_details(order_number, status)
-        tote_detail()
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
