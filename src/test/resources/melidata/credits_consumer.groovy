@@ -277,62 +277,6 @@ trackTests {
          ******************************************/
     }
 
-    test('Credits Optins FrontEnd') {
-        // MercadoPago Business
-        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
-            initiative = 'merchant_enrollment'
-            step = 'whatsapp'
-        }
-        "/credits/preferences"(platform: "/", type: TrackType.View, business:"mercadopago") {
-            initiative = 'credit_card_open_sea'
-            step = 'whatsapp'
-        }
-        "/credits/preferences/error"(platform: "/web/mobile", type: TrackType.View, business:"mercadopago") {
-            initiative = 'merchant_enrollment'
-        }
-        "/credits/preferences/accept"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
-            initiative = 'merchant_open_market'
-            step = 'whatsapp_sms'
-        }
-        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
-            initiative = 'merchant_administrator'
-            step = 'sms'
-        }
-        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
-            initiative = 'consumer_open_sea_tx'
-            step = 'telcel'
-        }
-        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
-            initiative = 'consumer_personal_loan_second_stage'
-            step = 'telcel_credit_circle'
-        }
-
-        // MercadoLibre business
-        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
-            initiative = 'consumer_open_sea'
-            step = 'telcel'
-        }
-        "/credits/preferences/error"(platform: "/web/mobile", type: TrackType.View, business:"mercadolibre") {
-            initiative = 'merchant_enrollment'
-        }
-        "/credits/preferences/accept"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
-            initiative = 'consumer_administrator'
-            step = 'credit_circle'
-        }
-        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
-            initiative = 'consumer_personal_loan'
-            step = 'telcel_credit_circle'
-        }
-        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
-            initiative = 'consumer_open_sea_tx'
-            step = 'telcel'
-        }
-        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
-            initiative = 'consumer_personal_loan_second_stage'
-            step = 'telcel_credit_circle'
-        }
-    }
-
 
     test("Personal Loans Adoption") {
 
