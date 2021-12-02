@@ -397,6 +397,10 @@ tracks {
     "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
         session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
         product_type(required: false, type: PropertyType.String, description: "Marketplace product type representing the use case", values:['delivery', 'proximity'])
+        address_id(required:false, type: PropertyType.String, description: "The Address ID of the user used to load the Marketplace for Delivery")
+        marketplace_state(required: false, type: PropertyType.String, description: "Marketplace actual state", values:['normal', 'empty', 'update_app_shield'])
+        marketplace_state_reason(required: false, type: PropertyType.String, description: "The reason of the actual marketplace state")
+        marketplace_filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The filters selected in the marketplace")
     }
 
     "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.Event, isAbstract: true) { }

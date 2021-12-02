@@ -238,14 +238,6 @@ tracks {
         attribute_name(required: false, type: PropertyType.String, description: "attribute name to verificate")
     }
 
-    def pricesBandsStructure = objectSchemaDefinitions {
-        lower_band (required:true, type: PropertyType.String, description: "Lower band from price suggestion")
-        lower_limit (required:true, type: PropertyType.String, description: "lower limit band from price suggestion")
-        upper_band (required:true, type: PropertyType.String, description: "Upper band from price suggestion")
-        upper_limit (required:true, type: PropertyType.String, description: "Upper limit band from price suggestion")
-        estimated_price (required:true, type: PropertyType.String, description: "Estimated price from price suggestion")
-    }
-
     def syiVerificationStructure = objectSchemaDefinitions {
         identifier(required: true, type: PropertyType.String, description: "identifier to search and verificate")
         flow(required: true, type: PropertyType.String, description: "flow type is used to know which logic could be implemented to verificate")
@@ -379,6 +371,7 @@ tracks {
 
         sellerCentralCatalogOptinGroupV2(item_id, category_id, domain_id, variation_id, moderated, original_catalog_product_id, suggested_correction_product_id)
         sellerCentralCatalogOptinGroupV2Variations(item_id, category_id, domain_id, variations_list_id, original_catalog_product_id)
+        sellerCentralCatalogOptinGroupV2Massive(item_id, category_id, domain_id, variations_list_id, original_catalog_product_id, moderated)
 
         sellerCentralCatalogSuggestionGroup(category_domain, item_id, catalog_product_id, reputation_level, seller_profile, seller_segment, session_id, user_type)
 
@@ -501,7 +494,6 @@ tracks {
     "/seller_central/seller_coach/recommendation/dismiss"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/bookmark"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/unbookmark"(platform: "/", type: TrackType.Event) {}
-    "/seller_central/seller_coach/recommendation/apply"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendations/display"(platform: "/", type: TrackType.View) {
         cards(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachCard)), description: "Cards viewed")
     }
@@ -515,6 +507,28 @@ tracks {
         page(required: true, type: PropertyType.Numeric, description: "Target page scrolled")
         scroll_type(required: true, type: PropertyType.String, values: ['prev', 'next'], description: "Direction of the scroll")
     }
+    "/seller_central/seller_coach/module"(platform: "/", isAbstract: true) {
+        card(required: false, type: PropertyType.Map(sellerCoachCard), description: "Card displayed when the module was actioned")
+    }
+    "/seller_central/seller_coach/module/open"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/module/close"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/coachmark/display"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/coachmark/action"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/accompaniment"(platform: "/", isAbstract: true) {
+        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card displayed")
+        previous_page(required: true, type: PropertyType.String, description: "Frontend the user came from")
+    }
+    "/seller_central/seller_coach/accompaniment/display"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/accompaniment/action"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/accompaniment/apply"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/congrats"(platform: "/", isAbstract: true) {
+        previous_page(required: true, type: PropertyType.String, description: "Frontend the user came from")
+        last_recommendation(required: true, type: PropertyType.Boolean, description: "Whether it's the last recommendation of the set for that user")
+    }
+    "/seller_central/seller_coach/congrats/display"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/congrats/action"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/empty_state/display"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/empty_state/action"(platform: "/", type: TrackType.Event) {}
 
 
     //LISTING SECTION
@@ -682,6 +696,13 @@ tracks {
 
     "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
         hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
+    }
+
+    "/seller_central/listings/action/open_modal"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "Action id")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
+        item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
+        inventory_id(required: false, type: PropertyType.String, description: "Inventory id to which the action is executed")
     }
 
     //LISTING SECTION - TABS
@@ -998,6 +1019,28 @@ tracks {
     }
 
     "/seller_central/modify/detail/selected_chart"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/variations/chart/create"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+    }
+
+    "/seller_central/modify/variations/chart/modify"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+    }
+
+    "/seller_central/modify/variations/chart/clone"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+    }
+
+    "/seller_central/modify/chart/confirm"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+        action(required: true, description: "Action to confirm", type: PropertyType.String)
+    }
+
+    "/seller_central/modify/chart/return"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+        action(required: true, description: "Action to confirm", type: PropertyType.String)
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Structured Data
@@ -1345,6 +1388,8 @@ tracks {
 
     "/seller_central/sales/detail/billing_info"(platform: "/mobile", type: TrackType.View) {}
 
+    "/seller_central/sales/detail/date_picker"(platform: "/mobile", type: TrackType.View) {}
+
     "/seller_central/sales/detail/buyer_info"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/buyer_info/action"(platform: "/mobile", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "ID of buyer info action")
@@ -1547,7 +1592,7 @@ tracks {
         selected_problem(required: true, type: PropertyType.String, description: "Problem selected ID")
         problem_type(required: true, type: PropertyType.String, description: "Problem type", values: ["L1", "L2"])
     }
-    
+
     // Delayed Shipping - My Attention
 
     "/seller_central/metrics/attention/delayed_shippings"(platform: "/web", type: TrackType.View) {
@@ -2017,13 +2062,13 @@ tracks {
 
     "/seller_central/catalog/optin_v2/congrats"(platform: "/web", isAbstract: true) {}
 
-    "/seller_central/catalog/optin_v2/congrats/success"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin_v2/congrats/success"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroupV2
         confirmed_item_plus(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
         suggested_correction(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
     }
 
-    "/seller_central/catalog/optin_v2/congrats/warning"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin_v2/congrats/warning"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroupV2
         reason(required: false, description: "Reason of warning congrats", type: PropertyType.String,  values: ["INACTIVE_PRODUCT", "CATALOG_NOT_REQUIRED", "PRODUCT_HAS_ERRORS_SUGGESTED", "WRONG_V0_PRODUCT", "PRODUCT_HAS_ERRORS", "IS_A_KIT"])
         suggested_correction(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
@@ -2136,7 +2181,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin_v2/item_plus_step/pictures/confirm"(platform: "/web", type: TrackType.Event) {
-        sellerCentralCatalogOptinGroupV
+        sellerCentralCatalogOptinGroupV2
     }
 
     "/seller_central/catalog/optin_v2/item_plus_step/gtin"(platform: "/web", type: TrackType.View) {
@@ -2188,6 +2233,73 @@ tracks {
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     |                                             END OPTIN V2                                                    |
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    |                                           OPTIN V2 - MASSIVE                                                |
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    "/seller_central/catalog/optin_v2/massive"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/optin_v2/massive/init"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/congrats"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/optin_v2/massive/congrats/success"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+        products_qty(required: true, description: "Quantity products to publish", type: PropertyType.Numeric)
+        invalidates_qty(required: true, description: "Quantity products to invalidate", type: PropertyType.Numeric)
+    }
+
+    "/seller_central/catalog/optin_v2/massive/congrats/warning"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+        products_qty(required: false, description: "Quantity products to publish", type: PropertyType.Numeric)
+        invalidates_qty(required: true, description: "Quantity products to invalidate", type: PropertyType.Numeric)
+        reason(required: true, description: "Reason of warning congrats", type: PropertyType.String,  values: ["REQUIRE_ATTR_NOT_COMPLETE", "INACTIVE_PRODUCT", "CATALOG_NOT_REQUIRED", "PRODUCT_HAS_ERRORS_SUGGESTED", "WRONG_V0_PRODUCT", "PRODUCT_HAS_ERRORS", "IS_A_KIT", "INVALIDATE"])
+    }
+
+    "/seller_central/catalog/optin_v2/massive/product_comparator"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/product_comparator/selected"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2Massive
+        comparison_selected(required: true, description: "Comparison selected", type: PropertyType.String,  values: ["SAME_PRODUCT", "WRONG_PRODUCT"])
+    }
+
+    "/seller_central/catalog/optin_v2/massive/attributes_matcher"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/attributes_matcher/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/review"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/review/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2Massive
+        products_qty(required: false, description: "Quantity products to publish", type: PropertyType.Numeric)
+        invalidates_qty(required: false, description: "Quantity products to invalidate", type: PropertyType.Numeric)
+    }
+
+    "/seller_central/catalog/optin_v2/massive/user_leaves"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/product_problem"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2Massive
+    }
+
+    "/seller_central/catalog/optin_v2/massive/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2Massive
+        wrong_type(required: true, description: "Wrong Type", type: PropertyType.String,  values: ["KIT", "PRODUCT_ERRORS", "OTHER", "WRONG_SIZE_CHART"])
+    }
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    |                                        END OPTIN V2 - MASSIVE                                               |
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     // + Paths for seller-centrall product suggestion
@@ -2699,14 +2811,5 @@ tracks {
     "/seller_central/gema/usage"(platform: "/web", type: TrackType.Event) {
         use_gema (required:true, type: PropertyType.Boolean, description: "Validate if the user use our new application")
         seller_reputation (required:true, type: PropertyType.String, description: "Seller Reputation")
-    }
-
-    "/seller_central/price_suggestion/bands"(platform: "/", type: TrackType.Event){
-        app_name (required:true, type: PropertyType.String, description: "App name from each app which uses price suggestion")
-        client_id (required:false, type: PropertyType.Numeric, description: "Client id from each app which uses price suggestion")
-        item_id (required:false, type: PropertyType.String, description: "Item id")
-        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributesStructure)), description: "attributes")
-        prices_bands (required: true, type: PropertyType.Map(pricesBandsStructure), description: "bands from suggestion")
-        price (required:true, type: PropertyType.String, description: "Item price")
     }
 }

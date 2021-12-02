@@ -27,5 +27,6 @@ catalog {
 
     all.each { business ->
         include business, "tracking.groovy"
+        include business, "front_core.groovy"
     }
 }
