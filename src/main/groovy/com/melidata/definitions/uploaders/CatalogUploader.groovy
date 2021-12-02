@@ -54,6 +54,8 @@ class CatalogUploader {
                 println("Uploading catalog ${catalogName}")
                 new CatalogUploader(catalogName).upload()
             }
+        } else {
+            println("Melidata upload is only available on productive environments, you probably shouldnt be doing this")
         }
     }
 
