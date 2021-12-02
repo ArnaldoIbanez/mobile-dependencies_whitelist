@@ -31,7 +31,7 @@ trackTests {
             quantity = 1
         }
 
-        "/combos/view"(platform: "/") {
+        "/combos/view_combos"(platform: "/") {
             backend_id= "machinalis-vip-combos"
             has_errors = false
             client = "vip-combos"
