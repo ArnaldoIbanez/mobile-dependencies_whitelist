@@ -3591,4 +3591,17 @@ trackTests {
             }
 	 }
     }
+    
+    // INSURTECH adquisition
+    ["mercadolibre", "mercadopago"].each { business ->
+		defaultBusiness = business
+        test("Insurtech - ${business} tests adquisition tacking ") {
+            "/insurtech/adquisition/fallback"(platform:"/", type: TrackType.View) {
+                touchpoint_data = [
+                    touchpoint: "DIGITAL_ACCOUNT",
+                    touchpoint_detail: "PIX",
+                ]
+            }
+        }
+    }
 }

@@ -19,6 +19,11 @@ tracks {
         claim_id(required: true, type: PropertyType.String, description: "Claim id of the insurtech policy")
         product_type(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["roda", "garex"])
     }
+    
+    def touchpoint_object = objectSchemaDefinitions {
+      touchpoint(required: true, type: PropertyType.String, description: "Flow from which it comes")
+      touchpoint_detail(required: true, type: PropertyType.String, description: "detail of the flow from which it comes")
+    }
 
     // INSURTECH RODA Abstract
     "/insurtech"(platform: "/", isAbstract: true) {}
@@ -176,4 +181,9 @@ tracks {
     "/insurtech/protections/claims/execute/document/request/select_continue"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/execute/document/request/select_police_report"(platform:"/", type: TrackType.Event) {}
 
+    // INSURTERCH ADQUISITION
+    "/insurtech/adquisition"(platform: "/", isAbstract: true) {}
+    "/insurtech/adquisition/fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
+      touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+    }
 }
