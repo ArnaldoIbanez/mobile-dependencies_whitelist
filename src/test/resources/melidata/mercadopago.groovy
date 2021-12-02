@@ -2720,6 +2720,11 @@ trackTests {
             entity = "Monterrey"
             item = "item 2"
         }
+        "/bill_payments/main_category/recent_payments"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
         "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
@@ -3017,6 +3022,10 @@ trackTests {
         }
 
         "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 

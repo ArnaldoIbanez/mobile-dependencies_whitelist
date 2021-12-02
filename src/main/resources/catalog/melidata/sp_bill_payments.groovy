@@ -255,6 +255,9 @@ tracks {
         entity (required:false, type: PropertyType.String, description: "The chosen entitie label")
         item (required:false, type: PropertyType.String, description: "The chosen item label")
     }
+    "/bill_payments/main_category/recent_payments"(platform: "/mobile", type: TrackType.Event) {
+        entity (required:false, type: PropertyType.String, description: "The chosen entitie label")
+    }
 
     "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
         entity (required:true, type: PropertyType.String, description: "The chosen entitie label")
@@ -346,6 +349,7 @@ tracks {
     "/bill_payments/congrats"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats/success"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats/success/warning_pay_hour"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats/success/activate_digital_invoices"(platform: "/mobile", type: TrackType.Event) {}
