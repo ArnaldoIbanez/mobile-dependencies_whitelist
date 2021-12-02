@@ -2753,6 +2753,30 @@ trackTests {
             bb_quantity = 1200
             campaign_id = 1234
         }
+
+        "/advertising/pads2/hub/paused_modal/bb_campaign"(platform: "/", type: TrackType.View) {
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/hub/paused_modal/bb_campaign/reverse"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/hub/paused_modal/bb_campaign/confirm"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/manager/paused_modal/bb_campaign"(platform: "/", type: TrackType.View) {
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/manager/paused_modal/bb_campaign/reverse"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/manager/paused_modal/bb_campaign/confirm"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1234
+        }
     }
 
 }
