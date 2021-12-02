@@ -3,6 +3,7 @@ package com.melidata.definitions.task
 import com.melidata.definitions.linters.CatalogLinter
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.utils.DslUtils
+import groovy.json.JsonSlurper
 
 class CatalogLintTask {
 
@@ -14,7 +15,7 @@ class CatalogLintTask {
         def json = parser.parseText(context)
         
         println(json['git_is_merge'])
-        
+
         CatalogLinter cl = new CatalogLinter()
         args.each { catalogName ->
             status = status && cl.run(catalogName)
