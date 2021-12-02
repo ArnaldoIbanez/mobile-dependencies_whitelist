@@ -3688,6 +3688,11 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/adhesion_detail/automatic_debit/to_subscription_detail"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+
         // congrat optout dda
         "/bill_payments/optout/automatic_debit"(platform: "/mobile") {
             mandatory()
