@@ -2598,6 +2598,46 @@ trackTests {
             seller_name="Hendel"
         }
 
+        "/notification_center/single_player_subscription_recharge_cancelled_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_cancelled_product_mp"
+            latest_news_id= "single_player_subscription_recharge_cancelled_product_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_cancelled_product_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_cancelled_product_mp"
+            latest_news_id= "single_player_subscription_recharge_cancelled_product_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_cancelled_unrecoverable_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_cancelled_unrecoverable_mp"
+            latest_news_id= "single_player_subscription_recharge_cancelled_unrecoverable_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_fail_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_fail_mp"
+            latest_news_id= "single_player_subscription_recharge_fail_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_fail_payments_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_fail_payments_mp"
+            latest_news_id= "single_player_subscription_recharge_fail_payments_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_reminder_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_reminder_mp"
+            latest_news_id= "single_player_subscription_recharge_reminder_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_success_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_success_mp"
+            latest_news_id= "single_player_subscription_recharge_success_mp-143816022-MLB1013046714"
+        }
+
+
+
+
+
+
         "/notification_center/shipping_moderation_cross_docking_release_below"(platform: "/mobile"){
             latest_news_type= "shipping_moderation_cross_docking_release_below"
             latest_news_id= "shipping_moderation_cross_docking_release_below-143816022-MLB1013046714"
@@ -12139,6 +12179,34 @@ trackTests {
             debt_id=123
         }
 
+        "/notification/single_player_subscription_recharge_cancelled_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_cancelled_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_cancelled_product_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_cancelled_product_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_cancelled_unrecoverable_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_cancelled_unrecoverable_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_fail_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_fail_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_fail_payments_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_fail_payments_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_reminder_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_reminder_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_success_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_success_mp"
+            event_type = "open"
+        }
         "/notification/point_pos_closed"(platform: "/mobile") {
             news_id = "point_pos_closed-186785675"
             event_type = "open"
