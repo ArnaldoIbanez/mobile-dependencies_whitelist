@@ -619,6 +619,7 @@ trackTests {
         "/register/v3/hub/regulations/congrats"(platform: "/mobile"){}
         "/register/v3/hub/tyc/congrats"(platform: "/mobile"){}
         "/register/v3/hub/congrats"(platform: "/mobile"){}
+        "/register/v3/hub/saved_session"(platform: "/mobile"){}
 
         // MP
          "/register/v3/hub/landing"(platform: "/mobile", business: "mercadopago"){
@@ -676,6 +677,7 @@ trackTests {
         "/register/v3/hub/regulations/congrats"(platform: "/mobile", business: "mercadopago"){}
         "/register/v3/hub/tyc/congrats"(platform: "/mobile", business: "mercadopago"){}
         "/register/v3/hub/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/saved_session"(platform: "/mobile", business: "mercadopago"){}
     }
 
     test("Registration v3 Challenges") {
@@ -743,6 +745,18 @@ trackTests {
             under_age_validation_id = "UAID"
             under_age_validation_responsible_id = "UARID"
         }
+        "/under_age_validation/notification/accepted"(platform: "/mobile"){
+            source = "email"
+        }
+        "/under_age_validation/notification/accepted/already_logged"(platform: "/mobile"){
+            source = "email"
+        }
+        "/under_age_validation/notification/rejected"(platform: "/mobile"){
+            source = "email"
+        }
+        "/under_age_validation/notification/tutor_authorization/redirect"(platform: "/mobile"){
+            source = "email"
+        }
 
         // MP
         "/under_age_validation/tutor_email"(platform: "/mobile", business: "mercadopago"){
@@ -793,6 +807,18 @@ trackTests {
             under_age_validation_id = "UAID"
             under_age_validation_responsible_id = "UARID"
 
+        }
+        "/under_age_validation/notification/accepted"(platform: "/mobile", business: "mercadopago"){
+            source = "email"
+        }
+        "/under_age_validation/notification/accepted/already_logged"(platform: "/mobile", business: "mercadopago"){
+            source = "email"
+        }
+        "/under_age_validation/notification/rejected"(platform: "/mobile", business: "mercadopago"){
+            source = "email"
+        }
+        "/under_age_validation/notification/tutor_authorization/redirect"(platform: "/mobile", business: "mercadopago"){
+            source = "email"
         }
     }
 

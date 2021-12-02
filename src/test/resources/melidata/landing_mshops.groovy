@@ -33,4 +33,14 @@ trackTests {
             location = "test"
         }
     }
+
+    test("Mercado Shops Landing help"){
+        "/home/landing/expand"(platform: "/", type: TrackType.Event){}
+
+        "/home/landing/youtube_tutorial"(platform: "/", type: TrackType.Event){}
+
+        "/home/landing/webinar"(platform: "/", type: TrackType.Event){}
+
+        "/home/landing/seller_central"(platform: "/", type: TrackType.Event){}
+    }
 }

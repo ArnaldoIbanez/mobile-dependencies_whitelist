@@ -91,4 +91,11 @@ trackTests {
     test("seller central bulk publish upload email congrats") {
         "/seller_central/bulk/publish/upload/email/congrats"(platform: "/web", type: TrackType.Event) {}
     }
+
+    test("seller central bulk publish images") {
+        "/seller_central/bulk/publish/images"(platform: "/web", type: TrackType.Event) {
+            source = "GEMA"
+            quantity = 10
+        }
+    }
 }

@@ -37,6 +37,18 @@ tracks {
         shipping_promoted_amount(required:true, type: PropertyType.Numeric, description:  "Total cost of shipping without discount")
     }
 
+    def protection_option = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, description: "Type of warranty selected by user")
+        option_price(required: true, type: PropertyType.Numeric, description: "Price of warranty option")
+        option_id(required: true, type: PropertyType.String, description: "Id of warranty option")
+    }
+
+    def protection_item_info = objectSchemaDefinitions {
+        quantity(required: true, type: PropertyType.Numeric, description: "Current quantity of the item at carrito")
+        id(required: true, type: PropertyType.String, description: "Item ID")
+        variation_id(required: false, type: PropertyType.Numeric, description: "Variation ID")
+    }
+
 
 
     "/cart"(platform: "/", isAbstract: true) {
@@ -85,6 +97,10 @@ tracks {
 }
 
 "/cart/my_cart/delete_item"(platform: "/", type: TrackType.Event) {
+    item_info
+}
+
+"/cart/my_cart/update_item_kit"(platform: "/", type: TrackType.Event) {
     item_info
 }
 
@@ -156,6 +172,12 @@ tracks {
 
 "/cart/item_add/error"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
     error_type(required: true, type: PropertyType.String)
+}
+
+//Insurtech
+"/cart/item_add/insurtech_protection_deleted"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+    item(required: true, type: PropertyType.Map(protection_item_info), description: "information about chosen item")
+    option_selected(required: true, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
 }
 
 

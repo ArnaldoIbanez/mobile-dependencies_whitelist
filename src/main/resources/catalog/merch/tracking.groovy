@@ -6,6 +6,10 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    "/"(platform: "/") {}
+    "/merch"(platform: "/", type: TrackType.View) {
+        content_id(required: true, type: PropertyType.String, description: "Content ID")
+        component_id(required: true, type: PropertyType.String, description: "Realestate ID")
+    }
 
+    "/merch/dismiss"(platform: "/", type: TrackType.Event) {}
 }

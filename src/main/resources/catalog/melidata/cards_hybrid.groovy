@@ -55,6 +55,7 @@ tracks {
     "/cards/nfc/constraint"(platform: "/", isAbstract: true) { }
     "/cards/nfc/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/payment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments/congrats"(platform: "/", isAbstract: true) { }
     "/cards/nfc/prep_replenishment"(platform: "/", isAbstract: true) { }
 
@@ -287,6 +288,21 @@ tracks {
             type: PropertyType.String,
             description: "Type of Congrats"
         )
+        insurance_offer (
+            required: false,
+            type: PropertyType.String,
+            values: ["banner", "label"],
+            description: "Indicates the insurance offer type that was displayed"
+        )
+    }
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/android", type: TrackType.Event) {}
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/ios", type: TrackType.Event) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url that init Insurance flow",
+            inheritable:false
+        )
     }
     "/cards/acquisition/congrats/tap" (platform: "/", type: TrackType.Event) {
         url (
@@ -426,9 +442,12 @@ tracks {
          flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
+         credit_activities_status (required:false, type: PropertyType.String, values: ["credit_activities", "credit_activities_with_error"], description: "Credits activities status", inheritable:false)
          credits (required:false, type: PropertyType.Map(credits_data), description: "Credit Card", inheritable: false)
          dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
+
+    "/cards/hybrid/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
     
     "/cards/hybrid/dashboard/virtual"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -466,7 +485,35 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active","debit_active_and_credit_pending","virtual_debit_and_credit_pending","virtual_debit_and_credit_active", "without_cards_and_card_request", "tracking_physical_delivered", "tracking_pending_default", "nfc_virtual_only" ],
+            values: [
+                "render",
+                "physical_inactive",
+                "virtual_only", 
+                "user_need_challenge", 
+                "tracking_pending", 
+                "tracking_ready_to_ship", 
+                "tracking_shipped", 
+                "tracking_soon_deliver", 
+                "tracking_delayed", 
+                "tracking_waiting_for_withdrawal", 
+                "physical_delivered", 
+                "tracking_not_delivered", 
+                "kyc_pending_manual_review", 
+                "kyc_not_compliance", 
+                "kyc_compliance", 
+                "debit_active", 
+                "hybrid_active",
+                "debit_active_and_credit_pending",
+                "virtual_debit_and_credit_pending",
+                "virtual_debit_and_credit_active", 
+                "without_cards_and_card_request", 
+                "tracking_physical_delivered", 
+                "tracking_pending_default", 
+                "nfc_virtual_only",
+                "tracking_point_and_debit_shipped",
+                "credit_virtual_only",
+                "tracking_point_and_debit_ready_to_ship"
+            ],
             description: "Banner tapped"
           )
     }
@@ -567,6 +614,16 @@ tracks {
         logic(required: false, type: PropertyType.String)
         position(required: true, type: PropertyType.Numeric)
     }
+    def dynamic_carousel_description_standard = objectSchemaDefinitions {
+        audience(required: false, type: PropertyType.String, name: "audience", description: "Field required by merch engine")
+        bu(required: false, type: PropertyType.String, name: "bu", description: "Field required by merch engine")
+        bu_line(required: false, type: PropertyType.String, name: "bu_line", description: "Field required by merch engine")
+        component_id(required: false, type: PropertyType.String, name: "component_id", description: "Field required by merch engine")
+        content_id(required: false, type: PropertyType.String, name: "content_id", description: "Field required by merch engine")
+        flow(required: false, type: PropertyType.String, name: "flow", description: "Field required by merch engine")
+        logic(required: false, type: PropertyType.String, name: "logic", description: "Field required by merch engine")
+        position(required: true, type: PropertyType.Numeric, name: "position", description: "Field required by merch engine")
+    }
     "/cards/hybrid/dashboard/dynamic_carousel"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
         description (
@@ -582,13 +639,27 @@ tracks {
             description: "Carousel item swiped"
           )
     }
+    "/cards/hybrid/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description_standard),
+            description: "Carousel item displayed",
+            name: "description"
+          )
+    }
     "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
         description (
             required: true,
             type: PropertyType.Map(dynamic_carousel_description),
-            description: "Carousel item closed"
+            description: "Carousel item closed",
+            name: "description"
           )
     }
+
+    //App2App Confirmation flow
+    "/cards/hybrid/app2app/facebook_pay_verification"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/app2app/facebook_pay_verification/confirmation"(platform: "/mobile", type: TrackType.Event) { }
+    "/cards/hybrid/app2app/facebook_pay_verification/close"(platform: "/mobile", type: TrackType.Event) { }
 
     //Feedback: Tracking
     "/cards/hybrid/dashboard/feedback"(platform: "/", isAbstract: true) {}
@@ -703,6 +774,12 @@ tracks {
             description: "The action type tapped"
         )
     }
+
+    // Setup virtual reauth
+    "/cards/hybrid/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
+    
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/whatsapp/banner"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {
@@ -1141,30 +1218,59 @@ tracks {
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
         )
+        address_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Address id"
+        )
         is_warning_address (
             required: false,
             type: PropertyType.Boolean,
             description: "If reissue was request by warning address"
         )
     }
-    "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) { }
     "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "add_money"],
+            values: ["back", "add_money"],
             description: "action tap by the user in the challenge"
         )
     }
 
     // Request: Pending Challenge
-    "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["D1", "D1_ticket", "D4"],
+            description: "type of screen"
+        )
+    }
     "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
             values: ["back", "add_money", "info_payment"],
             description: "action tap by the user in the pending challenge view"
+        )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["D1", "D1_ticket", "D4"],
+            description: "type of screen"
+        )
+    }
+
+    // Request: Expired Challenge
+    "/cards/hybrid/request/physical/expired_challenge"(platform: "/", type: TrackType.View) { }
+    "/cards/hybrid/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back", "continue"],
+            description: "action tap by the user in the expired challenge view"
         )
     }
 
@@ -1175,9 +1281,24 @@ tracks {
     "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
-             type: PropertyType.String,
-             values: ["back", "changes_address", "tyc", "card_request"],
-             description: "action tap by the user in the review"
+            type: PropertyType.String,
+            values: ["back", "changes_address", "tyc", "card_request", "edit_address", "add_new_address"],
+            description: "action tap by the user in the review"
+        )
+        address_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Address id"
+        )
+        is_accurate (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If address is accurate"
+        )
+        is_warning_address (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If address has a warning message"
         )
     }
 
@@ -1201,6 +1322,16 @@ tracks {
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
+        )
+        address_id (
+            required: false,
+             type: PropertyType.String,
+             description: "Address id"
+        )
+        is_warning_address (
+            required: false,
+             type: PropertyType.Boolean,
+             description: "If address has a warning message"
         )
     }
     
@@ -1350,7 +1481,8 @@ tracks {
                 'reissue',
                 'change_limits',
                 'change_pin',
-                'disable_credit_card'
+                'disable_credit_card',
+                'overlimit_credit_card'
             ]
         )
     }
@@ -1487,6 +1619,72 @@ tracks {
             description: "Action Tapped"
         )
     }
+
+    // Tap4Auth Flow
+    propertyDefinitions {
+            tap4auth_congrats_type (
+                description: "Tap4auth Congrats Type",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "user_accepted_congrats_physical",
+                        "user_rejected_congrats_physical",
+                        "user_accepted_congrats_virtual",
+                        "user_rejected_congrats_virtual",
+                        "user_rejected_congrats_virtual_second_try",
+                        "user_rejected_congrats_virtual_third_try",
+                        "user_accepted_ttl_expired_physical",
+                        "user_accepted_ttl_expired_virtual",
+                        "user_already_responded",
+                        "user_rejected_congrats_virtual_third_contingency_cancel_try",
+                        "user_rejected_congrats_virtual_third_contingency_create_try"
+                ]
+            )
+    }
+    propertyGroups {
+        tap4auth_congrats(tap4auth_congrats_type)
+    }
+
+    "/cards/hybrid/payment_authorization"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/payment_authorization/main_screen"(platform:"/mobile", type: TrackType.View) {
+        amount (
+            required: true, 
+            type: PropertyType.Numeric, 
+            description: "Amount of money through tap4Auth"
+        )
+     }
+     "/cards/hybrid/payment_authorization/main_screen/cta"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+         action (
+            required: true,
+            type: PropertyType.String,
+            values: ["authorize", "no_authorize"],
+            description: "Option chosen by Tap4Auth user"
+         )
+     }
+     "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) {
+         amount (
+            required: true, 
+            type: PropertyType.Numeric, 
+            description: "Amount of money through tap4Auth"
+        )
+        tap4auth_congrats
+     }
+     "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        tap4auth_congrats
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "understands",
+                "setup_virtual",
+                "home",
+                "pause_card",
+                "report_card",
+                "dismiss"
+                ],
+            description: "Button tapped by user"
+        )
+     }
     
     // ENROLLMENT-HUB-NFC
     //-------------------
@@ -2060,6 +2258,22 @@ tracks {
             type: PropertyType.String,
             description: "Context from where its sended"
         )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Info"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        localized_message(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Localized Message"
+        )
+        
     }
 
     "/cards/nfc/core/service/life_cycle_initialize"(platform: "/", type: TrackType.Event) { }
@@ -2112,6 +2326,8 @@ tracks {
         )
     }
 
+    "/cards/nfc/core/service/start_secure_enrollment/missing_asset_response"(platform: "/", type: TrackType.Event) {}
+
     "/cards/nfc/core/service/start_secure_enrollment/error"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
@@ -2140,6 +2356,35 @@ tracks {
             type: PropertyType.String,
             required: false,
             description: "Type of sdk error message"
+        )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        cps_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK CPS Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Additional Info"
+        )
+    }
+    
+    "/cards/nfc/core/user_has_tokenized_card/error"(platform: "/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values:["Token is present in local preferences but not in SDK"],
+            description: "Error on userHasTokenizedCard method"
         )
     }
 
@@ -2196,6 +2441,45 @@ tracks {
             required: false,
             description: "Type of sdk error message"
         )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        cps_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK CPS Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Additional Info"
+        )
+        token_id(
+            type: PropertyType.String,
+            required: true,
+            description: "TokenId value when the error was thrown"
+        )
+        wallet_id(
+            type: PropertyType.String,
+            required: true,
+            description: "WalletId value when the error was thrown"
+        )
+    }
+    
+    "/cards/nfc/enrollment/device_enrollment/state"(platform: "/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values:["enrollment_needed","enrollment_complete","enrollment_in_progress"],
+            description: "Device enrollment success"
+        )
     }
 
     "/cards/nfc/enrollment/device_enrollment/success"(platform: "/", type: TrackType.Event) {
@@ -2218,31 +2502,6 @@ tracks {
         error_code (
             type: PropertyType.String,
             required: true,
-            values: [
-                'common_no_internet',
-                'common_comm_error',
-                'common_server_error',
-                'enrollment_wrong_credentials',
-                'enrollment_credential_expired',
-                'enrollment_try_limit_exceeded',
-                'card_activation_activation_code_entry_canceled',
-                'card_activation_mobile_pin_invalid_length',
-                'card_activation_mobile_pin_mismatch',
-                'change_pin_reentry_mismatch',
-                'change_pin_card_not_active',
-                'change_pin_card_not_exist',
-                're_enrollment_required',
-                'card_not_enrolled',
-                'card_state_unknown',
-                'replenishment_not_allowed',
-                'sdk_internal_component_error',
-                'enrollment_wrong_activation_code',
-                'enrollment_blocked_secure_wallet_enrollment_required',
-                'replenishment_blocked_secure_wallet_enrollment_required',
-                'invalid_replenish_missing_payment',
-                'asm_error',
-                'invalid_digitalcardid',
-            ],
             description: "Type of sdk errors code"
         )
 
@@ -2250,6 +2509,31 @@ tracks {
             type: PropertyType.String,
             required: false,
             description: "Type of sdk error message"
+        )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        cps_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK CPS Error Code"
+        )
+        wallet_id(
+            type : PropertyType.String,
+            required: true,
+            description: "SDK Additional Info"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Additional Info"
         )
     }
 
@@ -2351,6 +2635,21 @@ tracks {
             required: false,
             description: "Error message description"
         )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        server_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Server Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
     }
 
     "/cards/nfc/enrollment/digitize_card/success"(platform: "/", type: TrackType.Event) {
@@ -2372,7 +2671,7 @@ tracks {
         result (
             type: PropertyType.String,
             required: true,
-            values: ["SUCCESS", "FAILURE", "CAN_NOT_PROCEED"],
+            values: ["SUCCESS", "FAILURE", "CAN_NOT_PROCEED", "RETRY"],
             description: "Type of digitize card result values"
         )
     }
@@ -2446,6 +2745,21 @@ tracks {
             type: PropertyType.String,
             required: false,
             description: "Type of sdk error message"
+        )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        server_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Server Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
         )
     }
 
@@ -2546,6 +2860,21 @@ tracks {
             required: false,
             description: "Error message description"
         )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: false,
+            description: "SDK Status Code"
+        )
+        server_error_code(
+            type : PropertyType.Numeric,
+            required: false,
+            description: "SDK Server Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
     }
 
     "/cards/nfc/enrollment/tokenization/messageprocessor"(platform: "/", type: TrackType.Event) {
@@ -2556,27 +2885,139 @@ tracks {
                 inheritable: false
         )
     }
+    
+    "/cards/nfc/enrollment/tokenization/messageprocessor/constraints"(platform: "/", type: TrackType.Event) {
+        is_nfc_payments_initialized (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if nfc service is initialized"
+        )
+        is_token_ready (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the token is ready for payment"
+        )
+        is_token_active (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the payment token is active"
+        )
+        is_default_tap_n_pay (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if MP is the default tap and pay app"
+        )
+        is_restrictive (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone is in tap and pay restrictive mode"
+        )
+        is_tap_n_pay_admitted_to_pay (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone is properly configured to pay with mp"
+        )
+        is_default_card (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the nfc card is default on nfc service"
+        )
+        is_nfc_activated (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone nfc antenna is active"
+        )
+        are_payment_keys_available (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the token has any available key for payment"
+        )
+    }
 
     // PAYMENTS-NFC
     // -------------------
-    "/cards/nfc/payment"(platform: "/", type: TrackType.View) {
+    "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
+        is_nfc_payments_initialized (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if nfc service is initialized"
+        )
+        is_token_ready (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the token is ready for payment"
+        )
+        is_token_active (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the payment token is active"
+        )
+        is_default_tap_n_pay (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if MP is the default tap and pay app"
+        )
+        is_restrictive (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone is in tap and pay restrictive mode"
+        )
+        is_tap_n_pay_admitted_to_pay (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone is properly configured to pay with mp"
+        )
+        is_default_card (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the nfc card is default on nfc service"
+        )
+        is_nfc_activated (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone nfc antenna is active"
+        )
+        are_payment_keys_available (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the token has any available key for payment"
+        )
         from (
             required: true,
             type: PropertyType.String,
-            inheritable: false,
-            description: "Access location of NFCPayment call"
+            description: "Indicate the location from where the payment comes"
         )
-    }
-    "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
-        result (
+        tap_type (
             required: true,
             type: PropertyType.String,
-            description: "Tap payment error transaction"
+            values: ['first_tap', 'second_tap'],
+            description: "Indicates if is a first or second tap on POS"
         )
-        reasons (
+        is_in_foreground (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the tap action is from foreground or background"
+        )
+        is_phone_locked (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the tap action is from phone locked or unlocked state"
+        )
+        tap_status (
             required: true,
             type: PropertyType.String,
-            description: "Error code of the payment tap pos error"
+            values: ['success', 'failure'],
+            description: "Indicates if the tap action is success or failure"
+        )
+        additional_info (
+            required: false,
+            type: PropertyType.String,
+            description: "Adds more info for specials cases, like errors or fails"
+        )
+        is_online_payment (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "Indicates if the payment is online or offline"
         )
     }
     "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
@@ -2695,13 +3136,21 @@ tracks {
             inheritable: false
         )
     }
-    
-    
+
     "/cards/nfc/enrollment/instructions/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
             description: "Finish button tapped"
+        )
+    }
+    
+    "/cards/nfc/configuration/instructions/continue_button"(platform: "/", type: TrackType.Event) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url to should redirected",
+            inheritable:false
         )
     }
 
@@ -2809,7 +3258,17 @@ tracks {
             required: true,
             type: PropertyType.Boolean,
         )
+    }  
+
+    // NFC Button Mini Card
+    "/cards/cardwidget/button/nfc"(platform: "/mobile", type: TrackType.View) {
+        delay_in_seconds (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Delay to show nfc button"
+        )
     }
+
     
     // NFC-PRODUCT-METRICS
     // -------------------
@@ -2831,6 +3290,15 @@ tracks {
             values: [
                 "default",
                 "not_default"
+            ]
+        )
+        foreground(
+            required: false,
+            type: PropertyType.String,
+            values: [
+                'foreground',
+                'default',
+                'unknown'
             ]
         )
     }
@@ -2857,7 +3325,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["primary"],
+            values: ["primary", "close"],
             description: "Button tapped"
         )
     }
@@ -2882,6 +3350,17 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ['needed','not_needed', 'null']
+        )
+    }
+    
+    // NFC_DISABLED_PAYMENT_SERVICE
+    // ----------------------------
+    
+    "/cards/nfc/disabled_payment_error"(platform: "/", type: TrackType.Event) {
+        user_id_is_null (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "UserId status at the moment of the error"
         )
     }
 }

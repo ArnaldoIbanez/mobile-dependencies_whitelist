@@ -7,7 +7,7 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-    test("Returns tracks") {
+    test("Returns express tracks") {
 
       // STEP 01
       "/return/potential_resolutions"(platform: "/", type: TrackType.View)  {
@@ -272,4 +272,58 @@ trackTests {
         selection = "accepted"
       }
     }
+
+    test("Returns tracks") {
+
+    // STEP 01
+    "/returns/refunds"(platform: "/", type: TrackType.View)  {
+      flow_version = "init-return-0.0.0"
+      showed_payment_methods = "credit_card"
+      layout = "table_layout"
+    }
+    "/returns/refunds/selection"(platform: "/", type: TrackType.Event)  {
+      selection = "accepted"
+    }
+
+    "/returns/refunds_ram"(platform: "/", type: TrackType.View)  {
+      flow_version = "init-return-0.0.0"
+    }
+    "/returns/refunds_ram/selection"(platform: "/", type: TrackType.Event)  {
+      selection = "accepted"
+      refund_info = "refund_account_money"
+    }
+
+    // STEP 02
+    "/returns/confirmation"(platform: "/", type: TrackType.View)  {
+      flow_version = "init-return-0.0.0"
+    }
+    "/returns/confirmation/selection"(platform: "/", type: TrackType.Event)  {
+      confirmation_return_method = "confirmation_code"
+    }
+    "/returns/confirmation/agencies"(platform: "/", type: TrackType.Event) {
+      selection = "view_agencies"
+    }
+
+    // STEP 03
+    "/returns/congrats"(platform: "/", type: TrackType.View) {
+      flow_version = "init-return-0.0.0"
+      refund_account_money = true
+    }
+    "/returns/congrats/selection"(platform: "/", type: TrackType.Event) {
+      selection = "to_myml"
+    }
+    "/returns/congrats/agencies"(platform: "/", type: TrackType.Event) {
+      selection = "view_agencies"
+    }
+
+    // Warning Page for return created (view)
+    "/returns/warning"(platform: "/") {
+      flow_version = "init-return-0.0.0"
+      type = "return_created"
+    }
+    // Warning Page for claim created (event)
+    "/returns/warning/selection"(platform: "/") {
+      selection = "view_details"
+    }
+  }
 }

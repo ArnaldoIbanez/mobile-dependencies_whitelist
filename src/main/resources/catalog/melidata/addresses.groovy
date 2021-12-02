@@ -15,7 +15,7 @@ tracks {
 
     // VIEWS
     "/addresses"(platform: "/", isAbstract: true) {
-        context(required: false, description: "The client which is using the addresses flow", values: ["MY_ML","PM"], type: PropertyType.String)
+        context(required: false, description: "The client which is using the addresses flow", type: PropertyType.String)
         flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
 
@@ -107,6 +107,8 @@ tracks {
 
     "/addresses/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) {}
 
+    "/addresses/input_address/map/edit"(platform: "/", type: TrackType.Event) {}
+
     "/addresses/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) {}
 
     "/addresses/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) {}
@@ -114,4 +116,19 @@ tracks {
     "/addresses/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
         start_loading(required: true, type: PropertyType.String, description: "The datetime when the map started loading")
     }
+
+    /* HUB addresses
+        List of tracks associated with the address list used by multiple streams
+    */
+
+    "/addresses/hub_address/address"(platform: "/", isAbstract: true) {}
+
+    "/addresses/hub_address/address/message_review"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "Message displayed in the warning")
+    }
+    "/addresses/hub_address/address/use"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, values: ["default_selling_address","shipping"], description: "Tag used and selected by the user")
+    }
+    "/addresses/hub_address/address/delete"(platform:"/", type: TrackType.Event) {}
+    "/addresses/hub_address/address/modify"(platform:"/", type: TrackType.Event) {}
 }

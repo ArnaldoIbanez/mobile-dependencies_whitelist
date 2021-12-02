@@ -122,7 +122,7 @@ tracks {
     
     // Device Metadata sent from backend (Notifications ACK) & application startup
     "/devices/metadata"(platform: "/", type: TrackType.Event) {
-        total_storage(required: true, type: PropertyType.Numeric, description: "Total storage in the device in bytes")
+        total_storage(required: true, type: PropertyType.Numeric, description: "The total storage in the device in bytes")
         free_storage(required: true, type: PropertyType.Numeric, description: "Free storage in the device in bytes")
         app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
         app_cache(required: false, type: PropertyType.Numeric, description: "Application cache occupied storage in bytes")
@@ -141,6 +141,14 @@ tracks {
         carrier_name(required: false, type: PropertyType.String, description: "Name of the carrier network provider")
         nfc_compatible(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Nfc compatible with the device")
         nfc_enabled(required: false, type: PropertyType.Boolean, description: "Nfc is enabled or not")
+        battery_charging(required: false, type: PropertyType.Boolean, description: "Battery is charging or not")
+        battery_percentage_available(required: false, type: PropertyType.String, description: "Battery percentage available")
+        device_is_emulator(required: false, type: PropertyType.Boolean, description: "Device is an emulator or not")
+        total_ram_memory(required: false, type: PropertyType.Numeric, description: "Device total ram memory in bytes")
+        available_ram_memory(required: false, type: PropertyType.Numeric, description: "Device available ram memory in bytes")
+        vpn_connected(required: false, type: PropertyType.Boolean, description: "Device is connected to VPN or not")
+        bluetooth_enabled(required: false, type: PropertyType.Boolean, description: "Bluetooth is enabled or not")
+        background_refresh(required: false, type: PropertyType.String, values: ["Enabled", "Disabled"], description: "Background app refresh status")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}
@@ -177,7 +185,7 @@ tracks {
     "/apprater/add_track"(platform: "/mobile") {
         type_track(required: true, type: PropertyType.String, description:"Type of track that happen in the app (PAYMENT_APPROVE,CRASHED,WITHDRAW,etc")
     }
-    "/apprater/error_service_rules"(platform: "/mobile") {
+    "/apprater/appstore_rate_app"(platform: "/mobile") {
     }
     "/apprater/popup"(platform: "/mobile") {
     }
@@ -188,5 +196,7 @@ tracks {
     "/apprater/cancel"(platform: "/mobile") {
     }
     "/apprater/remind_me_later"(platform: "/mobile") {
+    }
+    "/inappreview/completed"(platform: "/mobile") {
     }
 }

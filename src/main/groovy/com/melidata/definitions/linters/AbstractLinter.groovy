@@ -9,8 +9,12 @@ abstract class AbstractLinter {
     String errorMessage
 
     boolean passValidation(TrackDefinition definition) {
-        if(!validateTrack(definition) || !validateProperties(definition)) {
-            printFails("Track ${definition.path} with platform ${definition.platform} " +
+        return validateTrackDefinition(definition) && validateProperties(definition)
+    }
+
+    boolean validateTrackDefinition(TrackDefinition definition) {
+        if(!validateTrack(definition)) {
+            printFails("- Track ${definition.path} with platform ${definition.platform} " +
                     "didn't pass validation => ${errorMessage}")
 
             return false
@@ -19,30 +23,39 @@ abstract class AbstractLinter {
         return true
     }
 
-    abstract boolean validateTrack(TrackDefinition definition)
-    abstract boolean validatePropertySet(List<TrackDefinitionProperty> properties)
+    boolean validateProperties(TrackDefinition definition) {
+        List<String> invalidProps = getPropertiesAnalysis(getPropertiesFromDefinition(definition))
+        if(!invalidProps.isEmpty()) {
+            printFails("- Track ${definition.path} with platform ${definition.platform} has invalid properties. ${errorMessage}")
+            printFails("* Properties: ${invalidProps}")
 
-    private void printFails(String message) {
-        print("\033[91m  -  "+message+"\033[0m\n")
+            return false
+        }
+
+        return true
     }
 
-
-    private List<TrackDefinitionProperty> getPropertiesFromDefinition(TrackDefinition definition) {
-        return ((Map<String,TrackDefinitionProperty>) definition.properties).values().toList()
-    }
-
-    boolean validateProperties(TrackDefinition trackDefinition) {
-        def definitionsProperties = getPropertiesFromDefinition(trackDefinition)
-        def isValid = validatePropertySet(definitionsProperties)
+    List<String> getPropertiesAnalysis(List<TrackDefinitionProperty> definitionsProperties) {
+        List<TrackDefinitionProperty> invalidProps = validatePropertySet(definitionsProperties)
 
         def allNestedStructures = definitionsProperties.findAll{it.type instanceof MapProperty}.toList()
 
-        isValid = isValid && allNestedStructures.every {
-            def nestedProperties = ((MapProperty)it.type).nestedProperties.values().toList()
-            return validatePropertySet(nestedProperties)
+        allNestedStructures.every {
+            def nestedProperties = ((MapProperty)it.type).nestedProperties != null ? ((MapProperty)it.type).nestedProperties.values().toList() : new ArrayList<TrackDefinitionProperty>()
+            invalidProps.addAll(validatePropertySet(nestedProperties))
         }
 
-        return isValid
+        return invalidProps.collect {it.name}.toList()
     }
 
+    List<TrackDefinitionProperty> getPropertiesFromDefinition(TrackDefinition definition) {
+        return ((Map<String,TrackDefinitionProperty>) definition.properties).values().toList()
+    }
+
+    abstract boolean validateTrack(TrackDefinition definition)
+    abstract List<TrackDefinitionProperty> validatePropertySet(List<TrackDefinitionProperty> properties)
+
+    private void printFails(message) {
+        print("\033[91m "+message+"\033[0m\n")
+    }
 }

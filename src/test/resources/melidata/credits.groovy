@@ -205,6 +205,12 @@ trackTests {
         "/credits/consumer/opensea/congrats"(platform: "/mobile", type: TrackType.View, business:"mercadopago") {
             result = 'approved'
         }
+        "/credits/consumer/opensea/risk_provider/share_data"(platform: "/mobile", type: TrackType.Event, business:"mercadopago") {
+            risk_provider = 'open_finance'
+        }
+        "/credits/consumer/opensea/risk_provider/share_data"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
+            risk_provider = 'klippa'
+        }
 
         /* Remedy MLM */
         "/credits/consumer/opensea/remedy/authorization"(platform: "/", type: TrackType.View, business:"mercadolibre") {}
@@ -282,6 +288,14 @@ trackTests {
             initiative = 'merchant_administrator'
             step = 'sms'
         }
+        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            initiative = 'consumer_open_sea_tx'
+            step = 'telcel'
+        }
+        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            initiative = 'consumer_personal_loan_second_stage'
+            step = 'telcel_credit_circle'
+        }
 
         // MercadoLibre business
         "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
@@ -297,6 +311,14 @@ trackTests {
         }
         "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
             initiative = 'consumer_personal_loan'
+            step = 'telcel_credit_circle'
+        }
+        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
+            initiative = 'consumer_open_sea_tx'
+            step = 'telcel'
+        }
+        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
+            initiative = 'consumer_personal_loan_second_stage'
             step = 'telcel_credit_circle'
         }
     }
@@ -337,7 +359,100 @@ trackTests {
         "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event, business:"mercadolibre"){
             campaign = "generic"
             position = "footer"
-        } 
+        }
+    }
 
+    test("Personal Loans Adoption") {
+
+        /******************************************
+         *   Start: Personal Loans Adoption
+         ******************************************/
+
+        "/credits/consumer/personal"(platform: "/mobile", type: TrackType.View) {
+        }
+
+        "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
+            prepaid = true
+            virtual_card = true
+            physical_card = false
+        }
+
+        "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+            page = 1
+            source_key = 'sk1234'
+        }
+
+        "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+            page = 4
+        }
+
+        "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = true
+        }
+
+        "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
+            source_key = 'sk1234'
+            prepaid = false
+            virtual_card = false
+            physical_card = false
+        }
+
+        "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+            virtual_card = false
+            physical_card = false
+        }
+
+        "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+            status = 'no_prepaid'
+            source_key = 'admin-ml'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_enabled'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_disabled'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_enabled'
+        }
+
+        "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
+            status = 'prepaid_enabled'
+        }
+
+        "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_disabled'
+        }
+
+        /******************************************
+         *   End: Personal Loans Adoption
+         ******************************************/
     }
 }

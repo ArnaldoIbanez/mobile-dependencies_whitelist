@@ -4,11 +4,14 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
-    // Payments - Point - In-person Growth
-    initiative = "1175"
-
     // Payments - Point - Online Growth
-    //  initiative = "1262"
+    initiative = "1262"
+
+    def utm_definition = objectSchemaDefinitions {
+        utm_source(type: PropertyType.String, required: false, description: "Tracking source")
+        utm_medium(type: PropertyType.String, required: false, description: "Tracking medium")
+        utm_campaign(type: PropertyType.String, required: false, description: "Tracking campaign")
+    }
 
     /* ---------------------
     --- Abstract path's ----
@@ -33,7 +36,9 @@ tracks {
     ------ Pageviews -------
     --------------------- */
 
-    "/pog/landings"(platform: "/", type: TrackType.View) {}
+    "/pog/landings"(platform: "/", type: TrackType.View) {
+      utm (type: PropertyType.Map(utm_definition), required: false, description: "utm tracking")
+    }
 
     "/pog/landings/compare"(platform:"/", type: TrackType.View) {}
 
@@ -48,6 +53,9 @@ tracks {
     
     // [Merchants Growth] Landings Navigation > Event
     "/pog/landings/navigation"(platform:"/", type: TrackType.Event) {}
+
+    // [Merchants Growth] Landings Shortcuts > Event
+    "/pog/landings/shortcuts"(platform:"/", type: TrackType.Event) {}
 
     // [Merchants Growth] Landings Navigation > Calculator link
     "/pog/landings/calculator"(platform:"/", type: TrackType.Event) {}

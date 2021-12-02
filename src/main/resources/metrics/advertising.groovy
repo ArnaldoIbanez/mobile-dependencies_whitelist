@@ -345,6 +345,16 @@ metrics {
 			}
 		}
 	}
+
+	"promotions-pads-row"(description: "Measure the intention of joining the promotion with pads by clicking on buttons distributed in promotion flow") {
+		experiment("deals/promotionsPadsRow")
+
+		countsOn {
+			condition {
+				path("/seller_central/promotions/list/info", "/seller_central/promotions/cards/apply", "/seller_central/promotions/action", "/seller_central/promotions/action/confirm", "/seller_central/promotions/action/tooltip_adv")
+			}
+		}
+	}
 }
 
 

@@ -4,7 +4,7 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
     test("Security Settings") {
-        "/security_settings"(platform: "/", type: TrackType.View) { }
+        "/security_settings"(platform: "/", type: TrackType.View) {}
 
         "/security_settings"(platform: "/", type: TrackType.View) {
             registered_by_phone = true
@@ -165,7 +165,7 @@ trackTests {
         }
 
         "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
-            os_status = "none"
+            os_status = "touch_id"
             enrollment_status = "disabled"
             config = [
                 "transaction": "disabled",
@@ -178,7 +178,7 @@ trackTests {
         }
 
         "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
-            os_status = "none"
+            os_status = "face_id"
             enrollment_status = "disabled"
             config = [
                     "transaction": "disabled",
@@ -282,7 +282,7 @@ trackTests {
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "disabled"
-            os_status = "biometrics"
+            os_status = "touch_id"
             config_name = "transaction"
             action = "disable"
             config = [
@@ -297,7 +297,7 @@ trackTests {
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "disabled"
-            os_status = "biometrics"
+            os_status = "face_id"
             config_name = "transaction"
             action = "disable"
             config = [
@@ -312,7 +312,7 @@ trackTests {
 
         "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
-            os_status = "biometrics"
+            os_status = "face_id"
             config_name = "opening_lock"
             action = "disable"
             config = [
@@ -327,7 +327,7 @@ trackTests {
 
         "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
-            os_status = "biometrics"
+            os_status = "touch_id"
             config_name = "opening_lock"
             action = "disable"
             config = [
@@ -432,7 +432,7 @@ trackTests {
 
         "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
-            os_status = "biometrics"
+            os_status = "face_id"
             config_name = "opening_lock"
             action = "disable"
             config = [
@@ -447,7 +447,7 @@ trackTests {
 
         "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
-            os_status = "biometrics"
+            os_status = "touch_id"
             config_name = "opening_lock"
             action = "disable"
             config = [
@@ -553,7 +553,7 @@ trackTests {
 
         "/security_settings/screenlock/granularity"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "disabled"
-            os_status = "none"
+            os_status = "face_id"
             config = [
                     "transaction": "disabled",
                     "opening_lock": "disabled",
@@ -567,7 +567,7 @@ trackTests {
 
         "/security_settings/screenlock/granularity"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "disabled"
-            os_status = "none"
+            os_status = "touch_id"
             config = [
                     "transaction": "disabled",
                     "opening_lock": "disabled",
@@ -637,7 +637,7 @@ trackTests {
 
         "/security_settings/screenlock/granularity_transaction"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
-            os_status = "biometrics"
+            os_status = "face_id"
             config = [
                     "transaction": "enabled",
                     "opening_lock": "disabled",
@@ -650,7 +650,7 @@ trackTests {
 
         "/security_settings/screenlock/granularity_transaction"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
-            os_status = "biometrics"
+            os_status = "touch_id"
             config = [
                     "transaction": "enabled",
                     "opening_lock": "disabled",
@@ -689,7 +689,7 @@ trackTests {
 
         "/security_settings/screenlock/granularity_opening"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
-            os_status = "biometrics"
+            os_status = "face_id"
             config = [
                     "transaction": "enabled",
                     "opening_lock": "disabled",
@@ -702,7 +702,7 @@ trackTests {
 
         "/security_settings/screenlock/granularity_opening"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
-            os_status = "biometrics"
+            os_status = "touch_id"
             config = [
                     "transaction": "enabled",
                     "opening_lock": "disabled",
@@ -741,7 +741,7 @@ trackTests {
 
         "/security_settings/screenlock/granularity_closing"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
-            os_status = "biometrics"
+            os_status = "face_id"
             config = [
                     "transaction": "enabled",
                     "opening_lock": "disabled",
@@ -754,7 +754,7 @@ trackTests {
 
         "/security_settings/screenlock/granularity_closing"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
-            os_status = "biometrics"
+            os_status = "touch_id"
             config = [
                     "transaction": "enabled",
                     "opening_lock": "disabled",

@@ -40,7 +40,7 @@ configurations {
 dependencies {
     compile 'log4j:log4j:1.2.16'
     compile 'commons-io:commons-io:2.4'
-    compile 'com.mercadolibre.melidata.catalog:commons:3.3.0-fix'
+    compile 'com.mercadolibre.melidata.catalog:commons:3.5.3'
     compile group: 'com.facebook.presto', name: 'presto-jdbc', version: '0.220'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     compile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
@@ -80,8 +80,10 @@ task testAll (dependsOn: 'classes', type: JavaExec) {
             "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld",
             "mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
             "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac", "mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos", "mlo-mon-model-bhv-mlm-eo",
-            "mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving-app", "mp-pospayment-refunds",
-            "mlo-mon-consumer-upsell-no-neg", "mlo-mon-consumer-bhv-mlm", "mlo-mon-consumers-upsell-full", "mlo-mon-cx-male-med-mld", "mlo-mon-cx-oneclick-mld-nlp"]
+            "mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving-app",
+            "mlo-mon-consumer-upsell-no-neg", "mlo-mon-consumer-bhv-mlm", "mlo-mon-consumers-upsell-full", "mlo-mon-cx-male-med-mld", "mlo-mon-cx-oneclick-mld-nlp",
+            "mlo-mon-iv-tools-same-person-model", "mlo-mon-fraud-mktplace-conflictbuyer-m", "mlo-mon-fraud-marketplace-vis-denounce", "mlo-mon-pf-mktplace-fco-partner",
+            "mlo-mon-cx-confirm-mld", "mlo-mon-fda-fraud-marketplace", "mlo-mon-bpp-deferral-v2", "mlo-mon-iv-tools-same-person-model-mlm"]
 }
 
 task uploadAll(type:JavaExec) {
@@ -94,8 +96,10 @@ task uploadAll(type:JavaExec) {
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld",
     "mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
     "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac", "mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos", "mlo-mon-model-bhv-mlm-eo", 
-    "mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving-app", "mp-pospayment-refunds",
-    "mlo-mon-consumer-upsell-no-neg", "mlo-mon-consumer-bhv-mlm", "mlo-mon-consumers-upsell-full", "mlo-mon-cx-male-med-mld", "mlo-mon-cx-oneclick-mld-nlp"]
+    "mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving-app",
+    "mlo-mon-consumer-upsell-no-neg", "mlo-mon-consumer-bhv-mlm", "mlo-mon-consumers-upsell-full", "mlo-mon-cx-male-med-mld", "mlo-mon-cx-oneclick-mld-nlp",
+    "mlo-mon-iv-tools-same-person-model", "mlo-mon-fraud-mktplace-conflictbuyer-m", "mlo-mon-fraud-marketplace-vis-denounce", "mlo-mon-pf-mktplace-fco-partner",
+    "mlo-mon-cx-confirm-mld", "mlo-mon-fda-fraud-marketplace", "mlo-mon-bpp-deferral-v2", "mlo-mon-iv-tools-same-person-model-mlm"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
@@ -248,12 +252,6 @@ task testPortabilityCatalog (dependsOn: 'classes', type: JavaExec) {
     args = ["mpb-portability"]
 }
 
-task testPospaymentRefundsCatalog (dependsOn: 'classes', type: JavaExec) {
-    main = 'com.melidata.definitions.task.CatalogTest'
-    classpath = sourceSets.main.runtimeClasspath
-    args = ["mp-pospayment-refunds"]
-}
-
 task testMonitoringFdaCatalogDiscoveryCatalog (dependsOn: 'classes', type: JavaExec) {
     main = 'com.melidata.definitions.task.CatalogTest'
     classpath = sourceSets.main.runtimeClasspath
@@ -392,6 +390,54 @@ task testMonitoringCxOneclickMLDNLP (dependsOn: 'classes', type: JavaExec) {
     args = ["mlo-mon-cx-oneclick-mld-nlp"]
 }
 
+task testMonitoringIvToolsSamePersonModel (dependsOn: 'classes', type: JavaExec) {
+    main = 'com.melidata.definitions.task.CatalogTest'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-iv-tools-same-person-model"]
+}
+
+task testMonitoringFraudMktplaceConflictbuyerM (dependsOn: 'classes', type: JavaExec) {
+    main = 'com.melidata.definitions.task.CatalogTest'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-fraud-mktplace-conflictbuyer-m"]
+}
+
+task testMonitoringFraudMarketplaceVisDenounce(dependsOn: 'classes', type: JavaExec) {
+    main = 'com.melidata.definitions.task.CatalogTest'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-fraud-marketplace-vis-denounce"]
+}
+
+task testMonitoringPfMktplaceFcoPartner(dependsOn: 'classes', type: JavaExec) {
+    main = 'com.melidata.definitions.task.CatalogTest'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-pf-mktplace-fco-partner"]
+}
+
+task testMonitoringCxConfirmMld(dependsOn: 'classes', type: JavaExec) {
+    main = 'com.melidata.definitions.task.CatalogTest'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-cx-confirm-mld"]
+}
+
+task testMonitoringFdaFraudMarketplace(dependsOn: 'classes', type: JavaExec) {
+    main = 'com.melidata.definitions.task.CatalogTest'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-fda-fraud-marketplace"]
+}
+
+task testMonitoringBppDeferralV2(dependsOn: 'classes', type: JavaExec) {
+    main = 'com.melidata.definitions.task.CatalogTest'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-bpp-deferral-v2"]
+}
+
+task testMonitoringIvToolsSamePersonModelMlm(dependsOn: 'classes', type: JavaExec) {
+    main = 'com.melidata.definitions.task.CatalogTest'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-iv-tools-same-person-model-mlm"]
+}
+
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
     main = 'com.melidata.definitions.task.MetricsTest'
     classpath = sourceSets.main.runtimeClasspath
@@ -407,8 +453,10 @@ task uploadAllCatalog(type:JavaExec) {
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld", 
     "mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
     "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac", "mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos", "mlo-mon-model-bhv-mlm-eo", 
-    "mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving-app", "mp-pospayment-refunds",
-    "mlo-mon-consumer-upsell-no-neg", "mlo-mon-consumer-bhv-mlm", "mlo-mon-consumers-upsell-full", "mlo-mon-cx-male-med-mld", "mlo-mon-cx-oneclick-mld-nlp"]
+    "mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving-app",
+    "mlo-mon-consumer-upsell-no-neg", "mlo-mon-consumer-bhv-mlm", "mlo-mon-consumers-upsell-full", "mlo-mon-cx-male-med-mld", "mlo-mon-cx-oneclick-mld-nlp",
+    "mlo-mon-iv-tools-same-person-model", "mlo-mon-fraud-mktplace-conflictbuyer-m","mlo-mon-fraud-marketplace-vis-denounce", "mlo-mon-pf-mktplace-fco-partner",
+    "mlo-mon-cx-confirm-mld", "mlo-mon-fda-fraud-marketplace", "mlo-mon-bpp-deferral-v2", "mlo-mon-iv-tools-same-person-model-mlm"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -561,12 +609,6 @@ task uploadPortabilityCatalog(type: JavaExec) {
     args = ["mpb-portability"]
 }
 
-task uploadPospaymentRefundsCatalog(type: JavaExec) {
-    main = 'com.melidata.definitions.uploaders.CatalogUploader'
-    classpath = sourceSets.main.runtimeClasspath
-    args = ["mp-pospayment-refunds"]
-}
-
 task uploadMonitoringFdaCatalogDiscoveryCatalog(type: JavaExec) {
     main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
@@ -703,6 +745,54 @@ task uploadMonitoringCxOneclickMLDNLP(type: JavaExec) {
     main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
     args = ["mlo-mon-cx-oneclick-mld-nlp"]
+}
+
+task uploadMonitoringIvToolsSamePersonModel(type: JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-iv-tools-same-person-model"]
+}
+
+task uploadMonitoringFraudMktplaceConflictbuyerM(type: JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-fraud-mktplace-conflictbuyer-m"]
+}
+
+task uploadMonitoringFraudMarketplaceVisDenounce(type: JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-fraud-marketplace-vis-denounce"]
+}
+
+task uploadMonitoringPfMktplaceFcoPartner(type: JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-pf-mktplace-fco-partner"]
+}
+
+task uploadMonitoringCxConfirmMld(type: JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-cx-confirm-mld"]
+}
+
+task uploadMonitoringFdaFraudMarketplace(type: JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-fda-fraud-marketplace"]
+}
+
+task uploadMonitoringBppDeferralV2(type: JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-bpp-deferral-v2"]
+}
+
+task uploadMonitoringIvToolsSamePersonModelMlm(type: JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["mlo-mon-iv-tools-same-person-model-mlm"]
 }
 
 task uploadMetrics(type:JavaExec) {
