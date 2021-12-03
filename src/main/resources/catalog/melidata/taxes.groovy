@@ -7,6 +7,6 @@ tracks {
     initiative = "1014"
 
     // Taxes
-    "/taxes/collected-at-source"(platform: "/") {}
-    "/taxes/user-tax-file"(platform: "/") {}
+    "/taxes/collected_at_source"(platform: "/") {}
+    "/taxes/user_tax_file"(platform: "/") {}
 }

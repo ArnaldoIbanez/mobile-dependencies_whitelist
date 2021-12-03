@@ -7,10 +7,10 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Taxes Collected At Source (Percepciones Impositivas)") {
-        "/taxes/collected-at-source"(platform: "/") {}
+        "/taxes/collected_at_source"(platform: "/") {}
     }
 
     test("User Tax File (Legajo Eletronico Unico)") {
-        "/taxes/user-tax-file"(platform: "/") {}
+        "/taxes/user_tax_file"(platform: "/") {}
     }
 }
