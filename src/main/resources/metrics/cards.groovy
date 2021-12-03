@@ -1,6 +1,7 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 def experimentsRegex = '(cards|wallet_home)/.*'
+def experimentsHome = 'wallet_home/.*'
 
 metrics {
     'cards.acquisition'(description: 'Counts when a user request a card using Mercado Pago app') {
@@ -68,7 +69,7 @@ metrics {
     }
 
     'cards.nfc.enrollment'(description: 'Counts when a user request a nfc card using Mercado Pago app') {
-        experiment(regex(experimentsRegex))
+        experiment(regex(experimentsHome))
 
         countsOn{
             condition{
@@ -92,7 +93,7 @@ metrics {
     }
 
     'cards.nfc.hub.configuration'(description: 'Counts when a user enter to Nfc Configuration Hub using Mercado Pago app') {
-        experiment(regex(experimentsRegex))
+        experiment(regex(experimentsHome))
 
         countsOn{
             condition{
@@ -113,7 +114,7 @@ metrics {
         }
     }
     'cards.nfc.hub.enrollment'(description: 'Counts when a user enter to Nfc Enrollment Hub using Mercado Pago app') {
-        experiment(regex(experimentsRegex))
+        experiment(regex(experimentsHome))
 
         countsOn{
             condition{
