@@ -733,6 +733,23 @@ tracks {
         view_time
     }
 
+    // Scanner
+    "/single_player/prepaid/scanner"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/scanner/open"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    "/single_player/prepaid/scanner/help"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/single_player/prepaid/scanner/error"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/single_player/prepaid/scanner/to_confirm"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/single_player/prepaid/scanner/confirm_number"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/single_player/prepaid/scanner/input_device_number"(platform: "/mobile", type: TrackType.Event) {}
+
 
     /**
     * Single Player Paygo Tracks
