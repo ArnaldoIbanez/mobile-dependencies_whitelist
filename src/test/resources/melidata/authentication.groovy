@@ -2512,12 +2512,14 @@ trackTests {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
+                deeplink_user_id = "2920393029"
             }
 
             "/authenticators/totp_in_app/enrollment/transparent"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
+                deeplink_user_id = "2920393029"
             }
 
             "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -2526,9 +2528,41 @@ trackTests {
                 client_id = "login"
                 status = false
                 type_of_error = "server_error"
+                deeplink_user_id = "2920393029"
             }
 
             "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+                status = false
+                type_of_error = "server_error"
+                deeplink_user_id = "2920393029"
+            }
+        }
+
+        test("Massive Enrollment TotpInApp in Login") {
+            "/authenticators/totp_in_app/enrollment/massive"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+            }
+
+            "/authenticators/totp_in_app/enrollment/massive"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+            }
+
+            "/authenticators/totp_in_app/enrollment/massive/end"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+                status = false
+                type_of_error = "server_error"
+            }
+
+            "/authenticators/totp_in_app/enrollment/massive/end"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
