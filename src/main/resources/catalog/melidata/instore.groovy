@@ -501,72 +501,72 @@ tracks {
         location_permission_enabled(required: false, PropertyType.Boolean)
         device_gps_enabled(required: false, PropertyType.Boolean)
     }
-    "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
         southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
         location(required: false, PropertyType.String)
     }
-    "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
         action_type(required: true, PropertyType.String, description: "type of action that triggered the data request", values: ["init", "search_in_this_area", "filters_applied", "text_search"])
         stores_quantity(required: true, PropertyType.String)
     }
-    "/instore/map/pin_selected"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/pin_selected"(platform: "/mobile", type: TrackType.Event) {
         store_name(required: true, PropertyType.String, description: "the name of the selected store")
         store_id(required: true, PropertyType.String, description: "the store's id")
         store_location(required: true, PropertyType.String, description: "the stores lat and long")
     }
-    "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {
         has_permission(required: false, inheritable: false, PropertyType.Boolean, description: "true if the app has permissions before the user tapped on the location button")
     }
-    "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
         southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
         tags(required: true, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
         includes_user_position(required: true, PropertyType.Boolean)
         center(required: true, PropertyType.String)
     }
-    "/instore/map/navigate_to_store"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/navigate_to_store"(platform: "/mobile", type: TrackType.Event) {
         store_name(required: true, PropertyType.String)
         store_location(required: true, PropertyType.String)
         navigation_apps(required: true, PropertyType.ArrayList(PropertyType.String), description: "all the apps available to handle the requested navigation")
     }
-    "/instore/map/navigate_to_store_app_chosen"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/navigate_to_store_app_chosen"(platform: "/mobile", type: TrackType.Event) {
         store_name(required: true, PropertyType.String)
         store_location(required: true, PropertyType.String)
         navigation_apps(required: true, PropertyType.ArrayList(PropertyType.String))
         chosen_app(required: true, PropertyType.String)
         view_time_in_millis(required: true, PropertyType.String)
     }
-    "/instore/map/quick_filters_selected"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/quick_filters_selected"(platform: "/mobile", type: TrackType.Event) {
         selected_filters(required: true, PropertyType.ArrayList(PropertyType.String))
     }
-    "/instore/map/back"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: true, PropertyType.String)
     }
-    "/instore/map/error"(platform: "/mobile", isAbstract: true, initiative: 1305) {}
-    "/instore/map/error/server_error"(platform: "/mobile", type: TrackType.View, initiative: 1305) {
+    "/instore/map/error"(platform: "/mobile", isAbstract: true) {}
+    "/instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
         style(required: true, PropertyType.String, description: "how the error is presented to the user (screen, snackbar")
         id(required: true, PropertyType.String, description:"an identifer for the type of error")
         message(required: true, PropertyType.String, description: "server error description")
         attributable_to(required: true, PropertyType.String)
     }
-    "/instore/map/marketplace"(platform: "/mobile", isAbstract: true, initiative: 1305) {}
-    "/instore/map/marketplace/filter_bar_result"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/marketplace"(platform: "/mobile", isAbstract: true) {}
+    "/instore/map/marketplace/filter_bar_result"(platform: "/mobile", type: TrackType.Event) {
         filter_result(required:false, type: PropertyType.ArrayList, description: "The list of filter bar result. Represents the filter selection")
         session_id(required: true, type: PropertyType.String, description: "The user session id")
         from(required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/instore/map/marketplace/filter_cell_result"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/marketplace/filter_cell_result"(platform: "/mobile", type: TrackType.Event) {
         filter_result(required:false, type: PropertyType.ArrayList, description: "The list of filter cell result. Represents the filter selection")
         session_id(required: true, type: PropertyType.String, description: "The user session id")
         from(required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/instore/map/marketplace/filter_cell_view"(platform: "/mobile", type: TrackType.View, initiative: 1305) {
+    "/instore/map/marketplace/filter_cell_view"(platform: "/mobile", type: TrackType.View) {
         from(required: false, type: PropertyType.String, description: "Where the flow start")
         session_id(required: true, type: PropertyType.String, description: "The user session id")
         filter_list(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The list of filter values used in the filter cell view")
     }
-    "/instore/map/marketplace/store_selected"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/map/marketplace/store_selected"(platform: "/mobile", type: TrackType.Event) {
         from(required: false, type: PropertyType.String, description: "Where the flow start")
         session_id(required: true, type: PropertyType.String, description: "The user session id")
         store_name(required: true, PropertyType.String, description: "the name of the selected store")
@@ -645,22 +645,22 @@ tracks {
         payment_id(required: false, PropertyType.String, description: "The id of the payment that trigger the review")
     }    
 
-    "/instore/reviews/ask"(platform: "/mobile", type: TrackType.Event, initiative: 1305) { }
+    "/instore/reviews/ask"(platform: "/mobile", type: TrackType.Event) { }
 
-    "/instore/reviews/send"(platform: "/mobile", type: TrackType.Event, initiative: 1305) {
+    "/instore/reviews/send"(platform: "/mobile", type: TrackType.Event) {
         stars(required: true, PropertyType.Numeric, description: "The number of stars given as review")
         has_comment(required: true, PropertyType.Boolean, description: "True if the review has a comment, false if not")
     }
 
-    "/instore/reviews/comment"(platform: "/mobile", type: TrackType.Event, initiative: 1305) { }
+    "/instore/reviews/comment"(platform: "/mobile", type: TrackType.Event) { }
 
-    "/instore/reviews/comment/back"(platform: "/mobile", type: TrackType.Event, initiative: 1305) { }
+    "/instore/reviews/comment/back"(platform: "/mobile", type: TrackType.Event) { }
 
-    "/instore/reviews/back"(platform: "/mobile", type: TrackType.Event, initiative: 1305) { }
+    "/instore/reviews/back"(platform: "/mobile", type: TrackType.Event) { }
 
-    "/instore/reviews/error"(platform: "/mobile", type: TrackType.Event, initiative: 1305) { }
+    "/instore/reviews/error"(platform: "/mobile", type: TrackType.Event) { }
 
-    "/instore/reviews/already-asked"(platform: "/mobile", type: TrackType.Event, initiative: 1305) { }
+    "/instore/reviews/already-asked"(platform: "/mobile", type: TrackType.Event) { }
 
     //Buyer QR
 
