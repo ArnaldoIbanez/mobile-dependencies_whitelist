@@ -78,7 +78,8 @@ tracks {
 
     // MP Home
     "/mp_home"(platform: "/", type: TrackType.View) {
-        userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+        userProfile (required: false, type: PropertyType.String, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+        userProfile (required: false, type: PropertyType.Boolean, description: "User profile type", values: [true, false])
     }
 
     // MP Home regret
