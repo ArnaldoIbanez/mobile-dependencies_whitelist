@@ -1792,7 +1792,8 @@ tracks {
     "/notification/card_transactions_cancelled_partial_authorization_mute"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_partial_authorization_nfc"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {}
-    "/notification/balance_inquiry"(platform: "/mobile") {}
+    "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {}
+     "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {}
 
 
     // PREPAID, HYBRID, MPCARD
