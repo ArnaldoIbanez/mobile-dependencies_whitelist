@@ -515,11 +515,11 @@ trackTests {
     }
 
     test("Loyalty WebView") {
-        "/loyalty/webview/url"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+        "/loyalty/webview"(platform: "/", type: TrackType.View, business: "mercadopago") {
             url = "https://www.mercadolibre.com.ar/suscripciones/comboplus"
         }
 
-        "/loyalty/webview/url"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+        "/loyalty/webview"(platform: "/", type: TrackType.View, business: "mercadolibre") {
             url = "https://www.mercadolibre.com.ar/suscripciones/comboplus"
         }
     }
