@@ -308,6 +308,9 @@ tracks {
 
         // CREDITS CONSUMER
         credits_consumer(required: false, type: PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
+
+        // REPRESENTATIVE PICKERS
+        has_unselected_pickers(required: false, type: PropertyType.Boolean, description: 'Indicates if products has unselected pickers')
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
