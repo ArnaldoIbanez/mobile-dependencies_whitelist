@@ -43,7 +43,7 @@ tracks {
     }
 
     propertyGroups {
-        splinter_views(deal_print_id, items_ids, filters, real_states_definition, context, module, group, content)
+        splinter_views(deal_print_id, items_ids, filters, real_estates, context, module, group, content)
         splinter_events(filters, category, action, label, module, group, content)
     }
 
