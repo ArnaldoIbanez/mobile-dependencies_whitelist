@@ -226,5 +226,9 @@ tracks {
 
     "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event) {}
 
+    "/loyalty/webview/url"(platform: "/", type: TrackType.Event) {
+        url(required: true, description: "la url de la webview cargada.", type: PropertyType.String)
+    }
+
     "/loyalty/drawer/pill"(platform: "/", type: TrackType.View) {}
 }
