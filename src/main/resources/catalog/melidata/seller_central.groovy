@@ -701,6 +701,8 @@ tracks {
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
         item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
         inventory_id(required: false, type: PropertyType.String, description: "Inventory id to which the action is executed")
+        id_row_selected(required: false, type: PropertyType.String, description: "Row id to which the action is executed")
+        has_variations(required: false, type: PropertyType.Boolean, description: "If the item to which the action is executed has variations")
     }
 
     //LISTING SECTION - TABS
