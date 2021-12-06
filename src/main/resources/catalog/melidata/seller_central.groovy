@@ -226,7 +226,7 @@ tracks {
         adv_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount in advertising credit that is given to the seller")
     }
 
-    def FiltersStructure = objectSchemaDefinitions {
+    def filtersStructure = objectSchemaDefinitions {
         filters(required: false, type: PropertyType.ArrayList, description: "Array of filters")
         sort(required: false, tyoe: PropertyType.String, description: "Sort options")
     }
@@ -2437,8 +2437,8 @@ tracks {
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
         origin(required: false, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
-        after_apply_filters(required: false, type: FiltersStructure, description: "New filters applied")
-        before_apply_filters(required: false, type: FiltersStructure, description: "Previous filters")
+        after_apply_filters(required: false, type: PropertyType.Map(filtersStructure), description: "New filters applied")
+        before_apply_filters(required: false, type: PropertyType.Map(filtersStructure), description: "Previous filters")
     }
 
     "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
