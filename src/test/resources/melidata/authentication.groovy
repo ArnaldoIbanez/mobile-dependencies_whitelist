@@ -988,6 +988,8 @@ trackTests {
                 transaction_id = "123"
                 elapsed_time = 3
                 result = "success"
+                fallback_disabled = false
+                screenlock_method_used = "biometrics"
             }
 
             "/screenlock/challenge/end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -997,6 +999,9 @@ trackTests {
                 error = "error in screenlock"
                 elapsed_time = 5
                 result = "error"
+                fallback_disabled = false
+                screenlock_method_used = "biometrics"
+                biometrics_hash = "af21213819faed1923182dfc4217"
             }
 
             "/screenlock/challenge/finish"(platform: "/mobile/android", type: TrackType.Event) {
