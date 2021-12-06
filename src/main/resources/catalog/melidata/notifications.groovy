@@ -2181,6 +2181,7 @@ tracks {
     "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {}
     "/notification/insurtech_kyc_roda_pre_activacion"(platform: "/") {}
     "/notification/insurtech_pending_payment"(platform: "/") {}
+    "/notification/insurtech_post_service_poll"(platform: "/mobile") {}
 
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}
