@@ -2175,8 +2175,8 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     
-    "/notification_center/insurtech_post_service_poll"(platform: "/", type: TrackType.Event) {
-        latest_news_type(required: true, values: ["insurtech_post_service_poll"], type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+    "/notification_center/insurtech-post-service-poll"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, values: ["insurtech-post-service-poll"], type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
