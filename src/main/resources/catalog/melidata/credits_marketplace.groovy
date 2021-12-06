@@ -288,7 +288,7 @@ tracks {
     "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/debt_relief"(platform: "/", isAbstract: true) {}
     "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator_v2/debt_relief/view"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/debt_relief/info"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
 
     //Mobile Events

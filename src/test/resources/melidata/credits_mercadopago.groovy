@@ -1708,7 +1708,7 @@ trackTests {
         "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/mobile", type: TrackType.Event) {}
-        "/credits/consumer/administrator_v2/debt_relief/view"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/debt_relief/info"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/mobile", type: TrackType.Event) {
             status = true
