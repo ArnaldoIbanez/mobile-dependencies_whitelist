@@ -9,9 +9,6 @@ tracks {
     initiative = "1014"
 
     // Taxes
-    "/taxes/collected_at_source"(platform: "/", type: TrackType.View, business:"mercadopago") {}
-    "/taxes/user_tax_file"(platform: "/", type: TrackType.View, business:"mercadopago") {}
-
     "/taxes/collected_at_source"(platform: "/", type: TrackType.View) {}
     "/taxes/user_tax_file"(platform: "/", type: TrackType.View) {}
 }
