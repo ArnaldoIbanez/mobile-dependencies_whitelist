@@ -298,6 +298,7 @@ catalog {
         include business, "crypto.groovy"
         include business, "investment.groovy"
         include business, "pricing_point.groovy"
+        include business, "splinter.groovy"
     }
 
     mercadoshops.each { business ->
