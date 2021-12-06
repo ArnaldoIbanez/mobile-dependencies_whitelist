@@ -227,7 +227,7 @@ tracks {
     }
 
     def FiltersStructure = objectSchemaDefinitions {
-        filters(required: false, type: PropertyType.Array, description: "Array of filters")
+        filters(required: false, type: PropertyType.ArrayList, description: "Array of filters")
         sort(required: false, tyoe: PropertyType.String, description: "Sort options")
     }
 
