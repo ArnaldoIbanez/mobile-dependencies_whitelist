@@ -1793,7 +1793,7 @@ tracks {
     "/notification/card_transactions_cancelled_partial_authorization_nfc"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {}
     "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {}
-     "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {}
+     "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {}
 
 
     // PREPAID, HYBRID, MPCARD
