@@ -1891,6 +1891,8 @@ trackTests {
       item_id= "MLA682118081"
       session_id = "123-update-abc123"
       hint_id = "REPEATED_ATTRIBUTE"
+      category_id = "MLA390784"
+      listing_type = "gold"
     }
   }
 
@@ -1903,6 +1905,8 @@ trackTests {
       item_id= "MLA682118081"
       session_id = "123-update-abc123"
       hint_id = "REPEATED_ATTRIBUTE"
+      category_id = "MLA390784"
+      listing_type = "gold"
     }
   }
 
@@ -1916,6 +1920,8 @@ trackTests {
       item_id= "MLA682118081"
       session_id = "123-update-abc123"
       hint_id = "REPEATED_ATTRIBUTE"
+      category_id = "MLA390784"
+      listing_type = "gold"
     }
   }
 
@@ -1964,6 +1970,8 @@ trackTests {
       item_id= "MLA682118081"
       session_id = "123-update-abc123"
       attribute= "BRAND"
+      category_id = "MLA390784"
+      listing_type = "gold"
     }
   }
 
@@ -1976,6 +1984,8 @@ trackTests {
       session_id = "123-update-abc123"
       hierarchy = "PRODUCT_IDENTIFIER"
       attribute = "BRAND"
+      category_id = "MLA390784"
+      listing_type = "gold"
     }
   }
 
