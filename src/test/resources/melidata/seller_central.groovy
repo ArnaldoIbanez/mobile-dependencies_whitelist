@@ -16,6 +16,15 @@ trackTests {
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
   }
 
+  test("seller central listing action open modal") {
+    "/seller_central/listings/action/open_modal"(platform: "/", type: TrackType.Event) {
+      action_id = "LINK"
+      item_id = "MLA803422062"
+      inventory_id = "KDKQ55183"
+      view_id = "fulfillment"
+    }
+  }
+
   test("seller central listing action") {
     "/seller_central/listings/action/confirm"(platform: "/", type: TrackType.Event) {
       action_id = "MODIFY"
@@ -1882,6 +1891,8 @@ trackTests {
       item_id= "MLA682118081"
       session_id = "123-update-abc123"
       hint_id = "REPEATED_ATTRIBUTE"
+      category_id = "MLA390784"
+      listing_type = "gold"
     }
   }
 
@@ -1894,6 +1905,8 @@ trackTests {
       item_id= "MLA682118081"
       session_id = "123-update-abc123"
       hint_id = "REPEATED_ATTRIBUTE"
+      category_id = "MLA390784"
+      listing_type = "gold"
     }
   }
 
@@ -1907,6 +1920,8 @@ trackTests {
       item_id= "MLA682118081"
       session_id = "123-update-abc123"
       hint_id = "REPEATED_ATTRIBUTE"
+      category_id = "MLA390784"
+      listing_type = "gold"
     }
   }
 
@@ -1955,6 +1970,8 @@ trackTests {
       item_id= "MLA682118081"
       session_id = "123-update-abc123"
       attribute= "BRAND"
+      category_id = "MLA390784"
+      listing_type = "gold"
     }
   }
 
@@ -1967,6 +1984,8 @@ trackTests {
       session_id = "123-update-abc123"
       hierarchy = "PRODUCT_IDENTIFIER"
       attribute = "BRAND"
+      category_id = "MLA390784"
+      listing_type = "gold"
     }
   }
 

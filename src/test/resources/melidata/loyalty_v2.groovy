@@ -512,6 +512,10 @@ trackTests {
         "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
 
         "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event, business: "mercadolibre") {}
+
+        "/loyalty/interstitial"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
+
+        "/loyalty/interstitial"(platform: "/", type: TrackType.Event, business: "mercadolibre") {}
     }
 
 

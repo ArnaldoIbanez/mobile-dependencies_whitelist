@@ -491,7 +491,7 @@ tracks {
 
 
 	// Discovery
-    "/instore/map"(platform: "/mobile", type: TrackType.View) {
+    "/instore/map"(platform: "/mobile", type: TrackType.View, initiative: 1305) {
         location(required: false, inheritable: false, PropertyType.String, description: "a location coming from the deeplink")
         radius_in_meters(required: false, inheritable: false, PropertyType.Numeric, description: "a radius from the location in the deeplink from where to search for stores")
         type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
@@ -639,7 +639,7 @@ tracks {
     "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
 
     //Reviews
-    "/instore/reviews"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {
+    "/instore/reviews"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true, initiative: 1305) {
         id(required: true, PropertyType.String, description: "The id of entity that will be reviewed")
         type(required: true, PropertyType.String, description: "The type of entity that will be reviewed")
         payment_id(required: false, PropertyType.String, description: "The id of the payment that trigger the review")
@@ -647,7 +647,7 @@ tracks {
 
     "/instore/reviews/ask"(platform: "/mobile", type: TrackType.Event) { }
 
-    "/instore/reviews/send"(platform: "/mobile", type: TrackType.Event) { 
+    "/instore/reviews/send"(platform: "/mobile", type: TrackType.Event) {
         stars(required: true, PropertyType.Numeric, description: "The number of stars given as review")
         has_comment(required: true, PropertyType.Boolean, description: "True if the review has a comment, false if not")
     }

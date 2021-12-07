@@ -170,6 +170,13 @@ trackTests {
                             unit_price:8.39
                     ]
             ]
+            tags = ["tag"]
+
+            free_shipping_packs = 2
+            discount_packs = 1
+            all_free_shipping_packs = false
+            partial_free_shipping_packs = true
+            is_free_shipping_purchase = true
         }
 
         "/purchases/purchasecreated" (platform:"/mobile/ios", type: TrackType.View) {defaultPurchaseinformation()}

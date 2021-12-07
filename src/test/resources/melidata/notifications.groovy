@@ -3385,6 +3385,10 @@ trackTests {
             news_id = "credits_consumer_chatbot_payment_promise_info_v2-21680059-20180516"
             event_type = "shown"
         }
+        "/notification/credits_consumer_chatbot_general_trouble"(platform: "/") {
+            news_id = "credits_consumer_chatbot_general_trouble-21680059-20180516"
+            event_type = "shown"
+        }
 
         
         "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/mobile") {
@@ -7622,6 +7626,16 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center/insurtech_post_service_poll"(platform: "/") {
+            latest_news_type= "insurtech_post_service_poll"
+            latest_news_id= "insurtech-post_service_poll-315571651-roda-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+        }
+
+        "/notification/insurtech_post_service_poll"(platform: "/mobile") {
+            news_id = "insurtech-post_service_poll-767964524-roda-c20f60b9-9922-42f6-80a0-8513a9d18772"
+            event_type = "open"
+        }
+
          "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
@@ -10424,6 +10438,19 @@ trackTests {
         "/notification_center/moneyin_cca_rejected"(platform: "/") {
             latest_news_type= "moneyin_cca_rejected"
             latest_news_id= "moneyin_cca-rejected-12345678"
+        }
+
+        "/notification_center/moneyin_open_finance_approved"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_approved"
+            latest_news_id= "moneyin_open_finance-approved-12345678"
+        }
+        "/notification_center/moneyin_open_finance_in_process"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_rejected"
+            latest_news_id= "moneyin_open_finance-rejected-12345678"
+        }
+        "/notification_center/moneyin_open_finance_rejected"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_rejected"
+            latest_news_id= "moneyin_open_finance-rejected-12345678"
         }
 
         "/notification_center/disbursement_kwai_received"(platform: "/") {
@@ -15298,6 +15325,23 @@ trackTests {
             news_id = "moneyin_cca-rejected-12345678"
             event_type = "open"
         }
+
+        "/notification/moneyin_open_finance_approved"(platform: "/") {
+            news_id = "moneyin_open_finance-approved-12345678"
+            event_type = "open"
+        }
+        "/notification/moneyin_open_finance_in_process"(platform: "/") {
+            news_id = "moneyin_open_finance-in_process-12345678"
+            event_type = "open"
+        }
+        "/notification/moneyin_open_finance_rejected"(platform: "/") {
+            news_id = "moneyin_open_finance-rejected-12345678"
+            event_type = "open"
+        }
+
+        "/notification/open_finance_consent_recovery"(platform: "/mobile") {
+            event_type = "open"
+        }
     }
 
     defaultBusiness = "mercadolibre"
@@ -15572,8 +15616,26 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/balance_inquiry"(platform: "/mobile") {
-            news_id = "/notification/balance_inquiry-186785675"
+        "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_balance_inquiry-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus_mute-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -16111,12 +16173,30 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/balance_inquiry"(platform: "/mobile") {
-            news_id = "/notification/balance_inquiry-186785675"
+        "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_balance_inquiry-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
         
+        "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
