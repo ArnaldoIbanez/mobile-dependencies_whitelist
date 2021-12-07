@@ -15606,8 +15606,14 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/balance_inquiry"(platform: "/mobile") {
-            news_id = "/notification/balance_inquiry-186785675"
+        "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_balance_inquiry-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_cashplus-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -16145,12 +16151,18 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/balance_inquiry"(platform: "/mobile") {
-            news_id = "/notification/balance_inquiry-186785675"
+        "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_balance_inquiry-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
         
+        "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
