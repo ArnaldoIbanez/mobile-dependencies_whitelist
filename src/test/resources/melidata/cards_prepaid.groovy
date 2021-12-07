@@ -160,6 +160,7 @@ trackTests {
         "/prepaid/activation/congrats/change_pin_tap"(platform: "/", type: TrackType.Event) {}
         "/prepaid/activation/congrats/home_tap"(platform: "/", type: TrackType.Event) {}
         "/prepaid/activation/congrats/add_money_tap"(platform: "/", type: TrackType.Event) {}
+        "/prepaid/activation/congrats/request_card_tap"(platform: "/", type: TrackType.Event) {}
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "main_error" }
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "not_found" }
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "max_attempt" }
