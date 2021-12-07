@@ -201,6 +201,18 @@ trackTests {
             session_id = "515106248-edition-72151975d676"
         }
     }
+
+    test("seller central bulk changes massive actions status open modal") {
+        "/seller_central/bulk/list/massive_action/open_modal"(platform: "/", type: TrackType.Event) {
+            column_id = "status"
+            action: "Pausar"
+            operation_id = "open_modal"
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
+        }
+    }
     test("seller central bulk changes massive actions sync_price mp") {
         "/seller_central/bulk/list/massive_action/sync_price"(platform: "/", type: TrackType.Event) {
             column_id = "sync_price"

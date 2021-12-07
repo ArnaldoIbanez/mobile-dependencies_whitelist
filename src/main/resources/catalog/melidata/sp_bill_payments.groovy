@@ -30,8 +30,8 @@ tracks {
     }
 
     // Generic Erros
-    "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.Event) {}
 
     // Onboarding
     "/bill_payments/onboarding"(platform: "/mobile", type: TrackType.View) {}
@@ -87,6 +87,7 @@ tracks {
     "/bill_payments/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/menu/notification_preference"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/menu/to_subscription_detail"(platform: "/mobile", type: TrackType.Event) {}
 
     //Invoices subscription
     "/bill_payments/invoices/subscription"(platform: "/mobile", type: TrackType.Event) {
@@ -594,6 +595,7 @@ tracks {
     "/bill_payments/adhesion_detail/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/adhesion_detail/automatic_debit/retry"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/adhesion_detail/automatic_debit/cancel"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/adhesion_detail/automatic_debit/to_subscription_detail"(platform: "/mobile", type: TrackType.Event) {}
 
     // optout
     "/bill_payments/optout/automatic_debit"(platform: "/mobile", type: TrackType.View) {}

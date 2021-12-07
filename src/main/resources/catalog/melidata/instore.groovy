@@ -491,7 +491,7 @@ tracks {
 
 
 	// Discovery
-    "/instore/map"(platform: "/mobile", type: TrackType.View) {
+    "/instore/map"(platform: "/mobile", type: TrackType.View, initiative: 1305) {
         location(required: false, inheritable: false, PropertyType.String, description: "a location coming from the deeplink")
         radius_in_meters(required: false, inheritable: false, PropertyType.Numeric, description: "a radius from the location in the deeplink from where to search for stores")
         type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
@@ -639,7 +639,7 @@ tracks {
     "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
 
     //Reviews
-    "/instore/reviews"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {
+    "/instore/reviews"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true, initiative: 1305) {
         id(required: true, PropertyType.String, description: "The id of entity that will be reviewed")
         type(required: true, PropertyType.String, description: "The type of entity that will be reviewed")
         payment_id(required: false, PropertyType.String, description: "The id of the payment that trigger the review")
@@ -647,7 +647,7 @@ tracks {
 
     "/instore/reviews/ask"(platform: "/mobile", type: TrackType.Event) { }
 
-    "/instore/reviews/send"(platform: "/mobile", type: TrackType.Event) { 
+    "/instore/reviews/send"(platform: "/mobile", type: TrackType.Event) {
         stars(required: true, PropertyType.Numeric, description: "The number of stars given as review")
         has_comment(required: true, PropertyType.Boolean, description: "True if the review has a comment, false if not")
     }
@@ -947,4 +947,35 @@ tracks {
     "/instore/onboarding/buyer_qr/close"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/onboarding/buyer_qr/done"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/onboarding/buyer_qr/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Store Hub
+    "/stores/store_hub"(platform: "/", isAbstract: true, initiative: '1322') {}
+
+    "/stores/store_hub/status"(platform: "/", type: TrackType.View) {
+        from(required: true, type: PropertyType.String, description: "Source of the hub load", values: ['notification', 'kyc', 'stores', 'none'])
+        seller_status(required: true, type: PropertyType.String, description: "Activity status of the seller", values: ['active', 'inactive'])
+        visible_stores(required: true, type: PropertyType.Numeric, description: "Amount of visible stores")
+        non_visible_stores(required: true, type: PropertyType.Numeric, description: "Amount of non-visible stores")
+        pending_stores(required: true, type: PropertyType.Numeric, description: "Amount of pending stores")
+    }
+
+    "/stores/store_hub/actions"(platform: "/", isAbstract: true) {}
+
+    "/stores/store_hub/actions/seller_data"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Visible type of seller upon clicking the seller-data action", values: ['with_problem', 'with_pending', 'organic'])
+    }
+
+    "/stores/store_hub/actions/store_address"(platform: "/", type: TrackType.Event) {
+        store_id(required: true, type: PropertyType.Numeric, description: "Store ID of the store with the wrong address")
+    }
+
+    "/stores/store_hub/actions/view_map"(platform: "/", type: TrackType.Event) {
+        store_id(required: true, type: PropertyType.Numeric, description: "Store ID of the viewed store")
+    }
+
+    "/stores/store_hub/actions/result"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Source type of the action", values: ['seller', 'store'])
+        result(required: true, type: PropertyType.String, description: "Result of the action", values: ['success', 'back', 'failure'])
+        store_id(required: false, type: PropertyType.Numeric, description: "Store ID (for store results only)")
+    }
 }

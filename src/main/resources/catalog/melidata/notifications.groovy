@@ -244,6 +244,7 @@ tracks {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
     "/notification/credits_consumer_congrats_personal_loans"(platform: "/") {}
+    "/notification/credits_consumer_registration_journey_mp"(platform: "/") {}
     "/notification/credits_consumer_expired_mp_first_notice"(platform: "/") {
         loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
@@ -337,6 +338,7 @@ tracks {
     "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {}
     "/notification/credits_consumer_chatbot_payment_promise"(platform: "/") {}
     "/notification/credits_consumer_chatbot_payment_promise_info_v2"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_general_trouble"(platform: "/") {}
 
 
       //Billing
@@ -2234,6 +2236,23 @@ tracks {
     "/notification/moneyin_cca_approved"(platform: "/") {}
     "/notification/moneyin_cca_rejected"(platform: "/") {}
 
+    // Money In Open Finance
+    "/notification_center/moneyin_open_finance_approved"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/moneyin_open_finance_in_process"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/moneyin_open_finance_rejected"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification/moneyin_open_finance_approved"(platform: "/") {}
+    "/notification/moneyin_open_finance_in_process"(platform: "/") {}
+    "/notification/moneyin_open_finance_rejected"(platform: "/") {}
+
     // Cards virtual
     "/notification/card_first_use_incentive_virtual_first_day_am"(platform: "/mobile") {}
     "/notification/card_first_use_incentive_virtual_first_day_no_am"(platform: "/mobile") {}
@@ -2253,4 +2272,7 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+
+    //Open Finance
+    "/notification/open_finance_consent_recovery"(platform: "/mobile") {}
 }

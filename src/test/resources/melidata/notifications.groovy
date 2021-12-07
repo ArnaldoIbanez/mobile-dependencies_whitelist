@@ -3425,6 +3425,10 @@ trackTests {
             news_id = "credits_consumer_chatbot_payment_promise_info_v2-21680059-20180516"
             event_type = "shown"
         }
+        "/notification/credits_consumer_chatbot_general_trouble"(platform: "/") {
+            news_id = "credits_consumer_chatbot_general_trouble-21680059-20180516"
+            event_type = "shown"
+        }
 
         
         "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/mobile") {
@@ -3478,6 +3482,10 @@ trackTests {
 
         "/notification/credits_consumer_congrats_personal_loans"(platform: "/mobile") {
             news_id = "credits_consumer_congrats_personal_loans-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_registration_journey_mp"(platform: "/mobile") {
+            news_id = "credits_consumer_registration_journey_mp-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_expired_last_notice"(platform: "/mobile") {
@@ -10462,6 +10470,19 @@ trackTests {
             latest_news_id= "moneyin_cca-rejected-12345678"
         }
 
+        "/notification_center/moneyin_open_finance_approved"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_approved"
+            latest_news_id= "moneyin_open_finance-approved-12345678"
+        }
+        "/notification_center/moneyin_open_finance_in_process"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_rejected"
+            latest_news_id= "moneyin_open_finance-rejected-12345678"
+        }
+        "/notification_center/moneyin_open_finance_rejected"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_rejected"
+            latest_news_id= "moneyin_open_finance-rejected-12345678"
+        }
+
         "/notification_center/disbursement_kwai_received"(platform: "/") {
             latest_news_type= "disbursement_kwai_received"
             latest_news_id= "disbursement_kwai-received-12345678"
@@ -15360,6 +15381,23 @@ trackTests {
         
         "/notification/moneyin_cca_rejected"(platform: "/") {
             news_id = "moneyin_cca-rejected-12345678"
+            event_type = "open"
+        }
+
+        "/notification/moneyin_open_finance_approved"(platform: "/") {
+            news_id = "moneyin_open_finance-approved-12345678"
+            event_type = "open"
+        }
+        "/notification/moneyin_open_finance_in_process"(platform: "/") {
+            news_id = "moneyin_open_finance-in_process-12345678"
+            event_type = "open"
+        }
+        "/notification/moneyin_open_finance_rejected"(platform: "/") {
+            news_id = "moneyin_open_finance-rejected-12345678"
+            event_type = "open"
+        }
+
+        "/notification/open_finance_consent_recovery"(platform: "/mobile") {
             event_type = "open"
         }
     }

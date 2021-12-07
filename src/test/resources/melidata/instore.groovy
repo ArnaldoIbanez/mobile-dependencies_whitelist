@@ -3724,4 +3724,37 @@ trackTests {
             next_steps = []
         }
     }
+    
+    test("Instore - Store Hub") {
+        "/stores/store_hub/status"(platform:"/", type: TrackType.Event) {
+            from = "none"
+            seller_status = "active"
+            visible_stores = 1
+            non_visible_stores = 2
+            pending_stores = 0
+        }
+
+        "/stores/store_hub/actions/seller_data"(platform:"/", type: TrackType.Event) {
+            type = "with_problem"
+        }
+
+        "/stores/store_hub/actions/store_address"(platform:"/", type: TrackType.Event) {
+            store_id = 32472003
+        }
+
+        "/stores/store_hub/actions/view_map"(platform:"/", type: TrackType.Event) {
+            store_id = 32472003
+        }
+
+        "/stores/store_hub/actions/result"(platform:"/", type: TrackType.Event) {
+            type = "seller"
+            result = "success"
+        }
+
+        "/stores/store_hub/actions/result"(platform:"/", type: TrackType.Event) {
+            type = "store"
+            result = "failure"
+            store_id = 32472003
+        }
+    }
 }

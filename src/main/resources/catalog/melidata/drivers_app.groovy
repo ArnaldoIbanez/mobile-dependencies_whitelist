@@ -481,5 +481,26 @@ tracks
 
     "/driver/listing/point/send_messages"(platform: "/mobile", type: TrackType.View) {
     }
+
+    "/driver/listing/scanner"(platform: "/mobile", type: TrackType.View) {
+        route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
+        type(required: true, type: PropertyType.String, values: ["ADD_PACKAGE", "AMBULANCE"], description: "Specifies the current flow", inheritable:false)
+    }
+
+    "/driver/listing/scanner/finish_scan"(platform: "/mobile", type: TrackType.View) {
+        type(required: true, type: PropertyType.String, values: ["ADD_PACKAGE", "AMBULANCE"], description: "Specifies the current flow")
+        package_amount(required: true, type: PropertyType.Numeric, description: "Specifies the package amount")
+    }
+
+    "/driver/listing/scanner/input_manual"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/scanner/input_manual/confirm"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/scanner/collapse"(platform: "/mobile", type: TrackType.View) {
+        type(required: true, type: PropertyType.String, values: ["COLLAPSE", "EXPAND"], description: "Specifies the current group collapse")
+        packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of packages")
+    }
 }
 
