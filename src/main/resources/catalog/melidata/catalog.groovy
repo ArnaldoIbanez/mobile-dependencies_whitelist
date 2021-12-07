@@ -101,6 +101,7 @@ catalog {
         include business, "pdf_viewer.groovy"
         include business, "fraud_challenges.groovy"
         include business, "device_health.groovy"
+        include business, "taxes.groovy"
     }
 
     mercadolibre.each { business ->
@@ -349,6 +350,7 @@ catalog {
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "myml.groovy"
+        include business, "taxes.groovy"
         include business, "billing.groovy"
         include business, "download_app.groovy"
         include business, "official_stores.groovy"
