@@ -264,7 +264,7 @@ tracks {
         seller_segment(required: false, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
-        category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Path of category")
         type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
         attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
@@ -305,8 +305,6 @@ tracks {
         vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "real_estate", "services"], description: "Vertical of the item")
         mercado_lider(required: false, type: PropertyType.Boolean, description: "Seller is mercadolider")
         user_type(required: false, type: PropertyType.String, description: "The user type")
-        business(required: false, values: ["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
-        platform(required: false, values: ["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
 
         // RE V4 Intents
         intent_type(required: true, type: PropertyType.String, description: "this property describes the intent type to be perform", values: ["drag", "valid_street_number", "invalid_street_number", "new_location_accepted", "new_location_rejected", "new_location_auto_accepted", "valid_intent", "invalid_intent", "pictures_upload"])
@@ -364,7 +362,7 @@ tracks {
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
-        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type, business, platform)
+        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type)
         sellerCentralModifyCardsGroupMotors(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type)
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
@@ -1053,6 +1051,7 @@ tracks {
 
     "/seller_central/modify/technical_specifications"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/technical_specifications/hints"(platform: "/", isAbstract: true) {
+        sellerCentralModifyCardsGroup
         hintsGroup
         category_domain(required: true, type: PropertyType.String, description: "Item category domain")
         hint_id(required: true, type: PropertyType.String, description: "Id del hint que se mostro, pueden cambiar o generarse nuevos por lo que no conocemos todos los valores posibles.")
@@ -1091,6 +1090,7 @@ tracks {
 
     "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyGroup
+        sellerCentralModifyCardsGroup
         technicalSpecificationsGroup
         quantity(required: true, type: PropertyType.Numeric, description: "Added values")
         previous_quantity(required: true, type: PropertyType.Numeric, description: "Previous values")
@@ -1098,6 +1098,7 @@ tracks {
 
     "/seller_central/modify/technical_specifications/suggested"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyGroup
+        sellerCentralModifyCardsGroup
         technicalSpecificationsGroup
         type(required: true, type: PropertyType.String, description: "Suggestion type", values: ["suggested", "dynamic", "other"])
     }
