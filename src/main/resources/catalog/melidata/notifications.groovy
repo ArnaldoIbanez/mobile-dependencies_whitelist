@@ -2127,6 +2127,10 @@ tracks {
     "/notification/under_age_responsible_authorization_legacy_ml"(platform: "/") {}
     "/notification/under_age_minor_rejected_ml"(platform: "/") {}
     "/notification/under_age_minor_approved_ml"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_approved"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_rejected"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {}
 
     "/notification/institutional_generic"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
