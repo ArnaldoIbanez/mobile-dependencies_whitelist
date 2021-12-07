@@ -322,6 +322,8 @@ trackTests {
             pickup()
             pricingTwoPointO()
             creditsConsumer()
+
+            has_unselected_pickers = true
         })
 
         "/pdp/buy_action"(platform: "/", {
