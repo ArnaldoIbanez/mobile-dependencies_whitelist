@@ -79,7 +79,7 @@ tracks {
     // MP Home
     "/mp_home"(platform: "/", type: TrackType.View) {
         userProfile (required: false, type: PropertyType.String, description: "User profile type", values: ['newbie', 'collector', 'payer'])
-        inMinor (required: false, type: PropertyType.Boolean, description: "Indicates if the user is underage")
+        isMinor (required: false, type: PropertyType.Boolean, description: "Indicates if the user is underage")
     }
 
     // MP Home regret
