@@ -7626,6 +7626,16 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center/insurtech_post_service_poll"(platform: "/") {
+            latest_news_type= "insurtech_post_service_poll"
+            latest_news_id= "insurtech-post_service_poll-315571651-roda-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+        }
+
+        "/notification/insurtech_post_service_poll"(platform: "/mobile") {
+            news_id = "insurtech-post_service_poll-767964524-roda-c20f60b9-9922-42f6-80a0-8513a9d18772"
+            event_type = "open"
+        }
+
          "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
