@@ -25,7 +25,7 @@ tracks {
             type: PropertyType.String,
             values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Type of the notification")
-          deeplink(required: false, 
+          deeplink(required: false,
             type: PropertyType.String,
             description: "The link were the notification should navigate to, if applies")
 
@@ -34,9 +34,9 @@ tracks {
             type: PropertyType.String,
             values: ["notification_center","logout","overwrite","dismiss_notification"], description: "Source of the notification")
 
-          discard_reason(required: false, 
-          description: "The discarded reason of the notification", 
-          values: ["invalid_payload","invalid_user", "settings_disabled"], 
+          discard_reason(required: false,
+          description: "The discarded reason of the notification",
+          values: ["invalid_payload","invalid_user", "settings_disabled"],
           type: PropertyType.String)
 
           notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
@@ -2173,6 +2173,11 @@ tracks {
     //Contactless card
     "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {}
 
+    //CVV Command
+    "/notification/cvv_command"(platform: "/") {
+        command(required: true, type: PropertyType.String, description: "Command")
+    }
+
     //Insurtech
     "/notification/insurtech_imei_activation"(platform: "/mobile") {}
     "/notification/insurtech_cancellation"(platform: "/mobile") {}
@@ -2219,7 +2224,7 @@ tracks {
 
     // Disbursement Kwai
     "/notification/disbursement_kwai_received"(platform: "/") {}
-    
+
     // Money In CCA
     "/notification_center/moneyin_cca_approved"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
