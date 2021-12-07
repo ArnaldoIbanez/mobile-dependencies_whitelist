@@ -1113,14 +1113,14 @@ tracks {
 
     // Multicampaña - Sads New
 
-    "/advertising/pads2/hub/card"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/advertising/pads2/hub/card"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
-    "/advertising/pads2/hub/card/sads_new"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/hub/card/sads_new"(platform: "/", type: TrackType.View) {
         tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
     }
 
-    "/advertising/pads2/hub/card/sads_new/go"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/hub/card/sads_new/go"(platform: "/", type: TrackType.Event) {
         tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
     }

@@ -911,7 +911,7 @@ tracks {
 
     "/vip/comparator_price/interactive_bin/bar"(platform: "/web", type: TrackType.Event) {}
 
-    "/vip/points_of_interest"(platform: "/web", type: TrackType.View, isAbstract: true) {
+    "/vip/points_of_interest"(platform: "/", type: TrackType.View, isAbstract: true) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         vertical(required: true, type: PropertyType.String,
@@ -921,12 +921,12 @@ tracks {
         item_seller_type(required: false, values: ['normal', 'real_estate_agency'], description: "Seller type: normal, real_estate_user, etc")
     }
 
-    "/vip/points_of_interest/transport"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/education"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/leisure"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/commerce"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/health"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/link_map"(platform: "/web", type: TrackType.Event) {}
+    "/vip/points_of_interest/transport"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/education"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/leisure"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/commerce"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/health"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/link_map"(platform: "/", type: TrackType.Event) {}
 
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION
