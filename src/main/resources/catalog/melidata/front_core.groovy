@@ -550,6 +550,7 @@ tracks {
         button_link(required: false, type: PropertyType.String, description: "If button is present")
         buttons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "If have buttons")
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
 
     "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
