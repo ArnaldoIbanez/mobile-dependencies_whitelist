@@ -115,6 +115,7 @@ catalog {
         include business, "cartList.groovy"
         include business, "credits_credit_card.groovy"
         include business, "compatibilities.groovy"
+        include business, "combos.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
