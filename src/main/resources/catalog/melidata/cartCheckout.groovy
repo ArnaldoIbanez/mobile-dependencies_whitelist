@@ -958,7 +958,6 @@ tracks {
     //Switch track
     "/cart/checkout/payment/select_type/account_money"(platform: "/", type: TrackType.Event, isAbstract: true) {
         total_amount(required: false, description: "totalAmount")
-        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         buy_equal_pay(required: false, description: "BP flag")
     }
     "/cart/checkout/payment/select_type/account_money/use"(platform: "/", type: TrackType.Event) {}
