@@ -2308,14 +2308,6 @@ trackTests {
             collector_id = "123456"
         }
 
-        // Generic Erros
-        "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-        }
-        "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-        }
-
         // Onboarding
         "/bill_payments/onboarding"(platform: "/mobile") {
             mandatory()
@@ -2718,6 +2710,11 @@ trackTests {
             entity = "Monterrey"
             item = "item 2"
         }
+        "/bill_payments/main_category/recent_payments"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
         "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
@@ -3018,11 +3015,15 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
-        "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/congrats/success/warning_pay_hour"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
