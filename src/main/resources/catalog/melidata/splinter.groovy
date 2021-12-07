@@ -40,11 +40,21 @@ tracks {
         module(required: true, type: PropertyType.String, description: "Bussiness unit")
         group(required: true, type: PropertyType.String, description: "Vertical")
         content(required: true, type: PropertyType.String, description: "Tipo de landing")
+
+        // Merch engine properties for splinter events in SuperLandings
+        audience(type: PropertyType.String, required: false, description: "Type of audience")
+        bu(type: PropertyType.String, required: false, description: "Bussiness unit id")
+        bu_line(type: PropertyType.String, required: false, description: "Bussiness unit position")
+        component(type: PropertyType.String, required: false, description: "Component name")
+        content_id(type: PropertyType.String, required: false, description: "Unique content id")
+        flow(type: PropertyType.String, required: false, description: "Type of flow")
+        logic(type: PropertyType.String, required: false, description: "Type of logic")
+        position(type: PropertyType.Numeric, required: false, description: "Position number")
     }
 
     propertyGroups {
         splinter_views(deal_print_id, items_ids, filters, real_estates, context, module, group, content)
-        splinter_events(filters, real_estates, category, action, label, module, group, content)
+        splinter_events(filters, category, action, label, module, group, content, audience, bu, bu_line, component, content_id, flow, logic, position)
     }
 
 
