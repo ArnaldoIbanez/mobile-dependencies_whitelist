@@ -956,13 +956,13 @@ tracks {
     "/cart/checkout/shipping/input_new_address"(platform: "/web", type: TrackType.View) {}
 
     //Switch track
-    "/cart/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {
+    "/cart/checkout/payment/select_type/account_money"(platform: "/", type: TrackType.Event, isAbstract: true) {
         total_amount(required: false, description: "totalAmount")
         seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         buy_equal_pay(required: false, description: "BP flag")
     }
-    "/cart/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
-    "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
+    "/cart/checkout/payment/select_type/account_money/use"(platform: "/", type: TrackType.Event) {}
+    "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/", type: TrackType.Event) {}
 
     "/cart/checkout/geolocation"(platform: "/web", type: TrackType.Event) {
         geolocation_error(required: true, description: "Why the geo failed")
