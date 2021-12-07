@@ -29,15 +29,6 @@ tracks {
         categoryProperties
     }
 
-    // Generic Erros
-    "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.Event) {
-        api_url(required: false, type: PropertyType.String, description: "the url where the error occurred")
-    }
-
-    "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.Event) {
-        api_url(required: false, type: PropertyType.String, description: "the url where the error occurred")
-    }
-
     // Onboarding
     "/bill_payments/onboarding"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/onboarding/back"(platform: "/mobile", type: TrackType.Event) {}
@@ -218,9 +209,9 @@ tracks {
 
     "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
         barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
-        camera_flash(required: true, type: PropertyType.Boolean, description: "the camera flash is active")
-        timestamp(required: true, type: PropertyType.Numeric, description: "the time to scan")
-        barcode_format(required: true, type: PropertyType.String, description: "barcode format")
+        camera_flash(required: false, type: PropertyType.Boolean, description: "the camera flash is active")
+        timestamp(required: false, type: PropertyType.Numeric, description: "the time to scan")
+        barcode_format(required: false, type: PropertyType.String, description: "barcode format")
     }
 
     // New Scanner Screen

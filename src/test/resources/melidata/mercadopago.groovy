@@ -2308,16 +2308,6 @@ trackTests {
             collector_id = "123456"
         }
 
-        // Generic Erros
-        "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-            api_url = "billpayments/generic_error/retry"
-        }
-        "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-            api_url = "billpayments/connection_error/retry"
-        }
-
         // Onboarding
         "/bill_payments/onboarding"(platform: "/mobile") {
             mandatory()
