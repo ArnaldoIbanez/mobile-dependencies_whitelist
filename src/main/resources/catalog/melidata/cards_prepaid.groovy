@@ -207,7 +207,14 @@ tracks {
     "/prepaid/acquisition/limited"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/activation/last_digits"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/marital_status"(platform: "/", type: TrackType.View) {}
-    "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {}
+    "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {
+        type(
+            required: false, 
+            type: PropertyType.String, 
+            values: ["compromised_card"],
+            description: "Types of congrats in activitation flow."
+        )
+    }
     "/prepaid/activation/congrats/change_pin_tap"(platform: "/", type: TrackType.Event) {}
     "/prepaid/activation/congrats/home_tap"(platform: "/", type: TrackType.Event) {}
     "/prepaid/activation/congrats/add_money_tap"(platform: "/", type: TrackType.Event) {}

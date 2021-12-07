@@ -154,6 +154,9 @@ trackTests {
         "/prepaid/activation/last_digits"(platform: "/web/desktop") {}
         "/prepaid/activation/marital_status"(platform: "/web/desktop") {}
         "/prepaid/activation/congrats"(platform: "/web/desktop") {}
+        "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {
+            type = "compromised_card"
+        }
         "/prepaid/activation/congrats/change_pin_tap"(platform: "/", type: TrackType.Event) {}
         "/prepaid/activation/congrats/home_tap"(platform: "/", type: TrackType.Event) {}
         "/prepaid/activation/congrats/add_money_tap"(platform: "/", type: TrackType.Event) {}
