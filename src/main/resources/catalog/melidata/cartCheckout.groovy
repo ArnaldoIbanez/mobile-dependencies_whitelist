@@ -19,6 +19,12 @@ tracks {
       latitude(required: true, type: PropertyType.String)
       longitude(required: true, type: PropertyType.String)
     }
+    
+    def item_structure = objectSchemaDefinitions {
+      quantity(required: true, type: PropertyType.Numeric, description: "item quantity")
+      id(required: true, type: PropertyType.String, description: "item id")
+      variation_id(required: true, type: PropertyType.String, description: "variation id of the item")
+    }
 
     "/cart"(platform: "/", isAbstract: true) {}
 
@@ -956,9 +962,10 @@ tracks {
     "/cart/checkout/shipping/input_new_address"(platform: "/web", type: TrackType.View) {}
 
     //Switch track
-    "/cart/checkout/payment/select_type/account_money"(platform: "/", type: TrackType.Event, isAbstract: true) {
-        total_amount(required: false, description: "totalAmount")
-        buy_equal_pay(required: false, description: "BP flag")
+    "/cart/checkout/payment/select_type/account_money"(platform: "/", type: TrackType.Event, isAbstract: true, parentPropertiesInherited: false) {
+        checkout_flow(required: false, type: PropertyType.String, values: ["cart"], description: "The type of checkout flow. Cart only for these tracks for now")
+        recovery_flow(required: false, type: PropertyType.Boolean, description: "Is recovery CHO flow")
+        items(required:false, type:PropertyType.ArrayList(item_structure), description: "items on cart")
     }
     "/cart/checkout/payment/select_type/account_money/use"(platform: "/", type: TrackType.Event) {}
     "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/", type: TrackType.Event) {}
