@@ -800,6 +800,11 @@ task uploadMetrics(type:JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
+task exportMetrics(type:JavaExec) {
+    main = 'com.ml.melidata.metrics.format.MetricsFormatter'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
 task validate(type:JavaExec) {
     main = 'com.melidata.definitions.validators.Validate'
     classpath = sourceSets.main.runtimeClasspath
