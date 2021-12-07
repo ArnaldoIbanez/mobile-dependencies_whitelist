@@ -1792,7 +1792,10 @@ tracks {
     "/notification/card_transactions_cancelled_partial_authorization_mute"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_partial_authorization_nfc"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {}
-    "/notification/balance_inquiry"(platform: "/mobile") {}
+    "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {}
 
 
     // PREPAID, HYBRID, MPCARD
@@ -2124,6 +2127,10 @@ tracks {
     "/notification/under_age_responsible_authorization_legacy_ml"(platform: "/") {}
     "/notification/under_age_minor_rejected_ml"(platform: "/") {}
     "/notification/under_age_minor_approved_ml"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_approved"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_rejected"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {}
 
     "/notification/institutional_generic"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
@@ -2181,6 +2188,7 @@ tracks {
     "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {}
     "/notification/insurtech_kyc_roda_pre_activacion"(platform: "/") {}
     "/notification/insurtech_pending_payment"(platform: "/") {}
+    "/notification/insurtech_post_service_poll"(platform: "/mobile") {}
 
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}

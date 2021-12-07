@@ -18,9 +18,13 @@ trackTests {
 
     test("Home Category Tracking Event") {
     "/category_landing/tap"(platform: "/",  type: TrackType.Event) {
-      category = 'landings'
-      action = 'agro'
-      label = 'mainslideritem-normal_1_agro'
+      category= "landings"
+      action= "ropa-y-accesorios"
+      label= "mainslideritem-normal_1_navidad"
+      module= "all"
+      group= "categories"
+      content= "ropa-y-accesorios"
+      context= "normal-landing"
     }
   }
 }

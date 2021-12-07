@@ -140,6 +140,22 @@ trackTests {
             latest_news_type= "under_age_minor_approved"
             latest_news_id= "under_age_minor_approved-186785675"
         }
+        "/notification_center/under_age_responsible_relationship_bond_approved"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_approved"
+            latest_news_id= "under_age_responsible_relationship_bond_approved-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_approved_ml"
+            latest_news_id= "under_age_responsible_relationship_bond_approved_ml-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_rejected"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_rejected"
+            latest_news_id= "under_age_responsible_relationship_bond_rejected-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_rejected_ml"
+            latest_news_id= "under_age_responsible_relationship_bond_rejected_ml-186785675"
+        }
         "/notification_center/loyalty"(platform: "/mobile"){
             newsgroup_id= "LOYALTY-48422892"
             status= "unread"
@@ -7626,6 +7642,16 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center/insurtech_post_service_poll"(platform: "/") {
+            latest_news_type= "insurtech_post_service_poll"
+            latest_news_id= "insurtech-post_service_poll-315571651-roda-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+        }
+
+        "/notification/insurtech_post_service_poll"(platform: "/mobile") {
+            news_id = "insurtech-post_service_poll-767964524-roda-c20f60b9-9922-42f6-80a0-8513a9d18772"
+            event_type = "open"
+        }
+
          "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
@@ -7701,6 +7727,26 @@ trackTests {
             notification_type= "deep_linking"
         }
         "/notification/under_age_minor_approved_ml"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_approved"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_rejected"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {
             news_id = "under_age_minor_approved-186785675"
             event_type = "open"
             notification_type= "deep_linking"
@@ -7862,6 +7908,22 @@ trackTests {
         "/notification_center/under_age_minor_approved_ml"(platform: "/") {
             latest_news_type= "under_age_minor_approved"
             latest_news_id= "under_age_minor_approved-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_approved"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_approved"
+            latest_news_id= "under_age_responsible_relationship_bond_approved-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_approved_ml"
+            latest_news_id= "under_age_responsible_relationship_bond_approved_ml-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_rejected"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_rejected"
+            latest_news_id= "under_age_responsible_relationship_bond_rejected-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_rejected_ml"
+            latest_news_id= "under_age_responsible_relationship_bond_rejected_ml-186785675"
         }
         "/notification_center/loyalty"(platform: "/mobile"){
             newsgroup_id= "LOYALTY-48422892"
@@ -15606,8 +15668,26 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/balance_inquiry"(platform: "/mobile") {
-            news_id = "/notification/balance_inquiry-186785675"
+        "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_balance_inquiry-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus_mute-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -16145,12 +16225,30 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/balance_inquiry"(platform: "/mobile") {
-            news_id = "/notification/balance_inquiry-186785675"
+        "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_balance_inquiry-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
         
+        "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
@@ -16368,6 +16466,26 @@ trackTests {
         }
         "/notification/under_age_minor_approved_ml"(platform: "/") {
             news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_approved"(platform: "/") {
+            news_id = "under_age_responsible_relationship_bond_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {
+            news_id = "under_age_responsible_relationship_bond_approved_ml-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_rejected"(platform: "/") {
+            news_id = "under_age_responsible_relationship_bond_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {
+            news_id = "under_age_responsible_relationship_bond_rejected_ml-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
