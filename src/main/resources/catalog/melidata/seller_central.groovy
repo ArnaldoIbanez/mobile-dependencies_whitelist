@@ -226,11 +226,6 @@ tracks {
         adv_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount in advertising credit that is given to the seller")
     }
 
-    def filtersStructure = objectSchemaDefinitions {
-        filters(required: false, type: PropertyType.ArrayList, description: "Array of filters")
-        sort(required: false, tyoe: PropertyType.String, description: "Sort options")
-    }
-
     //  FINAL LANDING PRODUCTS STRUCTURE
 
     // --------------------------------------------------------------------------------------------------------------
@@ -2437,8 +2432,6 @@ tracks {
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
         origin(required: false, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
-        after_apply_filters(required: false, type: PropertyType.Map(filtersStructure), description: "New filters applied")
-        before_apply_filters(required: false, type: PropertyType.Map(filtersStructure), description: "Previous filters")
     }
 
     "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
@@ -2460,13 +2453,13 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
         origin(required: false, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
-        promoId(required: false, type: PropertyType.String, description: "Card that was applied at the moment of confirmation, if any")
+        promo_card_applied(required: false, type: PropertyType.String, description: "Card that was applied at the moment of confirmation, if any")
         promo_id(required: false, type: PropertyType.String, description: "Deals co-funded campaign identifier")
     }
 
     "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "CREATE_REBATE", "CREATE_TIER", "MODIFY_TIER", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN", "DELETE_TIER", "DELETE_REBATE"])
-        promoId(required: false, type: PropertyType.String, description: "Promotion ID")
+        promo_card_applied(required: false, type: PropertyType.String, description: "Card that was applied at the moment of confirmation, if any")
     }
 
     "/seller_central/promotions/action/tooltip_adv"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
@@ -2525,19 +2518,19 @@ tracks {
     "/seller_central/promotions/massive"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/promotions/massive/add"(platform: "/", type: TrackType.Event) {
-        count(required: false, type: PropertyType.Numeric, description: "Amount of items sent to add")
+        count(required: true, type: PropertyType.Numeric, description: "Amount of items sent to add")
     }
 
     "/seller_central/promotions/massive/delete"(platform: "/", type: TrackType.Event) {
-        count(required: false, type: PropertyType.Numeric, description: "Amount of items sent to delete")
+        count(required: true, type: PropertyType.Numeric, description: "Amount of items sent to delete")
     }
 
     "/seller_central/promotions/massive/modify"(platform: "/", type: TrackType.Event) {
-        count(required: false, type: PropertyType.Numeric, description: "Amount of items sent to update")
+        count(required: true, type: PropertyType.Numeric, description: "Amount of items sent to update")
     }
 
     "/seller_central/promotions/massive/offline"(platform: "/", type: TrackType.Event) {
-        count(required: false, type: PropertyType.Numeric, description: "Amount of items sent to offline process")
+        count(required: true, type: PropertyType.Numeric, description: "Amount of items sent to offline process")
     }
 
     "/seller_central/promotions/massive/editor"(platform: "/", type: TrackType.View) {}
@@ -2577,12 +2570,12 @@ tracks {
     "/seller_central/promotions/massive/editor/offline"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/promotions/massive/editor/offline/open"(platform: "/", type: TrackType.Event) {
-        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        promo_id(required: true, type: PropertyType.String, description: "Promotion Id")
         type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
     }
 
     "/seller_central/promotions/massive/editor/offline/upload"(platform: "/", type: TrackType.Event) {
-        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        promo_id(required: true, type: PropertyType.String, description: "Promotion Id")
         type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume", "price_discount"])
     }
 
@@ -2591,7 +2584,7 @@ tracks {
     }
 
     "/seller_central/promotions/massive/editor/offline/download"(platform: "/", type: TrackType.Event) {
-        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        promo_id(required: true, type: PropertyType.String, description: "Promotion Id")
         type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
     }
 
