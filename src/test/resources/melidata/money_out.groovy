@@ -126,13 +126,23 @@ trackTests {
       "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/account_selected"(platform: "/", type: TrackType.Event) {
          type = "ted"
-         search_account_filter = "false"
+         search_account_filter = "true"
          search_account_value = "die"
+         account_id = "234234"
+      }
+      "/money_out/transfers/home/account_selected"(platform: "/", type: TrackType.Event) {
+         type = "ted"
+         search_account_filter = "false"
          account_id = "234234"
       }
       "/money_out/transfers/home/delete_account_button_clicked"(platform: "/", type: TrackType.Event) {
          type = "ted"
          search_account_filter = "false"
+         account_id = "234234"
+      }
+      "/money_out/transfers/home/delete_account_button_clicked"(platform: "/", type: TrackType.Event) {
+         type = "ted"
+         search_account_filter = "true"
          search_account_value = "die"
          account_id = "234234"
       }
