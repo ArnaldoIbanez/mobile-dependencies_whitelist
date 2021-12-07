@@ -965,7 +965,7 @@ tracks {
     "/cart/checkout/payment/select_type/account_money"(platform: "/", type: TrackType.Event, isAbstract: true, parentPropertiesInherited: false) {
         checkout_flow(required: false, type: PropertyType.String, values: ["cart"], description: "The type of checkout flow. Cart only for these tracks for now")
         recovery_flow(required: false, type: PropertyType.Boolean, description: "Is recovery CHO flow")
-        items(required:false, type:PropertyType.ArrayList(item_structure), description: "items on cart")
+        items(required:false, type:PropertyType.ArrayList(PropertyType.Map(item_structure)), description: "items on cart")
     }
     "/cart/checkout/payment/select_type/account_money/use"(platform: "/", type: TrackType.Event) {}
     "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/", type: TrackType.Event) {}
