@@ -2842,4 +2842,75 @@ trackTests {
 
     }
 
+    test("Worksheet generation page") {
+        "/advertising/pads2/bulk/create"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+        }
+    }
+
+    test("Action create worksheet success") {
+        "/advertising/pads2/bulk/create/action/create"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            action_type= "bulk-status-pads"
+            filters = [:]
+            number_of_rows = 1000
+        }
+    }
+
+    test("Create worksheet error") {
+        "/advertising/pads2/bulk/create/error"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            action_type= "bulk-status-pads"
+            filters = [:]
+            number_of_rows = 1000
+        }
+    }
+
+    test("Action cancel create worksheet") {
+        "/advertising/pads2/bulk/create/action/return"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+        }
+    }
+
+    test("Action filter") {
+        "/advertising/pads2/bulk/create/action/filter"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            action_type= "bulk-status-pads"
+            filters = [:]
+        }
+    }
+
+    test("Action filter warning") {
+        "/advertising/pads2/bulk/create/action/filter/warning"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            action_type= "bulk-status-pads"
+            filters = [:]
+            number_of_rows = 1000
+        }
+    }
+
+    test("Modal action upload") {
+        "/advertising/pads2/bulk/create/modal"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            action_type= "bulk-status-pads"
+            number_of_rows = 1000
+        }
+    }
+
+    test("Modal action email") {
+        "/advertising/pads2/bulk/create/modal/action/email"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            action_type= "bulk-status-pads"
+            number_of_rows = 1000
+        }
+    }
+
+    test("Modal action retry") {
+        "/advertising/pads2/bulk/create/modal/action/retry"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            action_type= "bulk-status-pads"
+            number_of_rows = 1000
+        }
+    }
+
 }
