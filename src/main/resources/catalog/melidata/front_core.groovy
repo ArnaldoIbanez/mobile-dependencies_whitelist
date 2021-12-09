@@ -546,9 +546,9 @@ tracks {
     "/wallet_home/header_data_button" (platform: "/mobile", isAbstract: true) {}
 
     "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
-        link(required: false, type: PropertyType.String, description: "If header is tapeable")
-        button_link(required: false, type: PropertyType.String, description: "If button is present")
-        buttons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "If have buttons")
+        link(required: false, type: PropertyType.String, description: "The link of the user info")
+        button_link(required: false, type: PropertyType.String, description: "The link of the action")
+        buttons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Buttons pix, CVU, help")
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
         metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
