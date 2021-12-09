@@ -5057,19 +5057,27 @@ test("seller central confirm leave suggestion task - optin moderated") {
   }
 
   test("seller central listing massive toolbar add action") {
-    "/seller_central/promotions/massive/add"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/promotions/massive/add"(platform: "/", type: TrackType.Event) {
+      count = 2
+    }
   }
 
   test("seller central listing massive toolbar delete action") {
-    "/seller_central/promotions/massive/delete"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/promotions/massive/delete"(platform: "/", type: TrackType.Event) {
+      count = 2
+    }
   }
 
   test("seller central listing massive toolbar modify action") {
-    "/seller_central/promotions/massive/modify"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/promotions/massive/modify"(platform: "/", type: TrackType.Event) {
+      count = 2
+    }
   }
 
   test("seller central listing massive toolbar offline flow action") {
-    "/seller_central/promotions/massive/offline"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/promotions/massive/offline"(platform: "/", type: TrackType.Event) {
+      count = 2
+    }
   }
 
   test("seller central promotions massive editor") {
@@ -5078,7 +5086,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
   test("seller central promotions massive editor open") {
     "/seller_central/promotions/massive/editor/open"(platform: "/", type: TrackType.Event) {
-      items = "10"
+      items = 10
       type = "lightning"
       useFilters = true
     }
@@ -5086,25 +5094,25 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
   test("seller central promotions massive editor confirm") {
     "/seller_central/promotions/massive/editor/confirm"(platform: "/", type: TrackType.Event) {
-      items = "10"
+      items = 10
       type = "lightning"
       useFilters = true
-      deleted = "2"
+      deleted = 2
     }
   }
 
   test("seller central promotions massive editor cancel") {
     "/seller_central/promotions/massive/editor/cancel"(platform: "/", type: TrackType.Event) {
-      items = "10"
+      items = 10
       type = "lightning"
       useFilters = true
-      deleted = "2"
+      deleted = 2
     }
   }
 
   test("seller central promotions massive editor delete") {
     "/seller_central/promotions/massive/editor/delete"(platform: "/", type: TrackType.Event) {
-      items = "10"
+      items = 10
       type = "lightning"
       useFilters = true
     }
@@ -5126,14 +5134,14 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
   test("seller central promotions massive editor offline - open") {
     "/seller_central/promotions/massive/editor/offline/open"(platform: "/", type: TrackType.Event) {
-      promoId = "MLA123"
+      promo_id = "MLA123"
       type = 'lightning'
     }
   }
 
   test("seller central promotions massive editor offline - upload") {
     "/seller_central/promotions/massive/editor/offline/upload"(platform: "/", type: TrackType.Event) {
-      promoId = "MLA123"
+      promo_id = "MLA123"
       type = 'lightning'
     }
   }
@@ -5146,7 +5154,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
   test("seller central promotions massive editor offline - download") {
     "/seller_central/promotions/massive/editor/offline/download"(platform: "/", type: TrackType.Event) {
-      promoId = "MLA123"
+      promo_id = "MLA123"
       type = 'lightning'
     }
   }
@@ -5185,14 +5193,14 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
   test("seller central promotions widget dismiss") {
     "/seller_central/promotions/widget/dismiss"(platform: "/", type: TrackType.Event) {
-      batch_id = "123"
+      batch_id = 123
     }
   }
 
   test("seller central promotions widget close") {
     "/seller_central/promotions/widget/close"(platform: "/", type: TrackType.Event) {
       processing = false
-      batch_ids = ["123", "1234"]
+      batch_ids = [123, 1234]
     }
   }
 
