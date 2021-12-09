@@ -106,7 +106,9 @@ tracks {
     }
 
     def apparel_definition = objectSchemaDefinitions {
-        has_size_chart(required: false, type: PropertyType.Boolean, description: "Indicates whether the item has size chart")
+        size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
+        grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
+        grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
     }
 
 

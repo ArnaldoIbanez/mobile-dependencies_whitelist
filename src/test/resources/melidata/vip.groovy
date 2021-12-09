@@ -72,7 +72,9 @@ trackTests {
             has_seller_level_kyc = true
             seller_type = 'normal'
             apparel = [
-                    "has_size_chart": true
+                    "size_chart_version": "V2",
+                    "grid_id": "17005",
+                    "grid_type": "BRAND"
             ]
             is_ltr: false
             credits_consumer = {
