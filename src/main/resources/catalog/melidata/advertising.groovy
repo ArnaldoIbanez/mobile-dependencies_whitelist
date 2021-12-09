@@ -642,17 +642,16 @@ tracks {
 
     //Filters
     def filters_definition = objectSchemaDefinitions {
-        status(required: false, type: PropertyType.String)
-        release_date(required: false, type: PropertyType.String)
-        category(required: false, type: PropertyType.String)
-        features(required: false, type: PropertyType.String)
-        mode(required: false, type: PropertyType.String)
-        query(required: false, type: PropertyType.String)
-        catalog(required: false, type: PropertyType.String)
+        status(required: false, type: PropertyType.String, description: "status to filter")
+        release_date(required: false, type: PropertyType.String, description: "release_date to filter")
+        category(required: false, type: PropertyType.String, description: "category to filter")
+        features(required: false, type: PropertyType.String, description: "features to filter")
+        query(required: false, type: PropertyType.String, description: "query to filter")
+        catalog(required: false, type: PropertyType.String, description: "catalog to filter")
         // Successful Live Listing
-        sll(required: false, type: PropertyType.String)
+        sll(required: false, type: PropertyType.String, description: "sll to filter")
         // Item Publish Date
-        date_created(required: false, type: PropertyType.String)
+        date_created(required: false, type: PropertyType.String, description: "date_created to filter")
     }
 
     //Campaigns
@@ -2344,8 +2343,8 @@ tracks {
     "/advertising/pads2/manager/comp_metrics/more_info"(platform: "/", type: TrackType.Event) {}
 
     // Download ad sheet 
-    "/advertising/pads2/bulk/create"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
-        mode(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+    "/advertising/pads2/bulk/create"(platform: "/", type: TrackType.View, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
         number_of_rows(required: false, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
     }
 
@@ -2360,13 +2359,12 @@ tracks {
         filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
         number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
     }
-
     "/advertising/pads2/bulk/create/action/return"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        mode(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/bulk/create/action/filter"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        mode(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
         action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
         filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
     }
@@ -2378,7 +2376,7 @@ tracks {
     }
 
     "/advertising/pads2/bulk/create/modal"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
-        mode(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
         action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
         number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
     }
