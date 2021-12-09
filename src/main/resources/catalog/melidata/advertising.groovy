@@ -2342,4 +2342,48 @@ tracks {
     "/advertising/pads2/manager/comp_metrics/lisar_helper"(platform: "/", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/comp_metrics/more_info"(platform: "/", type: TrackType.Event) {}
+
+    // Download ad sheet 
+    "/advertising/pads2/bulk/create"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        mode(required: true, type: PropertyType.String, description: "Indicates the ad management mode", values: ['custom', 'automatic'])
+        number_of_rows(required: false, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+    }
+
+    "/advertising/pads2/bulk/create/action/create"(platform: "/", type: TrackType.Event) {
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
+        filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
+        number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+    }
+
+    "/advertising/pads2/bulk/create/error"(platform: "/", type: TrackType.Event) {
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
+        filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
+        number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+    }
+
+    "/advertising/pads2/bulk/create/action/return"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode(required: true, type: PropertyType.String, description: "Indicates the ad management mode", values: ['custom', 'automatic'])
+    }
+
+    "/advertising/pads2/bulk/create/action/filter"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode(required: true, type: PropertyType.String, description: "Indicates the ad management mode", values: ['custom', 'automatic'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
+        filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
+    }
+
+    "/advertising/pads2/bulk/create/action/filter/warning"(platform: "/", type: TrackType.Event) {
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
+        filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
+        number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+    }
+
+    "/advertising/pads2/bulk/create/modal"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
+        mode(required: true, type: PropertyType.String, description: "Indicates the ad management mode", values: ['custom', 'automatic'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
+        number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+    }
+
+    "/advertising/pads2/bulk/create/modal/action/email"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/create/modal/action/retry"(platform: "/", type: TrackType.Event) {}
 }
