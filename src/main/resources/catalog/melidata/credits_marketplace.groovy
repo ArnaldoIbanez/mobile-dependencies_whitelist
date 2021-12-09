@@ -336,7 +336,7 @@ tracks {
     "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/personal_loan_download"(platform: "/web", type: TrackType.Event) {
-         dashboard_status = "on_time"
+         dashboard_status = 'on_time'
     }
 
     /******************************************
