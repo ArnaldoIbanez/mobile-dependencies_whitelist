@@ -1327,7 +1327,6 @@ trackTests {
         "/advertising/pads2/manager/filters"(platform: "/", type: TrackType.Event) {
             mode = "custom"
             filters = [
-                    mode: "x",
                     query: "x",
                 ]
             campaign_id = "2222222"
@@ -2842,74 +2841,115 @@ trackTests {
 
     }
 
-    test("Worksheet generation page") {
-        "/advertising/pads2/bulk/create"(platform: "/", type: TrackType.View) {
-            mode = "custom"
+    test("Download Worksheet") {
+        "/advertising/pads2/bulk/download"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
         }
     }
 
-    test("Action create worksheet success") {
-        "/advertising/pads2/bulk/create/action/create"(platform: "/", type: TrackType.Event) {
-            mode = "custom"
+    test("Download Action") {
+        "/advertising/pads2/bulk/download/action"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
             action_type= "bulk-status-pads"
             filters = [:]
             number_of_rows = 1000
         }
     }
 
-    test("Create worksheet error") {
-        "/advertising/pads2/bulk/create/error"(platform: "/", type: TrackType.Event) {
-            mode = "custom"
+    test("Download action create worksheet success") {
+        "/advertising/pads2/bulk/download/action/create"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
             action_type= "bulk-status-pads"
             filters = [:]
             number_of_rows = 1000
         }
     }
 
-    test("Action cancel create worksheet") {
-        "/advertising/pads2/bulk/create/action/return"(platform: "/", type: TrackType.Event) {
-            mode = "custom"
-        }
-    }
-
-    test("Action filter") {
-        "/advertising/pads2/bulk/create/action/filter"(platform: "/", type: TrackType.Event) {
-            mode = "custom"
-            action_type= "bulk-status-pads"
-            filters = [:]
-        }
-    }
-
-    test("Action filter warning") {
-        "/advertising/pads2/bulk/create/action/filter/warning"(platform: "/", type: TrackType.Event) {
-            mode = "custom"
+    test("Download create worksheet error") {
+        "/advertising/pads2/bulk/download/action/create/error"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
             action_type= "bulk-status-pads"
             filters = [:]
             number_of_rows = 1000
         }
     }
 
-    test("Modal action upload") {
-        "/advertising/pads2/bulk/create/modal"(platform: "/", type: TrackType.Event) {
-            mode = "custom"
+    test("Download action cancel create worksheet") {
+        "/advertising/pads2/bulk/download/action/return"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+        }
+    }
+
+    test("Download action filter") {
+        "/advertising/pads2/bulk/download/action/filter"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "bulk-status-pads"
+            filters = [:]
+        }
+    }
+
+    test("Download action filter warning") {
+        "/advertising/pads2/bulk/download/action/filter/warning"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "bulk-status-pads"
+            filters = [:]
+            number_of_rows = 1000
+        }
+    }
+
+    test("Download modal action upload") {
+        "/advertising/pads2/bulk/download/modal"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
             action_type= "bulk-status-pads"
             number_of_rows = 1000
         }
     }
 
-    test("Modal action email") {
-        "/advertising/pads2/bulk/create/modal/action/email"(platform: "/", type: TrackType.Event) {
-            mode = "custom"
+    test("Download Modal action email") {
+        "/advertising/pads2/bulk/download/modal/action/email"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
             action_type= "bulk-status-pads"
             number_of_rows = 1000
         }
     }
 
-    test("Modal action retry") {
-        "/advertising/pads2/bulk/create/modal/action/retry"(platform: "/", type: TrackType.Event) {
-            mode = "custom"
+    test("Download Modal action retry") {
+        "/advertising/pads2/bulk/download/modal/action/retry"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
             action_type= "bulk-status-pads"
             number_of_rows = 1000
+        }
+    }
+
+    test("Download feedback") {
+        "/advertising/pads2/bulk/download/feedback"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
+            action_type= "bulk-status-pads"
+            operation_id = "1223BC"
+        }
+    }
+
+    test("Download feedback success") {
+        "/advertising/pads2/bulk/download/feedback/success"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
+            action_type= "bulk-status-pads"
+            operation_id = "1223BC"
+        }
+    }
+
+    test("Download feedback error") {
+        "/advertising/pads2/bulk/download/feedback/error"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
+            action_type= "bulk-status-pads"
+            operation_id = "1223BC"
+        }
+    }
+
+    test("Download feedback waiting") {
+        "/advertising/pads2/bulk/download/feedback/waiting"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
+            action_type= "bulk-status-pads"
+            operation_id = "1223BC"
         }
     }
 
