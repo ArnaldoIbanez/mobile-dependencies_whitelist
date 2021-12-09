@@ -2117,7 +2117,7 @@ tracks {
         advertising_id(required: true, type: PropertyType.String)
     }
 
-    "/notification/uninstalls_checker"(platform: "/mobile") {
+    "/notification/uninstalls_checker"(platform: "/mobile", type: TrackType.App) {
         execution_id(required: true, type: PropertyType.String)
         advertising_id(required: true, type: PropertyType.String)
     }
