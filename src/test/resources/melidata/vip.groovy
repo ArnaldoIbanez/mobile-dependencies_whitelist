@@ -779,6 +779,9 @@ trackTests {
         "/vip/sizechart"(platform: "/", type: TrackType.View) {
             item_id = "MLA533657947"
             referer = "vip"
+            size_chart_version = "V2"
+            grid_id = "17005"
+            grid_type = "BRAND"
         }
 
         "/vip/sizechart/tutorial"(platform: "/mobile", type: TrackType.View) {
@@ -787,6 +790,9 @@ trackTests {
 
         "/vip/sizechart/preview"(platform: "/", type: TrackType.View) {
             item_id = "MLA533657947"
+            size_chart_version = "V2"
+            grid_id = "17005"
+            grid_type = "BRAND"
         }
 
         "/vip/show_sizechart_reviews"(platform: "/", type: TrackType.Event) {

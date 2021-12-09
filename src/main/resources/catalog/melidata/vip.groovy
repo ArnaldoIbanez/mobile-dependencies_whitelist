@@ -525,6 +525,9 @@ tracks {
     "/vip/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
          referer(required: false, type: PropertyType.String, description: "Size chart referer")
+         size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
+         grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
+         grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
     }
 
     "/vip/sizechart/tutorial"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
@@ -533,6 +536,9 @@ tracks {
 
     "/vip/sizechart/preview"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
+         size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
+         grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
+         grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
     }
 
     "/vip/apparel"(platform: "/", parentPropertiesInherited: false, isAbstract:true) {}
@@ -543,7 +549,11 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
-    "/vip/apparel/size_chart_preview"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
+    "/vip/apparel/size_chart_preview"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
+        grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
+        grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
+    }
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
