@@ -211,15 +211,6 @@ metrics {
 		}
 	}
 
-	"packs"(description: "packs from a purchase") {
-		countsOn {
-			condition {
-				path("/purchases/purchasecreated")
-			}
-		}
-	}
-
-
 	"buys"(description: "orders or purchases created from feed", compute_order: true) {
 		countsOn {
 			condition {
