@@ -220,7 +220,6 @@ tracks {
     "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action id")
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
-        site_id(required: false, type: PropertyType.String, description: "Site where the event has been called")
         inventory_id(required: false, type: PropertyType.String, description: "Inventory id to which the action is executed")
         operator_id(required: false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
         message(required: false, type: PropertyType.String, description: "Text input from actions with user feedback")
