@@ -272,27 +272,25 @@ tracks {
 
     "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
 
-    "/auth/account_recovery/landing/action"(platform: "/", type: TrackType.View) {
-        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
-        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
+    "/auth/account_recovery/landing/start"(platform: "/", type: TrackType.Event) {}
+
+    "/auth/account_recovery/landing/dismiss"(platform: "/", type: TrackType.Event) {
+        dismiss_type(type: PropertyType.String, required: true, values: ["back_button", "back_native", "decline_button"], description: "Action user triggers to dismiss Recovery flow")
     }
 
-    "/auth/account_recovery/on_hold/action"(platform: "/", type: TrackType.Event) {
-        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
-        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-    }
+    "/auth/account_recovery/on_hold/go_home"(platform: "/", type: TrackType.Event) {}
 
     "/auth/account_recovery/expired/go_home"(platform: "/", type: TrackType.Event) {}
 
-    "/auth/account_recovery/confirm/action"(platform: "/", type: TrackType.View) {
-        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
-        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
+    "/auth/account_recovery/confirm/accept"(platform: "/", type: TrackType.Event) {}
+
+    "/auth/account_recovery/confirm/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/auth/account_recovery/confirm/back"(platform: "/", type: TrackType.Event) {
+        back_type(type: PropertyType.String, required: true, values: ["back_button", "back_native"], description: "Action user triggers to go back to previous step")
     }
 
-    "/auth/account_recovery/congrats/action"(platform: "/", type: TrackType.Event) {
-        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
-        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-    }
+    "/auth/account_recovery/congrats/go_home"(platform: "/", type: TrackType.Event) {}
 
     //TOTP
     "/auth/totp"(platform: "/", isAbstract: true, initiative: 1374) {

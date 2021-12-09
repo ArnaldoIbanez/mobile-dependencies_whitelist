@@ -17,6 +17,12 @@ tracks {
         section(required: true, type: PropertyType.String, description: "Destination host after click")
     }
 
+    "/navigation/short_url"(platform: "/mobile/ios", type: TrackType.Event) {
+        is_success(required: true, type: PropertyType.Boolean, description: "Checks if resolution of Short URL was successful or not")
+        tidy_id(required: true, type: PropertyType.String, description: "Involved Tidy ID")
+        error_code(required: false, type: PropertyType.String, description: "Error code")
+    }
+
     "/navigation/tabs"(platform: "/mobile/ios", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Kind of navigation action")
         tab(required: true, type: PropertyType.String, description: "Indicates which tab was selected")

@@ -250,56 +250,65 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/restrict"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/restrict"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/expired"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/expired"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/confirm"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/confirm"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "validate_identity_button"
-        }
-        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
-        }
-        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
-        }
-        "/auth/account_recovery/expired/go_home"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/start"(platform: "/", type: TrackType.Event) {
             id = "id--fury"
         }
-        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "confirm_button"
+            dismiss_type = "decline_button"
         }
-        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "cancel_button"
+            dismiss_type = "decline_button"
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
+            dismiss_type = "back_button"
+        }
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            dismiss_type = "back_native"
+        }
+        "/auth/account_recovery/on_hold/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/expired/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/accept"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/cancel"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/back"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            back_type = "back_button"
+        }
+        "/auth/account_recovery/confirm/back"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            back_type = "back_native"
+        }
+        "/auth/account_recovery/congrats/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
         }
     }
 

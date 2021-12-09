@@ -1113,14 +1113,14 @@ tracks {
 
     // Multicampaña - Sads New
 
-    "/advertising/pads2/hub/card"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/advertising/pads2/hub/card"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
-    "/advertising/pads2/hub/card/sads_new"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/hub/card/sads_new"(platform: "/", type: TrackType.View) {
         tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
     }
 
-    "/advertising/pads2/hub/card/sads_new/go"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/hub/card/sads_new/go"(platform: "/", type: TrackType.Event) {
         tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
     }
@@ -2322,4 +2322,24 @@ tracks {
 
     "/advertising/pads2/manager/paused_modal/bb_campaign/confirm"(platform: "/", type: TrackType.Event) {}
 
+
+    "/advertising/pads2/manager/comp_metrics"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_name(required: true, type: PropertyType.String, description: "Current name related to the campaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: true, type: PropertyType.String, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget(required: true, type: PropertyType.Numeric, description: "Current budget related to the campaign")
+        trtarget (required: false, type: PropertyType.Numeric, description: "Take Rate selected")
+        strategy(required: false, type: PropertyType.String, description: "Campaign strategy")
+        impression_share(required: true, type: PropertyType.Numeric, description: "Impression share related to campaign")
+        lost_impression_share_by_budget(required: true, type: PropertyType.Numeric, description: "Impression share lost by budget related to campaig")
+        lost_impression_share_by_ad_rank(required: true, type: PropertyType.Numeric, description: "Impression share lost by ad rank related to campaig")
+    }
+
+    "/advertising/pads2/manager/comp_metrics/is_helper"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/comp_metrics/lisb_helper"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/comp_metrics/lisar_helper"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/comp_metrics/more_info"(platform: "/", type: TrackType.Event) {}
 }

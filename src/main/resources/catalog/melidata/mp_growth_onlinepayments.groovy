@@ -8,7 +8,7 @@ tracks {
     initiative = "1159"
 
     // MP Online Payments
-    "/landing/onlinepayments"(platform: "/web"){
+    "/landing/onlinepayments"(platform: "/"){
         browser_id (type: PropertyType.String, required: false, description: "Specifies the browser id")
     }
 

@@ -630,6 +630,30 @@ trackTests {
             challenge = "documentation"
             handoff_type = "user_swap"
         }
+
+        "/kyc/iv/object_detection/validation"(platform: "/web")  {
+            validation = "aspect_ratio"
+            value = "1.3"
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/web")  {
+            validation = "denied_label_check"
+            value = "test"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/web")  {
+            error = "error al descargar"
+        }
+
+        "/kyc/iv/object_detection/validation"(platform: "/web/desktop")  {
+            validation = "aspect_ratio"
+            value = "1.3"
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/web/desktop")  {
+            validation = "denied_label_check"
+            value = "test"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/web/desktop")  {
+            error = "error al descargar"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -1209,6 +1233,30 @@ trackTests {
             url = "https://www.mercadolibre.com.ar"
             challenge = "documentation"
             handoff_type = "no_camera"
+        }
+
+        "/kyc/iv/object_detection/validation"(platform: "/web")  {
+            validation = "aspect_ratio"
+            value = "1.3"
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/web")  {
+            validation = "denied_label_check"
+            value = "test"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/web")  {
+            error = "error al descargar"
+        }
+
+        "/kyc/iv/object_detection/validation"(platform: "/web/desktop")  {
+            validation = "aspect_ratio"
+            value = "1.3"
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/web/desktop")  {
+            validation = "denied_label_check"
+            value = "test"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/web/desktop")  {
+            error = "error al descargar"
         }
     }
 
@@ -1837,6 +1885,30 @@ trackTests {
             url = "https://www.mercadolibre.com.ar"
             challenge = "documentation"
             handoff_type = "user_swap"
+        }
+
+        "/kyc/iv/object_detection/validation"(platform: "/web")  {
+            validation = "aspect_ratio"
+            value = "1.3"
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/web")  {
+            validation = "denied_label_check"
+            value = "test"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/web")  {
+            error = "error al descargar"
+        }
+
+        "/kyc/iv/object_detection/validation"(platform: "/web/desktop")  {
+            validation = "aspect_ratio"
+            value = "1.3"
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/web/desktop")  {
+            validation = "denied_label_check"
+            value = "test"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/web/desktop")  {
+            error = "error al descargar"
         }
     }
 }

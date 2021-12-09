@@ -101,6 +101,7 @@ catalog {
         include business, "pdf_viewer.groovy"
         include business, "fraud_challenges.groovy"
         include business, "device_health.groovy"
+        include business, "taxes.groovy"
     }
 
     mercadolibre.each { business ->
@@ -114,6 +115,7 @@ catalog {
         include business, "cartList.groovy"
         include business, "credits_credit_card.groovy"
         include business, "compatibilities.groovy"
+        include business, "combos.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
@@ -297,6 +299,7 @@ catalog {
         include business, "crypto.groovy"
         include business, "investment.groovy"
         include business, "pricing_point.groovy"
+        include business, "splinter.groovy"
     }
 
     mercadoshops.each { business ->
@@ -348,6 +351,7 @@ catalog {
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "myml.groovy"
+        include business, "taxes.groovy"
         include business, "billing.groovy"
         include business, "download_app.groovy"
         include business, "official_stores.groovy"

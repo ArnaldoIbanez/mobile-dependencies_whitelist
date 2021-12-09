@@ -374,6 +374,10 @@ trackTests {
         "/seller_central/listings/setup_mshop"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("go to landing shops") {
+        "/seller_central/listings/landing_mshop"(platform: "/", type: TrackType.Event) {}
+    }
+
     test("seller central listings list description legacy") {
         "/seller_central/listings/list/item_description"(platform: "/", type: TrackType.Event) {}
 
@@ -389,7 +393,7 @@ trackTests {
     test("seller central listing secondary actions legacy") {
         "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
 
-        "/seller_central/listings/list/action"(platform: "/", type: TrackType.Event) {
+        "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
             action_id = "MODIFY"
         }
     }

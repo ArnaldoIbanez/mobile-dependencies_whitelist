@@ -89,9 +89,9 @@ tracks {
     }
 
     propertyGroups {
-        actionGroup(opening_hours_today, seller_id, store_id, action_type,session_id,session_store_id, purchase_id, sale_id, exception)
+        actionGroup(opening_hours_today, seller_id, store_id, action_type,session_id, session_store_id, purchase_id, sale_id, exception)
         sessionGroup(session_id, seller_id, session_type, date, created_at, updated_at)
-        saleGroup(sale_id, seller_id, store_id, sale_type, session_id, exception)
+        saleGroup(sale_id, seller_id, store_id, sale_type, session_id, purchase_id, session_store_id, exception)
     }
 
     "/proximity_order_manager" (platform: "/", isAbstract: true) {}

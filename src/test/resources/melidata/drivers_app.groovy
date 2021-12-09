@@ -648,5 +648,55 @@ trackTests {
             point_status = "COMPLETED"
             cargos = ["2","4"]
         }
+
+        "/driver/listing/scanner"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "ADD_PACKAGE"
+        }
+
+        "/driver/listing/scanner"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "AMBULANCE"
+        }
+
+        "/driver/listing/scanner/finish_scan"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "AMBULANCE"
+            package_amount = 1
+        }
+
+        "/driver/listing/scanner/finish_scan"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "ADD_PACKAGE"
+            package_amount = 1
+        }
+
+        "/driver/listing/scanner/input_manual"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+        }
+
+        "/driver/listing/scanner/input_manual/confirm"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+        }
+
+        "/driver/listing/scanner/collapse"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "COLLAPSE"
+            packages = ["40519993434","40519748734"]
+        }
+
+        "/driver/listing/scanner/collapse"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "EXPAND"
+            packages = ["40519993435","40519748733"]
+        }
     }
 }
