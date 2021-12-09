@@ -4399,6 +4399,12 @@ trackTests {
             deeplink = "meli://sales/11222#shipping"
             shipment_id = 1234
         }
+        "/notification/shipping_not_delivered_returning_to_hub_xd_xddo"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
         "/notification/shipping_wrong_address_driver_action"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
@@ -12554,6 +12560,12 @@ trackTests {
             order_id = 123
         }
         "/notification/shipping_not_delivered_retained_sender"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_not_delivered_returning_to_hub_xd_xddo"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
