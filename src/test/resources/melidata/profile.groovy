@@ -1215,4 +1215,74 @@ trackTests {
             event_type = "redirect"
         }
     }
+
+    test("Legal representative") {
+        "/profile/legal_representative"(platform: "/", type: TrackType.Event) {
+            is_compliant = true
+        }
+
+        "/profile/legal_representative"(platform: "/", type: TrackType.Event) {
+            is_compliant = false
+        }
+    }
+
+    test("Account data") {
+        "/profile/account_data"(platform: "/", type: TrackType.Event) {
+            has_identification = true
+        }
+
+        "/profile/account_data"(platform: "/", type: TrackType.Event) {
+            has_identification = false
+        }
+
+        "/profile/account_data/edit"(platform: "/", type: TrackType.Event) {
+            has_identification = true
+        }
+
+        "/profile/account_data/edit"(platform: "/", type: TrackType.Event) {
+            has_identification = false
+        }
+    }
+
+    test("Fiscal data") {
+        "/profile/fiscal_data"(platform: "/", type: TrackType.Event) {
+            status = "verified"
+        }
+
+        "/profile/fiscal_data"(platform: "/", type: TrackType.Event) {
+            status = "not-verified"
+        }
+
+        "/profile/fiscal_data"(platform: "/", type: TrackType.Event) {
+            status = "information"
+        }
+
+        "/profile/fiscal_data/fiscal_condition"(platform: "/", type: TrackType.Event) {
+            entity_type = "person"
+        }
+
+        "/profile/fiscal_data/fiscal_condition"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+        }
+
+        "/profile/fiscal_data/fiscal_condition"(platform: "/", type: TrackType.Event) {
+            entity_type = "unknown"
+        }
+
+        "/profile/fiscal_data/gross_income_regime"(platform: "/", type: TrackType.Event) {
+            user_type = "CO"
+        }
+
+        "/profile/fiscal_data/gross_income_regime"(platform: "/", type: TrackType.Event) {
+            user_type = "BU"
+        }
+
+        "/profile/fiscal_data/gross_income_exclusion"(platform: "/", type: TrackType.Event) {
+            is_compliant = true
+        }
+
+        "/profile/fiscal_data/gross_income_exclusion"(platform: "/", type: TrackType.Event) {
+            is_compliant = false
+        }
+    }
 }
