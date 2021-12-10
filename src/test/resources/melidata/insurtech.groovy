@@ -2847,6 +2847,10 @@ trackTests {
                 product_id: "CARDS"
             ],
            ]
+           touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
            flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/select"(platform:"/", type: TrackType.Event) {
@@ -2872,6 +2876,10 @@ trackTests {
                     ],
                 ],
                 product_id: "CARDS"
+            ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
             ]
             flow_id = "PRECONGRATS"
         }
@@ -2899,6 +2907,10 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+            ]
             flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/add"(platform:"/", type: TrackType.Event) {
@@ -2925,9 +2937,17 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+            ]
             flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/skip"(platform:"/", type: TrackType.Event) {
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+            ]
             flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/quote_fail"(platform:"/", type: TrackType.Event) {
@@ -2953,6 +2973,10 @@ trackTests {
                     ],
                 ],
                 product_id: "CARDS"
+            ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
             ]
             flow_id = "PRECONGRATS"
         }
@@ -2980,6 +3004,10 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+            ]
             flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/quote_success"(platform:"/", type: TrackType.Event) {
@@ -3006,12 +3034,24 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+            ]
             flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/back"(platform:"/", type: TrackType.Event) {
+           touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
            flow_id = "POSTCONGRATS"
         }
         "/insurtech/cards/close"(platform:"/", type: TrackType.Event) {
+           touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ] 
            flow_id = "PRECONGRATS"
         }
     }
@@ -3550,5 +3590,21 @@ trackTests {
                 ]
             }
 	 }
+    }
+    
+    // INSURTECH adquisition
+    ["mercadolibre", "mercadopago"].each { business ->
+		defaultBusiness = business
+        test("Insurtech - ${business} tests adquisition tacking without touchpointData") {
+            "/insurtech/adquisition/fallback"(platform:"/web", type: TrackType.View) {}
+        }
+        test("Insurtech - ${business} tests adquisition tacking ") {
+            "/insurtech/adquisition/fallback"(platform:"/", type: TrackType.View) {
+                touchpoint_data = [
+                    touchpoint: "DIGITAL_ACCOUNT",
+                    touchpoint_detail: "PIX",
+                ]
+            }
+        }
     }
 }
