@@ -3595,6 +3595,9 @@ trackTests {
     // INSURTECH adquisition
     ["mercadolibre", "mercadopago"].each { business ->
 		defaultBusiness = business
+        test("Insurtech - ${business} tests adquisition tacking without touchpointData") {
+            "/insurtech/adquisition/fallback"(platform:"/web", type: TrackType.View) {}
+        }
         test("Insurtech - ${business} tests adquisition tacking ") {
             "/insurtech/adquisition/fallback"(platform:"/", type: TrackType.View) {
                 touchpoint_data = [

@@ -184,6 +184,6 @@ tracks {
     // INSURTERCH ADQUISITION
     "/insurtech/adquisition"(platform: "/", isAbstract: true) {}
     "/insurtech/adquisition/fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
-      touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+      touchpoint_data(required: false, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
     }
 }
