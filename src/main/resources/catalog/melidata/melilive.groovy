@@ -55,11 +55,11 @@ tracks {
     }
 
     def product_info_definition = objectSchemaDefinitions {
-        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        seller_id(required: false, type: PropertyType.Numeric, description: "Seller ID")
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
-        item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        domain_id(required: true, type: PropertyType.String, description: "Item's domain id")
+        item_id(required: false, type: PropertyType.String, description: "Id that identify the item")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        domain_id(required: false, type: PropertyType.String, description: "Item's domain id")
         catalog_product_id(required: false, type: PropertyType.String)
         is_catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing. It will be true when comes from VPP")
         highlight(required: false, type: PropertyType.Boolean, description: "Flag if the item is highlighted")
