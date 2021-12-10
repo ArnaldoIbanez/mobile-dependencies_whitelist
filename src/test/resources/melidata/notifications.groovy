@@ -3667,7 +3667,6 @@ trackTests {
         "/notification/cvv_command"(platform: "/") {
             news_id = "cvv_command-12345678"
             event_type = "sent"
-            command = "cvv_refresh"
         }
 
         "/notification/instore_discover_activities"(platform: "/mobile"){
@@ -11507,7 +11506,6 @@ trackTests {
         "/notification/cvv_command"(platform: "/") {
             news_id = "cvv_command-12345678"
             event_type = "sent"
-            command = "cvv_refresh"
         }
 
         "/notification/instore_discover_activities"(platform: "/mobile"){

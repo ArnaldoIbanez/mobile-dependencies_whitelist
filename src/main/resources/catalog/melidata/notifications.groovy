@@ -2182,9 +2182,7 @@ tracks {
     "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {}
 
     //CVV Command
-    "/notification/cvv_command"(platform: "/") {
-        command(required: true, type: PropertyType.String, description: "Command")
-    }
+    "/notification/cvv_command"(platform: "/") {}
 
     //Insurtech
     "/notification/insurtech_imei_activation"(platform: "/mobile") {}
