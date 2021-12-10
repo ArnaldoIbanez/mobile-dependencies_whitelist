@@ -1218,28 +1218,64 @@ trackTests {
 
     test("Legal representative") {
         "/profile/legal_representative"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
             is_compliant = true
+            registered_by_phone = false
+            has_identification = false
         }
 
         "/profile/legal_representative"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
             is_compliant = false
+            registered_by_phone = false
+            has_identification = false
         }
     }
 
     test("Account data") {
         "/profile/account_data"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
             has_identification = true
         }
 
         "/profile/account_data"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
             has_identification = false
         }
 
         "/profile/account_data/edit"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
             has_identification = true
         }
 
         "/profile/account_data/edit"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
             has_identification = false
         }
     }
@@ -1247,42 +1283,102 @@ trackTests {
     test("Fiscal data") {
         "/profile/fiscal_data"(platform: "/", type: TrackType.Event) {
             status = "verified"
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
         }
 
         "/profile/fiscal_data"(platform: "/", type: TrackType.Event) {
             status = "not-verified"
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
         }
 
         "/profile/fiscal_data"(platform: "/", type: TrackType.Event) {
             status = "information"
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
         }
 
         "/profile/fiscal_data/fiscal_condition"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
         }
 
         "/profile/fiscal_data/fiscal_condition"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
         }
 
         "/profile/fiscal_data/fiscal_condition"(platform: "/", type: TrackType.Event) {
             entity_type = "unknown"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
         }
 
         "/profile/fiscal_data/gross_income_regime"(platform: "/", type: TrackType.Event) {
             user_type = "CO"
+            entity_type = "company"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
         }
 
         "/profile/fiscal_data/gross_income_regime"(platform: "/", type: TrackType.Event) {
             user_type = "BU"
+            entity_type = "company"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
         }
 
         "/profile/fiscal_data/gross_income_exclusion"(platform: "/", type: TrackType.Event) {
             is_compliant = true
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            registered_by_phone = false
+            has_identification = true
         }
 
         "/profile/fiscal_data/gross_income_exclusion"(platform: "/", type: TrackType.Event) {
             is_compliant = false
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            registered_by_phone = false
+            has_identification = true
         }
     }
 }
