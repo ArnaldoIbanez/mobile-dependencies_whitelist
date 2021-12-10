@@ -15155,7 +15155,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/uninstalls_checker"(platform: "/mobile"){
+        "/notification/uninstalls_checker"(platform: "/mobile",type:TrackType.App){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
@@ -15522,7 +15522,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/uninstalls_checker"(platform: "/mobile"){
+        "/notification/uninstalls_checker"(platform: "/mobile",type:TrackType.App){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
@@ -16008,7 +16008,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/uninstalls_checker"(platform: "/mobile"){
+        "/notification/uninstalls_checker"(platform: "/mobile",type:TrackType.App){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
