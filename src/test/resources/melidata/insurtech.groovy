@@ -954,6 +954,7 @@ trackTests {
                 status: 'approved',
             ]
         }
+        "/insurtech/qpage_off/congrats"(platform:"/", type: TrackType.View) {}
         "/insurtech/qpage_off/congrats/go_to_protections_page"(platform:"/", type: TrackType.Event) {
             order_id = '12345'
             product_id = 'GAREX'
@@ -969,6 +970,7 @@ trackTests {
                 status: 'approved',
             ]
         }
+        "/insurtech/qpage_off/congrats/go_to_protections_page"(platform:"/", type: TrackType.Event) {}
         "/insurtech/qpage_off/congrats/go_to_my_protections_page"(platform:"/", type: TrackType.Event) {
             order_id = '12345'
             product_id = 'GAREX'
@@ -984,6 +986,7 @@ trackTests {
                 status: 'approved',
             ]
         }
+        "/insurtech/qpage_off/congrats/go_to_my_protections_page"(platform:"/", type: TrackType.Event) {}
     }
 
     defaultBusiness = "mercadopago"
@@ -2535,7 +2538,7 @@ trackTests {
                 amount_fee:  10.73,
             ]
         }
-         
+
         "/insurtech/protections/detail/garex/use_service"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "garex-ABC124",
@@ -2550,7 +2553,7 @@ trackTests {
                 amount_fee:  10.73,
             ]
         }
-        
+
         "/insurtech/protections/detail/garex/use_service_certificate"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "garex-ABC124",
@@ -2565,7 +2568,7 @@ trackTests {
                 amount_fee:  10.73,
             ]
         }
-        
+
         "/insurtech/protections/detail/garex/cancel_protection"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "garex-ABC124",
@@ -2580,7 +2583,7 @@ trackTests {
                 amount_fee:  10.73,
             ]
         }
-        
+
         "/insurtech/protections/detail/garex/help"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "garex-ABC124",
@@ -3051,7 +3054,7 @@ trackTests {
            touchpoint_data = [
                touchpoint: "DIGITAL_ACCOUNT",
                touchpoint_detail: "PIX",
-           ] 
+           ]
            flow_id = "PRECONGRATS"
         }
     }
@@ -3591,7 +3594,7 @@ trackTests {
             }
 	 }
     }
-    
+
     // INSURTECH adquisition
     ["mercadolibre", "mercadopago"].each { business ->
 		defaultBusiness = business

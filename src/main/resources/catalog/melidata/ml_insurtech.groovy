@@ -409,24 +409,24 @@ tracks {
     "/insurtech/qpage_off/fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {}
 
     "/insurtech/qpage_off/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-        order_id(required: true, type: PropertyType.String, description: "order id that initiates postcompra flow")
-        product_id(required: true, type: PropertyType.String, description: "purchased protection product id")
-        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection has been purchased")
-        payment(required: true, type: PropertyType.Map(congrats_payment), description: "payment information")
+        order_id(required: false, type: PropertyType.String, description: "order id that initiates postcompra flow")
+        product_id(required: false, type: PropertyType.String, description: "purchased protection product id")
+        item(required: false, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection has been purchased")
+        payment(required: false, type: PropertyType.Map(congrats_payment), description: "payment information")
     }
 
     "/insurtech/qpage_off/congrats/go_to_protections_page"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-        order_id(required: true, type: PropertyType.String, description: "order id that initiates postcompra flow")
-        product_id(required: true, type: PropertyType.String, description: "purchased protection product id")
-        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection has been purchased")
-        payment(required: true, type: PropertyType.Map(congrats_payment), description: "payment information")
+        order_id(required: false, type: PropertyType.String, description: "order id that initiates postcompra flow")
+        product_id(required: false, type: PropertyType.String, description: "purchased protection product id")
+        item(required: false, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection has been purchased")
+        payment(required: false, type: PropertyType.Map(congrats_payment), description: "payment information")
     }
 
     "/insurtech/qpage_off/congrats/go_to_my_protections_page"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-        order_id(required: true, type: PropertyType.String, description: "order id that initiates postcompra flow")
-        product_id(required: true, type: PropertyType.String, description: "purchased protection product id")
-        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection has been purchased")
-        payment(required: true, type: PropertyType.Map(congrats_payment), description: "payment information")
+        order_id(required: false, type: PropertyType.String, description: "order id that initiates postcompra flow")
+        product_id(required: false, type: PropertyType.String, description: "purchased protection product id")
+        item(required: false, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection has been purchased")
+        payment(required: false, type: PropertyType.Map(congrats_payment), description: "payment information")
     }
 
     //GarEx ON - Pricing Experiment
