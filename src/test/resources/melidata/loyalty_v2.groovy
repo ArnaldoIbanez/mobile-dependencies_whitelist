@@ -512,6 +512,20 @@ trackTests {
         "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
 
         "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event, business: "mercadolibre") {}
+
+        "/loyalty/interstitial"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
+
+        "/loyalty/interstitial"(platform: "/", type: TrackType.Event, business: "mercadolibre") {}
+    }
+
+    test("Loyalty WebView") {
+        "/loyalty/webview"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            url = "https://www.mercadolibre.com.ar/suscripciones/comboplus"
+        }
+
+        "/loyalty/webview"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            url = "https://www.mercadolibre.com.ar/suscripciones/comboplus"
+        }
     }
 
 

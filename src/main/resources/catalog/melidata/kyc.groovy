@@ -235,7 +235,7 @@ tracks {
         gestures_probabilities(type: PropertyType.Map(gestures_probabilities_definition), required: true, description: "Map of probabilities of each gesture")
     }
 
-    "/kyc/iv/object_detection"(platform: "/mobile", isAbstract: true) {}
+    "/kyc/iv/object_detection"(platform: "/", isAbstract: true) {}
 
     "/kyc/iv/object_detection/model_download"(platform: "/mobile", type: TrackType.Event) {
         success(type: PropertyType.Boolean, required: true, description: "Is download success")
@@ -243,12 +243,12 @@ tracks {
         time(required: true, type: PropertyType.Numeric, description: "Download time")
     }
 
-    "/kyc/iv/object_detection/validation"(platform: "/mobile", type: TrackType.Event) {
+    "/kyc/iv/object_detection/validation"(platform: "/", type: TrackType.Event) {
         validation(required: true, values: ["error", "pending", "confidence", "aspect_ratio", "label_check", "denied_label_check", "brightness", "darkness", "blurry", "ok"], type: PropertyType.String, description: "Validation type")
         value(type: PropertyType.String, required: true, description: "Value of validation")
     }
 
-    "/kyc/iv/object_detection/error"(platform: "/mobile", type: TrackType.Event) {
+    "/kyc/iv/object_detection/error"(platform: "/", type: TrackType.Event) {
         error(type: PropertyType.String, required: true, description: "Error of interpreter")
     }
 

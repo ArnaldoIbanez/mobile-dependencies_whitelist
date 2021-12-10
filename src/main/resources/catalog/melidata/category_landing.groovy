@@ -19,6 +19,10 @@ tracks {
         category(required: false, type: PropertyType.String, description: "Landing category", values: ["landings"])
         action(required: false, type: PropertyType.String, description: "Name of the campaign")
         label(required: false, type: PropertyType.String, description: "Component related info")
+        context(required: true, type: PropertyType.String, description: "Landing context takeover/normal")
+        module(required: true, type: PropertyType.String, description: "Bussiness unit")
+        group(required: true, type: PropertyType.String, description: "Vertical")
+        content(required: true, type: PropertyType.String, description: "Tipo de landing")
     }
 
 }
