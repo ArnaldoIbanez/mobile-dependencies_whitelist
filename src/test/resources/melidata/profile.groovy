@@ -1221,7 +1221,6 @@ trackTests {
             entity_type = "company"
             user_type = "BU"
             access = "full"
-            status = "information"
             is_compliant = true
             registered_by_phone = false
             has_identification = false
@@ -1231,7 +1230,6 @@ trackTests {
             entity_type = "company"
             user_type = "BU"
             access = "full"
-            status = "information"
             is_compliant = false
             registered_by_phone = false
             has_identification = false
@@ -1243,7 +1241,6 @@ trackTests {
             entity_type = "company"
             user_type = "BU"
             access = "full"
-            status = "information"
             is_compliant = true
             registered_by_phone = false
             has_identification = true
@@ -1253,7 +1250,6 @@ trackTests {
             entity_type = "company"
             user_type = "BU"
             access = "full"
-            status = "information"
             is_compliant = true
             registered_by_phone = false
             has_identification = false
@@ -1263,7 +1259,6 @@ trackTests {
             entity_type = "company"
             user_type = "BU"
             access = "full"
-            status = "information"
             is_compliant = true
             registered_by_phone = false
             has_identification = true
@@ -1273,7 +1268,6 @@ trackTests {
             entity_type = "company"
             user_type = "BU"
             access = "full"
-            status = "information"
             is_compliant = true
             registered_by_phone = false
             has_identification = false
