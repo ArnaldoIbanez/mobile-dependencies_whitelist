@@ -200,6 +200,14 @@ trackTests {
             cart_content = true
         }
 
+        def apparel = {
+            apparel = [
+                    "size_chart_version": "V2",
+                    "grid_id": "17005",
+                    "grid_type": "BRAND"
+            ]
+        }
+
         def shipping = {
             shipping_mode = "not_specified"
             free_shipping = false
@@ -322,6 +330,7 @@ trackTests {
             pickup()
             pricingTwoPointO()
             creditsConsumer()
+            apparel()
 
             has_unselected_pickers = true
         })
@@ -640,6 +649,22 @@ trackTests {
             catalog_product_id = "MLA1234"
             item_id = "MLA112341"
         })
+    }
+
+    test("Apparel size char tracking") {
+        "/pdp/apparel/size_chart_preview"(platform: "/", type: TrackType.View) {
+            size_chart_version = "V2"
+            grid_id = "17005"
+            grid_type = "BRAND"
+        }
+
+        "/pdp/sizechart"(platform: "/", type: TrackType.View) {
+            item_id = "MLA533657947"
+            referer = "vip"
+            size_chart_version = "V2"
+            grid_id = "17005"
+            grid_type = "BRAND"
+        }
     }
 
     //Sellers page FLOW
