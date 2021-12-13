@@ -272,27 +272,25 @@ tracks {
 
     "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
 
-    "/auth/account_recovery/landing/action"(platform: "/", type: TrackType.View) {
-        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
-        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
+    "/auth/account_recovery/landing/start"(platform: "/", type: TrackType.Event) {}
+
+    "/auth/account_recovery/landing/dismiss"(platform: "/", type: TrackType.Event) {
+        dismiss_type(type: PropertyType.String, required: true, values: ["back_button", "back_native", "decline_button"], description: "Action user triggers to dismiss Recovery flow")
     }
 
-    "/auth/account_recovery/on_hold/action"(platform: "/", type: TrackType.Event) {
-        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
-        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-    }
+    "/auth/account_recovery/on_hold/go_home"(platform: "/", type: TrackType.Event) {}
 
     "/auth/account_recovery/expired/go_home"(platform: "/", type: TrackType.Event) {}
 
-    "/auth/account_recovery/confirm/action"(platform: "/", type: TrackType.View) {
-        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
-        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
+    "/auth/account_recovery/confirm/accept"(platform: "/", type: TrackType.Event) {}
+
+    "/auth/account_recovery/confirm/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/auth/account_recovery/confirm/back"(platform: "/", type: TrackType.Event) {
+        back_type(type: PropertyType.String, required: true, values: ["back_button", "back_native"], description: "Action user triggers to go back to previous step")
     }
 
-    "/auth/account_recovery/congrats/action"(platform: "/", type: TrackType.Event) {
-        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
-        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-    }
+    "/auth/account_recovery/congrats/go_home"(platform: "/", type: TrackType.Event) {}
 
     //TOTP
     "/auth/totp"(platform: "/", isAbstract: true, initiative: 1374) {
@@ -670,6 +668,9 @@ tracks {
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time since challenge start was called")
         result(type: PropertyType.String, required: true, values: ["success", "error", "cancel"])
         error(type: PropertyType.String, required: false)
+        fallback_disabled(type: PropertyType.Boolean, required: true, description: "when a screenlock validation is made, fallback may be disabled")
+        screenlock_method_used(type: PropertyType.String, required: false, values: ["unknown","biometrics","basic_screenlock"], description: "when validation succeeds, the screenlock method used is sent")
+        biometrics_hash(type: PropertyType.String, required: false, description: "when validation succeeds and user used biometrics, this is an OS automatically generated biometrics hash.")
     }
 
     "/screenlock/challenge/finish"(platform: "/mobile", type: TrackType.Event) {
@@ -698,8 +699,8 @@ tracks {
         result(type: PropertyType.String, required: true, values: ["success", "error"], description: "validation result")
         errors(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "error description when validation fails")
         fallback_disabled(type: PropertyType.Boolean, required: true, description: "when a screenlock validation is made, fallback may be disabled")
-        screenlock_method_used(PropertyType.String, required: false, values: ["unknown","biometrics","basic_screenlock"], description: "when validation succeeds, the screenlock method used is sent")
-        biometrics_hash(PropertyType.String, required: false, description: "when validation succeeds and user used biometrics, this is an OS automatically generated biometrics hash.")
+        screenlock_method_used(type: PropertyType.String, required: false, values: ["unknown","biometrics","basic_screenlock"], description: "when validation succeeds, the screenlock method used is sent")
+        biometrics_hash(type: PropertyType.String, required: false, description: "when validation succeeds and user used biometrics, this is an OS automatically generated biometrics hash.")
     }
 
     "/screenlock/security_status"(platform: "/mobile/ios", isAbstract: true, initiative: 1375) {

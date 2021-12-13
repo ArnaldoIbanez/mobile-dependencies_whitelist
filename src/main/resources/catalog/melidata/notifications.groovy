@@ -25,7 +25,7 @@ tracks {
             type: PropertyType.String,
             values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Type of the notification")
-          deeplink(required: false, 
+          deeplink(required: false,
             type: PropertyType.String,
             description: "The link were the notification should navigate to, if applies")
 
@@ -34,9 +34,9 @@ tracks {
             type: PropertyType.String,
             values: ["notification_center","logout","overwrite","dismiss_notification"], description: "Source of the notification")
 
-          discard_reason(required: false, 
-          description: "The discarded reason of the notification", 
-          values: ["invalid_payload","invalid_user", "settings_disabled"], 
+          discard_reason(required: false,
+          description: "The discarded reason of the notification",
+          values: ["invalid_payload","invalid_user", "settings_disabled"],
           type: PropertyType.String)
 
           notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
@@ -567,6 +567,10 @@ tracks {
       }
 
       "/notification/shipping_not_delivered_retained_sender"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+      }
+
+      "/notification/shipping_not_delivered_returning_to_hub_xd_xddo"(platform: "/") {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
 
@@ -1792,7 +1796,10 @@ tracks {
     "/notification/card_transactions_cancelled_partial_authorization_mute"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_partial_authorization_nfc"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {}
-    "/notification/balance_inquiry"(platform: "/mobile") {}
+    "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {}
 
 
     // PREPAID, HYBRID, MPCARD
@@ -2110,7 +2117,7 @@ tracks {
         advertising_id(required: true, type: PropertyType.String)
     }
 
-    "/notification/uninstalls_checker"(platform: "/mobile") {
+    "/notification/uninstalls_checker"(platform: "/mobile", type: TrackType.App) {
         execution_id(required: true, type: PropertyType.String)
         advertising_id(required: true, type: PropertyType.String)
     }
@@ -2124,6 +2131,10 @@ tracks {
     "/notification/under_age_responsible_authorization_legacy_ml"(platform: "/") {}
     "/notification/under_age_minor_rejected_ml"(platform: "/") {}
     "/notification/under_age_minor_approved_ml"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_approved"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_rejected"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {}
 
     "/notification/institutional_generic"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
@@ -2170,6 +2181,9 @@ tracks {
     //Contactless card
     "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {}
 
+    //CVV Command
+    "/notification/cvv_command"(platform: "/") {}
+
     //Insurtech
     "/notification/insurtech_imei_activation"(platform: "/mobile") {}
     "/notification/insurtech_cancellation"(platform: "/mobile") {}
@@ -2181,6 +2195,7 @@ tracks {
     "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {}
     "/notification/insurtech_kyc_roda_pre_activacion"(platform: "/") {}
     "/notification/insurtech_pending_payment"(platform: "/") {}
+    "/notification/insurtech_post_service_poll"(platform: "/mobile") {}
 
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}
@@ -2215,7 +2230,7 @@ tracks {
 
     // Disbursement Kwai
     "/notification/disbursement_kwai_received"(platform: "/") {}
-    
+
     // Money In CCA
     "/notification_center/moneyin_cca_approved"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")

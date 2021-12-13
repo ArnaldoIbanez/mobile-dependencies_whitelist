@@ -2308,14 +2308,6 @@ trackTests {
             collector_id = "123456"
         }
 
-        // Generic Erros
-        "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-        }
-        "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-        }
-
         // Onboarding
         "/bill_payments/onboarding"(platform: "/mobile") {
             mandatory()
@@ -2718,6 +2710,11 @@ trackTests {
             entity = "Monterrey"
             item = "item 2"
         }
+        "/bill_payments/main_category/recent_payments"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
         "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
@@ -3018,11 +3015,15 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
-        "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/congrats/success/warning_pay_hour"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -4255,47 +4256,65 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/restrict"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/confirm"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/expired"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/confirm"(platform: "/", type: TrackType.View) {
             id = "id--fury"
-            event_type = "click"
-            target = "validate_identity_button"
         }
-        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {
             id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
         }
-        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/start"(platform: "/", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
         }
-        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "confirm_button"
+            dismiss_type = "decline_button"
         }
-        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "cancel_button"
+            dismiss_type = "decline_button"
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
+            dismiss_type = "back_button"
+        }
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            dismiss_type = "back_native"
+        }
+        "/auth/account_recovery/on_hold/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/expired/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/accept"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/cancel"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/back"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            back_type = "back_button"
+        }
+        "/auth/account_recovery/confirm/back"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            back_type = "back_native"
+        }
+        "/auth/account_recovery/congrats/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
         }
     }
 
@@ -5493,6 +5512,8 @@ trackTests {
             transaction_id = "123"
             elapsed_time = 3
             result = "success"
+            fallback_disabled = false
+            screenlock_method_used = "biometrics"
         }
 
         "/screenlock/challenge/end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5502,6 +5523,9 @@ trackTests {
             error = "error in screenlock"
             elapsed_time = 5
             result = "error"
+            fallback_disabled = false
+            screenlock_method_used = "biometrics"
+            biometrics_hash = "af21213819faed1923182dfc4217"
         }
 
         "/screenlock/challenge/finish"(platform: "/mobile/android", type: TrackType.Event) {

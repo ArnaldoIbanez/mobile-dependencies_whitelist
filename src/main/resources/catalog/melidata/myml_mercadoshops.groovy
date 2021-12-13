@@ -716,6 +716,13 @@ tracks {
         discount_type(required: true, type: PropertyType.String, description: "Promotion type", values: ['COUPON', 'BOLETO', 'TRADITIONAL'])
     }
 
+    "/mercado_shops/discounts/create/save"(platform: "/", type: TrackType.Event){
+        mshopsGroup
+        mshopsEventGroup
+        discount_type(required: true, type: PropertyType.String, description: "Promotion type", values: ['COUPON', 'BOLETO', 'TRADITIONAL'])
+        target(required: false, type: PropertyType.String, description: "Traditional promotion type", values: ['ALL_PRODUCTS', 'SELECTED_PRODUCTS', 'LISTED_PRODUCTS'])
+    }
+
     "/mercado_shops/discounts/select_promotion"(platform: "/", type: TrackType.View){
         mshopsGroup
     }
