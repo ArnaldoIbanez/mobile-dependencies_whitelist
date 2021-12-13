@@ -60,7 +60,7 @@ tracks {
     "/stores/move_pos"(platform: "/", type: TrackType.View) {}
 
     "/stores/walkthrough" (platform: "/", isAbstract: true) {}
-    "/stores/walkthrough/view" (platform: "/", type: TrackType.Event) {
+    "/stores/walkthrough/step" (platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Walkthrough id")    
         step_id(type: PropertyType.String, required: true, description: "Walkthrough's step id")
     }
