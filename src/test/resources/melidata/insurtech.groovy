@@ -3065,15 +3065,31 @@ trackTests {
         //Success
         "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View) {
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
         "/insurtech/cards/congrats_success/go_cards"(platform:"/", type: TrackType.Event){
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
         "/insurtech/cards/congrats_success/go_protections"(platform:"/", type: TrackType.Event){
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
         "/insurtech/cards/congrats_success/close"(platform:"/", type: TrackType.Event){
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
     }
 
@@ -3599,7 +3615,7 @@ trackTests {
     ["mercadolibre", "mercadopago"].each { business ->
 		defaultBusiness = business
         test("Insurtech - ${business} tests adquisition tacking without touchpointData") {
-            "/insurtech/adquisition/fallback"(platform:"/web", type: TrackType.View) {}
+            "/insurtech/adquisition/fallback"(platform:"/", type: TrackType.View) {}
         }
         test("Insurtech - ${business} tests adquisition tacking ") {
             "/insurtech/adquisition/fallback"(platform:"/", type: TrackType.View) {
