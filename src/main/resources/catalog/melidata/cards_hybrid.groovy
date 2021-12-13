@@ -3327,7 +3327,7 @@ tracks {
         status (
             required: true,
             type: PropertyType.String,
-            values: ["switched to on", "witched to off"],
+            values: ["switched to on", "switched to off"],
             description: "Only when this property changes from middle configuration should tracks this event"
         )
     }
