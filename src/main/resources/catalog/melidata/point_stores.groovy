@@ -41,17 +41,17 @@ tracks {
     "/stores/device/out_of_paper"(platform: "/", type: TrackType.Event) {}
     "/stores/device/associate"(platform: "/", isAbstract: true) {}
     "/stores/device/associate/start"(platform: "/", type: TrackType.Event) {
-        tab_context(required: true, type: PropertyType.String, description: "the tab where the associate action starts", values: ["/stores/details_pos", "/stores/details_devices"])
+        tab_context(required: true, type: PropertyType.String, description: "the tab where the associate action starts", values: ["/stores/details_pos", "/stores/details_devices", "/stores/details_devices?walkthrough"])
     }
     "/stores/device/associate/end"(platform: "/", type: TrackType.Event) {
-        tab_context(required: true, type: PropertyType.String, description: "the tab where the associate action ends", values: ["/stores/details_pos", "/stores/details_devices"])
+        tab_context(required: true, type: PropertyType.String, description: "the tab where the associate action ends", values: ["/stores/details_pos", "/stores/details_devices", "/stores/details_devices?walkthrough"])
     }
     "/stores/device/link"(platform: "/web", isAbstract: true) {}
     "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
-        tab_context(required: true, type: PropertyType.String, description: "the tab where the link action starts", values: ["/stores/details_pos", "/stores/details_devices", "/stores/details_devices?walkthrough"])
+        tab_context(required: true, type: PropertyType.String, description: "the tab where the link action starts", values: ["/stores/details_pos", "/stores/details_devices"])
     }
     "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
-        tab_context(required: true, type: PropertyType.String, description: "the tab where the link action ends", values: ["/stores/details_pos", "/stores/details_devices", "/stores/details_devices?walkthrough"])
+        tab_context(required: true, type: PropertyType.String, description: "the tab where the link action ends", values: ["/stores/details_pos", "/stores/details_devices"])
     }
     "/stores/pos"(platform: "/", type: TrackType.View, isAbstract:true) {}
     "/stores/pos/create"(platform: "/", type: TrackType.View) {}
