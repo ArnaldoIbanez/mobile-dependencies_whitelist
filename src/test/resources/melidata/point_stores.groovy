@@ -54,9 +54,23 @@ trackTests {
         "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
             tab_context = "/stores/details_pos"
         }
-            "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
+        "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
             tab_context = "/stores/details_devices"
         }
+        "/stores/device/associate/start"(platform: "/web", type: TrackType.Event) {
+            tab_context = "/stores/details_devices?walkthrough"
+        }
+        "/stores/device/associate/end"(platform: "/web", type: TrackType.Event) {
+            tab_context = "/stores/details_devices?walkthrough"
+        }
+        "/stores/walkthrough/view"(platform: "/web", type: TrackType.Event) {
+            id = "walkthroughIDTEST"
+            step_id = "step1"
+        }
+        "/stores/walkthrough/finish"(platform: "/web", type: TrackType.Event) {
+            id = "walkthroughIDTEST"
+        }
+
 
         "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/create_poses"(platform: "/web/mobile", type: TrackType.View) {}
@@ -96,6 +110,20 @@ trackTests {
         }
         "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
             tab_context = "/stores/details_devices"
+        }
+        
+        "/stores/device/associate/start"(platform: "/web/mobile", type: TrackType.Event) {
+            tab_context = "/stores/details_devices?walkthrough"
+        }
+        "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
+            tab_context = "/stores/details_devices?walkthrough"
+        }
+        "/stores/walkthrough/view"(platform: "/web/mobile", type: TrackType.Event) {
+            id = "walkthroughIDTEST"
+            step_id = "step1"
+        }
+        "/stores/walkthrough/finish"(platform: "/web/mobile", type: TrackType.Event) {
+            id = "walkthroughIDTEST"
         }
     }
 }

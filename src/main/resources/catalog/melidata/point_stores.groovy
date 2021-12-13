@@ -48,14 +48,23 @@ tracks {
     }
     "/stores/device/link"(platform: "/web", isAbstract: true) {}
     "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
-        tab_context(required: true, type: PropertyType.String, description: "the tab where the link action starts", values: ["/stores/details_pos", "/stores/details_devices"])
+        tab_context(required: true, type: PropertyType.String, description: "the tab where the link action starts", values: ["/stores/details_pos", "/stores/details_devices", "/stores/details_devices?walkthrough"])
     }
     "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
-        tab_context(required: true, type: PropertyType.String, description: "the tab where the link action ends", values: ["/stores/details_pos", "/stores/details_devices"])
+        tab_context(required: true, type: PropertyType.String, description: "the tab where the link action ends", values: ["/stores/details_pos", "/stores/details_devices", "/stores/details_devices?walkthrough"])
     }
     "/stores/pos"(platform: "/", type: TrackType.View, isAbstract:true) {}
     "/stores/pos/create"(platform: "/", type: TrackType.View) {}
     "/stores/pos/update"(platform: "/", type: TrackType.View) {}
     "/stores/standalone_pos"(platform: "/", type: TrackType.View) {}
     "/stores/move_pos"(platform: "/", type: TrackType.View) {}
+
+    "/stores/walkthrough" (platform: "/", isAbstract: true) {}
+    "/stores/walkthrough/view" (platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")    
+        step_id(type: PropertyType.String, required: true, description: "Walkthrough's step id")
+    }
+    "/stores/walkthrough/finish" (platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")
+    }
 }
