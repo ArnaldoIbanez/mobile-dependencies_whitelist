@@ -834,13 +834,13 @@ trackTests {
     }
 
     test("Wrap Up Sellers Credits click xsell") {
-        "/merchant_acquisition/flows/wrap_up/yearly/sellers_credits/xsell" (platform: "/", type: TrackType.Event) {
+        "/merchant_acquisition/flows/wrap_up/yearly/sellers_credits/x_sell" (platform: "/", type: TrackType.Event) {
             link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
         }
     }
 
     test("Wrap Up Consumers Credits click xsell") {
-        "/merchant_acquisition/flows/wrap_up/yearly/consumer_credits/xsell" (platform: "/", type: TrackType.Event) {
+        "/merchant_acquisition/flows/wrap_up/yearly/consumer_credits/x_sell" (platform: "/", type: TrackType.Event) {
             link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
         }
     }

@@ -125,7 +125,6 @@ tracks {
     }
 
     // wrap up anual
-	"/merchant_acquisition/flows/wrap_up"(platform: "/", isAbstract: true) {}
 	"/merchant_acquisition/flows/wrap_up/yearly"(platform:"/", type: TrackType.View) {}
 	"/merchant_acquisition/flows/wrap_up/yearly/x_sell"(platform:"/", isAbstract: true) {}
 	"/merchant_acquisition/flows/wrap_up/yearly/x_sell/see_more"(platform:"/", type: TrackType.Event) {
@@ -142,10 +141,10 @@ tracks {
 	"/merchant_acquisition/flows/wrap_up/yearly/loyalty/see_more"(platform:"/", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Link to execute")
     }
-    "/merchant_acquisition/flows/wrap_up/yearly/sellers_credits/xsell"(platform:"/", type: TrackType.Event) {
+    "/merchant_acquisition/flows/wrap_up/yearly/sellers_credits/x_sell"(platform:"/", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Link to redirect")
     }
-    "/merchant_acquisition/flows/wrap_up/yearly/consumer_credits/xsell"(platform:"/", type: TrackType.Event) {
+    "/merchant_acquisition/flows/wrap_up/yearly/consumer_credits/x_sell"(platform:"/", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Link to redirect")
     }
 
