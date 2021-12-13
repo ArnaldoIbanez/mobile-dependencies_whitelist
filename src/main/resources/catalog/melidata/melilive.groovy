@@ -188,29 +188,42 @@ tracks {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
     }
 
+    def chat_room_info_definition = objectSchemaDefinitions {
+        room_id(required: true, type: PropertyType.String, description: "Room ID")
+        slow_mode(required: false, type: PropertyType.Boolean, description: "Slow mode status")
+        slow_mode_time(required: false, type: PropertyType.Numeric, description: "Slow mode configurated time")
+    }
+
     // ************** VIEWER **************
 
     "/melilive/stream/chat"(platform: "/" , isAbstract:true ) {
         stream(required: true, type: PropertyType.Map(chat_stream_info_definition), description: "Broadcast object")
-        room_id(required: true, type: PropertyType.String, description: "Room ID where chat belongs")
+        chat(required: true, type: PropertyType.Map(chat_room_info_definition), description: "Chat object")
     }
 
     "/melilive/stream/chat/first_message"(platform: "/", type: TrackType.Event) { }
 
     "/melilive/stream/chat/message_error"(platform: "/", type: TrackType.Event) { }
 
-    "/melilive/stream/chat/chat_scroll"(platform: "/", type: TrackType.Event) { }
-
     // ************** CREATOR **************
 
     "/melilive/creator/chat"(platform: "/", isAbstract: true) {
         stream(required: true, type: PropertyType.Map(chat_stream_info_definition), description: "Broadcast object")
-        room_id(required: true, type: PropertyType.String, description: "Room ID where chat belongs")
+        chat(required: true, type: PropertyType.Map(chat_room_info_definition), description: "Chat object")
     }
 
-    "/melilive/creator/chat/moderation"(platform: "/", type: TrackType.Event) { }
+    "/melilive/creator/chat/first_message"(platform: "/", type: TrackType.Event) { 
+        role(required: true, type: PropertyType.String, description: "User role")
+    }
 
-    "/melilive/creator/chat/ban"(platform: "/", type: TrackType.Event) { }
+    "/melilive/creator/chat/message_error"(platform: "/", type: TrackType.Event) {
+        role(required: true, type: PropertyType.String, description: "User role")
+        error_code(required: true, type: PropertyType.String, description: "Message error cause")
+     }
+
+    "/melilive/creator/chat/ban"(platform: "/", type: TrackType.Event) {
+
+     }
 
 }
 
