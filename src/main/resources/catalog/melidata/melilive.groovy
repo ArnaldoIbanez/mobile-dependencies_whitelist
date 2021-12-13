@@ -201,9 +201,14 @@ tracks {
         chat(required: true, type: PropertyType.Map(chat_room_info_definition), description: "Chat object")
     }
 
-    "/melilive/stream/chat/first_message"(platform: "/", type: TrackType.Event) { }
+    "/melilive/stream/chat/first_message"(platform: "/", type: TrackType.Event) { 
+        role(required: true, type: PropertyType.String, description: "User role")
+    }
 
-    "/melilive/stream/chat/message_error"(platform: "/", type: TrackType.Event) { }
+    "/melilive/stream/chat/message_error"(platform: "/", type: TrackType.Event) { 
+        role(required: true, type: PropertyType.String, description: "User role")
+        error_code(required: true, type: PropertyType.String, description: "Message error cause")
+    }
 
     // ************** CREATOR **************
 
