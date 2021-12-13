@@ -276,7 +276,7 @@ trackTests {
             ]
         }
 
-        "/melilive/stream/chat/first_message"(platform: "/") {
+        "/melilive/creator/chat/first_message"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             ]
