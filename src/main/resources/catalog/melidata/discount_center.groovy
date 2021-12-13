@@ -223,6 +223,7 @@ tracks {
         vipGroup
         price(type: PropertyType.String, required: true, description: "The item price")
         price_with_discount(type: PropertyType.String, required: false, description: "The item price with the discount applied")
+        discount(type: PropertyType.String, required: false, description: "The item discount")
         context_info(type: PropertyType.Map(context_info_definition), required: true, description: "The context information")
         quantity(type: PropertyType.Numeric, required: true, description: "The item quantity default value")
         element_id(type: PropertyType.Numeric, required: false, description: "The identifier for a item with kit configuration")
