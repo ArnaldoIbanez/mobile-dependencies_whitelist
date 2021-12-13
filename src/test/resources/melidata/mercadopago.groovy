@@ -766,17 +766,9 @@ trackTests {
     "/merchant_acquisition/flows/resellers/register_device/bundle"(platform:"/", type: TrackType.View) {}
     }
 
-	// wrap up
-	test("Wrap Up") {
+	// wrap up mensual
+	test("Wrap Up mensual") {
         "/merchant_acquisition/flows/wrap_up/home"(platform: "/", type: TrackType.View) {}
-    }
-
-	test("Wrap Up") {
-        "/merchant_acquisition/flows/wrap_up/home/x_sell"(platform: "/", type: TrackType.View) {}
-    }
-
-    test("Wrap Up Closing section") {
-        "/merchant_acquisition/flows/wrap_up/home/closing"(platform: "/", type: TrackType.View) {}
     }
 
     test("Wrap Up X-Sell click see more") {
@@ -800,13 +792,55 @@ trackTests {
         }
     }
 
-    test("Wrap Up") {
-        "/merchant_acquisition/flows/wrap_up/home/sellers_central"(platform: "/", type: TrackType.View) {}
-    }
-
     test("Wrap Up Value prop section click see more") {
         "/merchant_acquisition/flows/wrap_up/home/value_prop" (platform: "/", type: TrackType.Event) {
             section = 'Opciones de financiamiento'
+        }
+    }
+
+    // wrap up anual
+	test("Wrap Up anual") {
+        "/merchant_acquisition/flows/wrap_up/yearly"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Wrap Up X-Sell click see more") {
+        "/merchant_acquisition/flows/wrap_up/yearly/x_sell/see_more" (platform: "/", type: TrackType.Event) {
+            product_sell_name = 'Créditos a tu medida'
+            link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
+        }
+    }
+
+    test("Wrap Up Closing click Like") {
+        "/merchant_acquisition/flows/wrap_up/yearly/closing/like" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up Closing click Dislike") {
+        "/merchant_acquisition/flows/wrap_up/yearly/closing/dislike" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up MGM click Recommend App") {
+        "/merchant_acquisition/flows/wrap_up/yearly/mgm/app" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up MGM click Recommend Point") {
+        "/merchant_acquisition/flows/wrap_up/yearly/mgm/point" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up Loyalty click see more") {
+        "/merchant_acquisition/flows/wrap_up/yearly/loyalty/see_more" (platform: "/", type: TrackType.Event) {
+            link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
+        }
+    }
+
+    test("Wrap Up Sellers Credits click xsell") {
+        "/merchant_acquisition/flows/wrap_up/yearly/sellers_credits/x_sell" (platform: "/", type: TrackType.Event) {
+            link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
+        }
+    }
+
+    test("Wrap Up Consumers Credits click xsell") {
+        "/merchant_acquisition/flows/wrap_up/yearly/consumer_credits/x_sell" (platform: "/", type: TrackType.Event) {
+            link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
         }
     }
 
