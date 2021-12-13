@@ -733,6 +733,16 @@ tracks {
           )
     }
 
+    // Contextual help
+    // ----
+    "/cards/hybrid/dashboard/contextual_help"(platform: "/", type: TrackType.event){
+        faq_id(
+            required: true,
+            type: PropertyType.Numeric,
+            decription: "Indicates the faq identifier that was tapped"
+        )
+    }
+
     // SETUP VIRTUAL
     // --------
 

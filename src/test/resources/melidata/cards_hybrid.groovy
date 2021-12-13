@@ -781,6 +781,13 @@ trackTests {
         }
     }
 
+    // Contextual help
+    test("Test contextual help in dashboard"){
+        "/cards/hybrid/dashboard/contextual_help"(platform:"/", type: TrackType.Event){
+            faq_id = 22464
+        }
+    }
+
     // SETUP VIRTUAL
     // --------
 
