@@ -143,7 +143,7 @@ tracks {
     }
 
     "/seller_central/listings/row_moderation"(platform: "/", type: TrackType.Event) {
-        sub_view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
+        sub_view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops", "only_marketplace"])
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(rowItemStructure)), description: "List of items with empty state action")
     }
 
