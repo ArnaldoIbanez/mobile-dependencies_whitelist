@@ -2117,7 +2117,7 @@ tracks {
         advertising_id(required: true, type: PropertyType.String)
     }
 
-    "/notification/uninstalls_checker"(platform: "/mobile") {
+    "/notification/uninstalls_checker"(platform: "/mobile", type: TrackType.App) {
         execution_id(required: true, type: PropertyType.String)
         advertising_id(required: true, type: PropertyType.String)
     }
@@ -2182,9 +2182,7 @@ tracks {
     "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {}
 
     //CVV Command
-    "/notification/cvv_command"(platform: "/") {
-        command(required: true, type: PropertyType.String, description: "Command")
-    }
+    "/notification/cvv_command"(platform: "/") {}
 
     //Insurtech
     "/notification/insurtech_imei_activation"(platform: "/mobile") {}

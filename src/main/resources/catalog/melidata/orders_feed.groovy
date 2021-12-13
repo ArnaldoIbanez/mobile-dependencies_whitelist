@@ -134,6 +134,7 @@ tracks {
         orders(required: true, description: "orders associated to the purchase", PropertyType.ArrayList(PropertyType.String))
         tags(name: "tags", serverSide: true, required: true, description: "purchase tags", type:PropertyType.ArrayList(PropertyType.String)) // -> Lo completa Melidata automaticamente
 
+        total_packs(serverSide: true, required: true, description: "total amount of packs", type:PropertyType.Numeric) // -> Lo completa Melidata automaticamente
         free_shipping_packs(serverSide: true, required: true, description: "amount of packs with free shipping", type:PropertyType.Numeric) // -> Lo completa Melidata automaticamente
         discount_packs(serverSide: true, required: true, description: "amount of packs whose shipping price is not zero but is less than base cost", type:PropertyType.Numeric) // -> Lo completa Melidata automaticamente
         all_free_shipping_packs(serverSide: true, required: true, description: "true if all packs have free shipping", type:PropertyType.Boolean) // -> Lo completa Melidata automaticamente

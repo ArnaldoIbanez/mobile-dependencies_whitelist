@@ -22,6 +22,8 @@ trackTests {
       item_id = "MLA803422062"
       inventory_id = "KDKQ55183"
       view_id = "fulfillment"
+      has_variations = true
+      id_row_selected = "LYRF52925"
     }
   }
 

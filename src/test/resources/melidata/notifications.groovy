@@ -3667,7 +3667,6 @@ trackTests {
         "/notification/cvv_command"(platform: "/") {
             news_id = "cvv_command-12345678"
             event_type = "sent"
-            command = "cvv_refresh"
         }
 
         "/notification/instore_discover_activities"(platform: "/mobile"){
@@ -11507,7 +11506,6 @@ trackTests {
         "/notification/cvv_command"(platform: "/") {
             news_id = "cvv_command-12345678"
             event_type = "sent"
-            command = "cvv_refresh"
         }
 
         "/notification/instore_discover_activities"(platform: "/mobile"){
@@ -15155,7 +15153,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/uninstalls_checker"(platform: "/mobile"){
+        "/notification/uninstalls_checker"(platform: "/mobile",type:TrackType.App){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
@@ -15522,7 +15520,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/uninstalls_checker"(platform: "/mobile"){
+        "/notification/uninstalls_checker"(platform: "/mobile",type:TrackType.App){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
@@ -16008,7 +16006,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/uninstalls_checker"(platform: "/mobile"){
+        "/notification/uninstalls_checker"(platform: "/mobile",type:TrackType.App){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
