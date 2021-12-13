@@ -2015,6 +2015,10 @@ trackTests {
             action = "fetch_data_http_error"
             information = "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error"
         }
+        "/cards/nfc/enrollment/fetch_card_data/error"(platform:"/", type: TrackType.Event) {
+            action = "fetch_data_http_error"
+            information = "invalid reauth token"
+        }
     }
 
     test("cards hybrid nfc enrollment worker fetch data attempts") {
@@ -4267,7 +4271,36 @@ trackTests {
         "/cards/nfc/enrollment/ondemand/error"(platform:"/", type: TrackType.Event) {
             error_message = "Empty nfc_command userId"
         }
+        "/cards/nfc/enrollment/ondemand/braked_by_reauth_validation"(platform: "/", type: TrackType.Event) {}
     }
+
+    // NFC REAUTH INTEGRATION
+
+    test("") {
+        "/cards/nfc/reauth_integration"(platform: "/", type: TrackType.Event) {}
+
+        "/cards/nfc/reauth_integration/ondemand_tokenization"(platform: "/", type: TrackType.Event) {
+            status = "switched to on"
+        }
+
+        "/cards/nfc/reauth_integration/ondemand_tokenization"(platform: "/", type: TrackType.Event) {
+            status = "switched to off"
+        }
+
+        "/cards/nfc/reauth_integration/pending"(platform: "/", type: TrackType.Event) {
+            status = "operation insecure"
+        }
+
+        "/cards/nfc/reauth_integration/pending"(platform: "/", type: TrackType.Event) {
+            status = "operation safe"
+        }
+
+        "/cards/nfc/reauth_integration/execute"(platform: "/", type: TrackType.Event) {}
+
+        "/cards/nfc/reauth_integration/successfully"(platform: "/", type: TrackType.Event) {}
+
+        "/cards/nfc/reauth_integration/error"(platform: "/", type: TrackType.Event) {}
+    } 
     
     // NFC_IDENTITY_CONFIRMATION_SCREEN AKA LUK_STOP
     test("/cards/nfc/identity_confirmation") {
