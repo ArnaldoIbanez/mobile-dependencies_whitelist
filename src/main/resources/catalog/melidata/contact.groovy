@@ -40,7 +40,7 @@ tracks {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
 
         //classified's fields
-        contract_available(required: false, type: PropertyType.Boolean, description: "Indicate if the item is contratable")
+        contract_available(required: false, type: PropertyType.Boolean)
         comparator_available(required: false, type: PropertyType.Boolean,
                  description: "Indicates if clasi item has model comparator available")
 
