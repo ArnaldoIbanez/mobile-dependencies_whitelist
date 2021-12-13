@@ -129,6 +129,7 @@ tracks {
     // TRACKS listings Item Modify detail
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     "/seller_central/listings/row/item_description"(platform: "/", type: TrackType.Event) {
+        item_id(required: false, type: PropertyType.String, description: "Item to modify")
         channelGroup
     }
 
