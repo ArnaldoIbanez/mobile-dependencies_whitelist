@@ -19,6 +19,12 @@ tracks {
       latitude(required: true, type: PropertyType.String)
       longitude(required: true, type: PropertyType.String)
     }
+    
+    def item_structure = objectSchemaDefinitions {
+      quantity(required: true, type: PropertyType.Numeric, description: "item quantity")
+      id(required: true, type: PropertyType.String, description: "item id")
+      variation_id(required: true, type: PropertyType.String, description: "variation id of the item")
+    }
 
     "/cart"(platform: "/", isAbstract: true) {}
 
@@ -152,10 +158,13 @@ tracks {
         error_code(required: false, type: PropertyType.String, description: "Code of the error that was shown to the user if known")
     }
 
+    //Address Hub Message for CPG FRESH
+    "/cart/checkout/address_hub/hide_no_coverage_address"(platform: "/", type: TrackType.Event) {}
+
     "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
     "/cart/checkout/shipping"(platform:"/", isAbstract: true) {}
 
-
+    "/cart/checkout/shipping/select_option"(platform: "/", type: TrackType.View) {}
     "/cart/checkout/payment/select_type"(platform: "/", type: TrackType.View) {}
 
     "/cart/checkout/payment/select_method"(platform: "/", type: TrackType.View) {
@@ -290,7 +299,8 @@ tracks {
     //Address Hub
     "/cart/checkout/shipping/delivery_instructions"(platform:"/", type: TrackType.View) {}
     "/cart/checkout/shipping/address_hub"(platform:"/", type: TrackType.View) {}
-
+    "/cart/checkout/shipping/address_hub/change_address"(platform:"/", type: TrackType.Event) {}
+    
     "/cart/checkout/loading"(platform: "/", type: TrackType.View) {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
@@ -614,6 +624,11 @@ tracks {
         flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
 
+    "/cart/checkout/shipping/input_address/map/edit"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
     "/cart/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
@@ -687,8 +702,6 @@ tracks {
     "/cart/checkout/shipping/select_method_geolocated/send_to_another_location"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
-
-    "/cart/checkout/shipping/select_option"(platform: "/mobile", type: TrackType.View) {}
 
     "/cart/checkout/shipping/select_method_ask_geolocation"(platform: "/mobile", type: TrackType.View) {
         selections(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Available options to select")
@@ -949,13 +962,13 @@ tracks {
     "/cart/checkout/shipping/input_new_address"(platform: "/web", type: TrackType.View) {}
 
     //Switch track
-    "/cart/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {
-        total_amount(required: false, description: "totalAmount")
-        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
-        buy_equal_pay(required: false, description: "BP flag")
+    "/cart/checkout/payment/select_type/account_money"(platform: "/", type: TrackType.Event, isAbstract: true, parentPropertiesInherited: false) {
+        checkout_flow(required: false, type: PropertyType.String, values: ["cart"], description: "The type of checkout flow. Cart only for these tracks for now")
+        recovery_flow(required: false, type: PropertyType.Boolean, description: "Is recovery CHO flow")
+        items(required:false, type:PropertyType.ArrayList(PropertyType.Map(item_structure)), description: "items on cart")
     }
-    "/cart/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
-    "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
+    "/cart/checkout/payment/select_type/account_money/use"(platform: "/", type: TrackType.Event) {}
+    "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/", type: TrackType.Event) {}
 
     "/cart/checkout/geolocation"(platform: "/web", type: TrackType.Event) {
         geolocation_error(required: true, description: "Why the geo failed")

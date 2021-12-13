@@ -6,19 +6,13 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1026"
+    initiative = "1053"
 
     def pageStructure = objectSchemaDefinitions {
       limit(required: true, type: PropertyType.Numeric, description: "max number of items per page")
       offset(required: true, type: PropertyType.Numeric, description: "item list offset")
       total(required: true, type: PropertyType.String, description: "total number of list items")
     }
-
-    // def algorithmsStructure = objectSchemaDefinitions {
-    //   scoring(required: true, type: PropertyType.String, description: "scoring algorithm")
-    //   selection(required: true, type: PropertyType.String, description: "selection algorithm")
-    //   sorting(required: true, type: PropertyType.String, description: "sorting algorithm")
-    // }
 
     def priceStructure = objectSchemaDefinitions {
       currency(required: true, type: PropertyType.String)
@@ -39,8 +33,10 @@ tracks {
     }
 
     def lightningDealConfigurationDefinition = objectSchemaDefinitions {
-        end_date(required: true, type: PropertyType.String)
-        initial_stock(required: true, type: PropertyType.Numeric)
+        end_date(required: false, type: PropertyType.String)
+        finish_date(required: false, type: PropertyType.String)
+        initial_stock(required: false, type: PropertyType.Numeric)
+        involved_stock(required: false, type: PropertyType.Numeric)
         start_date(required: true, type: PropertyType.String)
         remaining_stock(required: false, type: PropertyType.Numeric)
     }
@@ -56,55 +52,42 @@ tracks {
       price(required: true, type: PropertyType.Map(priceStructure), description: "Item's price")
       free_shipping(required: true, type: PropertyType.Boolean, description: "Item's free_shipping condition")
       fulfillment(required: true, type: PropertyType.Boolean)
-      score_prior(required: false, type: PropertyType.Numeric, 
-              description: "Item's score calculated by ML model")
-      position_prior(required: false, type: PropertyType.Numeric, 
-              description: "Item's position calculated by prior_score")
-      position_posterior(required: false, type: PropertyType.Numeric, 
-              description: "Item's position calculated by posterior_score")
-      benefit(required: true, type: PropertyType.Numeric)
-      boosted(required: false, type: PropertyType.Boolean, 
-              description: "Indicates whether the item was manually positioned")
-      model_version(required: false, type: PropertyType.String)
-      position(required: false, type: PropertyType.Numeric)
-      created_date(required: false, type: PropertyType.String)
-      one_p(required: false, type: PropertyType.Numeric, 
-              description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")
-      private_label(required: false, type: PropertyType.Numeric,
-              description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")    
+
       promotion_type(required: true, type: PropertyType.String,
-              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "LIGHTNING_DEAL", "BUY_BOX_WINNER", "others"], description: "Type of promotion")
-      prime_discount(required: false, type: PropertyType.Boolean, 
-              description: "Indicates whether the item has discounts by mercado puntos")
-      score(required: true, type: PropertyType.Numeric, 
-              description: "Item's score calculated by promotions backend based on several variables")
-      posterior_score(required: false, type: PropertyType.Numeric, 
-              description: "Item's score calculated with prior_score and learning data")
-      listing_type_id(required: false, type: PropertyType.String)
-      logistic_type(required: false, type: PropertyType.String)
-      sold_quantity(required: false, type: PropertyType.Numeric)
+              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "deal_of_the_day", "LIGHTNING_DEAL", "lightning", "BUY_BOX_WINNER", "others"], description: "Type of promotion")
       available_quantity(required: false, type: PropertyType.Numeric)
       tags(required: false, type: PropertyType.ArrayList(PropertyType.String))
-      deal_ids(required: true, type: PropertyType.ArrayList(PropertyType.String))
-      warranty(required: false, type: PropertyType.String)
-      accepts_mercadopago(required: false, type: PropertyType.Boolean)
-      health(required: false, type: PropertyType.Numeric, 
-              description: "Variable used to calculate item score in promotions backend")
-      
-      credibility(required: false, type: PropertyType.Numeric, 
-              description: "Variable used to calculate item score in promotions backend")
-      interest(required: false, type: PropertyType.Numeric)
-      item_clicks(required: false, type: PropertyType.Numeric)
-      conversion_rate(required: false, type: PropertyType.Numeric)
-      expected_clicks(required: false, type: PropertyType.Numeric)
-      rebate(required: false, type: PropertyType.Numeric, 
-              description: "Attribute that the publication has or has not")
+
       deal_print_id(required: false, type: PropertyType.String, description: "Unique id per render")
       installments(required: false, type: PropertyType.Map(installmentsDefinition), description: "Installments info for the item")
       lightning_deal_configuration(required: false, type: PropertyType.Map(lightningDealConfigurationDefinition), description: "Configuration for the item if is lighting deal")
       deal_of_the_day_configuration(required: false, type: PropertyType.Map(dealOfTheDayConfigurationDefinition), description: "Configuration for the item if is deal of the day")
-      dispatching_normally(required: false, type: PropertyType.Boolean, description: "Indicate whether the item support dispatching normally")
       pos(required: false, type: PropertyType.Numeric, description: "Position of the item in the response")
+      cbt(required: false, type: PropertyType.Boolean, description: "Cross border trade true/false")
+
+        model_version(required: false, type: PropertyType.String, description: "Model used to order the items")
+        position_prior(required: false, type: PropertyType.Numeric, 
+                description: "Item's position calculated by prior_score")
+        position_posterior(required: false, type: PropertyType.Numeric, 
+              description: "Item's position calculated by posterior_score")
+        private_label(required: false, type: PropertyType.Numeric,
+              description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")    
+        dispatching_normally(required: false, type: PropertyType.Boolean, description: "Indicate whether the item support dispatching normally")
+        benefit(required: false, type: PropertyType.Numeric)
+        score(required: false, type: PropertyType.Numeric, 
+              description: "Item's score calculated by promotions backend based on several variables")
+        one_p(required: false, type: PropertyType.Numeric, 
+              description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")
+        position(required: false, type: PropertyType.Numeric)
+        boosted(required: false, type: PropertyType.Boolean, 
+              description: "Indicates whether the item was manually positioned")
+        created_date(required: false, type: PropertyType.String)
+        score_prior(required: false, type: PropertyType.Numeric, 
+              description: "Item's score calculated by ML model")
+        prime_discount(required: false, type: PropertyType.Boolean, 
+              description: "Indicates whether the item has discounts by mercado puntos")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String))
+        international_delivery_mode(required: false, type: PropertyType.String, description: "International delivery mode")
     }
 
     def shortcutsStructure = objectSchemaDefinitions {
@@ -140,8 +123,6 @@ tracks {
         deal_print_id(required: true, type: PropertyType.String, description: "Unique id per render")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(itemStructure)), 
                     description: "List of page's items")
-        // algorithms(required: true, type: PropertyType.Map(algorithmsStructure), 
-        //             description: "Indicates the implemented scoring, order and selection algorithms")
         page(required: true, type: PropertyType.Map(pageStructure), 
                     description: "Indicates pagination information like limit, offset and total")
         origin(required: false, type: PropertyType.String, description: "The page section where the user interact")

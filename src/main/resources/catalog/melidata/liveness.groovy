@@ -5,7 +5,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
-    initiative = '1127'
+    initiative = '1353'
 
     "/liveness"(platform: "/mobile", isAbstract: true) {
         transaction_id(type: PropertyType.String, required: false, description: "Transaction id for user identifier")
@@ -71,13 +71,23 @@ tracks {
                 "close",
                 "back",
                 "start_liveness",
-                "redirect"
+                "redirect",
+                "activate_camera"
         ], description: "Type of actions")
+        start_on_ready(type: PropertyType.Boolean, required: false, description: "Start action on ready")
     }
+
+    "/liveness/permissions/ask"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/liveness/permissions/denied"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/liveness/permissions/accepted"(platform: "/mobile", type: TrackType.Event) {}
 
     "/liveness/landing"(platform: "/", type: TrackType.View) {}
 
     "/liveness/fallback"(platform: "/", type: TrackType.View) {}
+
+    "/liveness/permission"(platform: "/", type: TrackType.View) {}
 
     "/liveness/unsupported"(platform: "/", type: TrackType.View) {}
 }

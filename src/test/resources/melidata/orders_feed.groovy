@@ -18,6 +18,9 @@ trackTests {
             subscription = true
             auto_purchase = true
 
+            is_cbt = false
+            is_cpg = false
+
             seller = [[ id: 135201044, nickname: "XXXXXX" ]]
             buyer = [ id: 75961818, nickname: "YYYYYY" ]
 
@@ -167,6 +170,14 @@ trackTests {
                             unit_price:8.39
                     ]
             ]
+            tags = ["tag"]
+
+            total_packs = 2
+            free_shipping_packs = 2
+            discount_packs = 1
+            all_free_shipping_packs = false
+            partial_free_shipping_packs = true
+            is_free_shipping_purchase = true
         }
 
         "/purchases/purchasecreated" (platform:"/mobile/ios", type: TrackType.View) {defaultPurchaseinformation()}

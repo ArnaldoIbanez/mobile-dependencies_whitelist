@@ -30,6 +30,8 @@ tracks {
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
     "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
+    "/credits/car_loan"(platform: "/", isAbstract: true) {}
+
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -200,6 +202,11 @@ tracks {
                         "not visible"
                 ]
         )
+        source_key(
+                required: false,
+                description: "Identifies the origin of the user",
+                type: PropertyType.String,
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -214,6 +221,42 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_modal"(platform: "/", type: TrackType.View) {}
 
     //Events
+    "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: true,
+                description: "Defines if the user accesses the FAQ of the button Know more",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+    }
+    "/credits/consumer/administrator_v2/go_where_can_use"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: true,
+                description: "Defines if the user accesses the FAQ of the button Know more",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+        list_status(
+                required: true,
+                description: "Defines if the user can increase his limit",
+                type: PropertyType.String,
+                values: [
+                        "black_list",
+                        "white_list"
+                ]
+        )
+    }
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
         status(
                 required: true,
@@ -245,6 +288,7 @@ tracks {
     "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/debt_relief"(platform: "/", isAbstract: true) {}
     "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/debt_relief/info"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
 
     //Mobile Events
@@ -292,7 +336,9 @@ tracks {
     "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
-
+    "/credits/consumer/administrator_v2/dashboard/personal_loan_download"(platform: "/web/desktop", type: TrackType.Event) {
+         dashboard_status = 'on_time'
+    }
 
     /******************************************
      *       End: Consumers Administrator
@@ -684,78 +730,6 @@ tracks {
      ******************************************/
 
     /******************************************
-     *   Start: Personal Loans Adoption
-     ******************************************/
-    "/credits/consumer/personal"(platform: "/mobile", type: TrackType.View) {}
-
-    "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: true)
-        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
-        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
-        page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
-        sk(description: "Source key", type: PropertyType.String, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
-        page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
-        sk(description: "Source key", type: PropertyType.String, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {}
-
-    "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        status(
-            description: "Status of the user prepaid",
-            type: PropertyType.String,
-            required: true,
-            values: [
-                "no_prepaid",
-                "prepaid_enabled",
-                "prepaid_disabled",
-                "physical_card",
-                "virtual_card"
-            ]
-        )
-    }
-
-    "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
-    }
-
-    "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
-
-
-    /******************************************
-     *   End: Personal Loans Adoption
-     ******************************************/
-
-    /******************************************
      *    Start: Consumers Experiments
      ******************************************/
 
@@ -1011,4 +985,27 @@ tracks {
      /******************************************
      *    End: Self service
      ******************************************/
+
+    /******************************************
+    *    Start: Car Loan
+    ******************************************/
+    //Views
+    "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
+        push_variant(
+            required: true,
+            description: "Identifier for the flow of the push A, B or C",
+            type: PropertyType.String
+        )
+    }
+    //Events
+    "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
+        push_variant(
+            required: true,
+            description: "Identifier for the flow of the push A, B or C",
+            type: PropertyType.String
+        )
+    }
+    /******************************************
+    *    End: Car Loan
+    ******************************************/
 }

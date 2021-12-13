@@ -178,6 +178,14 @@ trackTests {
             vehicle_id = "123456"
         }
 
+        "/crowd/feedback/modal"(platform: "/mobile", type: TrackType.View) {
+
+        }
+
+        "/crowd/feedback/modal/tap"(platform: "/mobile", type: TrackType.Event) {
+
+        }
+
         //Tracks lib flux
         "/flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
             user_id = "1234"
@@ -300,7 +308,11 @@ trackTests {
             defaultLocation()
         }
 
-        "/crowd/registration/city/selected"(platform: "/mobile", type: TrackType.Event) {
+        "/crowd/registration/onboarding"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/geo/suggestion"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             city = "La plata"
         }
@@ -350,7 +362,96 @@ trackTests {
             defaultLocation()
         }
 
+        "/crowd/registration/city/paused"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
         "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/background_check"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/boaas/landing"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/boaas/landing/deeplink"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
+    }
+
+    test("MercadoEnvios - Crowd App - Testing preferences tracks") {
+
+        def defaultLocation =
+                {
+                    latitude = "-36.34443"
+                    longitude = "-35.34332"
+                }
+
+        "/crowd/preferences/amount_work_hours"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/amount_work_hours/selected"(platform: "/mobile", type: TrackType.Event) {
+            amount_work_hours = "2_4"
+            flow = "registration"
+            defaultLocation
+        }
+
+        "/crowd/preferences/service_center"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation
+        }
+
+        "/crowd/preferences/service_center/selected"(platform: "/mobile", type: TrackType.Event) {
+            service_center = "SMX1, SMX2"
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/week_days"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/week_days/selected"(platform: "/mobile", type: TrackType.Event) {
+            week_days = "Lunes, Martes, Miércoles"
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/work_shift"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/work_shift/selected"(platform: "/mobile", type: TrackType.Event) {
+            work_shift = "MORNING"
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/start"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/success"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/hub"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
             defaultLocation()
         }
     }

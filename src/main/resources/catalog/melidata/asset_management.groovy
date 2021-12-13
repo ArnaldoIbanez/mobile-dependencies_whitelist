@@ -34,6 +34,7 @@ tracks {
     // Blocking screen
     "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}
     "/asset_management/blocker"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/operator_blocker"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/legal_entity_selector"(platform: "/mobile", type: TrackType.View) {}
 
     // Challenges
@@ -72,6 +73,8 @@ tracks {
     "/asset_management/congrats_error"(platform: "/web", type: TrackType.View) {}
 
     // Terms & Conditions Views
+    "/asset_management/terms_and_conditions_operator"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/terms_and_conditions_operator"(platform: "/web", type: TrackType.View) {}
     "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/terms_and_conditions"(platform: "/web", type: TrackType.View) {}
     "/asset_management/accept_tyc"(platform: "/mobile", type: TrackType.View) {}
@@ -243,9 +246,29 @@ tracks {
     // status-blocker
     "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {}
     "/asset_management/status_blocker/go_to_home"(platform: "/", type: TrackType.Event) {}
-    "/asset_management/status_blocker/send_form"(platform: "/", type: TrackType.Event) {}
-    "/asset_management/status_blocker/need_help"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/status_blocker/know_requirements"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/status_blocker/contact_bind"(platform: "/", type: TrackType.Event) {}
     "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {
-        status_id (required: false, type: PropertyType.String, description: "Status id", values: ["pending", "failed", "rejected"])
+        status_id (required: false, type: PropertyType.String, description: "Status id", values: ["pending", "failed", "rejected", "banned"])
     }
+
+    // blockerV2
+    "/asset_management/blocker_v2/go_to_home"(platform: "/", type: TrackType.Event) { } 
+    "/asset_management/blocker_v2/complete_data"(platform: "/", type: TrackType.Event) { }
+    "/asset_management/blocker_v2/how_to_complete_data"(platform: "/", type: TrackType.Event) { }
+    "/asset_management/blocker_v2/know_documentation"(platform: "/", type: TrackType.Event) { }
+    "/asset_management/blocker_v2/know_requirements"(platform: "/", type: TrackType.Event) { }
+    "/asset_management/blocker_v2/contact_bind"(platform: "/", type: TrackType.Event) { }
+    "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
+        blocker_type (required: true, type: PropertyType.String, description: "Blocker Type", values: ["bind", "bannedPJ", "pending", "titularityChange", "kyc", "noEligible", "failed", "rejected", "bannedPF", "underagePending"], inheritable: false)
+    }
+
+    // Underage Onboarding
+    "/asset_management/underage_onboarding"(platform: "/", type: TrackType.View) {}
+    "/asset_management/underage_onboarding/send_approval_request"(platform: "/", type: TrackType.Event) {}
+
+    // TYC Tutor
+    "/asset_management/terms_and_conditions_tutor"(platform: "/", type: TrackType.View) {}
+    "/asset_management/terms_and_conditions_tutor/accepted_tyc_tutor"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/terms_and_conditions_tutor/rejected_tyc_tutor"(platform: "/", type: TrackType.Event) {}
 }

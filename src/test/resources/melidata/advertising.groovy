@@ -86,6 +86,18 @@ trackTests {
             matching = false
             new_advertiser = false
             has_items = false
+            has_shops = true
+        }
+
+        "/advertising/pads2/landing"(platform: "/", type: TrackType.View) {
+            free_trial_ad = true
+            budget = 500
+            experiment = true
+            official_stores = false
+            matching = false
+            new_advertiser = false
+            has_items = false
+            has_shops = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -108,6 +120,7 @@ trackTests {
             matching = false
             new_advertiser = false
             has_items = false
+            has_shops = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -119,6 +132,7 @@ trackTests {
             matching = true
             new_advertiser = true
             has_items = true
+            has_shops = true
         }
 
         "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event) {
@@ -133,6 +147,7 @@ trackTests {
             matching = true
             new_advertiser = true
             has_items = true
+            has_shops = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
@@ -144,6 +159,18 @@ trackTests {
             matching = true
             new_advertiser = true
             has_items = true
+            has_shops = true
+            has_shops_integration = true
+        }
+
+        "/advertising/pads2/landing/contract_confirmation/confirm/sll"(platform: "/", type: TrackType.Event) {
+            site_id = "MLA"
+            cust_id = 2222222
+            quantity_sll = 10
+            quantity_no_sll = 5
+            quantity_indexed_items = 10
+            mode = "automatic"
+            model = 'cvr'
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
@@ -247,6 +274,54 @@ trackTests {
         "/advertising/privacy/switch/activated"(platform: "/", type: TrackType.Event) {
             switch_status = "activated"
         }
+
+        "/advertising/privacy/target"(platform: "/", type: TrackType.View) {
+        }
+
+        "/advertising/privacy/target/switch"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/switch/activated"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
+            switch_status = "active"
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
+            switch_status = "active"
+        }
+
+        "/advertising/privacy/business_partners"(platform: "/", type: TrackType.View) {
+        }
+
+        "/advertising/privacy/business_partners/switch"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/switch/activated"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
+            switch_status = "inactive"
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
+            switch_status = "inactive"
+        }
+
+
     }
 
     test("Advertising upselling") {
@@ -489,7 +564,7 @@ trackTests {
             budget = "22.22"
             share_value = "20"
         }
-        "/advertising/pads2/manager/lift/tooltip/clics"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/lift/tooltip/clicks"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "active"
             budget = "22.22"
@@ -860,6 +935,8 @@ trackTests {
                     budget: "333",
                     status: "active"
             ]
+            has_shops = false
+            has_shops_integration = true
         }
 
         "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event) {
@@ -1243,6 +1320,8 @@ trackTests {
             campaign_id = "2222222"
             budget = "4000"
             status = "active"
+            has_shops = true
+            has_shops_integration = true
         }
 
         "/advertising/pads2/manager/filters"(platform: "/", type: TrackType.Event) {
@@ -2085,14 +2164,19 @@ trackTests {
             mode = "automatic"
         }
 
-        "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event) {
-            campaign_id = 123
-            status = "active"
+        "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
             mode = "automatic"
         }
 
-        "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
             mode = "custom"
+            has_shops = true
+            has_shops_integration = true
+        }
+        "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+            has_shops = false
+            has_shops_integration = false
         }
 
         "/advertising/pads2/configuration/mode"(platform: "/", type: TrackType.View) {
@@ -2330,7 +2414,7 @@ trackTests {
     test("Advertising Reports"){
         "/advertising/pads2/reports"(platform: "/", type: TrackType.View) {
             mode = "custom"
-            type = "ads"
+            type = "pads_report"
             days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
@@ -2350,10 +2434,12 @@ trackTests {
             days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/group"(platform: "/", type: TrackType.Event) {
             group_by = "monthly"
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/filters"(platform: "/", type: TrackType.Event) {
@@ -2366,11 +2452,12 @@ trackTests {
                     sll: "true",
                     date_created: "2020-07-01"
             ]
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/create"(platform: "/", type: TrackType.Event) {
             mode = "custom"
-            type = "ads"
+            type = "pads_report"
             days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
@@ -2389,9 +2476,11 @@ trackTests {
 
         "/advertising/pads2/reports/rows_warning"(platform: "/", type: TrackType.Event) {
             rows = 9999
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/confirmation"(platform: "/", type: TrackType.Event) {
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/empty_state"(platform: "/", type: TrackType.Event) {
@@ -2399,6 +2488,7 @@ trackTests {
 
         "/advertising/pads2/reports/download"(platform: "/", type: TrackType.Event) {
             status = "success"
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/delete_text_filter"(platform: "/", type: TrackType.Event) {
@@ -2427,7 +2517,6 @@ trackTests {
             days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
-
         }
     }
 
@@ -2449,6 +2538,308 @@ trackTests {
             types = ["SEMAPHORES", "IN_PAY_CHECK"]
             cpg_campaign_id = 1234
         }
+    }
+
+    test("Shops") {
+
+        "/advertising/pads2/configuration/shops"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+        }
+        "/advertising/pads2/configuration/shops"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+        }
+        "/advertising/pads2/configuration/shops/integration_status"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            previous_status = true
+        }
+        "/advertising/pads2/configuration/shops/integration_status"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            previous_status = false
+        }
+        "/advertising/pads2/configuration/shops/integration_status"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+            previous_status = false
+        }
+        "/advertising/pads2/configuration/shops/integration_status"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+            previous_status = true
+        }
+        "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+            has_shops = true
+            has_shops_integration = true
+        }
+        "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+            has_shops = false
+            has_shops_integration = false
+        }
+        "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            has_shops = false
+            has_shops_integration = false
+        }
+        "/advertising/pads2/configuration/shops/create"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+        }
+        "/advertising/pads2/configuration/shops/create"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+        }
+
+
+        "/advertising/pads2/card/shops"(platform: "/", type: TrackType.View) {
+            mode = "automatic"
+        }
+        "/advertising/pads2/card/shops"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+        }
+        "/advertising/pads2/card/shops"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+        }
+        "/advertising/pads2/card/shops/show"(platform: "/", type: TrackType.View) {
+            mode = "automatic"
+        }
+        "/advertising/pads2/card/shops/show"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+        }
+        "/advertising/pads2/card/shops/go"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+        }
+        "/advertising/pads2/card/shops/go"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+        }
+
+
+        "/advertising/pads2/tooltip/shops"(platform: "/", type: TrackType.View) {
+            mode = "automatic"
+        }
+        "/advertising/pads2/tooltip/shops"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+        }
+        "/advertising/pads2/tooltip/shops/show"(platform: "/", type: TrackType.View) {
+            mode = "automatic"
+        }
+        "/advertising/pads2/tooltip/shops/show"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+        }
+        "/advertising/pads2/tooltip/shops/go"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+        }
+        "/advertising/pads2/tooltip/shops/go"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+        }
+
+        "/advertising/pads2/landing/contract_confirmation/shops/update_integration_status"(platform: "/", type: TrackType.Event) {
+            previous_status = false
+        }
+        "/advertising/pads2/landing/contract_confirmation/shops/update_integration_status"(platform: "/", type: TrackType.Event) {
+            previous_status = true
+        }
+    }
+
+    test("Benefits") {
+
+        "/advertising/pads2/manager/matching/pause_modal/open"(platform: "/", type: TrackType.Event) {
+            matching_start_date = "2020-08-09T11:22:33Z"
+            days_since_matching_start = 10
+            matching_target_amount = 7000
+            amount_invested = 2000
+            adv_management_mode = "custom"
+        }
+
+        "/advertising/pads2/manager/matching/pause_modal/close"(platform: "/", type: TrackType.Event) {
+            matching_start_date = "2020-08-09T11:22:33Z"
+            days_since_matching_start = 10
+            matching_target_amount = 7000
+            amount_invested = 2000
+            adv_management_mode = "custom"
+        }
+
+        "/advertising/pads2/manager/matching/pause_modal/continue"(platform: "/", type: TrackType.Event) {
+            matching_start_date = "2020-08-09T11:22:33Z"
+            days_since_matching_start = 10
+            matching_target_amount = 7000
+            amount_invested = 2000
+            adv_management_mode = "custom"
+        }
+
+        "/advertising/pads2/manager/matching/pause_modal/pause"(platform: "/", type: TrackType.Event) {
+            matching_start_date = "2020-08-09T11:22:33Z"
+            days_since_matching_start = 10
+            matching_target_amount = 7000
+            amount_invested = 2000
+            adv_management_mode = "custom"
+        }
+
+        "/advertising/pads2/hub/matching/pause_modal/open"(platform: "/", type: TrackType.Event) {
+            matching_start_date = "2020-08-09T11:22:33Z"
+            days_since_matching_start = 10
+            matching_target_amount = 7000
+            amount_invested = 2000
+            adv_management_mode = "custom"
+        }
+
+        "/advertising/pads2/hub/matching/pause_modal/close"(platform: "/", type: TrackType.Event) {
+            matching_start_date = "2020-08-09T11:22:33Z"
+            days_since_matching_start = 10
+            matching_target_amount = 7000
+            amount_invested = 2000
+            adv_management_mode = "custom"
+        }
+
+        "/advertising/pads2/hub/matching/pause_modal/continue"(platform: "/", type: TrackType.Event) {
+            matching_start_date = "2020-08-09T11:22:33Z"
+            days_since_matching_start = 10
+            matching_target_amount = 7000
+            amount_invested = 2000
+            adv_management_mode = "custom"
+        }
+
+        "/advertising/pads2/hub/matching/pause_modal/pause"(platform: "/", type: TrackType.Event) {
+            matching_start_date = "2020-08-09T11:22:33Z"
+            days_since_matching_start = 10
+            matching_target_amount = 7000
+            amount_invested = 2000
+            adv_management_mode = "custom"
+        }
+
+        "/advertising/pads2/hub/bb_campaign/modal/open"(platform: "/", type: TrackType.View) {
+            acos = 10
+            bb_quantity = 1.200
+            budget = 12500
+            credit = 12500
+        }
+
+        "/advertising/pads2/hub/bb_campaign/modal/continue"(platform: "/", type: TrackType.Event) {
+            acos = 10
+            bb_quantity = 1200
+            budget = 12500
+            credit = 12500
+        }
+
+        "/advertising/pads2/hub/bb_campaign/modal/close"(platform: "/", type: TrackType.Event) {
+            acos = 10
+            bb_quantity = 1200
+            budget = 12500
+            credit = 12500
+        }
+
+        "/advertising/pads2/hub/bb_campaign/modal/bb_quantity_tooltip"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/bb_campaign/modal/budget_tooltip"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/card/bb_campaign"(platform: "/", type: TrackType.View) {
+            credit = 12500
+        }
+
+        "/advertising/pads2/hub/card/bb_campaign/go"(platform: "/", type: TrackType.Event) {
+            credit = 12500
+        }
+
+        "/advertising/pads2/hub/bb_campaign/congrats"(platform: "/", type: TrackType.View) {
+            acos = 10
+            bb_quantity = 1200
+            budget = 12500
+            credit = 12500
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/hub/bb_campaign/view_ads"(platform: "/", type: TrackType.Event) {
+            bb_quantity = 1200
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/hub/bb_campaign/view_campaign"(platform: "/", type: TrackType.Event) {
+            bb_quantity = 1200
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/hub/paused_modal/bb_campaign"(platform: "/", type: TrackType.View) {
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/hub/paused_modal/bb_campaign/reverse"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/hub/paused_modal/bb_campaign/confirm"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/manager/paused_modal/bb_campaign"(platform: "/", type: TrackType.View) {
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/manager/paused_modal/bb_campaign/reverse"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/manager/paused_modal/bb_campaign/confirm"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/manager/comp_metrics"(platform: "/", type: TrackType.View) {
+            campaign_name = "nombre test"
+            campaign_id = 22329822
+            status = "active"
+            budget = 7000
+            trtarget = 2000
+            strategy = "profitability"
+            impression_share = 30
+            lost_impression_share_by_budget = 30
+            lost_impression_share_by_ad_rank = 40
+        }
+
+        "/advertising/pads2/manager/comp_metrics/is_helper"(platform: "/", type: TrackType.Event) {
+            campaign_name = "nombre test"
+            campaign_id = 22329822
+            status = "active"
+            budget = 7000
+            trtarget = 2000
+            strategy = "profitability"
+            impression_share = 30
+            lost_impression_share_by_budget = 30
+            lost_impression_share_by_ad_rank = 40
+        }
+
+        "/advertising/pads2/manager/comp_metrics/lisb_helper"(platform: "/", type: TrackType.Event) {
+            campaign_name = "nombre test"
+            campaign_id = 22329822
+            status = "active"
+            budget = 7000
+            trtarget = 2000
+            strategy = "profitability"
+            impression_share = 30
+            lost_impression_share_by_budget = 30
+            lost_impression_share_by_ad_rank = 40
+        }
+
+        "/advertising/pads2/manager/comp_metrics/lisar_helper"(platform: "/", type: TrackType.Event) {
+            campaign_name = "nombre test"
+            campaign_id = 22329822
+            status = "active"
+            budget = 7000
+            trtarget = 2000
+            strategy = "profitability"
+            impression_share = 30
+            lost_impression_share_by_budget = 30
+            lost_impression_share_by_ad_rank = 40
+        }
+
+        "/advertising/pads2/manager/comp_metrics/more_info"(platform: "/", type: TrackType.Event) {
+            campaign_name = "nombre test"
+            campaign_id = 22329822
+            status = "active"
+            budget = 7000
+            trtarget = 2000
+            strategy = "profitability"
+            impression_share = 30
+            lost_impression_share_by_budget = 30
+            lost_impression_share_by_ad_rank = 40
+        }
+
     }
 
 }

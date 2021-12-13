@@ -197,6 +197,7 @@ tracks {
         mandatory
         step_information
         view_time
+        item_structure
     }
 
 
@@ -230,6 +231,11 @@ tracks {
         view_time
     }
     "/single_player/prepaid/recommended_products/understood_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        view_time
+    }
+    "/single_player/prepaid/recommended_products/info_balance"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         step_information
         view_time
@@ -415,6 +421,9 @@ tracks {
     "/single_player/prepaid/break_pre_one_tap/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+    "/single_player/prepaid/break_pre_one_tap/checkout"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
 
     // One Tap
@@ -430,36 +439,81 @@ tracks {
         payment_id(required: true, PropertyType.String, description: "ID of the payment")
     }
 
-    "/single_player/prepaid/congrats_success/copy_to_clipboard"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/congrats_success/copy_to_clipboard"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
+    "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
+    "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
+    "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
+    "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
+    "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
         application_name(required: true, PropertyType.String, description: "Name of the external application that was opened")
     }
-    "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats_success/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats_success/redirect_to_action"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
+    "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
+    "/single_player/prepaid/congrats_success/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
+    "/single_player/prepaid/congrats_success/redirect_to_action"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
 
 
     // Congrats rejected
-    "/single_player/prepaid/congrats_rejected"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/congrats_rejected"(platform: "/mobile", type: TrackType.View) {
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
 
     "/single_player/prepaid/congrats_rejected/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Congrats pending
-    "/single_player/prepaid/congrats_pending"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/congrats_pending"(platform: "/mobile", type: TrackType.View) {
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
 
     "/single_player/prepaid/congrats_pending/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_pending/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Congrats alias
-    "/single_player/prepaid/congrats_alias"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/congrats_alias"(platform: "/mobile", type: TrackType.View) {
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
 
     "/single_player/prepaid/congrats_alias/another_recharge"(platform: "/mobile", type: TrackType.Event) {
         view_time
@@ -488,7 +542,9 @@ tracks {
 
 
     // Check Accreditation information
-    "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
 
     "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time
@@ -547,9 +603,22 @@ tracks {
     // Errors - Not Enough Money
     "/single_player/prepaid/error/not_enough_money"(platform: "/mobile", type: TrackType.View) {
         error_code(required: false, PropertyType.String, description: "Not enough money")
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
     }
 
     "/single_player/prepaid/error/not_enough_money/not_enough_money"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    "/single_player/prepaid/error/not_enough_money/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    "/single_player/prepaid/error/not_enough_money/money_in"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    "/single_player/prepaid/error/not_enough_money/back_to_home"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
@@ -621,7 +690,9 @@ tracks {
 
 
     // Payment rejected
-    "/single_player/prepaid/payment_rejected"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/payment_rejected"(platform: "/mobile", type: TrackType.View) {
+        payment_id(required: false, PropertyType.String, description: "ID of the payment")
+    }
 
     "/single_player/prepaid/payment_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -661,6 +732,23 @@ tracks {
     "/single_player/prepaid/show_action/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+
+    // Scanner
+    "/single_player/prepaid/scanner"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/scanner/open"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    "/single_player/prepaid/scanner/help"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/single_player/prepaid/scanner/error"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/single_player/prepaid/scanner/to_confirm"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/single_player/prepaid/scanner/confirm_number"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/single_player/prepaid/scanner/input_device_number"(platform: "/mobile", type: TrackType.Event) {}
 
 
     /**
@@ -1203,4 +1291,115 @@ tracks {
 
     "/single_player/paygo/error/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/paygo/error/timeout/back"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Update device number
+    "/single_player/paygo/update_device_number"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/update_device_number/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/update_device_number/more_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/update_device_number/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/update_device_number/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Success update device number
+    "/single_player/paygo/update_device_number/success"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/update_device_number/success/device_detail"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/update_device_number/success/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/update_device_number/success/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Timeout update device number
+    "/single_player/paygo/update_device_number/timeout"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/update_device_number/timeout/device_detail"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/update_device_number/timeout/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/update_device_number/timeout/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Tag obtaining methods
+    "/single_player/paygo/tag_obtaining_methods"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/tag_obtaining_methods/marketplace"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_obtaining_methods/free_pick_up"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_obtaining_methods/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Interest point list
+    "/single_player/paygo/interest_point_list"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/interest_point_list/selected_interest_point"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/interest_point_list/confirm_pick_up"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/interest_point_list/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Create tag pick up success
+    "/single_player/paygo/tag_pick_up/create/success"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/tag_pick_up/create/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/create/success/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/create/success/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Create tag pick up error
+    "/single_player/paygo/tag_pick_up/create/error"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/tag_pick_up/create/error/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/create/error/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/create/error/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Tag pick up already exists
+    "/single_player/paygo/tag_pick_up/already_exists"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/tag_pick_up/already_exists/new_pick_up"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/already_exists/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/already_exists/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/already_exists/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 }

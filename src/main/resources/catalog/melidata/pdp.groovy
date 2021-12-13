@@ -9,6 +9,21 @@ tracks {
 
     initiative = "1171"
 
+    def realestatedata = objectSchemaDefinitions {
+        audience(type: PropertyType.String, required: false, description: "audience for the content")
+        bu(type: PropertyType.String, required: false, description: "business unit for the content")
+        bu_line(type: PropertyType.String, required: false, description: "vertical for the content")
+        component_id(type: PropertyType.String, required: false,  description: "realestate id")
+        content_id(type: PropertyType.String, required: false, description: "content id")
+        flow(type: PropertyType.String, required: false, description: "flow for the content")
+        logic(type: PropertyType.String, required: false, description: "logic of the content")
+        position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
+    }
+
+    def realestate = objectSchemaDefinitions {
+        vip_pdp_ecosystem(required: false, type: PropertyType.Map(realestatedata))
+    }
+
     def product_picker_definition = objectSchemaDefinitions {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         selected(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is selected or not")
@@ -24,6 +39,33 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Promotion campaign type")
         original_value(required: true, type: PropertyType.Numeric, description: "Promotion campaign item original value")
         value(required: true, type: PropertyType.Numeric, description: "Promotion campaign item value")
+    }
+
+    def delivery_bound_map = objectSchemaDefinitions {
+        date(required: false, type:PropertyType.String, description: 'Date of delivery bound')
+        days(required: false, type:PropertyType.Numeric, description: 'Amount of days of distance from today')
+    }
+
+    def shipping_promise_price_map = objectSchemaDefinitions {
+        amount(required: false, type:PropertyType.Numeric, description: 'Price amount of shipping')
+        currency_id(required: false, type:PropertyType.String, description: 'Currency id')
+        is_loyalty_discount(required: false, type:PropertyType.Boolean, description: 'Indicates if price has a loyalty discount')
+    }
+
+    def shipping_option_map = objectSchemaDefinitions {
+        shipping_option_id(required: true, type:PropertyType.Numeric, description:'Id of shipping option')
+        method_type(required: true, type:PropertyType.String, description: 'Method type of delivery')
+        delivery_lower_bound(required: true, type:PropertyType.Map(delivery_bound_map), description: 'Actual delivery date or min date in time frame cases')
+        delivery_upper_bound(required: false, type:PropertyType.Map(delivery_bound_map), description: 'Max delivery date in time frame cases')
+        pay_before(required: false, type:PropertyType.String, description: 'Promise validity deadline date with hour')
+        offset_days(required: true, type:PropertyType.Numeric, description: 'Offset days between delivery upper bound and delivery lower bound')
+        price(required:false, type:PropertyType.Map(shipping_promise_price_map), description: 'Price of the shipping')
+    }
+
+    def shipping_promise_map = objectSchemaDefinitions {
+        destination(required: false, type:PropertyType.String, description:'Destination of the shipping')
+        address_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Address type shipping options list')
+        agency_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Agency type shipping options list')
     }
 
     propertyDefinitions {
@@ -43,8 +85,9 @@ tracks {
         store_pick_up(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has store pick up")
         logistic_type(required: false,
-                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
+        shipping_promise(required: false, description: "Map of shipping delivery promise", type: PropertyType.Map(shipping_promise_map))
 
         //SHIPPING CONDITIONS
         shipping_conditions(required: false, type: PropertyType.String, values: ["no_me", "me_non_free", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
@@ -74,7 +117,7 @@ tracks {
 
     propertyGroups {
         add_cart_info(cart_content)
-        shipping_info(shipping_mode, free_shipping, local_pick_up, store_pick_up, logistic_type, shipping_conditions)
+        shipping_info(shipping_mode, free_shipping, local_pick_up, store_pick_up, logistic_type, shipping_conditions, shipping_promise)
         pickup_info(showing_puis, pushing_puis, bo_pick_up_conditions)
         alternative_buying_option_info(position, item_id, buying_option_id, seller_id, seller_name)
         pricing_info(available_promotions, discount_reasons, price, original_price, currency_id)
@@ -103,7 +146,7 @@ tracks {
         cart_content(required: false, type: PropertyType.Boolean, description: "Content of cart")
         has_full_filment(required: false, type: PropertyType.Boolean, description: "If an item is available via fullfilment")
         logistic_type(required: false,
-                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
 
         // PRICING 2.0
@@ -123,6 +166,40 @@ tracks {
         melichoice_domain(required: false, type: PropertyType.String, description: "Domain of Melichoice Product")
     }
 
+
+    def protection_quote_data = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, description: "Type of warranty selected by user")
+        option_price(required: true, type: PropertyType.Numeric, description: "Price of warranty option")
+        option_id(required: true, type: PropertyType.String, description: "Id of warranty option")
+    }
+
+    def protection_price = objectSchemaDefinitions {
+        final_amount(required: true, type: PropertyType.Numeric, description: "final amount")
+        discount_rate(required: false, type: PropertyType.Numeric, description: "discount rate")
+    }
+    def device_option_data = objectSchemaDefinitions {
+        brand(required: false, type: PropertyType.String, description: "brand of insured device")
+        coverage(required: false, type: PropertyType.String, description: "selected coverage type")
+        deductible_amount(required: false, type: PropertyType.Numeric, description: "deductible amount or franchise")
+        model(required: false, type: PropertyType.String, description: "model of insured device")
+        size(required: false, type: PropertyType.String, description: "size of device storage")
+        manufacturer_warranty(required: false, type: PropertyType.Numeric, description: "factory warranty time")
+    }
+    def protection_option = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, description: "id of the warranty option")
+        price(required: true, type: PropertyType.Map(protection_price), description: "price of the warranty option")
+        period(required: true, type: PropertyType.Numeric, description: "period of the warranty option")
+        option_data(required: false, type: PropertyType.Map(device_option_data), description: "extra information of the warranty option")
+    }
+    def protection_item_info = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "id of the item that is offered a protection")
+        domain_id(required: true, type: PropertyType.String, description: "domain of the item that is offered a protection")
+        price(required: true, type: PropertyType.Numeric, description: "price of the item that is offered a protection")
+    }
+
+    def credits_consumer_map = objectSchemaDefinitions {
+        type(required: true, values: ["acquisition", "activation"], type: PropertyType.String, description: "Indicates the type of product")
+    }
     //VPP FLOW
 
     "/pdp"(platform: "/") {
@@ -217,6 +294,23 @@ tracks {
 
         // PRICING 2.0
         pricing_info
+
+
+        // Insurtech fields
+        has_roda(required: false, type: PropertyType.Boolean, description: "The product have RODA protection options. Could not be present and it might be interpretated as false since that PDP does not even request roda")
+        has_garex(required: false, type: PropertyType.Boolean, description: "The product have GAREX protection options")
+
+        // MERCH
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
+
+        // ITEM_ATTRIBUTES
+        item_attributes(required: false, type: PropertyType.String, description: "Attributes of the winner item")
+
+        // CREDITS CONSUMER
+        credits_consumer(required: false, type: PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
+
+        // REPRESENTATIVE PICKERS
+        has_unselected_pickers(required: false, type: PropertyType.Boolean, description: 'Indicates if products has unselected pickers')
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
@@ -247,6 +341,7 @@ tracks {
         pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
         credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
         pricing_info
+        option_selected(required: false, type: PropertyType.Map(protection_quote_data), description: "information about the chosen protection")
     }
 
     "/pdp/add_to_cart_action"(platform: "/", parentPropertiesInherited: false) {
@@ -279,6 +374,7 @@ tracks {
         pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
         credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
         pricing_info
+        option_selected(required: false, type: PropertyType.Map(protection_quote_data), description: "information about the chosen protection")
     }
 
     "/pdp/multiple_offer"(platform: "/", isAbstract:true) {}
@@ -697,4 +793,77 @@ tracks {
     }
 
     "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true) {}
+
+    "/pdp/payment_methods"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        page_vertical(required: true, type: PropertyType.String, description: "Item vertical")
+        category_l1(required: false, type: PropertyType.String, description: "Item level 1 category")
+        category_l2(required: false, type: PropertyType.String, description: "Item level 2 category")
+        category_l3(required: false, type: PropertyType.String, description: "Item level 3 category")
+        category_l4(required: false, type: PropertyType.String, description: "Item level 4 category")
+        category_l5(required: false, type: PropertyType.String, description: "Item level 5 category")
+        shipping_mode(required: true, type: PropertyType.String, description: "Item shipping mode")
+        free_shipping(required: true, type: PropertyType.Boolean, description: "Item has free shipping")
+        international_delivery_mode(required: false, type: PropertyType.String, description: "Item international delivery mode")
+        item_condition(required: true, type: PropertyType.String, description: "Item condition")
+        buying_mode(required: true, type: PropertyType.String, description: "Item buying mode")
+        variations(required: false, type: PropertyType.Boolean, description: "Item has variations")
+        collector_id(required: false, type: PropertyType.String, description: "Item seller id")
+        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+        listing_source(required: false, type: PropertyType.String, description: "Item listing source")
+        listing_type(required: false, type: PropertyType.String, description: "Item listing type")
+        fulfillment(required: true, type: PropertyType.Boolean, description: "Item has fulfillment")
+        item_attributes(required: true, type: PropertyType.String, description: "Item attributes")
+        item_state(required: false, type: PropertyType.String, description: "Item state")
+        item_city(required: false, type: PropertyType.String, description: "Item city")
+        item_neighborhood(required: false, type: PropertyType.String, description: "Item neighborhood")
+    }
+
+    //Insurtech
+    "/pdp/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/pdp/insurtech_opened"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER"], description: "indicates to which component the event belongs")
+    }
+
+    "/pdp/insurtech_selected"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: false, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/pdp/insurtech_added"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: false, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/pdp/insurtech_closed"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/pdp/insurtech_terms"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: true, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/pdp/insurtech_help"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: true, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
 }

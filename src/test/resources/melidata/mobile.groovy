@@ -104,6 +104,22 @@ trackTests {
         }
     }
 
+    test("Short URL Request: Error") {
+        "/navigation/short_url"(platform: "/mobile/ios", type: TrackType.Event) {
+            is_success = false
+            tidy_id = "2WQoXPS"
+            error_code = "400"
+        }
+    }
+
+    test("Short URL Request: Success") {
+        "/navigation/short_url"(platform: "/mobile/ios", type: TrackType.Event) {
+            is_success = true
+            tidy_id = "2WQoZHP"
+            error_code = ""
+        }
+    }
+
     test("Mobile Navigation Tabs"){
         "/navigation/tabs"(platform: "/mobile/ios", type: TrackType.Event) {
             action = "TAB_SELECTED"
@@ -210,6 +226,14 @@ trackTests {
             carrier_name = "Personal"
             nfc_compatible = ["nfc_mifare"]
             nfc_enabled = false
+            battery_charging = true
+            battery_percentage_available = "90%"
+            device_is_emulator = false
+            total_ram_memory = 1567367168
+            available_ram_memory = 612724736
+            vpn_connected = false
+            bluetooth_enabled = true
+            background_refresh = "Enabled"
         }
 
         "/devices/metadata"(platform:"/mobile", business: "mercadopago") {
@@ -229,6 +253,14 @@ trackTests {
             carrier_name = "Personal"
             nfc_compatible = ["nfc_mifare"]
             nfc_enabled = true
+            battery_charging = true
+            battery_percentage_available = "90%"
+            device_is_emulator = false
+            total_ram_memory = 1567367168
+            available_ram_memory = 612724736
+            vpn_connected = false
+            bluetooth_enabled = true
+            background_refresh = "Disabled"
         }
     }
 
@@ -294,8 +326,8 @@ trackTests {
         "/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
             type_track="WITHDRAW"
         }
-        "/apprater/error_service_rules"(platform: "/mobile") {}
-        "/apprater/error_service_rules"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/appstore_rate_app"(platform: "/mobile") {}
+        "/apprater/appstore_rate_app"(platform: "/mobile", business: "mercadopago") {}
         "/apprater/popup"(platform: "/mobile") {}
         "/apprater/popup"(platform: "/mobile", business: "mercadopago") {}
         "/apprater/accept"(platform: "/mobile") {}
@@ -304,12 +336,16 @@ trackTests {
         "/apprater/cancel"(platform: "/mobile", business: "mercadopago") {}
         "/apprater/remind_me_later"(platform: "/mobile") {}
         "/apprater/remind_me_later"(platform: "/mobile", business: "mercadopago") {}
+        "/inappreview/completed"(platform: "/mobile") {}
+        "/inappreview/completed"(platform: "/mobile", business: "mercadopago") {}
     }
 
     test("MercadoLibre apprater") {
         "/apprater/popup"(platform: "/mobile") {}
         "/apprater/accept"(platform: "/mobile") {}
         "/apprater/remind_me_later"(platform: "/mobile") {}
+        "/apprater/appstore_rate_app"(platform: "/mobile") {}
+        "/inappreview/completed"(platform: "/mobile") {}
     } 
 
     test("Landing Deeplinks in Mobile") {

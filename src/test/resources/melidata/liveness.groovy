@@ -65,9 +65,21 @@ trackTests {
             type = "close"
         }
 
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "activate_camera"
+        }
+
+        "/liveness/permissions/ask"(platform: "/mobile/android") {}
+
+        "/liveness/permissions/denied"(platform: "/mobile/android") {}
+
+        "/liveness/permissions/accepted"(platform: "/mobile/android") {}
+
         "/liveness/landing"(platform: "/mobile/android") {}
 
         "/liveness/fallback"(platform: "/mobile/android") {}
+
+        "/liveness/permission"(platform: "/mobile/android") {}
 
         "/liveness/unsupported"(platform: "/mobile/android") {}
     }
@@ -126,9 +138,21 @@ trackTests {
             type = "close"
         }
 
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "activate_camera"
+        }
+
+        "/liveness/permissions/ask"(platform: "/mobile/ios") {}
+
+        "/liveness/permissions/denied"(platform: "/mobile/ios") {}
+        
+        "/liveness/permissions/accepted"(platform: "/mobile/ios") {}
+
         "/liveness/landing"(platform: "/mobile/ios") {}
 
         "/liveness/fallback"(platform: "/mobile/ios") {}
+
+        "/liveness/permission"(platform: "/mobile/ios") {}        
 
         "/liveness/unsupported"(platform: "/mobile/ios") {}
     }
@@ -295,9 +319,26 @@ trackTests {
             type = "start_liveness"
         }
 
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "start_liveness"
+            start_on_ready = true
+        }
+
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "activate_camera"
+        }
+
+        "/liveness/permissions/ask"(platform: "/mobile/android") {}
+
+        "/liveness/permissions/denied"(platform: "/mobile/android") {}
+        
+        "/liveness/permissions/accepted"(platform: "/mobile/android") {}
+
         "/liveness/landing"(platform: "/mobile/android") {}
 
         "/liveness/fallback"(platform: "/mobile/android") {}
+
+        "/liveness/permission"(platform: "/mobile/ios") {}
 
         "/liveness/unsupported"(platform: "/mobile/android") {}
     }
@@ -364,9 +405,26 @@ trackTests {
             type = "start_liveness"
         }
 
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "start_liveness"
+            start_on_ready = true
+        }
+
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "activate_camera"
+        }
+
+        "/liveness/permissions/ask"(platform: "/mobile/ios") {}
+
+        "/liveness/permissions/denied"(platform: "/mobile/ios") {}
+        
+        "/liveness/permissions/accepted"(platform: "/mobile/ios") {}
+
         "/liveness/landing"(platform: "/mobile/ios") {}
 
         "/liveness/fallback"(platform: "/mobile/ios") {}
+
+        "/liveness/permission"(platform: "/mobile/ios") {}
 
         "/liveness/unsupported"(platform: "/mobile/ios") {}
     }

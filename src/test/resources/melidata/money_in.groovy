@@ -51,13 +51,21 @@ trackTests {
             amount = "30.0"
         }
 
-        "/money_in/calculator/tooltip"(platform: "/", type: TrackType.Event) {
-            payment_method = "bolbradesco"
-        }
+        "/money_in/calculator/tooltip"(platform: "/", type: TrackType.Event){}
 
         //Checkout PX
         "/money_in/px/error"(platform: "/", type: TrackType.View) {}
         "/money_in/px/success"(platform: "/", type: TrackType.View) {}
+
+        //money In - Home
+        "/money_in/home/debit_card_juridical_person_modal"(platform: "/", type: TrackType.View) {}
+        "/money_in/home/debit_card_juridical_person_modal/back_to_hub"(platform: "/", type: TrackType.Event) {}
+        "/money_in/home/debit_card_juridical_person_modal/back_to_home"(platform: "/", type: TrackType.Event) {}
+
+        //money In - Congrats(comming from Kyc)
+        "/money_in/congrats/success"(platform: "/", type: TrackType.View) {}
+        "/money_in/congrats/success/continue"(platform: "/", type: TrackType.Event) {}
+        "/money_in/congrats/success/close"(platform: "/", type: TrackType.Event) {}
 
         //Onboarding
         "/money_in/onboarding/add_money"(platform: "/", type: TrackType.View) {}
@@ -67,6 +75,7 @@ trackTests {
 
         "/money_in/onboarding/enter"(platform: "/", type: TrackType.Event) {}
         "/money_in/onboarding/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/onboarding/continue"(platform: "/", type: TrackType.Event) {}
         "/money_in/kyc/onboarding"(platform: "/", type: TrackType.View) {}
         "/money_in/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
         "/money_in/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
@@ -132,6 +141,9 @@ trackTests {
         "/money_in/clabe/copy"(platform: "/", type: TrackType.Event) {}
         "/money_in/clabe/share"(platform: "/", type: TrackType.Event) {}
         "/money_in/clabe/help"(platform: "/", type: TrackType.Event) {}
+
+        // CLABE - Congrats
+        "/money_in/clabe/congrat/go_home"(platform: "/", type: TrackType.Event) {}
 
         // CLABE - Congrats Error
         "/money_in/clabe/error"(platform: "/", type: TrackType.View) {}
@@ -568,6 +580,8 @@ trackTests {
         "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/ryc/reauth"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/ryc/screen_lock"(platform:"/", type: TrackType.Event){}
 
         //Debin Processing
         "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
@@ -592,12 +606,16 @@ trackTests {
         "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
             status = "error"
         }
+        "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
+            status = "rejected"
+        }
         "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
             status = "error"
         }
-        "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){
-            status = "success"
+        "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
+            status = "rejected"
         }
+        "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
 
         //Debin Merch engine
         "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
@@ -683,6 +701,56 @@ trackTests {
         "/money_in/static_resources"(platform:"/", type: TrackType.View){}
         "/money_in/static_resources/network_error"(platform: "/", type: TrackType.Event) {
            error = "Error 404"
+        }
+
+        "/money_in/hub"(platform:"/", type: TrackType.View){}
+        "/money_in/hub/select"(platform:"/", type: TrackType.Event){
+            payment_method_id = "pix"
+        }
+        "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
+        "/money_in/hub/widget/shown"(platform:"/", type: TrackType.Event){
+            widget_id = "ted"
+        }
+        "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
+            widget_id = "debin"
+        }
+        "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
+            action_id = "qr"
+        }
+
+        //MLB Calculator
+        "/money_in/calculator/card_info/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/edit_amount"(platform: "/", type: TrackType.Event) {}
+
+        //News Alert Messages (da-components)
+        "/alert_news"(platform:"/", type: TrackType.View){}
+        "/alert_news/message"(platform:"/", type: TrackType.View){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
+            message_description = "Test Message"
+        }
+        "/alert_news/message/primary_action"(platform:"/", type: TrackType.Event){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
+        }
+        "/alert_news/message/secondary_action"(platform:"/", type: TrackType.Event){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
+        }
+        "/alert_news/message/dismiss"(platform:"/", type: TrackType.Event){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
         }
     }
 }

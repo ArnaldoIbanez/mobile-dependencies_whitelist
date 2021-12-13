@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = '1149'
+    initiative = '1240'
 
     /**
         Money In V2 Tracks
@@ -31,7 +31,7 @@ tracks {
 
     //Calculator tracks
     "/money_in/calculator"(platform: "/", type: TrackType.View) {
-        payment_method (required:true, description: "Payment method selected on calculator")
+        payment_method (required:false, description: "Payment method selected on calculator")
     }
 
     //Calculator montos preseteados
@@ -55,6 +55,16 @@ tracks {
 
     "/money_in/onboarding"(platform: "/", isAbstract: true) {}
 
+    //money In - Home
+    "/money_in/home/debit_card_juridical_person_modal"(platform: "/", type: TrackType.View) {}
+    "/money_in/home/debit_card_juridical_person_modal/back_to_hub"(platform: "/", type: TrackType.Event) {}
+    "/money_in/home/debit_card_juridical_person_modal/back_to_home"(platform: "/", type: TrackType.Event) {}
+
+    //money In - Congrats(comming from Kyc)
+    "/money_in/congrats/success"(platform: "/", type: TrackType.View) {}
+    "/money_in/congrats/success/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_in/congrats/success/close"(platform: "/", type: TrackType.Event) {}
+
     //Onboarding
      "/money_in/kyc/onboarding"(platform: "/", type: TrackType.View) {}
      "/money_in/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
@@ -66,6 +76,7 @@ tracks {
 
     "/money_in/onboarding/enter"(platform: "/", type: TrackType.Event) {}
     "/money_in/onboarding/close"(platform: "/", type: TrackType.Event) {}
+    "/money_in/onboarding/continue"(platform: "/", type: TrackType.Event) {}
 
     //TED
 
@@ -118,6 +129,9 @@ tracks {
     "/money_in/clabe/copy"(platform: "/", type: TrackType.Event) {}
     "/money_in/clabe/share"(platform: "/", type: TrackType.Event) {}
     "/money_in/clabe/help"(platform: "/", type: TrackType.Event) {}
+
+    // CLABE - Congrats
+    "/money_in/clabe/congrat/go_home"(platform: "/", type: TrackType.Event) {}
 
     // CLABE - Congrats Error
     "/money_in/clabe/error"(platform: "/", type: TrackType.View) {}
@@ -361,20 +375,23 @@ tracks {
     "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/reauth"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/screen_lock"(platform:"/", type: TrackType.Event){}
+
 
     //Debin Processing
     "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
 
     //Debin Congrats
     "/money_in/debin/congrats"(platform:"/", type: TrackType.View){
-        status(required:true, description:"status",values:["success", "pending", "error"])
+        status(required:false, description:"status",values:["success", "pending", "error"])
         error_type(required:false, description:"indicates the error of the debin")
     }
     "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
-         status(required:false, description:"status",values:["success", "pending", "error"])
+         status(required:false, description:"status",values:["success", "pending", "error", "rejected"])
     }
     "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
-         status(required:false, description:"status",values:["error"])
+         status(required:false, description:"status",values:["error", "rejected"])
     }
     "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
 
@@ -453,5 +470,57 @@ tracks {
     "/money_in/static_resources"(platform:"/", isAbstract: true){}
     "/money_in/static_resources/network_error"(platform:"/", type: TrackType.Event){
         error(required:true, description:"Network Error Message")
+    }
+
+    //Nuevo hub Money In v2
+    "/money_in/hub"(platform:"/", type: TrackType.View){}
+    "/money_in/hub/select"(platform:"/", type: TrackType.Event){
+        payment_method_id (required:false, type: PropertyType.String, description: "indicates the id of the payment method")
+    }
+    "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
+    
+    "/money_in/hub/widget/shown"(platform:"/", type: TrackType.Event){
+        widget_id (required:true, type: PropertyType.String, description: "Indicates the id of the widget shown")
+    }
+    "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
+        widget_id (required:true, type: PropertyType.String, description: "Indicates the id of the widget selected")
+    }
+    "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
+        action_id (required:true, type: PropertyType.String, description: "Indicates the widget action id")
+    }
+
+    //MLB Calculator Catalog
+    "/money_in/calculator/card_info/go_to_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/bacen"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/bacen/close"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/bacen/go_to_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/bacen/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/cap_reached"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/cap_reached/close"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/cap_reached/go_to_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/cap_reached/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/finish/close"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/finish"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/finish/go_to_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/finish/edit_amount"(platform: "/", type: TrackType.Event) {}
+
+    //News Alert Messages (da-components)
+    "/alert_news"(platform: "/", isAbstract: true) {}
+    "/alert_news/message"(platform:"/", type: TrackType.View){
+        flow_id(required:true,type: PropertyType.String, description:"Indicates the flow where the message is displayed")
+        message_id(required:true,type: PropertyType.String, description:"Indicates the message Id")
+        message_description(required:false,type: PropertyType.String, description:"Message content")
+    }
+    "/alert_news/message/primary_action"(platform:"/", type: TrackType.Event){
+        flow_id(required:true,type: PropertyType.String, description:"Indicates the flow where the message is displayed")
+        message_id(required:true,type: PropertyType.String, description:"Indicates the message Id")
+    }
+    "/alert_news/message/secondary_action"(platform:"/", type: TrackType.Event){
+        flow_id(required:true,type: PropertyType.String, description:"Indicates the flow where the message is displayed")
+        message_id(required:true,type: PropertyType.String, description:"Indicates the message Id")
+    }
+    "/alert_news/message/dismiss"(platform:"/", type: TrackType.Event){
+        flow_id(required:true,type: PropertyType.String, description:"Indicates the flow where the message is displayed")
+        message_id(required:true,type: PropertyType.String, description:"Indicates the message Id")
     }
 }

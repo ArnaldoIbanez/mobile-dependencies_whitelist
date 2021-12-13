@@ -334,6 +334,7 @@ trackTests {
         //Address Hub
         "/cart/checkout/shipping/delivery_instructions"(platform:"/", dataSet)
         "/cart/checkout/shipping/address_hub"(platform:"/", dataSet)
+        "/cart/checkout/shipping/address_hub/change_address"(platform:"/", dataSet)
 
         // Addresses
         // Page
@@ -749,6 +750,7 @@ trackTests {
             ]
         }
         "/cart/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) { }
+        "/cart/checkout/shipping/input_address/map/edit"(platform: "/", type: TrackType.Event) { }
         "/cart/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) { }
         "/cart/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) { }
         "/cart/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
@@ -996,9 +998,17 @@ trackTests {
 
         //Switch track
         "/cart/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {
-            dataSet()
+            checkout_flow = 'cart'
+            recovery_flow = true
+            items = [[quantity: 20, id: 'MLA1', variation_id: 'xyz']]
         }
         "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {
+            checkout_flow = 'cart'
+            recovery_flow = true
+            items = [[quantity: 20, id: 'MLA1', variation_id: 'xyz']]
+        }
+        //Address Hub Message for CPG FRESH
+        "/cart/checkout/address_hub/hide_no_coverage_address"(platform: "/", type: TrackType.Event) {
             dataSet()
         }
     }

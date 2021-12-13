@@ -2,6 +2,7 @@ package src.main.resources.catalog.component_prints
 
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
+
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
@@ -18,6 +19,7 @@ tracks {
         logic(type: PropertyType.String, required: true, description: "logic of the content")
         campaign_id(type: PropertyType.Numeric, required: false, description: "campaign id of the content")
         position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
+        print_id(type: PropertyType.String, required: false, description: "print id of the content")
     }
 
     "/component"(platform: "/") {
@@ -32,9 +34,16 @@ tracks {
 
     "/wallet_home"(platform: "/" , isAbstract: true) {}
 
-    "/wallet_home/print"(platform: "/mobile") {
+    "/wallet_home/print"(platform: "/") {
         qr_map (required:false)
         banking (required:false)
     }
 
+    "/vip/merch/show"(platform: "/") {
+        merch_data (required:false, type: PropertyType.Map(merchdata))
+    }
+
+    "/pdp/merch/show"(platform: "/") {
+        merch_data (required:false, type: PropertyType.Map(merchdata))
+    }
 }

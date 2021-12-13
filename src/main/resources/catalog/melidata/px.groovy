@@ -30,6 +30,7 @@ tracks {
 
     propertyGroups {
         externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, device_secured, experiments)
+        externalDataNew(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, device_secured)
         securityCodeViewData(payment_method_id, card_id, reason)
         securityCodeData(payment_method_id, payment_method_type, card_id, issuer_id, bin, reason)
     }
@@ -89,6 +90,9 @@ tracks {
     }
     "/px_checkout/security_code/confirm"(platform: "/mobile", type: TrackType.Event) {
         securityCodeData
+    }
+    "/px_checkout/security_code/pay_button_pressed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalDataNew
     }
 
     // Bank deals views
@@ -267,6 +271,10 @@ tracks {
         api_error(required: false, description: "Api error description")
     }
 
+    "/px_checkout/result/error/remedy/modal"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        externalData
+    }
+
     // Events:
 
     // Init event:
@@ -279,6 +287,9 @@ tracks {
     }
 
     // One Tap Off Methods event
+    "/px_checkout/review/one_tap/offline_methods/pay_button_pressed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalDataNew
+    }
     "/px_checkout/review/one_tap/offline_methods/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
@@ -515,6 +526,9 @@ tracks {
     }
 
     // One Tap:
+    "/px_checkout/review/one_tap/pay_button_pressed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalDataNew
+    }
     "/px_checkout/review/one_tap/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
@@ -638,8 +652,12 @@ tracks {
     }
 
     // Rejected payment
+    "/px_checkout/result/error/pay_button_pressed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalDataNew
+    }
     "/px_checkout/result/error/change_payment_method"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
+        from(required: false, type: PropertyType.String, values: ["modal", "view"], description: "Tap change payment method from the result error screen or from modal view")
     }
     "/px_checkout/result/error/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
@@ -652,7 +670,12 @@ tracks {
         index(required: true, type: PropertyType.Numeric , description: "Selected remedy index")
         payment_status(required: true, type: PropertyType.String, description: "Payment status")
         payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
+        from(required: false, type: PropertyType.String, values: ["modal", "view"], description: "Tap pay from the result error screen or from modal view")
       }
+
+    "/px_checkout/result/error/remedy/modal/abort"(platform: "/mobile", type: TrackType.Event) {
+        externalData
+    }
 
     // Approved business
     "/px_checkout/result/success/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {

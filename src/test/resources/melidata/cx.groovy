@@ -33,6 +33,21 @@ trackTests {
             portal_has_channels_configured = true
             portal_effectivity_survey_value = 1
         }
+        "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+            portal_contact = [
+                    channels: [:],
+                    contact_config: false
+            ]
+            portal_content_id = 96
+            portal_has_channels_configured = true
+            portal_effectivity_survey_value = -1
+        }
+        "/portal/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 96
+            portal_source_id = 55
+            portal_has_channels_configured = true
+            portal_effectivity_survey_reason = "Otro motivo"
+        }
         "/portal/hub"(platform: "/", type: TrackType.View) {
             portal_contact = [
                     channels: [:],
@@ -111,11 +126,23 @@ trackTests {
             portal_source_id = 123
             portal_has_channels_configured = true
         }
-        "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+         "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
             portal_content_id = 987
             portal_source_id = 123
             portal_has_channels_configured = true
             portal_effectivity_survey_value = 1
+        }
+        "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
+            portal_effectivity_survey_value = -1
+        }
+        "/support/widget/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
+            portal_effectivity_survey_reason = "Otro motivo"
         }
         "/support/widget/problem"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
@@ -165,10 +192,37 @@ trackTests {
             case_id = 1234
         }
 
+        "/support/widget/list"(platform: "/", type: TrackType.View) {
+            list_type = "oneclick_purchases"
+        }
+
         "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
             list_skip_button = true
             list_type = "oneclick_purchases"
         }
+
+        "/support/widget/nlp"(platform: "/", type: TrackType.View) {}
+        
+        "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
+            user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
+            content_ids = [123, 456, 7890]
+            object_model = "‘0.0.5-com208-ctx-training"
+            process_id = "4ad02004-251c-11ec-8f9f-0242ac130004"
+        }
+
+        "/support/widget/casenlp"(platform: "/", type: TrackType.Event) {
+            process_id = "4ad02004-251c-11ec-8f9f-0242ac130004"
+            case_id = 123456
+        }
+
+        "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
+        button_label = "Volver a ayuda"
+        buttons = ["Volver a ayuda", "Contactarse", "Devolver compra"]
+        purchase_status = "Entregado"
+        }
+
     }
 
     test("Support Widget having Content Type") {
@@ -437,11 +491,11 @@ trackTests {
             portal_source_id = 123
             portal_has_channels_configured = true
         }
-        "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.View) {
+        "/support/widget/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
             portal_content_id = 987
             portal_source_id = 123
             portal_has_channels_configured = true
-            portal_effectivity_survey_value = 1
+            portal_effectivity_survey_reason = "Otro motivo"
         }
         "/support/widget/problem"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
@@ -474,9 +528,34 @@ trackTests {
             case_id = 1234
         }
 
+        "/support/widget/list"(platform: "/", type: TrackType.View) {
+            list_type = "oneclick_purchases"
+        }
+
         "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
             list_skip_button = true
             list_type = "oneclick_purchases"
+        }
+        "/support/widget/nlp"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
+            user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
+            content_ids = [123, 456, 7890]
+            object_model = "‘0.0.5-com208-ctx-training"
+            process_id = "4ad02004-251c-11ec-8f9f-0242ac130004"
+        }
+        
+        "/support/widget/casenlp"(platform: "/", type: TrackType.Event) {
+            process_id = "4ad02004-251c-11ec-8f9f-0242ac130004"
+            case_id = 123456
+        }
+
+        "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
+        button_label = "Volver a ayuda"
+        buttons = ["Volver a ayuda", "Contactarse", "Devolver compra"]
+        purchase_status = "Entregado"
         }
   }
 

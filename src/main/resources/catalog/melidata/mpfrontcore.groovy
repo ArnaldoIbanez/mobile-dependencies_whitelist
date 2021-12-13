@@ -78,7 +78,8 @@ tracks {
 
     // MP Home
     "/mp_home"(platform: "/", type: TrackType.View) {
-        userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+        userProfile (required: false, type: PropertyType.String, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+        isMinor (required: false, type: PropertyType.Boolean, description: "Indicates if the user is underage")
     }
 
     // MP Home regret
@@ -119,6 +120,16 @@ tracks {
         bu_team (type: PropertyType.String, required: true, description: "The business unit team")
         action (type: PropertyType.String, required: true, description: "The executed action")
         destination (type: PropertyType.String, required: true, description: "Link to execute")
+    }
+
+    //MP Home - Educational Banner
+    "/mp_home/sections/educational_banner"(platform:"/", type: TrackType.View) {
+        user_profile (required: true, type: PropertyType.String, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+        type (required: true, type: PropertyType.String, description: "The educational banner type")
+    }
+    "/mp_home/sections/educational_banner"(platform:"/", type: TrackType.Event) {
+        user_profile (required: true, type: PropertyType.String, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+        type (required: true, type: PropertyType.String, description: "The educational banner type")
     }
 
     // MP Profile
@@ -289,7 +300,7 @@ tracks {
     }
 
     // MP Landing - Landing KIT QR
-    "/landing/qr_kit"(platform: "/", type: TrackType.View, initiative: "1216") {
+    "/landing/qr_kit"(platform: "/", type: TrackType.View, initiative: "1322") {
         product (type: PropertyType.String, required: false, description: "Name of device, example: 'kit-standalone'")
         currency (type: PropertyType.String, required: false, description: "Currency")
         price (type: PropertyType.Numeric, required: false, description: "Price of device")

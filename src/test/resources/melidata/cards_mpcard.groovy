@@ -166,6 +166,12 @@ trackTests {
             action = "header_help"
         }
     }
+
+    // Dasboard Header Help  
+    test("cards mpcard dashboard header help") {
+        "/cards/mpcard/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
+    }
+
     // DASHBOARD Physical Unlock
     test("cards mpcard dashboard physical unlock") {
         "/cards/mpcard/dashboard/physical/unlock"(platform:"/", type: TrackType.Event) {
@@ -401,6 +407,64 @@ trackTests {
             action = "page_4"
         }
     }
+
+    //Dynamic Carousel Tracking
+    test("cards hybrid dashboard dynamic carousel tapped") {
+        "/cards/mpcard/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "22",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 2
+            ]
+        }
+    }
+    test("cards hybrid dashboard dynamic carousel Swiped") {
+        "/cards/mpcard/dashboard/dynamic_carousel/swipe"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "3",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 0
+            ]
+        }
+    }
+    test("cards hybrid dashboard dynamic carousel displayed") {
+        "/cards/mpcard/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "3",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 0
+            ]
+        }
+    }
+    test("cards hybrid dashboard dynamic carousel Closed") {
+        "/cards/mpcard/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "42",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 3
+            ]
+        }
+    }
     
     //Feedback: Tracking
     test("cards mpcard dasboard feedback") {
@@ -554,6 +618,12 @@ trackTests {
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "header_help"
         }
+    }
+
+    test("cards mpcard setup virtual tracking") {
+        "/cards/mpcard/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
     }
 
     //Highlighted Row
@@ -1021,7 +1091,7 @@ trackTests {
     }
     test("cards mpcard request physical challenge tap") {
         "/cards/mpcard/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
-            action = "close"
+            action = "back"
         }
         "/cards/mpcard/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"
@@ -1030,17 +1100,28 @@ trackTests {
 
     // Request: Pending Challenge
     test("cards mpcard request physical pending challenge") {
-        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "D1"
+        }
+        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "D1_ticket"
+        }
+        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "D4"
+        }
     }
     test("cards mpcard request physical pending challenge tap") {
         "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "back"
+            context = "D1"
         }
         "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"
+            context = "D1_ticket"
         }
         "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
-            action = "info_payment"
+            action = "add_money"
+            context = "D4"
         }
     }
 
@@ -1285,6 +1366,94 @@ trackTests {
         }
         "/cards/mpcard/card_helper/extraction/contingency/tap"(platform:"/", type: TrackType.Event) {
             action = "back_button"
+        }
+    }
+
+    // Tap4Auth
+    test("cards mpcard tap4Auth main screen") {
+        "/cards/mpcard/payment_authorization/main_screen"(platform:"/mobile", type: TrackType.View) {
+            amount = 200.38
+        }
+        "/cards/mpcard/payment_authorization/main_screen"(platform:"/mobile", type: TrackType.View) {
+            amount = 100.46
+        }
+        "/cards/mpcard/payment_authorization/main_screen/cta"(platform:"/mobile", type: TrackType.Event) {
+            action = "authorize"
+        }
+        "/cards/mpcard/payment_authorization/main_screen/cta"(platform:"/mobile", type: TrackType.Event) {
+            action = "no_authorize"
+        }
+    }
+    test("cards hybrid tap4Auth congrats") {
+        //View
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_physical"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_congrats_virtual"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_second_try"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_try"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_ttl_expired_physical"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_ttl_expired_virtual"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_already_responded"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_contingency_cancel_try"
+        }
+        "/cards/mpcard/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_contingency_create_try"
+        }
+        // Events
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "understands"
+        }
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "setup_virtual"
+        }
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "pause_card"
+        }
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "home"
+        }
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "report_card"
+        }
+        "/cards/mpcard/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "dismiss"
         }
     }
 }

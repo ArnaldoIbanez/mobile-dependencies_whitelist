@@ -195,16 +195,16 @@ tracks {
     "/merchant_acquisition/flows/share_mgm/about_share"(platform: "/", type: TrackType.Event) {}
 
     "/merchant_acquisition/flows/share_mgm/share_device_button"(platform: "/", type: TrackType.Event) {
-        product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
+        device (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
 
     "/merchant_acquisition/flows/share_mgm/more_info_device"(platform: "/", type: TrackType.Event) {
-        product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
+        device (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
 
     "/merchant_acquisition/flows/share_mgm/device/invite"(platform: "/", type: TrackType.Event) {
         media (type: PropertyType.String, required: true, description: "In which channel did the user shared the coupon (ex: Whatsapp)")
-        product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
+        device (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
 
     "/merchant_acquisition/flows/share_mgm/device/invite/send_email"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
@@ -259,6 +259,12 @@ tracks {
     "/merchant_acquisition/flows/point_reverse/info"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/point_reverse/address"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/point_reverse/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/chip/reactivation"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/shipping/details"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/repair/screening/details"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/devolution/screening"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/devolution/info"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/repair/info"(platform:"/", type: TrackType.View) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}

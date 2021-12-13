@@ -20,26 +20,11 @@ import com.ml.melidata.TrackType
 /**/
 tracks {
 
-    propertyDefinitions {
-        flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-        product (type: PropertyType.String, required: true, description: "Product identifier")
-        currency (type: PropertyType.String, required: true, description: "ISO Currency")
-        price (type: PropertyType.Numeric, required: true, description: "Price of device")
-        discount_code (type: PropertyType.String, required: true, description: "Discount code")
-        is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
-        user_id (type: PropertyType.Numeric, required: true, description: "User ID")
-        e2e_test (type: PropertyType.Boolean, required: true, description: "e2e Test")
-    }
-
-    propertyGroups {
-        groupCheckoutProperties(flow_id, product, currency, price, discount_code, is_guest, user_id, e2e_test)
-    }
-
     "/"(platform: "/", isAbstract: true) {
     }
 
     "/"(platform: "/mobile", isAbstract: true) {
-        sent_again(required: false)
+        sent_again(required: false, description: "If track has already been sent")
     }
 
     "/blog"(platform: "/web", isAbstract: true, initiative: "1145") {
@@ -53,6 +38,12 @@ tracks {
 
     "/point"(platform: "/", isAbstract: true, initiative: "1175") {}
 
+    def utm_definition = objectSchemaDefinitions {
+        utm_source(type: PropertyType.String, required: false, description: "Tracking source")
+        utm_medium(type: PropertyType.String, required: false, description: "Tracking medium")
+        utm_campaign(type: PropertyType.String, required: false, description: "Tracking campaign")
+    }
+
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
@@ -63,6 +54,11 @@ tracks {
         coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Kind of MGM Coupon: default | mgm | campaign")
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
+        bu (type: PropertyType.String, required: false, description: "business unit, value: 'POINT', null")
+        ch (type: PropertyType.String, required: false, description: "sales channel, values: ['MGM', 'ORG', 'MPOS', 'XSELL', null]")
+        camp (type: PropertyType.String, required: false, description: "campaign, values: string or null")
+        strategy (type: PropertyType.String, required: false, description: "strategy, values: string or null")
+        utm (type: PropertyType.Map(utm_definition), required: false, description: "utm tracking")
     }
 
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
@@ -117,33 +113,6 @@ tracks {
         action (required: true, type: PropertyType.String, description: "open")
     }
 
-    // Point Flows
-    "/point/flows"(platform: "/", isAbstract: true) {}
-    "/point/flows/congrats"(platform:"/", type: TrackType.View) {
-        payment_id (required: true, type: PropertyType.Numeric, description: "ID of payment")
-        payment_method (required: true, type: PropertyType.String, description: "Method of payment")
-        device_id (required: true, type: PropertyType.String, description: "ID of Point device")
-        amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
-        is_guest (required: true, type: PropertyType.Boolean, description: "Guest user flag")
-        e2e_test (required: true, type: PropertyType.Boolean, description: "e2e Test")
-        discount_code (required: true, type: PropertyType.String, description: "Discount code")
-    }
-
-    "/point/flows/congrats/instructions"(platform:"/", type: TrackType.View) {}
-
-    // Point Flows Events
-    //Congrats ON
-    "/point/flows/congrats/print"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {}
-
-    //congrats OFF
-    "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
-
 
     //Point Devices
     "/point/landings/landing_bundles_buy"(platform:"/", type: TrackType.Event) {
@@ -161,7 +130,7 @@ tracks {
         extra_info(required: false, type: PropertyType.String, description: "Extra info")
     }
 
-    "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1125" ) {}
+    "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1096" ) {}
 
     "/shortcuts/point"(platform: "/mobile", type: TrackType.Event) {}
     "/shortcuts/scan_qr"(platform: "/mobile", type: TrackType.Event) {}
@@ -186,7 +155,7 @@ tracks {
     "/ftu_release/point_app"(platform: "/mobile", type: TrackType.View) {}
     "/ftu_release/point_&_mp_app"(platform: "/mobile", type: TrackType.View) {}
 
-    "/company_info"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1046") {}
+    "/company_info"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1296") {}
     "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
     "/company_info/main"(platform: "/mobile", type: TrackType.View) {}
     "/company_info/brand_name"(platform: "/mobile", type: TrackType.View) {}
@@ -195,15 +164,15 @@ tracks {
 
     // MP Point Standalone (a eliminar cuando inhabilitemos la app de point)
 
-    "/card"(platform: "/mobile", type: TrackType.View, initiative: "1046") {}
-    "/card_number"(platform: "/mobile", type: TrackType.View, initiative: "1046") {}
-    "/card_type"(platform: "/mobile", type: TrackType.View, initiative: "1046") {}
-    "/card_name"(platform: "/mobile", type: TrackType.View, initiative: "1046") {}
-    "/help_web_view"(platform: "/mobile", type: TrackType.View, initiative: "1046") {}
+    "/card"(platform: "/mobile", type: TrackType.View, initiative: "1296") {} 
+    "/card_number"(platform: "/mobile", type: TrackType.View, initiative: "1296") {}
+    "/card_type"(platform: "/mobile", type: TrackType.View, initiative: "1296") {}
+    "/card_name"(platform: "/mobile", type: TrackType.View, initiative: "1296") {}
+    "/help_web_view"(platform: "/mobile", type: TrackType.View, initiative: "1296") {}
 
     // MP Mobile Point Catalog
 
-    "/catalog"(platform: "/mobile", type: TrackType.View, initiative: "1033") {}
+    "/catalog"(platform: "/mobile", type: TrackType.View, initiative: "1296") {}
     "/catalog/create_product"(platform: "/mobile", type: TrackType.View) {}
     "/catalog/create_product/picture"(platform: "/mobile", type: TrackType.View) {}
     "/catalog/discount"(platform: "/mobile", type: TrackType.View) {}
@@ -300,7 +269,7 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    "/get_member"(platform: "/mobile", isAbstract: true, initiative: "1046") {
+    "/get_member"(platform: "/mobile", isAbstract: true, initiative: "1296") { 
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
@@ -317,11 +286,11 @@ tracks {
 
     "/get_member/point"(platform: "/mobile", type: TrackType.View, initiative: "1159") {}
 
-    "/settings"(platform: "/mobile", isAbstract: true,initiative: "1125" ) {
+    "/settings"(platform: "/mobile", isAbstract: true,initiative: "1074" ) {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1125") {
+    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1096") {
         sent_again (required: false)
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         cost_type (required:false, type: PropertyType.String, description: "Cost type receive/charge")
@@ -396,7 +365,7 @@ tracks {
     "/campaigns/create"(platform: "/web", type: TrackType.View){}
     "/campaigns/confirm_create"(platform: "/web"){}
 
-    "/subscription_plan"(platform: "/web", isAbstract: true, initiative: "1036"){}
+    "/subscription_plan"(platform: "/web", isAbstract: true, initiative: "1248"){}
     "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
     "/subscription_plan/confirm_create"(platform: "/web"){
         flow(required: true, PropertyType.String, description: "The flow of the track")
@@ -431,7 +400,6 @@ tracks {
 
     // About events
     "/about"(platform: "/mobile", isAbstract: true) {}
-    "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
 
     /**
     * Register Point Devices

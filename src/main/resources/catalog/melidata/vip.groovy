@@ -8,6 +8,21 @@ tracks {
 
     initiative = "1171"
 
+    def realestatedata = objectSchemaDefinitions {
+        audience(type: PropertyType.String, required: false, description: "audience for the content")
+        bu(type: PropertyType.String, required: false, description: "business unit for the content")
+        bu_line(type: PropertyType.String, required: false, description: "vertical for the content")
+        component_id(type: PropertyType.String, required: false,  description: "realestate id")
+        content_id(type: PropertyType.String, required: false, description: "content id")
+        flow(type: PropertyType.String, required: false, description: "flow for the content")
+        logic(type: PropertyType.String, required: false, description: "logic of the content")
+        position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
+    }
+
+    def realestate = objectSchemaDefinitions {
+        vip_pdp_ecosystem(required: false, type: PropertyType.Map(realestatedata))
+    }
+
     def qadb_info_definition = objectSchemaDefinitions {
         results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
     }
@@ -94,9 +109,45 @@ tracks {
         has_size_chart(required: false, type: PropertyType.Boolean, description: "Indicates whether the item has size chart")
     }
 
+
+    def protection_quote_data = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, description: "Type of warranty selected by user")
+        option_price(required: true, type: PropertyType.Numeric, description: "Price of warranty option")
+        option_id(required: true, type: PropertyType.String, description: "Id of warranty option")
+    }
+    def protection_price = objectSchemaDefinitions {
+        final_amount(required: true, type: PropertyType.Numeric, description: "final amount")
+        discount_rate(required: false, type: PropertyType.Numeric, description: "discount rate")
+    }
+    def device_option_data = objectSchemaDefinitions {
+        brand(required: false, type: PropertyType.String, description: "brand of insured device")
+        coverage(required: false, type: PropertyType.String, description: "selected coverage type")
+        deductible_amount(required: false, type: PropertyType.Numeric, description: "deductible amount or franchise")
+        model(required: false, type: PropertyType.String, description: "model of insured device")
+        size(required: false, type: PropertyType.String, description: "size of device storage")
+        manufacturer_warranty(required: false, type: PropertyType.Numeric, description: "factory warranty time")
+    }
+    def protection_option = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, description: "id of the warranty option")
+        price(required: true, type: PropertyType.Map(protection_price), description: "price of the warranty option")
+        period(required: false, type: PropertyType.Numeric, description: "period of the warranty option")
+        option_data(required: false, type: PropertyType.Map(device_option_data), description: "extra information of the warranty option")
+    }
+    def protection_item_info = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "id of the item that is offered a protection")
+        domain_id(required: true, type: PropertyType.String, description: "domain of the item that is offered a protection")
+        price(required: true, type: PropertyType.Numeric, description: "price of the item that is offered a protection")
+    }
+
+    def credits_consumer_map = objectSchemaDefinitions {
+        type(required: true, values: ["acquisition", "activation"], type: PropertyType.String, description: "Indicates the type of product")
+    }
     //VIP FLOW
 
     "/vip"(platform: "/") {
+        // MERCH
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
+
         // TEMP FIELDS
         best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Item")
 
@@ -120,8 +171,8 @@ tracks {
         listing_type_id(required: true, type: PropertyType.String,
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
-        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
-                description: "Whenever the items is active, closed or paused")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "inactive", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+                description: "Whenever the items is active, inactive, closed or paused")
         deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         billboard_clicked_position(required: false, type: PropertyType.String, description: "Clicked billboard index. We use it to track when the user entered to VIP via Billboard")
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
@@ -185,6 +236,8 @@ tracks {
                 description: "Indicates if seller has checked by kyc in level 5 or above")
         points_interest_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has points of interest available")
+        is_ltr(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item is LTR type")
         available_consumer_credit(required: false, type: PropertyType.Boolean, description: "Indicates if the item has a credit available for the item's seller")
         bank(
                 required: false,
@@ -193,11 +246,13 @@ tracks {
                 values: [
                         "Amicar",
                         "Autofin",
+                        "Banco De Bogota S.A.",
                         "Banco do Brasil",
-                        "Bbva",
+                        "BBVA",
                         "Bradesco",
+                        "Credicuotas",
                         "Caixa",
-                        "Credihome",
+                        "CrediHome",
                         "Credimejora",
                         "Creditel",
                         "Daycoval",
@@ -208,10 +263,10 @@ tracks {
                         "Santander",
                         "Scotiabank",
                         "Votorantim",
-                        "BBVA",
-                        "CrediHome",
+                        "Volkswagen",
                 ]
         )
+        is_ltr(required: false, type: PropertyType.Boolean, description: "Indicates if the item is a long term rental property")
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
@@ -273,6 +328,13 @@ tracks {
 
         // Apparel
         apparel(required: false, type: PropertyType.Map(apparel_definition), description: "Apparel tracks")
+
+        // Insurtech fields
+        has_roda(required: false, type: PropertyType.Boolean, description: "The item have RODA protection options")
+        has_garex(required: false, type: PropertyType.Boolean, description: "The item have GAREX protection options")
+
+        // CREDITS CONSUMER
+        credits_consumer(required: false, type: PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
     }
 
     "/vip"(platform: "/web") {
@@ -398,6 +460,7 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
         attribute_combinations(required: false, type: PropertyType.Numeric, description: "Indicates the amount of variation pickers an item has")
         pricing_info
+        option_selected(required: false, type: PropertyType.Map(protection_quote_data), description: "information about the chosen protection")
     }
 
     "/vip/buy_action"(platform: "/web", parentPropertiesInherited: false) {
@@ -434,6 +497,7 @@ tracks {
         shipping_info
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
         pricing_info
+        option_selected(required: false, type: PropertyType.Map(protection_quote_data), description: "information about the chosen protection")
     }
 
     "/vip/add_cart_action"(platform: "/web", parentPropertiesInherited: false) {
@@ -509,7 +573,7 @@ tracks {
                 description: "Item ID"
         )
         from_view(required: false, type: PropertyType.String,
-                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", ""],
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", "questions", ""],
                 description: "Section where it's coming from"
         )
         vertical(required: false, description: "Vertical name over show phone event is displayed")
@@ -637,7 +701,7 @@ tracks {
                 description: "Indicates if it's an auction, buy_it_now or classified")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
-        from_view(required: true, type: PropertyType.String,
+        from_view(required: false, type: PropertyType.String,
                 values: ["vip", "description", "technicalSpecs", "form", "howToContract", "reputation"],
                 description: "Section where it's coming from"
         )
@@ -652,7 +716,8 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric)
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
     "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
@@ -749,6 +814,10 @@ tracks {
                 description: "Indicates if the item has tagged as good price according to price comparison")
         has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has attributes highlighted sale specification")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", "questions", ""],
+                description: "Section where it's coming from"
+        )
     }
 
     "/vip/questions"(parentPropertiesInherited: false, isAbstract: true){
@@ -763,6 +832,10 @@ tracks {
                 description: "Indicates if the item has tagged as good price according to price comparison")
         has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has attributes highlighted sale specification")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", "questions", ""],
+                description: "Section where it's coming from"
+        )
     }
 
     "/vip/questions/quick_access"(platform: "/", parentPropertiesInherited: false) {
@@ -788,6 +861,10 @@ tracks {
                 values: ["vip", "technicalSpecs", "description", "button"],
                 description: "source of the event")
         source(required: false, description: "Source of the referred")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", "questions", ""],
+                description: "Section where it's coming from"
+        )
         item_seller_type(required: false, type: PropertyType.String,
                 description: "Seller type: normal, real_estate_user, etc"
         )
@@ -834,7 +911,7 @@ tracks {
 
     "/vip/comparator_price/interactive_bin/bar"(platform: "/web", type: TrackType.Event) {}
 
-    "/vip/points_of_interest"(platform: "/web", type: TrackType.View, isAbstract: true) {
+    "/vip/points_of_interest"(platform: "/", type: TrackType.View, isAbstract: true) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         vertical(required: true, type: PropertyType.String,
@@ -844,12 +921,12 @@ tracks {
         item_seller_type(required: false, values: ['normal', 'real_estate_agency'], description: "Seller type: normal, real_estate_user, etc")
     }
 
-    "/vip/points_of_interest/transport"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/education"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/leisure"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/commerce"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/health"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/link_map"(platform: "/web", type: TrackType.Event) {}
+    "/vip/points_of_interest/transport"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/education"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/leisure"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/commerce"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/health"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/link_map"(platform: "/", type: TrackType.Event) {}
 
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION
@@ -1235,6 +1312,7 @@ tracks {
     }
 
     "/vip/new_shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
     "/vip/new_shipping_calculator/cancel"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
@@ -1277,6 +1355,7 @@ tracks {
                 type: PropertyType.Boolean,
                 description: "Item's catalog listing"
         )
+        source(required: true,  type: PropertyType.String, values: ["primary"], description: "Source of the referred")
     }
 
     "/vip/public_similar_intention"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -1322,6 +1401,12 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, card dealer etc")
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
+        listing_type_id(required: false, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
+        unregistered_contact(required: false, type: PropertyType.Boolean, description: "User is unregister type")
+        is_ltr(required: false, type: PropertyType.Boolean, description: "Indicates if the item is a long term rental property")
     }
 
     "/vip/contact_seller/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
@@ -1522,7 +1607,13 @@ tracks {
 
     //END -  Classifieds Credits
 
-    "/vip/denounce"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
+    "/vip/denounce"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description:"Item ID")
+        context(required: true, type: PropertyType.String, values: ["/vip"], description: "Indicates where the page was opened from")
+        reason(required: false, type: PropertyType.String, description:"the reason for denouncing", values: ["UNKNOWN","unavailable_property"])
+        vertical(required: true, type: PropertyType.String,
+        values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
 
     "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
@@ -1609,4 +1700,117 @@ tracks {
 
     "/vip/back_to_top/top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true) {}
 
+    "/vip/payment_methods"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        page_vertical(required: true, type: PropertyType.String, description: "Item vertical")
+        category_l1(required: false, type: PropertyType.String, description: "Item level 1 category")
+        category_l2(required: false, type: PropertyType.String, description: "Item level 2 category")
+        category_l3(required: false, type: PropertyType.String, description: "Item level 3 category")
+        category_l4(required: false, type: PropertyType.String, description: "Item level 4 category")
+        category_l5(required: false, type: PropertyType.String, description: "Item level 5 category")
+        shipping_mode(required: true, type: PropertyType.String, description: "Item shipping mode")
+        free_shipping(required: true, type: PropertyType.Boolean, description: "Item has free shipping")
+        international_delivery_mode(required: false, type: PropertyType.String, description: "Item international delivery mode")
+        item_condition(required: true, type: PropertyType.String, description: "Item condition")
+        buying_mode(required: true, type: PropertyType.String, description: "Item buying mode")
+        variations(required: false, type: PropertyType.Boolean, description: "Item has variations")
+        collector_id(required: false, type: PropertyType.String, description: "Item seller id")
+        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+        listing_source(required: false, type: PropertyType.String, description: "Item listing source")
+        listing_type(required: false, type: PropertyType.String, description: "Item listing type")
+        fulfillment(required: true, type: PropertyType.Boolean, description: "Item has fulfillment")
+        item_attributes(required: true, type: PropertyType.String, description: "Item attributes")
+        item_state(required: false, type: PropertyType.String, description: "Item state")
+        item_city(required: false, type: PropertyType.String, description: "Item city")
+        item_neighborhood(required: false, type: PropertyType.String, description: "Item neighborhood")
+    }
+
+    //Insurtech
+    "/vip/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/vip/insurtech_opened"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER"], description: "indicates to which component the event belongs")
+    }
+
+    "/vip/insurtech_selected"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: false, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/vip/insurtech_added"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: false, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/vip/insurtech_closed"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/vip/insurtech_terms"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: true, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/vip/insurtech_help"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: true, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    // VIS Scheduling
+    "/vip/scheduling_intention"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_seller_type(required: false, values: ['normal', 'real_estate_agency'],
+                description: "Seller type: normal, real_estate_agency")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
+        is_ltr(required: false, type: PropertyType.Boolean, description: "Indicates if the item is a long term rental property")
+    }
+
+    "/vip/return_policy"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
+
+    // VIS LTR onboard
+
+    "/vip/ltr_onboard"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+                description: "Whenever the items is active, closed or paused")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
+    }
+
+    "/vip/ltr_onboard/ok"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/vip/ltr_onboard/close"(platform: "/", type: TrackType.Event) {
+    }
 }

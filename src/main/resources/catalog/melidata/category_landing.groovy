@@ -12,12 +12,17 @@ tracks {
         category_id(required: true,  description: "Home's category")
         category_path(required: true, description: "Category path of this category home")
         last_modified(required: false, description: "Date of last modification")
+        deal_print_id(required: false, description: "Unique id hash")
     }
 
     "/category_landing/tap"(platform: "/",  type: TrackType.Event, parentPropertiesInherited:false) {
         category(required: false, type: PropertyType.String, description: "Landing category", values: ["landings"])
         action(required: false, type: PropertyType.String, description: "Name of the campaign")
         label(required: false, type: PropertyType.String, description: "Component related info")
+        context(required: true, type: PropertyType.String, description: "Landing context takeover/normal")
+        module(required: true, type: PropertyType.String, description: "Bussiness unit")
+        group(required: true, type: PropertyType.String, description: "Vertical")
+        content(required: true, type: PropertyType.String, description: "Tipo de landing")
     }
 
 }

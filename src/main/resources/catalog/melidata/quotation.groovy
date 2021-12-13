@@ -7,7 +7,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1075"
+    initiative = "1041"
 
     propertyDefinitions {
         seller_id(required: true, type:PropertyType.Numeric, inheritable: false)
@@ -38,6 +38,8 @@ tracks {
     //Quotation :: Details
     "/quotation/details"(platform: "/") {
         item_id(required: true, type:PropertyType.String,description: "Item id")
+        source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
+                description: "Source where item models are called")
     }
 
     "/quotation/details"(platform: "/web") {
@@ -99,8 +101,9 @@ tracks {
     //Quotation :: Quote intention
     "/quotation/quote_intention"(platform: "/mobile", type: TrackType.Event) {
         item_id(required: true, type:PropertyType.String, description: "Item id")
-        model_id(required: true, type:PropertyType.String, description: "Model id")
-        unit_id(required: true, type:PropertyType.String, description: "Unit id")
+        model_id(required: false, type:PropertyType.String, description: "Model id")
+        unit_id(required: false, type:PropertyType.String, description: "Unit id")
+        source(required: false, type:PropertyType.String, description: "Origen where the model was selected")
     }
 
     "/quotation/quote_intention"(platform: "/web", type: TrackType.Event) {
