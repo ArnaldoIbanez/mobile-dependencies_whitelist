@@ -342,7 +342,7 @@ tracks {
     "/vip"(platform: "/web") {
         specifications_size(required: false, type: PropertyType.Numeric, description: "Specifications attributes quantity")
         max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
-        contract_available(required: false, type: PropertyType.Boolean)
+        contract_available(required: false, type: PropertyType.Boolean, description: "Indicate if the item is contratable")
         gallery_dimension(required: false, type: PropertyType.String, values: ["wide", "square", "artsinfoto"],
                 description: "Indicates the gallery dimension format")
     }
@@ -351,7 +351,7 @@ tracks {
         context(required: false)
         resolution(required: false, description: "Indicates if the device has high or low resolution")
         whatsapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
-        contract_available(required: false, type: PropertyType.Boolean)
+        contract_available(required: false, type: PropertyType.Boolean, description: "Indicate if the item is contratable")
     }
 
     "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
@@ -387,7 +387,7 @@ tracks {
                 description: "Whenever the items is active, closed or paused")
         deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         seller_id(required: false, type: PropertyType.Numeric)
-        contract_available(required: false, type: PropertyType.Boolean)
+        contract_available(required: false, type: PropertyType.Boolean, description: "Indicate if the item is contratable")
         comparator_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if clasi item has model comparator available")
         gallery_pattern(required: false, type: PropertyType.String,
@@ -556,7 +556,7 @@ tracks {
 
     "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
         catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing. it will be true when comes from VPP")
-        contract_available(required: false, type: PropertyType.Boolean)
+        contract_available(required: false, type: PropertyType.Boolean, description: "Indicate if the item is contratable")
         description_type(required: false, description: "Description type: plain text, html, both, none",
                 values: ["plain_text", "html", "both", "none"])
         video_type(required: true, type: PropertyType.String, values: ["VIEW360", "TOUR360", "VIDEO", "NONE"],
