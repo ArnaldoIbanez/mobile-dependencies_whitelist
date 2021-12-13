@@ -10,7 +10,7 @@ tracks
         {
             initiative = "1047"
 
-              //Crypto tracks
+            //Crypto tracks
 
             "/crypto/dashboard" (platform: "/mobile", type: TrackType.View) {}
 
@@ -43,5 +43,16 @@ tracks
               operation(type: PropertyType.String, required: true, description: 'the Opration type SELL o BUY', values: ["SELL", "BUY"])
               local_currency(type: PropertyType.String, required: true, description: 'Local currency')
               state(type: PropertyType.String, required: true, description: 'state of transaction', values: ["SUCCESS", "ERROR"])
+            }
+            "/crypto/onboarding" (platform: "/mobile", type: TrackType.View) {
+              connection_type(type: PropertyType.String, required: false, description: 'Defines the type of connection the user is using')
+              registration_type(type: PropertyType.String, required: false, description: 'Defines how the user was registered')
+              user_profile(type: PropertyType.String, required: false, description: 'Profile of user')
+            }
+            "/crypto/load_error" (platform: "/mobile", type: TrackType.View) {
+              connection_type(type: PropertyType.String, required: false, description: 'Defines the type of connection the user is using')
+              registration_type(type: PropertyType.String, required: false, description: 'Defines how the user was registered')
+              user_profile(type: PropertyType.String, required: false, description: 'Profile of user')
+              errors(type: PropertyType.String, required: false, description: 'Type of error', values: ["no_internet_connection", "not_available_on_country", "no_site_connection","cant_show_data"])
             }
         }
