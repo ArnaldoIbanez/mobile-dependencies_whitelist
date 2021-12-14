@@ -72,7 +72,10 @@ trackTests {
             has_seller_level_kyc = true
             seller_type = 'normal'
             apparel = [
-                    "has_size_chart": true
+                    "has_size_chart": true,
+                    "size_chart_version": "V2",
+                    "grid_id": "17005",
+                    "grid_type": "BRAND"
             ]
             is_ltr: false
             credits_consumer = {
@@ -777,6 +780,9 @@ trackTests {
         "/vip/sizechart"(platform: "/", type: TrackType.View) {
             item_id = "MLA533657947"
             referer = "vip"
+            size_chart_version = "V2"
+            grid_id = "17005"
+            grid_type = "BRAND"
         }
 
         "/vip/sizechart/tutorial"(platform: "/mobile", type: TrackType.View) {
@@ -1012,7 +1018,11 @@ trackTests {
             item_id = "MLA112341"
         }
 
-        "/vip/apparel/size_chart_preview"(platform: "/", type: TrackType.View) {}
+        "/vip/apparel/size_chart_preview"(platform: "/", type: TrackType.View) {
+            size_chart_version = "V2"
+            grid_id = "17005"
+            grid_type = "BRAND"
+        }
     }
 
     test("New Shipping calculator"){

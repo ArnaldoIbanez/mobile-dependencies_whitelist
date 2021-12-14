@@ -24,7 +24,7 @@ tracks {
             description: "Seller Id"
         )
         store_id(
-            required: true,
+            required: false,
             type: PropertyType.Numeric,
             description: "Store Id"
         )
