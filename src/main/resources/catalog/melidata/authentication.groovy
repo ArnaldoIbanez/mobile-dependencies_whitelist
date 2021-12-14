@@ -146,7 +146,7 @@ tracks {
 
     "/login/auth/challenge/help"(platform: "/", type: TrackType.Event) {}
 
-    "/login/auth/challenge/click_incomplete_registration"(platform: "/", type: TrackType.Event) {}
+    "/login/auth/challenge/incomplete_registration"(platform: "/", type: TrackType.Event) {}
 
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
