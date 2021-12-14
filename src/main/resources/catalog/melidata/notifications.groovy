@@ -2052,6 +2052,14 @@ tracks {
     "/notification/single_player_scheduled_payment_pixtransfer_solo_insufficient_amount"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_pixtransfer_grouped_reminder"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_pixtransfer_solo_reminder"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_cancelled_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_cancelled_product_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_cancelled_unrecoverable_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_fail_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_fail_payments_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_reminder_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_success_mp"(platform: "/mobile") {}
+
 
     //Single player - Self-Service
     "/notification/single_player_self_service_schedule_new_debt"(platform: "/mobile") {
