@@ -529,6 +529,7 @@ tracks {
     }
     "/notification_center/orders-buyer"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
+        experiment_id(required: false, type: PropertyType.String, description: "Experiment id.")
     }
     "/notification_center/orders-seller"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
