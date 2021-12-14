@@ -4276,7 +4276,7 @@ trackTests {
 
     // NFC REAUTH INTEGRATION
 
-    test("") {
+    test("test reauth nfc integration events") {
         "/cards/nfc/reauth_integration"(platform: "/", type: TrackType.Event) {}
 
         "/cards/nfc/reauth_integration/ondemand_tokenization"(platform: "/", type: TrackType.Event) {
