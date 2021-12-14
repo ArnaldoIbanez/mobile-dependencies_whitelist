@@ -2290,17 +2290,6 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
-    // Credit Card
-    "/notification_center/credit_card_transaction_kyc_onboarding"(platform: "/", type: TrackType.Event) {
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-
-    "/notification_center/credit_card_transaction_acquisition_micro"(platform: "/", type: TrackType.Event) {
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-
     //Open Finance
     "/notification/open_finance_consent_recovery"(platform: "/mobile") {}
 }
