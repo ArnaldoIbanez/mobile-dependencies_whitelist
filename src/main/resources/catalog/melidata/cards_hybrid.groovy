@@ -3310,7 +3310,7 @@ tracks {
 
     "/cards/nfc/enrollment/ondemand/success"(platform: "/", type: TrackType.Event) {}
 
-    "/cards/nfc/enrollment/ondemand/braked_by_reauth_validation"(platform: "/", type: TrackType.Event) {}
+    "/cards/nfc/enrollment/ondemand/stopped_by_reauth_validation"(platform: "/", type: TrackType.Event) {}
 
     "/cards/nfc/enrollment/ondemand/error"(platform: "/", type: TrackType.Event) {
         error_message (

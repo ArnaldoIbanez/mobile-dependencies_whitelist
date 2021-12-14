@@ -4271,7 +4271,7 @@ trackTests {
         "/cards/nfc/enrollment/ondemand/error"(platform:"/", type: TrackType.Event) {
             error_message = "Empty nfc_command userId"
         }
-        "/cards/nfc/enrollment/ondemand/braked_by_reauth_validation"(platform: "/", type: TrackType.Event) {}
+        "/cards/nfc/enrollment/ondemand/stopped_by_reauth_validation"(platform: "/", type: TrackType.Event) {}
     }
 
     // NFC REAUTH INTEGRATION
