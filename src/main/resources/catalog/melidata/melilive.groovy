@@ -202,11 +202,11 @@ tracks {
     }
 
     "/melilive/stream/chat/first_message"(platform: "/", type: TrackType.Event) { 
-        role(required: true, type: PropertyType.String, description: "User role")
+        role(required: true, type: PropertyType.String, values: ["PUBLISHER", "MODERATOR", "VIEWER"], description: "User role")
     }
 
     "/melilive/stream/chat/message_error"(platform: "/", type: TrackType.Event) { 
-        role(required: true, type: PropertyType.String, description: "User role")
+        role(required: true, type: PropertyType.String, values: ["PUBLISHER", "MODERATOR", "VIEWER"], description: "User role")
         error_code(required: true, type: PropertyType.String, description: "Message error cause")
     }
 
@@ -218,11 +218,11 @@ tracks {
     }
 
     "/melilive/creator/chat/first_message"(platform: "/", type: TrackType.Event) { 
-        role(required: true, type: PropertyType.String, description: "User role")
+        role(required: true, type: PropertyType.String, values: ["PUBLISHER", "MODERATOR", "VIEWER"], description: "User role")
     }
 
     "/melilive/creator/chat/message_error"(platform: "/", type: TrackType.Event) {
-        role(required: true, type: PropertyType.String, description: "User role")
+        role(required: true, type: PropertyType.String, values: ["PUBLISHER", "MODERATOR", "VIEWER"], description: "User role")
         error_code(required: true, type: PropertyType.String, description: "Message error cause")
      }
 
