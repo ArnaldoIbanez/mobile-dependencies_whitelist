@@ -200,6 +200,11 @@ tracks {
     def credits_consumer_map = objectSchemaDefinitions {
         type(required: true, values: ["acquisition", "activation"], type: PropertyType.String, description: "Indicates the type of product")
     }
+
+    def crypto_definition = objectSchemaDefinitions {
+        type(required: false, type: PropertyType.String, description: "Indicates the type of the crypto returned by the item")
+        amount(required: false, type: PropertyType.Numeric, description: "Returned amount in local currency")
+    }
     //VPP FLOW
 
     "/pdp"(platform: "/") {
@@ -314,6 +319,9 @@ tracks {
 
         // Apparel
         apparel(required: false, type: PropertyType.Map(apparel_definition), description: "Apparel tracks")
+
+        // Crypto
+        crypto(required: false, type: PropertyType.Map(crypto_definition), description: "Indicates whether the item has a return amount in crypto")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
