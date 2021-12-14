@@ -2237,10 +2237,6 @@ tracks {
     }
 
     // Disbursement Kwai
-    "/notification_center/disbursement_kwai_pending_kyc"(platform: "/", type: TrackType.Event) {
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
     "/notification/disbursement_kwai_received"(platform: "/") {}
     "/notification/disbursement_kwai_pending_kyc"(platform: "/") {}
 
