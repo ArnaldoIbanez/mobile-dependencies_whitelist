@@ -2708,6 +2708,10 @@ trackTests {
             latest_news_type= "disbursement_kwai_received"
             latest_news_id= "disbursement_kwai-received-12345678"
         }
+        "/notification_center/disbursement_kwai_pending_kyc"(platform: "/") {
+            latest_news_type= "disbursement_kwai_pending_kyc"
+            latest_news_id= "disbursement_kwai-pending_kyc-12345678"
+        }
 
         "/notification/seller_journey_congrats"(platform: "/mobile"){
             step_id= 123
@@ -10561,6 +10565,11 @@ trackTests {
             latest_news_id= "disbursement_kwai-received-12345678"
         }
 
+        "/notification_center/disbursement_kwai_pending_kyc"(platform: "/") {
+            latest_news_type= "disbursement_kwai_pending_kyc"
+            latest_news_id= "disbursement_kwai-pending_kyc-12345678"
+        }
+
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "sent"
@@ -15458,6 +15467,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/disbursement_kwai_pending_kyc"(platform: "/") {
+            news_id = "disbursement_kwai-pending_kyc-12345678"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/moneyin_cca_approved"(platform: "/") {
             news_id = "moneyin_cca-approved-12345678"
             event_type = "open"
@@ -16617,6 +16632,10 @@ trackTests {
         }
         "/notification/disbursement_kwai_received"(platform: "/") {
             news_id = "disbursement_kwai-received-12345678"
+            event_type = "open"
+        }
+        "/notification/disbursement_kwai_pending_kyc"(platform: "/") {
+            news_id = "disbursement_kwai-pending_kyc-12345678"
             event_type = "open"
         }
     }
