@@ -200,6 +200,11 @@ tracks {
     def credits_consumer_map = objectSchemaDefinitions {
         type(required: true, values: ["acquisition", "activation"], type: PropertyType.String, description: "Indicates the type of product")
     }
+
+    def crypto_definition = objectSchemaDefinitions {
+        type(required: false, type: PropertyType.String, description: "Indicates the type of the crypto returned by the item")
+        amount(required: false, type: PropertyType.Numeric, description: "Returned amount in local currency")
+    }
     //VPP FLOW
 
     "/pdp"(platform: "/") {
@@ -311,6 +316,12 @@ tracks {
 
         // REPRESENTATIVE PICKERS
         has_unselected_pickers(required: false, type: PropertyType.Boolean, description: 'Indicates if products has unselected pickers')
+
+        // Apparel
+        apparel(required: false, type: PropertyType.Map(apparel_definition), description: "Apparel tracks")
+
+        // Crypto
+        crypto(required: false, type: PropertyType.Map(crypto_definition), description: "Indicates whether the item has a return amount in crypto")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
@@ -865,5 +876,17 @@ tracks {
         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
         label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/pdp/apparel/size_chart_preview"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
+        grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
+        grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
+    }
+
+    "/pdp/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
+        grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
+        grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
     }
 }

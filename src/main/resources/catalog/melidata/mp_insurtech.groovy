@@ -843,6 +843,7 @@ tracks {
     // Congrats - Success View
     "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
         purchase_key(required: true, type: PropertyType.String, description: "the id of the purchase generated")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
     }
     "/insurtech/cards/congrats_success/go_cards"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
     }
