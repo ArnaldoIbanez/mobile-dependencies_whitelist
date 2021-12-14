@@ -106,6 +106,7 @@ tracks {
     }
 
     def apparel_definition = objectSchemaDefinitions {
+        has_size_chart(required: false, type: PropertyType.Boolean, description: "Indicates whether the item has size chart")
         size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
         grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
         grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
@@ -113,7 +114,6 @@ tracks {
 
 
     def protection_quote_data = objectSchemaDefinitions {
-        has_size_chart(required: false, type: PropertyType.Boolean, description: "Indicates whether the item has size chart")
         product_id(required: true, type: PropertyType.String, description: "Type of warranty selected by user")
         option_price(required: true, type: PropertyType.Numeric, description: "Price of warranty option")
         option_id(required: true, type: PropertyType.String, description: "Id of warranty option")
@@ -349,7 +349,7 @@ tracks {
     }
 
     "/vip"(platform: "/mobile") {
-        context(required: false)
+        context(required: false, type: PropertyType.String, description: "Indicates context")
         resolution(required: false, description: "Indicates if the device has high or low resolution")
         whatsapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
         contract_available(required: false, type: PropertyType.Boolean, description: "Indicate if the item is contratable")
@@ -519,7 +519,7 @@ tracks {
     "/vip/color_and_size"(platform: "/mobile") {}
 
     "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {
-        context(required: false)
+        context(required: false, type: PropertyType.String, description: "Indicates context")
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
