@@ -789,7 +789,7 @@ trackTests {
     }
 
     test("More contextual help in dashboard") {
-        "/cards/hybrid/dashboard/more_contextual_help"(platform, type: TrackType.Event) { }
+        "/cards/hybrid/dashboard/more_help"(platform, type: TrackType.Event) { }
     }
 
     // SETUP VIRTUAL
