@@ -29,10 +29,6 @@ tracks {
         categoryProperties
     }
 
-    // Generic Erros
-    "/bill_payments/generic_error/retry"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/connection_error/retry"(platform: "/mobile", type: TrackType.View) {}
-
     // Onboarding
     "/bill_payments/onboarding"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/onboarding/back"(platform: "/mobile", type: TrackType.Event) {}
@@ -87,6 +83,7 @@ tracks {
     "/bill_payments/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/menu/notification_preference"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/menu/to_subscription_detail"(platform: "/mobile", type: TrackType.Event) {}
 
     //Invoices subscription
     "/bill_payments/invoices/subscription"(platform: "/mobile", type: TrackType.Event) {
@@ -212,9 +209,9 @@ tracks {
 
     "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
         barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
-        camera_flash(required: true, type: PropertyType.Boolean, description: "the camera flash is active")
-        timestamp(required: true, type: PropertyType.Numeric, description: "the time to scan")
-        barcode_format(required: true, type: PropertyType.String, description: "barcode format")
+        camera_flash(required: false, type: PropertyType.Boolean, description: "the camera flash is active")
+        timestamp(required: false, type: PropertyType.Numeric, description: "the time to scan")
+        barcode_format(required: false, type: PropertyType.String, description: "barcode format")
     }
 
     // New Scanner Screen
@@ -248,6 +245,9 @@ tracks {
     "/bill_payments/main_category/item"(platform: "/mobile", type: TrackType.Event) {
         entity (required:false, type: PropertyType.String, description: "The chosen entitie label")
         item (required:false, type: PropertyType.String, description: "The chosen item label")
+    }
+    "/bill_payments/main_category/recent_payments"(platform: "/mobile", type: TrackType.Event) {
+        entity (required:false, type: PropertyType.String, description: "The chosen entitie label")
     }
 
     "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
@@ -341,8 +341,9 @@ tracks {
     "/bill_payments/congrats/success"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/congrats/success/activate_digital_invoices"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats/success/warning_pay_hour"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats/success/activate_digital_invoices"(platform: "/mobile", type: TrackType.Event) {}
 
     // search
     "/bill_payments/search"(platform: "/mobile", type: TrackType.View) {}
@@ -594,6 +595,7 @@ tracks {
     "/bill_payments/adhesion_detail/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/adhesion_detail/automatic_debit/retry"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/adhesion_detail/automatic_debit/cancel"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/adhesion_detail/automatic_debit/to_subscription_detail"(platform: "/mobile", type: TrackType.Event) {}
 
     // optout
     "/bill_payments/optout/automatic_debit"(platform: "/mobile", type: TrackType.View) {}

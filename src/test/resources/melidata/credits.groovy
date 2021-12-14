@@ -174,6 +174,44 @@ trackTests {
             source = 'off'
         }
 
+        //Pre Approved Flow - Congrats
+
+        //Page view
+        "/credits/consumer/opensea/pre_approved_flow/congrats"(platform: "/web/mobile", type: TrackType.View, business:"mercadopago") {
+            result = 'approved'
+            source = 'off'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/congrats"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            result = 'approved'
+            source = 'off'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/credit_line_status"(platform: "/web/mobile", type: TrackType.View, business:"mercadopago") {
+            result = 'approved'
+            source = 'off'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/credit_line_status"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            result = 'approved'
+            source = 'off'
+        }
+
+        //Events
+        "/credits/consumer/opensea/pre_approved_flow/congrats/back_to_site"(platform: "/web/mobile", type: TrackType.Event, business:"mercadopago") {
+            result = 'approved'
+            source = 'off'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/congrats/back_to_site"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            result = 'approved'
+            source = 'off'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/credit_line_status/back_to_site"(platform: "/web/mobile", type: TrackType.Event, business:"mercadopago") {
+            result = 'rejected'
+            source = 'off'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/credit_line_status/back_to_site"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            result = 'rejected'
+            source = 'off'
+        }
+
         /*********************************************
          *       End: Consumers Pre Approved Flow
          *********************************************/

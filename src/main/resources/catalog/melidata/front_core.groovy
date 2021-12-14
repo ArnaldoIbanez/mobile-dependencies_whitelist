@@ -255,6 +255,7 @@ tracks {
         content_type(type: PropertyType.String, required: false, values: ['partial','default','complete'],  description: "Content information type")
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
         level(type: PropertyType.Numeric, required: false, description: "The user's loyalty level")
+        percentage(type: PropertyType.Numeric, required: false, description: "The user's loyalty level percentage")
     }
 
     def shortcuts_section_definition = objectSchemaDefinitions {
@@ -545,9 +546,11 @@ tracks {
     "/wallet_home/header_data_button" (platform: "/mobile", isAbstract: true) {}
 
     "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
-        link(required: true, type: PropertyType.String, description: "If header is tapeable")
-        button_link(required: false, type: PropertyType.String, description: "If button is present")
-        buttons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "If have buttons")
+        link(required: false, type: PropertyType.String, description: "The link of the user info")
+        button_link(required: false, type: PropertyType.String, description: "The link of the action")
+        buttons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Buttons pix, CVU, help")
+        loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
 
     "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
@@ -693,7 +696,12 @@ tracks {
 
     "/wallet_home/section/tap/buy_level_subscription" (platform: "/mobile", type: TrackType.Event) {
         level(required: false, type: PropertyType.Numeric, description: "Loyalty level")
+        percentage(required: false, type: PropertyType.Numeric, description: "Loyalty level percentage")
     }
+
+    "/wallet_home/section/tap/carousel" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/ad_carousel" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/shortcuts"(platform: "/mobile", type: TrackType.Event) {
         from(type: PropertyType.String, required: true, values: ['section', 'sheet'])
@@ -750,6 +758,10 @@ tracks {
     "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+        walletHomeMerchEngineFields
+    }
+
+    "/wallet_home/section/tap/prepaid_banner/close" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields
     }
 

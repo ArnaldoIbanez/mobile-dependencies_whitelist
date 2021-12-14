@@ -260,6 +260,9 @@ trackTests {
         "/banking/balance/footer_action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
+        "/banking/calendar/footer_action"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
         "/banking/balance/row"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
@@ -279,6 +282,9 @@ trackTests {
             action_id = 'test'
         }
         "/banking/activities/row"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/activities/action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
         "/banking/debts/action"(platform: "/", type: TrackType.Event) {

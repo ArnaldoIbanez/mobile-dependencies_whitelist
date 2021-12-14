@@ -21,9 +21,13 @@ trackTests {
             errors_counter = ["java.io.EOFException":2, "nullpointer":3]
             last_send_timestamp="2015-01-21T13:14:09.415-0300"
             total_pending_tracks=2
+            stream_pending_tracks=10
+            melidata_pending_tracks=20
             send_counter=6
             database_size=16384
             tracks_counter=12
+            stream_tracks_counter=20
+            melidata_tracks_counter=15
             average_ok_time=10
             average_error_time=11
         }

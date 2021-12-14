@@ -100,6 +100,8 @@ catalog {
         include business, "bulk_edit.groovy"
         include business, "pdf_viewer.groovy"
         include business, "fraud_challenges.groovy"
+        include business, "device_health.groovy"
+        include business, "taxes.groovy"
     }
 
     mercadolibre.each { business ->
@@ -113,6 +115,7 @@ catalog {
         include business, "cartList.groovy"
         include business, "credits_credit_card.groovy"
         include business, "compatibilities.groovy"
+        include business, "combos.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
@@ -196,6 +199,7 @@ catalog {
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
+        include business, "vis_supply.groovy"
     }
 
     mercadopago.each { business ->
@@ -241,6 +245,7 @@ catalog {
         include business, "profile_engine.groovy"
         include business, "pos_management.groovy"
         include business, "discount_center.groovy"
+        include business, "reseller.groovy"
         include business, "discount_center_touchpoints.groovy"
         include business, "external.groovy"
         include business, "pos_billings.groovy"
@@ -294,6 +299,7 @@ catalog {
         include business, "crypto.groovy"
         include business, "investment.groovy"
         include business, "pricing_point.groovy"
+        include business, "splinter.groovy"
     }
 
     mercadoshops.each { business ->
@@ -314,6 +320,7 @@ catalog {
         include business, "vip.groovy"
         include business, "hub_mshops.groovy"
         include business, "myml_mercadoshops.groovy"
+        include business, "mercadoshops_cdp.groovy"
     }
 
     mercadoads.each { business ->
@@ -345,6 +352,7 @@ catalog {
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "myml.groovy"
+        include business, "taxes.groovy"
         include business, "billing.groovy"
         include business, "download_app.groovy"
         include business, "official_stores.groovy"
@@ -366,6 +374,7 @@ catalog {
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
         include business, "collaborators.groovy"
+        include business, "vis_supply.groovy"
     }
 
 }

@@ -187,6 +187,7 @@ trackTests {
         "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/debt_relief/info"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
             dashboard_status = "on_time"
@@ -272,8 +273,8 @@ trackTests {
         "/credits/consumer/administrator/history/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/history/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {
         }
-        "/credits/consumer/administrator_v2/dashboard/personal_loan_download"(platform: "/web/desktop", type: TrackType.Event) {
-             dashboard_status = 'on_time'
+        "/credits/consumer/administrator_v2/dashboard/personal_loan_download"(platform: "/web", type: TrackType.Event) {
+            dashboard_status = 'on_time'
         }
         //Event PX Congrats Extra Component
         "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {
