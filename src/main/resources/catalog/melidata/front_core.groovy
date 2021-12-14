@@ -740,7 +740,7 @@ tracks {
     }
 
     "/wallet_home/section/tap/ads_top_banner" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
-        walletHomeMerchEngineFields
+        walletHomeMerchEngineAdvertisingFields
     }
 
     "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {

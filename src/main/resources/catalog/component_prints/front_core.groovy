@@ -102,6 +102,20 @@ tracks {
         flow(required: true, type: PropertyType.String, description: "Flow")
     }
 
+    def ads_top_banner_item_definition = objectSchemaDefinitions {
+        component_id(required: true, type: PropertyType.String, description: "Component id")
+        audience(required: true, type: PropertyType.String, description: "Audience")
+        bu(required: true, type: PropertyType.String, description: "Bu")
+        content_id(required: true, type: PropertyType.String, description: "Content id")
+        action_id(required: true, type: PropertyType.String, description: "Action id")
+        bu_line(required: true, type: PropertyType.String, description: "Bu line")
+        logic(required: true, type: PropertyType.String, description: "Logic")
+        position(required: true, type: PropertyType.Numeric, description: "Position")
+        flow(required: true, type: PropertyType.String, description: "Flow")
+        campaign_id(required: false, type: PropertyType.Numeric, description: "Campaign ID")
+        print_id(required: false, type: PropertyType.String, description: "Identifier for Advertising print")
+    }
+
     def benefits_item_definition = objectSchemaDefinitions {
         component_id(required: true, type: PropertyType.String, description: "Component id")
         audience(required: true, type: PropertyType.String, description: "Audience")
@@ -192,5 +206,6 @@ tracks {
         buy_level_subscription(required: false, type: PropertyType.ArrayList(PropertyType.Map(buy_level_subscription_item_definition)), description: "Buy level subscription")
         repentance_button(required: false, type: PropertyType.ArrayList(PropertyType.Map(repentance_button_item_definition)), description: "Repentance button")
         bcra_regulation(required: false, type: PropertyType.ArrayList(PropertyType.Map(bcra_regulation_item_definition)), description: "BCRA regulation")
+        ads_top_banner(required: false, type: PropertyType.ArrayList(PropertyType.Map(ads_top_banner_item_definition)), description: "Ads Top Banner Carousel")
     }
 }
