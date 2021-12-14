@@ -7020,5 +7020,18 @@ trackTests {
             local_currency = "BRL"
             state = "SUCCESS"
         }
+        "/crypto/onboarding" (platform: "/mobile", type: TrackType.View) {
+            connection_type = "mobile"
+            registration_type = "persomnal"
+            user_profile = "newbie"
+        }
+        "/crypto/load_error" (platform: "/mobile", type: TrackType.View) {
+            connection_type = "mobile"
+            registration_type = "personal"
+            user_profile = "newbie"
+            errors = "no_internet_connection"
+        }
+        "/crypto/educational" (platform: "/mobile", type: TrackType.View) {
+        }
     }
 }

@@ -6017,7 +6017,10 @@ trackTests {
             news_id = "asset-management_missing_docs-12345678-123123"
             event_type = "shown"
         }
-
+         "/notification/asset_management_cryto"(platform: "/mobile") {
+            news_id = "asset-management_missing_docs-12345678-123123"
+            event_type = "shown"
+        }
         "/notification/asset_management_pending"(platform: "/mobile") {
             news_id = "asset-management_pending-12345678-123123"
             event_type = "shown"
