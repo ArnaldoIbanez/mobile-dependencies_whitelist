@@ -164,7 +164,7 @@ trackTests {
             source = "QUESTION"
             tracking_id = "123"
         }
-        "/login/auth/challenge/click_incomplete_registration"(platform: "/", type: TrackType.Event) {
+        "/login/auth/challenge/incomplete_registration"(platform: "/", type: TrackType.Event) {
             challenge = "user"
             source = "EXPLICIT"
             tracking_id = "123"
