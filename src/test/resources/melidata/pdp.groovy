@@ -659,8 +659,6 @@ trackTests {
         }
 
         "/pdp/sizechart"(platform: "/", type: TrackType.View) {
-            item_id = "MLA533657947"
-            referer = "vip"
             size_chart_version = "V2"
             grid_id = "17005"
             grid_type = "BRAND"
