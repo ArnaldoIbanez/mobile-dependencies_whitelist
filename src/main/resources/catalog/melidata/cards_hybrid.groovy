@@ -739,8 +739,7 @@ tracks {
         faq_id (
             required: true,
             description: "Indicates the faq identifier that was tapped",
-            type: PropertyType.Numeric,
-            name: "faq_id"
+            type: PropertyType.Numeric
         )
     }
 
