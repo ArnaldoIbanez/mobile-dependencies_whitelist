@@ -132,13 +132,17 @@ tracks {
         source(description: "Pre approved flow source", type: PropertyType.String, required: true)
     }
     "/credits/consumer/opensea/pre_approved_flow/credit_line_status"(platform: "/", type: TrackType.View) {
-        result(description: "Current status of the KyC application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected", "error"])
+        result(description: "Current status of the Credit Line", type: PropertyType.String, required: true, values: ["pending", "approved", "rejected", "paused"])
         source(description: "Pre approved flow source", type: PropertyType.String, required: true)
     }
 
     //Events
     "/credits/consumer/opensea/pre_approved_flow/congrats/back_to_site"(platform: "/", type: TrackType.Event) {
         result(description: "Current status of the KyC application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected", "error"])
+        source(description: "Pre approved flow source", type: PropertyType.String, required: true)
+    }
+    "/credits/consumer/opensea/pre_approved_flow/credit_line_status/back_to_site"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the Credit Line", type: PropertyType.String, required: true, values: ["pending", "approved", "rejected", "paused"])
         source(description: "Pre approved flow source", type: PropertyType.String, required: true)
     }
 
