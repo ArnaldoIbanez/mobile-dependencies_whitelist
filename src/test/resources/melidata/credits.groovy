@@ -203,6 +203,14 @@ trackTests {
             result = 'approved'
             source = 'off'
         }
+        "/credits/consumer/opensea/pre_approved_flow/credit_line_status/back_to_site"(platform: "/web/mobile", type: TrackType.Event, business:"mercadopago") {
+            result = 'rejected'
+            source = 'off'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/credit_line_status/back_to_site"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            result = 'rejected'
+            source = 'off'
+        }
 
         /*********************************************
          *       End: Consumers Pre Approved Flow
