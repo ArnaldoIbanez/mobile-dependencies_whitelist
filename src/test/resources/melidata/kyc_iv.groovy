@@ -631,13 +631,6 @@ trackTests {
             handoff_type = "user_swap"
         }
 
-        "/kyc/iv/object_detection/model_download"(platform: "/web/desktop")  {
-            success = true
-            model_name = "test"
-            time = 141231,
-            description = "description"
-        }
-        
         "/kyc/iv/object_detection/validation"(platform: "/web")  {
             validation = "aspect_ratio"
             value = "1.3"
@@ -1897,7 +1890,7 @@ trackTests {
         "/kyc/iv/object_detection/model_download"(platform: "/web/desktop")  {
             success = true
             model_name = "test"
-            time = 141231,
+            time = 141231
             description = "description"
         }
 
