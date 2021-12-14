@@ -354,7 +354,7 @@ tracks {
     }
 
     "/vip"(platform: "/mobile") {
-        context(required: false)
+        context(required: false, type: PropertyType.String, description: "Indicates the current context")
         resolution(required: false, description: "Indicates if the device has high or low resolution")
         whatsapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
         contract_available(required: false, type: PropertyType.Boolean)
@@ -393,7 +393,7 @@ tracks {
                 description: "Whenever the items is active, closed or paused")
         deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         seller_id(required: false, type: PropertyType.Numeric)
-        contract_available(required: false, type: PropertyType.Boolean)
+        contract_available(required: false, type: PropertyType.Boolean, description: "Indicates if there is a contract available")
         comparator_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if clasi item has model comparator available")
         gallery_pattern(required: false, type: PropertyType.String,
