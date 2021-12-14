@@ -2016,6 +2016,7 @@ tracks {
     "/notification/single_player_prepaid_toll_success_mp"(platform: "/mobile") {}
     "/notification/single_player_prepaid_toll_fail_mp"(platform: "/mobile") {}
     "/notification/single_player_balance_expiration_transport_mp"(platform: "/mobile") {}
+    "/notification/single_player_balance_expiration_prepaid_toll_mp"(platform: "/mobile") {}
     "/notification/single_player_antenna_fail_mp"(platform: "/mobile") {}
     "/notification/single_player_antenna_success_mp"(platform: "/mobile") {}
     "/notification/single_player_generic_balance_expiration"(platform: "/mobile") {}
