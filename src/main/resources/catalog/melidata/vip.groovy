@@ -113,6 +113,7 @@ tracks {
 
 
     def protection_quote_data = objectSchemaDefinitions {
+        has_size_chart(required: false, type: PropertyType.Boolean, description: "Indicates whether the item has size chart")
         product_id(required: true, type: PropertyType.String, description: "Type of warranty selected by user")
         option_price(required: true, type: PropertyType.Numeric, description: "Price of warranty option")
         option_id(required: true, type: PropertyType.String, description: "Id of warranty option")
