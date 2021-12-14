@@ -173,6 +173,7 @@ tracks {
     "/notification/credit_card_transaction_purchase"(platform: "/") {}
     "/notification/credit_card_transaction_withdrawal"(platform: "/") {}
     "/notification/credit_card_transaction_kyc_onboarding"(platform: "/") {}
+    "/notification/credit_card_transaction_acquisition_micro"(platform: "/") {}
     "/notification/credit_card_waitlist_10"(platform: "/") {}
     "/notification/credit_card_waitlist_40"(platform: "/") {}
     "/notification/credit_card_waitlist_blacklist"(platform: "/") {}
@@ -2286,6 +2287,17 @@ tracks {
     "/notification_center/card_first_use_incentive_nfc"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
+    // Credit Card
+    "/notification_center/credit_card_transaction_kyc_onboarding"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
+    "/notification_center/credit_card_transaction_acquisition_micro"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
     //Open Finance
