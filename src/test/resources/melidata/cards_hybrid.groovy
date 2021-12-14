@@ -786,11 +786,10 @@ trackTests {
         "/cards/hybrid/dashboard/contextual_help"(platform:"/", type: TrackType.Event) {
             faq_id = 22464
         }
-    }
 
-    test("More contextual help in dashboard") {
         "/cards/hybrid/dashboard/more_contextual_help"(platform, type: TrackType.Event) { }
     }
+
     // SETUP VIRTUAL
     // --------
 
