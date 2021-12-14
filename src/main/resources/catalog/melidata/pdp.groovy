@@ -321,7 +321,7 @@ tracks {
         apparel(required: false, type: PropertyType.Map(apparel_definition), description: "Apparel tracks")
 
         // Crypto
-        crypto(requered: false, type: PropertyType.Map(crypto_definition), description: "Indicates whether the item has a return amount in crypto")
+        crypto(required: false, type: PropertyType.Map(crypto_definition), description: "Indicates whether the item has a return amount in crypto")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {

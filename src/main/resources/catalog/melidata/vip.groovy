@@ -345,7 +345,7 @@ tracks {
         credits_consumer(required: false, type: PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
 
         // Crypto
-        crypto(requered: false, type: PropertyType.Map(crypto_definition), description: "Indicates whether the item has a return amount in crypto")
+        crypto(required: false, type: PropertyType.Map(crypto_definition), description: "Indicates whether the item has a return amount in crypto")
     }
 
     "/vip"(platform: "/web") {
