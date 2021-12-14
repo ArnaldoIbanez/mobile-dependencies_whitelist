@@ -189,13 +189,6 @@ tracks {
         moreInfoGroup
     }
 
-    def amount_definition = objectSchemaDefinitions {
-        final_price(type: PropertyType.Numeric, required: true, description: "The final price with discount if exits")
-        currency(type: PropertyType.String, required: true, description: "The currency")
-        discount(type: PropertyType.Numeric, required: false, description: "The discount in percent")
-        original_price(type: PropertyType.Numeric, required: false, description: "The price without discount")
-    }
-
     def section_option_definition = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true, description: "The option's identifier")
         title(type: PropertyType.String, required: true, description: "The options's title")
@@ -228,7 +221,9 @@ tracks {
 
     "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
         vipGroup
-        amount(type: PropertyType.Map(amount_definition), required: true, description: "The price")
+        price(type: PropertyType.String, required: true, description: "The item price")
+        price_with_discount(type: PropertyType.String, required: false, description: "The item price with the discount applied")
+        discount(type: PropertyType.String, required: false, description: "The item discount")
         context_info(type: PropertyType.Map(context_info_definition), required: true, description: "The context information")
         quantity(type: PropertyType.Numeric, required: true, description: "The item quantity default value")
         element_id(type: PropertyType.Numeric, required: false, description: "The identifier for a item with kit configuration")

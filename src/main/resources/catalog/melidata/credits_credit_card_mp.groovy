@@ -307,7 +307,6 @@ tracks {
     "/credits/credit_card/statement"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/disable"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/landing"(platform: "/web", isAbstract: true) {}
-    "/credits/credit_card/waitlist"(platform: "/", isAbstract: true){}
     "/credits/credit_card/benefits"(platform: "/", isAbstract: true){}
     "/credits/credit_card/block_card/virtual"(platform: "/", isAbstract: true){}
     "/credits/credit_card/overlimit"(platform: "/", isAbstract: true){}
@@ -515,35 +514,6 @@ tracks {
 
     /*********************************************
      *       End: Credit Card Landings
-     *********************************************/
-
-
-    /***********************************************
-     *       Start: Credit Card Wait List
-     ***********************************************/
-    // Landings
-    "/credits/credit_card/waitlist/landing"(platform: "/", type: TrackType.View) { }
-
-    // Congrats
-    "/credits/credit_card/waitlist/congrats"(platform: "/", type: TrackType.View) {
-        status(
-                description: "Status from the user in Wait list",
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        "registered",
-                        "already_registered",
-                ]
-        )
-    }
-
-    // Error
-    "/credits/credit_card/waitlist/error"(platform: "/", type: TrackType.View) {
-        reason(type: PropertyType.String, required: false)
-    }
-
-    /*********************************************
-     *       End: Credit Card Wait List
      *********************************************/
 
 
