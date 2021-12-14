@@ -98,7 +98,7 @@ tracks {
         product_id(type: PropertyType.String, required: false)
         type(type: PropertyType.String, required: false)
         seller_id(type: PropertyType.Numeric, required: false)
-        values(type: PropertyType.ArrayList(PropertyType.Map(PropertyType.String, PropertyType.String)), required: false, description: 'values included in the track')
+        amount(type: PropertyType.Numeric, required: false, description: 'item amount')
     }
 
     def tag_tracking_map_object = objectSchemaDefinitions {
