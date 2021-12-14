@@ -247,7 +247,7 @@ trackTests {
             chat = [
                 "room_id": "room-v3-03"
             ]
-            role = "VIEWER"
+            role = "PUBLISHER"
         }
 
         "/melilive/stream/chat/message_error"(platform: "/") {
@@ -283,7 +283,7 @@ trackTests {
             chat = [
                 "room_id": "room-v3-03"
             ]
-            role = "PUBLISHER"
+            role = "MODERATOR"
         }
 
         "/melilive/creator/chat/message_error"(platform: "/") {
