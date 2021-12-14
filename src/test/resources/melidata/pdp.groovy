@@ -1081,4 +1081,37 @@ trackTests {
             label = "PICKER"
         }
     }
+
+    test("Pdp tracking with crypto data"){
+        def dataSet= {
+            best_seller_position = 3
+            highlights = [
+                    "id": "id_highlight",
+                    "best_seller_position": 5,
+                    "melichoice_domain": "CELLPHONES",
+                    "melichoice_origin": "killer",
+                    "melichoice_score": 0.3
+            ]
+            cac_item = false
+            cac_status = "normal"
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            seller_id = 131662738
+            pickers = pickers_data()
+            shipping_conditions = "free_other"
+            bo_pick_up_conditions = "free_other"
+            crypto = {
+                type = "melicoin"
+                amount = 200.25
+            }
+        }
+
+        "/pdp"(platform: "/", {
+            dataSet()
+        })
+    }
 }
