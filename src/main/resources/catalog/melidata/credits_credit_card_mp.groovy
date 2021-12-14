@@ -184,6 +184,23 @@ tracks {
                 required: true
         )
     }
+    def agreement_data = objectSchemaDefinitions {
+        amount(
+                description: "Agreement total amount",
+                type: PropertyType.Numeric,
+                required: false
+        )
+        installment_number(
+                description: "Agreement's installment number",
+                type: PropertyType.Numeric,
+                required: false,
+        )
+        next_payment_amount(
+                description: "Installment next payment amount",
+                type: PropertyType.Numeric,
+                required: false
+        )
+    }
 
     propertyDefinitions {
         amount_input(
@@ -231,7 +248,7 @@ tracks {
         account(
                 type: PropertyType.Map(account_data),
                 required: false
-        )<
+        )
         pending_payments(
                 description: "The pending payments",
                 type: PropertyType.Boolean,
@@ -261,11 +278,17 @@ tracks {
             type: PropertyType.Map(error_data),
             required: false
         )
+        agreement(
+                description: "User makes an agreement to pay their dues",
+                type: PropertyType.Map(agreement_data),
+                required: false
+        )
     }
 
     propertyGroups {
         dashboard_view_group(account, statement_status, pending_payments, error)
         dashboard_event_group(account, statement_status)
+        dashboard_agreement_event_group(account, statement_status, agreement)
         payment_group(account, statement_status)
         full_payment_group(account, statement_status, payment_option, amount_input, payment_plan)
         statement_status_group(statement_status , account)
@@ -363,35 +386,35 @@ tracks {
     }
 
     "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        dashboard_event_group
+        dashboard_agreement_event_group
     }
 
     "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        dashboard_event_group
+        dashboard_agreement_event_group
     }
 
     "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        dashboard_event_group
+        dashboard_agreement_event_group
     }
 
     "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        dashboard_event_group
+        dashboard_agreement_event_group
     }
 
     "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        dashboard_event_group
+        dashboard_agreement_event_group
     }
 
     "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        dashboard_event_group
+        dashboard_agreement_event_group
     }
 
     "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        dashboard_event_group
+        dashboard_agreement_event_group
     }
 
     "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        dashboard_event_group
+        dashboard_agreement_event_group
         available_limit(
                 description: "Amount available limit card",
                 type: PropertyType.Numeric,
@@ -405,7 +428,7 @@ tracks {
     }
 
     "/credits/credit_card/dashboard/collection_dialer_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        dashboard_event_group
+        dashboard_agreement_event_group
     }
 
     "/credits/credit_card/dashboard/fallback_dialer_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {

@@ -113,6 +113,11 @@ trackTests {
             unavailable_composition: [unavailable_composition_item],
             over_limit: overlimit_data
     ]
+    def agreement_data = [
+            amount: 400,
+            installment_number: 4,
+            next_payment_amount: 100,
+    ]
 
     test("Credits Credit Card - Payment tests") {
         /***********************************************
@@ -290,48 +295,56 @@ trackTests {
         "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Payment Button Account Status Pending and Status Closed
         "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Dashboard Event Payment Button Account Status Active and Status Open
         "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "open"
+            agreement = null
         }
 
         //Dashboard Event Payment Button Account Status Active and Status Closed
         "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Dashboard Event Payment Button Account Status Blocked and Status Open
         "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Payment Button Account Status Blocked and Status Closed
         "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Payment Button Account Status Cancelled and Status Open
         "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "open"
+            agreement = null
         }
 
         //Dashboard Event Payment Button Account Status Cancelled and Status Closed
         "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Payment Limit Modal
@@ -339,48 +352,56 @@ trackTests {
         "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "open"
+            agreement = null
         }
 
         //Dashboard Event Payment Limit Modal Button Account Status Pending and Status Closed
         "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Dashboard Event Payment Limit Modal Button Account Status Active and Status Open
         "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "open"
+            agreement = null
         }
 
         //Dashboard Event Payment Limit Modal Button Account Status Active and Status Closed
         "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Payment Limit Modal Button Account Status Blocked and Status Open
         "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Payment Limit Modal Button Account Status Blocked and Status Closed
         "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Payment Limit Modal Button Account Status Cancelled and Status Open
         "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Payment Limit Modal Button Account Status Cancelled and Status Closed
         "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Event Loyalty
@@ -388,48 +409,56 @@ trackTests {
         "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "open"
+            agreement = null
         }
 
         //Dashboard Event Loyalty Button Account Status Pending and Status Closed
         "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Dashboard Event Loyalty Button Account Status Active and Status Open
         "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Loyalty Button Account Status Active and Status Closed
         "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Loyalty Button Account Status Blocked and Status Open
         "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Loyalty Button Account Status Blocked and Status Closed
         "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Loyalty Button Account Status Cancelled and Status Open
         "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "open"
+            agreement = null
         }
 
         //Dashboard Event Loyalty Button Account Status Cancelled and Status Closed
         "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Event Statement
@@ -437,48 +466,56 @@ trackTests {
         "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Statement Button Account Status Pending and Status Closed
         "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Dashboard Event Statement Button Account Status Active and Status Open
         "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Statement Button Account Status Active and Status Closed
         "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Dashboard Event Statement Button Account Status Blocked and Status Open
         "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Statement Button Account Status Blocked and Status Closed
         "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Dashboard Event Statement Button Account Status Cancelled and Status Open
         "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Statement Button Account Status Cancelled and Status Closed
         "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Event Row Statement
@@ -486,48 +523,56 @@ trackTests {
         "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Row Statement Button Account Status Pending and Status Closed
         "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Row Statement Button Account Status Active and Status Open
         "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Row Statement Button Account Status Active and Status Closed
         "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Row Statement Button Account Status Blocked and Status Open
         "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Row Statement Button Account Status Blocked and Status Closed
         "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Row Statement Button Account Status Cancelled and Status Open
         "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "open"
+            agreement = null
         }
 
         //Dashboard Event Row Statement Button Account Status Cancelled and Status Closed
         "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Event Limit Modal Statement
@@ -535,48 +580,56 @@ trackTests {
         "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Limit Modal Statement Button Account Status Pending and Status Closed
         "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Limit Modal Statement Button Account Status Active and Status Open
         "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Limit Modal Statement Button Account Status Active and Status Closed
         "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Limit Modal Statement Button Account Status Blocked and Status Open
         "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Limit Modal Statement Button Account Status Blocked and Status Closed
         "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Dashboard Event Limit Modal Statement Button Account Status Cancelled and Status Open
         "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Limit Modal Statement Button Account Status Cancelled and Status Closed
         "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Event Help
@@ -584,48 +637,56 @@ trackTests {
         "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "open"
+            agreement = agreement_data
         }
 
         //Dashboard Event Help Button Account Status Pending and Status Closed
         "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Help Button Account Status Active and Status Open
         "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "open"
+            agreement = null
         }
 
         //Dashboard Event Help Button Account Status Active and Status Closed
         "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Dashboard Event Help Button Account Status Blocked and Status Open
         "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "open"
+            agreement = null
         }
 
         //Dashboard Event Help Button Account Status Blocked and Status Closed
         "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Dashboard Event Help Button Account Status Cancelled and Status Open
         "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "open"
+            agreement = null
         }
 
         //Dashboard Event Help Button Account Status Cancelled and Status Closed
         "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "closed"
+            agreement = null
         }
 
         //Event Show Limit Modal
@@ -635,6 +696,7 @@ trackTests {
             statement_status = "open"
             available_limit = 900
             total_limit = 1000
+            agreement = null
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Pending and Status Closed
@@ -643,6 +705,7 @@ trackTests {
             statement_status = "closed"
             available_limit = 900
             total_limit = 1000
+            agreement = null
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Active and Status Open
@@ -651,6 +714,7 @@ trackTests {
             statement_status = "open"
             available_limit = 900
             total_limit = 1000
+            agreement = null
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Active and Status Closed
@@ -659,6 +723,7 @@ trackTests {
             statement_status = "closed"
             available_limit = 500
             total_limit = 1000
+            agreement = null
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Blocked and Status Open
@@ -667,6 +732,7 @@ trackTests {
             statement_status = "open"
             available_limit = 300
             total_limit = 1000
+            agreement = null
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Blocked and Status Closed
@@ -675,6 +741,7 @@ trackTests {
             statement_status = "closed"
             available_limit = 4000
             total_limit = 5000
+            agreement = null
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Cancelled and Status Open
@@ -683,6 +750,7 @@ trackTests {
             statement_status = "open"
             available_limit = 1500
             total_limit = 2000
+            agreement = null
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Cancelled and Status Closed
@@ -691,18 +759,21 @@ trackTests {
             statement_status = "closed"
             available_limit = 900
             total_limit = 1000
+            agreement = null
         }
 
         //Dashboard Event Collection Dialer Button when Account Status Overdue 60 days and Status Closed
         "/credits/credit_card/dashboard/collection_dialer_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_locked_product_data
             statement_status = "closed"
+            agreement = agreement_data
         }
 
         //Dashboard Event Collection Dialer Button when Account Status Overdue 60 days and Status Open
         "/credits/credit_card/dashboard/collection_dialer_button_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_locked_product_data
             statement_status = "open"
+            agreement= agreement_data
         }
 
         //Dashboard Event Dialer Button when Error by Internal Error and Status Closed
