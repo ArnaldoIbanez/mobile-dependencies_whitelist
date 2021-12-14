@@ -145,6 +145,11 @@ tracks {
     def credits_consumer_map = objectSchemaDefinitions {
         type(required: true, values: ["acquisition", "activation"], type: PropertyType.String, description: "Indicates the type of product")
     }
+
+    def crypto_definition = objectSchemaDefinitions {
+        type(required: false, type: PropertyType.String, description: "Indicates the type of the crypto returned by the item")
+        amount(required: false, type: PropertyType.Numeric, description: "Returned amount in local currency")
+    }
     //VIP FLOW
 
     "/vip"(platform: "/") {
@@ -338,6 +343,9 @@ tracks {
 
         // CREDITS CONSUMER
         credits_consumer(required: false, type: PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
+
+        // Crypto
+        crypto(required: false, type: PropertyType.Map(crypto_definition), description: "Indicates whether the item has a return amount in crypto")
     }
 
     "/vip"(platform: "/web") {
@@ -1822,5 +1830,10 @@ tracks {
     }
 
     "/vip/ltr_onboard/close"(platform: "/", type: TrackType.Event) {
+    }
+
+    // Crypto educational
+    "/crypto/educational"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        crypto(required: true, type: PropertyType.String, description: "Currency")
     }
 }
