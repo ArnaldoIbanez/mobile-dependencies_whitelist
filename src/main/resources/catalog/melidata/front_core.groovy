@@ -30,11 +30,16 @@ tracks {
         position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
         criticality(required: false, type: PropertyType.Numeric, description: "Criticality of the pending")
         from(required: false, type: PropertyType.String, description: "From where this pending shown")
+        campaign_id(required: false, type: PropertyType.Numeric, description: "Campaign ID")
+        print_id(required: false, type: PropertyType.String, description: "Identifier for Advertising print")
     }
 
     propertyGroups {
         walletHomeMerchEngineFields(
             section_id, link, component_id, action_id, audience, bu, bu_line, content_id, flow, logic, position
+        )
+        walletHomeMerchEngineAdvertisingFields(
+            section_id, link, component_id, action_id, audience, bu, bu_line, content_id, flow, logic, position, campaign_id, print_id
         )
         walletHomePendingsFields(
             section_id, link, component_id, audience, bu, bu_line, content_id, flow, logic, position, criticality, from
