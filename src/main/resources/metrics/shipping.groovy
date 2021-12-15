@@ -12,7 +12,7 @@ metrics {
         }
     }
 
-    "packs_with_discount"(description: "total packs with discount from /purchase/purchasecreated", sum_by:["event_data.discount_packs"]) {
+    "packs.discount"(description: "total packs with discount from /purchase/purchasecreated", sum_by:["event_data.discount_packs"]) {
         countsOn {
             condition {
                 path("/purchases/purchasecreated")
