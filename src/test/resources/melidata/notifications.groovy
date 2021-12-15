@@ -2476,6 +2476,10 @@ trackTests {
             latest_news_type= "single_player_balance_expiration_transport_mp"
             latest_news_id= "single_player_balance_expiration_transport_mp-143816022-MLB1013046714"
         }
+        "/notification_center/single_player_balance_expiration_prepaid_toll_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_balance_expiration_prepaid_toll_mp"
+            latest_news_id= "single_player_balance_expiration_prepaid_toll_mp-143816022-MLB1013046714"
+        }
         "/notification_center/single_player_expired_debt_utility_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_expired_debt_utility_mp"
             latest_news_id= "single_player_expired_debt_utility_mp-143816022-MLB1013046714"
@@ -7413,6 +7417,10 @@ trackTests {
             news_id = "single_player_balance_expiration_transport_mp_123"
             event_type = "open"
         }
+        "/notification/single_player_balance_expiration_prepaid_toll_mp"(platform: "/mobile") {
+            news_id = "single_player_balance_expiration_prepaid_toll_mp_123"
+            event_type = "open"
+        }
         "/notification/single_player_new_debt_utility_mp"(platform: "/mobile") {
             news_id = "single_player_new_debt_utility_mp_123"
             event_type = "open"
@@ -10147,6 +10155,10 @@ trackTests {
             latest_news_type= "single_player_balance_expiration_transport_mp"
             latest_news_id= "single_player_balance_expiration_transport_mp-143816022-MLB1013046714"
         }
+        "/notification_center/single_player_balance_expiration_prepaid_toll_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_balance_expiration_prepaid_toll_mp"
+            latest_news_id= "single_player_balance_expiration_prepaid_toll_mp-143816022-MLB1013046714"
+        }
         "/notification_center/single_player_antenna_fail_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_antenna_fail_mp"
             latest_news_id= "single_player_antenna_fail_mp-143816022-MLB1013046714"
@@ -12187,6 +12199,10 @@ trackTests {
         }
         "/notification/single_player_balance_expiration_transport_mp"(platform: "/mobile") {
             news_id = "single_player_balance_expiration_transport_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_balance_expiration_prepaid_toll_mp"(platform: "/mobile") {
+            news_id = "single_player_balance_expiration_prepaid_toll_mp_123"
             event_type = "open"
         }
         "/notification/single_player_generic_balance_expiration"(platform: "/mobile") {
