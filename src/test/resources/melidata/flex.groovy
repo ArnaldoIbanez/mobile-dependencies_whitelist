@@ -525,13 +525,34 @@ trackTests {
         "/flex/login/select_country"(platform:"/mobile", type: TrackType.View) {
         }
 
-        //Out of distance View
+        //Out of distance Modal View
         "/flex/package/detail/out_of_distance_modal"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             defaultPacksInfo()
             context = "delivered"
             distance = 1234
             delivery_id = 123456
+        }
+
+        //Out of distance Modal Event
+        "/flex/package/detail/out_of_distance_modal/not_delivered"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
+        //Out of distance warning View
+        "/flex/package/detail/out_of_distance_warning"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultPacksInfo()
+            shipment_id = 123456
+        }
+
+        //Out of distance warning Event
+        "/flex/package/detail/out_of_distance_warning/delivered"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            shipment_id = 123456
         }
 
         //Snackbar error event success

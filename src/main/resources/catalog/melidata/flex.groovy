@@ -358,6 +358,21 @@ tracks {
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
+    "/flex/package/detail/out_of_distance_modal/not_delivered"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/detail/out_of_distance_warning"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocation
+        shipment_id(required: true, type: PropertyType.Numeric, description: "The shipment id", inheritable:false)
+    }
+
+    "/flex/package/detail/out_of_distance_warning/delivered"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        shipment_id(required: true, type: PropertyType.Numeric, description: "The shipment id", inheritable:false)
+    }
+
     "/flex/package/detail/out_of_distance"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         context(required: true, type: PropertyType.String,  values: ["not_delivered", "delivered"],
