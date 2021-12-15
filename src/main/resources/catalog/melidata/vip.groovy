@@ -1831,9 +1831,4 @@ tracks {
 
     "/vip/ltr_onboard/close"(platform: "/", type: TrackType.Event) {
     }
-
-    // Crypto educational
-    "/crypto/educational"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
-        crypto(required: true, type: PropertyType.String, description: "Currency")
-    }
 }
