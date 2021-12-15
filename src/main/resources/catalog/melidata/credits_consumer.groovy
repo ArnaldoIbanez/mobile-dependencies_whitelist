@@ -29,24 +29,38 @@ tracks {
         //ML
     "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View) {
         remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
-        source_key(description: "Source key", type: PropertyType.String, required: true)
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
     }
     "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event) {
         remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
-        source_key(description: "Source key", type: PropertyType.String, required: true)
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
     }
     "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View) {
         result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
     }
     "/credits/consumer/upsell/congrats/admin"(platform: "/", type: TrackType.Event) {
         result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
     }
     "/credits/consumer/upsell/congrats/help"(platform: "/", type: TrackType.Event) {
         result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
     }
 
-    "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View) {
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
+    }
+    "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event) {
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
+    }
     "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event) {
         list_status(description: "List Status", type: PropertyType.String, required: true, values: ["black_list", "white_list"])
         dashboard_status(description: "Dashboard Status", type: PropertyType.String, required: true,  values: ["empty_state", "on_time", "overdue", "finished"])

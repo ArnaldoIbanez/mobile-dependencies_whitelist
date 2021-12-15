@@ -202,10 +202,16 @@ tracks {
                         "not visible"
                 ]
         )
-        source_key(
+        from(
                 required: false,
                 description: "Identifies the origin of the user",
                 type: PropertyType.String,
+        )
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
+        has_upsell_available(
+                required: false,
+                description: "Identifies if the user has upsell available",
+                type: PropertyType.Boolean,
         )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
@@ -256,6 +262,25 @@ tracks {
                         "white_list"
                 ]
         )
+    }
+    "/credits/consumer/administrator_v2/dashboard/go_upsell"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: false,
+                description: "Current status of the Dashboard",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+        from(
+                required: false,
+                description: "Identifies the origin of the user",
+                type: PropertyType.String,
+        )
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
     }
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
         status(
