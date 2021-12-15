@@ -188,17 +188,17 @@ tracks {
         amount(
                 description: "Agreement total amount",
                 type: PropertyType.Numeric,
-                required: false
+                required: true
         )
         installment_number(
                 description: "Agreement's installment number",
                 type: PropertyType.Numeric,
-                required: false,
+                required: true
         )
         next_payment_amount(
                 description: "Installment next payment amount",
                 type: PropertyType.Numeric,
-                required: false
+                required: true
         )
     }
 
