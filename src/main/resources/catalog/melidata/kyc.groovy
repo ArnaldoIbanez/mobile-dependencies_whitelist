@@ -237,10 +237,11 @@ tracks {
 
     "/kyc/iv/object_detection"(platform: "/", isAbstract: true) {}
 
-    "/kyc/iv/object_detection/model_download"(platform: "/mobile", type: TrackType.Event) {
+    "/kyc/iv/object_detection/model_download"(platform: "/", type: TrackType.Event) {
         success(type: PropertyType.Boolean, required: true, description: "Is download success")
         model_name(type: PropertyType.String, required: true, description: "Name of model")
         time(required: true, type: PropertyType.Numeric, description: "Download time")
+        description(required: false, type: PropertyType.String, description: "Model description")
     }
 
     "/kyc/iv/object_detection/validation"(platform: "/", type: TrackType.Event) {
