@@ -46,9 +46,7 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Type of filtering criteria")
         values(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Applied filters value")
         criteria(required: false, type: PropertyType.String, description: "Applied filter criteria type value on single search type filter")
-        
     }
-
 
     // TRACKS Vendor central BULK Offering offline editor
     //------------------------------------------------------------------------------------------------------------------------------------------------------

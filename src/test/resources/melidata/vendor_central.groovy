@@ -40,7 +40,7 @@ trackTests {
 
     test("Vendor Central Offerings Listing list filtering event by query type filter") {
         "/vendor_central/bulk/publish/categories/download_excel"(platform: "/web", type: TrackType.Event) {
-            ffilter_type = 'query'
+            filter_type = 'query'
             values = ['UNDER_REVIEW', 'closed']
         }
     }
