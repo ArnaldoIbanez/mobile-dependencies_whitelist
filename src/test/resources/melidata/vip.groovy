@@ -2530,10 +2530,4 @@ trackTests {
 
         "/vip"(platform: "/", dataSet)
     }
-
-    test("Crypto tracking") {
-        "/crypto/educational"(platform: "/", {
-            crypto = "melicoin"
-        })
-    }
 }
