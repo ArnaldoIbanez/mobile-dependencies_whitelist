@@ -40,7 +40,7 @@ tracks {
     // TRACKS Vendor central Offerings Listing
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    "/vendor_central/offerings_listing/"(platform: "/", isAbstract: true) {}
+    "/vendor_central/offerings_listing"(platform: "/", isAbstract: true) {}
     "/vendor_central/offerings_listing/list"(platform: "/", type: TrackType.View) {}
     "/vendor_central/bulk/offerings_listing/filter"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Type of filtering criteria")
