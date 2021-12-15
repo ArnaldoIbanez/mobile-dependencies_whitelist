@@ -3341,8 +3341,6 @@ tracks {
         )
     }
 
-    "/cards/nfc/reauth_integration/execute"(platform: "/", type: TrackType.Event) {}
-
     "/cards/nfc/reauth_integration/successfully"(platform: "/", type: TrackType.Event) {}
 
     "/cards/nfc/reauth_integration/error"(platform: "/", type: TrackType.Event) {}
