@@ -215,6 +215,7 @@ metrics {
 		countsOn {
 			condition {
 				path("/purchases/purchasecreated")
+				equals("application.business", "mercadolibre")
 				equals("event_data.is_free_shipping_purchase", true)
 			}
 		}

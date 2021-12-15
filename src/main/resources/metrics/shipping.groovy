@@ -7,6 +7,7 @@ metrics {
         countsOn {
             condition {
                 path("/purchases/purchasecreated")
+                equals("application.business", "mercadolibre")
             }
         }
     }
@@ -15,6 +16,7 @@ metrics {
         countsOn {
             condition {
                 path("/purchases/purchasecreated")
+                equals("application.business", "mercadolibre")
             }
         }
     }
@@ -23,6 +25,7 @@ metrics {
         countsOn {
             condition {
                 path("/purchases/purchasecreated")
+                equals("application.business", "mercadolibre")
             }
         }
     }
