@@ -211,6 +211,16 @@ metrics {
 		}
 	}
 
+	"purchases.free_shipping"(description: "purchases with all free shipping packs from /purchase/purchasecreated", compute_order: true) {
+		countsOn {
+			condition {
+				path("/purchases/purchasecreated")
+				equals("application.business", "mercadolibre")
+				equals("event_data.is_free_shipping_purchase", true)
+			}
+		}
+	}
+
 	"buys"(description: "orders or purchases created from feed", compute_order: true) {
 		countsOn {
 			condition {
