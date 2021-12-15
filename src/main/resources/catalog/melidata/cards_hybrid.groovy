@@ -3321,9 +3321,9 @@ tracks {
     }
 
     // NFC REAUTH INTEGRATION
-    "/cards/nfc/reauth_integration"(platform: "/", type: TrackType.Event) {}
+    "/cards/nfc/reauth_integration"(platform: "/mobile", type: TrackType.App) {}
 
-    "/cards/nfc/reauth_integration/ondemand_tokenization"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/reauth_integration/ondemand_tokenization"(platform: "/mobile", type: TrackType.App) {
         status (
             required: true,
             type: PropertyType.String,
@@ -3332,7 +3332,7 @@ tracks {
         )
     }
 
-    "/cards/nfc/reauth_integration/pending"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/reauth_integration/pending"(platform: "/mobile", type: TrackType.App) {
         status (
             required: true,
             type: PropertyType.String,
@@ -3341,9 +3341,9 @@ tracks {
         )
     }
 
-    "/cards/nfc/reauth_integration/successfully"(platform: "/", type: TrackType.Event) {}
+    "/cards/nfc/reauth_integration/successfully"(platform: "/mobile", type: TrackType.App) {}
 
-    "/cards/nfc/reauth_integration/error"(platform: "/", type: TrackType.Event) {}
+    "/cards/nfc/reauth_integration/error"(platform: "/mobile", type: TrackType.App) {}
 
     
     // NFC_IDENTITY_CONFIRMATION_SCREEN AKA LUK_STOP
