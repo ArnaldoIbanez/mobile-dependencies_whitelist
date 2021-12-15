@@ -37,6 +37,19 @@ tracks {
     "/vendor_central/summary/discount_congrats"(platform: "/web", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor central Offerings Listing
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/vendor_central/offerings_listing/"(platform: "/", isAbstract: true) {}
+    "/vendor_central/offerings_listing/list"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/bulk/offerings_listing/filter"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Type of filtering criteria")
+        values(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Applied filters value")
+        criteria(required: false, type: PropertyType.String, description: "Applied filter criteria type value on single search type filter")
+        
+    }
+
+
     // TRACKS Vendor central BULK Offering offline editor
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
