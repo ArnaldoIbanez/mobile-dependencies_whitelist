@@ -2240,6 +2240,7 @@ tracks {
 
     // Disbursement Kwai
     "/notification/disbursement_kwai_received"(platform: "/") {}
+    "/notification/disbursement_kwai_pending_kyc"(platform: "/") {}
 
     // Money In CCA
     "/notification_center/moneyin_cca_approved"(platform: "/", type: TrackType.Event) {
