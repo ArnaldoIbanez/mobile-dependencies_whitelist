@@ -31,7 +31,7 @@ trackTests {
     }
 
     test("Vendor Central Offerings Listing list filtering event by search type filter") {
-        "/vendor_central/bulk/publish/categories/download_excel"(platform: "/web", type: TrackType.Event) {
+        "/vendor_central/bulk/offerings_listing/filter"(platform: "/web", type: TrackType.Event) {
             type = 'search'
             criteria: 'SKU'
             values = ['Bicicleta']
@@ -39,7 +39,7 @@ trackTests {
     }
 
     test("Vendor Central Offerings Listing list filtering event by query type filter") {
-        "/vendor_central/bulk/publish/categories/download_excel"(platform: "/web", type: TrackType.Event) {
+        "/vendor_central/bulk/offerings_listing/filter"(platform: "/web", type: TrackType.Event) {
             type = 'query'
             values = ['UNDER_REVIEW', 'closed']
         }
