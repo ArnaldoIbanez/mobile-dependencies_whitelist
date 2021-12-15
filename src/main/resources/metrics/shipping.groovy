@@ -21,7 +21,7 @@ metrics {
         }
     }
 
-    "packs_with_free_shipping"(description: "total free shipping packs from /purchase/purchasecreated", sum_by:["event_data.free_shipping_packs"]) {
+    "packs.free_shipping"(description: "total free shipping packs from /purchase/purchasecreated", sum_by:["event_data.free_shipping_packs"]) {
         countsOn {
             condition {
                 path("/purchases/purchasecreated")
