@@ -2689,6 +2689,15 @@ trackTests {
             ]
         }
 
+        "/insurtech/protections/detail/cards/claim_detail"(platform:"/web", type: TrackType.Event) {
+            claim = [
+                id: "c1b3ac37-e5ac-48fb-8532-560ebe2368dc"
+                claim_number: "1446336"
+                has_previous_claim: false
+                status: "OPEN"
+            ]
+        }
+
         "/insurtech/protections/detail/cards/download_policy"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "cards-zafg1254sds",
