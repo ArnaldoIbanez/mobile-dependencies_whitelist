@@ -420,27 +420,41 @@ tracks {
         sub_category(description: "The SubCategory of selected notice")
     }
     "/seller_central/news/primary"(platform: "/", type: TrackType.Event) {
-        notice_id(description: "The NoticeId of selected notice")
-        category(description: "The Category of selected notice")
-        sub_category(description: "The SubCategory of selected notice")
+        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        category(required: true, type: PropertyType.String, description: "The Category of selected notice")
+        sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
     }
     "/seller_central/news/secondary"(platform: "/", type: TrackType.Event) {
-        notice_id(description: "The NoticeId of selected notice")
-        category(description: "The Category of selected notice")
-        sub_category(description: "The SubCategory of selected notice")
+        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        category(required: true, type: PropertyType.String, description: "The Category of selected notice")
+        sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
     }
-    "/seller_central/news/keep"(platform: "/", type: TrackType.Event) {
+    "/seller_central/news/close"(platform: "/", type: TrackType.Event) {
         notice_id(required: true, description: "The id of selected notice")
+        page(description: "The Page of selected notice")
+        category(description: "The Category of selected notice")
+    }
+    "/seller_central/news/lib"(platform: "/", type: TrackType.View) {
+        notice_id(description: "The NoticeId of selected notice")
+        page(description: "The Page of selected notice")
     }
     "/seller_central/news/lib/primary"(platform: "/", type: TrackType.Event) {
         notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
         category(required: true, type: PropertyType.String, description: "The Category of selected notice")
         sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
+        page(required: true, type: PropertyType.String, description: "The Page of selected notice")
     }
     "/seller_central/news/lib/secondary"(platform: "/", type: TrackType.Event) {
         notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
         category(required: true, type: PropertyType.String, description: "The Category of selected notice")
         sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
+        page(required: true, type: PropertyType.String, description: "The Page of selected notice")
+    }
+    "/seller_central/news/lib/close"(platform: "/", type: TrackType.Event) {
+        notice_id(required: true, description: "The id of selected notice")
+        page(description: "The Page of selected notice")
+        category(description: "The Category of selected notice")
+        sub_category(description: "The SubCategory of selected notice")
     }
 
     // Summary
