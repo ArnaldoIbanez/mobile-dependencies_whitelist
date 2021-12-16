@@ -16,43 +16,71 @@ trackTests {
         ******************************************/
         "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View, business:"mercadolibre") {
             remedy_name = 'declarative_info'
-            source_key = 'landing'
+            from = "landing"
+            additional_info = "main_action"
         }
         "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             remedy_name = 'declarative_info'
-            source_key = 'landing'
+            from = "landing"
+            additional_info = "main_action"
         }
         "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View, business:"mercadolibre") {
             result = 'approved'
+            from = "landing"
+            additional_info = "main_action"
         }
         "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View, business:"mercadopago") {
             remedy_name = 'declarative_info'
-            source_key = 'landing'
+            from = "landing"
+            additional_info = "main_action"
         }
         "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event, business:"mercadopago") {
             remedy_name = 'declarative_info'
-            source_key = 'landing'
+            from = "landing"
+            additional_info = "main_action"
         }
         "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View, business:"mercadopago") {
             result = 'rejected'
+            from = "landing"
+            additional_info = "main_action"
         }
         "/credits/consumer/upsell/congrats/admin"(platform: "/", type: TrackType.Event, business:"mercadopago") {
             result = 'approved'
+            from = "landing"
+            additional_info = "main_action"
         }
         "/credits/consumer/upsell/congrats/admin"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             result = 'rejected'
+            from = "landing"
+            additional_info = "main_action"
         }
         "/credits/consumer/upsell/congrats/help"(platform: "/", type: TrackType.Event, business:"mercadopago") {
             result = 'rejected'
+            from = "landing"
+            additional_info = "main_action"
         }
         "/credits/consumer/upsell/congrats/help"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             result = 'approved'
+            from = "landing"
+            additional_info = "main_action"
         }
 
-        "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View, business:"mercadolibre") {}
-        "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View, business:"mercadopago") {}
-        "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
-        "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            from = "landing"
+            additional_info = "main_action"
+        }
+        "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            from = "landing"
+            additional_info = "main_action"
+        }
+        "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            from = "landing"
+            additional_info = "main_action"
+        }
+        "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            from = "landing"
+            additional_info = "main_action"
+        }
         "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             list_status = "white_list"
             dashboard_status = "on_time"

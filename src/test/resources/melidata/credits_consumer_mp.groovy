@@ -63,7 +63,9 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'overdue'
             offer = ['payment_not_credited', 'create_promise']
-            source_key = 'landing'
+            from = 'landing'
+            additional_info = 'main_action'
+            has_upsell_available = false
         }
 
         //Events
@@ -155,6 +157,11 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
             dashboard_status = "on_time"
             list_status = "black_list"
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_upsell"(platform: "/", type: TrackType.Event) {
+            dashboard_status = "on_time"
+            from = "home_mp"
+            additional_info = "upsell_row"
         }
 
         /******************************************

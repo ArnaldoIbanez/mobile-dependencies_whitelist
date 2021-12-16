@@ -202,6 +202,7 @@ catalog {
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
         include business, "vis_supply.groovy"
+        include business, "crypto.groovy"
     }
 
     mercadopago.each { business ->

@@ -2530,4 +2530,15 @@ trackTests {
 
         "/vip"(platform: "/", dataSet)
     }
+
+    test("Vip crypto educational") {
+
+        "/crypto/educational"(platform: "/", type: TrackType.View) {
+            crypto = "cripto"
+        }
+
+        "/crypto/educational"(platform: "/web", type: TrackType.View) {
+            crypto = "cripto"
+        }
+    }
 }

@@ -152,12 +152,15 @@ trackTests {
         "/credits/consumer/administrator_v2"(platform: "/web/desktop") {}
         "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
             dashboard_status = 'overdue'
+            has_upsell_available = false
         }
         "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
             dashboard_status = 'overdue'
             personalLoanAccessShown = 'banner'
             opt_in_separator = 'visible'
-            source_key = 'landing'
+            from = 'admin-ml'
+            additional_info = 'main_action'
+            has_upsell_available = true
         }
         "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = 'overdue'
@@ -196,12 +199,18 @@ trackTests {
             dashboard_status = "on_time"
             list_status = "black_list"
         }
+        "/credits/consumer/administrator_v2/dashboard/go_upsell"(platform: "/", type: TrackType.Event) {
+            dashboard_status = "on_time"
+            from = "home_ml"
+            additional_info = "upsell_row"
+        }
 
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'on_time'
             opt_in_separator = 'visible'
-            source_key = 'landing'
+            from = 'landing'
+            additional_info = 'main_action'
         }
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
