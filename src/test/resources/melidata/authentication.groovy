@@ -1510,17 +1510,17 @@ trackTests {
             "/screenlock/multiple_sessions_shield"(platform: "/mobile/ios", type: TrackType.View) {
             }
 
-            "screenlock/anom/os_biometrics_changed"(platform: "/mobile/android", type: TrackType.App) {
+            "/screenlock/anom/os_biometrics_changed"(platform: "/mobile/android", type: TrackType.App) {
                 old_value = "biometrics"
                 new_value = "basic_screenlock"
             }
 
-            "screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
+            "/screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
                 old_value = false
                 new_value = true
             }
 
-            "screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
+            "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
                 old_value = "hash_random_1234"
                 new_value = "hash_random_4321"
             }
