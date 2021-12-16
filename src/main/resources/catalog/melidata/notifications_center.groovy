@@ -529,6 +529,7 @@ tracks {
     }
     "/notification_center/orders-buyer"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
+        experiment_id(required: false, type: PropertyType.String, description: "Experiment id.")
     }
     "/notification_center/orders-seller"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
@@ -1911,6 +1912,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/single_player_balance_expiration_prepaid_toll_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/single_player_new_debt_utility_mp"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -2020,6 +2025,36 @@ tracks {
     "/notification_center/single_player_scheduled_payment_pixtransfer_solo_reminder"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_subscription_recharge_cancelled_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_subscription_recharge_cancelled_product_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_subscription_recharge_cancelled_unrecoverable_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_subscription_recharge_fail_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_subscription_recharge_fail_payments_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
+    "/notification_center/single_player_subscription_recharge_reminder_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
+    "/notification_center/single_player_subscription_recharge_success_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
     //Single player - Self-Service
@@ -2198,6 +2233,10 @@ tracks {
 
     // Disbursement Kwai
     "/notification_center/disbursement_kwai_received"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/disbursement_kwai_pending_kyc"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
     }

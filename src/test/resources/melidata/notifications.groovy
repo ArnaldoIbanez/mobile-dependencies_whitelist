@@ -2476,6 +2476,10 @@ trackTests {
             latest_news_type= "single_player_balance_expiration_transport_mp"
             latest_news_id= "single_player_balance_expiration_transport_mp-143816022-MLB1013046714"
         }
+        "/notification_center/single_player_balance_expiration_prepaid_toll_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_balance_expiration_prepaid_toll_mp"
+            latest_news_id= "single_player_balance_expiration_prepaid_toll_mp-143816022-MLB1013046714"
+        }
         "/notification_center/single_player_expired_debt_utility_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_expired_debt_utility_mp"
             latest_news_id= "single_player_expired_debt_utility_mp-143816022-MLB1013046714"
@@ -2614,6 +2618,46 @@ trackTests {
             seller_name="Hendel"
         }
 
+        "/notification_center/single_player_subscription_recharge_cancelled_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_cancelled_product_mp"
+            latest_news_id= "single_player_subscription_recharge_cancelled_product_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_cancelled_product_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_cancelled_product_mp"
+            latest_news_id= "single_player_subscription_recharge_cancelled_product_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_cancelled_unrecoverable_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_cancelled_unrecoverable_mp"
+            latest_news_id= "single_player_subscription_recharge_cancelled_unrecoverable_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_fail_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_fail_mp"
+            latest_news_id= "single_player_subscription_recharge_fail_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_fail_payments_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_fail_payments_mp"
+            latest_news_id= "single_player_subscription_recharge_fail_payments_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_reminder_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_reminder_mp"
+            latest_news_id= "single_player_subscription_recharge_reminder_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_success_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_success_mp"
+            latest_news_id= "single_player_subscription_recharge_success_mp-143816022-MLB1013046714"
+        }
+
+
+
+
+
+
         "/notification_center/shipping_moderation_cross_docking_release_below"(platform: "/mobile"){
             latest_news_type= "shipping_moderation_cross_docking_release_below"
             latest_news_id= "shipping_moderation_cross_docking_release_below-143816022-MLB1013046714"
@@ -2667,6 +2711,10 @@ trackTests {
         "/notification_center/disbursement_kwai_received"(platform: "/") {
             latest_news_type= "disbursement_kwai_received"
             latest_news_id= "disbursement_kwai-received-12345678"
+        }
+        "/notification_center/disbursement_kwai_pending_kyc"(platform: "/") {
+            latest_news_type= "disbursement_kwai_pending_kyc"
+            latest_news_id= "disbursement_kwai-pending_kyc-12345678"
         }
 
         "/notification/seller_journey_congrats"(platform: "/mobile"){
@@ -5977,7 +6025,10 @@ trackTests {
             news_id = "asset-management_missing_docs-12345678-123123"
             event_type = "shown"
         }
-
+         "/notification/asset_management_cryto"(platform: "/mobile") {
+            news_id = "asset-management_missing_docs-12345678-123123"
+            event_type = "shown"
+        }
         "/notification/asset_management_pending"(platform: "/mobile") {
             news_id = "asset-management_pending-12345678-123123"
             event_type = "shown"
@@ -7368,6 +7419,10 @@ trackTests {
         }
         "/notification/single_player_balance_expiration_transport_mp"(platform: "/mobile") {
             news_id = "single_player_balance_expiration_transport_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_balance_expiration_prepaid_toll_mp"(platform: "/mobile") {
+            news_id = "single_player_balance_expiration_prepaid_toll_mp_123"
             event_type = "open"
         }
         "/notification/single_player_new_debt_utility_mp"(platform: "/mobile") {
@@ -10104,6 +10159,10 @@ trackTests {
             latest_news_type= "single_player_balance_expiration_transport_mp"
             latest_news_id= "single_player_balance_expiration_transport_mp-143816022-MLB1013046714"
         }
+        "/notification_center/single_player_balance_expiration_prepaid_toll_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_balance_expiration_prepaid_toll_mp"
+            latest_news_id= "single_player_balance_expiration_prepaid_toll_mp-143816022-MLB1013046714"
+        }
         "/notification_center/single_player_antenna_fail_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_antenna_fail_mp"
             latest_news_id= "single_player_antenna_fail_mp-143816022-MLB1013046714"
@@ -10519,6 +10578,11 @@ trackTests {
         "/notification_center/disbursement_kwai_received"(platform: "/") {
             latest_news_type= "disbursement_kwai_received"
             latest_news_id= "disbursement_kwai-received-12345678"
+        }
+
+        "/notification_center/disbursement_kwai_pending_kyc"(platform: "/") {
+            latest_news_type= "disbursement_kwai_pending_kyc"
+            latest_news_id= "disbursement_kwai-pending_kyc-12345678"
         }
 
         "/notification"(platform: "/mobile") {
@@ -12146,6 +12210,10 @@ trackTests {
             news_id = "single_player_balance_expiration_transport_mp_123"
             event_type = "open"
         }
+        "/notification/single_player_balance_expiration_prepaid_toll_mp"(platform: "/mobile") {
+            news_id = "single_player_balance_expiration_prepaid_toll_mp_123"
+            event_type = "open"
+        }
         "/notification/single_player_generic_balance_expiration"(platform: "/mobile") {
             news_id = "single_player_generic_balance_expiration_123"
             event_type = "open"
@@ -12238,6 +12306,34 @@ trackTests {
             debt_id=123
         }
 
+        "/notification/single_player_subscription_recharge_cancelled_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_cancelled_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_cancelled_product_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_cancelled_product_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_cancelled_unrecoverable_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_cancelled_unrecoverable_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_fail_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_fail_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_fail_payments_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_fail_payments_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_reminder_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_reminder_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_success_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_success_mp"
+            event_type = "open"
+        }
         "/notification/point_pos_closed"(platform: "/mobile") {
             news_id = "point_pos_closed-186785675"
             event_type = "open"
@@ -15390,6 +15486,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/disbursement_kwai_pending_kyc"(platform: "/") {
+            news_id = "disbursement_kwai-pending_kyc-12345678"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/moneyin_cca_approved"(platform: "/") {
             news_id = "moneyin_cca-approved-12345678"
             event_type = "open"
@@ -15710,6 +15812,12 @@ trackTests {
 
         "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {
             news_id = "/notification/card_transactions_approved_authorization_cashplus_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_with_fee_cashplus-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -16270,6 +16378,12 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        
+        "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_with_fee_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
@@ -16549,6 +16663,10 @@ trackTests {
         }
         "/notification/disbursement_kwai_received"(platform: "/") {
             news_id = "disbursement_kwai-received-12345678"
+            event_type = "open"
+        }
+        "/notification/disbursement_kwai_pending_kyc"(platform: "/") {
+            news_id = "disbursement_kwai-pending_kyc-12345678"
             event_type = "open"
         }
     }
