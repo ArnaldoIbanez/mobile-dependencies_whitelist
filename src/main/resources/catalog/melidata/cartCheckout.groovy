@@ -313,6 +313,11 @@ tracks {
 
     "/cart/checkout/loading/back"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/cart/checkout/review/select_shipping"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        shipping(required: true, type: PropertyType.String)
+    }
+
 // Addresses
 // Page
     "/cart/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
