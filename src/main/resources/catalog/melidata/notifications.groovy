@@ -173,6 +173,7 @@ tracks {
     "/notification/credit_card_transaction_purchase"(platform: "/") {}
     "/notification/credit_card_transaction_withdrawal"(platform: "/") {}
     "/notification/credit_card_transaction_kyc_onboarding"(platform: "/") {}
+    "/notification/credit_card_transaction_acquisition_micro"(platform: "/") {}
     "/notification/credit_card_waitlist_10"(platform: "/") {}
     "/notification/credit_card_waitlist_40"(platform: "/") {}
     "/notification/credit_card_waitlist_blacklist"(platform: "/") {}
@@ -1801,6 +1802,7 @@ tracks {
     "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {}
 
 
     // PREPAID, HYBRID, MPCARD

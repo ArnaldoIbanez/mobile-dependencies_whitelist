@@ -10882,6 +10882,10 @@ trackTests {
             news_id = "credit_card_transaction_kyc_onboarding-12345678"
             event_type = "shown"
         }
+        "/notification/credit_card_transaction_acquisition_micro"(platform: "/mobile") {
+            news_id = "credit_card_transaction_acquisition_micro-12345678"
+            event_type = "shown"
+        }
         "/notification/card_first_use_incentive_thirdth_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_thirdth_day-12345678"
             event_type = "shown"
@@ -14928,6 +14932,21 @@ trackTests {
             status= "read"
         }
 
+        // Notification Center - Credit Card
+        "/notification_center/credit_card_transaction_kyc_onboarding"(platform: "/mobile"){
+            newsgroup_id= "credit_card_transaction_kyc_onboarding-12345678"
+            latest_news_id= "credit_card_transaction_kyc_onboarding-12345678"
+            latest_news_type= "credit_card_transaction_kyc_onboarding"
+            status= "read"
+        }
+
+        "/notification_center/credit_card_transaction_acquisition_micro"(platform: "/mobile"){
+            newsgroup_id= "credit_card_transaction_acquisition_micro-12345678"
+            latest_news_id= "credit_card_transaction_acquisition_micro-12345678"
+            latest_news_type= "credit_card_transaction_acquisition_micro"
+            status= "read"
+        }
+
         // Notification Center - First Use Incentive Virtual
         "/notification_center/card_first_use_incentive_virtual"(platform: "/mobile"){
             newsgroup_id= "card_first_use_incentive_virtual-first_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
@@ -15816,6 +15835,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_with_fee_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
@@ -16369,6 +16394,12 @@ trackTests {
 
         "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {
             news_id = "/notification/card_transactions_approved_authorization_cashplus_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
+        "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_with_fee_cashplus-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
