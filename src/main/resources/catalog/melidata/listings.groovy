@@ -228,4 +228,11 @@ tracks {
         vertical(required: false, type: PropertyType.String, description: "Vertical of the item related to the action")
 
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS publish track
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/listings/go_publish"(platform: "/", type: TrackType.Event) {
+    }
 }

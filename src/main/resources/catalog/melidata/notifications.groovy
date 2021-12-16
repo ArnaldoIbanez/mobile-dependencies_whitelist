@@ -173,6 +173,7 @@ tracks {
     "/notification/credit_card_transaction_purchase"(platform: "/") {}
     "/notification/credit_card_transaction_withdrawal"(platform: "/") {}
     "/notification/credit_card_transaction_kyc_onboarding"(platform: "/") {}
+    "/notification/credit_card_transaction_acquisition_micro"(platform: "/") {}
     "/notification/credit_card_waitlist_10"(platform: "/") {}
     "/notification/credit_card_waitlist_40"(platform: "/") {}
     "/notification/credit_card_waitlist_blacklist"(platform: "/") {}
@@ -2231,6 +2232,9 @@ tracks {
         news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
     }
     "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/", type: TrackType.Event) {
+        news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
+    }
+    "/notification_center/pm_om_notification-before_automatically_cancel"(platform: "/", type: TrackType.Event) {
         news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
     }
 

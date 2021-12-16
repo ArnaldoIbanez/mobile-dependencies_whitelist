@@ -10882,6 +10882,10 @@ trackTests {
             news_id = "credit_card_transaction_kyc_onboarding-12345678"
             event_type = "shown"
         }
+        "/notification/credit_card_transaction_acquisition_micro"(platform: "/mobile") {
+            news_id = "credit_card_transaction_acquisition_micro-12345678"
+            event_type = "shown"
+        }
         "/notification/card_first_use_incentive_thirdth_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_thirdth_day-12345678"
             event_type = "shown"
@@ -14928,6 +14932,21 @@ trackTests {
             status= "read"
         }
 
+        // Notification Center - Credit Card
+        "/notification_center/credit_card_transaction_kyc_onboarding"(platform: "/mobile"){
+            newsgroup_id= "credit_card_transaction_kyc_onboarding-12345678"
+            latest_news_id= "credit_card_transaction_kyc_onboarding-12345678"
+            latest_news_type= "credit_card_transaction_kyc_onboarding"
+            status= "read"
+        }
+
+        "/notification_center/credit_card_transaction_acquisition_micro"(platform: "/mobile"){
+            newsgroup_id= "credit_card_transaction_acquisition_micro-12345678"
+            latest_news_id= "credit_card_transaction_acquisition_micro-12345678"
+            latest_news_type= "credit_card_transaction_acquisition_micro"
+            status= "read"
+        }
+
         // Notification Center - First Use Incentive Virtual
         "/notification_center/card_first_use_incentive_virtual"(platform: "/mobile"){
             newsgroup_id= "card_first_use_incentive_virtual-first_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
@@ -15477,6 +15496,10 @@ trackTests {
         }
         "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/") {
             news_id = "pm_om_notification-buyer_cancellation-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
+            event_type = "open"
+        }
+        "/notification_center/pm_om_notification-before_automatically_cancel"(platform: "/") {
+            news_id = "pm_om_notification-before_automatically_cancel-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
             event_type = "open"
         }
 
