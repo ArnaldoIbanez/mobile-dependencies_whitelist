@@ -10882,6 +10882,10 @@ trackTests {
             news_id = "credit_card_transaction_kyc_onboarding-12345678"
             event_type = "shown"
         }
+        "/notification/credit_card_transaction_acquisition_micro"(platform: "/mobile") {
+            news_id = "credit_card_transaction_acquisition_micro-12345678"
+            event_type = "shown"
+        }
         "/notification/card_first_use_incentive_thirdth_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_thirdth_day-12345678"
             event_type = "shown"
@@ -14925,6 +14929,21 @@ trackTests {
             newsgroup_id= "card_first_use_incentive_nfc-seventh_day_no_am-186785675-76283123"
             latest_news_id= "card_first_use_incentive_nfc-seventh_day_no_am-186785675-76283123"
             latest_news_type= "card_first_use_incentive_nfc-seventh_day_no_am"
+            status= "read"
+        }
+
+        // Notification Center - Credit Card
+        "/notification_center/credit_card_transaction_kyc_onboarding"(platform: "/mobile"){
+            newsgroup_id= "credit_card_transaction_kyc_onboarding-12345678"
+            latest_news_id= "credit_card_transaction_kyc_onboarding-12345678"
+            latest_news_type= "credit_card_transaction_kyc_onboarding"
+            status= "read"
+        }
+
+        "/notification_center/credit_card_transaction_acquisition_micro"(platform: "/mobile"){
+            newsgroup_id= "credit_card_transaction_acquisition_micro-12345678"
+            latest_news_id= "credit_card_transaction_acquisition_micro-12345678"
+            latest_news_type= "credit_card_transaction_acquisition_micro"
             status= "read"
         }
 

@@ -173,6 +173,7 @@ tracks {
     "/notification/credit_card_transaction_purchase"(platform: "/") {}
     "/notification/credit_card_transaction_withdrawal"(platform: "/") {}
     "/notification/credit_card_transaction_kyc_onboarding"(platform: "/") {}
+    "/notification/credit_card_transaction_acquisition_micro"(platform: "/") {}
     "/notification/credit_card_waitlist_10"(platform: "/") {}
     "/notification/credit_card_waitlist_40"(platform: "/") {}
     "/notification/credit_card_waitlist_blacklist"(platform: "/") {}
