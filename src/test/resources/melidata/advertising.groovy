@@ -2953,4 +2953,64 @@ trackTests {
         }
     }
 
+    test("file upload view") {
+        "/advertising/pads2/bulk/upload"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
+        }
+    }
+
+    test("Action upload file") {
+        "/advertising/pads2/bulk/upload/file_uploaded"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+        }
+    }
+
+    test("Error action upload file") {
+        "/advertising/pads2/bulk/upload/file_uploaded/error"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            error_type = "error"
+        }
+    }
+
+    test("Action modify upload file") {
+        "/advertising/pads2/bulk/upload/action"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            operation_id = "1223BC"
+        }
+    }
+
+    test("Action modify success upload file") {
+        "/advertising/pads2/bulk/upload/action/update"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            operation_id = "1223BC"
+        }
+    }
+
+    test("Action cancel upload file") {
+        "/advertising/pads2/bulk/upload/action/return"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+        }
+    }
+
+    test("Modal action upload") {
+        "/advertising/pads2/bulk/upload/modal"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            operation_id = "1223BC"
+        }
+    }
+
+    test("Modal action email") {
+        "/advertising/pads2/bulk/upload/modal/action/email"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            operation_id = "1223BC"
+        }
+    }
+
+    test("Modal action retry") {
+        "/advertising/pads2/bulk/upload/modal/action/retry"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            operation_id = "1223BC"
+        }
+    }
+   
 }

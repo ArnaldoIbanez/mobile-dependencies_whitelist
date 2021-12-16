@@ -2397,4 +2397,35 @@ tracks {
     "/advertising/pads2/bulk/download/feedback/success"(platform: "/", type: TrackType.View) {}
     "/advertising/pads2/bulk/download/feedback/error"(platform: "/", type: TrackType.View) {}
     "/advertising/pads2/bulk/download/feedback/waiting"(platform: "/", type: TrackType.View) {}
+
+    //Upload Action
+    "/advertising/pads2/bulk/upload"(platform: "/", type: TrackType.View, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+    }
+
+    "/advertising/pads2/bulk/upload/file_uploaded"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/upload/file_uploaded/error"(platform: "/", type: TrackType.Event) {
+        error_type(required: true, type: PropertyType.String, description: "Indicates the type of error generated when loading the file")
+    }
+
+    "/advertising/pads2/bulk/upload/action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        operation_id(required: true, type: PropertyType.String, description: "Value of id operation")
+    }
+
+    "/advertising/pads2/bulk/upload/action/update"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/upload/action/return"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+    }
+
+    "/advertising/pads2/bulk/upload/modal"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        operation_id(required: true, type: PropertyType.String, description: "Value of id operation")
+    }
+
+    "/advertising/pads2/bulk/upload/modal/action/email"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/upload/modal/action/retry"(platform: "/", type: TrackType.Event) {}
 }
