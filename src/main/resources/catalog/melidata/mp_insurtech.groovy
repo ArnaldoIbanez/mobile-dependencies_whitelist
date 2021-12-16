@@ -152,7 +152,7 @@ tracks {
     def claim_cards = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "ID of claim associated to the CARDS protection.")
         claim_number(required: true, type: PropertyType.String, description: "Number of claim associated to the CARDS protection.")
-        has_previous_claim(required: false, type: PropertyType.Boolean, description: "This is true if the user has previous claims")
+        has_previous_claim(required: true, type: PropertyType.Boolean, description: "This is true if the user has previous claims")
         status(required: true, type: PropertyType.String, description: "Claim status")
     }
 
@@ -759,11 +759,12 @@ tracks {
         protection(required: true, type: PropertyType.Map(protection_base), description: "Cards Product data")
     }
 
-    "/insurtech/protections/detail/cards/begin_claim"(platform:"/", type: TrackType.Event) {}
-
     "/insurtech/protections/detail/cards/claim_detail"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_cards), description: "CARDS Protection claim data")
     }
+
+    "/insurtech/protections/detail/cards/begin_claim"(platform:"/", type: TrackType.Event) {}
+
 
     "/insurtech/protections/detail/cards/download_policy"(platform:"/", type: TrackType.Event) {}
 
