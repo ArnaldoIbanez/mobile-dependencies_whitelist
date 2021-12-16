@@ -1801,6 +1801,7 @@ tracks {
     "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {}
 
 
     // PREPAID, HYBRID, MPCARD
