@@ -55,6 +55,8 @@ tracks
               user_profile(type: PropertyType.String, required: false, description: 'Profile of user')
               errors(type: PropertyType.String, required: false, description: 'Type of error', values: ["no_internet_connection", "not_available_on_country", "no_site_connection","cant_show_data"])
             }
-            "/crypto/educational" (platform: "/mobile", type: TrackType.View) {
+
+            "/crypto/educational" (platform: "/", type: TrackType.View) {
+                crypto(required: false, type: PropertyType.String, description: "Currency")
             }
         }

@@ -2531,9 +2531,14 @@ trackTests {
         "/vip"(platform: "/", dataSet)
     }
 
-    test("Crypto tracking") {
-        "/crypto/educational"(platform: "/", {
-            crypto = "melicoin"
-        })
+    test("Vip crypto educational") {
+
+        "/crypto/educational"(platform: "/", type: TrackType.View) {
+            crypto = "cripto"
+        }
+
+        "/crypto/educational"(platform: "/web", type: TrackType.View) {
+            crypto = "cripto"
+        }
     }
 }

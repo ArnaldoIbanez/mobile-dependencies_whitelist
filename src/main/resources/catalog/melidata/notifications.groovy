@@ -1802,6 +1802,7 @@ tracks {
     "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {}
 
 
     // PREPAID, HYBRID, MPCARD
@@ -2018,6 +2019,7 @@ tracks {
     "/notification/single_player_prepaid_toll_success_mp"(platform: "/mobile") {}
     "/notification/single_player_prepaid_toll_fail_mp"(platform: "/mobile") {}
     "/notification/single_player_balance_expiration_transport_mp"(platform: "/mobile") {}
+    "/notification/single_player_balance_expiration_prepaid_toll_mp"(platform: "/mobile") {}
     "/notification/single_player_antenna_fail_mp"(platform: "/mobile") {}
     "/notification/single_player_antenna_success_mp"(platform: "/mobile") {}
     "/notification/single_player_generic_balance_expiration"(platform: "/mobile") {}
@@ -2240,6 +2242,7 @@ tracks {
 
     // Disbursement Kwai
     "/notification/disbursement_kwai_received"(platform: "/") {}
+    "/notification/disbursement_kwai_pending_kyc"(platform: "/") {}
 
     // Money In CCA
     "/notification_center/moneyin_cca_approved"(platform: "/", type: TrackType.Event) {
