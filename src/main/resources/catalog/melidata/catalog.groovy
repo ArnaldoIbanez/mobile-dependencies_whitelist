@@ -86,7 +86,8 @@ catalog {
         include business, "modals_engine.groovy"
         include business, "collaborators.groovy"
         include business, "loyalty_v2.groovy"
-        include business, "credits.groovy"
+        include business, "credits_consumer.groovy"
+        include business, "credits_merchant.groovy"
         include business, "card_form.groovy"
         include business, "merchengine.groovy"
         include business, "navigation_sections.groovy"
@@ -118,7 +119,8 @@ catalog {
         include business, "combos.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
-        include business, "credits_marketplace.groovy"
+        include business, "credits_consumer_ml.groovy"
+        include business, "credits_merchant_ml.groovy"
         include business, "credits_classifieds.groovy"
         include business, "credits_vis.groovy"
         include business, "moderations.groovy"
@@ -200,6 +202,7 @@ catalog {
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
         include business, "vis_supply.groovy"
+        include business, "crypto.groovy"
     }
 
     mercadopago.each { business ->
@@ -214,7 +217,8 @@ catalog {
         include business, "mercadopago.groovy"
         include business, "credits_credit_card.groovy"
         include business, "credits_credit_card_mp.groovy"
-        include business, "credits_mercadopago.groovy"
+        include business, "credits_consumer_mp.groovy"
+        include business, "credits_merchant_mp.groovy"
         include business, "mercadopago_mails.groovy"
         include business, "mercadopago_devsite.groovy"
         include business, "cards_cobranded.groovy"
