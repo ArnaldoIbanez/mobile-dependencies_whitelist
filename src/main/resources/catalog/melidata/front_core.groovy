@@ -30,11 +30,16 @@ tracks {
         position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
         criticality(required: false, type: PropertyType.Numeric, description: "Criticality of the pending")
         from(required: false, type: PropertyType.String, description: "From where this pending shown")
+        campaign_id(required: false, type: PropertyType.Numeric, description: "Campaign ID")
+        print_id(required: false, type: PropertyType.String, description: "Identifier for Advertising print")
     }
 
     propertyGroups {
         walletHomeMerchEngineFields(
             section_id, link, component_id, action_id, audience, bu, bu_line, content_id, flow, logic, position
+        )
+        walletHomeMerchEngineAdvertisingFields(
+            section_id, link, component_id, action_id, audience, bu, bu_line, content_id, flow, logic, position, campaign_id, print_id
         )
         walletHomePendingsFields(
             section_id, link, component_id, audience, bu, bu_line, content_id, flow, logic, position, criticality, from
@@ -546,9 +551,11 @@ tracks {
     "/wallet_home/header_data_button" (platform: "/mobile", isAbstract: true) {}
 
     "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
-        link(required: true, type: PropertyType.String, description: "If header is tapeable")
-        button_link(required: false, type: PropertyType.String, description: "If button is present")
-        buttons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "If have buttons")
+        link(required: false, type: PropertyType.String, description: "The link of the user info")
+        button_link(required: false, type: PropertyType.String, description: "The link of the action")
+        buttons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Buttons pix, CVU, help")
+        loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
 
     "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
@@ -733,7 +740,7 @@ tracks {
     }
 
     "/wallet_home/section/tap/ads_top_banner" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
-        walletHomeMerchEngineFields
+        walletHomeMerchEngineAdvertisingFields
     }
 
     "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {

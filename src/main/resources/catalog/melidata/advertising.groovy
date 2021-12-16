@@ -2330,9 +2330,9 @@ tracks {
         budget(required: true, type: PropertyType.Numeric, description: "Current budget related to the campaign")
         trtarget (required: false, type: PropertyType.Numeric, description: "Take Rate selected")
         strategy(required: false, type: PropertyType.String, description: "Campaign strategy")
-        impression_share(required: true, type: PropertyType.Numeric, description: "Impression share related to campaign")
-        lost_impression_share_by_budget(required: true, type: PropertyType.Numeric, description: "Impression share lost by budget related to campaig")
-        lost_impression_share_by_ad_rank(required: true, type: PropertyType.Numeric, description: "Impression share lost by ad rank related to campaig")
+        impression_share(required: false, type: PropertyType.Numeric, description: "Impression share related to campaign")
+        lost_impression_share_by_budget(required: false, type: PropertyType.Numeric, description: "Impression share lost by budget related to campaig")
+        lost_impression_share_by_ad_rank(required: false, type: PropertyType.Numeric, description: "Impression share lost by ad rank related to campaig")
     }
 
     "/advertising/pads2/manager/comp_metrics/is_helper"(platform: "/", type: TrackType.Event) {}

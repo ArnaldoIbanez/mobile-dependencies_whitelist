@@ -170,6 +170,7 @@ trackTests {
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
             openSeaDefaultProperties()
+            credits_pre_approved_line = false
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {

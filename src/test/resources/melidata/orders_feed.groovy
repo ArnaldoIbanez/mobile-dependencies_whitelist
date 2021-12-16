@@ -172,6 +172,7 @@ trackTests {
             ]
             tags = ["tag"]
 
+            total_packs = 2
             free_shipping_packs = 2
             discount_packs = 1
             all_free_shipping_packs = false

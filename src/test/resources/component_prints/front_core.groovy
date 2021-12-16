@@ -95,6 +95,26 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home print AdsTopBanner") {
+        "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
+            ads_top_banner = [
+                    [
+                            component_id: "ad1",
+                            audience: "audience1",
+                            bu: "mp",
+                            content_id: "security",
+                            action_id: "action1",
+                            bu_line: "bu",
+                            logic: "logic",
+                            position: 1,
+                            flow: "flow",
+                            campaign_id: 1,
+                            print_id: "print id"
+                    ]
+            ]
+        }
+    }
+
     test("Mercadopago Home print Benefits") {
         "/wallet_home/print" (platform: "/mobile", type: TrackType.View) {
             benefits = [
