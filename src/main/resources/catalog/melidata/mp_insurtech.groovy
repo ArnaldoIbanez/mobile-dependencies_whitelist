@@ -762,7 +762,7 @@ tracks {
     "/insurtech/protections/detail/cards/begin_claim"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/detail/cards/claim_detail"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-        claim(required: true, type: PropertyType.Map(claim_cards), description: "Cards protection claim data")
+        claim(required: true, type: PropertyType.Map(claim_cards), description: "CARDS Protection claim data")
     }
 
     "/insurtech/protections/detail/cards/download_policy"(platform:"/", type: TrackType.Event) {}
