@@ -214,8 +214,8 @@ metrics {
 			condition {
 				path("/purchases/purchasecreated")
 				and (
-						equals("application.business", "mercadolibre"),
-						equals("event_data.is_free_shipping_purchase", true)
+					equals("application.business", "mercadolibre"),
+					equals("event_data.is_free_shipping_purchase", true)
 				)
 			}
 		}
