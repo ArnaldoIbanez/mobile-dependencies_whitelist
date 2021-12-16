@@ -143,7 +143,7 @@ tracks {
     }
 
     "/seller_central/listings/row_moderation"(platform: "/", type: TrackType.Event) {
-        sub_view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
+        sub_view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops", "only_marketplace"])
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(rowItemStructure)), description: "List of items with empty state action")
     }
 
@@ -220,11 +220,19 @@ tracks {
     "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action id")
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
+        item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
         inventory_id(required: false, type: PropertyType.String, description: "Inventory id to which the action is executed")
         operator_id(required: false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
         message(required: false, type: PropertyType.String, description: "Text input from actions with user feedback")
         option(required: false, type: PropertyType.String, description: "Option selected from actions with user feedback")
         vertical(required: false, type: PropertyType.String, description: "Vertical of the item related to the action")
 
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS publish track
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/listings/go_publish"(platform: "/", type: TrackType.Event) {
     }
 }

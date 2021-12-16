@@ -2563,6 +2563,8 @@ trackTests {
                 logic = "user_journey"
                 flow = "default"
                 position = 1
+                campaign_id = 1
+                print_id = "5e3047fb-3d9h-4565-9y84-00jcff9f7ue5"
             }
             "/wallet_home/section/tap/ads_top_banner" (platform: "/mobile", type: TrackType.Event) {
                 audience = "all"
