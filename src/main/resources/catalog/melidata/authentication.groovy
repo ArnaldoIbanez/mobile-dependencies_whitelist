@@ -776,18 +776,18 @@ tracks {
 
     // Anomalies
     "/screenlock/anom/os_biometrics_changed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.App) {
-        old_os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "specify previous security type on user device")
-        new_os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "specify actual security type on user device")
+        old_value(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "specify previous security type on user device")
+        new_value(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "specify actual security type on user device")
     }
 
     "/screenlock/anom/jb_changed"(platform: "/mobile/ios", parentPropertiesInherited: false, type: TrackType.App) {
-        old_jb_status(type: PropertyType.Boolean, required: true, description: "specify previous jailbreak status on user device")
-        new_jb_status(type: PropertyType.Boolean, required: true, description: "specify actual jailbreak status on user device")
+        old_value(type: PropertyType.Boolean, required: true, description: "specify previous jailbreak status on user device")
+        new_value(type: PropertyType.Boolean, required: true, description: "specify actual jailbreak status on user device")
     }
 
     "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", parentPropertiesInherited: false, type: TrackType.App) {
-        old_biometric_hash(type: PropertyType.String, required: true, description: "specify previous biometric hash  on user device")
-        new_biometric_hash(type: PropertyType.String, required: true, description: "specify actual biometric hash on user device")
+        old_value(type: PropertyType.String, required: true, description: "specify previous biometric hash  on user device")
+        new_value(type: PropertyType.String, required: true, description: "specify actual biometric hash on user device")
     }
 
     "/screenlock/anom/storage_error"(platform: "/mobile/ios", parentPropertiesInherited: false, type: TrackType.App) {
