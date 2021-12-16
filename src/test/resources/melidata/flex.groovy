@@ -167,23 +167,23 @@ trackTests {
                                     shipping_id     : "27596585622",
                                     origin_info     : [
                                             addresses_info  : "Guevara 533",
-                                            shipping_id     : "test",
-                                            geolocation_type: "test",
+                                            shipping_id     : "27596585622",
+                                            geolocation_type: "APPROXIMATE",
                                             latitude        : "-36.434321",
                                             longitude       : "-35.56065"
                                     ],
                                     destination_info: [
                                             addresses_info  : "Suipacha 108",
-                                            shipping_id     : "test",
-                                            geolocation_type: "test",
+                                            shipping_id     : "27596585622",
+                                            geolocation_type: "APPROXIMATE",
                                             latitude        : "-36.434321",
                                             longitude       : "-35.56065"
                                     ],
                                     status          : "shipped",
-                                    low_precision   : true,
-                                    sub_status      : "test",
-                                    seller_id       : "test",
-                                    tracking_number : "test"
+                                    low_precision   : false,
+                                    sub_status      : "out_for_delivery",
+                                    seller_id       : "572209078",
+                                    tracking_number : "27596585622"
                             ],
                             [
                                     shipping_id     : "342994423",

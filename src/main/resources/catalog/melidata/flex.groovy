@@ -386,12 +386,11 @@ tracks {
 
     "/flex/package/detail/out_of_distance_warning"(platform: "/mobile", type: TrackType.View) {
         packsAndLocationDef
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable:false)
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable:true)
     }
 
     "/flex/package/detail/out_of_distance_warning/delivered"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocationDef
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable:false)
     }
 
     "/flex/package/detail/out_of_distance"(platform: "/mobile", type: TrackType.Event) {
