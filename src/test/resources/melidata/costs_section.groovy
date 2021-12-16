@@ -313,4 +313,21 @@ trackTests {
             caller="test.java"
         }
     }
+
+    test("The save button was clicked with a satisfactory result - PSJ Point") {
+        "/pricing_section/psj/point/save/success" (platform: "/", type: TrackType.Event) {
+            activated = true
+        }
+    }
+    test("The save button was clicked with a error result 1 - PSJ Point") {
+        "/pricing_section/psj/point/save/error" (platform: "/", type: TrackType.Event) {
+            status = "500"
+        }
+    }
+    test("The save button was clicked with a error result 2 - PSJ Point") {
+        "/pricing_section/psj/point/save/error"(platform: "/", type: TrackType.Event) {
+            status = "500"
+            message = "Error"
+        }
+    }
 }
