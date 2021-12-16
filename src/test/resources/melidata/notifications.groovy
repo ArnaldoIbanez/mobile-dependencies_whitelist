@@ -2825,6 +2825,22 @@ trackTests {
             news_id = "credit_card_overlimit_inactive-12"
             event_type = "dismiss"
         }
+        "/notification/credit_card_reject_blocked"(platform: "/") {
+            news_id = "credit_card_reject_blocked-12"
+            event_type = "shown"
+        }
+        "/notification/credit_card_reject_cvv_incorrect"(platform: "/") {
+            news_id = "credit_card_reject_cvv_incorrect-12"
+            event_type = "shown:"
+        }
+        "/notification/credit_card_reject_insufficient_amount"(platform: "/") {
+            news_id = "credit_card_reject_insufficient_amount-12"
+            event_type = "shown:"
+        }
+        "/notification/credit_card_reject_invalid_pin"(platform: "/") {
+            news_id = "credit_card_reject_invalid_pin-12"
+            event_type = "shown:"
+        }
         "/notification/credit_card_transaction_chout_purchase"(platform: "/") {
             news_id = "credit_card-transaction_chout_purchase-12"
             event_type = "dismiss"
