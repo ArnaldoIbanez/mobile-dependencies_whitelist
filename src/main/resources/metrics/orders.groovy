@@ -203,10 +203,8 @@ metrics {
 	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true, tags:[TagType.CoreMetric]) {
 		countsOn {
 			condition {
-				and(
-					path("/purchases/purchasecreated"),
-					equals("application.business", "mercadolibre")
-				)
+				path("/purchases/purchasecreated")
+				equals("application.business", "mercadolibre")
 			}
 		}
 	}
@@ -215,8 +213,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/purchases/purchasecreated")
-				equals("application.business", "mercadolibre")
-				equals("event_data.is_free_shipping_purchase", true)
+				and (
+					equals("application.business", "mercadolibre"),
+					equals("event_data.is_free_shipping_purchase", true)
+				)
 			}
 		}
 	}
