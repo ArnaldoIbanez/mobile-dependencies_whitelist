@@ -160,6 +160,57 @@ trackTests {
                 ]
             }
 
+        def defaultPacksInfoDefinition =
+                {
+                    packs_info_def = [
+                            [
+                                    shipping_id     : "27596585622",
+                                    origin_info     : [
+                                            addresses_info  : "Guevara 533",
+                                            shipping_id     : "test",
+                                            geolocation_type: "test",
+                                            latitude        : "-36.434321",
+                                            longitude       : "-35.56065"
+                                    ],
+                                    destination_info: [
+                                            addresses_info  : "Suipacha 108",
+                                            shipping_id     : "test",
+                                            geolocation_type: "test",
+                                            latitude        : "-36.434321",
+                                            longitude       : "-35.56065"
+                                    ],
+                                    status          : "shipped",
+                                    low_precision   : true,
+                                    sub_status      : "test",
+                                    seller_id       : "test",
+                                    tracking_number : "test"
+                            ],
+                            [
+                                    shipping_id     : "342994423",
+                                    status          : "not_delivered",
+                                    low_precision   : false,
+                                    origin_info     : [
+                                            addresses_info: "San martin 3223"
+                                    ],
+                                    destination_info: [
+                                            addresses_info: "Uruguay 756"
+                                    ]
+                            ],
+                            [
+                                    shipping_id     : "645292393",
+                                    status          : "pending",
+                                    origin_info     : [
+                                            addresses_info: "Navarro 3232"
+                                    ],
+                                    destination_info: [
+                                            addresses_info: "Libertador 250",
+                                            latitude      : "-36.312234",
+                                            longitude     : "-33.645333"
+                                    ]
+                            ]
+                    ]
+                }
+
         //Login view track success
         "/flex/login/name"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
@@ -535,25 +586,26 @@ trackTests {
         }
 
         //Out of distance Modal Event
-        "/flex/package/detail/out_of_distance_modal/not_delivered"(platform:"/mobile", type: TrackType.Event) {
+       "/flex/package/detail/out_of_distance_modal/not_delivered"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
-            defaultPacksInfo()
+            defaultPacksInfoDefinition()
             delivery_id = 123456
         }
 
         //Out of distance warning View
         "/flex/package/detail/out_of_distance_warning"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
-            defaultPacksInfo()
-            shipment_id = 123456
+            defaultPacksInfoDefinition()
+            shipment_id = "123456"
         }
 
         //Out of distance warning Event
         "/flex/package/detail/out_of_distance_warning/delivered"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
-            defaultPacksInfo()
-            shipment_id = 123456
+            defaultPacksInfoDefinition()
+            shipment_id = "123456"
         }
+
 
         //Snackbar error event success
         "/flex/package/detail/out_of_distance"(platform:"/mobile", type: TrackType.Event) {
