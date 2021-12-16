@@ -315,7 +315,7 @@ tracks {
 
     "/cart/checkout/review/select_shipping"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-        shipping(required: true, type: PropertyType.String)
+        shipping(required: true, type: PropertyType.String, description: "shipping option selected on modal review")
     }
 
 // Addresses
