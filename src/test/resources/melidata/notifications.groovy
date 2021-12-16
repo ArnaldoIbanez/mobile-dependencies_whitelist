@@ -2825,19 +2825,19 @@ trackTests {
             news_id = "credit_card_overlimit_inactive-12"
             event_type = "dismiss"
         }
-        "/notification/credit_card_reject_blocked"(platform: "/") {
+        "/notification/credit_card_reject_blocked"(platform: "/mobile") {
             news_id = "credit_card_reject_blocked-12"
             event_type = "shown"
         }
-        "/notification/credit_card_reject_cvv_incorrect"(platform: "/") {
+        "/notification/credit_card_reject_cvv_incorrect"(platform: "/mobile") {
             news_id = "credit_card_reject_cvv_incorrect-12"
             event_type = "shown:"
         }
-        "/notification/credit_card_reject_insufficient_amount"(platform: "/") {
+        "/notification/credit_card_reject_insufficient_amount"(platform: "/mobile") {
             news_id = "credit_card_reject_insufficient_amount-12"
             event_type = "shown:"
         }
-        "/notification/credit_card_reject_invalid_pin"(platform: "/") {
+        "/notification/credit_card_reject_invalid_pin"(platform: "/mobile") {
             news_id = "credit_card_reject_invalid_pin-12"
             event_type = "shown:"
         }
@@ -5971,6 +5971,22 @@ trackTests {
         "/notification_center/credit_card_overlimit"(platform: "/") {
             latest_news_type= "credit_card_overlimit"
             latest_news_id= "credit_card_overlimit-148801678-free-annuity-20211405"
+        }
+        "/notification_center/credit_card_reject_blocked"(platform: "/mobile") {
+            latest_news_type= "credit_card_reject_blocked"
+            latest_news_id= "credit_card_reject_blocked-148801678-free-annuity-20211405"
+        }
+        "/notification_center/credit_card_reject_cvv_incorrect"(platform: "/mobile") {
+            latest_news_type= "credit_card_reject_cvv_incorrect"
+            latest_news_id= "credit_card_reject_cvv_incorrect-148801678-free-annuity-20211405"
+        }
+        "/notification_center/credit_card_reject_insufficient_amount"(platform: "/mobile") {
+            latest_news_type= "credit_card_reject_insufficient_amount"
+            latest_news_id= "credit_card_reject_insufficient_amount-148801678-free-annuity-20211405"
+        }
+        "/notification_center/credit_card_reject_invalid_pin"(platform: "/mobile") {
+            latest_news_type= "credit_card_reject_invalid_pin"
+            latest_news_id= "credit_card_reject_invalid_pin-148801678-free-annuity-20211405"
         }
         "/notification_center/credit_card_transaction_acquisition"(platform: "/") {
             latest_news_type= "credit_card_transaction_acquisition"
