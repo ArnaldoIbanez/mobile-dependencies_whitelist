@@ -86,12 +86,24 @@ tracks {
             description: "Sale Event Name",
             values: ["RECEIVE", "PUSH", "DELETE", "DELETE_BY_TTL"]
         )
+        sale_status(
+            required: false,
+            type: PropertyType.String,
+            description: "Sale Current Status",
+            values: ["TO_PREPARE", "IN_PREPARE", "IN_TRANSIT", "FINALIZED", "UNKNOWN"]
+        )
+        sale_sub_status(
+            required: false,
+            type: PropertyType.String,
+            description: "Sale Current SubStatus",
+            values: ["TO_CONFIRM", "ON_TIME", "DELAYED", "DELIVERED", "NOT_DELIVERED", "DELIVERY_FAILED", "CANCELLED", "UNKNOWN"]
+        )
     }
 
     propertyGroups {
         actionGroup(opening_hours_today, seller_id, store_id, action_type,session_id, session_store_id, purchase_id, sale_id, exception)
         sessionGroup(session_id, seller_id, session_type, date, created_at, updated_at)
-        saleGroup(sale_id, seller_id, store_id, sale_type, session_id, purchase_id, session_store_id, exception)
+        saleGroup(sale_id, seller_id, store_id, sale_type, session_id, purchase_id, sale_status, sale_sub_status, session_store_id, exception)
     }
 
     "/proximity_order_manager" (platform: "/", isAbstract: true) {}
