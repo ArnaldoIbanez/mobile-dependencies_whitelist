@@ -84,7 +84,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Sale Event Name",
-            values: ["RECEIVE", "PUSH", "DELETE", "DELETE_BY_TTL"]
+            values: ["RECEIVE", "PUSH", "DELETE", "DELETE_BY_TTL", "CHANGE_STATUS"]
         )
         sale_status(
             required: false,
