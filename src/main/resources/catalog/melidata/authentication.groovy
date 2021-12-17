@@ -854,7 +854,7 @@ tracks {
     }
 
     "/authenticators/totp_in_app/enrollment/transparent"(platform: "/mobile", isAbstract: true, type: TrackType.View) {
-        deeplink_user_id(type: PropertyType.String, required: false, description: "user identifier by enrollment")
+        enrollment_user_id(type: PropertyType.String, required: false, description: "user identifier by enrollment")
     }
 
     "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile", type: TrackType.Event) {

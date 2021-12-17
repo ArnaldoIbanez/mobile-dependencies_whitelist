@@ -2512,14 +2512,14 @@ trackTests {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
-                deeplink_user_id = "2920393029"
+                enrollment_user_id = "2920393029"
             }
 
             "/authenticators/totp_in_app/enrollment/transparent"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
-                deeplink_user_id = "2920393029"
+                enrollment_user_id = "2920393029"
             }
 
             "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -2528,7 +2528,7 @@ trackTests {
                 client_id = "login"
                 status = false
                 type_of_error = "server_error"
-                deeplink_user_id = "2920393029"
+                enrollment_user_id = "2920393029"
             }
 
             "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -2537,7 +2537,7 @@ trackTests {
                 client_id = "login"
                 status = false
                 type_of_error = "server_error"
-                deeplink_user_id = "2920393029"
+                enrollment_user_id = "2920393029"
             }
         }
 
