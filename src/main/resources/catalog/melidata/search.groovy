@@ -93,11 +93,11 @@ tracks {
     }
 
     def tag_tracking_datum_object = objectSchemaDefinitions {
-        item_id(type: PropertyType.String, required: true)
-        position(type: PropertyType.Numeric, required: true)
-        product_id(type: PropertyType.String, required: false)
-        type(type: PropertyType.String, required: false)
-        seller_id(type: PropertyType.Numeric, required: false)
+        item_id(type: PropertyType.String, required: true, description: 'item id')
+        position(type: PropertyType.Numeric, required: true, description: 'position of the item in the results')
+        product_id(type: PropertyType.String, required: false, description: 'product id')
+        type(type: PropertyType.String, required: false, description: 'item type')
+        seller_id(type: PropertyType.Numeric, required: false, description: 'seller id')
         amount(type: PropertyType.Numeric, required: false, description: 'item amount')
     }
 
