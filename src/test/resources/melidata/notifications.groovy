@@ -2831,15 +2831,15 @@ trackTests {
         }
         "/notification/credit_card_reject_cvv_incorrect"(platform: "/mobile") {
             news_id = "credit_card_reject_cvv_incorrect-12"
-            event_type = "shown:"
+            event_type = "shown"
         }
         "/notification/credit_card_reject_insufficient_amount"(platform: "/mobile") {
             news_id = "credit_card_reject_insufficient_amount-12"
-            event_type = "shown:"
+            event_type = "shown"
         }
         "/notification/credit_card_reject_invalid_pin"(platform: "/mobile") {
             news_id = "credit_card_reject_invalid_pin-12"
-            event_type = "shown:"
+            event_type = "shown"
         }
         "/notification/credit_card_transaction_chout_purchase"(platform: "/") {
             news_id = "credit_card-transaction_chout_purchase-12"
