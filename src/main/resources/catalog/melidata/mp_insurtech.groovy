@@ -760,6 +760,7 @@ tracks {
     }
 
     "/insurtech/protections/detail/cards/claim_detail"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        protection(required: true, type: PropertyType.Map(protection_base), description: "Cards Product data")
         claim(required: true, type: PropertyType.Map(claim_cards), description: "CARDS Protection claim data")
     }
 
