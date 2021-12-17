@@ -48,6 +48,13 @@ trackTests {
             previous_size=110592
         }
 
+        "/melidata/shrink_database"(platform:"/mobile/android", type:TrackType.Control){
+            delete_records=40
+            current_size=69632
+            previous_size=110592
+            most_common_path="/search"
+        }
+
         "/melidata/shrink_database"(platform:"/mobile/ios", type:TrackType.Event){
             delete_records=50
             current_size=82322
