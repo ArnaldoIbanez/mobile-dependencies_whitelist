@@ -149,6 +149,13 @@ tracks {
         touchpoint_detail(required: true, type: PropertyType.String, description: "detail of the flow from which it comes")
     }
 
+    def claim_cards = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "ID of claim associated to the CARDS protection.")
+        claim_number(required: true, type: PropertyType.String, description: "Number of claim associated to the CARDS protection.")
+        has_previous_claim(required: true, type: PropertyType.Boolean, description: "This is true if the user has previous claims")
+        status(required: true, type: PropertyType.String, description: "Claim status")
+    }
+
     // INSURTECH RODA QPage Abstract
     "/insurtech"(platform: "/", isAbstract: true) {}
 
@@ -752,7 +759,12 @@ tracks {
         protection(required: true, type: PropertyType.Map(protection_base), description: "Cards Product data")
     }
 
+    "/insurtech/protections/detail/cards/claim_detail"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        claim(required: true, type: PropertyType.Map(claim_cards), description: "CARDS Protection claim data")
+    }
+
     "/insurtech/protections/detail/cards/begin_claim"(platform:"/", type: TrackType.Event) {}
+
 
     "/insurtech/protections/detail/cards/download_policy"(platform:"/", type: TrackType.Event) {}
 
@@ -839,10 +851,11 @@ tracks {
         touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
         flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
-    
+
     // Congrats - Success View
     "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
         purchase_key(required: true, type: PropertyType.String, description: "the id of the purchase generated")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
     }
     "/insurtech/cards/congrats_success/go_cards"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
     }
