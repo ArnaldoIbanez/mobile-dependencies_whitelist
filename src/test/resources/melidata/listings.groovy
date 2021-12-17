@@ -398,4 +398,8 @@ trackTests {
         }
     }
 
+    test("go to publish flow") {
+        "/seller_central/listings/go_publish"(platform: "/", type: TrackType.Event) {}
+    }
+
 }
