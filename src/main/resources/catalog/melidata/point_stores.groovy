@@ -41,10 +41,10 @@ tracks {
     "/stores/device/out_of_paper"(platform: "/", type: TrackType.Event) {}
     "/stores/device/associate"(platform: "/", isAbstract: true) {}
     "/stores/device/associate/start"(platform: "/", type: TrackType.Event) {
-        tab_context(required: true, type: PropertyType.String, description: "the tab where the associate action starts", values: ["/stores/details_pos", "/stores/details_devices"])
+        tab_context(required: true, type: PropertyType.String, description: "the tab where the associate action starts", values: ["/stores/details_pos", "/stores/details_devices", "/stores/details_devices?walkthrough"])
     }
     "/stores/device/associate/end"(platform: "/", type: TrackType.Event) {
-        tab_context(required: true, type: PropertyType.String, description: "the tab where the associate action ends", values: ["/stores/details_pos", "/stores/details_devices"])
+        tab_context(required: true, type: PropertyType.String, description: "the tab where the associate action ends", values: ["/stores/details_pos", "/stores/details_devices", "/stores/details_devices?walkthrough"])
     }
     "/stores/device/link"(platform: "/web", isAbstract: true) {}
     "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
@@ -58,4 +58,13 @@ tracks {
     "/stores/pos/update"(platform: "/", type: TrackType.View) {}
     "/stores/standalone_pos"(platform: "/", type: TrackType.View) {}
     "/stores/move_pos"(platform: "/", type: TrackType.View) {}
+
+    "/stores/walkthrough" (platform: "/", isAbstract: true) {}
+    "/stores/walkthrough/step" (platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")    
+        step_id(type: PropertyType.String, required: true, description: "Walkthrough's step id")
+    }
+    "/stores/walkthrough/finish" (platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")
+    }
 }
