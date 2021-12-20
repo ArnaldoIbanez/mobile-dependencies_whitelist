@@ -339,6 +339,35 @@ tracks {
     "/money_in/debin/hub/new_account"(platform:"/",type: TrackType.Event){}
     "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
     "/money_in/debin/hub/my_cvu"(platform:"/",type: TrackType.Event){}
+    "/money_in/debin/hub/edit_account"(platform:"/",type: TrackType.Event){
+        account_id(required:false, type: PropertyType.String, description: "indicate the source of the debin")
+    }
+    "/money_in/debin/hub/delete"(platform:"/",type: TrackType.Event){
+         account_id(required:false, type: PropertyType.String, description: "indicate the source of the debin")
+    }
+    "/money_in/debin/hub/edit_success"(platform:"/",type: TrackType.Event){}
+    "/money_in/debin/hub/edit_error"(platform:"/",type: TrackType.Event){}
+    "/money_in/debin/hub/success_delete"(platform:"/",type: TrackType.Event){}
+    "/money_in/debin/hub/error_delete"(platform:"/",type: TrackType.Event){}
+
+    //Debin edit account
+    "/money_in/debin/hub/edit_account/edit"(platform:"/",type: TrackType.Event){}
+    "/money_in/debin/hub/edit_account/error"(platform:"/",type: TrackType.Event){}
+
+    //TD to Debin (Bottom Sheet experience)
+    "/money_in/calculator/bottom_sheet"(platform:"/", isAbstract: true){}
+    "/money_in/calculator/bottom_sheet"(platform:"/", type: TrackType.View){}
+    "/money_in/calculator/bottom_sheet/select"(platform:"/", type: TrackType.Event){
+        account_number(required: false,type: PropertyType.String, description: "indicates the account number of the user")
+    }
+    "/money_in/calculator/bottom_sheet/edit_amount"(platform:"/", type: TrackType.Event){}
+
+    //TD to debin - Onboarding
+    "/money_in/debin/td_to_debin_onboarding"(platform:"/", isAbstract: true){}
+    "/money_in/debin/td_to_debin_onboarding"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/td_to_debin_onboarding/close"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/td_to_debin_onboarding/go_to_debin"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/td_to_debin_onboarding/edit_amount"(platform:"/", type: TrackType.Event){}
 
     //Debin Onboarding
     "/money_in/debin/onboarding"(platform:"/", type: TrackType.View){}
@@ -357,6 +386,9 @@ tracks {
     "/money_in/debin/calculator/message"(platform:"/", type: TrackType.Event){
         message(required:false, description: "indicate the error message")
     }
+     "/money_in/debin/calculator/callback"(platform:"/", type: TrackType.Event){
+        callback(required:false,type:PropertyType.String, description: "callback for another teams")
+    }
 
     //Debin RyC
     "/money_in/debin/ryc"(platform:"/", type: TrackType.View){}
@@ -364,9 +396,11 @@ tracks {
     "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/callback"(platform:"/", type: TrackType.Event){
+        callback(required:false,type:PropertyType.String, description: "callback for another teams")
+    }
     "/money_in/debin/ryc/reauth"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/ryc/screen_lock"(platform:"/", type: TrackType.Event){}
-
 
     //Debin Processing
     "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
@@ -383,6 +417,9 @@ tracks {
          status(required:false, description:"status",values:["error", "rejected"])
     }
     "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/congrats/callback"(platform:"/", type: TrackType.Event){
+         callback(required:false,type: PropertyType.String, description: "callback for another teams")
+    }
 
     //Debin Merch Engine
     "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
@@ -421,6 +458,9 @@ tracks {
     "/money_in/debin/search/dismiss/bottom_sheet"(platform:"/", type: TrackType.Event){
         bs_type(required:false, description:"indicates the tye of the bottom-sheet")
     }
+    "/money_in/debin/search/already_exists/bottom_sheet"(platform:"/", type: TrackType.Event){
+        bs_type(required:false, type: PropertyType.String, description:"indicates the tye of the bottom-sheet",values:["already_exist"])
+    }
 
     "/money_in/td_calculator"(platform:"/", isAbstract: true){}
     "/money_in/debin/calculator"(platform:"/", isAbstract: true){}
@@ -449,6 +489,80 @@ tracks {
     "/money_in/debin/calculator/cvu_modal/go_to_cvu"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
 
+    // Money In Hub - v2
+    "/money_in/hub"(platform:"/", isAbstract: true){}
+    "/money_in/hub"(platform:"/", type: TrackType.View){}
+    "/money_in/hub/select"(platform:"/", type: TrackType.Event){
+        payment_method_id(required:false, type: PropertyType.String, description:"indicates the selected payment method")
+    }
+    "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
+    "/money_in/hub/help_to_improve"(platform:"/", type: TrackType.Event){}
+    "/money_in/hub/widget/shown"(platform:"/", type: TrackType.View){
+        id(required:false, type: PropertyType.String, description:"indicates what widget we are sending to the client")
+    }
+    "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
+        widget_id(required:false, type: PropertyType.String, description:"indicates what widget the user select")
+    }
+    "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
+        action_id(required:false, type: PropertyType.String, description:"indicates what widget action is selected")
+    }
+
+    // -------------Open Finance - Money In-------------
+    //Onboarding
+    "/money_in/open_finance"(platform:"/", isAbstract: true){}
+    "/money_in/open_finance/onboarding"(platform:"/", type:TrackType.View){}
+    "/money_in/open_finance/onboarding/back"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/onboarding/continue"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/onboarding/know_more"(platform:"/", type:TrackType.Event){}
+
+    // Hub
+    "/money_in/open_finance/hub"(platform:"/", type:TrackType.View){}
+    "/money_in/open_finance/hub/tooltip"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/hub/help"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/hub/select"(platform:"/", type:TrackType.Event){
+        account_id(required:false, type: PropertyType.String, description:"selected account number")
+    }
+    "/money_in/open_finance/hub/add_account"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/hub/back"(platform:"/", type:TrackType.Event){}
+
+    //Calculator
+    "/money_in/open_finance/calculator"(platform:"/", type:TrackType.View){}
+    "/money_in/open_finance/calculator/preset"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/calculator/continue"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/calculator/message"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/calculator/back"(platform:"/", type:TrackType.Event){}
+
+    // Review and Confirm
+    "/money_in/open_finance/ryc"(platform:"/", type:TrackType.View){}
+    "/money_in/open_finance/ryc/help"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/ryc/continue"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/ryc/cancel"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/ryc/back"(platform:"/", type:TrackType.Event){}
+    "/money_in/open_finance/ryc/continue/deeplink"(platform:"/", type:TrackType.Event){}
+
+    //Processing
+    "/money_in/open_finance/processing"(platform:"/", type:TrackType.View){}
+
+    //congrats
+    "/money_in/open_finance/congrats"(platform:"/", type:TrackType.View){
+         status(required:false, type: PropertyType.String, description:"congrat status",values:["success", "pending", "error"])
+    }
+    "/money_in/open_finance/congrats/go_home"(platform:"/", type:TrackType.Event){
+        status(required:false, type: PropertyType.String, description:"go home congrat button status",values:["success", "pending", "error"])
+    }
+    "/money_in/open_finance/congrats/download_receipt"(platform:"/", type:TrackType.Event){
+        status(required:false, type: PropertyType.String, description:"indicates if the user download transaction receipt",values:["success"])
+    }
+    "/money_in/open_finance/congrats/feedback"(platform:"/", type:TrackType.Event){
+        status(required:false, type: PropertyType.String, description:"indicates if the user provides feedback to the app",values:["success"])
+    }
+    "/money_in/open_finance/congrats/close"(platform:"/", type:TrackType.Event){
+        status(required:false, type: PropertyType.String, description:"close congrat button status",values:["success", "pending", "error"])
+    }
+    "/money_in/open_finance/congratsretry"(platform:"/", type:TrackType.Event){
+        status(required:false, type: PropertyType.String, description:"indicates if the user is retrying the operation",values:["error"])
+    }
+
     //Money In Error View - Enchufe
     "/money_in/error_view"(platform: "/", type: TrackType.View) {
         error (required:false, description: "Indicate the error type thats been shown")
@@ -459,23 +573,6 @@ tracks {
     "/money_in/static_resources"(platform:"/", isAbstract: true){}
     "/money_in/static_resources/network_error"(platform:"/", type: TrackType.Event){
         error(required:true, description:"Network Error Message")
-    }
-
-    //Nuevo hub Money In v2
-    "/money_in/hub"(platform:"/", type: TrackType.View){}
-    "/money_in/hub/select"(platform:"/", type: TrackType.Event){
-        payment_method_id (required:false, type: PropertyType.String, description: "indicates the id of the payment method")
-    }
-    "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
-    
-    "/money_in/hub/widget/shown"(platform:"/", type: TrackType.Event){
-        widget_id (required:true, type: PropertyType.String, description: "Indicates the id of the widget shown")
-    }
-    "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
-        widget_id (required:true, type: PropertyType.String, description: "Indicates the id of the widget selected")
-    }
-    "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
-        action_id (required:true, type: PropertyType.String, description: "Indicates the widget action id")
     }
 
     //MLB Calculator Catalog

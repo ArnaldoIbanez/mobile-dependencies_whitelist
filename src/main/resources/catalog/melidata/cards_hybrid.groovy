@@ -733,6 +733,18 @@ tracks {
           )
     }
 
+    // Contextual help
+    // ----
+    "/cards/hybrid/dashboard/contextual_help"(platform: "/", type: TrackType.Event){
+        faq_id (
+            required: true,
+            description: "Indicates the faq identifier that was tapped",
+            type: PropertyType.Numeric
+        )
+    }
+
+    "/cards/hybrid/dashboard/more_help"(platform: "/", type: TrackType.Event) { }
+
     // SETUP VIRTUAL
     // --------
 
@@ -2172,7 +2184,8 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ["fetchTokenizationDataWorker error",
-                     "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error"],
+                     "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error",
+                     "invalid reauth token"],
             description: "Fetch data error information"
         )
     }
@@ -3258,7 +3271,17 @@ tracks {
             required: true,
             type: PropertyType.Boolean,
         )
+    }  
+
+    // NFC Button Mini Card
+    "/cards/cardwidget/button/nfc"(platform: "/mobile", type: TrackType.View) {
+        delay_in_seconds (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Delay to show nfc button"
+        )
     }
+
     
     // NFC-PRODUCT-METRICS
     // -------------------
@@ -3299,6 +3322,8 @@ tracks {
 
     "/cards/nfc/enrollment/ondemand/success"(platform: "/", type: TrackType.Event) {}
 
+    "/cards/nfc/enrollment/ondemand/stopped_by_reauth_validation"(platform: "/", type: TrackType.Event) {}
+
     "/cards/nfc/enrollment/ondemand/error"(platform: "/", type: TrackType.Event) {
         error_message (
             required: true,
@@ -3306,6 +3331,32 @@ tracks {
             description: "Cause of on-demand enrollment error"
         )
     }
+
+    // NFC REAUTH INTEGRATION
+    "/cards/nfc/reauth_integration"(platform: "/mobile", type: TrackType.App) {}
+
+    "/cards/nfc/reauth_integration/ondemand_tokenization"(platform: "/mobile", type: TrackType.App) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values: ["switched to on", "switched to off"],
+            description: "Only when this property changes from middle configuration should tracks this event"
+        )
+    }
+
+    "/cards/nfc/reauth_integration/pending"(platform: "/mobile", type: TrackType.App) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values: ["operation insecure", "operation safe"],
+            description: "Only when this property changes from middle configuration should tracks this event"
+        )
+    }
+
+    "/cards/nfc/reauth_integration/successfully"(platform: "/mobile", type: TrackType.App) {}
+
+    "/cards/nfc/reauth_integration/error"(platform: "/mobile", type: TrackType.App) {}
+
     
     // NFC_IDENTITY_CONFIRMATION_SCREEN AKA LUK_STOP
     // -----------------------

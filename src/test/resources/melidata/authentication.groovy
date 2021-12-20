@@ -164,7 +164,7 @@ trackTests {
             source = "QUESTION"
             tracking_id = "123"
         }
-        "/login/auth/challenge/click_incomplete_registration"(platform: "/", type: TrackType.Event) {
+        "/login/auth/challenge/incomplete_registration"(platform: "/", type: TrackType.Event) {
             challenge = "user"
             source = "EXPLICIT"
             tracking_id = "123"
@@ -250,56 +250,65 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/restrict"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/restrict"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/expired"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/expired"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/confirm"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/confirm"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "validate_identity_button"
-        }
-        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
-        }
-        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
-        }
-        "/auth/account_recovery/expired/go_home"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/start"(platform: "/", type: TrackType.Event) {
             id = "id--fury"
         }
-        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "confirm_button"
+            dismiss_type = "decline_button"
         }
-        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "cancel_button"
+            dismiss_type = "decline_button"
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
+            dismiss_type = "back_button"
+        }
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            dismiss_type = "back_native"
+        }
+        "/auth/account_recovery/on_hold/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/expired/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/accept"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/cancel"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/back"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            back_type = "back_button"
+        }
+        "/auth/account_recovery/confirm/back"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            back_type = "back_native"
+        }
+        "/auth/account_recovery/congrats/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
         }
     }
 
@@ -988,6 +997,8 @@ trackTests {
                 transaction_id = "123"
                 elapsed_time = 3
                 result = "success"
+                fallback_disabled = false
+                screenlock_method_used = "biometrics"
             }
 
             "/screenlock/challenge/end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -997,6 +1008,9 @@ trackTests {
                 error = "error in screenlock"
                 elapsed_time = 5
                 result = "error"
+                fallback_disabled = false
+                screenlock_method_used = "biometrics"
+                biometrics_hash = "af21213819faed1923182dfc4217"
             }
 
             "/screenlock/challenge/finish"(platform: "/mobile/android", type: TrackType.Event) {
@@ -1494,6 +1508,25 @@ trackTests {
             }
 
             "/screenlock/multiple_sessions_shield"(platform: "/mobile/ios", type: TrackType.View) {
+            }
+
+            "/screenlock/anom/os_biometrics_changed"(platform: "/mobile/android", type: TrackType.App) {
+                old_value = "biometrics"
+                new_value = "basic_screenlock"
+            }
+
+            "/screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
+                old_value = false
+                new_value = true
+            }
+
+            "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
+                old_value = "hash_random_1234"
+                new_value = "hash_random_4321"
+            }
+
+            "/screenlock/anom/storage_error"(platform: "/mobile/ios", type: TrackType.App) {
+                error_type = "failed_put_value"
             }
 
         }

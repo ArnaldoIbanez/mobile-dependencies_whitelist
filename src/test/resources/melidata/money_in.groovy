@@ -588,6 +588,33 @@ trackTests {
         "/money_in/debin/hub/new_account"(platform:"/",type: TrackType.Event){}
         "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
         "/money_in/debin/hub/my_cvu"(platform:"/",type: TrackType.Event){}
+        "/money_in/debin/hub/edit_account"(platform:"/",type: TrackType.Event){
+            account_id="111111111111111111121"
+        }
+        "/money_in/debin/hub/delete"(platform:"/",type: TrackType.Event){
+            account_id="111111111111111111121"
+        }
+        "/money_in/debin/hub/edit_success"(platform:"/",type: TrackType.Event){}
+        "/money_in/debin/hub/edit_error"(platform:"/",type: TrackType.Event){}
+        "/money_in/debin/hub/success_delete"(platform:"/",type: TrackType.Event){}
+        "/money_in/debin/hub/error_delete"(platform:"/",type: TrackType.Event){}
+
+        //Debin edit account
+        "/money_in/debin/hub/edit_account/edit"(platform:"/",type: TrackType.Event){}
+        "/money_in/debin/hub/edit_account/error"(platform:"/",type: TrackType.Event){}
+
+        //TD to Debin (Bottom Sheet experience)
+        "/money_in/calculator/bottom_sheet"(platform:"/", type: TrackType.View){}
+        "/money_in/calculator/bottom_sheet/select"(platform:"/", type: TrackType.Event){
+            account_number="111111111111111111121"
+        }
+        "/money_in/calculator/bottom_sheet/edit_amount"(platform:"/", type: TrackType.Event){}
+
+        //TD to debin - Onboarding
+        "/money_in/debin/td_to_debin_onboarding"(platform:"/", type: TrackType.View){}
+        "/money_in/debin/td_to_debin_onboarding/close"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/td_to_debin_onboarding/go_to_debin"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/td_to_debin_onboarding/edit_amount"(platform:"/", type: TrackType.Event){}
 
         //Debin Onboarding
         "/money_in/debin/onboarding"(platform:"/", type: TrackType.View){}
@@ -606,6 +633,9 @@ trackTests {
         "/money_in/debin/calculator/message"(platform:"/", type: TrackType.Event){
             message = "Ingresa un monto mayor a: "
         }
+        "/money_in/debin/calculator/callback"(platform:"/", type: TrackType.Event){
+            callback="http://mercadopago/callback"
+        }
 
         //Debin RyC
         "/money_in/debin/ryc"(platform:"/", type: TrackType.View){}
@@ -613,6 +643,9 @@ trackTests {
         "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/ryc/callback"(platform:"/", type: TrackType.Event){
+            callback="http://mercadopago/callback"
+        }
         "/money_in/debin/ryc/reauth"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/screen_lock"(platform:"/", type: TrackType.Event){}
 
@@ -666,6 +699,9 @@ trackTests {
         "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
             status = "error"
         }
+        "/money_in/debin/congrats/callback"(platform:"/", type: TrackType.Event){
+             callback="http://mercadopago/callback"
+        }
 
         //Debin RyC contingency error
         "/money_in/debin/ryc/contingency_error"(platform:"/", type: TrackType.View){}
@@ -702,6 +738,9 @@ trackTests {
         "/money_in/debin/search/dismiss/bottom_sheet"(platform:"/", type: TrackType.Event){
             bs_type = "error"
         }
+        "/money_in/debin/search/already_exists/bottom_sheet"(platform:"/", type: TrackType.Event){
+            bs_type="already_exist"
+        }
 
         //Cap TD Calculator (debit to debin)
         "/money_in/td_calculator/debin_modal"(platform:"/", type: TrackType.View){}
@@ -724,6 +763,78 @@ trackTests {
         "/money_in/debin/calculator/cvu_modal/go_to_cvu"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
 
+        // Money In Hub - v2
+        "/money_in/hub"(platform:"/", type: TrackType.View){}
+        "/money_in/hub/select"(platform:"/", type: TrackType.Event){
+            payment_method_id="pix"
+        }
+        "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
+        "/money_in/hub/help_to_improve"(platform:"/", type: TrackType.Event){}
+        "/money_in/hub/widget/shown"(platform:"/", type: TrackType.View){
+            id="pix"
+        }
+        "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
+            widget_id="pix"
+        }
+        "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
+            action_id="pix_qr"
+        }
+
+        // -------------Open Finance - Money In-------------
+        //Onboarding
+        "/money_in/open_finance/onboarding"(platform:"/", type:TrackType.View){}
+        "/money_in/open_finance/onboarding/back"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/onboarding/continue"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/onboarding/know_more"(platform:"/", type:TrackType.Event){}
+
+        // Hub
+        "/money_in/open_finance/hub"(platform:"/", type:TrackType.View){}
+        "/money_in/open_finance/hub/tooltip"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/hub/help"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/hub/select"(platform:"/", type:TrackType.Event){
+            account_id="111111111111111111121"
+        }
+        "/money_in/open_finance/hub/add_account"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/hub/back"(platform:"/", type:TrackType.Event){}
+
+        //Calculator
+        "/money_in/open_finance/calculator"(platform:"/", type:TrackType.View){}
+        "/money_in/open_finance/calculator/preset"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/calculator/continue"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/calculator/message"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/calculator/back"(platform:"/", type:TrackType.Event){}
+
+        // Review and Confirm
+        "/money_in/open_finance/ryc"(platform:"/", type:TrackType.View){}
+        "/money_in/open_finance/ryc/help"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/ryc/continue"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/ryc/cancel"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/ryc/back"(platform:"/", type:TrackType.Event){}
+        "/money_in/open_finance/ryc/continue/deeplink"(platform:"/", type:TrackType.Event){}
+
+        //Processing
+        "/money_in/open_finance/processing"(platform:"/", type:TrackType.View){}
+
+        //congrats
+        "/money_in/open_finance/congrats"(platform:"/", type:TrackType.View){
+             status="pending"
+        }
+        "/money_in/open_finance/congrats/go_home"(platform:"/", type:TrackType.Event){
+            status="pending"
+        }
+        "/money_in/open_finance/congrats/download_receipt"(platform:"/", type:TrackType.Event){
+            status="success"
+        }
+        "/money_in/open_finance/congrats/feedback"(platform:"/", type:TrackType.Event){
+            status="success"
+        }
+        "/money_in/open_finance/congrats/close"(platform:"/", type:TrackType.Event){
+            status="error"
+        }
+        "/money_in/open_finance/congratsretry"(platform:"/", type:TrackType.Event){
+            status="error"
+        }
+
         //Money In Error View - Enchufe
         "/money_in/error_view"(platform: "/", type: TrackType.View) {
            error = "Error 404"
@@ -734,21 +845,6 @@ trackTests {
         "/money_in/static_resources"(platform:"/", type: TrackType.View){}
         "/money_in/static_resources/network_error"(platform: "/", type: TrackType.Event) {
            error = "Error 404"
-        }
-
-        "/money_in/hub"(platform:"/", type: TrackType.View){}
-        "/money_in/hub/select"(platform:"/", type: TrackType.Event){
-            payment_method_id = "pix"
-        }
-        "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
-        "/money_in/hub/widget/shown"(platform:"/", type: TrackType.Event){
-            widget_id = "ted"
-        }
-        "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
-            widget_id = "debin"
-        }
-        "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
-            action_id = "qr"
         }
 
         //MLB Calculator

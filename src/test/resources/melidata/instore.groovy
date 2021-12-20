@@ -2190,6 +2190,22 @@ trackTests {
         "/instore/error/invalid_user_seller_uif/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/error/identification_number"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            qr_data = "Any scanned data"
+        }
+        "/instore/error/identification_number/abort"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            qr_data = "Any scanned data"
+        }
+        "/instore/error/identification_number/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            qr_data = "Any scanned data"
+        }
+        "/instore/error/identification_number/retry"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            qr_data = "Any scanned data"
+        }
 
         // Landing
         "/instore/qr_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
@@ -2543,6 +2559,13 @@ trackTests {
             skippable = true
         }
         "/instore/waiting/gas_add_card/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/gas_add_card/add"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
@@ -3699,6 +3722,39 @@ trackTests {
             current_step = "buyer_qr"
             back_steps = ["scan_qr"]
             next_steps = []
+        }
+    }
+    
+    test("Instore - Store Hub") {
+        "/stores/store_hub/status"(platform:"/", type: TrackType.Event) {
+            from = "none"
+            seller_status = "active"
+            visible_stores = 1
+            non_visible_stores = 2
+            pending_stores = 0
+        }
+
+        "/stores/store_hub/actions/seller_data"(platform:"/", type: TrackType.Event) {
+            type = "with_problem"
+        }
+
+        "/stores/store_hub/actions/store_address"(platform:"/", type: TrackType.Event) {
+            store_id = 32472003
+        }
+
+        "/stores/store_hub/actions/view_map"(platform:"/", type: TrackType.Event) {
+            store_id = 32472003
+        }
+
+        "/stores/store_hub/actions/result"(platform:"/", type: TrackType.Event) {
+            type = "seller"
+            result = "success"
+        }
+
+        "/stores/store_hub/actions/result"(platform:"/", type: TrackType.Event) {
+            type = "store"
+            result = "failure"
+            store_id = 32472003
         }
     }
 }

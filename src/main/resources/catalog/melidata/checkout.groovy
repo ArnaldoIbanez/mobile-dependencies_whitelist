@@ -207,8 +207,8 @@ tracks {
 
     "/checkout/payment"(platform: "/", isAbstract: true) {
     }
-    "/checkout/payment/input_sec_code"(platform: "/web", type: TrackType.View) {}
-    "/checkout/payment/esc_input_sec_code"(platform: "/web", type: TrackType.View) {}
+    "/checkout/payment/input_sec_code"(platform: "/", type: TrackType.View) {}
+    "/checkout/payment/esc_input_sec_code"(platform: "/", type: TrackType.View) {}
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 
@@ -737,6 +737,10 @@ tracks {
         //    free_shipping: true
         //  ]
         //]
+    }
+    "/checkout/review/select_shipping#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        shipping(required: true, type: PropertyType.String, description: "shipping option selected on modal review")
     }
     "/checkout/review/inconsistency/edit_shipping"(platform: "/mobile") {
         error_code(required: true, type: PropertyType.String)

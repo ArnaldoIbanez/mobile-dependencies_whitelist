@@ -29,7 +29,7 @@ tracks {
     def exit_stream_info_definition = objectSchemaDefinitions {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
         title(required: true, type: PropertyType.String, description: "Broadcast title")
-        status(required: true, type: PropertyType.String, values: ["SCHEDULED", "LIVE", "ENDED"], description: "Current status of the broadcast")
+        status(required: true, type: PropertyType.String, values: ["SCHEDULED", "LIVE", "ENDED", "RECORDED"], description: "Current status of the broadcast")
         time_elapsed(required: false, type: PropertyType.Numeric, description: "Time viewer was watching the stream")
         viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
     }
@@ -37,7 +37,7 @@ tracks {
     def group_stream_info_definition = objectSchemaDefinitions {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
         title(required: true, type: PropertyType.String, description: "Broadcast title")
-        status(required: true, type: PropertyType.String, values: ["LIVE", "ENDED"], description: "Current status of the broadcast")
+        status(required: true, type: PropertyType.String, values: ["LIVE", "ENDED", "RECORDED"], description: "Current status of the broadcast")
         viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
     }
 
@@ -45,7 +45,7 @@ tracks {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
         title(required: true, type: PropertyType.String, description: "Broadcast title")
         url(required: true, type: PropertyType.String, description: "Shared URL")
-        status(required: true, type: PropertyType.String, values: ["SCHEDULED","LIVE", "ENDED"], description: "Current status of the broadcast")
+        status(required: true, type: PropertyType.String, values: ["SCHEDULED","LIVE", "ENDED", "RECORDED"], description: "Current status of the broadcast")
         viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
     }
 
@@ -80,22 +80,31 @@ tracks {
         orientation(required: true, type: PropertyType.String, description: "Current orientation, landscape or portrait")
     }
 
-    "/melilive"(platform: "/" , isAbstract:true ) {}
-
-    "/melilive/stream"(platform: "/" , isAbstract:true ) {}
-
-    "/melilive/stream/live"(platform: "/", type: TrackType.View) {
+    propertyDefinitions {
         tracking_id(required: true, type: PropertyType.String, description: "Unique ID to track if a Item comes from a LiveStream")
         stream(required: true, type: PropertyType.Map(stream_info_definition), description: "Stream information")
         products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_info_definition)), description: "Products associated to the stream")
         viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
     }
 
+    propertyGroups {
+        streamStatusGroup(tracking_id,stream,products,viewer_info)
+    }
+
+    "/melilive"(platform: "/" , isAbstract:true ) {}
+
+    "/melilive/stream"(platform: "/" , isAbstract:true ) {}
+
+    "/melilive/stream/live"(platform: "/", type: TrackType.View) {
+        streamStatusGroup
+    }
+
     "/melilive/stream/end"(platform: "/", type: TrackType.View) {
-        tracking_id(required: true, type: PropertyType.String, description: "Unique ID to track if a Item comes from a LiveStream")
-        stream(required: true, type: PropertyType.Map(stream_info_definition), description: "Stream information")
-        products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_info_definition)), description: "Products associated to the stream")
-        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
+        streamStatusGroup
+    }
+
+    "/melilive/stream/recorded"(platform: "/", type: TrackType.View) {
+        streamStatusGroup
     }
 
     "/melilive/webview"(platform: "/mobile", type: TrackType.View) {

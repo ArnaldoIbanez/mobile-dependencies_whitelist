@@ -13,7 +13,7 @@ tracks {
 
     "/navigation/cookies_consent/show"(platform: "/web", type: TrackType.Event) {
         consent_type(required: true, type: PropertyType.String,
-                values: ["disclaimer", "bottom", "modal"],
+                values: ["disclaimer", "bottom", "modal", "bottomOptOut"],
                 description: "Describes the type of shown consent"
         )
     }
@@ -21,13 +21,13 @@ tracks {
     "/navigation/cookies_consent/ack"(platform: "/web", type: TrackType.Event) {}
     "/navigation/cookies_consent/accept_all"(platform: "/web", type: TrackType.Event) {
         consent_type(required: true, type: PropertyType.String,
-                values: ["bottom", "modal"],
+                values: ["bottom", "modal", "bottomOptOut"],
                 description: "Describes the type of shown consent"
         )
     }
     "/navigation/cookies_consent/personalize"(platform: "/web", type: TrackType.Event) {
         consent_type(required: true, type: PropertyType.String,
-                values: ["bottom", "modal"],
+                values: ["bottom", "modal", "bottomOptOut"],
                 description: "Describes the type of shown consent"
         )
     }
