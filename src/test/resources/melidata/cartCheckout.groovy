@@ -227,6 +227,10 @@ trackTests {
             session_id = "98f8v98au0af9af0af"
             status = "success"
         }
+        "/cart/checkout/review/select_shipping"(platform:"/mobile", type: TrackType.Event) {
+            //shipping
+            shipping = "Llegará mañana"
+        }
         "/cart/checkout/congrats"(platform: "/web") {
             dataSet()
             dataSetCongratsWeb()

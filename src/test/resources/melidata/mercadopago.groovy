@@ -5147,6 +5147,25 @@ trackTests {
 
         "/screenlock/multiple_sessions_shield"(platform: "/mobile/ios", type: TrackType.View) {
         }
+
+        "/screenlock/anom/os_biometrics_changed"(platform: "/mobile/android", type: TrackType.App) {
+            old_value = "biometrics"
+            new_value = "basic_screenlock"
+        }
+
+        "/screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
+            old_value = false
+            new_value = true
+        }
+
+        "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
+            old_value = "hash_random_1234"
+            new_value = "hash_random_4321"
+        }
+
+        "/screenlock/anom/storage_error"(platform: "/mobile/ios", type: TrackType.App) {
+            error_type = "failed_put_value"
+        }
     }
 
     test("Screenlock config") {
@@ -7019,6 +7038,19 @@ trackTests {
             operation = "SELL"
             local_currency = "BRL"
             state = "SUCCESS"
+        }
+        "/crypto/onboarding" (platform: "/mobile", type: TrackType.View) {
+            connection_type = "mobile"
+            registration_type = "persomnal"
+            user_profile = "newbie"
+        }
+        "/crypto/load_error" (platform: "/mobile", type: TrackType.View) {
+            connection_type = "mobile"
+            registration_type = "personal"
+            user_profile = "newbie"
+            errors = "no_internet_connection"
+        }
+        "/crypto/educational" (platform: "/mobile", type: TrackType.View) {
         }
     }
 }

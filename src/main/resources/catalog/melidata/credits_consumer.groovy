@@ -29,24 +29,38 @@ tracks {
         //ML
     "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View) {
         remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
-        source_key(description: "Source key", type: PropertyType.String, required: true)
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
     }
     "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event) {
         remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
-        source_key(description: "Source key", type: PropertyType.String, required: true)
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
     }
     "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View) {
         result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
     }
     "/credits/consumer/upsell/congrats/admin"(platform: "/", type: TrackType.Event) {
         result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
     }
     "/credits/consumer/upsell/congrats/help"(platform: "/", type: TrackType.Event) {
         result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
     }
 
-    "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View) {
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
+    }
+    "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event) {
+        from(description: "Identifies the origin of the user", type: PropertyType.String, required: false)
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
+    }
     "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event) {
         list_status(description: "List Status", type: PropertyType.String, required: true, values: ["black_list", "white_list"])
         dashboard_status(description: "Dashboard Status", type: PropertyType.String, required: true,  values: ["empty_state", "on_time", "overdue", "finished"])
@@ -132,13 +146,17 @@ tracks {
         source(description: "Pre approved flow source", type: PropertyType.String, required: true)
     }
     "/credits/consumer/opensea/pre_approved_flow/credit_line_status"(platform: "/", type: TrackType.View) {
-        result(description: "Current status of the KyC application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected", "error"])
+        result(description: "Current status of the Credit Line", type: PropertyType.String, required: true, values: ["pending", "approved", "rejected", "paused"])
         source(description: "Pre approved flow source", type: PropertyType.String, required: true)
     }
 
     //Events
     "/credits/consumer/opensea/pre_approved_flow/congrats/back_to_site"(platform: "/", type: TrackType.Event) {
         result(description: "Current status of the KyC application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected", "error"])
+        source(description: "Pre approved flow source", type: PropertyType.String, required: true)
+    }
+    "/credits/consumer/opensea/pre_approved_flow/credit_line_status/back_to_site"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the Credit Line", type: PropertyType.String, required: true, values: ["pending", "approved", "rejected", "paused"])
         source(description: "Pre approved flow source", type: PropertyType.String, required: true)
     }
 
@@ -187,90 +205,6 @@ tracks {
      *   End: Consumers Opensea Flow
      ******************************************/
 
-     /******************************************
-     *       Start: Credits Optins
-     ******************************************/
-
-    "/credits/preferences"(platform: "/", isAbstract: true, type: TrackType.View) {
-        initiative(
-            description: 'Credits optin initiatives',
-            type: PropertyType.String,
-            required: true,
-            inheritable: true,
-            values: [
-                'merchant_enrollment',
-                'merchant_express_money',
-                'merchant_open_market',
-                'merchant_administrator',
-                'consumer_open_sea',
-                'consumer_personal_loan',
-                'consumer_administrator',
-                'credit_card_open_sea',
-                'consumer_personal_loan_second_stage',
-                'consumer_open_sea_tx'
-            ],
-        )
-        step(
-            type: PropertyType.String,
-            required: false,
-            inheritable: true,
-            values: [
-                'whatsapp', 
-                'whatsapp_sms', 
-                'sms', 
-                'telcel', 
-                'credit_circle', 
-                'telcel_credit_circle'
-            ]
-        )
-    }
-    "/credits/preferences/error"(platform: "/", type: TrackType.View) {}
-    "/credits/preferences/accept"(platform: "/", type: TrackType.Event){}
-    "/credits/preferences/decline"(platform: "/", type: TrackType.Event){}
-    
-
-    /******************************************
-     *       End: Credits Optins
-     ******************************************/
-
-
-     /******************************************
-     *       Start: Merchants Public Landings
-     ******************************************/
-    //Public landing
-    "/credits/merchant/public_landing"(platform: "/", type: TrackType.View) {
-        offers(
-            type: PropertyType.ArrayList(PropertyType.String),
-            required: false,
-            inheritable: false
-        )
-    }
-    
-    "/credits/merchant/public_landing/ftl_offer"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant/public_landing/spl_offer"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant/public_landing/em_offer"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant/public_landing/new_account"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant/public_landing/credits_access"(platform: "/", type: TrackType.Event) {}
-
-    // Credits Marketing Performance landing 
-    "/credits/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-    }
-    "/credits/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-    }
-    "/credits/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
-    }
-    "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
-    }
-
-    /******************************************
-     *       End: Merchants Public Landings
-     ******************************************/
 
     /******************************************
      *   Start: Personal Loans Adoption

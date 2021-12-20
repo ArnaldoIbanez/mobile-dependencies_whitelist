@@ -166,6 +166,12 @@ tracks {
     "/notification/credit_card_overlimit_active"(platform: "/") {}
     "/notification/credit_card_overlimit_inactive"(platform: "/") {}
 
+    //Reject with reason
+    "/notification/credit_card_reject_blocked"(platform: "/") {}
+    "/notification/credit_card_reject_cvv_incorrect"(platform: "/") {}
+    "/notification/credit_card_reject_insufficient_amount"(platform: "/") {}
+    "/notification/credit_card_reject_invalid_pin"(platform: "/") {}
+
     // Transaction
     "/notification/credit_card_transaction_acquisition"(platform: "/") {}
     "/notification/credit_card_transaction_choff_purchase"(platform: "/") {}
@@ -173,6 +179,7 @@ tracks {
     "/notification/credit_card_transaction_purchase"(platform: "/") {}
     "/notification/credit_card_transaction_withdrawal"(platform: "/") {}
     "/notification/credit_card_transaction_kyc_onboarding"(platform: "/") {}
+    "/notification/credit_card_transaction_acquisition_micro"(platform: "/") {}
     "/notification/credit_card_waitlist_10"(platform: "/") {}
     "/notification/credit_card_waitlist_40"(platform: "/") {}
     "/notification/credit_card_waitlist_blacklist"(platform: "/") {}
@@ -1365,6 +1372,7 @@ tracks {
     "/notification/asset_management_underage_rejected"(platform: "/mobile") {}
     "/notification/asset_management_underage_request"(platform: "/mobile") {}
     "/notification/asset_management_missing_docs"(platform: "/mobile") {}
+    "/notification/asset_management_cryto"(platform: "/mobile") {}
 
 
     //Campañas
@@ -1800,6 +1808,7 @@ tracks {
     "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {}
 
 
     // PREPAID, HYBRID, MPCARD
@@ -2016,6 +2025,7 @@ tracks {
     "/notification/single_player_prepaid_toll_success_mp"(platform: "/mobile") {}
     "/notification/single_player_prepaid_toll_fail_mp"(platform: "/mobile") {}
     "/notification/single_player_balance_expiration_transport_mp"(platform: "/mobile") {}
+    "/notification/single_player_balance_expiration_prepaid_toll_mp"(platform: "/mobile") {}
     "/notification/single_player_antenna_fail_mp"(platform: "/mobile") {}
     "/notification/single_player_antenna_success_mp"(platform: "/mobile") {}
     "/notification/single_player_generic_balance_expiration"(platform: "/mobile") {}
@@ -2052,6 +2062,14 @@ tracks {
     "/notification/single_player_scheduled_payment_pixtransfer_solo_insufficient_amount"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_pixtransfer_grouped_reminder"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_pixtransfer_solo_reminder"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_cancelled_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_cancelled_product_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_cancelled_unrecoverable_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_fail_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_fail_payments_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_reminder_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_success_mp"(platform: "/mobile") {}
+
 
     //Single player - Self-Service
     "/notification/single_player_self_service_schedule_new_debt"(platform: "/mobile") {
@@ -2222,6 +2240,9 @@ tracks {
     "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/", type: TrackType.Event) {
         news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
     }
+    "/notification_center/pm_om_notification-before_automatically_cancel"(platform: "/", type: TrackType.Event) {
+        news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
+    }
 
     // Delay Compensation
     "/notification/shipping_delay_compensation_cashback"(platform: "/"){
@@ -2230,6 +2251,7 @@ tracks {
 
     // Disbursement Kwai
     "/notification/disbursement_kwai_received"(platform: "/") {}
+    "/notification/disbursement_kwai_pending_kyc"(platform: "/") {}
 
     // Money In CCA
     "/notification_center/moneyin_cca_approved"(platform: "/", type: TrackType.Event) {

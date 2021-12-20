@@ -781,6 +781,17 @@ trackTests {
         }
     }
 
+    // Contextual help
+    test("Test contextual help in dashboard") {
+        "/cards/hybrid/dashboard/contextual_help"(platform:"/", type: TrackType.Event) {
+            faq_id = 22464
+        }
+    }
+
+    test("More contextual help in dashboard") {
+        "/cards/hybrid/dashboard/more_help"(platform:"/", type: TrackType.Event) { }
+    }
+
     // SETUP VIRTUAL
     // --------
 
@@ -2014,6 +2025,10 @@ trackTests {
         "/cards/nfc/enrollment/fetch_card_data/error"(platform:"/", type: TrackType.Event) {
             action = "fetch_data_http_error"
             information = "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error"
+        }
+        "/cards/nfc/enrollment/fetch_card_data/error"(platform:"/", type: TrackType.Event) {
+            action = "fetch_data_http_error"
+            information = "invalid reauth token"
         }
     }
 
@@ -4267,7 +4282,34 @@ trackTests {
         "/cards/nfc/enrollment/ondemand/error"(platform:"/", type: TrackType.Event) {
             error_message = "Empty nfc_command userId"
         }
+        "/cards/nfc/enrollment/ondemand/stopped_by_reauth_validation"(platform: "/", type: TrackType.Event) {}
     }
+
+    // NFC REAUTH INTEGRATION
+
+    test("test reauth nfc integration events") {
+        "/cards/nfc/reauth_integration"(platform: "/mobile", type: TrackType.App) {}
+
+        "/cards/nfc/reauth_integration/ondemand_tokenization"(platform: "/mobile", type: TrackType.App) {
+            status = "switched to on"
+        }
+
+        "/cards/nfc/reauth_integration/ondemand_tokenization"(platform: "/mobile", type: TrackType.App) {
+            status = "switched to off"
+        }
+
+        "/cards/nfc/reauth_integration/pending"(platform: "/mobile", type: TrackType.App) {
+            status = "operation insecure"
+        }
+
+        "/cards/nfc/reauth_integration/pending"(platform: "/mobile", type: TrackType.App) {
+            status = "operation safe"
+        }
+
+        "/cards/nfc/reauth_integration/successfully"(platform: "/mobile", type: TrackType.App) {}
+
+        "/cards/nfc/reauth_integration/error"(platform: "/mobile", type: TrackType.App) {}
+    } 
     
     // NFC_IDENTITY_CONFIRMATION_SCREEN AKA LUK_STOP
     test("/cards/nfc/identity_confirmation") {
