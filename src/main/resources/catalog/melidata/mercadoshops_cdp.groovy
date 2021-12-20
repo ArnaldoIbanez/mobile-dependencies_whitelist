@@ -96,6 +96,7 @@ tracks {
     }
 
     "/seller_central/cdp/offline_editor/congrats"(platform: "/", type: TrackType.View) {
+        file_id(required: true, type: PropertyType.String, description: "Excel id downloaded")
         promoffFrontend
     }
 }

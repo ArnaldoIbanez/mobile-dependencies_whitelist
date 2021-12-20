@@ -115,6 +115,7 @@ trackTests {
             discount_type = "by_item"
             status = "active"
             target = "LISTED_PRODUCTS"
+            file_id = "1234adbc"
         }
     }
 }
