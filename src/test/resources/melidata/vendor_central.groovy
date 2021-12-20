@@ -27,7 +27,7 @@ trackTests {
     // TRACKS Vendor Central Offerings Listing
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     test("Vendor Central Offerings Listing list view") {
-        "/vendor_central/offerings_listing/list"(platform: "/web", type: TrackType.View) {}
+        "/vendor_central/offerings_listing"(platform: "/web", type: TrackType.View) {}
     }
 
     test("Vendor Central Offerings Listing list filtering event by search type filter") {
