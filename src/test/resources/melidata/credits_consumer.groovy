@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -385,6 +386,11 @@ trackTests {
 
         "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {
             status = 'prepaid_enabled'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/shortcut"(platform: "/mobile", type: TrackType.Event) {
+            tag_id = 'Transferencias'
+            position = 0;
         }
 
         "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
