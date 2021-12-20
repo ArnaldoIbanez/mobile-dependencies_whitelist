@@ -82,6 +82,7 @@ catalog {
         include business, "coupon.groovy"
         include business, "dynamic_stop_landing.groovy"
         include business, "dynamic_features.groovy"
+        include business, "error_ux.groovy"
         include business, "payers_growth.groovy"
         include business, "modals_engine.groovy"
         include business, "collaborators.groovy"
