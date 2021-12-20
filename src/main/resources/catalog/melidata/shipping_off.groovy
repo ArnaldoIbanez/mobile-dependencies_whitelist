@@ -7,9 +7,7 @@ tracks {
 
     initiative = "1350"
 
-    // fury mp-shipping-off
-    "/shipping_off/address-selection/list"(platform: "/", type: TrackType.View) {}
+    "/shipping_activation/address-selection/list"(platform: "/", type: TrackType.View) {}
 
-    // fury mpso-shipping-config
-    "/shipping_off/checkout/preference/config"(platform:"/", type: TrackType.View){}
+    "/shipping_config/checkout/preference"(platform:"/", type: TrackType.View){}
 }

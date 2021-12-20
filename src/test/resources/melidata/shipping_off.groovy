@@ -9,10 +9,10 @@ trackTests {
 
     test("shipping off - Selecting Address") {
 
-        "/shipping_off/address-selection/list"(platform: "/",type: TrackType.View) {
+        "/shipping_activation/address-selection/list"(platform: "/",type: TrackType.View) {
         }
 
-        "/shipping_off/checkout/preference/config"(platform: "/", type: TrackType.View) {
+        "/shipping_config/checkout/preference"(platform: "/", type: TrackType.View) {
         }
     }
 }
