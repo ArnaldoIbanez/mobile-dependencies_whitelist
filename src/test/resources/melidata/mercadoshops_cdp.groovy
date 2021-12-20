@@ -54,4 +54,67 @@ trackTests {
             errors = ["CC01", "IPA01"]
         }
     }
+
+    test("PROMOFF - hup page") {
+        "/seller_central/cdp/offline_editor/hub"(platform: "/", type: TrackType.View) {
+            campaign_id = "TRM-1234-567890"
+            campaign_type = "traditional"
+            discount_type = "by_item"
+            status = "active"
+            target = "LISTED_PRODUCTS"
+        }
+    }
+
+    test("PROMOFF - upload file") {
+        "/seller_central/cdp/offline_editor/hub/upload_file"(platform: "/", type: TrackType.Event) {
+            campaign_id = "TRM-1234-567890"
+            campaign_type = "traditional"
+            discount_type = "by_item"
+            status = "active"
+            target = "LISTED_PRODUCTS"
+            file_id = "1234adbc"
+        }
+    }
+
+    test("PROMOFF - click download card") {
+        "/seller_central/cdp/offline_editor/hub/card_click"(platform: "/", type: TrackType.Event) {
+            campaign_id = "TRM-1234-567890"
+            campaign_type = "traditional"
+            discount_type = "by_item"
+            status = "active"
+            target = "LISTED_PRODUCTS"
+        }
+    }
+
+    test("PROMOFF - categories page") {
+        "/seller_central/cdp/offline_editor/categories"(platform: "/", type: TrackType.View) {
+            campaign_id = "TRM-1234-567890"
+            campaign_type = "traditional"
+            discount_type = "by_item"
+            status = "active"
+            target = "LISTED_PRODUCTS"
+        }
+    }
+
+    test("PROMOFF - download file") {
+        "/seller_central/cdp/offline_editor/categories/download_file"(platform: "/", type: TrackType.Event) {
+            campaign_id = "TRM-1234-567890"
+            campaign_type = "traditional"
+            discount_type = "by_item"
+            status = "active"
+            target = "LISTED_PRODUCTS"
+            total_items = 24
+            total_selected = 10
+        }
+    }
+
+    test("PROMOFF - congrats") {
+        "/seller_central/cdp/offline_editor/congrats"(platform: "/", type: TrackType.Event) {
+            campaign_id = "TRM-1234-567890"
+            campaign_type = "traditional"
+            discount_type = "by_item"
+            status = "active"
+            target = "LISTED_PRODUCTS"
+        }
+    }
 }
