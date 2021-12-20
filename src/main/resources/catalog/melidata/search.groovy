@@ -97,8 +97,8 @@ tracks {
         position(type: PropertyType.Numeric, required: true, description: 'position of the item in the results')
         product_id(type: PropertyType.String, required: false, description: 'product id')
         type(type: PropertyType.String, required: false, description: 'item type')
-        seller_id(type: PropertyType.Numeric, required: false, description: 'seller id')
-        amount(type: PropertyType.Numeric, required: false, description: 'item amount')
+        seller_id(type: PropertyType.Numeric, required: false, description: 'seller id of the item')
+        amount(type: PropertyType.Numeric, required: false, description: 'item amount for mcoin')
     }
 
     def tag_tracking_map_object = objectSchemaDefinitions {
