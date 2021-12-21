@@ -111,7 +111,7 @@ tracks {
         same_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         next_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         supermarket_partnership(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
-        crypto_cashback(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        crypto_cashback(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false, description: 'melicoins items and products')
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -301,7 +301,7 @@ tracks {
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
-        error_message(required: false, description: "message description")
+        error_message(description: "message description")
         limit(required: false, description: "override required property")
         offset(required: false, description: "override required property")
         total(required: false, description: "override required property")
