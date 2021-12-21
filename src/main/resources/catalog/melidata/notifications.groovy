@@ -166,6 +166,12 @@ tracks {
     "/notification/credit_card_overlimit_active"(platform: "/") {}
     "/notification/credit_card_overlimit_inactive"(platform: "/") {}
 
+    //Reject with reason
+    "/notification/credit_card_reject_blocked"(platform: "/") {}
+    "/notification/credit_card_reject_cvv_incorrect"(platform: "/") {}
+    "/notification/credit_card_reject_insufficient_amount"(platform: "/") {}
+    "/notification/credit_card_reject_invalid_pin"(platform: "/") {}
+
     // Transaction
     "/notification/credit_card_transaction_acquisition"(platform: "/") {}
     "/notification/credit_card_transaction_choff_purchase"(platform: "/") {}
