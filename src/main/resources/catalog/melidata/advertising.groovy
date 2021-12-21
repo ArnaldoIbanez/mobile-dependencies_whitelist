@@ -2342,8 +2342,19 @@ tracks {
 
     "/advertising/pads2/manager/comp_metrics/more_info"(platform: "/", type: TrackType.Event) {}
 
+    // Page bulk
+    "/advertising/pads2/bulk"(platform: "/", type: TrackType.View, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])   
+    }
+    
+    "/advertising/pads2/bulk/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+    
+    "/advertising/pads2/bulk/action/upload"(platform: "/", type: TrackType.Event) {}
+    
+    "/advertising/pads2/bulk/action/create"(platform: "/", type: TrackType.Event) {}
+    
     // Download ad sheet 
-    "/advertising/pads2/bulk/download"(platform: "/", type: TrackType.View, isAbstract: true) {
+    "/advertising/pads2/bulk/download"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
         campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
         number_of_rows(required: false, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
     }
@@ -2351,7 +2362,7 @@ tracks {
     //Download action
     "/advertising/pads2/bulk/download/action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
         campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
-        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status'])
         filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
         number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
     }    
@@ -2366,20 +2377,20 @@ tracks {
 
     "/advertising/pads2/bulk/download/action/filter"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
-        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status'])
         filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
     }
 
     "/advertising/pads2/bulk/download/action/filter/warning"(platform: "/", type: TrackType.Event) {
         campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
-        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status'])
         filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
         number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
     }
 
     "/advertising/pads2/bulk/download/modal"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
         campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
-        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status'])
         number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
     }
 
@@ -2390,13 +2401,35 @@ tracks {
     //download feedback
     "/advertising/pads2/bulk/download/feedback"(platform: "/", type: TrackType.View, isAbstract: true) {
         campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
-        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-status-pads'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status'])
         operation_id(required: true, type: PropertyType.String, description: "Value of id operation")
+        number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
     }
 
+    //feedback success
     "/advertising/pads2/bulk/download/feedback/success"(platform: "/", type: TrackType.View) {}
+    
+    "/advertising/pads2/bulk/download/feedback/success/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/advertising/pads2/bulk/download/feedback/success/action/upload"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/download/feedback/success/action/return"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/download/feedback/success/action/retry"(platform: "/", type: TrackType.Event) {}
+
+    //feedback error
     "/advertising/pads2/bulk/download/feedback/error"(platform: "/", type: TrackType.View) {}
+    
+    "/advertising/pads2/bulk/download/feedback/error/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/advertising/pads2/bulk/download/feedback/error/action/retry"(platform: "/", type: TrackType.Event) {}
+
+    //feedback waiting
     "/advertising/pads2/bulk/download/feedback/waiting"(platform: "/", type: TrackType.View) {}
+
+    "/advertising/pads2/bulk/download/feedback/waiting/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/advertising/pads2/bulk/download/feedback/waiting/action/return"(platform: "/", type: TrackType.Event) {}
 
     //Upload Action
     "/advertising/pads2/bulk/upload"(platform: "/", type: TrackType.View, isAbstract: true) {
