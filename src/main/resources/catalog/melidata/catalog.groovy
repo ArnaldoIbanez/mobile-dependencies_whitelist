@@ -203,6 +203,7 @@ catalog {
         include business, "listings.groovy"
         include business, "vis_supply.groovy"
         include business, "crypto.groovy"
+        include business, "mercadoshops_cdp.groovy"
     }
 
     mercadopago.each { business ->
