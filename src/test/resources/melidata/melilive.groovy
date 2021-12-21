@@ -199,7 +199,7 @@ trackTests {
             groups = [
                 [
                     "group_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
-                    "items": [
+                    "products": [
                         [
                             "item_id" : "MLA750284572",
                             "visible": true,

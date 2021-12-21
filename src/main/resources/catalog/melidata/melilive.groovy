@@ -147,7 +147,7 @@ tracks {
 
     // ************** CREATOR **************
 
-    def group_item_definition = objectSchemaDefinitions {
+    def group_product_definition = objectSchemaDefinitions {
         item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
         product_id(required: false, type: PropertyType.String, description:  "Product Id")
         visible(required: true, type: PropertyType.Boolean, description: "Flag that indicate if the item is visible")
@@ -157,7 +157,7 @@ tracks {
 
     def group_definition = objectSchemaDefinitions {
         group_id(required: true, type: PropertyType.String, description: "Group ID")
-        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(group_item_definition)), description: "Products associated to the group")
+        products(required: true, type: PropertyType.ArrayList(PropertyType.Map(group_product_definition)), description: "Products associated to the group")
     }
 
 
