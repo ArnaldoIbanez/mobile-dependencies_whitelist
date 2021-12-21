@@ -20,12 +20,13 @@ tracks {
     }
     "/privacy_preferences/cookies"(platform: "/") {}
     "/privacy_preferences/cookies/save"(platform: "/", type: TrackType.Event) {
-        advertising(type: PropertyType.Boolean, required: true, description: "User preferences, advertising category")
+        advertising(type: PropertyType.Boolean, required: false, description: "User preferences, advertising category")
+        traceability(type: PropertyType.Boolean, required: false, description: "User preferences, traceability category")
     }
     "/privacy_preferences/cookies/switch"(platform: "/", type: TrackType.Event) {
         advertising(type: PropertyType.Boolean, required: false, description: "User preferences, advertising category")
+        traceability(type: PropertyType.Boolean, required: false, description: "User preferences, traceability category")
     }
-    "/privacy_preferences/cookies/cancel"(platform: "/") {}
 
     //Privacy view for LGPD
     "/advertising"(platform: "/", isAbstract: true) {}
