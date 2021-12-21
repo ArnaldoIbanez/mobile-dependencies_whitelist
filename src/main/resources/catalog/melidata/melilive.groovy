@@ -147,7 +147,7 @@ tracks {
 
     // ************** CREATOR **************
 
-    def group_product_definition = objectSchemaDefinitions {
+    def group_item_definition = objectSchemaDefinitions {
         item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
         product_id(required: false, type: PropertyType.String, description:  "Product Id")
         visible(required: true, type: PropertyType.Boolean, description: "Flag that indicate if the item is visible")
@@ -157,26 +157,26 @@ tracks {
 
     def group_definition = objectSchemaDefinitions {
         group_id(required: true, type: PropertyType.String, description: "Group ID")
-        products(required: true, type: PropertyType.ArrayList(PropertyType.Map(group_product_definition)), description: "Products associated to the group")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(group_item_definition)), description: "Products associated to the group")
     }
 
 
-    "/melilive/creator/start_live"("platform": "/", type: TrackType.Event) {
+    "/melilive/creator/settings/start_live"("platform": "/", type: TrackType.Event) {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
         groups(required: true, PropertyType.ArrayList(PropertyType.Map(group_definition)), description: "Groups associated to the broadcast")
     }
 
-    "/melilive/creator/end_live"("platform": "/", type: TrackType.Event) {
+    "/melilive/creator/settings/end_live"("platform": "/", type: TrackType.Event) {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
     }
 
-    "/melilive/creator/share"("platform": "/", type: TrackType.Event) {
+    "/melilive/creator/settings/share"("platform": "/", type: TrackType.Event) {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
         url(required: true, type: PropertyType.String, description: "Shared URL")
     }
 
-    "/melilive/creator/item/event"("platform": "/", type: TrackType.Event) {
-        event_type(required: true, type: PropertyType.String, values: ["HIGHLIGHT", "UNHIGHLIGHT", "SHOW", "HIDE"], description: "Event type name sent")
+    "/melilive/creator/settings/item_action"("platform": "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, values: ["HIGHLIGHT", "UNHIGHLIGHT", "SHOW", "HIDE"], description: "Event type name sent")
         item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
         product_id(required: false, type: PropertyType.String, description:  "Product Id")
         group_id(required: true, type: PropertyType.String, description: "Group Id")
