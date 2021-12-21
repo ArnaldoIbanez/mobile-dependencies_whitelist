@@ -18,11 +18,23 @@ trackTests {
             team = "VIP"
             number = "01"
             screen = "VipActivity"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
         }
 
         "/error_ux/error_screen"(platform: "/mobile", type: TrackType.View) {
             team = "VIP"
             screen = "VipActivity"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
+        }
+
+        "/error_ux/error_screen"(platform: "/mobile", type: TrackType.View) {
+            team = "VIP"
+            screen = "VipActivity"
+        }
+
+        "/error_ux/error_screen"(platform: "/mobile", type: TrackType.View) {
+            team = "VIP"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
         }
 
         "/error_ux/error_screen"(platform: "/mobile", type: TrackType.View) {
@@ -38,17 +50,23 @@ trackTests {
             team = "VIP"
             number = "01"
             screen = "VipActivity"
-        }
-
-        "/error_ux/error_snackbar"(platform: "/mobile", type: TrackType.View) {
-            team = "VIP"
-            number = "01"
-            screen = "VipActivity"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
         }
 
         "/error_ux/error_snackbar"(platform: "/mobile", type: TrackType.View) {
             team = "VIP"
             screen = "VipActivity"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
+        }
+
+        "/error_ux/error_snackbar"(platform: "/mobile", type: TrackType.View) {
+            team = "VIP"
+            screen = "VipActivity"
+        }
+
+        "/error_ux/error_snackbar"(platform: "/mobile", type: TrackType.View) {
+            team = "VIP"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
         }
 
         "/error_ux/error_snackbar"(platform: "/mobile", type: TrackType.View) {
@@ -63,17 +81,29 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-    test("Error UX tracks - ML") {
+    test("Error UX tracks - MP") {
 
         "/error_ux/error_screen"(platform: "/mobile", type: TrackType.View) {
             team = "VIP"
             number = "01"
             screen = "VipActivity"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
         }
 
         "/error_ux/error_screen"(platform: "/mobile", type: TrackType.View) {
             team = "VIP"
             screen = "VipActivity"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
+        }
+
+        "/error_ux/error_screen"(platform: "/mobile", type: TrackType.View) {
+            team = "VIP"
+            screen = "VipActivity"
+        }
+
+        "/error_ux/error_screen"(platform: "/mobile", type: TrackType.View) {
+            team = "VIP"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
         }
 
         "/error_ux/error_screen"(platform: "/mobile", type: TrackType.View) {
@@ -89,17 +119,23 @@ trackTests {
             team = "VIP"
             number = "01"
             screen = "VipActivity"
-        }
-
-        "/error_ux/error_snackbar"(platform: "/mobile", type: TrackType.View) {
-            team = "VIP"
-            number = "01"
-            screen = "VipActivity"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
         }
 
         "/error_ux/error_snackbar"(platform: "/mobile", type: TrackType.View) {
             team = "VIP"
             screen = "VipActivity"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
+        }
+
+        "/error_ux/error_snackbar"(platform: "/mobile", type: TrackType.View) {
+            team = "VIP"
+            screen = "VipActivity"
+        }
+
+        "/error_ux/error_snackbar"(platform: "/mobile", type: TrackType.View) {
+            team = "VIP"
+            detail = "java.lang.NullPointerException: Attempt to invoke virtual method 'void java.util.Calendar.add(int, int)' on a null object reference"
         }
 
         "/error_ux/error_snackbar"(platform: "/mobile", type: TrackType.View) {

@@ -15,6 +15,7 @@ tracks {
         team( required: true, description: "the responsible team", type: PropertyType.String)
         number( required: false, description: "the error name/type, represents the error Code 01..99", type: PropertyType.String)
         screen( required: false, description: "the current screen", type: PropertyType.String)
+        detail( required: false, description: "the detail of the error, stack, etc", type: PropertyType.String)
     }
 
     // Error UX Views
