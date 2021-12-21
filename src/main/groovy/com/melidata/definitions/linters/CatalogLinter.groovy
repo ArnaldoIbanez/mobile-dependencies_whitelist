@@ -48,12 +48,13 @@ class CatalogLinter {
 
         localDefinitions.forEach {newDefinition ->
             try {
+                def localDef = localCatalog.getTrackDefinition(new Track(newDefinition.path, newDefinition.type, newDefinition.platform))
                 def prodDef = prodCatalog.getTrackDefinition(new Track(newDefinition.path, newDefinition.type, newDefinition.platform))
 
                 //If the definition has a change, we validate its properties
-                if(!prodDefinitions.any {newDefinition.equals(it)}) {
-                    newDefinition.properties.keySet().removeAll(prodDef.properties.keySet())
-                    if(!linters.every {it.validateProperties(newDefinition)}) {
+                if(!localDef.equals(prodDef)) {
+                    localDef.properties.keySet().removeAll(prodDef.properties.keySet())
+                    if(!linters.every {it.validateProperties(localDef)}) {
                         isValid = false
                     }
                 }
