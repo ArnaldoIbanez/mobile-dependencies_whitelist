@@ -480,6 +480,13 @@ tracks {
         purchase_status
     }
 
+    "/support/widget/action"(platform: "/", isAbstract: true) {}
+
+    "/support/widget/action/click"(platform: "/", type: TrackType.Event) {
+        portal_content_id
+        portal_content_destination_url
+    }
+
     // Mis Consultas
 
     "/support/cases"(platform: "/", type: TrackType.View) {}

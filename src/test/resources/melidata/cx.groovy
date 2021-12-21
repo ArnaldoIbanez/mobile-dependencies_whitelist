@@ -223,6 +223,14 @@ trackTests {
         purchase_status = "Entregado"
         }
 
+        "/support/widget/action/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
+            portal_content_destination_url = "/ayuda/637"
+        }
+        "/support/widget/action/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
+        }
+
     }
 
     test("Support Widget having Content Type") {
