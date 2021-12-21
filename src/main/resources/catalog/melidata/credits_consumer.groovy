@@ -284,8 +284,11 @@ tracks {
     "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {}
 
     "/credits/consumer/personal/adoption/congrats/shortcut"(platform: "/mobile", type: TrackType.Event) {
-        tag_id(description: "Identifies the name of the shortcut", type: PropertyType.String, required: true)
+        tag_id(description: "Identifies the name of every shortcut", type: PropertyType.String, required: true)
         position(description: "Identifies the position of every shortcut", type: PropertyType.Numeric, required: true)
+        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: [
+                "no_prepaid", "prepaid_enabled", "prepaid_disabled", "physical_card", "virtual_card"
+        ])
     }
 
     "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
