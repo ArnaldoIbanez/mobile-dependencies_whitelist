@@ -78,10 +78,8 @@ metrics {
     experiment(regex("wallet/.*"))
     countsOn {
       condition {
-        path("/wallet_home/section/tap/ads_top_banner")
-        and(
-          regex("event_data.component_id", "cross_selling_home_mp")
-        )
+        path("/wallet_home/section/tap/ads_top_banner"),
+        like("event_data.component_id", "cross_selling_home_mp")
       }
     }
   }
