@@ -524,15 +524,16 @@ tracks {
     "/money_in/hub/web/select"(platform:"/", type: TrackType.Event){
         payment_method_id(required:false, type: PropertyType.String, description:"indicates the selected payment method")
     }
-    "/money_in/hub/web/widget/shown"(platform:"/", type: TrackType.View){
-        id(required:false, type: PropertyType.String, description:"indicates what widget we are sending to the client")
-    }
     "/money_in/hub/web/widget/select"(platform:"/", type: TrackType.Event){
         widget_id(required:false, type: PropertyType.String, description:"indicates what widget the user select")
     }
     "/money_in/hub/web/widget/action_selected"(platform:"/", type: TrackType.Event){
         action_id(required:false, type: PropertyType.String, description:"indicates what widget action is selected")
     }
+    "/money_in/hub/web/modal"(platform:"/", type: TrackType.View){}
+    "/money_in/hub/web/modal/close"(platform:"/", type: TrackType.Event){}
+    "/money_in/hub/web/modal/primary_button"(platform:"/", type: TrackType.Event){}
+    "/money_in/hub/web/modal/secondary_button"(platform:"/", type: TrackType.Event){}
 
     // -------------Open Finance - Money In-------------
     //Onboarding
