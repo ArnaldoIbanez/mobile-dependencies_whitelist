@@ -284,7 +284,7 @@ tracks {
     "/mplayer/money_split/bottom_sheet/new_contact_phone"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/money_split/bottom_sheet/continue"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/mplayer/money_split_external"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/external"(platform: "/mobile", type: TrackType.View) {}
 
     // Tracing
     "/mplayer/tracing"(platform: "/mobile", isAbstract: true) {}
