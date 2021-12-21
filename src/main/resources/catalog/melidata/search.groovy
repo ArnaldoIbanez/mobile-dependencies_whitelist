@@ -225,7 +225,7 @@ tracks {
         shop_domain(required: false, description: "content the domain of the current shop", type: PropertyType.String)
 
         //Tracks web
-        only_in_type(required: false)
+        only_in_type(required: false, description:'Indicates that have only in type')
         click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
         banner(required: false, description:'Banner showed in this listing info, if showed')
         related_searches(required: false, description:'indicates whether clicked search related')
@@ -242,7 +242,7 @@ tracks {
         available_filters(required: true, description: "available filters, sameday and nextday")
         user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
         is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
-        pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
+        pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList(PropertyType.Map))
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
         seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
@@ -284,24 +284,24 @@ tracks {
         error_message(required: false, PropertyType.String, description: "message description")
 
         //todo remover estas cosas que son de apps viejas
-        sort(required: false, description: "sort ")
-        sort_id(required: false, description: "sort id")
-        view_mode(required: false, description: "view mode")
-        layout(required: false, description: "layout mode")
-        context(required: false, description: "context")
-        filters(required: false, description: "filters")
-        results(required: false, description: "results")
+        sort(required: false, description: "sort presented in the results")
+        sort_id(required: false, description: "sort id presented in the results")
+        view_mode(required: false, description: "view mode presented in the results")
+        layout(required: false, description: "layout mode presented in the results")
+        context(required: false, description: "context", type: PropertyType.String)
+        filters(required: false, description: "list of filters in the results")
+        results(required: false, description: "list of results")
         billboard_shown(required: false, description: "billboard shown")
         available_filters(required: false, description: "available filters, sameday and nextday")
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
-        pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
+        pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList(PropertyType.Map))
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         carousel_categories_shown(required: false, description: 'category carousel is shown when user makes a search', PropertyType.Boolean)
         filter_carousel_shown(required: false, description: 'filter carousel is shown when user makes a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
-        error_message()
+        error_message(required: false, description: "message description")
         limit(required: false, description: "override required property")
         offset(required: false, description: "override required property")
         total(required: false, description: "override required property")
