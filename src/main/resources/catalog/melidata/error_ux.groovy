@@ -11,7 +11,7 @@ tracks {
     /**
      * Error UX Tracks Definition
      */
-    "/error_ux"(platform: "/mobile") {
+    "/error_ux"(platform: "/mobile", isAbstract: true) {
         team( required: true, description: "the responsible team", type: PropertyType.String)
         number( required: false, description: "the error name/type, represents the error Code 01..99", type: PropertyType.String)
         screen( required: false, description: "the current screen", type: PropertyType.String)
