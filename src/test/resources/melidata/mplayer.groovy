@@ -272,7 +272,7 @@ trackTests {
         "/mplayer/money_split/bottom_sheet/new_contact_phone"(platform: "/mobile") {}
         "/mplayer/money_split/bottom_sheet/continue"(platform: "/mobile") {}
 
-        "/mplayer/money_split_external"(platform: "/mobile") {}
+        "/mplayer/money_split/external"(platform: "/mobile") {}
 
         // Tracing
         "/mplayer/tracing/onboarding"(platform: "/mobile") {}
