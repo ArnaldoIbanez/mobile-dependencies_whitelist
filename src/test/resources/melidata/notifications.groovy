@@ -10346,10 +10346,22 @@ trackTests {
             latest_news_type= "transfer_online_approved"
             status= "read"
         }
+        "/notification_center/transfer_online_in_process"(platform: "/mobile"){
+            newsgroup_id= "transfer_online_in_process-186785675-76283123"
+            latest_news_id= "transfer_online_in_process-186785675-76283123"
+            latest_news_type= "transfer_online_in_process"
+            status= "read"
+        }
         "/notification_center/transfer_online_rejected"(platform: "/mobile"){
             newsgroup_id= "transfer_online_rejected-186785675-76283123"
             latest_news_id= "transfer_online_rejected-186785675-76283123"
             latest_news_type= "transfer_online_rejected"
+            status= "read"
+        }
+        "/notification_center/transfer_online_review_manual"(platform: "/mobile"){
+            newsgroup_id= "transfer_online_review_manual-186785675-76283123"
+            latest_news_id= "transfer_online_review_manual-186785675-76283123"
+            latest_news_type= "transfer_online_review_manual"
             status= "read"
         }
         "/notification_center/transfer_online_scheduled"(platform: "/mobile"){
