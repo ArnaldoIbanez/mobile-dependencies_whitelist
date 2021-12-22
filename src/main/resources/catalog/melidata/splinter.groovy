@@ -52,11 +52,11 @@ tracks {
         position(type: PropertyType.Numeric, required: false, description: "Position number")
 
         // Splinter stream properties
+        c_uid(type: PropertyType.String, required: true, description: "Unique uid hash")
         c_original_target(type: PropertyType.String, required: false, description: "Target URL")
         c_id(type: PropertyType.String, required: false, description: "ComponentId")
         c_element_order(type: PropertyType.String, required: false, description: "Component position")
         c_campaign(type: PropertyType.String, required: false, description: "Campaing name")
-        c_uid(type: PropertyType.String, required: false, description: "Unique uid hash")
     }
 
     propertyGroups {
