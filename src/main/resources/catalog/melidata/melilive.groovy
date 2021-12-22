@@ -131,20 +131,6 @@ tracks {
         stream(required: true, type: PropertyType.Map(share_stream_info_definition), description: "Stream information")
     }
 
-    "/melilive/stream/bookmark"("platform": "/", type: TrackType.Event, isAbstract: true) {
-        stream(required: true, type: PropertyType.Map(bookmark_stream_info_definition), description: "Stream information")
-        item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
-        product_id(required: false, type: PropertyType.String, description:  "Product Id")
-        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
-        context(required: true, type: PropertyType.String, description: "Melilive Context")
-    }
-
-    "/melilive/stream/bookmark/add"("platform": "/", type: TrackType.Event) {
-    }
-
-    "/melilive/stream/bookmark/remove"("platform": "/", type: TrackType.Event) {
-    }
-
     // ************** CREATOR **************
 
     def group_product_definition = objectSchemaDefinitions {
