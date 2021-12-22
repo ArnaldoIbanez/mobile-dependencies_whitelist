@@ -2838,4 +2838,9 @@ tracks {
         use_gema (required:true, type: PropertyType.Boolean, description: "Validate if the user use our new application")
         seller_reputation (required:true, type: PropertyType.String, description: "Seller Reputation")
     }
+
+    "/seller_central/gema/validations"(platform: "/web", type: TrackType.Event) {
+        picture_id (required:true, type: PropertyType.String, description: "Picture id")
+        errors(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of validation errors")
+    }
 }

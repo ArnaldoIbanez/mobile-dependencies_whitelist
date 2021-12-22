@@ -17,7 +17,7 @@ tracks {
         default_payment_method_id(required:false, description: "The ID of the payment method that is defult for the user", type: PropertyType.String)
         excluded_payment_methods(required: false, description: "Identify the payment methods that was excluded for the user", type: PropertyType.ArrayList(PropertyType.Map(PropertyType.String, PropertyType.String)))
         excluded_payment_types(required: false, description: "Identify the payment types that was excluded for the user", type: PropertyType.ArrayList(PropertyType.Map(PropertyType.String, PropertyType.String)))
-        coupon_code(required: false, description: "The code that identifies the coupon", type: PropertyType.String) 
+        coupon_code(required: false, description: "The code that identifies the coupon", type: PropertyType.String)
         coupon_labels(required: false, description: "The list of labels of coupon", type: PropertyType.ArrayList(PropertyType.String))
         auto_return(required: false, description: "Identify the possible values that can reach the application through the 'auto_return' option", type: PropertyType.String)
     }
@@ -57,6 +57,7 @@ tracks {
         shipping_local_pickup(required: false, description: "Whether or not the user chose local pickup", type: PropertyType.Boolean)
         shipping_free(required: false, description: "Wether or not the payer is exempt from additional shipping taxes and the seller pays for it", type: PropertyType.Boolean)
         preference(required: false, description: "Every non PII contain within a preference", type: PropertyType.Map(preference_object))
+        router_request_id(required: false, description: "Identifies an unique router requisition", type: PropertyType.String)
     }
 
     // EVENTS
@@ -145,7 +146,7 @@ tracks {
     "/checkout_off/review"(platform: "/", type: TrackType.View) {
         credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
     }
-    
+
     "/checkout_off/review/shield_kyc"(platform: "/", type: TrackType.View) {}
     "/checkout_off/review/challenge_kyc"(platform: "/", type: TrackType.View) {}
     "/checkout_off/review/challenge_second_factor_auth"(platform: "/", type: TrackType.View) {}
