@@ -8,20 +8,20 @@ metrics {
     countsOn {
       condition {
         path("/wallet_home/section/tap/banking_v2-balance",
-             "/wallet_home/section/tap/banking_v2-actions",
-             "/wallet_home/section/tap/banking_v2-assets",
-             "/wallet_home/section/tap/banking_v2-cards",
-             "/wallet_home/section/tap/banking_v2-mpcard",
-             "/wallet_home/section/tap/shortcuts",
-             "/wallet_home/section/tap/ads_top_banner",
-             "/wallet_home/section/tap/cross_selling",
-             "/wallet_home/section/tap/benefits",
-             "/wallet_home/section/tap/activities",
-             "/wallet_home/section/tap/prepaid_banner",
-             "/wallet_home/section/tap/credits",
-             "/wallet_home/section/tap/discount_center",
-             "/wallet_home/section/tap/qr_fab"
-             )
+                "/wallet_home/section/tap/banking_v2-actions",
+                "/wallet_home/section/tap/banking_v2-assets",
+                "/wallet_home/section/tap/banking_v2-cards",
+                "/wallet_home/section/tap/banking_v2-mpcard",
+                "/wallet_home/section/tap/shortcuts",
+                "/wallet_home/section/tap/ads_top_banner",
+                "/wallet_home/section/tap/cross_selling",
+                "/wallet_home/section/tap/benefits",
+                "/wallet_home/section/tap/activities",
+                "/wallet_home/section/tap/prepaid_banner",
+                "/wallet_home/section/tap/credits",
+                "/wallet_home/section/tap/discount_center",
+                "/wallet_home/section/tap/qr_fab"
+        )
       }
     }
   }
@@ -32,11 +32,11 @@ metrics {
     countsOn {
       condition {
         path("/wallet_home/section/tap/banking_v2-balance",
-             "/wallet_home/section/tap/banking_v2-actions",
-             "/wallet_home/section/tap/banking_v2-assets",
-             "/wallet_home/section/tap/banking_v2-cards",
-             "/wallet_home/section/tap/banking_v2-mpcard"
-             )
+                "/wallet_home/section/tap/banking_v2-actions",
+                "/wallet_home/section/tap/banking_v2-assets",
+                "/wallet_home/section/tap/banking_v2-cards",
+                "/wallet_home/section/tap/banking_v2-mpcard"
+        )
       }
     }
   }
@@ -78,7 +78,7 @@ metrics {
 
     countsOn {
       condition {
-          path("/wallet_home/section/tap/cross_selling")
+        path("/wallet_home/section/tap/cross_selling")
       }
     }
   }
@@ -88,7 +88,7 @@ metrics {
 
     countsOn {
       condition {
-          path("/wallet_home/section/tap/benefits")
+        path("/wallet_home/section/tap/benefits")
       }
     }
   }
@@ -108,10 +108,10 @@ metrics {
 
     countsOn {
       condition {
-          path("/wallet_home/section/tap/activities")
-          and(
-            equals("event_data.component_id", "user_activities"),
-          )
+        path("/wallet_home/section/tap/activities")
+        and(
+                equals("event_data.component_id", "user_activities"),
+        )
       }
     }
   }
@@ -123,7 +123,7 @@ metrics {
       condition {
         path("/wallet_home/section/tap/activities")
         and(
-          equals("event_data.component_id", "user_activities_see_more_button"),
+                equals("event_data.component_id", "user_activities_see_more_button"),
         )
       }
     }
@@ -158,4 +158,83 @@ metrics {
       }
     }
   }
+
+
+
+
+  "wallet_home.header.profile"(description: "Counts when an user taps the header profile on the navbar", deprecation_date:"2022/02/28") {
+    experiment(regex("wallet/home_navbar_avatar"))
+
+    countsOn {
+      condition {
+        path("/wallet_home/header_profile/tap")
+      }
+    }
+  }
+
+  "wallet_home.header.buttons.help"(description: "Counts when an user taps the header button ayuda", deprecation_date:"2022/02/28") {
+    experiment(regex("wallet/home_navbar_avatar"))
+
+    countsOn {
+      condition {
+        path("/wallet_home/header_buttons/tap")
+        and(
+                equals("event_data.id", "help"),
+        )
+      }
+    }
+  }
+
+  "wallet_home.header.buttons.data"(description: "Counts when an user taps the header button datos de cuenta", deprecation_date:"2022/02/28") {
+    experiment(regex("wallet/home_navbar_avatar"))
+
+    countsOn {
+      condition {
+        path("/wallet_home/header_buttons/tap")
+        and(
+                equals("event_data.id", "data"),
+        )
+      }
+    }
+  }
+
+  "navigation_sections.navigation_menu_mp.loyalty_row"(description: "Counts when an user taps the header loyalty", deprecation_date:"2022/02/28") {
+    experiment(regex("wallet/home_navbar_avatar"))
+
+    countsOn {
+      condition {
+        path("/navigation_sections/navigation_menu_mp/tap")
+        and(
+                equals("event_data.id", "loyalty_row"),
+        )
+      }
+    }
+  }
+
+  "navigation_sections.navigation_menu_mp.loyalty_avatar"(description: "Counts when an user taps the header tu perfil", deprecation_date:"2022/02/28") {
+    experiment(regex("wallet/home_navbar_avatar"))
+
+    countsOn {
+      condition {
+        path("/navigation_sections/navigation_menu_mp/tap")
+        and(
+                equals("event_data.id", "loyalty_avatar"),
+        )
+      }
+    }
+  }
+
+  "navigation_sections.navigation_menu_mp.your_profile"(description: "Counts when an user taps the header l1 tu perfil", deprecation_date:"2022/02/28") {
+    experiment(regex("wallet/home_navbar_avatar"))
+
+    countsOn {
+      condition {
+        path("/navigation_sections/navigation_menu_mp/tap")
+        and(
+                equals("event_data.id", "your_profile"),
+        )
+      }
+    }
+  }
+
 }

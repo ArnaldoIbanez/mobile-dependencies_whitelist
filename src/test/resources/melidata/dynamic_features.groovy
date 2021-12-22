@@ -45,6 +45,8 @@ trackTests {
             dynamic_deeplink = "meli://new_deeplink"
             static_deeplink = "meli://old_deeplink"
             mode="on_demand"
+            flow_time = 10
+            download_time = 20
         }
     }
 
@@ -85,6 +87,8 @@ trackTests {
             dynamic_deeplink = "meli://new_deeplink"
             static_deeplink = "meli://old_deeplink"
             mode="background"
+            flow_time = 50
+            download_time = 100
         }
     }
 }

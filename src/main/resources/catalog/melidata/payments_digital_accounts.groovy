@@ -237,6 +237,8 @@ tracks {
     "/banking/calendar/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/calendar/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/activities/row"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/activities/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/calendar/footer_action"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
@@ -288,28 +290,6 @@ tracks {
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { eventDataTrack }
-
-    // Vouchers
-    "/banking/vouchers"(platform: "/", type: TrackType.View) {}
-
-    // Vouchers - Benefits
-    "/banking/vouchers/benefits"(platform: "/", isAbstract: true) {}
-    "/banking/vouchers/benefits/categories"(platform: "/", type: TrackType.Event) {}
-
-    // Vouchers - Account switch
-    "/banking/vouchers/account-money"(platform: "/", isAbstract: true) {}
-    "/banking/vouchers/account-money/switch"(platform: "/", type: TrackType.Event) {}
-
-    // Vouchers - Activities
-    "/banking/vouchers/activities"(platform: "/", isAbstract: true) {}
-    "/banking/vouchers/activities/row"(platform: "/", type: TrackType.Event) {}
-    "/banking/vouchers/activities/footer"(platform: "/", type: TrackType.Event) {}
-
-    // Vouchers - MP Card
-    "/banking/vouchers/card"(platform: "/", type: TrackType.Event) {}
-
-    // Vouchers - Help
-    "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}
 
     // Regulations Cerc Views
     "/regulations/cerc"(platform: "/", type: TrackType.View) {}

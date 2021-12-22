@@ -320,6 +320,11 @@ trackTests {
         }
 
         "/liveness/action"(platform: "/mobile/android") {
+            type = "start_liveness"
+            start_on_ready = true
+        }
+
+        "/liveness/action"(platform: "/mobile/android") {
             type = "activate_camera"
         }
 
@@ -398,6 +403,11 @@ trackTests {
 
         "/liveness/action"(platform: "/mobile/ios") {
             type = "start_liveness"
+        }
+
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "start_liveness"
+            start_on_ready = true
         }
 
         "/liveness/action"(platform: "/mobile/ios") {

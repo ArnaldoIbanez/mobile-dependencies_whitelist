@@ -739,6 +739,21 @@ trackTests {
             view_time()
         }
 
+        "/single_player/prepaid/error/not_enough_money/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/money_in"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
 
         // Blocked error
         "/single_player/prepaid/error/blocked"(platform: "/mobile", type: TrackType.View) {
@@ -874,6 +889,43 @@ trackTests {
         "/single_player/prepaid/show_action/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+
+        // Scanner
+        "/single_player/prepaid/scanner"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/scanner/open"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+        }
+
+        "/single_player/prepaid/scanner/help"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/scanner/error"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/scanner/to_confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/scanner/confirm_number"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/scanner/input_device_number"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
         }
 
 
@@ -1523,6 +1575,21 @@ trackTests {
             view_time()
         }
 
+        "/single_player/prepaid/error/not_enough_money/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/money_in"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
 
         // Blocked error
         "/single_player/prepaid/error/blocked"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
@@ -1658,6 +1725,43 @@ trackTests {
         "/single_player/prepaid/show_action/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+
+        // Scanner
+        "/single_player/prepaid/scanner"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/scanner/open"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+        }
+
+        "/single_player/prepaid/scanner/help"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/scanner/error"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/scanner/to_confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/scanner/confirm_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/scanner/input_device_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
         }
     }
 

@@ -25,7 +25,7 @@ tracks {
             type: PropertyType.String,
             values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Type of the notification")
-          deeplink(required: false, 
+          deeplink(required: false,
             type: PropertyType.String,
             description: "The link were the notification should navigate to, if applies")
 
@@ -34,9 +34,9 @@ tracks {
             type: PropertyType.String,
             values: ["notification_center","logout","overwrite","dismiss_notification"], description: "Source of the notification")
 
-          discard_reason(required: false, 
-          description: "The discarded reason of the notification", 
-          values: ["invalid_payload","invalid_user", "settings_disabled"], 
+          discard_reason(required: false,
+          description: "The discarded reason of the notification",
+          values: ["invalid_payload","invalid_user", "settings_disabled"],
           type: PropertyType.String)
 
           notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
@@ -166,6 +166,12 @@ tracks {
     "/notification/credit_card_overlimit_active"(platform: "/") {}
     "/notification/credit_card_overlimit_inactive"(platform: "/") {}
 
+    //Reject with reason
+    "/notification/credit_card_reject_blocked"(platform: "/") {}
+    "/notification/credit_card_reject_cvv_incorrect"(platform: "/") {}
+    "/notification/credit_card_reject_insufficient_amount"(platform: "/") {}
+    "/notification/credit_card_reject_invalid_pin"(platform: "/") {}
+
     // Transaction
     "/notification/credit_card_transaction_acquisition"(platform: "/") {}
     "/notification/credit_card_transaction_choff_purchase"(platform: "/") {}
@@ -173,6 +179,7 @@ tracks {
     "/notification/credit_card_transaction_purchase"(platform: "/") {}
     "/notification/credit_card_transaction_withdrawal"(platform: "/") {}
     "/notification/credit_card_transaction_kyc_onboarding"(platform: "/") {}
+    "/notification/credit_card_transaction_acquisition_micro"(platform: "/") {}
     "/notification/credit_card_waitlist_10"(platform: "/") {}
     "/notification/credit_card_waitlist_40"(platform: "/") {}
     "/notification/credit_card_waitlist_blacklist"(platform: "/") {}
@@ -244,6 +251,7 @@ tracks {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
     "/notification/credits_consumer_congrats_personal_loans"(platform: "/") {}
+    "/notification/credits_consumer_registration_journey_mp"(platform: "/") {}
     "/notification/credits_consumer_expired_mp_first_notice"(platform: "/") {
         loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
@@ -337,6 +345,7 @@ tracks {
     "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {}
     "/notification/credits_consumer_chatbot_payment_promise"(platform: "/") {}
     "/notification/credits_consumer_chatbot_payment_promise_info_v2"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_general_trouble"(platform: "/") {}
 
 
       //Billing
@@ -359,6 +368,14 @@ tracks {
           case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
       }
       "/notification/cx_question_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
+      }
+
+      //Melichat
+      "/notification/melichat_message_mp"(platform: "/mobile") {
+          case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
+      }
+      "/notification/melichat_message_ml"(platform: "/mobile") {
           case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
       }
 
@@ -557,6 +574,10 @@ tracks {
       }
 
       "/notification/shipping_not_delivered_retained_sender"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+      }
+
+      "/notification/shipping_not_delivered_returning_to_hub_xd_xddo"(platform: "/") {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
 
@@ -1248,7 +1269,14 @@ tracks {
       "/notification/fraud_poc_trust_vote_second_score"(platform: "/") {}
       "/notification/fraud_kyc_validation"(platform: "/") {}
 
-      //Loyalty
+      //Fraud Remedies
+      "/notification/fraud_remedies_identity_start_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_identity_reminder_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_card_start_second_score"(platform: "/") {}
+      "/notification/fraud_remedies_card_reminder_second_score"(platform: "/") {}
+
+
+    //Loyalty
       "/notification/loyalty"(platform: "/") {}
       "/notification/loyalty_welcome"(platform: "/") {}
       "/notification/loyalty_milestone"(platform: "/") {}
@@ -1330,6 +1358,10 @@ tracks {
       }
 
     //Asset Management
+    "/notification_center/asset_management_missing_docs"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification/asset_management_warm_up"(platform: "/mobile") {}
     "/notification/asset_management_investing"(platform: "/mobile") {}
     "/notification/asset_management_pending"(platform: "/mobile") {}
@@ -1339,6 +1371,8 @@ tracks {
     "/notification/asset_management_underage_approved"(platform: "/mobile") {}
     "/notification/asset_management_underage_rejected"(platform: "/mobile") {}
     "/notification/asset_management_underage_request"(platform: "/mobile") {}
+    "/notification/asset_management_missing_docs"(platform: "/mobile") {}
+    "/notification/asset_management_cryto"(platform: "/mobile") {}
 
 
     //Campañas
@@ -1770,7 +1804,11 @@ tracks {
     "/notification/card_transactions_cancelled_partial_authorization_mute"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_partial_authorization_nfc"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {}
-    "/notification/balance_inquiry"(platform: "/mobile") {}
+    "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {}
 
 
     // PREPAID, HYBRID, MPCARD
@@ -1987,6 +2025,7 @@ tracks {
     "/notification/single_player_prepaid_toll_success_mp"(platform: "/mobile") {}
     "/notification/single_player_prepaid_toll_fail_mp"(platform: "/mobile") {}
     "/notification/single_player_balance_expiration_transport_mp"(platform: "/mobile") {}
+    "/notification/single_player_balance_expiration_prepaid_toll_mp"(platform: "/mobile") {}
     "/notification/single_player_antenna_fail_mp"(platform: "/mobile") {}
     "/notification/single_player_antenna_success_mp"(platform: "/mobile") {}
     "/notification/single_player_generic_balance_expiration"(platform: "/mobile") {}
@@ -2023,6 +2062,20 @@ tracks {
     "/notification/single_player_scheduled_payment_pixtransfer_solo_insufficient_amount"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_pixtransfer_grouped_reminder"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_pixtransfer_solo_reminder"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_cancelled_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_cancelled_product_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_cancelled_unrecoverable_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_fail_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_fail_payments_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_reminder_mp"(platform: "/mobile") {}
+    "/notification/single_player_subscription_recharge_success_mp"(platform: "/mobile") {}
+
+
+    //Single player - Self-Service
+    "/notification/single_player_self_service_schedule_new_debt"(platform: "/mobile") {
+        debt_id(required: true, type: PropertyType.Numeric, description: "Corresponds to the id of the debt payer that is showing")
+        seller_name(required: true, type: PropertyType.String, description: "Corresponds to the name of the seller that is showing")
+    }
 
     //Shipping
     "/notification/shipping_moderation_cross_docking_release_below"(platform: "/") {}
@@ -2082,7 +2135,7 @@ tracks {
         advertising_id(required: true, type: PropertyType.String)
     }
 
-    "/notification/uninstalls_checker"(platform: "/mobile") {
+    "/notification/uninstalls_checker"(platform: "/mobile", type: TrackType.App) {
         execution_id(required: true, type: PropertyType.String)
         advertising_id(required: true, type: PropertyType.String)
     }
@@ -2092,6 +2145,14 @@ tracks {
     "/notification/under_age_responsible_authorization_legacy"(platform: "/") {}
     "/notification/under_age_minor_rejected"(platform: "/") {}
     "/notification/under_age_minor_approved"(platform: "/") {}
+    "/notification/under_age_responsible_info_ml"(platform: "/") {}
+    "/notification/under_age_responsible_authorization_legacy_ml"(platform: "/") {}
+    "/notification/under_age_minor_rejected_ml"(platform: "/") {}
+    "/notification/under_age_minor_approved_ml"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_approved"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_rejected"(platform: "/") {}
+    "/notification/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {}
 
     "/notification/institutional_generic"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
@@ -2138,6 +2199,9 @@ tracks {
     //Contactless card
     "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {}
 
+    //CVV Command
+    "/notification/cvv_command"(platform: "/") {}
+
     //Insurtech
     "/notification/insurtech_imei_activation"(platform: "/mobile") {}
     "/notification/insurtech_cancellation"(platform: "/mobile") {}
@@ -2149,6 +2213,7 @@ tracks {
     "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {}
     "/notification/insurtech_kyc_roda_pre_activacion"(platform: "/") {}
     "/notification/insurtech_pending_payment"(platform: "/") {}
+    "/notification/insurtech_post_service_poll"(platform: "/mobile") {}
 
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}
@@ -2175,6 +2240,9 @@ tracks {
     "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/", type: TrackType.Event) {
         news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
     }
+    "/notification_center/pm_om_notification-before_automatically_cancel"(platform: "/", type: TrackType.Event) {
+        news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
+    }
 
     // Delay Compensation
     "/notification/shipping_delay_compensation_cashback"(platform: "/"){
@@ -2183,7 +2251,8 @@ tracks {
 
     // Disbursement Kwai
     "/notification/disbursement_kwai_received"(platform: "/") {}
-    
+    "/notification/disbursement_kwai_pending_kyc"(platform: "/") {}
+
     // Money In CCA
     "/notification_center/moneyin_cca_approved"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -2195,6 +2264,23 @@ tracks {
     }
     "/notification/moneyin_cca_approved"(platform: "/") {}
     "/notification/moneyin_cca_rejected"(platform: "/") {}
+
+    // Money In Open Finance
+    "/notification_center/moneyin_open_finance_approved"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/moneyin_open_finance_in_process"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/moneyin_open_finance_rejected"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification/moneyin_open_finance_approved"(platform: "/") {}
+    "/notification/moneyin_open_finance_in_process"(platform: "/") {}
+    "/notification/moneyin_open_finance_rejected"(platform: "/") {}
 
     // Cards virtual
     "/notification/card_first_use_incentive_virtual_first_day_am"(platform: "/mobile") {}
@@ -2215,4 +2301,7 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+
+    //Open Finance
+    "/notification/open_finance_consent_recovery"(platform: "/mobile") {}
 }

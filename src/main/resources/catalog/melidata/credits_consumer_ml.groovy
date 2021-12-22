@@ -202,10 +202,16 @@ tracks {
                         "not visible"
                 ]
         )
-        source_key(
+        from(
                 required: false,
                 description: "Identifies the origin of the user",
                 type: PropertyType.String,
+        )
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
+        has_upsell_available(
+                required: false,
+                description: "Identifies if the user has upsell available",
+                type: PropertyType.Boolean,
         )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
@@ -257,6 +263,25 @@ tracks {
                 ]
         )
     }
+    "/credits/consumer/administrator_v2/dashboard/go_upsell"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: false,
+                description: "Current status of the Dashboard",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+        from(
+                required: false,
+                description: "Identifies the origin of the user",
+                type: PropertyType.String,
+        )
+        additional_info(description: "Additional information about the navigation flow", type: PropertyType.String, required: false)
+    }
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
         status(
                 required: true,
@@ -288,6 +313,7 @@ tracks {
     "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/debt_relief"(platform: "/", isAbstract: true) {}
     "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/debt_relief/info"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
 
     //Mobile Events
@@ -335,8 +361,18 @@ tracks {
     "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
-    "/credits/consumer/administrator_v2/dashboard/personal_loan_download"(platform: "/web/desktop", type: TrackType.Event) {
-         dashboard_status = 'on_time'
+    "/credits/consumer/administrator_v2/dashboard/personal_loan_download"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+            required: true,
+            description: "Defines if the user accesses the MP landing to download the application",
+            type: PropertyType.String,
+            values: [
+                    "empty_state",
+                    "on_time",
+                    "overdue",
+                    "finished"
+            ]
+        )
     }
 
     /******************************************
@@ -825,186 +861,4 @@ tracks {
      ******************************************/
 
 
-     /******************************************
-     *    Start: Self service
-     ******************************************/
-    "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
-        user_type(
-            required: true,
-            description: "User type (merchant, consumer, mix or no credit)",
-            type: PropertyType.String,
-            values: [
-                "merchant",
-                "consumer",
-                "mix",
-                "no_credit"
-            ]
-        )
-    }
-
-    "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
-        is_partial_amount(
-            required: true,
-            description: "Whether promise amount is less than bulk amount",
-            type: PropertyType.Boolean
-        )
-        bulk_amount(
-            required: true,
-            description: "Bulk amount or total debt amount for user",
-            type: PropertyType.Numeric
-        )
-        promise_amount(
-            required: true,
-            description: "Promise amount filled in by user",
-            type: PropertyType.Numeric
-        )
-        payment_method(
-            required: true,
-            description: "Payment method selected for promise",
-            type: PropertyType.String
-        )
-        promise_due_days(
-            required: true,
-            description: "How many days until the promise is due from the day it was created",
-            type: PropertyType.Numeric
-        )
-    }
-
-    "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {}
-
-    "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
-        user_type(
-            required: true,
-            description: "User type (merchant, consumer, mix or no credit)",
-            type: PropertyType.String,
-            values: [
-                "merchant",
-                "consumer",
-                "mix",
-                "no_credit"
-            ]
-        )
-    }
-
-    "/credits/self_service/promises/error"(platform: "/", type: TrackType.View) {
-        user_type(
-            required: true,
-            description: "User type (merchant, consumer, mix or no credit)",
-            type: PropertyType.String,
-            values: [
-                "merchant",
-                "consumer",
-                "mix",
-                "no_credit"
-            ]
-        )
-    }
-
-    "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
-        user_type(
-            required: true,
-            description: "User type (merchant, consumer, mix or no credit)",
-            type: PropertyType.String,
-            values: [
-                "merchant",
-                "consumer",
-                "mix",
-                "no_credit"
-            ]
-        )
-    }
-
-    "/credits/self_service/debt_relief"(platform: "/", type: TrackType.View) {
-            user_type(
-                required: true,
-                description: "User type (merchant, consumer or mix)",
-                type: PropertyType.String,
-                values: [
-                    "merchant",
-                    "consumer",
-                    "mix"
-                ]
-            )
-        }
-
-        "/credits/self_service/debt_relief/summary"(platform: "/", type: TrackType.View) {
-                bulk_amount(
-                    required: true,
-                    description: "Bulk amount of the debt relief proposed by the user",
-                    type: PropertyType.Numeric
-                )
-                total_amount(
-                    required: true,
-                    description: "Total debt amount",
-                    type: PropertyType.Numeric
-                )
-                min_amount(
-                    required: false,
-                    description: "Total debt amount",
-                    type: PropertyType.Boolean
-                )
-            }
-
-        "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
-                bulk_amount(
-                    required: true,
-                    description: "Bulk amount of the debt relief proposed by the user",
-                    type: PropertyType.Numeric
-                )
-                total_amount(
-                    required: true,
-                    description: "Total debt amount",
-                    type: PropertyType.Numeric
-                )
-                installments_id(
-                    required: true,
-                    description: "Array of Installments reached by the punitive condonation",
-                    type: PropertyType.ArrayList
-                )
-                debt_relief_amount(
-                    required: true,
-                    description: "final Debt relief amount",
-                    type: PropertyType.Numeric
-                )
-            }
-
-        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
-               error_type(
-                       required: true,
-                       description: "Error type message",
-                       type: PropertyType.String,
-                       values: [
-                           "no_offer",
-                           "not_found",
-                           "invalid_offer",
-                           "unknown",
-                       ]
-                   )
-               }
-     /******************************************
-     *    End: Self service
-     ******************************************/
-
-    /******************************************
-    *    Start: Car Loan
-    ******************************************/
-    //Views
-    "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
-        push_variant(
-            required: true,
-            description: "Identifier for the flow of the push A, B or C",
-            type: PropertyType.String
-        )
-    }
-    //Events
-    "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
-        push_variant(
-            required: true,
-            description: "Identifier for the flow of the push A, B or C",
-            type: PropertyType.String
-        )
-    }
-    /******************************************
-    *    End: Car Loan
-    ******************************************/
 }

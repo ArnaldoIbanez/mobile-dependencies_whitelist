@@ -223,6 +223,14 @@ trackTests {
         purchase_status = "Entregado"
         }
 
+        "/support/widget/action"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
+            portal_content_destination_url = "/ayuda/637"
+        }
+        "/support/widget/action"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
+        }
+
     }
 
     test("Support Widget having Content Type") {
@@ -556,6 +564,14 @@ trackTests {
         button_label = "Volver a ayuda"
         buttons = ["Volver a ayuda", "Contactarse", "Devolver compra"]
         purchase_status = "Entregado"
+        }
+
+        "/support/widget/action"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
+            portal_content_destination_url = "/ayuda/637"
+        }
+        "/support/widget/action"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
         }
   }
 

@@ -152,12 +152,15 @@ trackTests {
         "/credits/consumer/administrator_v2"(platform: "/web/desktop") {}
         "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
             dashboard_status = 'overdue'
+            has_upsell_available = false
         }
         "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
             dashboard_status = 'overdue'
             personalLoanAccessShown = 'banner'
             opt_in_separator = 'visible'
-            source_key = 'landing'
+            from = 'admin-ml'
+            additional_info = 'main_action'
+            has_upsell_available = true
         }
         "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = 'overdue'
@@ -187,6 +190,7 @@ trackTests {
         "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/debt_relief/info"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
             dashboard_status = "on_time"
@@ -195,12 +199,18 @@ trackTests {
             dashboard_status = "on_time"
             list_status = "black_list"
         }
+        "/credits/consumer/administrator_v2/dashboard/go_upsell"(platform: "/", type: TrackType.Event) {
+            dashboard_status = "on_time"
+            from = "home_ml"
+            additional_info = "upsell_row"
+        }
 
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'on_time'
             opt_in_separator = 'visible'
-            source_key = 'landing'
+            from = 'landing'
+            additional_info = 'main_action'
         }
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
@@ -272,8 +282,8 @@ trackTests {
         "/credits/consumer/administrator/history/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/history/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {
         }
-        "/credits/consumer/administrator_v2/dashboard/personal_loan_download"(platform: "/web/desktop", type: TrackType.Event) {
-             dashboard_status = 'on_time'
+        "/credits/consumer/administrator_v2/dashboard/personal_loan_download"(platform: "/", type: TrackType.Event) {
+            dashboard_status = 'on_time'
         }
         //Event PX Congrats Extra Component
         "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {
@@ -673,75 +683,5 @@ trackTests {
         /******************************************
         *    End: Consumers Early Repayments FLow
         ******************************************/
-
-
-        /******************************************
-        *    Start: Self Service
-        ******************************************/
-        "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
-            user_type = "consumer"
-        }
-
-        "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
-            user_type = "consumer"
-            is_partial_amount = true
-            bulk_amount = 7000
-            promise_amount = 5000
-            payment_method = "CASH"
-            promise_due_days = 4
-        }
-
-        "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {
-            user_type = "consumer"
-        }
-
-        "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
-            user_type = "consumer"
-        }
-
-        "/credits/self_service/promises/error"(platform: "/", type: TrackType.View) {
-            user_type = "consumer"
-        }
-
-        "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
-            user_type = "consumer"
-        }
-
-        "/credits/self_service/debt_relief"(platform: "/", type: TrackType.View) {
-            user_type = "consumer"
-        }
-
-        "/credits/self_service/debt_relief/summary"(platform: "/", type: TrackType.View) {
-            bulk_amount = 7000
-            total_amount = 14000
-            min_amount = true
-            user_type = "consumer"
-        }
-
-        "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
-            bulk_amount = 7000
-            total_amount = 14000
-            installments_id = [ 1002, 1003, 1004]
-            user_type = "consumer"
-            debt_relief_amount = 6000
-        }
-
-        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
-            user_type = "merchant"
-            error_type = "no_offer"
-        }
-
-        /******************************************
-        *    End: Self Service
-        ******************************************/
-    }
-
-    test("Credits Car Loan") {
-        "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
-            push_variant = "A"
-        }
-        "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
-            push_variant = "A"
-        }
     }
 }

@@ -144,6 +144,18 @@ tracks {
         is_default(required: false, type: PropertyType.Boolean, description: "if option is the default")
     }
 
+    def touchpoint_object = objectSchemaDefinitions {
+        touchpoint(required: true, type: PropertyType.String, description: "Flow from which it comes")
+        touchpoint_detail(required: true, type: PropertyType.String, description: "detail of the flow from which it comes")
+    }
+
+    def claim_cards = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "ID of claim associated to the CARDS protection.")
+        claim_number(required: true, type: PropertyType.String, description: "Number of claim associated to the CARDS protection.")
+        has_previous_claim(required: true, type: PropertyType.Boolean, description: "This is true if the user has previous claims")
+        status(required: true, type: PropertyType.String, description: "Claim status")
+    }
+
     // INSURTECH RODA QPage Abstract
     "/insurtech"(platform: "/", isAbstract: true) {}
 
@@ -747,7 +759,12 @@ tracks {
         protection(required: true, type: PropertyType.Map(protection_base), description: "Cards Product data")
     }
 
+    "/insurtech/protections/detail/cards/claim_detail"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        claim(required: true, type: PropertyType.Map(claim_cards), description: "CARDS Protection claim data")
+    }
+
     "/insurtech/protections/detail/cards/begin_claim"(platform:"/", type: TrackType.Event) {}
+
 
     "/insurtech/protections/detail/cards/download_policy"(platform:"/", type: TrackType.Event) {}
 
@@ -760,6 +777,8 @@ tracks {
     "/insurtech/protections/detail/cards/help"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/detail/cards/full_coverage"(platform:"/", type: TrackType.Event) {}
+
+    "/insurtech/protections/detail/cards/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {}
 
     "/insurtech/protections/detail/begin_claim"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
@@ -787,45 +806,56 @@ tracks {
     // Insurtech CARDS
     "/insurtech/cards"(platform:"/", type: TrackType.View, parentPropertiesInherited:false){
         options(required: true, type: PropertyType.ArrayList(PropertyType.Map(card_protection_option)), description: "Options objects")
-        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
-        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/select"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
-        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/skip"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
-        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/add"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
-        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/quote_fail"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
-        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/quote_success"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
-        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/back"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
-        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/close"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
-        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/retry"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
-        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
+        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
-    
+
     // Congrats - Success View
     "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
         purchase_key(required: true, type: PropertyType.String, description: "the id of the purchase generated")
+        touchpoint_data(require: true, type: PropertyType.Map(touchpoint_object), description:'info of the flow where it comes from')
     }
     "/insurtech/cards/congrats_success/go_cards"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
     }
