@@ -38,7 +38,7 @@ tracks {
     // Unification - Bottom Sheet
     "/funds_movements/bottom_sheet"(platform: "/mobile", type: TrackType.View) {
         total(required: true, type: PropertyType.Numeric, description: "Total number of accounts", inheritable: false)
-        accounts(required: true, type: PropertyType.ArrayList(PropertyType.Map(account)), description: "Account information", inheritable: false)
+        accounts(required: false, type: PropertyType.ArrayList(PropertyType.Map(account)), description: "Account information", inheritable: false)
     }
     "/funds_movements/bottom_sheet/account_selected"(platform: "/mobile", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, values: ["MP", "BANKING", "PIX"], description: "Account selected type")
