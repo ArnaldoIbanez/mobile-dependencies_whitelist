@@ -2766,7 +2766,10 @@ trackTests {
             event_type = "auto_dismiss"
             source = "logout"
         }
-
+        "/notification/transfer_online_approved"(platform: "/mobile") {
+            news_id = "transfer_online_approved-approved_ml-12345678"
+            event_type = "sent"
+        }
         "/notification/account_fund_approved_ml"(platform: "/mobile") {
             news_id = "account_fund-account_fund-approved_ml-12345678"
             event_type = "shown"
