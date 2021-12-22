@@ -415,6 +415,11 @@ tracks {
     "/pix/home/collect"(platform: "/", type: TrackType.Event) {}
     "/pix/home/pay"(platform: "/", type: TrackType.Event) {}
 
+    "/pix/home/error_snackbar"(platform: "/", type: TrackType.View) {
+        error (required:false, description: "Deeplink params [snackBarMessage|snackBarState] are null or empty")
+        view (required:false, description: "Indicate the view where the error happened")
+    }
+
     //Home Pix MLB - Keys
     "/pix/home/keys"(platform: "/", isAbstract: true) {}
     "/pix/home/keys/copy"(platform: "/", type: TrackType.Event) {}
