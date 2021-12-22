@@ -780,7 +780,7 @@ tracks {
             values: [
                 'quanto',
                 'open_finance',
-                'belvo,'
+                'belvo',
             ]
         )
     }
