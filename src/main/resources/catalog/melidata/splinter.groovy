@@ -50,11 +50,19 @@ tracks {
         flow(type: PropertyType.String, required: false, description: "Type of flow")
         logic(type: PropertyType.String, required: false, description: "Type of logic")
         position(type: PropertyType.Numeric, required: false, description: "Position number")
+
+        // Splinter stream properties
+        c_original_target(type: PropertyType.String, required: false, description: "Target URL")
+        c_id(type: PropertyType.String, required: false, description: "ComponentId")
+        c_element_order(type: PropertyType.String, required: false, description: "Component position")
+        c_campaign(type: PropertyType.String, required: false, description: "Campaing name")
+        c_uid(type: PropertyType.String, required: false, description: "Unique uid hash")
     }
 
     propertyGroups {
         splinter_views(deal_print_id, items_ids, filters, real_estates, context, module, group, content)
         splinter_events(filters, category, action, label, module, group, content, audience, bu, bu_line, component_id, content_id, flow, logic, position)
+        splinter_streams(c_original_target, c_id, c_element_order, c_campaign, c_uid)
     }
 
 
@@ -70,5 +78,12 @@ tracks {
      */
     "/splinter/landing/event"(platform: "/", type: TrackType.Event) {
         splinter_events
+    }
+
+     /*
+     * Splinter streams
+     */
+    "/splinter/component"(platform: "/", type: TrackType.Event) {
+        splinter_streams
     }
 }
