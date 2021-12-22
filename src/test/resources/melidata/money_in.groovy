@@ -748,20 +748,10 @@ trackTests {
         }
 
         // Money In Hub - v2 - Web
-        "/money_in/hub/web"(platform:"/", type: TrackType.View){}
-        "/money_in/hub/web/select"(platform:"/", type: TrackType.Event){
-            payment_method_id="pix"
-        }
-        "/money_in/hub/web/widget/select"(platform:"/", type: TrackType.Event){
-            widget_id="pix"
-        }
-        "/money_in/hub/web/widget/action_selected"(platform:"/", type: TrackType.Event){
-            action_id="pix_qr"
-        }
-        "/money_in/hub/web/modal"(platform:"/", type: TrackType.View){}
-        "/money_in/hub/web/modal/close"(platform:"/", type: TrackType.Event){}
-        "/money_in/hub/web/modal/primary_button"(platform:"/", type: TrackType.Event){}
-        "/money_in/hub/web/modal/secondary_button"(platform:"/", type: TrackType.Event){}
+        "/money_in/hub/modal"(platform:"/", type: TrackType.View){}
+        "/money_in/hub/modal/close"(platform:"/", type: TrackType.Event){}
+        "/money_in/hub/modal/primary_button"(platform:"/", type: TrackType.Event){}
+        "/money_in/hub/modal/secondary_button"(platform:"/", type: TrackType.Event){}
 
         // -------------Open Finance - Money In-------------
         //Onboarding
