@@ -386,7 +386,7 @@ tracks {
 
     "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
-        status(type: PropertyType.String, required: true, values: ["approved", "rejected", "expired", "update_qr", "decline_challenge", "open-modal", "close-modal"], description: "Describes element related to user action")
+        status(type: PropertyType.String, required: true, values: ["approved", "rejected", "expired", "update_qr", "decline_challenge", "open_modal", "close_modal"], description: "Describes element related to user action")
         event_type(type: PropertyType.String, required: true, values: ["polling", "click"], description: "Type of event")
     }
 

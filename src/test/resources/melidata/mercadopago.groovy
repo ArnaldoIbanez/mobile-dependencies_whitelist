@@ -4470,7 +4470,7 @@ trackTests {
         }
         "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
             id = "id"
-            status = "open-modal"
+            status = "open_modal"
             event_type = "click"
         }
         "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
