@@ -7096,5 +7096,10 @@ test("seller central catalog optin v2 item plus card show") {
       use_gema = false
       seller_reputation = "NEWBIE"
     }
+
+    "/seller_central/gema/validations"(platform: "/web", type: TrackType.Event){
+      picture_id = "MLA-12345"
+      errors = ["multiproduct_msd", "blur", "watermark"]
+    }
   }
 }
