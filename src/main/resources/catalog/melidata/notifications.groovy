@@ -184,6 +184,13 @@ tracks {
     "/notification/credit_card_waitlist_40"(platform: "/") {}
     "/notification/credit_card_waitlist_blacklist"(platform: "/") {}
 
+    // MoneyOut - TransferOnline
+    "/notification/transfer_online_approved"(platform: "/") {}
+    "/notification/transfer_online_in_process"(platform: "/") {}
+    "/notification/transfer_online_rejected"(platform: "/") {}
+    "/notification/transfer_online_review_manual"(platform: "/") {}
+    "/notification/transfer_online_scheduled"(platform: "/") {}
+
     // CardUpdater
     "/notification/card_updater_expiry"(platform: "/mobile") { }
     "/notification/card_updater_update"(platform: "/mobile") { }
