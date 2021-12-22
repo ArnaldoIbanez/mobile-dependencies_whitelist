@@ -33,8 +33,8 @@ trackTests {
     }
   }
 
-  // streams
-  test("splinter landings - streams - event") {
+  // component_prints
+  test("splinter landings - component_prints - event") {
     "/splinter/component"(platform: "/",  type: TrackType.Event) {
       c_original_target = "https = //listado.mercadolibre.com.ar/supermercado/almacen/_Deal_cpg-navidad#DEAL_ID=MLA6107&S=MKT&V=1&T=BHO&L=CPG_CAJAS"
       c_id = "/splinter/special-withoutlabel"

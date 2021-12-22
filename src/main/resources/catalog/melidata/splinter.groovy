@@ -62,7 +62,7 @@ tracks {
     propertyGroups {
         splinter_views(deal_print_id, items_ids, filters, real_estates, context, module, group, content)
         splinter_events(filters, category, action, label, module, group, content, audience, bu, bu_line, component_id, content_id, flow, logic, position)
-        splinter_streams(c_original_target, c_id, c_element_order, c_campaign, c_uid)
+        splinter_component_prints(c_original_target, c_id, c_element_order, c_campaign, c_uid)
     }
 
 
@@ -81,9 +81,9 @@ tracks {
     }
 
      /*
-     * Splinter streams
+     * Splinter component_prints
      */
     "/splinter/component"(platform: "/", type: TrackType.Event) {
-        splinter_streams
+        splinter_component_prints
     }
 }
