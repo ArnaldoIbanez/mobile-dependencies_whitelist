@@ -79,6 +79,11 @@ tracks {
             type: PropertyType.String,
             description: "An error message"
         )
+        activated(
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates the activated in OptIn PSJ Point"
+        )
     }
 
     propertyGroups {
@@ -98,6 +103,7 @@ tracks {
         optin_a12_save_group(channels, schema)
         optin_psj_save_group(installments)
         result_request_group(status, message)
+        optin_psj_point_save_group(status, message, activated)
     }
 
     // Abstract paths
@@ -230,5 +236,8 @@ tracks {
     }
     "/pricing_section/psj_activity"(platform: "/mobile", type: TrackType.Event) {
         caller(required: true, type: PropertyType.String, description: "The class where the deeplink is called")
+    }
+    "/pricing_section/psj/point/save" (platform: "/", type: TrackType.Event) {
+        optin_psj_point_save_group
     }
 }
