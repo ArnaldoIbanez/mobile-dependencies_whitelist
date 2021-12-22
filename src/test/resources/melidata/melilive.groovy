@@ -69,7 +69,7 @@ trackTests {
     }
 
     test("MeliLive stream broadcast recorded") {
-        "/melilive/stream/recorded"(platform: "/") {
+        "/melilive/recorded"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
                     "title"       : "Melilive",

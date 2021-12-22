@@ -103,7 +103,7 @@ tracks {
         streamStatusGroup
     }
 
-    "/melilive/stream/recorded"(platform: "/", type: TrackType.View) {
+    "/melilive/recorded"(platform: "/", type: TrackType.View) {
         streamStatusGroup
     }
 
