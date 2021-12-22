@@ -54,4 +54,69 @@ trackTests {
             exception =  "Opcional"
         }
     }
+
+    test("Event Order Manager Store") {
+        "/proximity_order_manager/store" (platform: "/", type: TrackType.Event) {
+            store_id = 1
+            seller_id = 1
+            status = "paused"
+            type = "SHOULD_BE_ENABLED"
+            time_zone = "GMT-03:00"
+            business_hours = [
+                monday: [
+                    [
+                        open: "09:00",
+                        close: "12:00"
+                    ],
+                    [
+                        open: "13:00",
+                        close: "19:00"
+                    ]
+                ],
+                tuesday: [
+                    [
+                        open: "09:00",
+                        close: "19:00"
+                    ]
+                ],
+                wednesday: [
+                    [
+                        open: "09:00",
+                        close: "19:00"
+                    ]
+                ],
+                thursday: [
+                    [
+                        open: "09:00",
+                        close: "19:00"
+                    ]
+                ],
+                friday: [
+                    [
+                        open: "09:00",
+                        close: "19:00"
+                    ]
+                ],
+                saturday: [
+                    [
+                        open: "09:00",
+                        close: "19:00"
+                    ]
+                ],
+                sunday: [
+                    [
+                        open: "09:00",
+                        close: "19:00"
+                    ]
+                ],
+                holidays: [
+                    [
+                        open: "00:00",
+                        close: "23:59"
+                    ]
+                ]
+            ]
+        }
+    }
+
 }
