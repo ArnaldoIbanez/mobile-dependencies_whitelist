@@ -4460,10 +4460,18 @@ trackTests {
         "/auth/totp_in_app/validation/no_app"(platform: "/", type: TrackType.View) {
             id = "id"
         }
+        "/auth/totp_in_app/validation/onboarding"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
         "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             status = "approved"
             event_type = "polling"
+        }
+        "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "open-modal"
+            event_type = "click"
         }
         "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
             id = "id"
@@ -4483,6 +4491,11 @@ trackTests {
         "/auth/totp_in_app/validation/no_app/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             target = "decline_challenge"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "continue"
             event_type = "click"
         }
     }
