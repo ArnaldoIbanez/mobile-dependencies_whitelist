@@ -15,7 +15,7 @@ tracks {
     propertyDefinitions {
         opening_hours_today(
             required: false,
-            type: PropertyType.ArrayList(PropertyType.Map(opening_hour_definition)), 
+            type: PropertyType.ArrayList(PropertyType.Map(opening_hour_definition)),
             description: "Opening Hours"
         )
         seller_id(
@@ -24,7 +24,7 @@ tracks {
             description: "Seller Id"
         )
         store_id(
-            required: true,
+            required: false,
             type: PropertyType.Numeric,
             description: "Store Id"
         )
@@ -32,7 +32,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Action Event Name",
-            values: ["PRINT", "REPRINT", "CANCEL", "CLOSE_STORE", "OPEN_STORE", "CHANGE_STORE_STATUS"]
+            values: ["PRINT", "REPRINT", "REJECT", "CANCEL", "AUTOMATIC_CANCEL", "CLOSE_STORE", "OPEN_STORE", "CHANGE_STORE_STATUS", "ORDER_DETAILS", "CONFIRM_ORDER"]
         )
         session_type(
             required: true,
@@ -46,7 +46,7 @@ tracks {
             description: "Exception Stack"
         )
         session_id(
-            required: true,
+            required: false,
             type: PropertyType.String,
             description: "Session Id"
         )
@@ -65,11 +65,45 @@ tracks {
             type: PropertyType.String,
             description: "Session date updated"
         )
+        session_store_id(
+           required: false,
+            type: PropertyType.String,
+            description: "Session Store Id"
+        )
+        purchase_id(
+            required: false,
+            type: PropertyType.Numeric,
+            description: "Purchased Id"
+        )
+        sale_id(
+            required: false,
+            type: PropertyType.Numeric,
+            description: "Sale Id"
+        )
+        sale_type(
+            required: true,
+            type: PropertyType.String,
+            description: "Sale Event Name",
+            values: ["RECEIVE", "PUSH", "DELETE", "DELETE_BY_TTL", "CHANGE_STATUS"]
+        )
+        sale_status(
+            required: false,
+            type: PropertyType.String,
+            description: "Sale Current Status",
+            values: ["TO_PREPARE", "IN_PREPARE", "IN_TRANSIT", "FINALIZED", "UNKNOWN"]
+        )
+        sale_sub_status(
+            required: false,
+            type: PropertyType.String,
+            description: "Sale Current SubStatus",
+            values: ["TO_CONFIRM", "ON_TIME", "DELAYED", "DELIVERED", "NOT_DELIVERED", "DELIVERY_FAILED", "CANCELLED", "UNKNOWN"]
+        )
     }
 
     propertyGroups {
-        actionGroup(opening_hours_today, seller_id, store_id, action_type, exception)
+        actionGroup(opening_hours_today, seller_id, store_id, action_type,session_id, session_store_id, purchase_id, sale_id, exception)
         sessionGroup(session_id, seller_id, session_type, date, created_at, updated_at)
+        saleGroup(sale_id, seller_id, store_id, sale_type, session_id, purchase_id, sale_status, sale_sub_status, session_store_id, exception)
     }
 
     "/proximity_order_manager" (platform: "/", isAbstract: true) {}
@@ -86,5 +120,9 @@ tracks {
 
     "/proximity_order_manager/session" (platform: "/", type: TrackType.Event) {
         sessionGroup
+    }
+
+    "/proximity_order_manager/sale" (platform: "/", type: TrackType.Event) {
+        saleGroup
     }
 }

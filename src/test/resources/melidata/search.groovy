@@ -77,6 +77,11 @@ trackTests {
                 [item_id: "MLB510446223", position: 3, "type": "MLB3722"],
                 [item_id: "MLB510446224", position: 4, product_id:"MLB1333", "type": "MLB3722"]
         ],
+        crypto_cashback : [
+                [item_id: "MLB510446223", position: 2, "type": "MLB3722"],
+                [item_id: "MLB510446223", position: 3, "type": "MLB3722"],
+                [item_id: "MLB510446224", position: 4, product_id:"MLB1333", "type": "MLB3722", "amount": 32.3]
+        ],
         discount_volume : [],
         same_day : [],
         next_day : [],
@@ -97,6 +102,8 @@ trackTests {
 
     def enhancedInterventionInfoMock = [
             [
+                    intervention_tracking_id: "dd1ec405-0a55-4b55-aaa5-de29cc3ab5fb",
+                    intervention_version_id: "0.3.1-091121-q-0",
                     intervention_type: "FILTER_INTERVENTION",
                     class_type: "BRAND",
                     component_type: "pill",
@@ -104,6 +111,8 @@ trackTests {
                     results: []
             ],
             [
+                    intervention_tracking_id: "dd1ec405-0a42-4b55-aaa5-de29cc3ab5fz",
+                    intervention_version_id: "0.3.1-091121-q-0",
                     intervention_type: "FILTER_INTERVENTION",
                     class_type: "GENDER",
                     component_type: "pill",
@@ -684,7 +693,7 @@ trackTests {
         "/search/map/faceted_search"(platform: "/web") {
             defaultSearchInformation()
             defaultWebTrack()
-        }       
+        }
         "/search/search_map"(platform: "/") {
             defaultSearchInformation()
         }
@@ -878,6 +887,54 @@ trackTests {
     test("Search Advertising banners") {
         "/search/advertising"(platform: "/", type: TrackType.Event) {
             advertising_id = "sky"
+        }
+    }
+
+    test("Saerch Bill Payments Main Category Results Search") {
+        "/search/bill_payments/main_category/result_search"(platform: "/", type: TrackType.Event) {
+            limit = 50
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            view_mode = "LIST"
+            results = []
+        }
+    }
+
+    test("Search Failure Back") {
+        "/search/failure/back"(platform: "/", type: TrackType.Event) {
+            limit = 50
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            view_mode = "LIST"
+            results = []
+        }
+    }
+
+    test("Search Input Suggestion") {
+        "/search/input/suggestion"(platform: "/", type: TrackType.Event) {
+            limit = 50
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            view_mode = "LIST"
+            results = []
+        }
+    }
+
+    test("Search Zero Results Page") {
+        "/search/zrp"(platform: "/", type: TrackType.Event) {
+            limit = 50
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            view_mode = "LIST"
+            results = []
         }
     }
 

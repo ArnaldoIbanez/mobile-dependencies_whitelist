@@ -9,6 +9,7 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
+				equals("application.business", "mercadolibre")
 			}
 		}
 	}
@@ -17,7 +18,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("event_data.is_pdp", true)
+				and(
+					equals("event_data.is_pdp", true),
+					equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
@@ -28,6 +32,7 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
+				equals("application.business", "mercadolibre")
 			}
 		}
 	}
@@ -36,7 +41,8 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals(
+				and(
+					equals(
 						externalCondition {
 							url("internal/orders/\$0")
 							replace("event_data.order_id")
@@ -45,6 +51,8 @@ metrics {
 							jsonPath("status")
 						},
 						"paid"
+					),
+					equals("application.business", "mercadolibre")
 				)
 			}
 		}
@@ -68,7 +76,8 @@ metrics {
 						},
 						"paid"
 					),
-					equals("event_data.is_pdp", true)
+					equals("event_data.is_pdp", true),
+					equals("application.business", "mercadolibre")
 				)
 			}
 		}
@@ -91,7 +100,8 @@ metrics {
 						},
 						"paid"
 					),
-					equals("event_data.is_cbt", true)
+					equals("event_data.is_cbt", true),
+					equals("application.business", "mercadolibre")
 				)
 			}
 		}
@@ -114,7 +124,8 @@ metrics {
 						},
 						"paid"
 					),
-					equals("event_data.is_cpg", true)
+					equals("event_data.is_cpg", true),
+					equals("application.business", "mercadolibre")
 				)
 			}
 		}
@@ -145,6 +156,7 @@ metrics {
 							},
 							false
 					),
+					equals("application.business", "mercadolibre")
 				)
 			}
 		}
@@ -159,7 +171,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				empty("event_data.items.item.official_store_id", false)
+				and(
+					empty("event_data.items.item.official_store_id", false),
+					equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
@@ -168,7 +183,8 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				notEquals(
+				and(
+					notEquals(
 						externalCondition {
 							url("internal/orders/\$0")
 							replace("event_data.order_id")
@@ -177,6 +193,8 @@ metrics {
 							jsonPath("mediations")
 						},
 						""
+					),
+					equals("application.business", "mercadolibre")
 				)
 			}
 		}
@@ -186,6 +204,19 @@ metrics {
 		countsOn {
 			condition {
 				path("/purchases/purchasecreated")
+				equals("application.business", "mercadolibre")
+			}
+		}
+	}
+
+	"purchases.free_shipping"(description: "purchases with all free shipping packs from /purchase/purchasecreated", compute_order: true) {
+		countsOn {
+			condition {
+				path("/purchases/purchasecreated")
+				and (
+					equals("application.business", "mercadolibre"),
+					equals("event_data.is_free_shipping_purchase", true)
+				)
 			}
 		}
 	}
@@ -196,21 +227,26 @@ metrics {
 				or(
 					and (
 						equals("path", "/orders/ordercreated"),
-						equals("event_data.is_carrito", false)
+						equals("event_data.is_carrito", false),
+						equals("application.business", "mercadolibre")
 					),
 					and (
-						equals("path","/purchases/purchasecreated")
+						equals("path","/purchases/purchasecreated"),
+						equals("application.business", "mercadolibre")
 					)
 				)
 			}
 		}
 	}
 
-	"bids.sameItem"(description: "/orders/ordercreated from feed in the sam item of experiement", compute_order: true) {
+	"bids.sameItem"(description: "/orders/ordercreated from feed in the same item of experiement", compute_order: true) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("event_data.items.item.id", property("item_id"))
+				and(
+					equals("event_data.items.item.id", property("item_id")),
+					equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
@@ -221,8 +257,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("event_data.items.item.id", property("item_id"))
-
+				and(
+					equals("event_data.items.item.id", property("item_id")),
+					equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
@@ -231,7 +269,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
+				and(
+					equals("event_data.items.item.catalog_product_id", property("catalog_product_id")),
+					equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
@@ -251,7 +292,8 @@ metrics {
 						},
 						"paid"
 					),
-				equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
+				equals("event_data.items.item.catalog_product_id", property("catalog_product_id")),
+				equals("application.business", "mercadolibre")
 				)
 			}
 		}
@@ -285,6 +327,7 @@ metrics {
 							},
 							false
 					),
+					equals("application.business", "mercadolibre")
 				)
 			}
 		}
@@ -296,7 +339,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
+				and(
+					equals("event_data.items.item.catalog_product_id", property("catalog_product_id")),
+				    equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
@@ -307,7 +353,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("event_data.items.item.catalog_parent_id", property("catalog_parent_id"))
+				and(
+					equals("event_data.items.item.catalog_parent_id", property("catalog_parent_id")),
+					equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
@@ -319,7 +368,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("event_data.items.item.id", property("item_ids"))
+				and(
+					equals("event_data.items.item.id", property("item_ids")),
+					equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
@@ -341,7 +393,8 @@ metrics {
 						},
 						"paid"
 					),
-				equals("event_data.items.item.id", property("item_ids"))
+				equals("event_data.items.item.id", property("item_ids")),
+				equals("application.business", "mercadolibre")
 				)
 			}
 		}
@@ -354,11 +407,13 @@ metrics {
 						and(
 								equals("path", "/orders/ordercreated"),
 								equals("event_data.is_carrito", false),
-								equals('event_data.is_pdp',true)
+								equals('event_data.is_pdp',true),
+								equals("application.business", "mercadolibre")
 						),
 						and(
 								equals("path","/purchases/purchasecreated"),
-								equals('event_data.is_pdp',true)
+								equals('event_data.is_pdp',true),
+								equals("application.business", "mercadolibre")
 						)
 				)
 			}
@@ -375,9 +430,13 @@ metrics {
 								and(
 										equals("path", "/orders/ordercreated"),
 										equals("event_data.is_carrito", false),
+										equals("application.business", "mercadolibre")
 
 								),
-								equals("path", "/purchases/purchasecreated"),
+								and(
+									equals("path", "/purchases/purchasecreated"),
+									equals("application.business", "mercadolibre")
+								)
 						),
 						like('event_data.items.item.category_path', '.*MLA(398582|1387|1676).*')
 				)
@@ -395,10 +454,12 @@ metrics {
 						or(
 								and(
 										equals("path", "/orders/ordercreated"),
-										equals("event_data.is_carrito", false)
+										equals("event_data.is_carrito", false),
+										equals("application.business", "mercadolibre")
 								),
 								and(
-										equals("path","/purchases/purchasecreated")
+										equals("path","/purchases/purchasecreated"),
+										equals("application.business", "mercadolibre")
 								)
 						)
 				)
@@ -413,17 +474,19 @@ metrics {
 			condition {
 				path("/orders/ordercreated")
 				and(
-						equals("event_data.order_id", property("order_id")),
-						equals(
-								externalCondition {
-									url("internal/orders/\$0")
-									replace("event_data.order_id")
-									method("get")
-									successfulCodes(200, 206)
-									jsonPath("status")
-								},
-								"paid"
-						))
+					equals("event_data.order_id", property("order_id")),
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200, 206)
+								jsonPath("status")
+							},
+							"paid"
+					),
+					equals("application.business", "mercadolibre")
+				)
 			}
 		}
 	}
@@ -434,7 +497,8 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				like(
+				and(
+					like(
 						externalCondition {
 							url("internal/orders/\$0")
 							replace("event_data.order_id")
@@ -443,6 +507,20 @@ metrics {
 							jsonPath("internal_tags")
 						},
 						"meli_warranty"
+					),
+					equals("application.business", "mercadolibre")
+				)
+			}
+		}
+	}
+
+	"bids.noUid"(description: "/orders/ordercreated from feed with no UID", compute_order: true, tags:[TagType.CoreMetric]) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and(
+					isNull("user.uid"),
+					equals("application.business", "mercadolibre")
 				)
 			}
 		}

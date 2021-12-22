@@ -23,7 +23,27 @@ trackTests {
     test("Vendor Central summary discount congrats view") {
         "/vendor_central/summary/discount_congrats"(platform: "/web", type: TrackType.View) {}
     }
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Offerings Listing
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    test("Vendor Central Offerings Listing list view") {
+        "/vendor_central/offerings_listing"(platform: "/web", type: TrackType.View) {}
+    }
 
+    test("Vendor Central Offerings Listing list filtering event by search type filter") {
+        "/vendor_central/bulk/offerings_listing/filter"(platform: "/web", type: TrackType.Event) {
+            type = 'search'
+            criteria: 'SKU'
+            values = ['Bicicleta']
+        }
+    }
+
+    test("Vendor Central Offerings Listing list filtering event by query type filter") {
+        "/vendor_central/bulk/offerings_listing/filter"(platform: "/web", type: TrackType.Event) {
+            type = 'query'
+            values = ['UNDER_REVIEW', 'closed']
+        }
+    }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor central BULK Offering offline editor
     //------------------------------------------------------------------------------------------------------------------------------------------------------

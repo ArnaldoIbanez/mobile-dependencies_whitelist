@@ -34,6 +34,7 @@ tracks {
     // Blocking screen
     "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}
     "/asset_management/blocker"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/operator_blocker"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/legal_entity_selector"(platform: "/mobile", type: TrackType.View) {}
 
     // Challenges
@@ -72,6 +73,8 @@ tracks {
     "/asset_management/congrats_error"(platform: "/web", type: TrackType.View) {}
 
     // Terms & Conditions Views
+    "/asset_management/terms_and_conditions_operator"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/terms_and_conditions_operator"(platform: "/web", type: TrackType.View) {}
     "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/terms_and_conditions"(platform: "/web", type: TrackType.View) {}
     "/asset_management/accept_tyc"(platform: "/mobile", type: TrackType.View) {}

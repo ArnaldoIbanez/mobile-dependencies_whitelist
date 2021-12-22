@@ -107,6 +107,9 @@ tracks {
 
     def apparel_definition = objectSchemaDefinitions {
         has_size_chart(required: false, type: PropertyType.Boolean, description: "Indicates whether the item has size chart")
+        size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
+        grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
+        grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
     }
 
 
@@ -141,6 +144,11 @@ tracks {
 
     def credits_consumer_map = objectSchemaDefinitions {
         type(required: true, values: ["acquisition", "activation"], type: PropertyType.String, description: "Indicates the type of product")
+    }
+
+    def crypto_definition = objectSchemaDefinitions {
+        type(required: false, type: PropertyType.String, description: "Indicates the type of the crypto returned by the item")
+        amount(required: false, type: PropertyType.Numeric, description: "Returned amount in local currency")
     }
     //VIP FLOW
 
@@ -335,21 +343,24 @@ tracks {
 
         // CREDITS CONSUMER
         credits_consumer(required: false, type: PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
+
+        // Crypto
+        crypto(required: false, type: PropertyType.Map(crypto_definition), description: "Indicates whether the item has a return amount in crypto")
     }
 
     "/vip"(platform: "/web") {
         specifications_size(required: false, type: PropertyType.Numeric, description: "Specifications attributes quantity")
         max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
-        contract_available(required: false, type: PropertyType.Boolean)
+        contract_available(required: false, type: PropertyType.Boolean, description: "Indicate if the item is contratable")
         gallery_dimension(required: false, type: PropertyType.String, values: ["wide", "square", "artsinfoto"],
                 description: "Indicates the gallery dimension format")
     }
 
     "/vip"(platform: "/mobile") {
-        context(required: false)
+        context(required: false, type: PropertyType.String, description: "Indicates context")
         resolution(required: false, description: "Indicates if the device has high or low resolution")
         whatsapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
-        contract_available(required: false, type: PropertyType.Boolean)
+        contract_available(required: false, type: PropertyType.Boolean, description: "Indicate if the item is contratable")
     }
 
     "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
@@ -385,7 +396,7 @@ tracks {
                 description: "Whenever the items is active, closed or paused")
         deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         seller_id(required: false, type: PropertyType.Numeric)
-        contract_available(required: false, type: PropertyType.Boolean)
+        contract_available(required: false, type: PropertyType.Boolean, description: "Indicate if the item is contratable")
         comparator_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if clasi item has model comparator available")
         gallery_pattern(required: false, type: PropertyType.String,
@@ -516,13 +527,16 @@ tracks {
     "/vip/color_and_size"(platform: "/mobile") {}
 
     "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {
-        context(required: false)
+        context(required: false, type: PropertyType.String, description: "Indicates context")
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
     "/vip/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
          referer(required: false, type: PropertyType.String, description: "Size chart referer")
+         size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
+         grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
+         grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
     }
 
     "/vip/sizechart/tutorial"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
@@ -541,13 +555,17 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
-    "/vip/apparel/size_chart_preview"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
+    "/vip/apparel/size_chart_preview"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
+        grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
+        grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
+    }
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
     "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
         catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing. it will be true when comes from VPP")
-        contract_available(required: false, type: PropertyType.Boolean)
+        contract_available(required: false, type: PropertyType.Boolean, description: "Indicate if the item is contratable")
         description_type(required: false, description: "Description type: plain text, html, both, none",
                 values: ["plain_text", "html", "both", "none"])
         video_type(required: true, type: PropertyType.String, values: ["VIEW360", "TOUR360", "VIDEO", "NONE"],
@@ -911,7 +929,7 @@ tracks {
 
     "/vip/comparator_price/interactive_bin/bar"(platform: "/web", type: TrackType.Event) {}
 
-    "/vip/points_of_interest"(platform: "/web", type: TrackType.View, isAbstract: true) {
+    "/vip/points_of_interest"(platform: "/", type: TrackType.View, isAbstract: true) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         vertical(required: true, type: PropertyType.String,
@@ -921,12 +939,12 @@ tracks {
         item_seller_type(required: false, values: ['normal', 'real_estate_agency'], description: "Seller type: normal, real_estate_user, etc")
     }
 
-    "/vip/points_of_interest/transport"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/education"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/leisure"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/commerce"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/health"(platform: "/web", type: TrackType.Event) {}
-    "/vip/points_of_interest/link_map"(platform: "/web", type: TrackType.Event) {}
+    "/vip/points_of_interest/transport"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/education"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/leisure"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/commerce"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/health"(platform: "/", type: TrackType.Event) {}
+    "/vip/points_of_interest/link_map"(platform: "/", type: TrackType.Event) {}
 
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION

@@ -68,6 +68,36 @@ trackTests {
         }
     }
 
+    test("MeliLive stream broadcast recorded") {
+        "/melilive/stream/recorded"(platform: "/") {
+            stream = [
+                    "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
+                    "title"       : "Melilive",
+                    "started_at"  : "2021-01-23T17:00:48Z",
+                    "template_id" : "ede1ad69-c277-4f60-90c8-b845ca804fbe",
+                    "channel_id"  : 546789702
+            ]
+            products = [
+                    [
+                            "seller_id"         : 46772732,
+                            "item_id"           : "MLA750284572",
+                            "category_id"       : "MLA413229",
+                            "domain_id"         : "MLA-LATEX_ENAMEL_AND_ACRYLIC_PAINTS",
+                            "is_catalog_listing": false
+                    ]
+            ]
+            viewer_info = [
+                    "loyalty_level": 1,
+                    "zipcode"      : "1416",
+                    "muted"        : false,
+                    "overlay_on"   : true,
+                    "orientation"  : "landscape"
+
+            ]
+            tracking_id = "5441d655-f5a6-420a-868b-3700c356164a"
+        }
+    }
+
     test("MeliLive WebView") {
 
         "/melilive/webview"(platform: "/mobile") {

@@ -115,23 +115,25 @@ tracks {
     "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/account_selected"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
-        search_account_filter (required_:false, description: "Indicate if filter view")
-        search_account_value (required_:false, description: "Indicate if account id")
+        type (required:false, description: "Recent account type")
+        search_account_filter (required:false, description: "Indicate if user has applied a filter for recents")
+        search_account_value (required:false, description: "Applied text filter value")
+        account_id (required:false, description: "Account id associated to recent transfer")
     }
     "/money_out/transfers/home/delete_account_button_clicked"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
-        search_account_filter (required_:false, description: "Indicate if filter view")
-        search_account_value (required_:false, description: "Indicate if account id")
+        type (required:false, description: "Recent account type")
+        search_account_filter (required:false, description: "Indicate if user has applied a filter for recents")
+        search_account_value (required:false, description: "Applied text filter value")
+        account_id (required:false, description: "Account id associated to recent transfer")
     }
     "/money_out/transfers/home/account_mark_favorite"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
+        type (required:false, description: "Indicate if account is ted or mp")
     }
     "/money_out/transfers/home/account_unmark_favorite"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
+        type (required:false, description: "Indicate if account is ted or mp")
     }
     "/money_out/transfers/home/account_deleted"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
+        type (required:false, description: "Indicate if account is ted or mp")
     }
     "/money_out/transfers/home/recents_tab_selected"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/favs_tab_selected"(platform: "/", type: TrackType.Event) {}
@@ -262,7 +264,7 @@ tracks {
     //Transfer Hub - Pix
     "/money_out/transfers/pix_dashboard"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
-        type(required_:false, description: "Indicates the type selected ")
+        type(required:false, description: "Indicates the type selected ")
     }
 
     //Bottom Sheet - Unified P2P

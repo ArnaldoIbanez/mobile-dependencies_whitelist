@@ -524,4 +524,179 @@ trackTests {
             defaultDriverAndRouteIds()
         }
     }
+
+    test("MercadoEnvios - Driver Apps - Testing Stops-Listing") {
+
+        def defaultLocation =
+                {
+                    latitude = "-36.34443"
+                    longitude = "-35.34332"
+                }
+
+        def defaultStopsStatusData = {
+            stops_info = [
+                    pending: [2,3,4,5],
+                    retryable: [1,2],
+                    deliver: [7,8],
+                    partial: [9,10]
+            ]
+        }
+        def defaultRouteData = {
+            route_info= [
+                    route_id: "323232",
+                    driver_id: "2768",
+                    vehicle_id: "23232424",
+                    logistics_type: "LOGISTICS",
+                    logistics_subtype: "LASTMILE"
+            ]
+        }
+
+        "/driver/listing/list"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            defaultStopsStatusData()
+        }
+
+        "/driver/listing/list/go_to_scanner"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+        }
+
+        "/driver/listing/list/go_to_profile"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+        }
+
+        "/driver/listing/list/go_to_map"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+        }
+
+        "/driver/listing/list/go_to_there"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            stop_id = "3"
+            stop_status = "PENDING"
+        }
+
+        "/driver/listing/list/collapse"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            group = "FINISHED"
+        }
+
+        "/driver/listing/list/go_to_rts"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            defaultStopsStatusData()
+        }
+
+        "/driver/listing/map"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            defaultStopsStatusData()
+        }
+
+        "/driver/listing/map/go_to_scanner"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+        }
+
+        "/driver/listing/stop"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            stop_id = "1"
+            stop_status = "COMPLETED"
+            points = ["1","3"]
+            cargos = ["2","4"]
+        }
+
+        "/driver/listing/stop/go_to_there"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultRouteData()
+            stop_id = "1"
+            stop_status = "PENDING"
+        }
+
+        "/driver/listing/stop/how_to_get"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultRouteData()
+            stop_id = "1"
+            stop_status = "PENDING"
+        }
+
+        "/driver/listing/point"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            point_id = "3"
+            point_status = "COMPLETED"
+            cargos = ["2","4"]
+        }
+
+        "/driver/listing/point/call_buyer"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            point_id = "3"
+            point_status = "COMPLETED"
+            cargos = ["3","4"]
+        }
+
+        "/driver/listing/point/send_messages"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            point_id = "3"
+            point_status = "COMPLETED"
+            cargos = ["2","4"]
+        }
+
+        "/driver/listing/scanner"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "ADD_PACKAGE"
+        }
+
+        "/driver/listing/scanner"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "AMBULANCE"
+        }
+
+        "/driver/listing/scanner/finish_scan"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "AMBULANCE"
+            package_amount = 1
+        }
+
+        "/driver/listing/scanner/finish_scan"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "ADD_PACKAGE"
+            package_amount = 1
+        }
+
+        "/driver/listing/scanner/input_manual"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+        }
+
+        "/driver/listing/scanner/input_manual/confirm"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+        }
+
+        "/driver/listing/scanner/collapse"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "COLLAPSE"
+            packages = ["40519993434","40519748734"]
+        }
+
+        "/driver/listing/scanner/collapse"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultRouteData()
+            type = "EXPAND"
+            packages = ["40519993435","40519748733"]
+        }
+    }
 }

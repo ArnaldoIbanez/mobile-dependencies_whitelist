@@ -103,4 +103,19 @@ metrics {
         }
     }
 
+    "loyalty.subscription.level6"(description: "User who subscribed to level 6") {
+        countsOn {
+            condition {
+                path("/loyalty/buylevel/congrats")
+                and(
+                        equals("event_data.payment_status", "approve"),
+                        or(
+                                equals("event_data.payment_status", "pending"),
+                                equals("event_data.payment_status", "in_process")
+                        )
+                )
+            }
+        }
+    }
+
 }

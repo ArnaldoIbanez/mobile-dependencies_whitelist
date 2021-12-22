@@ -104,6 +104,22 @@ trackTests {
         }
     }
 
+    test("Short URL Request: Error") {
+        "/navigation/short_url"(platform: "/mobile/ios", type: TrackType.Event) {
+            is_success = false
+            tidy_id = "2WQoXPS"
+            error_code = "400"
+        }
+    }
+
+    test("Short URL Request: Success") {
+        "/navigation/short_url"(platform: "/mobile/ios", type: TrackType.Event) {
+            is_success = true
+            tidy_id = "2WQoZHP"
+            error_code = ""
+        }
+    }
+
     test("Mobile Navigation Tabs"){
         "/navigation/tabs"(platform: "/mobile/ios", type: TrackType.Event) {
             action = "TAB_SELECTED"
@@ -217,6 +233,7 @@ trackTests {
             available_ram_memory = 612724736
             vpn_connected = false
             bluetooth_enabled = true
+            background_refresh = "Enabled"
         }
 
         "/devices/metadata"(platform:"/mobile", business: "mercadopago") {
@@ -243,6 +260,7 @@ trackTests {
             available_ram_memory = 612724736
             vpn_connected = false
             bluetooth_enabled = true
+            background_refresh = "Disabled"
         }
     }
 
