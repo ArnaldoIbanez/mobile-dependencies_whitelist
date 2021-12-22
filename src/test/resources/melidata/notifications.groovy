@@ -2767,7 +2767,23 @@ trackTests {
             source = "logout"
         }
         "/notification/transfer_online_approved"(platform: "/mobile") {
-            news_id = "transfer_online_approved-approved_ml-12345678"
+            news_id = "transfer_online_approved-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_in_process"(platform: "/mobile") {
+            news_id = "transfer_online_in_process-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_rejected"(platform: "/mobile") {
+            news_id = "transfer_online_rejected-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_review_manual"(platform: "/mobile") {
+            news_id = "transfer_online_review_manual-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_scheduled"(platform: "/mobile") {
+            news_id = "transfer_online_scheduled-12345678"
             event_type = "sent"
         }
         "/notification/account_fund_approved_ml"(platform: "/mobile") {
