@@ -25,7 +25,16 @@ trackTests {
     }
   }
 
-  // ----- Reservation stage -----
+  test("Summary how to use button") {
+    "/instore/challenge/summary/other_discounts" (platform: "/", type: TrackType.View) {
+      session_id = "11"
+      suscribed = 4
+      not_suscribed = 2
+      total_challenges = 6
+    }
+  }
+
+  // ----- Detail stage -----
   test("Detail view") {
     "/instore/challenge/detail" (platform: "/", type: TrackType.View) {
       challenge_id = "wqejwej1-111"
@@ -61,6 +70,7 @@ trackTests {
       optin_status = "PENDING"
     }
   }
+
   test("Join button") {
     "/instore/challenge/detail/join/fail" (platform: "/", type: TrackType.Event) {
       challenge_id = "wqejwej1-111"
@@ -72,8 +82,9 @@ trackTests {
       optin_status = "PENDING"
     }
   }
-  test("Other_discounts button") {
-    "/instore/challenge/detail/other_discounts" (platform: "/", type: TrackType.Event) {
+
+  test("how_to_use_qr button") {
+    "/instore/challenge/detail/how_to_use_qr" (platform: "/", type: TrackType.Event) {
      challenge_id = "wqejwej1-111"
       session_id = "11"
       user_payments = 2

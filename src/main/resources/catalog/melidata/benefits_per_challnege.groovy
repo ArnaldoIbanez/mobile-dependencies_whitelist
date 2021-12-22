@@ -21,11 +21,13 @@ tracks {
     total_challenges(required: true, type: PropertyType.Numeric, description: "Total challenge amount")
   }
 
-  "/instore/challenge/summary/how_to_use" (platform: "/", type: TrackType.View) {
+  "/instore/challenge/summary/how_to_use" (platform: "/", type: TrackType.Event) {
     suscribed(required: true, type: PropertyType.Numeric, description: "Suscribed amount")
     not_suscribed(required: true, type: PropertyType.Numeric, description: "Not suscribed amount")
     total_challenges(required: true, type: PropertyType.Numeric, description: "Total challenge amount")
   }
+
+  "/instore/challenge/summary/other_discounts" (platform: "/", type: TrackType.Event) {}
 
   // ----- Detail page -----
   "/instore/challenge/detail" (platform: "/", type: TrackType.View) {
@@ -37,17 +39,16 @@ tracks {
     optin_status(required: true, type: PropertyType.String, values:['ACCEPTED','PENDING'], description: "Optin status")
   }
   
-  "/instore/challenge/detail/find_stores" (platform: "/", type: TrackType.Event) {}
-  
   "/instore/challenge/detail/join/success" (platform: "/", type: TrackType.Event) {}
 
   "/instore/challenge/detail/join/fail" (platform: "/", type: TrackType.Event) {}
-
-  "/instore/challenge/detail/other_discounts" (platform: "/", type: TrackType.Event) {}
+  
+  "/instore/challenge/detail/find_stores" (platform: "/", type: TrackType.Event) {}
 
   "/instore/challenge/detail/terms_and_conditions" (platform: "/", type: TrackType.Event) {}
-
   
+  "/instore/challenge/detail/how_to_use_qr" (platform: "/", type: TrackType.Event) {}
+
   // ----- FTU pages -----
   "/instore/challenge/onboarding" (platform: "/", type: TrackType.View) {}
 
