@@ -7169,6 +7169,10 @@ trackTests {
             news_id = "claim_respondent_to_complainant_message-186785675-76283123"
             event_type = "open"
         }
+        "/notification/return_pick_product_wh_by_seller"(platform: "/mobile"){
+            news_id = "return_pick_product_wh_by_seller-186785675-76283123"
+            event_type = "open"
+        }
 
         "/notification/claim_closed_seller_refund"(platform: "/mobile"){
             news_id = "claim_closed_seller_refund-186785675-76283123"
