@@ -2743,6 +2743,15 @@ trackTests {
         "/insurtech/protections/detail/cards/error"(platform:"/", type: TrackType.View) {
         }
 
+        "/insurtech/protections/detail/cards/claim_detail"(platform:"/web", type: TrackType.View) {
+            claim = [
+                id: "c1b3ac37-e5ac-48fb-8532-560ebe2368dc",
+                claim_number: "1446336",
+                has_previous_claim: false,
+                status: "OPEN"
+            ]
+        }
+
         "/insurtech/protections/detail/begin_claim"(platform:"/web", type: TrackType.View) {
             client_device = [
                 brand: "Samsung",
@@ -3065,15 +3074,31 @@ trackTests {
         //Success
         "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View) {
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
         "/insurtech/cards/congrats_success/go_cards"(platform:"/", type: TrackType.Event){
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
         "/insurtech/cards/congrats_success/go_protections"(platform:"/", type: TrackType.Event){
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
         "/insurtech/cards/congrats_success/close"(platform:"/", type: TrackType.Event){
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
     }
 
@@ -3599,7 +3624,7 @@ trackTests {
     ["mercadolibre", "mercadopago"].each { business ->
 		defaultBusiness = business
         test("Insurtech - ${business} tests adquisition tacking without touchpointData") {
-            "/insurtech/adquisition/fallback"(platform:"/web", type: TrackType.View) {}
+            "/insurtech/adquisition/fallback"(platform:"/", type: TrackType.View) {}
         }
         test("Insurtech - ${business} tests adquisition tacking ") {
             "/insurtech/adquisition/fallback"(platform:"/", type: TrackType.View) {

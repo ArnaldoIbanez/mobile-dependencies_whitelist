@@ -5,8 +5,8 @@ import com.ml.melidata.catalog.PropertyType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
-
 tracks
+
   {
       initiative = "1047"
 
@@ -26,6 +26,7 @@ tracks
             type:  PropertyType.Numeric,
             required: true
           )
+
         }
 
       def crypto_definition = objectSchemaDefinitions {
@@ -81,7 +82,7 @@ tracks
                   required: true
           )
           payment_method(
-                  description: "",
+                  description: "payment method",
                   type: PropertyType.String,
                   required: true
           )
@@ -94,13 +95,13 @@ tracks
                   required: true,
                   values:["sell_crypto", "buy_crypto"]
           )
-          crypto(  //validar con nicolas
+          crypto(
                   description: "Name of Crypto Currency",
                   type: PropertyType.String,
                   required: true
           )
           amount(
-                  description: "", // nicolas
+                  description: "Gross transaction value",
                   type: PropertyType.Numeric,
                   required: true
           )
@@ -281,18 +282,18 @@ tracks
         user_profile(type: PropertyType.String, required: true, description: 'Profile of user')
         amount(type: PropertyType.Numeric, required: true, description: 'Amount of the operation in local currency')
         crypto(type: PropertyType.String, required: true, description: 'Type of crypto', values: ["bitcoin", "ethereum","melicoin","usdp" ])
-        payment(type: PropertyType.Map(payment_definition), required: true, description: 'Info about payment') // TODO : validar con nicolas
+        payment(type: PropertyType.Map(payment_definition), required: true, description: 'Info about payment')
         quote(type: PropertyType.Map(quote_definition), required: true, description: 'Quote offer by proveedor')
-        congrats_status(type: PropertyType.String, required: true, description: '') // TODO : validar con nicolas
+        congrats_status(type: PropertyType.String, required: true, description: 'Status of congrats')
       }
 
       "/crypto/sell/congrats" (platform: "/mobile", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true, description: 'Profile of user')
         amount(type: PropertyType.Numeric, required: true, description: 'Amount of the operation in local currency')
         crypto(type: PropertyType.String, required: true, description: 'Type of crypto', values: ["bitcoin", "ethereum","melicoin","usdp" ])
-        payment(type: PropertyType.Map(payment_definition), required: true, description: 'Info about payment') // TODO : validar con nicolas
+        payment(type: PropertyType.Map(payment_definition), required: true, description: 'Info about payment')
         quote(type: PropertyType.Map(quote_definition), required: true, description: 'Quote offer by proveedor')
-        congrats_status(type: PropertyType.String, required: true, description: 'Status of congrats') // TODO : validar con nicolas
+        congrats_status(type: PropertyType.String, required: true, description: 'Status of congrats')
       }
 
       "/crypto/movements/detail" (platform: "/mobile", type: TrackType.View) {

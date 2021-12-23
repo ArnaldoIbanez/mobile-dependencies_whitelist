@@ -30,6 +30,9 @@ trackTests {
             total = 2
             accounts = [[type: "MP"], [type: "BANKING", warning: "BLOCKER"]]
         }
+        "/funds_movements/bottom_sheet"(platform: "/mobile") {
+            total = 1
+        }
         "/funds_movements/bottom_sheet/account_selected"(platform: "/mobile") {
             type = "MP"
         }

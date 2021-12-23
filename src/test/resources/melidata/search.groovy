@@ -77,6 +77,11 @@ trackTests {
                 [item_id: "MLB510446223", position: 3, "type": "MLB3722"],
                 [item_id: "MLB510446224", position: 4, product_id:"MLB1333", "type": "MLB3722"]
         ],
+        crypto_cashback : [
+                [item_id: "MLB510446223", position: 2, "type": "MLB3722"],
+                [item_id: "MLB510446223", position: 3, "type": "MLB3722"],
+                [item_id: "MLB510446224", position: 4, product_id:"MLB1333", "type": "MLB3722", "amount": 32.3]
+        ],
         discount_volume : [],
         same_day : [],
         next_day : [],
@@ -98,6 +103,7 @@ trackTests {
     def enhancedInterventionInfoMock = [
             [
                     intervention_tracking_id: "dd1ec405-0a55-4b55-aaa5-de29cc3ab5fb",
+                    intervention_version_id: "0.3.1-091121-q-0",
                     intervention_type: "FILTER_INTERVENTION",
                     class_type: "BRAND",
                     component_type: "pill",
@@ -106,6 +112,7 @@ trackTests {
             ],
             [
                     intervention_tracking_id: "dd1ec405-0a42-4b55-aaa5-de29cc3ab5fz",
+                    intervention_version_id: "0.3.1-091121-q-0",
                     intervention_type: "FILTER_INTERVENTION",
                     class_type: "GENDER",
                     component_type: "pill",
