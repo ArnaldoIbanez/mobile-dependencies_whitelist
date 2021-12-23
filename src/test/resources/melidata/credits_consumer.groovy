@@ -387,6 +387,12 @@ trackTests {
             status = 'prepaid_enabled'
         }
 
+        "/credits/consumer/personal/adoption/congrats/shortcut"(platform: "/mobile", type: TrackType.Event) {
+            tag_id = 'Transferencias'
+            position = 0
+            status = 'prepaid_enabled'
+        }
+
         "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
             status = 'prepaid_enabled'
         }

@@ -376,6 +376,8 @@ tracks {
 
     "/auth/totp_in_app/validation/no_app"(platform: "/", type: TrackType.View) {}
 
+    "/auth/totp_in_app/validation/onboarding"(platform: "/", type: TrackType.View) {}
+
     "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         status(type: PropertyType.String, required: true, values: ["approved", "rejected", "expired", "decline_challenge", "show_qr", "go_to_app"], description: "Describes element related to user action")
@@ -384,7 +386,7 @@ tracks {
 
     "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
-        status(type: PropertyType.String, required: true, values: ["approved", "rejected", "expired", "update_qr", "decline_challenge"], description: "Describes element related to user action")
+        status(type: PropertyType.String, required: true, values: ["approved", "rejected", "expired", "update_qr", "decline_challenge", "open_modal", "close_modal"], description: "Describes element related to user action")
         event_type(type: PropertyType.String, required: true, values: ["polling", "click"], description: "Type of event")
     }
 
@@ -404,6 +406,12 @@ tracks {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, values: ["go_home", "decline_challenge"], description: "Describes element related to user action")
         event_type(type: PropertyType.String, required: true, description: "Type of event")
+    }
+
+    "/auth/totp_in_app/validation/onboarding/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, values: ["continue"], description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, values: ["click"],  description: "Type of event")
     }
 
     // Password
@@ -772,6 +780,26 @@ tracks {
     }
 
     "/screenlock/multiple_sessions_shield"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+    }
+
+    // Anomalies
+    "/screenlock/anom/os_biometrics_changed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.App) {
+        old_value(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "specify previous security type on user device")
+        new_value(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "specify actual security type on user device")
+    }
+
+    "/screenlock/anom/jb_changed"(platform: "/mobile/ios", parentPropertiesInherited: false, type: TrackType.App) {
+        old_value(type: PropertyType.Boolean, required: true, description: "specify previous jailbreak status on user device")
+        new_value(type: PropertyType.Boolean, required: true, description: "specify actual jailbreak status on user device")
+    }
+
+    "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", parentPropertiesInherited: false, type: TrackType.App) {
+        old_value(type: PropertyType.String, required: true, description: "specify previous biometric hash  on user device")
+        new_value(type: PropertyType.String, required: true, description: "specify actual biometric hash on user device")
+    }
+
+    "/screenlock/anom/storage_error"(platform: "/mobile/ios", parentPropertiesInherited: false, type: TrackType.App) {
+        error_type(type: PropertyType.String, required: true, values: ["failed_get_transaction", "failed_get_value", "failed_put_value"], description: "specify the storage error type")
     }
 
     // IFPE Auth restrictions & Reauth errors
