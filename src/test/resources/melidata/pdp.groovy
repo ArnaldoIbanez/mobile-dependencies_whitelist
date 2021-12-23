@@ -394,6 +394,35 @@ trackTests {
             currency_id = "ARS"
         })
 
+        "/pdp/remove_from_cart_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            seller_id = 1234
+            domain_id = "MLA-CELLPHONES"
+
+            item_id = "MLA533657947"
+            quantity = 3
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            loyalty_level = 2
+            vertical = "core"
+            review_rate = 4.6
+            official_store_id = 1
+            reputation_level = "5_green"
+            installment_info = "6f"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            power_seller_status = "platinum"
+            seller_name = "fulanito"
+
+            cart()
+            shipping()
+            pickup()
+            pricingTwoPointO()
+
+            price = 8400
+            currency_id = "ARS"
+        })
+
         "/pdp/multiple_offer/select_offer"(platform: "/") {
             item_id = "MLA12345678"
             multiple_offer_type = "BEST_PRICE"
