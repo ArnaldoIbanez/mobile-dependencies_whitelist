@@ -239,41 +239,64 @@ trackTests {
     // ***************** CHAT ******************
 
     test("Chat messages") {
+
         "/melilive/stream/chat/first_message"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             ]
-            room_id = "room-v3-03"
+            chat = [
+                "room_id": "room-v3-03"
+            ]
+            role = "PUBLISHER"
         }
 
         "/melilive/stream/chat/message_error"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             ]
-            room_id = "room-v3-03"
+            chat = [
+                "room_id": "room-v3-03",
+                "slow_mode": true,
+                "slow_mode_time": 1000
+            ]
+            role = "VIEWER"
+            error_code = "MESSAGE_IGNORED_BY_SLOW_MODE"
         }
 
-        "/melilive/stream/chat/chat_scroll"(platform: "/") {
-            stream = [
-                    "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe"
-            ]
-            room_id = "room-v3-03"
-        }
     }
 
     test("Creator / Moderator chat") {
+
         "/melilive/creator/chat/ban"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             ]
-            room_id = "room-v3-03"
+            chat = [
+                "room_id": "room-v3-03"
+            ]
         }
 
-        "/melilive/creator/chat/moderation"(platform: "/") {
+        "/melilive/creator/chat/first_message"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             ]
-            room_id = "room-v3-03"
+            chat = [
+                "room_id": "room-v3-03"
+            ]
+            role = "MODERATOR"
+        }
+
+        "/melilive/creator/chat/message_error"(platform: "/") {
+            stream = [
+                    "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe"
+            ]
+            chat = [
+                "room_id": "room-v3-03",
+                "slow_mode": false,
+                "slow_mode_time": 1000
+            ]
+            role = "PUBLISHER"
+            error_code = "MESSAGE_ERROR"
         }
     }
 }
