@@ -16,14 +16,14 @@ tracks {
 
     // ----- HUB page -----
   "/instore/challenge/summary" (platform: "/", type: TrackType.View) {
-    suscribed(required: true, type: PropertyType.Numeric, description: "Suscribed amount")
-    not_subscribed(required: true, type: PropertyType.Numeric, description: "Not suscribed amount")
+    subscribed(required: true, type: PropertyType.Numeric, description: "subscribed amount")
+    not_subscribed(required: true, type: PropertyType.Numeric, description: "Not subscribed amount")
     total_challenges(required: true, type: PropertyType.Numeric, description: "Total challenge amount")
   }
 
   "/instore/challenge/summary/how_to_use" (platform: "/", type: TrackType.Event) {
-    suscribed(required: true, type: PropertyType.Numeric, description: "Suscribed amount")
-    not_suscribed(required: true, type: PropertyType.Numeric, description: "Not suscribed amount")
+    subscribed(required: true, type: PropertyType.Numeric, description: "subscribed amount")
+    not_subscribed(required: true, type: PropertyType.Numeric, description: "Not subscribed amount")
     total_challenges(required: true, type: PropertyType.Numeric, description: "Total challenge amount")
   }
 

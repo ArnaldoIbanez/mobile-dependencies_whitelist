@@ -10,7 +10,7 @@ trackTests {
   test("Summary view") {
     "/instore/challenge/summary" (platform: "/", type: TrackType.View) {
       session_id = "11"
-      suscribed = 4
+      subscribed = 4
       not_subscribed = 2
       total_challenges = 6
     }
@@ -19,7 +19,7 @@ trackTests {
   test("Summary how to use button") {
     "/instore/challenge/summary/how_to_use" (platform: "/", type: TrackType.View) {
       session_id = "11"
-      suscribed = 4
+      subscribed = 4
       not_subscribed = 2
       total_challenges = 6
     }
@@ -28,7 +28,7 @@ trackTests {
   test("Summary how to use button") {
     "/instore/challenge/summary/other_discounts" (platform: "/", type: TrackType.View) {
       session_id = "11"
-      suscribed = 4
+      subscribed = 4
       not_subscribed = 2
       total_challenges = 6
     }
