@@ -124,7 +124,7 @@ trackTests {
 
     test("Melilive PreLive") {
 
-        "/melilive/stream/prelive"(platform: "/") {
+        "/melilive/prelive"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
                     "title": "Melilive Stream",

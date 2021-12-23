@@ -116,7 +116,7 @@ tracks {
         viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
     }
 
-    "/melilive/stream/prelive"(platform: "/", type: TrackType.View) {
+    "/melilive/prelive"(platform: "/", type: TrackType.View) {
         stream(required: true, type: PropertyType.Map(prelive_stream_info_definition), description: "Stream information")
         viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
     }
