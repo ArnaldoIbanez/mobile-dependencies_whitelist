@@ -7,7 +7,7 @@ tracks {
 
     initiative = "1350"
 
-    "/shipping_activation/address-selection/list"(platform: "/", type: TrackType.View) {}
+    "/shipping_activation/address_selection/list"(platform: "/", type: TrackType.View) {}
 
     "/shipping_config/checkout/preference"(platform:"/", type: TrackType.View){}
 }

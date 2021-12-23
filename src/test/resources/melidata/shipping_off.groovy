@@ -9,7 +9,7 @@ trackTests {
 
     test("shipping off - Selecting Address") {
 
-        "/shipping_activation/address-selection/list"(platform: "/",type: TrackType.View) {
+        "/shipping_activation/address_selection/list"(platform: "/",type: TrackType.View) {
         }
 
         "/shipping_config/checkout/preference"(platform: "/", type: TrackType.View) {
