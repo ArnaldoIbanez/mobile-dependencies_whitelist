@@ -24,6 +24,8 @@ tracks {
         average_ok_time()
         average_error_time()
         last_statistics_timestamp(required: false)
+        melidata_complete_dispatch_counter(type: PropertyType.Numeric, required: false, description: "Number of dispatches with amount of tracks same as limit for Melidata")
+        stream_complete_dispatch_counter(type: PropertyType.Numeric, required: false, description: "Number of dispatches with amount of tracks same as limit for Private Stream")
     }
 
     "/melidata/statistics/experiments"(platform: "/mobile", type: TrackType.Control, parentPropertiesInherited: false) {

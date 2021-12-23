@@ -30,6 +30,8 @@ trackTests {
             melidata_tracks_counter=15
             average_ok_time=10
             average_error_time=11
+            melidata_complete_dispatch_counter=5
+            stream_complete_dispatch_counter=2
         }
 
         "/melidata/statistics/experiments"(platform:"/mobile", type:TrackType.Control){
