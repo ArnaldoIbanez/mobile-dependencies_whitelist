@@ -49,6 +49,7 @@ tracks {
     def seo_item_definition = objectSchemaDefinitions {
         allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
         seo_experiments(type: PropertyType.Map(seo_experiments_definition), required: false, description: "seo experiments data")
+        mouse_event(type: PropertyType.String, required: false, description: "mouse event data")
     }
 
     def location_info_definition = objectSchemaDefinitions {

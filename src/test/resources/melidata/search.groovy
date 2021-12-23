@@ -288,7 +288,8 @@ trackTests {
                                                 group: "A"
                                             }
                                     ]
-                    ]
+                    ],
+                    mouse_event: "buttonLink.rightClick"
             ]
             merch_data = [
                     audience         : "all",
