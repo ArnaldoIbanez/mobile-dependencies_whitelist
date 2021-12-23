@@ -82,6 +82,7 @@ catalog {
         include business, "coupon.groovy"
         include business, "dynamic_stop_landing.groovy"
         include business, "dynamic_features.groovy"
+        include business, "error_ux.groovy"
         include business, "payers_growth.groovy"
         include business, "modals_engine.groovy"
         include business, "collaborators.groovy"
@@ -103,6 +104,7 @@ catalog {
         include business, "fraud_challenges.groovy"
         include business, "device_health.groovy"
         include business, "taxes.groovy"
+        include business, "billing.groovy"
     }
 
     mercadolibre.each { business ->
@@ -166,7 +168,6 @@ catalog {
         include business, "front_core.groovy"
         include business, "dynamic_links.groovy"
         include business, "sube_recharge.groovy"
-        include business, "billing.groovy"
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
         include business, "kyc.groovy"
@@ -203,6 +204,7 @@ catalog {
         include business, "listings.groovy"
         include business, "vis_supply.groovy"
         include business, "crypto.groovy"
+        include business, "mercadoshops_cdp.groovy"
     }
 
     mercadopago.each { business ->
