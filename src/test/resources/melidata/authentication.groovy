@@ -36,7 +36,6 @@ trackTests {
         "/login/smartlock/multiple_credentials/cancel"(platform: "/mobile", type: TrackType.Event) {}
     }
 
-
     test("Logout action confirmed") {
         "/logout/modal"(platform: "/mobile") {
             action = "confirmed"
@@ -2869,6 +2868,18 @@ trackTests {
                 time_of_code = 1613587194
                 enrollment_id = "71f0064a-45c9-11ec-81d3-0242ac130003"
             }
+        }
+
+        test("Second Factor Enrollment") {
+            "/auth/second_factor_enrollment/chooser"(platform: "/", type: TrackType.View) {}
+            "/auth/second_factor_enrollment/chooser/select"(platform: "/", type: TrackType.Event) {
+                factor = "phone_validation"
+            }
+            "/auth/second_factor_enrollment/chooser/select"(platform: "/", type: TrackType.Event) {
+                factor = "totp"
+            }
+            "/auth/second_factor_enrollment/greeting"(platform: "/", type: TrackType.View) {}
+            "/auth/second_factor_enrollment/greeting/start_flow"(platform: "/", type: TrackType.Event) {}
         }
     }
 }
