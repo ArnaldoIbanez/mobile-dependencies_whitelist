@@ -2226,10 +2226,22 @@ trackTests {
             latest_news_type= "transfer_online_approved"
             status= "read"
         }
+        "/notification_center/transfer_online_in_process"(platform: "/mobile"){
+            newsgroup_id= "transfer_online_in_process-186785675-76283123"
+            latest_news_id= "transfer_online_in_process-186785675-76283123"
+            latest_news_type= "transfer_online_in_process"
+            status= "read"
+        }
         "/notification_center/transfer_online_rejected"(platform: "/mobile"){
             newsgroup_id= "transfer_online_rejected-186785675-76283123"
             latest_news_id= "transfer_online_rejected-186785675-76283123"
-            latest_news_type= "transfer_online_rejected"
+            latest_news_type= "transfer_online_in_process"
+            status= "read"
+        }
+        "/notification_center/transfer_online_review_manual"(platform: "/mobile"){
+            newsgroup_id= "transfer_online_review_manual-186785675-76283123"
+            latest_news_id= "transfer_online_review_manual-186785675-76283123"
+            latest_news_type= "transfer_online_review_manual"
             status= "read"
         }
         "/notification_center/transfer_online_scheduled"(platform: "/mobile"){
@@ -2754,7 +2766,26 @@ trackTests {
             event_type = "auto_dismiss"
             source = "logout"
         }
-
+        "/notification/transfer_online_approved"(platform: "/mobile") {
+            news_id = "transfer_online_approved-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_in_process"(platform: "/mobile") {
+            news_id = "transfer_online_in_process-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_rejected"(platform: "/mobile") {
+            news_id = "transfer_online_rejected-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_review_manual"(platform: "/mobile") {
+            news_id = "transfer_online_review_manual-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_scheduled"(platform: "/mobile") {
+            news_id = "transfer_online_scheduled-12345678"
+            event_type = "sent"
+        }
         "/notification/account_fund_approved_ml"(platform: "/mobile") {
             news_id = "account_fund-account_fund-approved_ml-12345678"
             event_type = "shown"
@@ -10334,10 +10365,22 @@ trackTests {
             latest_news_type= "transfer_online_approved"
             status= "read"
         }
+        "/notification_center/transfer_online_in_process"(platform: "/mobile"){
+            newsgroup_id= "transfer_online_in_process-186785675-76283123"
+            latest_news_id= "transfer_online_in_process-186785675-76283123"
+            latest_news_type= "transfer_online_in_process"
+            status= "read"
+        }
         "/notification_center/transfer_online_rejected"(platform: "/mobile"){
             newsgroup_id= "transfer_online_rejected-186785675-76283123"
             latest_news_id= "transfer_online_rejected-186785675-76283123"
             latest_news_type= "transfer_online_rejected"
+            status= "read"
+        }
+        "/notification_center/transfer_online_review_manual"(platform: "/mobile"){
+            newsgroup_id= "transfer_online_review_manual-186785675-76283123"
+            latest_news_id= "transfer_online_review_manual-186785675-76283123"
+            latest_news_type= "transfer_online_review_manual"
             status= "read"
         }
         "/notification_center/transfer_online_scheduled"(platform: "/mobile"){
