@@ -411,7 +411,7 @@ tracks {
     "/auth/totp_in_app/validation/onboarding/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, values: ["continue"], description: "Describes element related to user action")
-        event_type(type: PropertyType.String, required: true, description: "Type of event")
+        event_type(type: PropertyType.String, required: true, values: ["click"],  description: "Type of event")
     }
 
     // Password
