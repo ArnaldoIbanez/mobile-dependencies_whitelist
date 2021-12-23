@@ -2475,7 +2475,7 @@ tracks {
     }
 
     "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
-        action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "CREATE_REBATE", "CREATE_TIER", "MODIFY_TIER", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN", "DELETE_TIER", "DELETE_REBATE"])
+        action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "CREATE_REBATE", "CREATE_TIER", "MODIFY", "MODIFY_TIER", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN", "DELETE_TIER", "DELETE_REBATE"])
         promo_card_applied(required: false, type: PropertyType.String, description: "Card that was applied at the moment of confirmation, if any")
     }
 
