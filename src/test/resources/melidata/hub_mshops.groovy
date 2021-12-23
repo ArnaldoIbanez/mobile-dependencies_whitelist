@@ -321,7 +321,7 @@ trackTests {
             video_id = 1
         }
 
-        "/shops/hub/skip_note"(platform: "/", type: TrackType.Event) {
+        "/shops/hub/not_interested"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
