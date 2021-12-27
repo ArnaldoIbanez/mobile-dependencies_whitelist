@@ -168,28 +168,6 @@ trackTests {
         }
     }
 
-    test("Melilive Bookmark Added") {
-
-        "/melilive/stream/bookmark/add"(platform: "/") {
-            stream = [
-                    "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
-            ]
-            item_id = "MLA5646513"
-            context = "/melilive"
-        }
-    }
-
-    test("Melilive Bookmark Removed") {
-
-        "/melilive/stream/bookmark/remove"(platform: "/") {
-            stream = [
-                    "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
-            ]
-            item_id = "MLA5646513"
-            context = "/melilive"
-        }
-    }
-
     // ***************** CREATOR ******************
 
     test("Melilive Start Live From Creator") {

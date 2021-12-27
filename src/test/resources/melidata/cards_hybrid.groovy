@@ -4349,4 +4349,18 @@ trackTests {
             user_id_is_null = true
         }
     }
+    
+    // NFC_IDENTITY_FALLBACK
+    test("/cards/nfc/identity_fallback") {
+        "/cards/nfc/identity_fallback"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/identity_fallback/action"(platform: "/", type: TrackType.Event) {
+            event_type = "primary_button"
+        }
+         "/cards/nfc/identity_fallback/action"(platform: "/", type: TrackType.Event) {
+            event_type = "secondary_button"
+        }
+        "/cards/nfc/identity_fallback/action"(platform: "/", type: TrackType.Event) {
+            event_type = "close"
+        }
+    }
 }
