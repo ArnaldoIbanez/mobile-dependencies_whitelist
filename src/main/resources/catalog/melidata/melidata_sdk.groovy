@@ -47,7 +47,7 @@ tracks {
     }
 
     "/melidata/shrink_database"(platform: "/mobile", isAbstract: true) {
-        delete_records( type: PropertyType.Numeric, description: "Number of records/tracks deleted when shrinking")
+        deleted_records( type: PropertyType.Numeric, description: "Number of records/tracks deleted when shrinking")
         previous_size (type: PropertyType.Numeric, description: "Size of database before shrinking in bytes")
         current_size (type: PropertyType.Numeric , description: "Size of database after shrinking in bytes")
         most_common_path (type: PropertyType.String, required: false, description: "Most common path in the Database")
