@@ -82,6 +82,7 @@ catalog {
         include business, "coupon.groovy"
         include business, "dynamic_stop_landing.groovy"
         include business, "dynamic_features.groovy"
+        include business, "error_ux.groovy"
         include business, "payers_growth.groovy"
         include business, "modals_engine.groovy"
         include business, "collaborators.groovy"
@@ -203,6 +204,7 @@ catalog {
         include business, "listings.groovy"
         include business, "vis_supply.groovy"
         include business, "crypto.groovy"
+        include business, "mercadoshops_cdp.groovy"
     }
 
     mercadopago.each { business ->
@@ -304,6 +306,8 @@ catalog {
         include business, "investment.groovy"
         include business, "pricing_point.groovy"
         include business, "splinter.groovy"
+        include business, "shipping_off.groovy"
+        include business, "selling_flow.groovy"
     }
 
     mercadoshops.each { business ->

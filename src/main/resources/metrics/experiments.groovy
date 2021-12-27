@@ -1,11 +1,14 @@
 package metrics
 
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
 	
-	"loyalty/buy_level_installments"(description: "define which buy level button to show in VIP modal to see which converts best", deprecation_date:"2020/08/12") {
+	"loyalty/buy_level_installments"(description: "define which buy level button to show in VIP modal to see which converts best", deprecation_date:"2020/08/12", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
         experiment("loyalty/buy-level-installments")
 
 		countsOn {
@@ -18,7 +21,7 @@ metrics {
 		}
 	}
 
-	"identity-validation/uniqueness.recommendation"(description: "Trust vote to login user", deprecation_date:"2020/08/12") {
+	"identity-validation/uniqueness.recommendation"(description: "Trust vote to login user", deprecation_date:"2020/08/12", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
 		experiment("auth/identity-validation_recommendation")
 
 		countsOn {
@@ -34,7 +37,7 @@ metrics {
 		}
 	}
 
-	"idfa.deny"(description: "IDFA alert shown", deprecation_date:"2022/01/10") {
+	"idfa.deny"(description: "IDFA alert shown", deprecation_date:"2022/01/10", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
 		experiment("mobile/IDFA_Banner")
 
 		countsOn {
@@ -44,7 +47,7 @@ metrics {
 		}
 	}
 
-	"idfa.accept"(description: "IDFA permission accepted", deprecation_date:"2022/01/10") {
+	"idfa.accept"(description: "IDFA permission accepted", deprecation_date:"2022/01/10", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
 		experiment("mobile/IDFA_Banner")
 
 		countsOn {
@@ -54,7 +57,7 @@ metrics {
 		}
 	}
 
-	"idfa.mp.deny"(description: "IDFA alert shown", deprecation_date:"2022/01/10") {
+	"idfa.mp.deny"(description: "IDFA alert shown", deprecation_date:"2022/01/10", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
 		experiment("mobile/IDFA_Banner_MP")
 
 		countsOn {
@@ -64,7 +67,7 @@ metrics {
 		}
 	}
 
-	"idfa.mp.accept"(description: "IDFA permission accepted", deprecation_date:"2022/01/10") {
+	"idfa.mp.accept"(description: "IDFA permission accepted", deprecation_date:"2022/01/10", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
 		experiment("mobile/IDFA_Banner_MP")
 
 		countsOn {

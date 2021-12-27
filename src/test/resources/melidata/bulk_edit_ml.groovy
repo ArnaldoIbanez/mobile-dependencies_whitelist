@@ -239,5 +239,17 @@ trackTests {
             session_id = "515106248-edition-72151975d676"
         }
     }
+
+    test("seller central bulk open modal for paused or deactivate") {
+        "/seller_central/bulk/list/massive_action/open_modal"(platform: "/", type: TrackType.Event) {
+            column_id = "warranty"
+            action = "Reactivar"
+            operation_id = "WARRANTY"
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
+        }
+    }
 }
 

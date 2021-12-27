@@ -1468,11 +1468,22 @@ trackTests {
         "/credits/merchant/open_market/financial_scraping_error"(platform: "/", type: TrackType.Event) {
             reason = "integration_error"
             flow="upsell_offer"
+            provider="quanto"
+        }
+        
+        "/credits/merchant/open_market/financial_scraping_error"(platform: "/", type: TrackType.Event) {
+            reason = "integration_error"
+            flow="upsell_offer"
+            provider="belvo"
+            requestId="23ha632tf123c"
+            institution="gringott"
+
         }
 
         "/credits/merchant/open_market/financial_scraping_error"(platform: "/", type: TrackType.Event) {
             reason = "generic"
             flow="upsell_offer"
+            provider="open_finance"
         }
 
         "/credits/merchant/open_market/financial_scraping_message_shown"(platform: "/", type: TrackType.Event) {

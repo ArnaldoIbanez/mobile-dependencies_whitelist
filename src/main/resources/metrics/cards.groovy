@@ -1,10 +1,13 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 def experimentsRegex = '(cards|wallet_home)/.*'
 def experimentsHome = 'wallet_home/.*'
 
 metrics {
-    'cards.acquisition'(description: 'Counts when a user request a card using Mercado Pago app') {
+    'cards.acquisition'(description: 'Counts when a user request a card using Mercado Pago app', bu: BuType.MercadoPago, extent: ExtentType.Product) {
         experiment(regex(experimentsRegex))
 
         countsOn {
@@ -21,7 +24,7 @@ metrics {
         }
     }
 
-    'cards.acquisition.virtual'(description: 'Counts when a user request a virtual card using Mercado Pago app') {
+    'cards.acquisition.virtual'(description: 'Counts when a user request a virtual card using Mercado Pago app', bu: BuType.MercadoPago, extent: ExtentType.Feature) {
         experiment(regex(experimentsRegex))
 
         countsOn {
@@ -32,7 +35,7 @@ metrics {
         }
     }
 
-    'cards.acquisition.physical'(description: 'Counts when a user request a physical card using Mercado Pago app') {
+    'cards.acquisition.physical'(description: 'Counts when a user request a physical card using Mercado Pago app', bu: BuType.MercadoPago, extent: ExtentType.Feature) {
         experiment(regex(experimentsRegex))
 
         countsOn {
@@ -47,7 +50,7 @@ metrics {
         }
     }
 
-    'cards.activation'(description: 'Counts when a user unlock a card using Mercado Pago app') {
+    'cards.activation'(description: 'Counts when a user unlock a card using Mercado Pago app', bu: BuType.MercadoPago, extent: ExtentType.Product) {
         experiment(regex(experimentsRegex))
 
         countsOn {
@@ -68,7 +71,7 @@ metrics {
         }
     }
 
-    'cards.nfc.enrollment'(description: 'Counts when a user request a nfc card using Mercado Pago app') {
+    'cards.nfc.enrollment'(description: 'Counts when a user request a nfc card using Mercado Pago app', bu: BuType.MercadoPago, extent: ExtentType.Feature) {
         experiment(regex(experimentsHome))
 
         countsOn{
@@ -92,7 +95,7 @@ metrics {
         }
     }
 
-    'cards.nfc.hub.configuration'(description: 'Counts when a user enter to Nfc Configuration Hub using Mercado Pago app') {
+    'cards.nfc.hub.configuration'(description: 'Counts when a user enter to Nfc Configuration Hub using Mercado Pago app', bu: BuType.MercadoPago, extent: ExtentType.Feature) {
         experiment(regex(experimentsHome))
 
         countsOn{
@@ -113,7 +116,7 @@ metrics {
             }
         }
     }
-    'cards.nfc.hub.enrollment'(description: 'Counts when a user enter to Nfc Enrollment Hub using Mercado Pago app') {
+    'cards.nfc.hub.enrollment'(description: 'Counts when a user enter to Nfc Enrollment Hub using Mercado Pago app', bu: BuType.MercadoPago, extent: ExtentType.Feature) {
         experiment(regex(experimentsHome))
 
         countsOn{
