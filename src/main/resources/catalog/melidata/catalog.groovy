@@ -105,6 +105,7 @@ catalog {
         include business, "device_health.groovy"
         include business, "taxes.groovy"
         include business, "billing.groovy"
+        include business, "sellers.groovy"
     }
 
     mercadolibre.each { business ->
