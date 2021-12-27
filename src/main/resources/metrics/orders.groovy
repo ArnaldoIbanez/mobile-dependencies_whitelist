@@ -203,9 +203,19 @@ metrics {
 	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true, tags:[TagType.CoreMetric]) {
 		countsOn {
 			condition {
-				and(
-					path("/purchases/purchasecreated"),
-					equals("application.business", "mercadolibre")
+				path("/purchases/purchasecreated")
+				equals("application.business", "mercadolibre")
+			}
+		}
+	}
+
+	"purchases.free_shipping"(description: "purchases with all free shipping packs from /purchase/purchasecreated", compute_order: true) {
+		countsOn {
+			condition {
+				path("/purchases/purchasecreated")
+				and (
+					equals("application.business", "mercadolibre"),
+					equals("event_data.is_free_shipping_purchase", true)
 				)
 			}
 		}

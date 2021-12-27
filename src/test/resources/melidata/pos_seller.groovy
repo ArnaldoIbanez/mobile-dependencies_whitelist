@@ -524,5 +524,66 @@
                         "/pos_seller/point/congrats"(platform: "/mobile", type: TrackType.View) {
                             payment_id = "70012345"
                         }
+                        "/pos_seller/point/tables_update"(platform: "/mobile", type: TrackType.Event) {
+                            flow_id = "UUID"
+                            poi_id = "1234ABCDFG"
+                            poi_type = "DSPREAD_CR100"
+                        }
+                        "/pos_seller/point/tables_update/congrats"(platform: "/mobile", type: TrackType.Event) {
+                            flow_id = "UUID"
+                            poi_id = "1234ABCDFG"
+                            poi_type = "DSPREAD_CR100"
+                            tables_version = "22_5_25"
+                            total_aids = "16"
+                            total_loaded_aids = "16"
+                            total_capks = "25"
+                            total_loaded_capks = "25"
+                        }
+                        "/pos_seller/point/waiting_for_card/error/card_read"(platform: "/mobile", type: TrackType.Event) {
+                            flow_id = "UUID"
+                            poi_id = "1234ABCDFG"
+                            poi_type = "DSPREAD_CR100"
+                            firmware = "1.5.2"
+                            aid = "A00001234"
+                            supported_aid = false
+                            execute_rslt = "result"
+                            tag_95 = "TAG 95"
+                            tag_9f33 = "TAG 9f33"
+                            tag_9b = "TAG 9b"
+                            tag_9f06 = "TAG 9f06"
+                        }
+                        "/pos_seller/point/waiting_for_card/error/offline_rejected"(platform: "/mobile", type: TrackType.Event) {
+                            flow_id = "UUID"
+                            poi_id = "1234ABCDFG"
+                            poi_type = "DSPREAD_CR100"
+                            firmware = "1.5.2"
+                            aid = "A00001234"
+                            tag_95 = "TAG 95"
+                            tag_9f33 = "TAG 9f33"
+                            tag_9b = "TAG 9b"
+                            tag_9f06 = "TAG 9f06"
+                        }
+                        "/pos_seller/point/waiting_for_card/multiadquaring/rejected"(platform: "/mobile", type: TrackType.Event) {
+                            flow_id = "UUID"
+                            poi_id = "1234ABCDFG"
+                            poi_type = "DSPREAD_CR100"
+                            rejected_processor = "genova"
+                            processor_key_index = "012A"
+                            prioritized_processors = [
+                                "genova",
+                                "stone"
+                                ]
+                        }
+                        "/pos_seller/point/waiting_for_card/multiadquaring/approved"(platform: "/mobile", type: TrackType.Event) {
+                            flow_id = "UUID"
+                            poi_id = "1234ABCDFG"
+                            poi_type = "DSPREAD_CR100"
+                            processor = "stone"
+                            processor_key_index = "89173"
+                            prioritized_processors = [
+                                "genova",
+                                "stone"
+                                ]
+                        }
                     }
 }

@@ -229,6 +229,10 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   test("Seller central Central of News view") {
     "/seller_central/news"(platform: "/web", type: TrackType.View) {}
+    "/seller_central/news/lib"(platform: "/web", type: TrackType.View) {
+      notice_id = "2426"
+      page = "cdn"
+    }
   }
   test("Seller central Central of News events") {
     "/seller_central/news/filter"(platform: "/web", type: TrackType.Event) {}
@@ -252,18 +256,28 @@ trackTests {
       category = "NEW"
       sub_category = "CHANGE_IN_BUSINESS_RULES"
     }
-    "/seller_central/news/keep"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/news/close"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
     }
     "/seller_central/news/lib/primary"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
       category = "NEW"
       sub_category = "CHANGE_IN_BUSINESS_RULES"
+      page = "cdn"
     }
     "/seller_central/news/lib/secondary"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
       category = "NEW"
       sub_category = "CHANGE_IN_BUSINESS_RULES"
+      page = "cdn"
+    }
+    "/seller_central/news/lib/close"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
+      page = "cdn"
     }
   }
 
@@ -7081,6 +7095,11 @@ test("seller central catalog optin v2 item plus card show") {
     "/seller_central/gema/usage"(platform: "/web", type: TrackType.Event){
       use_gema = false
       seller_reputation = "NEWBIE"
+    }
+
+    "/seller_central/gema/validations"(platform: "/web", type: TrackType.Event){
+      picture_id = "MLA-12345"
+      errors = ["multiproduct_msd", "blur", "watermark"]
     }
   }
 }

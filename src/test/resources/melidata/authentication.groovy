@@ -164,7 +164,7 @@ trackTests {
             source = "QUESTION"
             tracking_id = "123"
         }
-        "/login/auth/challenge/click_incomplete_registration"(platform: "/", type: TrackType.Event) {
+        "/login/auth/challenge/incomplete_registration"(platform: "/", type: TrackType.Event) {
             challenge = "user"
             source = "EXPLICIT"
             tracking_id = "123"
@@ -420,10 +420,18 @@ trackTests {
         "/auth/totp_in_app/validation/no_app"(platform: "/", type: TrackType.View) {
             id = "id"
         }
+        "/auth/totp_in_app/validation/onboarding"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
         "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             status = "approved"
             event_type = "polling"
+        }
+        "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "open_modal"
+            event_type = "click"
         }
         "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
             id = "id"
@@ -443,6 +451,11 @@ trackTests {
         "/auth/totp_in_app/validation/max_attempts/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             target = "go_home"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "continue"
             event_type = "click"
         }
     }
@@ -1348,6 +1361,7 @@ trackTests {
             }
 
             "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+                from = "flow_enrollment"
                 enrollment_status = "disabled"
                 os_status = "basic_screenlock"
                 config = [
@@ -1358,11 +1372,11 @@ trackTests {
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
-                scenario = "never_auto_enrolled"
+                scenario = "flow_enrollment_no_security"
             }
 
             "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
-                from = "campaign"
+                from = "flow_enrollment"
                 enrollment_status = "enabled"
                 dismissible = "enabled"
                 os_status = "biometrics"
@@ -1508,6 +1522,25 @@ trackTests {
             }
 
             "/screenlock/multiple_sessions_shield"(platform: "/mobile/ios", type: TrackType.View) {
+            }
+
+            "/screenlock/anom/os_biometrics_changed"(platform: "/mobile/android", type: TrackType.App) {
+                old_value = "biometrics"
+                new_value = "basic_screenlock"
+            }
+
+            "/screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
+                old_value = false
+                new_value = true
+            }
+
+            "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
+                old_value = "hash_random_1234"
+                new_value = "hash_random_4321"
+            }
+
+            "/screenlock/anom/storage_error"(platform: "/mobile/ios", type: TrackType.App) {
+                error_type = "failed_put_value"
             }
 
         }

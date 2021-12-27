@@ -411,4 +411,56 @@ import com.ml.melidata.TrackType
         "/pos_seller/point/congrats"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
             payment_id(required: true, type: PropertyType.String, description: "payment id")
         }
+
+        // Tables update
+        "/pos_seller/point/tables_update"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            flow_id(required: false, type: PropertyType.String, description: "Flow id.")
+            poi_id(required: true, type: PropertyType.String, description: "poi device id")
+            poi_type(required: true, type: PropertyType.String, description: "poi device type")
+        }
+
+        "/pos_seller/point/tables_update/congrats"(platform: "/mobile", type: TrackType.Event) {
+            tables_version(required: true, type: PropertyType.String, description: "current table version")
+            total_aids(required: true, type: PropertyType.String, description: "total aids")
+            total_loaded_aids(required: true, type: PropertyType.String, description: "total aids loaded into the reader")
+            total_capks(required: false, type: PropertyType.String, description: "total capks")
+            total_loaded_capks(required: false, type: PropertyType.String, description: "total capks loaded into the reader")
+        }
+
+        "/pos_seller/point/waiting_for_card/error"(platform: "/mobile", isAbstract: true, parentPropertiesInherited: false) {
+            flow_id(required: true, type: PropertyType.String, description: "Flow id.")
+            poi_id(required: true, type: PropertyType.String, description: "poi device id")
+            poi_type(required: true, type: PropertyType.String, description: "poi device type")
+            firmware(required: true, type: PropertyType.String, description: "Device firmware version")
+            aid(required: false, type: PropertyType.String, description: "Current device used aid")
+            tag_95(required: false, type: PropertyType.String, description: "Device tag 95 - TVR")
+            tag_9f33(required: false, type: PropertyType.String, description: "Device tag 9f33 - ")
+            tag_9b(required: false, type: PropertyType.String, description: "Device tag 9b - ")
+            tag_9f06(required: false, type: PropertyType.String, description: "Device tag 9f06 - ")
+        }
+
+        "/pos_seller/point/waiting_for_card/error/card_read"(platform: "/mobile", type: TrackType.Event) {
+            supported_aid(required: false, type: PropertyType.Boolean, description: "Aid supported in current device flag")
+            execute_rslt(required: true, type: PropertyType.String, description: "Execute result from transaction")
+        }
+
+        "/pos_seller/point/waiting_for_card/error/offline_rejected"(platform: "/mobile", type: TrackType.Event) {}
+
+        //Multiadquaring
+        "/pos_seller/point/waiting_for_card/multiadquaring"(platform: "/mobile", isAbstract: true, parentPropertiesInherited: false) {
+            flow_id(required: true, type: PropertyType.String, description: "Flow id.")
+            poi_id(required: true, type: PropertyType.String, description: "poi device id")
+            poi_type(required: true, type: PropertyType.String, description: "poi device type")
+            prioritized_processors(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Array of prioritized processors")
+        }
+
+        "/pos_seller/point/waiting_for_card/multiadquaring/rejected"(platform: "/mobile", type: TrackType.Event) {
+            rejected_processor(required: true, type: PropertyType.String, description: "Rejected processor")
+            processor_key_index(required: false, type: PropertyType.String, description: "Rejected processor key index")
+        }
+
+        "/pos_seller/point/waiting_for_card/multiadquaring/approved"(platform: "/mobile", type: TrackType.Event) {
+            processor(required: true, type: PropertyType.String, description: "Current approved processor")
+            processor_key_index(required: false, type: PropertyType.String, description: "Current approved processor key index")
+        }
     }

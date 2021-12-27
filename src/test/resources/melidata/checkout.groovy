@@ -886,6 +886,10 @@ trackTests {
                     ]
             ]
         }
+        "/checkout/review/select_shipping#submit"(platform:"/mobile", type: TrackType.Event) {
+            //shipping
+            shipping = "Llegará mañana"
+        }
         "/checkout/review/inconsistency/edit_shipping"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             error_code = "invalid_volume_for_quantity"
