@@ -8,7 +8,7 @@ trackTests {
 
     test("MeliLive stream broadcast live") {
 
-        "/melilive/stream/live"(platform: "/") {
+        "/melilive/stream"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
                     "title": "Melilive",
