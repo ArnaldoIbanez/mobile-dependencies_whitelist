@@ -20,6 +20,4 @@ trackTests {
       session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
-
-
-
+}
