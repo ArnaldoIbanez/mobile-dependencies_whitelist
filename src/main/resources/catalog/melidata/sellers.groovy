@@ -12,11 +12,10 @@ tracks {
     propertyDefinitions {
         session_id(required: false, type: PropertyType.String, description: "Id for user session")
         site_id(requested: false, type: PropertyType.String, description: "Site ID")
-	    user_id(required: false, type:PropertyType.String, description: "User ID")
     }
 
     propertyGroups {
-        sellersBasicGroup(session_id, site_id, user_id)
+        sellersBasicGroup(session_id, site_id)
     }
 
 
@@ -28,5 +27,5 @@ tracks {
     "/sellers/blog/post"(platform: "/", type: TrackType.View) {
         sellersBasicGroup
     }
-   
+}
   
