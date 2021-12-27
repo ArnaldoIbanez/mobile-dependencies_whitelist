@@ -1401,6 +1401,8 @@ trackTests {
             query = "search"
         }
 
+        "/advertising/pads2/sads_new/landing/help"(platform: "/", type: TrackType.Event) {}
+
     }
 
     test("Advertising multicampaña Sads Paused") {
@@ -1475,6 +1477,8 @@ trackTests {
                     query: "search"
             ]
         }
+
+        "/advertising/pads2/sads_paused/landing/help"(platform: "/", type: TrackType.Event) {}
 
     }
 
