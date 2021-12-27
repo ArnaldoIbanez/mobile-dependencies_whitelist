@@ -71,7 +71,18 @@ metrics {
 
     countsOn {
       condition {
+        path("/wallet_home/section/tap/ads_top_banner", 
+             "/wallet_home/section/tap/cross_selling")
+      }
+    }
+  }
+
+  "wallet_home.ads_top_banner.cross_sell"(description: "Counts when an user taps the Cross Selling Cards in the advertising section in the Wallet Home", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
+    experiment(regex("wallet/.*"))
+    countsOn {
+      condition {
         path("/wallet_home/section/tap/ads_top_banner")
+        like("event_data.component_id", "cross_selling_home_mp")
       }
     }
   }
