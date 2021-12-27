@@ -1,3 +1,6 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 
@@ -10,7 +13,7 @@ metrics {
      * Credit Card Dashboard Async Load Metrics
      */
 
-    "credit_card.dashboard_async_load.debit_actions"(description: "Track user actions on Debit dashboard while Async Load experiment", ttl: 1) {
+    "credit_card.dashboard_async_load.debit_actions"(description: "Track user actions on Debit dashboard while Async Load experiment", ttl: 1, bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
         experiment("credit-card/dashboard_async_load")
 
         countsOn {
@@ -24,7 +27,7 @@ metrics {
         }
     }
 
-    "credit_card.dashboard_async_load.credit_card_actions"(description: "Track user actions on Credit Card dashboard while Async Load experiment", ttl: 1) {
+    "credit_card.dashboard_async_load.credit_card_actions"(description: "Track user actions on Credit Card dashboard while Async Load experiment", ttl: 1, bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
         experiment("credit-card/dashboard_async_load")
 
         countsOn {
@@ -38,7 +41,7 @@ metrics {
         }
     }
 
-    "credit_card.dashboard_async_load"(description: "Track user actions on Debit and Credit Card dashboard while Async Load experiment", ttl: 1) {
+    "credit_card.dashboard_async_load"(description: "Track user actions on Debit and Credit Card dashboard while Async Load experiment", ttl: 1, bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
         experiment("credit-card/dashboard_async_load")
 
         countsOn {
@@ -53,7 +56,7 @@ metrics {
      * Credit Card Upgrade Adoption Metrics for Onboarding Order and Date Picker mode experimets
      */
 
-    "credits_credit_card_upgrade_adoption"(description: "Conversion under Upgrade process with variation on basic flow") {
+    "credits_credit_card_upgrade_adoption"(description: "Conversion under Upgrade process with variation on basic flow", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
         experiment("credits-card/upgrade_onboarding_order", "credits-card/upgrade_date_picker_mode")
 
         countsOn {

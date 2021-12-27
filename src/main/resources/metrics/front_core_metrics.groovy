@@ -1,8 +1,11 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-  "wallet_home.taps"(description: "Counts when an user taps any section ") {
+  "wallet_home.taps"(description: "Counts when an user taps any section ", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -26,7 +29,7 @@ metrics {
     }
   }
 
-  "wallet_home.banking_v2.components"(description: "Counts when an user taps on the components for the banking v2 section") {
+  "wallet_home.banking_v2.components"(description: "Counts when an user taps on the components for the banking v2 section", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -43,7 +46,7 @@ metrics {
 
   //Main Payer Flow taps
 
-  "wallet_home.discount_center"(description: "Counts when an user taps the Discount Center section in the Home") {
+  "wallet_home.discount_center"(description: "Counts when an user taps the Discount Center section in the Home", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -53,7 +56,7 @@ metrics {
     }
   }
 
-  "wallet_home.shortcuts"(description: "Counts when an user taps the Shortcuts Section in the Home") {
+  "wallet_home.shortcuts"(description: "Counts when an user taps the Shortcuts Section in the Home", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -63,7 +66,7 @@ metrics {
     }
   }
 
-  "wallet_home.ads_top_banner"(description: "Counts when an user taps on the advertising section") {
+  "wallet_home.ads_top_banner"(description: "Counts when an user taps on the advertising section", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -73,7 +76,7 @@ metrics {
     }
   }
 
-  "wallet_home.cross_selling"(description: "Counts when an user taps the Cross Selling section in the Home") {
+  "wallet_home.cross_selling"(description: "Counts when an user taps the Cross Selling section in the Home", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -83,7 +86,7 @@ metrics {
     }
   }
 
-  "wallet_home.benefits"(description: "Counts when an user taps the Benefits section in the Home") {
+  "wallet_home.benefits"(description: "Counts when an user taps the Benefits section in the Home", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -93,7 +96,7 @@ metrics {
     }
   }
 
-  "wallet_home.activities"(description: "Counts when an user taps the Activities section in the Home") {
+  "wallet_home.activities"(description: "Counts when an user taps the Activities section in the Home", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -103,7 +106,7 @@ metrics {
     }
   }
 
-  "wallet_home.activities.operations"(description: "Counts when an user taps the operations on the activities section") {
+  "wallet_home.activities.operations"(description: "Counts when an user taps the operations on the activities section", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -116,7 +119,7 @@ metrics {
     }
   }
 
-  "wallet_home.activities.footer"(description: "Counts when an user taps the footer on the activities section") {
+  "wallet_home.activities.footer"(description: "Counts when an user taps the footer on the activities section", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -129,7 +132,7 @@ metrics {
     }
   }
 
-  "wallet_home.banner"(description: "Counts when an user taps the banner section in the Home") {
+  "wallet_home.banner"(description: "Counts when an user taps the banner section in the Home", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -139,7 +142,7 @@ metrics {
     }
   }
 
-  "wallet_home.credits"(description: "Counts when an user taps the credits section in the Home") {
+  "wallet_home.credits"(description: "Counts when an user taps the credits section in the Home", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -149,7 +152,7 @@ metrics {
     }
   }
 
-  "wallet_home.qr"(description: "Counts when an user taps the QR button in the Home") {
+  "wallet_home.qr"(description: "Counts when an user taps the QR button in the Home", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -162,7 +165,7 @@ metrics {
 
 
 
-  "wallet_home.header.profile"(description: "Counts when an user taps the header profile on the navbar", deprecation_date:"2022/02/28") {
+  "wallet_home.header.profile"(description: "Counts when an user taps the header profile on the navbar", deprecation_date:"2022/02/28", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/home_navbar_avatar"))
 
     countsOn {
@@ -172,7 +175,7 @@ metrics {
     }
   }
 
-  "wallet_home.header.buttons.help"(description: "Counts when an user taps the header button ayuda", deprecation_date:"2022/02/28") {
+  "wallet_home.header.buttons.help"(description: "Counts when an user taps the header button ayuda", deprecation_date:"2022/02/28", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/home_navbar_avatar"))
 
     countsOn {
@@ -185,7 +188,7 @@ metrics {
     }
   }
 
-  "wallet_home.header.buttons.data"(description: "Counts when an user taps the header button datos de cuenta", deprecation_date:"2022/02/28") {
+  "wallet_home.header.buttons.data"(description: "Counts when an user taps the header button datos de cuenta", deprecation_date:"2022/02/28", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/home_navbar_avatar"))
 
     countsOn {
@@ -198,7 +201,7 @@ metrics {
     }
   }
 
-  "navigation_sections.navigation_menu_mp.loyalty_row"(description: "Counts when an user taps the header loyalty", deprecation_date:"2022/02/28") {
+  "navigation_sections.navigation_menu_mp.loyalty_row"(description: "Counts when an user taps the header loyalty", deprecation_date:"2022/02/28", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/home_navbar_avatar"))
 
     countsOn {
@@ -211,7 +214,7 @@ metrics {
     }
   }
 
-  "navigation_sections.navigation_menu_mp.loyalty_avatar"(description: "Counts when an user taps the header tu perfil", deprecation_date:"2022/02/28") {
+  "navigation_sections.navigation_menu_mp.loyalty_avatar"(description: "Counts when an user taps the header tu perfil", deprecation_date:"2022/02/28", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/home_navbar_avatar"))
 
     countsOn {
@@ -224,7 +227,7 @@ metrics {
     }
   }
 
-  "navigation_sections.navigation_menu_mp.your_profile"(description: "Counts when an user taps the header l1 tu perfil", deprecation_date:"2022/02/28") {
+  "navigation_sections.navigation_menu_mp.your_profile"(description: "Counts when an user taps the header l1 tu perfil", deprecation_date:"2022/02/28", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/home_navbar_avatar"))
 
     countsOn {

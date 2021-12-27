@@ -1,5 +1,8 @@
 package metrics
 
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
@@ -346,7 +349,7 @@ metrics {
 		}
 	}
 
-	"promotions-pads-row"(description: "Measure the intention of joining the promotion with pads by clicking on buttons distributed in promotion flow") {
+	"promotions-pads-row"(description: "Measure the intention of joining the promotion with pads by clicking on buttons distributed in promotion flow", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
 		experiment("deals/promotionsPadsRow")
 
 		countsOn {
