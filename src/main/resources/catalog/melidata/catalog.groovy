@@ -307,6 +307,7 @@ catalog {
         include business, "pricing_point.groovy"
         include business, "splinter.groovy"
         include business, "shipping_off.groovy"
+        include business, "selling_flow.groovy"
     }
 
     mercadoshops.each { business ->
