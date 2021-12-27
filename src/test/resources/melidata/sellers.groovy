@@ -11,7 +11,6 @@ trackTests {
   test("sellers home view") {
     "/sellers/home/main"(platform: "/", type: TrackType.View) {
       session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
-      site_id = "MLB"
     }
   }
 
@@ -19,7 +18,6 @@ trackTests {
   test("seller notes view") {
     "/sellers/blog/post"(platform: "/", type: TrackType.View) {
       session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
-      site_id = "MLB"
     }
   }
 

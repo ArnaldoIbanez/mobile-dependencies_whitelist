@@ -11,11 +11,10 @@ tracks {
 
     propertyDefinitions {
         session_id(required: false, type: PropertyType.String, description: "Id for user session")
-        site_id(requested: false, type: PropertyType.String, description: "Site ID")
     }
 
     propertyGroups {
-        sellersBasicGroup(session_id, site_id)
+        sellersBasicGroup(session_id)
     }
 
 
