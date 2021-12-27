@@ -738,6 +738,10 @@ tracks {
         //  ]
         //]
     }
+    "/checkout/review/select_shipping#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        shipping(required: true, type: PropertyType.String, description: "shipping option selected on modal review")
+    }
     "/checkout/review/inconsistency/edit_shipping"(platform: "/mobile") {
         error_code(required: true, type: PropertyType.String)
     }

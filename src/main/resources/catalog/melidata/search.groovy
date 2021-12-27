@@ -93,11 +93,12 @@ tracks {
     }
 
     def tag_tracking_datum_object = objectSchemaDefinitions {
-        item_id(type: PropertyType.String, required: true)
-        position(type: PropertyType.Numeric, required: true)
-        product_id(type: PropertyType.String, required: false)
-        type(type: PropertyType.String, required: false)
-        seller_id(type: PropertyType.Numeric, required: false)
+        item_id(type: PropertyType.String, required: true, description: 'item id')
+        position(type: PropertyType.Numeric, required: true, description: 'position of the item in the results')
+        product_id(type: PropertyType.String, required: false, description: 'product id')
+        type(type: PropertyType.String, required: false, description: 'item type')
+        seller_id(type: PropertyType.Numeric, required: false, description: 'seller id of the item')
+        amount(type: PropertyType.Numeric, required: false, description: 'item amount for mcoin')
     }
 
     def tag_tracking_map_object = objectSchemaDefinitions {
@@ -110,6 +111,7 @@ tracks {
         same_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         next_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         supermarket_partnership(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        crypto_cashback(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false, description: 'melicoins items and products')
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -153,6 +155,7 @@ tracks {
 
     def enhanced_intervention_info = objectSchemaDefinitions {
         intervention_tracking_id(type: PropertyType.String, required: true, description: "unique identifier of the intervention")
+        intervention_version_id(type: PropertyType.String, requerid: true, description: "value of version of intervention by AML")
         intervention_type(type: PropertyType.String, required: true, description: "type of intervention", values: ["QUERY_INTERVENTION", "FILTER_INTERVENTION", "CONTENT_INTERVENTION"])
         class_type(type: PropertyType.String, required: true, description: "sub-type of intervention, example: filter [BRAND, GENDER, etc,etc], content [best_seller, offers, etc]")
         component_type(type: PropertyType.String, required: true, description: "visual component in which the intervention is shown, example: pill de texto, carrousel imagenes, cards, banners, etc")
@@ -223,7 +226,7 @@ tracks {
         shop_domain(required: false, description: "content the domain of the current shop", type: PropertyType.String)
 
         //Tracks web
-        only_in_type(required: false)
+        only_in_type(required: false, description:'Indicates that have only in type')
         click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
         banner(required: false, description:'Banner showed in this listing info, if showed')
         related_searches(required: false, description:'indicates whether clicked search related')
@@ -240,7 +243,7 @@ tracks {
         available_filters(required: true, description: "available filters, sameday and nextday")
         user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
         is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
-        pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
+        pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList(PropertyType.Map))
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
         seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
@@ -279,27 +282,27 @@ tracks {
         geo_search(required: false, description: "search with geolocation", type: PropertyType.String)
         filter_tags(required: false, description: "these are tags that aren't very important", type: PropertyType.String)
         breadcrumb_refined(required: false, description: 'if user used breadcrumb to refine their search',PropertyType.Boolean)
-        error_message(required: false, PropertyType.String)
+        error_message(required: false, PropertyType.String, description: "message description")
 
         //todo remover estas cosas que son de apps viejas
-        sort(required: false)
-        sort_id(required: false)
-        view_mode(required: false)
-        layout(required: false)
-        context(required: false)
-        filters(required: false)
-        results(required: false)
-        billboard_shown(required: false)
+        sort(required: false, description: "sort presented in the results")
+        sort_id(required: false, description: "sort id presented in the results")
+        view_mode(required: false, description: "view mode presented in the results")
+        layout(required: false, description: "layout mode presented in the results")
+        context(required: false, description: "context", type: PropertyType.String)
+        filters(required: false, description: "list of filters in the results")
+        results(required: false, description: "list of results")
+        billboard_shown(required: false, description: "billboard shown")
         available_filters(required: false, description: "available filters, sameday and nextday")
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
-        pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
+        pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList(PropertyType.Map))
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         carousel_categories_shown(required: false, description: 'category carousel is shown when user makes a search', PropertyType.Boolean)
         filter_carousel_shown(required: false, description: 'filter carousel is shown when user makes a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
-        error_message()
+        error_message(description: "message description")
         limit(required: false, description: "override required property")
         offset(required: false, description: "override required property")
         total(required: false, description: "override required property")

@@ -518,6 +518,12 @@ tracks {
         action_id(required:false, type: PropertyType.String, description:"indicates what widget action is selected")
     }
 
+    // Money In Hub - v2 - Web
+    "/money_in/hub/modal"(platform:"/", type: TrackType.View){}
+    "/money_in/hub/modal/close"(platform:"/", type: TrackType.Event){}
+    "/money_in/hub/modal/primary_button"(platform:"/", type: TrackType.Event){}
+    "/money_in/hub/modal/secondary_button"(platform:"/", type: TrackType.Event){}
+
     // -------------Open Finance - Money In-------------
     //Onboarding
     "/money_in/open_finance"(platform:"/", isAbstract: true){}

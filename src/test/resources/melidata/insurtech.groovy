@@ -2743,6 +2743,15 @@ trackTests {
         "/insurtech/protections/detail/cards/error"(platform:"/", type: TrackType.View) {
         }
 
+        "/insurtech/protections/detail/cards/claim_detail"(platform:"/web", type: TrackType.View) {
+            claim = [
+                id: "c1b3ac37-e5ac-48fb-8532-560ebe2368dc",
+                claim_number: "1446336",
+                has_previous_claim: false,
+                status: "OPEN"
+            ]
+        }
+
         "/insurtech/protections/detail/begin_claim"(platform:"/web", type: TrackType.View) {
             client_device = [
                 brand: "Samsung",

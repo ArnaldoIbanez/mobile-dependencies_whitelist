@@ -137,6 +137,7 @@ tracks {
     "/notification/claim_closed_seller_refund_decorator"(platform: "/") {}
     "/notification/claim_complainant_to_respondent_message"(platform: "/") {}
     "/notification/claim_respondent_to_complainant_message"(platform: "/") {}
+    "/notification/return_pick_product_wh_by_seller"(platform: "/") {}
 
     // Credits - Credit Card
     // Collection
@@ -166,6 +167,12 @@ tracks {
     "/notification/credit_card_overlimit_active"(platform: "/") {}
     "/notification/credit_card_overlimit_inactive"(platform: "/") {}
 
+    //Reject with reason
+    "/notification/credit_card_reject_blocked"(platform: "/") {}
+    "/notification/credit_card_reject_cvv_incorrect"(platform: "/") {}
+    "/notification/credit_card_reject_insufficient_amount"(platform: "/") {}
+    "/notification/credit_card_reject_invalid_pin"(platform: "/") {}
+
     // Transaction
     "/notification/credit_card_transaction_acquisition"(platform: "/") {}
     "/notification/credit_card_transaction_choff_purchase"(platform: "/") {}
@@ -177,6 +184,13 @@ tracks {
     "/notification/credit_card_waitlist_10"(platform: "/") {}
     "/notification/credit_card_waitlist_40"(platform: "/") {}
     "/notification/credit_card_waitlist_blacklist"(platform: "/") {}
+
+    // MoneyOut - TransferOnline
+    "/notification/transfer_online_approved"(platform: "/") {}
+    "/notification/transfer_online_in_process"(platform: "/") {}
+    "/notification/transfer_online_rejected"(platform: "/") {}
+    "/notification/transfer_online_review_manual"(platform: "/") {}
+    "/notification/transfer_online_scheduled"(platform: "/") {}
 
     // CardUpdater
     "/notification/card_updater_expiry"(platform: "/mobile") { }
