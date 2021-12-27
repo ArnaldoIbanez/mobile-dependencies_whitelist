@@ -56,12 +56,12 @@ tracks
           quote_id(
                   description: "identifier of quote_id",
                   type:  PropertyType.String,
-                  required: true
+                  required: false
           )
           value(
                   description: "value of the quotation by currency",
                   type: PropertyType.Numeric,
-                  required: true
+                  required: false
           )
       }
 
@@ -69,7 +69,7 @@ tracks
           id(
                   description: "Identificator of payment",
                   type:  PropertyType.String,
-                  required: true
+                  required: false
           )
           status(
                   description: "Status of payment",
@@ -79,7 +79,7 @@ tracks
           paid_amount(
                   description: "",
                   type:  PropertyType.Numeric,
-                  required: true
+                  required: false
           )
           payment_method(
                   description: "payment method",
@@ -157,20 +157,25 @@ tracks
 
       "/crypto/kyc/pending" (platform: "/mobile", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true, description: 'Profile of user')
-        context(type: PropertyType.String, required: true, description: 'Indicate which view it comes from', values:["pending_mercadopago"])
+        context(type: PropertyType.String, required: true, description: 'Indicate which view it comes from', values:["buy_attempt", "crypto_home_row"])
       }
 
       "/crypto/identity/pending_validation" (platform: "/mobile", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true, description: 'Profile of user')
+        context(type: PropertyType.String, required: true, description: 'Indicate which view it comes from', values:["buy_attempt", "crypto_home_row"])
+        operationType(type: PropertyType.String, required: true, description: 'Indicate which view it comes from', values:["sell_crypto","buy_crypto"])
       }
 
       "/crypto/identity/rejected_validation" (platform: "/mobile", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true, description: 'Profile of user')
+        context(type: PropertyType.String, required: true, description: 'Indicate which view it comes from', values:["buy_attempt", "crypto_home_row"])
         operationType(type: PropertyType.String, required: true, description: 'Indicate which view it comes from', values:["sell_crypto","buy_crypto"])
       }
 
       "/crypto/money_in_required" (platform: "/mobile", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true, description: 'Profile of user')
+        context(type: PropertyType.String, required: true, description: 'Indicate which view it comes from', values:["buy_attempt", "crypto_home_row"])
+        operationType(type: PropertyType.String, required: true, description: 'Indicate which view it comes from', values:["sell_crypto","buy_crypto"])
       }
 
       //Detail
@@ -209,15 +214,15 @@ tracks
         available_amount(type: PropertyType.Numeric, required: true, description: 'Quantity available for operation')
         event_category(type: PropertyType.String, required: true, description: 'Category of event', values: ["crypto"])
         event_action(type: PropertyType.String, required: true, description: 'Action name of event', values: ["insert_invalid_amunt"])
-        event_label(type: PropertyType.String, required: true, description: 'Label to identify the event', values: ["exceeds_holdings","exceeds_weekly_cap"])
+        event_label(type: PropertyType.String, required: true, description: 'Label to identify the event', values: ["exceeds_holdings","exceeds_operation_cap","exceeds_weekly_cap","exceeds_daily_cap","exceeds_mounthly_cap"])
       }
 
       "/crypto/buy/confirm_buy_amount" (platform: "/mobile", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, description: 'Profile of user')
         amount (type: PropertyType.Numeric, required: true, description: 'Amount of operation')
+        crypto(type: PropertyType.String, required: true, description: 'Cryptocurrency name', values: ["bitcoin", "ethereum","melicoin","usdp"] )
         event_category(type: PropertyType.String, required: true, description: 'Category of event', values: ["crypto"])
         event_action(type: PropertyType.String, required: true, description: 'Action name of event', values: ["confirm_buy_amount"])
-        event_label(type: PropertyType.String, required: true, description: 'Label to identify the event', values: ["bitcoin", "ethereum","melicoin","usdp" ])
       }
 
       "/crypto/sell" (platform: "/mobile", type: TrackType.View) {
@@ -235,10 +240,10 @@ tracks
 
       "/crypto/sell/confirm_sell_amount" (platform: "/mobile", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, description: 'Profile of user')
+        crypto(type: PropertyType.String, required: true, description: 'Cryptocurrency information', values: ["bitcoin", "ethereum","melicoin","usdp"] )
         amount (type: PropertyType.Numeric, required: true, description: 'Amount of operation')
         event_category(type: PropertyType.String, required: true, description: 'Category of event', values: ["crypto"])
         event_action(type: PropertyType.String, required: true, description: 'Action name of event', values: ["sell_all","confirm_sell_amount"])
-        event_label(type: PropertyType.String, required: true, description: 'Label to identify the event', values: ["bitcoin", "ethereum","melicoin","usdp" ])
       }
 
       // Review Paqe
@@ -282,8 +287,8 @@ tracks
         user_profile(type: PropertyType.String, required: true, description: 'Profile of user')
         amount(type: PropertyType.Numeric, required: true, description: 'Amount of the operation in local currency')
         crypto(type: PropertyType.String, required: true, description: 'Type of crypto', values: ["bitcoin", "ethereum","melicoin","usdp" ])
-        payment(type: PropertyType.Map(payment_definition), required: true, description: 'Info about payment')
-        quote(type: PropertyType.Map(quote_definition), required: true, description: 'Quote offer by proveedor')
+        payment(type: PropertyType.Map(payment_definition), required: false, description: 'Info about payment')
+        quote(type: PropertyType.Map(quote_definition), required: false, description: 'Quote offer by proveedor')
         congrats_status(type: PropertyType.String, required: true, description: 'Status of congrats')
       }
 
@@ -291,8 +296,8 @@ tracks
         user_profile(type: PropertyType.String, required: true, description: 'Profile of user')
         amount(type: PropertyType.Numeric, required: true, description: 'Amount of the operation in local currency')
         crypto(type: PropertyType.String, required: true, description: 'Type of crypto', values: ["bitcoin", "ethereum","melicoin","usdp" ])
-        payment(type: PropertyType.Map(payment_definition), required: true, description: 'Info about payment')
-        quote(type: PropertyType.Map(quote_definition), required: true, description: 'Quote offer by proveedor')
+        payment(type: PropertyType.Map(payment_definition), required: false, description: 'Info about payment')
+        quote(type: PropertyType.Map(quote_definition), required: false, description: 'Quote offer by proveedor')
         congrats_status(type: PropertyType.String, required: true, description: 'Status of congrats')
       }
 
@@ -334,5 +339,8 @@ tracks
       "/crypto/load_error" (platform: "/mobile", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: false, description: 'Profile of user')
         errors(type: PropertyType.String, required: false, description: 'Type of error', values: ["no_internet_connection", "not_available_on_country", "no_site_connection","cant_show_data"])
+      }
+      "/crypto/educational" (platform: "/", type: TrackType.View) {
+          crypto(required: false, type: PropertyType.String, description: "Currency Name")
       }
   }
