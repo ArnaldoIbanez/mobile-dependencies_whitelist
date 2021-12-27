@@ -1361,6 +1361,7 @@ trackTests {
             }
 
             "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+                from = "flow_enrollment"
                 enrollment_status = "disabled"
                 os_status = "basic_screenlock"
                 config = [
@@ -1371,11 +1372,11 @@ trackTests {
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
-                scenario = "never_auto_enrolled"
+                scenario = "flow_enrollment_no_security"
             }
 
             "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
-                from = "campaign"
+                from = "flow_enrollment"
                 enrollment_status = "enabled"
                 dismissible = "enabled"
                 os_status = "biometrics"
