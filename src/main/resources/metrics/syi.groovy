@@ -1,10 +1,13 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 import com.ml.melidata.metrics.TagType
 
 
 metrics {
 
-    "relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent", deprecation_date:"2020/08/12") {
+    "relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent", deprecation_date:"2020/08/12", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
         experiment("sell/full_relist_single_item")
 
         countsOn {
@@ -18,7 +21,7 @@ metrics {
         }
     }
 
-    "relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent", deprecation_date:"2020/08/12") {
+    "relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent", deprecation_date:"2020/08/12", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
         experiment("sell/full_relist_single_item")
 
         countsOn {
@@ -32,7 +35,7 @@ metrics {
         }
     }
 
-    "upgrade_listing"(description: "upgrade listing success for sell experiments", deprecation_date:"2020/08/12") {
+    "upgrade_listing"(description: "upgrade listing success for sell experiments", deprecation_date:"2020/08/12", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
         experiment("sell/congrats_upgrade_listing_type")
 
         countsOn {
@@ -42,7 +45,7 @@ metrics {
         }
     }
 
-    "seller_central/goal_achieved"(description: "Goal achieved", deprecation_date:"2020/08/12") {
+    "seller_central/goal_achieved"(description: "Goal achieved", deprecation_date:"2020/08/12", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
         experiment("sell/health-goals_order")
 
         countsOn {
@@ -55,7 +58,7 @@ metrics {
         }
     }
 
-    "publish_congrats"(description: "Selling flow new item published - Does not track congrats view", tags:[TagType.Important]) {
+    "publish_congrats"(description: "Selling flow new item published - Does not track congrats view", tags:[TagType.Important], bu: BuType.MercadoLibre, extent: ExtentType.Product) {
         experiment(regex("sell/.*"))
 
         countsOn {
@@ -65,7 +68,7 @@ metrics {
         }
     }
 
-    "sell_upgrade_intention"(description: "Intention for upgrading - Selling flow") {
+    "sell_upgrade_intention"(description: "Intention for upgrading - Selling flow", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
         experiment(regex("sell/.*"))
 
         countsOn {
@@ -75,7 +78,7 @@ metrics {
         }
     }
 
-    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow", tags:[TagType.Important, TagType.CoreMetric]) {
+    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow", tags:[TagType.Important, TagType.CoreMetric], bu: BuType.MercadoLibre, extent: ExtentType.Company) {
         experiment(regex("sell/.*|vis/.*|pdp/postContactSYIRedirect|sparkle/vis/.*"))
 
         countsOn {

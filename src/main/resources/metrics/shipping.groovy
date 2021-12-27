@@ -1,9 +1,12 @@
 package metrics
 
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
-    "packs"(description: "total packs from /purchase/purchasecreated", sum_by:["event_data.total_packs"]) {
+    "packs"(description: "total packs from /purchase/purchasecreated", sum_by:["event_data.total_packs"], bu: BuType.MercadoEnvios, extent: ExtentType.Product) {
         countsOn {
             condition {
                 path("/purchases/purchasecreated")
@@ -12,7 +15,7 @@ metrics {
         }
     }
 
-    "packs.discount"(description: "total packs with discount from /purchase/purchasecreated", sum_by:["event_data.discount_packs"]) {
+    "packs.discount"(description: "total packs with discount from /purchase/purchasecreated", sum_by:["event_data.discount_packs"], bu: BuType.MercadoEnvios, extent: ExtentType.Product) {
         countsOn {
             condition {
                 path("/purchases/purchasecreated")
@@ -21,7 +24,7 @@ metrics {
         }
     }
 
-    "packs.free_shipping"(description: "total free shipping packs from /purchase/purchasecreated", sum_by:["event_data.free_shipping_packs"]) {
+    "packs.free_shipping"(description: "total free shipping packs from /purchase/purchasecreated", sum_by:["event_data.free_shipping_packs"], bu: BuType.MercadoEnvios, extent: ExtentType.Product) {
         countsOn {
             condition {
                 path("/purchases/purchasecreated")
