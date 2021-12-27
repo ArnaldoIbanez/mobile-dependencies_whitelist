@@ -338,6 +338,12 @@ tracks {
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(store_item_definition)), description: "Items shown in the last viewed section")
     }
 
+    def landing_definition = objectSchemaDefinitions {
+        marketplace_state(required: true, type: PropertyType.String, description: "Marketplace actual state", values:['normal', 'empty', 'update_app_shield'])
+        marketplace_state_reason(required: true, type: PropertyType.String, description: "The reason of the actual marketplace state")
+        marketplace_filters(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The filters selected in the marketplace")
+    }
+
     def marketplace_filters_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the image banner we are showing")
         selected(type: PropertyType.String, required: true, values: ['selected', 'unselected', 'none'], description: "The state of the displayed filters")
@@ -379,6 +385,7 @@ tracks {
         row(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_row_definition)), description: "Row components")
         image_banner(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_image_banner_definition)), description: "Image banner components")
         last_viewed(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_last_viewed_definition)), description: "Last Viewed components")
+        landing(required: false, type: PropertyType.ArrayList(PropertyType.Map(landing_definition)), description: "Landing components")
         hybrid_last_viewed(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_last_viewed_definition)), description: "Last Viewed components")
         hybrid_row(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_row_definition)), description: "Hybrid Row components")
         hybrid_carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_carousel_definition)), description: "Carousel components")
