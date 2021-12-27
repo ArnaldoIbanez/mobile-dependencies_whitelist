@@ -457,6 +457,13 @@ trackTests {
                                 ]
                         ]
                 ],
+                landing: [
+                        [
+                                marketplace_state: "empty",
+                                marketplace_state_reason: "There is no delivery in the zone.",
+                                marketplace_filters: []
+                        ]
+                ],
                 hybrid_last_viewed: [
                         [
                                 marketplace_type: "hybrid_last_viewed",

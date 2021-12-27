@@ -36,7 +36,6 @@ trackTests {
         "/login/smartlock/multiple_credentials/cancel"(platform: "/mobile", type: TrackType.Event) {}
     }
 
-
     test("Logout action confirmed") {
         "/logout/modal"(platform: "/mobile") {
             action = "confirmed"
@@ -420,10 +419,18 @@ trackTests {
         "/auth/totp_in_app/validation/no_app"(platform: "/", type: TrackType.View) {
             id = "id"
         }
+        "/auth/totp_in_app/validation/onboarding"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
         "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             status = "approved"
             event_type = "polling"
+        }
+        "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "open_modal"
+            event_type = "click"
         }
         "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
             id = "id"
@@ -443,6 +450,11 @@ trackTests {
         "/auth/totp_in_app/validation/max_attempts/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             target = "go_home"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "continue"
             event_type = "click"
         }
     }
@@ -1348,6 +1360,7 @@ trackTests {
             }
 
             "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+                from = "flow_enrollment"
                 enrollment_status = "disabled"
                 os_status = "basic_screenlock"
                 config = [
@@ -1358,11 +1371,11 @@ trackTests {
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
-                scenario = "never_auto_enrolled"
+                scenario = "flow_enrollment_no_security"
             }
 
             "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
-                from = "campaign"
+                from = "flow_enrollment"
                 enrollment_status = "enabled"
                 dismissible = "enabled"
                 os_status = "biometrics"
@@ -2545,12 +2558,14 @@ trackTests {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
+                enrollment_user_id = "2920393029"
             }
 
             "/authenticators/totp_in_app/enrollment/transparent"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
+                enrollment_user_id = "2920393029"
             }
 
             "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -2559,9 +2574,41 @@ trackTests {
                 client_id = "login"
                 status = false
                 type_of_error = "server_error"
+                enrollment_user_id = "2920393029"
             }
 
             "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+                status = false
+                type_of_error = "server_error"
+                enrollment_user_id = "2920393029"
+            }
+        }
+
+        test("Massive Enrollment TotpInApp in Login") {
+            "/authenticators/totp_in_app/enrollment/massive"(platform: "/mobile/android", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+            }
+
+            "/authenticators/totp_in_app/enrollment/massive"(platform: "/mobile/ios", type: TrackType.View) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+            }
+
+            "/authenticators/totp_in_app/enrollment/massive/end"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "login"
+                status = false
+                type_of_error = "server_error"
+            }
+
+            "/authenticators/totp_in_app/enrollment/massive/end"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
@@ -2869,6 +2916,18 @@ trackTests {
                 time_of_code = 1613587194
                 enrollment_id = "71f0064a-45c9-11ec-81d3-0242ac130003"
             }
+        }
+
+        test("Second Factor Enrollment") {
+            "/auth/second_factor_enrollment/chooser"(platform: "/", type: TrackType.View) {}
+            "/auth/second_factor_enrollment/chooser/select"(platform: "/", type: TrackType.Event) {
+                factor = "phone_validation"
+            }
+            "/auth/second_factor_enrollment/chooser/select"(platform: "/", type: TrackType.Event) {
+                factor = "totp"
+            }
+            "/auth/second_factor_enrollment/greeting"(platform: "/", type: TrackType.View) {}
+            "/auth/second_factor_enrollment/greeting/start_flow"(platform: "/", type: TrackType.Event) {}
         }
     }
 }
