@@ -787,17 +787,17 @@ tracks {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
-    "/screenlock/anom/os_biometrics_changed"(platform: "/mobile", parentPropertiesInherited: true, type: TrackType.App) {
+    "/screenlock/anom/os_biometrics_changed"(platform: "/mobile", type: TrackType.App) {
         old_value(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "specify previous security type on user device")
         new_value(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "specify actual security type on user device")
     }
 
-    "/screenlock/anom/jb_changed"(platform: "/mobile/ios", parentPropertiesInherited: true, type: TrackType.App) {
+    "/screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
         old_value(type: PropertyType.Boolean, required: true, description: "specify previous jailbreak status on user device")
         new_value(type: PropertyType.Boolean, required: true, description: "specify actual jailbreak status on user device")
     }
 
-    "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", parentPropertiesInherited: true, type: TrackType.App) {
+    "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
         old_value(type: PropertyType.String, required: true, description: "specify previous biometric hash  on user device")
         new_value(type: PropertyType.String, required: true, description: "specify actual biometric hash on user device")
     }
