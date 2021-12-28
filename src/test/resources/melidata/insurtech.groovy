@@ -2720,6 +2720,16 @@ trackTests {
             ]
         }
 
+        "/insurtech/protections/detail/cards/payment_detail"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "cards-zafg1254sds",
+                entity_type:"quote",
+                entity_id:"463bfaad-7b1a-4ab9-8c5b-e62d692ee94e",
+                product_type:"cards",
+                product_id:"c792741f-5680-48c7-b70a-f66b5580d6e2"
+            ]
+        }
+
         "/insurtech/protections/detail/cards/help"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "cards-zafg1254sds",
@@ -2747,7 +2757,6 @@ trackTests {
             claim = [
                 id: "c1b3ac37-e5ac-48fb-8532-560ebe2368dc",
                 claim_number: "1446336",
-                has_previous_claim: false,
                 status: "OPEN"
             ]
         }

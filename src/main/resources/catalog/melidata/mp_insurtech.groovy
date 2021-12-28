@@ -152,7 +152,6 @@ tracks {
     def claim_cards = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "ID of claim associated to the CARDS protection.")
         claim_number(required: true, type: PropertyType.String, description: "Number of claim associated to the CARDS protection.")
-        has_previous_claim(required: true, type: PropertyType.Boolean, description: "This is true if the user has previous claims")
         status(required: true, type: PropertyType.String, description: "Claim status")
     }
 
@@ -773,6 +772,8 @@ tracks {
     }
 
     "/insurtech/protections/detail/cards/cancel"(platform:"/", type: TrackType.Event) {}
+
+    "/insurtech/protections/detail/cards/payment_detail"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/detail/cards/help"(platform:"/", type: TrackType.Event) {}
 
