@@ -229,7 +229,7 @@ trackTests {
             crypto = "bitcoin"
             available_amount = 6876574.76
             event_category = "crypto"
-            event_action = "insert_invalid_amunt"
+            event_action = "insert_invalid_amount"
             event_label = "exceeds_weekly_cap"
         }
     }
@@ -253,7 +253,7 @@ trackTests {
             user_profile = "newbie"
             crypto = "bitcoin"
             event_category = "crypto"
-            event_action = "insert_invalid_amunt"
+            event_action = "insert_invalid_amount"
             event_label = "exceeds_holdings"
         }
     }
@@ -290,7 +290,6 @@ trackTests {
             ]
             event_category = "crypto"
             event_action = "confirm_sell"
-            event_label = "bitcoin"
         }
     }
 
@@ -316,7 +315,6 @@ trackTests {
             ]
             event_category = "crypto"
             event_action = "confirm_buy"
-            event_label = "bitcoin"
         }
     }
 
@@ -392,7 +390,6 @@ trackTests {
             ]
         event_category = "crypto"
         event_action = "need_help"
-        event_label = "ethereum"
         }
     }
     test("Movements Page") {
