@@ -137,7 +137,7 @@ tracks
         event_label(type: PropertyType.String, required: true, description: 'Label to identify the event', values:['crypto_home'])
       }
       "/crypto/sell_intention" (platform: "/mobile", type: TrackType.Event) {
-        kyc_challenge_shown(type: PropertyType.String, required: false, description: 'If the user is KYC compliant',values:['yes','no'])
+        kyc_challenge_shown(type: PropertyType.String, required: true, description: 'If the user is KYC compliant',values:['yes','no'])
         crypto(type: PropertyType.Map(crypto_definition), required: true, description: 'Cryptocurrency information')
         event_category(type: PropertyType.String, required: true, description: 'Category of event',values:["crypto"])
         event_action(type: PropertyType.String, required: true, description: 'Action name of event',values:["sell_intention"])
@@ -173,7 +173,6 @@ tracks
 
       //Detail
       "/crypto/balance" (platform: "/mobile", type: TrackType.View) {
-        kyc_challenge_shown(type: PropertyType.String, required: false, description: 'If the user is KYC compliant')
         crypto(type: PropertyType.Map(crypto_definition), required: true, description: 'Cryptocurrency information')
       }
 
