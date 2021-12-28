@@ -79,12 +79,13 @@ tracks
           paid_amount(
                   description: "the amount paid",
                   type:  PropertyType.Numeric,
-                  required: false
+                  required: false,
           )
           payment_method(
                   description: "payment method used to pay",
                   type: PropertyType.String,
-                  required: false
+                  required: false,
+                  values:['account_money']
           )
       }
 

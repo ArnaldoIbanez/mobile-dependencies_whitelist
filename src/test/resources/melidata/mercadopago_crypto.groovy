@@ -327,7 +327,7 @@ trackTests {
                 id: "1233112123",
                 status: "ok",
                 paid_amount: 123123.23,
-                payment_method : "money in"
+                payment_method : "account_money"
             ]
             quote = [
                 quote_id : "123123234",
@@ -343,7 +343,7 @@ trackTests {
                 id: "1233112123",
                 status: "ok",
                 paid_amount: 123123.23,
-                payment_method : "money in"
+                payment_method : "account_money"
             ]
             quote = [
                 quote_id : "123123234",
@@ -364,7 +364,7 @@ trackTests {
                 id: "1233112123",
                 status: "ok",
                 paid_amount: 123123.23,
-                payment_method : "money in"
+                payment_method : "account_money"
             ]
             quote = [
                 quote_id : "123123234",
@@ -382,7 +382,7 @@ trackTests {
                 id: "1233112123",
                 status: "ok",
                 paid_amount: 123123.23,
-                payment_method : "money in"
+                payment_method : "account_money"
             ]
             quote = [
                 quote_id : "123123234",
