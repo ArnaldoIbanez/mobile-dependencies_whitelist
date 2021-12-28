@@ -466,4 +466,15 @@ tracks {
     "/discount_center/payers/addresses/hub/current_location/tap" (platform: "/mobile", type: TrackType.Event) {}
 
     "/discount_center/payers/addresses/hub/add_address/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+    // SEARCHBAR
+
+    "/discount_center/payers/search" (platform: "/mobile", type: TrackType.View) {
+        session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
+
+    "/discount_center/payers/search/tap" (platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+        search_query(required: true, type: PropertyType.String, description: "User's query")
+    }
 }

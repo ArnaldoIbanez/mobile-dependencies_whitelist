@@ -1329,5 +1329,14 @@ trackTests {
             result = "enabled"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
+
+         "/discount_center/payers/search" (platform: "/mobile", type: TrackType.View) {
+             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+         }
+
+         "/discount_center/payers/search/tap" (platform: "/mobile", type: TrackType.Event) {
+             search_query = "sushi"
+             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+         }
     }
 }
