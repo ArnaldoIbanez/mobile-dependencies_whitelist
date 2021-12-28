@@ -15620,6 +15620,9 @@ trackTests {
         "/notification/open_finance_consent_recovery"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/open_finance_consent_to_expire"(platform: "/mobile") {
+            event_type = "open"
+        }
         "/notification/open_finance_consent_expired"(platform: "/mobile") {
             event_type = "open"
         }
