@@ -280,7 +280,7 @@ tracks {
         video_id(name: "video_id", description: "Unique video identifier", required: true, type: PropertyType.Numeric)
     }
 
-    "/shops/hub/skip_note"(platform: "/", type: TrackType.Event) {
+    "/shops/hub/not_interested"(platform: "/", type: TrackType.Event) {
         note_id(name: "note_id", description: "Unique note identifier", required: true, type: PropertyType.Numeric)
     }
 

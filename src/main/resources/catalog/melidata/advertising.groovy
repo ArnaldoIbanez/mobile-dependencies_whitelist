@@ -1155,6 +1155,8 @@ tracks {
         query(required: true, type:PropertyType.String , description: "Indicates the query searched by the user")
     }
 
+    "/advertising/pads2/sads_new/landing/help"(platform: "/", type: TrackType.Event) {}
+
     // Multicampaña - Sads paused
 
     "/advertising/pads2/hub/card/sads_paused"(platform: "/", type:TrackType.View){
@@ -1210,6 +1212,9 @@ tracks {
     "/advertising/pads2/sads_paused/landing/filters"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
     }
+
+    "/advertising/pads2/sads_paused/landing/help"(platform: "/", type: TrackType.Event) {}
+
 
     // Multicampaña - Upselling
 
