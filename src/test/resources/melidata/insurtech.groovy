@@ -2653,7 +2653,7 @@ trackTests {
         }
         "/insurtech/protections/detail/garex/claim_detail"(platform:"/", type: TrackType.View) {
             insurance_purchase_key = "085bcc3e-af73-45e3-9392-49a3da731174-test"
-            claim: [
+            claim = [
                 id: "954b6c2e-57e2-4903-8690-ca383d7c499e",
                 claim_number: "75748",
                 status: "SERVICE_CENTER_ASSIGNED"
@@ -2661,7 +2661,7 @@ trackTests {
         }
         "/insurtech/protections/detail/garex/claim_detail/navigate"(platform:"/", type: TrackType.Event) {
             insurance_purchase_key = "085bcc3e-af73-45e3-9392-49a3da731174-test"
-            claim: [
+            claim = [
                 id: "954b6c2e-57e2-4903-8690-ca383d7c499e",
                 claim_number: "894387",
                 status: "SERVICE_CENTER_ASSIGNED"
