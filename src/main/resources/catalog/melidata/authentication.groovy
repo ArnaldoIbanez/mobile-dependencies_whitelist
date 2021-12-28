@@ -783,23 +783,27 @@ tracks {
     }
 
     // Anomalies
-    "/screenlock/anom/os_biometrics_changed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.App) {
+    "/screenlock/anom"(platform: "/mobile", isAbstract: true, initiative: 1375) {
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+    }
+
+    "/screenlock/anom/os_biometrics_changed"(platform: "/mobile", parentPropertiesInherited: true, type: TrackType.App) {
         old_value(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "specify previous security type on user device")
         new_value(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none", "face_id", "touch_id"], description: "specify actual security type on user device")
     }
 
-    "/screenlock/anom/jb_changed"(platform: "/mobile/ios", parentPropertiesInherited: false, type: TrackType.App) {
+    "/screenlock/anom/jb_changed"(platform: "/mobile/ios", parentPropertiesInherited: true, type: TrackType.App) {
         old_value(type: PropertyType.Boolean, required: true, description: "specify previous jailbreak status on user device")
         new_value(type: PropertyType.Boolean, required: true, description: "specify actual jailbreak status on user device")
     }
 
-    "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", parentPropertiesInherited: false, type: TrackType.App) {
+    "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", parentPropertiesInherited: true, type: TrackType.App) {
         old_value(type: PropertyType.String, required: true, description: "specify previous biometric hash  on user device")
         new_value(type: PropertyType.String, required: true, description: "specify actual biometric hash on user device")
     }
 
     "/screenlock/anom/storage_error"(platform: "/mobile/ios", parentPropertiesInherited: false, type: TrackType.App) {
-        error_type(type: PropertyType.String, required: true, values: ["failed_get_transaction", "failed_get_value", "failed_put_value"], description: "specify the storage error type")
+        error_type(type: PropertyType.String, required: true, values: ["failed_get_transaction", "failed_get_value", "failed_put_value", "unknown_error"], description: "specify the storage error type")
     }
 
     // IFPE Auth restrictions & Reauth errors
