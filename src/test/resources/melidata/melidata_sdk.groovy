@@ -17,7 +17,7 @@ trackTests {
             context = "DescriptionFragment"
         }
 
-        "/melidata/statistics"(platform:"/mobile", type:TrackType.Event){
+        "/melidata/statistics"(platform:"/mobile/android", type:TrackType.Event){
             errors_counter = ["java.io.EOFException":2, "nullpointer":3]
             last_send_timestamp="2015-01-21T13:14:09.415-0300"
             total_pending_tracks=2
@@ -44,20 +44,14 @@ trackTests {
             error="error_name"
         }
 
-        "/melidata/shrink_database"(platform:"/mobile/android", type:TrackType.Control){
-            delete_records=40
-            current_size=69632
-            previous_size=110592
-        }
-
-        "/melidata/shrink_database"(platform:"/mobile/android", type:TrackType.Control){
-            delete_records=40
+        "/melidata/shrink_database"(platform:"/mobile/android", type:TrackType.Control ) {
+            deleted_records=40
             current_size=69632
             previous_size=110592
             most_common_path="/search"
         }
 
-        "/melidata/shrink_database"(platform:"/mobile/ios", type:TrackType.Event){
+        "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {
             delete_records=50
             current_size=82322
             previous_size=122592
