@@ -793,6 +793,8 @@ tracks {
     }
     "/insurtech/protections/detail/garex/feedback"(platform:"/", type: TrackType.Event) {
     }
+    "/insurtech/protections/detail/garex/begin_claim_by_email"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+    }
 
     // CARDS
     "/insurtech/protections/detail/cards"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {

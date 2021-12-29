@@ -2706,6 +2706,8 @@ trackTests {
                     amount_fee:  10.73,
             ]
         }
+        "/insurtech/protections/detail/garex/begin_claim_by_email"(platform:"/", type: TrackType.View) {
+        }
 
         // CARDS
         "/insurtech/protections/detail/cards"(platform:"/mobile", type: TrackType.View) {
