@@ -1526,16 +1526,46 @@ trackTests {
             "/screenlock/anom/os_biometrics_changed"(platform: "/mobile/android", type: TrackType.App) {
                 old_value = "biometrics"
                 new_value = "basic_screenlock"
+                enrollment_status = "enabled"
+                os_status = "touch_id"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
             }
 
             "/screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
                 old_value = false
                 new_value = true
+                enrollment_status = "disabled"
+                os_status = "face_id"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
             }
 
             "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
                 old_value = "hash_random_1234"
                 new_value = "hash_random_4321"
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "5"
+                ]
             }
 
             "/screenlock/anom/storage_error"(platform: "/mobile/ios", type: TrackType.App) {

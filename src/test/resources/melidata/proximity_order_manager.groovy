@@ -55,6 +55,19 @@ trackTests {
         }
     }
 
+    test("Event Order Manager Shipment") {
+        "/proximity_order_manager/shipment" (platform: "/", type: TrackType.Event) {
+            shipment_id = 1
+            pack_id = 1
+            purchase_id = 1
+            seller_id = 1
+            type = "CHANGE_STATUS"
+            status = "pending"
+            sub_status = "creating_route"
+            elapsed_seconds = 5
+        }
+    }
+
     test("Event Order Manager Store") {
         "/proximity_order_manager/store" (platform: "/", type: TrackType.Event) {
             store_id = 1

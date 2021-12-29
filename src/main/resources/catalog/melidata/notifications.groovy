@@ -2313,4 +2313,8 @@ tracks {
 
     //Open Finance
     "/notification/open_finance_consent_recovery"(platform: "/mobile") {}
+    "/notification/open_finance_consent_to_expire"(platform: "/mobile") {}
+    "/notification/open_finance_consent_expired"(platform: "/mobile") {}
+    "/notification/open_finance_consent_revoked"(platform: "/mobile") {}
+    "/notification/open_finance_data_available"(platform: "/mobile") {}
 }
