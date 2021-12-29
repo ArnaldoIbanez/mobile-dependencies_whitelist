@@ -15620,6 +15620,18 @@ trackTests {
         "/notification/open_finance_consent_recovery"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/open_finance_consent_to_expire"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/open_finance_consent_expired"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/open_finance_consent_revoked"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/open_finance_data_available"(platform: "/mobile") {
+            event_type = "open"
+        }
     }
 
     defaultBusiness = "mercadolibre"
@@ -15920,6 +15932,12 @@ trackTests {
 
         "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {
             news_id = "/notification/card_transactions_approved_withdraw_with_fee_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_rejected_authorization_by_minors"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_rejected_authorization_by_minors-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -16483,6 +16501,12 @@ trackTests {
         
         "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {
             news_id = "/notification/card_transactions_approved_withdraw_with_fee_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_rejected_authorization_by_minors"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_rejected_authorization_by_minors-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }

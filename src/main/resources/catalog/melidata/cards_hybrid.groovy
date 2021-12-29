@@ -1153,6 +1153,9 @@ tracks {
           )
     }
     "/cards/hybrid/change_pin/congrats"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/change_pin/reauth"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/change_pin/reauth/success"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/change_pin/reauth/error"(platform:"/", type: TrackType.Event) { }
     
     // LIMITS
     // --------
@@ -3402,6 +3405,19 @@ tracks {
             required: true,
             type: PropertyType.Boolean,
             description: "UserId status at the moment of the error"
+        )
+    }
+    
+    // NFC_IDENTITY_FALLBACK
+    // -----------------------
+    "/cards/nfc/identity_fallback"(platform: "/", type: TrackType.View) {}
+
+    "/cards/nfc/identity_fallback/action"(platform: "/", type: TrackType.Event) {
+        event_type (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary_button", "secondary_button", "close"],
+            description: "Button tapped"
         )
     }
 }

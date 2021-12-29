@@ -4460,10 +4460,18 @@ trackTests {
         "/auth/totp_in_app/validation/no_app"(platform: "/", type: TrackType.View) {
             id = "id"
         }
+        "/auth/totp_in_app/validation/onboarding"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
         "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             status = "approved"
             event_type = "polling"
+        }
+        "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "open_modal"
+            event_type = "click"
         }
         "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
             id = "id"
@@ -4483,6 +4491,11 @@ trackTests {
         "/auth/totp_in_app/validation/no_app/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             target = "decline_challenge"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "continue"
             event_type = "click"
         }
     }
@@ -4971,7 +4984,7 @@ trackTests {
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
-            from = "campaign"
+            from = "flow_enrollment"
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
@@ -5002,6 +5015,7 @@ trackTests {
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+            from = "flow_enrollment"
             enrollment_status = "disabled"
             os_status = "basic_screenlock"
             dismissible = "disabled"
@@ -5013,7 +5027,7 @@ trackTests {
                     "transaction_custom": "0",
                     "opening_custom": "0"
             ]
-            scenario = "never_auto_enrolled"
+            scenario = "flow_enrollment_no_security"
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
@@ -5149,19 +5163,49 @@ trackTests {
         }
 
         "/screenlock/anom/os_biometrics_changed"(platform: "/mobile/android", type: TrackType.App) {
-            old_value = "biometrics"
-            new_value = "basic_screenlock"
-        }
+                old_value = "biometrics"
+                new_value = "basic_screenlock"
+                enrollment_status = "enabled"
+                os_status = "touch_id"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
 
-        "/screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
-            old_value = false
-            new_value = true
-        }
+            "/screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
+                old_value = false
+                new_value = true
+                enrollment_status = "disabled"
+                os_status = "face_id"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
 
-        "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
-            old_value = "hash_random_1234"
-            new_value = "hash_random_4321"
-        }
+            "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
+                old_value = "hash_random_1234"
+                new_value = "hash_random_4321"
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "5"
+                ]
+            }
 
         "/screenlock/anom/storage_error"(platform: "/mobile/ios", type: TrackType.App) {
             error_type = "failed_put_value"
