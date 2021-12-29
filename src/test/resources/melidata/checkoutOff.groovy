@@ -183,6 +183,8 @@ trackTests {
 
         "/checkout_off/payment/input_credits/select_installment/combination"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
+            credits_pre_approved_line = false
         }
 
         "/checkout_off/payment/card/split_first"(platform: "/web/mobile") {

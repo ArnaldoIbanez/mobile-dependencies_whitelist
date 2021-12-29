@@ -138,7 +138,11 @@ tracks {
 
     "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/", type: TrackType.View) {}
 
-    "/checkout_off/payment/input_credits/select_installment/combination"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/input_credits/select_installment/combination"(platform: "/", type: TrackType.View) {
+        opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
+        opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
+    }
 
     // Tokenizer product final screen.
     "/checkout_off/payment/processing"(platform: "/", type: TrackType.View) {}
