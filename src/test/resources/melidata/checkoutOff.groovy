@@ -131,6 +131,7 @@ trackTests {
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
             defaultProperties()
             openSeaDefaultProperties()
+            credits_pre_approved_line = false
         }
 
         "/checkout_off/payment/select_type/combination"(platform: "/web/mobile") {
@@ -167,11 +168,13 @@ trackTests {
 
         "/checkout_off/payment/card_express"(platform: "/web/mobile") {
             defaultProperties()
+            credits_pre_approved_line = false
         }
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
             openSeaDefaultProperties()
+            credits_pre_approved_line = false
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
@@ -205,6 +208,7 @@ trackTests {
 
         "/checkout_off/review"(platform: "/web/mobile") {
             defaultProperties()
+            credits_pre_approved_line = false
         }
 
         "/checkout_off/review/shield_kyc"(platform: "/web/mobile") {

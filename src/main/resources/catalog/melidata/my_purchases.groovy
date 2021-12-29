@@ -53,6 +53,22 @@ tracks {
         is_prime(required: true, description: "Indicator of the id primality", type: PropertyType.String, name: "is_prime")
     }
 
+    def filters_def = objectSchemaDefinitions {
+        date(required: true, description: "Date filter", type: PropertyType.String, values: ["ALL", "-1M", "1M", "3M", "6M", "12M"])
+    }
+
+    def rows_def = objectSchemaDefinitions {
+        grouping_info(required: true, description: "Row's grouping info", type: PropertyType.Map(grouping_info_def))
+        items(required: true, description: "Row's items ids", type: PropertyType.ArrayList(PropertyType.String))
+    }
+
+    def grouping_info_def = objectSchemaDefinitions {
+        grouped_by(required: true, type: PropertyType.String, description: "Grouping strategy", values: ["purchase", "pack", "order"])
+        purchase_id
+        pack_id
+        order_id
+    }
+
     propertyDefinitions {
 
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(items_def)), description: "Items in this purchase")
@@ -323,6 +339,11 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/my_purchases/list"(platform:"/", type: TrackType.View) {
+        total(required: true, description: "Results count", type: PropertyType.Numeric)
+        query(required: true, description: "Search term", type: PropertyType.String)
+        page(required: true, description: "Page number", type: PropertyType.Numeric)
+        filters(required: true, description: "Applied filters", type: PropertyType.Map(filters_def))
+        rows(required: false, description: "Visible rows", type: PropertyType.ArrayList(PropertyType.Map(rows_def)))
     }
 
     "/my_purchases/list/repurchase/add_to_cart"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {

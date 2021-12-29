@@ -954,6 +954,7 @@ trackTests {
                 status: 'approved',
             ]
         }
+        "/insurtech/qpage_off/congrats"(platform:"/", type: TrackType.View) {}
         "/insurtech/qpage_off/congrats/go_to_protections_page"(platform:"/", type: TrackType.Event) {
             order_id = '12345'
             product_id = 'GAREX'
@@ -969,6 +970,7 @@ trackTests {
                 status: 'approved',
             ]
         }
+        "/insurtech/qpage_off/congrats/go_to_protections_page"(platform:"/", type: TrackType.Event) {}
         "/insurtech/qpage_off/congrats/go_to_my_protections_page"(platform:"/", type: TrackType.Event) {
             order_id = '12345'
             product_id = 'GAREX'
@@ -984,6 +986,7 @@ trackTests {
                 status: 'approved',
             ]
         }
+        "/insurtech/qpage_off/congrats/go_to_my_protections_page"(platform:"/", type: TrackType.Event) {}
     }
 
     defaultBusiness = "mercadopago"
@@ -2535,7 +2538,7 @@ trackTests {
                 amount_fee:  10.73,
             ]
         }
-         
+
         "/insurtech/protections/detail/garex/use_service"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "garex-ABC124",
@@ -2550,7 +2553,7 @@ trackTests {
                 amount_fee:  10.73,
             ]
         }
-        
+
         "/insurtech/protections/detail/garex/use_service_certificate"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "garex-ABC124",
@@ -2565,7 +2568,7 @@ trackTests {
                 amount_fee:  10.73,
             ]
         }
-        
+
         "/insurtech/protections/detail/garex/cancel_protection"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "garex-ABC124",
@@ -2580,7 +2583,7 @@ trackTests {
                 amount_fee:  10.73,
             ]
         }
-        
+
         "/insurtech/protections/detail/garex/help"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "garex-ABC124",
@@ -2737,6 +2740,18 @@ trackTests {
             ]
         }
 
+        "/insurtech/protections/detail/cards/error"(platform:"/", type: TrackType.View) {
+        }
+
+        "/insurtech/protections/detail/cards/claim_detail"(platform:"/web", type: TrackType.View) {
+            claim = [
+                id: "c1b3ac37-e5ac-48fb-8532-560ebe2368dc",
+                claim_number: "1446336",
+                has_previous_claim: false,
+                status: "OPEN"
+            ]
+        }
+
         "/insurtech/protections/detail/begin_claim"(platform:"/web", type: TrackType.View) {
             client_device = [
                 brand: "Samsung",
@@ -2844,6 +2859,10 @@ trackTests {
                 product_id: "CARDS"
             ],
            ]
+           touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
            flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/select"(platform:"/", type: TrackType.Event) {
@@ -2869,6 +2888,10 @@ trackTests {
                     ],
                 ],
                 product_id: "CARDS"
+            ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
             ]
             flow_id = "PRECONGRATS"
         }
@@ -2896,6 +2919,10 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+            ]
             flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/add"(platform:"/", type: TrackType.Event) {
@@ -2922,9 +2949,17 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+            ]
             flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/skip"(platform:"/", type: TrackType.Event) {
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+            ]
             flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/quote_fail"(platform:"/", type: TrackType.Event) {
@@ -2950,6 +2985,10 @@ trackTests {
                     ],
                 ],
                 product_id: "CARDS"
+            ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
             ]
             flow_id = "PRECONGRATS"
         }
@@ -2977,6 +3016,10 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+            ]
             flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/quote_success"(platform:"/", type: TrackType.Event) {
@@ -3003,12 +3046,24 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+            ]
             flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/back"(platform:"/", type: TrackType.Event) {
+           touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
            flow_id = "POSTCONGRATS"
         }
         "/insurtech/cards/close"(platform:"/", type: TrackType.Event) {
+           touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
            flow_id = "PRECONGRATS"
         }
     }
@@ -3019,15 +3074,31 @@ trackTests {
         //Success
         "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View) {
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
         "/insurtech/cards/congrats_success/go_cards"(platform:"/", type: TrackType.Event){
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
         "/insurtech/cards/congrats_success/go_protections"(platform:"/", type: TrackType.Event){
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
         "/insurtech/cards/congrats_success/close"(platform:"/", type: TrackType.Event){
             purchase_key = "8888"
+            touchpoint_data = [
+               touchpoint: "DIGITAL_ACCOUNT",
+               touchpoint_detail: "PIX",
+           ]
         }
     }
 
@@ -3547,5 +3618,21 @@ trackTests {
                 ]
             }
 	 }
+    }
+
+    // INSURTECH adquisition
+    ["mercadolibre", "mercadopago"].each { business ->
+		defaultBusiness = business
+        test("Insurtech - ${business} tests adquisition tacking without touchpointData") {
+            "/insurtech/adquisition/fallback"(platform:"/", type: TrackType.View) {}
+        }
+        test("Insurtech - ${business} tests adquisition tacking ") {
+            "/insurtech/adquisition/fallback"(platform:"/", type: TrackType.View) {
+                touchpoint_data = [
+                    touchpoint: "DIGITAL_ACCOUNT",
+                    touchpoint_detail: "PIX",
+                ]
+            }
+        }
     }
 }

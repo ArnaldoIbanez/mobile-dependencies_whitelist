@@ -124,6 +124,38 @@ trackTests {
             latest_news_type= "under_age_minor_approved"
             latest_news_id= "under_age_minor_approved-186785675"
         }
+        "/notification_center/under_age_responsible_info_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_info"
+            latest_news_id= "under_age-responsible_info-186785675"
+        }
+        "/notification_center/under_age_responsible_authorization_legacy_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_authorization_legacy"
+            latest_news_id= "under_age_responsible_authorization_legacy-186785675"
+        }
+        "/notification_center/under_age_minor_rejected_ml"(platform: "/") {
+            latest_news_type= "under_age_minor_rejected"
+            latest_news_id= "under_age_minor_rejected-186785675"
+        }
+        "/notification_center/under_age_minor_approved_ml"(platform: "/") {
+            latest_news_type= "under_age_minor_approved"
+            latest_news_id= "under_age_minor_approved-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_approved"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_approved"
+            latest_news_id= "under_age_responsible_relationship_bond_approved-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_approved_ml"
+            latest_news_id= "under_age_responsible_relationship_bond_approved_ml-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_rejected"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_rejected"
+            latest_news_id= "under_age_responsible_relationship_bond_rejected-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_rejected_ml"
+            latest_news_id= "under_age_responsible_relationship_bond_rejected_ml-186785675"
+        }
         "/notification_center/loyalty"(platform: "/mobile"){
             newsgroup_id= "LOYALTY-48422892"
             status= "unread"
@@ -970,6 +1002,12 @@ trackTests {
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
             latest_news_type= "asset_management_warm_up"
+            status= "read"
+        }
+        "/notification_center/asset_management_missing_docs"(platform: "/mobile"){
+            newsgroup_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_type= "missing_docs"
             status= "read"
         }
         "/notification_center/asset_management_investing"(platform: "/mobile"){
@@ -2188,10 +2226,22 @@ trackTests {
             latest_news_type= "transfer_online_approved"
             status= "read"
         }
+        "/notification_center/transfer_online_in_process"(platform: "/mobile"){
+            newsgroup_id= "transfer_online_in_process-186785675-76283123"
+            latest_news_id= "transfer_online_in_process-186785675-76283123"
+            latest_news_type= "transfer_online_in_process"
+            status= "read"
+        }
         "/notification_center/transfer_online_rejected"(platform: "/mobile"){
             newsgroup_id= "transfer_online_rejected-186785675-76283123"
             latest_news_id= "transfer_online_rejected-186785675-76283123"
-            latest_news_type= "transfer_online_rejected"
+            latest_news_type= "transfer_online_in_process"
+            status= "read"
+        }
+        "/notification_center/transfer_online_review_manual"(platform: "/mobile"){
+            newsgroup_id= "transfer_online_review_manual-186785675-76283123"
+            latest_news_id= "transfer_online_review_manual-186785675-76283123"
+            latest_news_type= "transfer_online_review_manual"
             status= "read"
         }
         "/notification_center/transfer_online_scheduled"(platform: "/mobile"){
@@ -2438,6 +2488,10 @@ trackTests {
             latest_news_type= "single_player_balance_expiration_transport_mp"
             latest_news_id= "single_player_balance_expiration_transport_mp-143816022-MLB1013046714"
         }
+        "/notification_center/single_player_balance_expiration_prepaid_toll_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_balance_expiration_prepaid_toll_mp"
+            latest_news_id= "single_player_balance_expiration_prepaid_toll_mp-143816022-MLB1013046714"
+        }
         "/notification_center/single_player_expired_debt_utility_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_expired_debt_utility_mp"
             latest_news_id= "single_player_expired_debt_utility_mp-143816022-MLB1013046714"
@@ -2569,6 +2623,52 @@ trackTests {
             latest_news_type= "single_player_recharge_success_mp"
             latest_news_id= "single_player_recharge_success_mp-143816022-MLB1013046714"
         }
+        "/notification_center/single_player_self_service_schedule_new_debt"(platform: "/") {
+            latest_news_type= "single_player_self_service_schedule_new_debt"
+            latest_news_id= "single_player_self_service_schedule_new_debt-143816022-MLB1013046714"
+            debt_id=1234
+            seller_name="Hendel"
+        }
+
+        "/notification_center/single_player_subscription_recharge_cancelled_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_cancelled_product_mp"
+            latest_news_id= "single_player_subscription_recharge_cancelled_product_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_cancelled_product_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_cancelled_product_mp"
+            latest_news_id= "single_player_subscription_recharge_cancelled_product_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_cancelled_unrecoverable_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_cancelled_unrecoverable_mp"
+            latest_news_id= "single_player_subscription_recharge_cancelled_unrecoverable_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_fail_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_fail_mp"
+            latest_news_id= "single_player_subscription_recharge_fail_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_fail_payments_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_fail_payments_mp"
+            latest_news_id= "single_player_subscription_recharge_fail_payments_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_reminder_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_reminder_mp"
+            latest_news_id= "single_player_subscription_recharge_reminder_mp-143816022-MLB1013046714"
+        }
+
+        "/notification_center/single_player_subscription_recharge_success_mp"(platform: "/") {
+            latest_news_type= "single_player_subscription_recharge_success_mp"
+            latest_news_id= "single_player_subscription_recharge_success_mp-143816022-MLB1013046714"
+        }
+
+
+
+
+
 
         "/notification_center/shipping_moderation_cross_docking_release_below"(platform: "/mobile"){
             latest_news_type= "shipping_moderation_cross_docking_release_below"
@@ -2624,6 +2724,10 @@ trackTests {
             latest_news_type= "disbursement_kwai_received"
             latest_news_id= "disbursement_kwai-received-12345678"
         }
+        "/notification_center/disbursement_kwai_pending_kyc"(platform: "/") {
+            latest_news_type= "disbursement_kwai_pending_kyc"
+            latest_news_id= "disbursement_kwai-pending_kyc-12345678"
+        }
 
         "/notification/seller_journey_congrats"(platform: "/mobile"){
             step_id= 123
@@ -2662,7 +2766,26 @@ trackTests {
             event_type = "auto_dismiss"
             source = "logout"
         }
-
+        "/notification/transfer_online_approved"(platform: "/mobile") {
+            news_id = "transfer_online_approved-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_in_process"(platform: "/mobile") {
+            news_id = "transfer_online_in_process-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_rejected"(platform: "/mobile") {
+            news_id = "transfer_online_rejected-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_review_manual"(platform: "/mobile") {
+            news_id = "transfer_online_review_manual-12345678"
+            event_type = "sent"
+        }
+        "/notification/transfer_online_scheduled"(platform: "/mobile") {
+            news_id = "transfer_online_scheduled-12345678"
+            event_type = "sent"
+        }
         "/notification/account_fund_approved_ml"(platform: "/mobile") {
             news_id = "account_fund-account_fund-approved_ml-12345678"
             event_type = "shown"
@@ -2732,6 +2855,22 @@ trackTests {
         "/notification/credit_card_overlimit_inactive"(platform: "/") {
             news_id = "credit_card_overlimit_inactive-12"
             event_type = "dismiss"
+        }
+        "/notification/credit_card_reject_blocked"(platform: "/mobile") {
+            news_id = "credit_card_reject_blocked-12"
+            event_type = "shown"
+        }
+        "/notification/credit_card_reject_cvv_incorrect"(platform: "/mobile") {
+            news_id = "credit_card_reject_cvv_incorrect-12"
+            event_type = "shown"
+        }
+        "/notification/credit_card_reject_insufficient_amount"(platform: "/mobile") {
+            news_id = "credit_card_reject_insufficient_amount-12"
+            event_type = "shown"
+        }
+        "/notification/credit_card_reject_invalid_pin"(platform: "/mobile") {
+            news_id = "credit_card_reject_invalid_pin-12"
+            event_type = "shown"
         }
         "/notification/credit_card_transaction_chout_purchase"(platform: "/") {
             news_id = "credit_card-transaction_chout_purchase-12"
@@ -3009,7 +3148,7 @@ trackTests {
             sent_date= "20180508"
             event_type= "sent"
         }
-        
+
         "/notification/mpcampaigns_wpp_sms"(platform: "/"){
             segment_name= "segment"
             experiment_name= "experiment"
@@ -3220,7 +3359,7 @@ trackTests {
             news_id = "credits-consumer_expired_eighty_notice-21680059-20180516"
             event_type = "shown"
         }
-            
+
         "/notification/credits_consumer_expired_two_notice"(platform: "/") {
             news_id = "credits-consumer_expired_two_notice-21680059-20180516"
             event_type = "shown"
@@ -3357,8 +3496,12 @@ trackTests {
             news_id = "credits_consumer_chatbot_payment_promise_info_v2-21680059-20180516"
             event_type = "shown"
         }
+        "/notification/credits_consumer_chatbot_general_trouble"(platform: "/") {
+            news_id = "credits_consumer_chatbot_general_trouble-21680059-20180516"
+            event_type = "shown"
+        }
 
-        
+
         "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/mobile") {
             news_id = "chargeback-payer_high_agree_repayment_mp-14363307744123"
             event_type = "shown"
@@ -3410,6 +3553,10 @@ trackTests {
 
         "/notification/credits_consumer_congrats_personal_loans"(platform: "/mobile") {
             news_id = "credits_consumer_congrats_personal_loans-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_registration_journey_mp"(platform: "/mobile") {
+            news_id = "credits_consumer_registration_journey_mp-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_expired_last_notice"(platform: "/mobile") {
@@ -3604,6 +3751,16 @@ trackTests {
 
         "/notification/cx_question_ml"(platform: "/mobile"){
             case_id= 12345678
+            event_type = "sent"
+        }
+
+        "/notification/melichat_message_ml"(platform: "/mobile"){
+            case_id= 12345678
+            event_type = "sent"
+        }
+
+        "/notification/cvv_command"(platform: "/") {
+            news_id = "cvv_command-12345678"
             event_type = "sent"
         }
 
@@ -4331,6 +4488,12 @@ trackTests {
             order_id = 123
         }
         "/notification/shipping_not_delivered_retained_sender"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_not_delivered_returning_to_hub_xd_xddo"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
@@ -5335,7 +5498,22 @@ trackTests {
             news_id = "123"
             event_type = "open"
         }
-
+        "/notification/fraud_remedies_identity_start_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_identity_start_second_score-222222222-123456789"
+            event_type = "open"
+        }
+        "/notification/fraud_remedies_identity_reminder_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_identity_reminder_second_score-222222222-123456789"
+            event_type = "open"
+        }
+        "/notification/fraud_remedies_card_start_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_card_start_second_score-222222222-123456789"
+            event_type = "open"
+        }
+        "/notification/fraud_remedies_card_reminder_second_score"(platform: "/mobile") {
+            news_id= "fraud_remedies_card_reminder_second_score-222222222-123456789"
+            event_type = "open"
+        }
         "/notification/da_kyc_manual_review"(platform: "/mobile"){
             news_id= "123"
             event_type= "open"
@@ -5825,6 +6003,22 @@ trackTests {
             latest_news_type= "credit_card_overlimit"
             latest_news_id= "credit_card_overlimit-148801678-free-annuity-20211405"
         }
+        "/notification_center/credit_card_reject_blocked"(platform: "/mobile") {
+            latest_news_type= "credit_card_reject_blocked"
+            latest_news_id= "credit_card_reject_blocked-148801678-free-annuity-20211405"
+        }
+        "/notification_center/credit_card_reject_cvv_incorrect"(platform: "/mobile") {
+            latest_news_type= "credit_card_reject_cvv_incorrect"
+            latest_news_id= "credit_card_reject_cvv_incorrect-148801678-free-annuity-20211405"
+        }
+        "/notification_center/credit_card_reject_insufficient_amount"(platform: "/mobile") {
+            latest_news_type= "credit_card_reject_insufficient_amount"
+            latest_news_id= "credit_card_reject_insufficient_amount-148801678-free-annuity-20211405"
+        }
+        "/notification_center/credit_card_reject_invalid_pin"(platform: "/mobile") {
+            latest_news_type= "credit_card_reject_invalid_pin"
+            latest_news_id= "credit_card_reject_invalid_pin-148801678-free-annuity-20211405"
+        }
         "/notification_center/credit_card_transaction_acquisition"(platform: "/") {
             latest_news_type= "credit_card_transaction_acquisition"
             latest_news_id= "credit_card_transaction_acquisition-148801678-free-annuity-20211405"
@@ -5890,6 +6084,14 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/asset_management_missing_docs"(platform: "/mobile") {
+            news_id = "asset-management_missing_docs-12345678-123123"
+            event_type = "shown"
+        }
+         "/notification/asset_management_cryto"(platform: "/mobile") {
+            news_id = "asset-management_missing_docs-12345678-123123"
+            event_type = "shown"
+        }
         "/notification/asset_management_pending"(platform: "/mobile") {
             news_id = "asset-management_pending-12345678-123123"
             event_type = "shown"
@@ -6967,13 +7169,17 @@ trackTests {
             news_id = "claim_respondent_to_complainant_message-186785675-76283123"
             event_type = "open"
         }
+        "/notification/return_pick_product_wh_by_seller"(platform: "/mobile"){
+            news_id = "return_pick_product_wh_by_seller-186785675-76283123"
+            event_type = "open"
+        }
 
         "/notification/claim_closed_seller_refund"(platform: "/mobile"){
             news_id = "claim_closed_seller_refund-186785675-76283123"
             event_type = "open"
             order_id = 123
         }
-        
+
         "/notification/point_pos_closed"(platform: "/mobile") {
             news_id = "point_pos_closed-186785675"
             event_type = "open"
@@ -7282,6 +7488,10 @@ trackTests {
             news_id = "single_player_balance_expiration_transport_mp_123"
             event_type = "open"
         }
+        "/notification/single_player_balance_expiration_prepaid_toll_mp"(platform: "/mobile") {
+            news_id = "single_player_balance_expiration_prepaid_toll_mp_123"
+            event_type = "open"
+        }
         "/notification/single_player_new_debt_utility_mp"(platform: "/mobile") {
             news_id = "single_player_new_debt_utility_mp_123"
             event_type = "open"
@@ -7391,6 +7601,12 @@ trackTests {
             news_id = "single_player_payment_reminder_expiring_grouped_debt_123"
             event_type = "open"
             debt_id=123
+        }
+        "/notification/single_player_self_service_schedule_new_debt"(platform: "/mobile") {
+            news_id = "single_player-self_service_schedule_new_debt-315571651-123456789"
+            event_type = "open"
+            debt_id=123
+            seller_name="Hendel"
         }
 
         "/notification/orders_new"(platform: "/mobile") {
@@ -7559,6 +7775,16 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center/insurtech_post_service_poll"(platform: "/") {
+            latest_news_type= "insurtech_post_service_poll"
+            latest_news_id= "insurtech-post_service_poll-315571651-roda-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+        }
+
+        "/notification/insurtech_post_service_poll"(platform: "/mobile") {
+            news_id = "insurtech-post_service_poll-767964524-roda-c20f60b9-9922-42f6-80a0-8513a9d18772"
+            event_type = "open"
+        }
+
          "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
@@ -7614,6 +7840,46 @@ trackTests {
             notification_type= "deep_linking"
         }
         "/notification/under_age_minor_approved"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_info_ml"(platform: "/") {
+            news_id = "under_age-responsible_info-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_authorization_legacy_ml"(platform: "/") {
+            news_id = "under_age_responsible_authorization_legacy-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_rejected_ml"(platform: "/") {
+            news_id = "under_age_minor_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_approved_ml"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_approved"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_rejected"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {
             news_id = "under_age_minor_approved-186785675"
             event_type = "open"
             notification_type= "deep_linking"
@@ -7759,6 +8025,38 @@ trackTests {
         "/notification_center/under_age_minor_approved"(platform: "/") {
             latest_news_type= "under_age_minor_approved"
             latest_news_id= "under_age_minor_approved-186785675"
+        }
+        "/notification_center/under_age_responsible_info_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_info"
+            latest_news_id= "under_age-responsible_info-186785675"
+        }
+        "/notification_center/under_age_responsible_authorization_legacy_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_authorization_legacy"
+            latest_news_id= "under_age_responsible_authorization_legacy-186785675"
+        }
+        "/notification_center/under_age_minor_rejected_ml"(platform: "/") {
+            latest_news_type= "under_age_minor_rejected"
+            latest_news_id= "under_age_minor_rejected-186785675"
+        }
+        "/notification_center/under_age_minor_approved_ml"(platform: "/") {
+            latest_news_type= "under_age_minor_approved"
+            latest_news_id= "under_age_minor_approved-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_approved"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_approved"
+            latest_news_id= "under_age_responsible_relationship_bond_approved-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_approved_ml"
+            latest_news_id= "under_age_responsible_relationship_bond_approved_ml-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_rejected"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_rejected"
+            latest_news_id= "under_age_responsible_relationship_bond_rejected-186785675"
+        }
+        "/notification_center/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {
+            latest_news_type= "under_age_responsible_relationship_bond_rejected_ml"
+            latest_news_id= "under_age_responsible_relationship_bond_rejected_ml-186785675"
         }
         "/notification_center/loyalty"(platform: "/mobile"){
             newsgroup_id= "LOYALTY-48422892"
@@ -8541,6 +8839,12 @@ trackTests {
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
             latest_news_type= "asset_management_warm_up"
+            status= "read"
+        }
+        "/notification_center/asset_management_missing_docs"(platform: "/mobile"){
+            newsgroup_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_id= "asset_management-missing_docs-186785675-76283123"
+            latest_news_type= "asset_management_missing_docs"
             status= "read"
         }
         "/notification_center/asset_management_investing"(platform: "/mobile"){
@@ -9780,7 +10084,30 @@ trackTests {
             latest_news_type= "fraud_kyc_validation"
             latest_news_id= "fraud-kyc_validation-186785675"
         }
-
+        "/notification_center/fraud_remedies_identity_start_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_identity_start_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_identity_start_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_identity_start_second_score"
+            status= "read"
+        }
+        "/notification_center/fraud_remedies_identity_reminder_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_identity_reminder_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_identity_reminder_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_identity_reminder_second_score"
+            status= "read"
+        }
+        "/notification_center/fraud_remedies_card_start_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_card_start_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_card_start_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_card_start_second_score"
+            status= "read"
+        }
+        "/notification_center/fraud_remedies_card_reminder_second_score"(platform: "/mobile") {
+            newsgroup_id= "fraud_remedies_card_reminder_second_score-222222222-123456789"
+            latest_news_id= "fraud_remedies_card_reminder_second_score-222222222-123456789"
+            latest_news_type = "fraud_remedies_card_reminder_second_score"
+            status= "read"
+        }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
             latest_news_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -9898,6 +10225,10 @@ trackTests {
         "/notification_center/single_player_balance_expiration_transport_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_balance_expiration_transport_mp"
             latest_news_id= "single_player_balance_expiration_transport_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_balance_expiration_prepaid_toll_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_balance_expiration_prepaid_toll_mp"
+            latest_news_id= "single_player_balance_expiration_prepaid_toll_mp-143816022-MLB1013046714"
         }
         "/notification_center/single_player_antenna_fail_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_antenna_fail_mp"
@@ -10038,10 +10369,22 @@ trackTests {
             latest_news_type= "transfer_online_approved"
             status= "read"
         }
+        "/notification_center/transfer_online_in_process"(platform: "/mobile"){
+            newsgroup_id= "transfer_online_in_process-186785675-76283123"
+            latest_news_id= "transfer_online_in_process-186785675-76283123"
+            latest_news_type= "transfer_online_in_process"
+            status= "read"
+        }
         "/notification_center/transfer_online_rejected"(platform: "/mobile"){
             newsgroup_id= "transfer_online_rejected-186785675-76283123"
             latest_news_id= "transfer_online_rejected-186785675-76283123"
             latest_news_type= "transfer_online_rejected"
+            status= "read"
+        }
+        "/notification_center/transfer_online_review_manual"(platform: "/mobile"){
+            newsgroup_id= "transfer_online_review_manual-186785675-76283123"
+            latest_news_id= "transfer_online_review_manual-186785675-76283123"
+            latest_news_type= "transfer_online_review_manual"
             status= "read"
         }
         "/notification_center/transfer_online_scheduled"(platform: "/mobile"){
@@ -10298,9 +10641,27 @@ trackTests {
             latest_news_id= "moneyin_cca-rejected-12345678"
         }
 
+        "/notification_center/moneyin_open_finance_approved"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_approved"
+            latest_news_id= "moneyin_open_finance-approved-12345678"
+        }
+        "/notification_center/moneyin_open_finance_in_process"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_rejected"
+            latest_news_id= "moneyin_open_finance-rejected-12345678"
+        }
+        "/notification_center/moneyin_open_finance_rejected"(platform: "/") {
+            latest_news_type= "moneyin_open_finance_rejected"
+            latest_news_id= "moneyin_open_finance-rejected-12345678"
+        }
+
         "/notification_center/disbursement_kwai_received"(platform: "/") {
             latest_news_type= "disbursement_kwai_received"
             latest_news_id= "disbursement_kwai-received-12345678"
+        }
+
+        "/notification_center/disbursement_kwai_pending_kyc"(platform: "/") {
+            latest_news_type= "disbursement_kwai_pending_kyc"
+            latest_news_id= "disbursement_kwai-pending_kyc-12345678"
         }
 
         "/notification"(platform: "/mobile") {
@@ -10598,6 +10959,10 @@ trackTests {
         }
         "/notification/credit_card_transaction_kyc_onboarding"(platform: "/mobile") {
             news_id = "credit_card_transaction_kyc_onboarding-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_acquisition_micro"(platform: "/mobile") {
+            news_id = "credit_card_transaction_acquisition_micro-12345678"
             event_type = "shown"
         }
         "/notification/card_first_use_incentive_thirdth_day"(platform: "/mobile") {
@@ -11285,6 +11650,11 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/cvv_command"(platform: "/") {
+            news_id = "cvv_command-12345678"
+            event_type = "sent"
+        }
+
         "/notification/instore_discover_activities"(platform: "/mobile"){
             news_id = "instore-discover_activities-321953606"
             event_type = "sent"
@@ -11923,6 +12293,10 @@ trackTests {
             news_id = "single_player_balance_expiration_transport_mp_123"
             event_type = "open"
         }
+        "/notification/single_player_balance_expiration_prepaid_toll_mp"(platform: "/mobile") {
+            news_id = "single_player_balance_expiration_prepaid_toll_mp_123"
+            event_type = "open"
+        }
         "/notification/single_player_generic_balance_expiration"(platform: "/mobile") {
             news_id = "single_player_generic_balance_expiration_123"
             event_type = "open"
@@ -12015,6 +12389,34 @@ trackTests {
             debt_id=123
         }
 
+        "/notification/single_player_subscription_recharge_cancelled_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_cancelled_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_cancelled_product_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_cancelled_product_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_cancelled_unrecoverable_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_cancelled_unrecoverable_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_fail_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_fail_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_fail_payments_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_fail_payments_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_reminder_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_reminder_mp"
+            event_type = "open"
+        }
+        "/notification/single_player_subscription_recharge_success_mp"(platform: "/mobile") {
+            news_id = "single_player_subscription_recharge_success_mp"
+            event_type = "open"
+        }
         "/notification/point_pos_closed"(platform: "/mobile") {
             news_id = "point_pos_closed-186785675"
             event_type = "open"
@@ -12335,6 +12737,12 @@ trackTests {
             order_id = 123
         }
         "/notification/shipping_not_delivered_retained_sender"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_not_delivered_returning_to_hub_xd_xddo"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
@@ -13532,6 +13940,11 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/asset_management_missing_docs"(platform: "/mobile") {
+            news_id = "asset-management_missing_docs-12345678-123123"
+            event_type = "shown"
+        }
+
         "/notification/asset_management_pending"(platform: "/mobile") {
             news_id = "asset-management_pending-12345678-123123"
             event_type = "shown"
@@ -13948,6 +14361,11 @@ trackTests {
 
         "/notification/compliance_support_validations"(platform: "/mobile") {
             event_type = "shown"
+        }
+
+        "/notification/melichat_message_mp"(platform: "/mobile"){
+            case_id= 12345678
+            event_type = "sent"
         }
 
         "/notification/fraud_cash_release_iv"(platform: "/mobile") {
@@ -14593,6 +15011,21 @@ trackTests {
             status= "read"
         }
 
+        // Notification Center - Credit Card
+        "/notification_center/credit_card_transaction_kyc_onboarding"(platform: "/mobile"){
+            newsgroup_id= "credit_card_transaction_kyc_onboarding-12345678"
+            latest_news_id= "credit_card_transaction_kyc_onboarding-12345678"
+            latest_news_type= "credit_card_transaction_kyc_onboarding"
+            status= "read"
+        }
+
+        "/notification_center/credit_card_transaction_acquisition_micro"(platform: "/mobile"){
+            newsgroup_id= "credit_card_transaction_acquisition_micro-12345678"
+            latest_news_id= "credit_card_transaction_acquisition_micro-12345678"
+            latest_news_type= "credit_card_transaction_acquisition_micro"
+            status= "read"
+        }
+
         // Notification Center - First Use Incentive Virtual
         "/notification_center/card_first_use_incentive_virtual"(platform: "/mobile"){
             newsgroup_id= "card_first_use_incentive_virtual-first_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
@@ -14914,7 +15347,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/uninstalls_checker"(platform: "/mobile"){
+        "/notification/uninstalls_checker"(platform: "/mobile",type:TrackType.App){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
@@ -15144,9 +15577,19 @@ trackTests {
             news_id = "pm_om_notification-buyer_cancellation-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
             event_type = "open"
         }
+        "/notification_center/pm_om_notification-before_automatically_cancel"(platform: "/") {
+            news_id = "pm_om_notification-before_automatically_cancel-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
+            event_type = "open"
+        }
 
         "/notification/disbursement_kwai_received"(platform: "/") {
             news_id = "disbursement_kwai-received-12345678"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/disbursement_kwai_pending_kyc"(platform: "/") {
+            news_id = "disbursement_kwai-pending_kyc-12345678"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -15155,9 +15598,38 @@ trackTests {
             news_id = "moneyin_cca-approved-12345678"
             event_type = "open"
         }
-        
+
         "/notification/moneyin_cca_rejected"(platform: "/") {
             news_id = "moneyin_cca-rejected-12345678"
+            event_type = "open"
+        }
+
+        "/notification/moneyin_open_finance_approved"(platform: "/") {
+            news_id = "moneyin_open_finance-approved-12345678"
+            event_type = "open"
+        }
+        "/notification/moneyin_open_finance_in_process"(platform: "/") {
+            news_id = "moneyin_open_finance-in_process-12345678"
+            event_type = "open"
+        }
+        "/notification/moneyin_open_finance_rejected"(platform: "/") {
+            news_id = "moneyin_open_finance-rejected-12345678"
+            event_type = "open"
+        }
+
+        "/notification/open_finance_consent_recovery"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/open_finance_consent_to_expire"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/open_finance_consent_expired"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/open_finance_consent_revoked"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/open_finance_data_available"(platform: "/mobile") {
             event_type = "open"
         }
     }
@@ -15264,7 +15736,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/uninstalls_checker"(platform: "/mobile"){
+        "/notification/uninstalls_checker"(platform: "/mobile",type:TrackType.App){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
@@ -15384,7 +15856,7 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-        
+
         "/notification/card_transactions_approved_partial_authorization"(platform: "/mobile") {
             news_id = "/notification/card_transactions_approved_partial_authorization-186785675"
             event_type = "open"
@@ -15434,8 +15906,38 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/balance_inquiry"(platform: "/mobile") {
-            news_id = "/notification/balance_inquiry-186785675"
+        "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_balance_inquiry-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_with_fee_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_rejected_authorization_by_minors"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_rejected_authorization_by_minors-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -15732,7 +16234,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/uninstalls_checker"(platform: "/mobile"){
+        "/notification/uninstalls_checker"(platform: "/mobile",type:TrackType.App){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
@@ -15917,7 +16419,7 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-        
+
         "/notification/card_subscription_visa_vai"(platform: "/mobile") {
             news_id = "/notification/card_subscription_visa_vai-186785675"
             event_type = "open"
@@ -15973,18 +16475,48 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/balance_inquiry"(platform: "/mobile") {
-            news_id = "/notification/balance_inquiry-186785675"
+        "/notification/card_transactions_balance_inquiry"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_balance_inquiry-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_withdraw_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_authorization_cashplus_mute-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
         
+        "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_withdraw_with_fee_cashplus-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_rejected_authorization_by_minors"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_rejected_authorization_by_minors-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
-        
+
         "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {
             news_id = "card_transactions_approved_authorization_extracash_mute-186785675"
             event_type = "open"
@@ -16179,6 +16711,46 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/under_age_responsible_info_ml"(platform: "/") {
+            news_id = "under_age-responsible_info-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_authorization_legacy_ml"(platform: "/") {
+            news_id = "under_age_responsible_authorization_legacy-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_rejected_ml"(platform: "/") {
+            news_id = "under_age_minor_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_approved_ml"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_approved"(platform: "/") {
+            news_id = "under_age_responsible_relationship_bond_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_approved_ml"(platform: "/") {
+            news_id = "under_age_responsible_relationship_bond_approved_ml-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_rejected"(platform: "/") {
+            news_id = "under_age_responsible_relationship_bond_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_relationship_bond_rejected_ml"(platform: "/") {
+            news_id = "under_age_responsible_relationship_bond_rejected_ml-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         //NFC
 
@@ -16217,6 +16789,10 @@ trackTests {
         }
         "/notification/disbursement_kwai_received"(platform: "/") {
             news_id = "disbursement_kwai-received-12345678"
+            event_type = "open"
+        }
+        "/notification/disbursement_kwai_pending_kyc"(platform: "/") {
+            news_id = "disbursement_kwai-pending_kyc-12345678"
             event_type = "open"
         }
     }

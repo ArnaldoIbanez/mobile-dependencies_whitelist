@@ -4691,6 +4691,8 @@ trackTests {
             kyc_card_shown = true
             share_card_shown = true
             user_shops_status = "active"
+            chart_id = "215004"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -5388,6 +5390,52 @@ trackTests {
             sales_channels = ["marketplace", "mshops"]
         }
     }
+    test("SYI v4 create GdT"){
+        "/sell/item_data/chart/create"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            domain_id = "MLA_SNEAKERS"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
+    test("SYI v4 modify GdT"){
+        "/sell/item_data/chart/modify"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            domain_id = "MLA_SNEAKERS"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            chart_id = "215004"
+            chart_type = "BRAND"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
+    test("SYI v4 clone GdT"){
+        "/sell/item_data/chart/clone"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            domain_id = "MLA_SNEAKERS"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            chart_id = "215004"
+            chart_type = "BRAND"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
     test("SYI v4 phone confirm"){
         "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web/mobile", type: TrackType.Event){
             category_id = "MLA390784"
@@ -5929,6 +5977,8 @@ trackTests {
             listing_type_id = "silver"
             debug_domain_discovery = [{debug_model_name:{model_name:"DOMAINSEARCH" score:0.33333334}}]
             user_shops_status = "active"
+            chart_id = "215004"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -5949,6 +5999,8 @@ trackTests {
             listing_type_id = "silver"
             decision_flow_label = "BY_CATALOG"
             user_shops_status = "active"
+            chart_id = "215004"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6012,6 +6064,8 @@ trackTests {
             seller_profile = "NEWBIE"
             listing_type_id = "free"
             user_shops_status = "active"
+            chart_id = "215004"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6166,6 +6220,8 @@ trackTests {
             list_mode = "LIST"
             item_id = "MLA123"
             user_shops_status = "active"
+            chart_id = "215004"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6184,6 +6240,8 @@ trackTests {
             list_mode = "LIST"
             item_id = "MLA123"
             user_shops_status = "active"
+            chart_id = "215004"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6202,6 +6260,8 @@ trackTests {
             list_mode = "LIST"
             item_id = "MLA123"
             user_shops_status = "active"
+            chart_id = "215004"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6221,6 +6281,8 @@ trackTests {
             item_id = "MLA123"
             action = "picture"
             user_shops_status = "active"
+            chart_id = "215004"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6241,6 +6303,8 @@ trackTests {
             seller_type = "normal"
             seller_id = 123
             user_shops_status = "active"
+            chart_id = "215004"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }

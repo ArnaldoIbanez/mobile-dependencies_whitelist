@@ -17,7 +17,7 @@ tracks {
         default_payment_method_id(required:false, description: "The ID of the payment method that is defult for the user", type: PropertyType.String)
         excluded_payment_methods(required: false, description: "Identify the payment methods that was excluded for the user", type: PropertyType.ArrayList(PropertyType.Map(PropertyType.String, PropertyType.String)))
         excluded_payment_types(required: false, description: "Identify the payment types that was excluded for the user", type: PropertyType.ArrayList(PropertyType.Map(PropertyType.String, PropertyType.String)))
-        coupon_code(required: false, description: "The code that identifies the coupon", type: PropertyType.String) 
+        coupon_code(required: false, description: "The code that identifies the coupon", type: PropertyType.String)
         coupon_labels(required: false, description: "The list of labels of coupon", type: PropertyType.ArrayList(PropertyType.String))
         auto_return(required: false, description: "Identify the possible values that can reach the application through the 'auto_return' option", type: PropertyType.String)
     }
@@ -57,6 +57,7 @@ tracks {
         shipping_local_pickup(required: false, description: "Whether or not the user chose local pickup", type: PropertyType.Boolean)
         shipping_free(required: false, description: "Wether or not the payer is exempt from additional shipping taxes and the seller pays for it", type: PropertyType.Boolean)
         preference(required: false, description: "Every non PII contain within a preference", type: PropertyType.Map(preference_object))
+        router_request_id(required: false, description: "Identifies an unique router requisition", type: PropertyType.String)
     }
 
     // EVENTS
@@ -89,6 +90,7 @@ tracks {
     "/checkout_off/payment/select_type"(platform: "/", type: TrackType.View) {
         opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
         opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
     }
 
     "/checkout_off/payment/select_type/combination"(platform: "/", type: TrackType.View) {}
@@ -104,7 +106,9 @@ tracks {
     "/checkout_off/payment/input_card/input_security_code"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/input_card/select_installment"(platform: "/", type: TrackType.View) {}
 
-    "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
+    }
 
     // Paypal tracks
     "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
@@ -129,6 +133,7 @@ tracks {
     "/checkout_off/payment/input_credits/select_installment"(platform: "/", type: TrackType.View) {
         opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
         opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
     }
 
     "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/", type: TrackType.View) {}
@@ -142,7 +147,10 @@ tracks {
     "/checkout_off/billing"(platform: "/", isAbstract: true) {}
     "/checkout_off/billing/input_info"(platform: "/", type: TrackType.View) {}
 
-    "/checkout_off/review"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review"(platform: "/", type: TrackType.View) {
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
+    }
+
     "/checkout_off/review/shield_kyc"(platform: "/", type: TrackType.View) {}
     "/checkout_off/review/challenge_kyc"(platform: "/", type: TrackType.View) {}
     "/checkout_off/review/challenge_second_factor_auth"(platform: "/", type: TrackType.View) {}

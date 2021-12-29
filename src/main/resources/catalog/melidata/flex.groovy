@@ -9,15 +9,36 @@ tracks {
 
     initiative = "1091"
 
+    def address_info_definition = objectSchemaDefinitions {
+        addresses_info(required: true, type: PropertyType.String, description: "Specifies address info", inheritable: false)
+        shipping_id(required: false, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        geolocation_type(required: false, type: PropertyType.String, description: "Specifies the geolocation type", inheritable: false)
+        latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point", inheritable:false)
+        longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point", inheritable:false)
+    }
+
+    def pack_info_definition = objectSchemaDefinitions {
+        shipping_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        origin_info(required: true, type: PropertyType.Map(address_info_definition), description: "This field indicates the origin definition", inheritable: false)
+        destination_info(required: true, type: PropertyType.Map(address_info_definition), description: "This field indicates the destination definition", inheritable: false)
+        status(required: true, type: PropertyType.String, description: "Specifies the current delivery status", inheritable: false)
+        tracking_number(required: false, type: PropertyType.String, description: "Specifies the tracking number", inheritable: false)
+        seller_id(required: false, type: PropertyType.String, description: "Specifies the seller id", inheritable: false)
+        sub_status(required: false, type: PropertyType.String, description: "Specifies the current delivery sub status", inheritable: false)
+        low_precision(required: false, type: PropertyType.Boolean, description: "This field indicates if is low precision ", inheritable: false)
+    }
+
     propertyDefinitions {
         packs_info(required: true, type: PropertyType.ArrayList, description: "Array of packages to deliver", inheritable:false)
         latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point", inheritable:false)
         longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point", inheritable:false)
+        packs_info_def(required: true, type: PropertyType.ArrayList(PropertyType.Map(pack_info_definition)), description: "Array of packages to deliver", inheritable:false)
     }
 
     propertyGroups {
         location(latitude, longitude)
         packsAndLocation(latitude, longitude, packs_info)
+        packsAndLocationDef(latitude, longitude, packs_info_def)
     }
 
     def buyer_info_def = objectSchemaDefinitions {
@@ -353,9 +374,23 @@ tracks {
     "/flex/package/detail/out_of_distance_modal"(platform: "/mobile", type: TrackType.View) {
         packsAndLocation
         context(required: true, type: PropertyType.String,  values: ["not_delivered", "delivered"],
-                description: "Indicates whether the event was triggered in the delivered or in the event of non-delivery")
+                description: "Indicates whether the event was triggered in the delivered or in the event of non-delivery", inheritable:false)
         distance(required: false, type: PropertyType.Numeric, description: "The range to the destination", inheritable:false)
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+   "/flex/package/detail/out_of_distance_modal/not_delivered"(platform: "/mobile", type: TrackType.Event) {
+       packsAndLocationDef
+       delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/detail/out_of_distance_warning"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocationDef
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable:true)
+    }
+
+    "/flex/package/detail/out_of_distance_warning/delivered"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocationDef
     }
 
     "/flex/package/detail/out_of_distance"(platform: "/mobile", type: TrackType.Event) {
@@ -384,7 +419,7 @@ tracks {
     "/flex/package/receiver_options/selection"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
-        option_type(required: true, type: PropertyType.String, values: ["receives_buyer", "receives_another"], description: "The option of who receives the package", inheritable:false)
+        option_type(required: true, type: PropertyType.String, values: ["receives_buyer", "receives_another", "family", "reception", "neighbour"], description: "The option of who receives the package", inheritable:false)
     }
 
     "/flex/package/receiver_options"(platform: "/mobile", type: TrackType.View) {

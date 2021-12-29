@@ -319,6 +319,14 @@ trackTests {
             status = congrats_pending_status
         }
 
+        "/credits/credit_card/upgrade/congrats/go_card_options"(platform: "/", type: TrackType.Event, business: 'mercadopago') {
+            status = congrats_approved_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/go_card_options"(platform: "/", type: TrackType.Event, business: 'mercadopago') {
+            status = congrats_pending_status
+        }
+
         // Error ML
         "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
             reason = "Network error"
@@ -394,5 +402,33 @@ trackTests {
         /*********************************************
          *       End: Credit Card Upgrade
          *********************************************/
+    }
+
+    test("Credits Credit Card - Wait List tests") {
+        /***********************************************
+        *       Start: Credit Card Wait List
+        ***********************************************/
+
+        // Landing
+        "/credits/credit_card/waitlist/landing"(platform: "/", type: TrackType.View) {}
+        
+        //Congrats
+
+        "/credits/credit_card/waitlist/congrats"(platform: "/", type: TrackType.View,) {
+            status = "registered"
+        }
+       
+        "/credits/credit_card/waitlist/congrats"(platform: "/", type: TrackType.View,) {
+            status = "already_registered"
+        }
+       
+        //Error
+        "/credits/credit_card/waitlist/error"(platform: "/", type: TrackType.View) {
+            reason = "Wait list error"
+        }
+        
+        /***********************************************
+        *       End: Credit Card Wait List
+        ***********************************************/
     }
 }

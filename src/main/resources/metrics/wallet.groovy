@@ -1,10 +1,13 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 import com.ml.melidata.metrics.TagType
 
 def instoreMarketplaceExperiments = "(wallet/)?cdd/.*"
 
 metrics {
-  "wallet_user"(description: "Counts when a user starts using Mercado Pago app") {
+  "wallet_user"(description: "Counts when a user starts using Mercado Pago app", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -15,7 +18,7 @@ metrics {
     }
   }
 
-  "payment"(description: "Counts when a user pays in any flow in any business", compute_payment: true, tags:[TagType.Important, TagType.CoreMetric]) {
+  "payment"(description: "Counts when a user pays in any flow in any business", compute_payment: true, tags:[TagType.Important, TagType.CoreMetric], bu: BuType.All, extent: ExtentType.Company) {
       experiment(regex("wallet/.*"))
 
       countsOn {
@@ -25,7 +28,7 @@ metrics {
       }
     }
 
-  "payment.mp"(description: "Counts when a user pays in any flow in mercadopago business", compute_payment: true, tags:[TagType.CoreMetric]) {
+  "payment.mp"(description: "Counts when a user pays in any flow in mercadopago business", compute_payment: true, tags:[TagType.CoreMetric], bu: BuType.MercadoPago, extent: ExtentType.Company) {
       experiment(regex("wallet/.*"))
 
       countsOn {
@@ -36,7 +39,7 @@ metrics {
       }
     }
 
-  "payment.ml"(description: "Counts when a user pays in any flow in mercadolibre business", compute_payment: true) {
+  "payment.ml"(description: "Counts when a user pays in any flow in mercadolibre business", compute_payment: true, bu: BuType.MercadoLibre, extent: ExtentType.Company) {
       experiment(regex("wallet/.*"))
 
       countsOn {
@@ -47,7 +50,7 @@ metrics {
       }
     }
 
-  "payment.instore"(description: "Counts when a user pays in In Store in any business" , compute_payment: true, tags:[TagType.Important, TagType.CoreMetric]) {
+  "payment.instore"(description: "Counts when a user pays in In Store in any business" , compute_payment: true, tags:[TagType.Important, TagType.CoreMetric], bu: BuType.All, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -58,7 +61,7 @@ metrics {
     }
   }
 
-  "payment.instore.mp"(description: "Counts when a user pays in In Store in mercadopago business", compute_payment: true) {
+  "payment.instore.mp"(description: "Counts when a user pays in In Store in mercadopago business", compute_payment: true, bu: BuType.MercadoPago, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -72,7 +75,7 @@ metrics {
     }
   }
 
-  "payment.instore.ml"(description: "Counts when a user pays in In Store in mercadolibre business", compute_payment: true) {
+  "payment.instore.ml"(description: "Counts when a user pays in In Store in mercadolibre business", compute_payment: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -86,7 +89,7 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge"(description: "Counts when a user pays in Cellphone Recharge in any business", compute_payment: true) {
+  "payment.cellphone_recharge"(description: "Counts when a user pays in Cellphone Recharge in any business", compute_payment: true, bu: BuType.All, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -97,7 +100,7 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge.mp"(description: "Counts when a user pays in Cellphone Recharge in mercadopago business", compute_payment: true) {
+  "payment.cellphone_recharge.mp"(description: "Counts when a user pays in Cellphone Recharge in mercadopago business", compute_payment: true, bu: BuType.MercadoPago, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -111,7 +114,7 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge.ml"(description: "Counts when a user pays in Cellphone Recharge in mercadolibre business", compute_payment: true) {
+  "payment.cellphone_recharge.ml"(description: "Counts when a user pays in Cellphone Recharge in mercadolibre business", compute_payment: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -125,7 +128,7 @@ metrics {
     }
   }
 
-  "payment.transport"(description: "Counts when a user pays in Transport in any business", compute_payment: true) {
+  "payment.transport"(description: "Counts when a user pays in Transport in any business", compute_payment: true, bu: BuType.All, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -136,7 +139,7 @@ metrics {
     }
   }
 
-  "payment.moneyin"(description: "Counts when a user inserts money into his/her account in any business", compute_payment: true, tags:[TagType.CoreMetric]) {
+  "payment.moneyin"(description: "Counts when a user inserts money into his/her account in any business", compute_payment: true, tags:[TagType.CoreMetric], bu: BuType.All, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -151,7 +154,7 @@ metrics {
     }
   }
 
-  "payment.money_transfer"(description: "Counts when a user sends Money in any business", compute_payment: true, tags:[TagType.CoreMetric]) {
+  "payment.money_transfer"(description: "Counts when a user sends Money in any business", compute_payment: true, tags:[TagType.CoreMetric], bu: BuType.All, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -165,7 +168,7 @@ metrics {
     }
   }
 
-  "payment.services"(description: "Counts when a user pays a Service in any business", compute_payment: true, tags:[TagType.CoreMetric]) {
+  "payment.services"(description: "Counts when a user pays a Service in any business", compute_payment: true, tags:[TagType.CoreMetric], bu: BuType.All, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -176,7 +179,7 @@ metrics {
     }
   }
 
-  "payment.pay_preference"(description: "Counts when a user pays a Preference in any business", compute_payment: true) {
+  "payment.pay_preference"(description: "Counts when a user pays a Preference in any business", compute_payment: true, bu: BuType.All, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -187,7 +190,7 @@ metrics {
     }
   }
 
-  "payment.starbucks"(description: "Counts when a user recharges Starbucks card in any business", compute_payment: true) {
+  "payment.starbucks"(description: "Counts when a user recharges Starbucks card in any business", compute_payment: true, bu: BuType.All, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -198,7 +201,7 @@ metrics {
     }
   }
 
-  "wallet_active_investor"(description: "Counts when a user opts in for Asset Management in any business") {
+  "wallet_active_investor"(description: "Counts when a user opts in for Asset Management in any business", bu: BuType.MercadoPago, extent: ExtentType.Company) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -208,7 +211,7 @@ metrics {
     }
   }
 
-"discount_center"(description: "Counts a user access to the any instance of the marketplace") {
+"discount_center"(description: "Counts a user access to the any instance of the marketplace", bu: BuType.MercadoPago, extent: ExtentType.Product) {
     experiment(regex(instoreMarketplaceExperiments))
 
     countsOn {
@@ -218,7 +221,7 @@ metrics {
     }
   }
 
-  "discount_center.detail"(description: "Counts a user access to the detail") {
+  "discount_center.detail"(description: "Counts a user access to the detail", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex(instoreMarketplaceExperiments))
 
     countsOn {
@@ -228,7 +231,7 @@ metrics {
     }
   }
 
-"discount_center.marketplace.from_touchpoints"(description: "Counts a user access to the discount center from any touchpoint") {
+"discount_center.marketplace.from_touchpoints"(description: "Counts a user access to the discount center from any touchpoint", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
       experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
@@ -246,7 +249,7 @@ metrics {
       }
     }
 
-  "discount_center.marketplace.from_home_mp"(description: "Counts a user access to the discount center from home mp") {
+  "discount_center.marketplace.from_home_mp"(description: "Counts a user access to the discount center from home mp", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
       experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
@@ -257,7 +260,7 @@ metrics {
       }
     }
 
-  "discount_center.marketplace.from_marketplace"(description: "Counts a user access to the marketplace from the same marketplace") {
+  "discount_center.marketplace.from_marketplace"(description: "Counts a user access to the marketplace from the same marketplace", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
       experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
@@ -268,7 +271,7 @@ metrics {
       }
     }
 
-    "discount_center.detail.from_touchpoints"(description: "Counts a user access to the discount detail from any touchpoint") {
+    "discount_center.detail.from_touchpoints"(description: "Counts a user access to the discount detail from any touchpoint", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
       experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
@@ -286,7 +289,7 @@ metrics {
       }
     }
 
-    "discount_center.detail.from_home_mp"(description: "Counts a user access to the discount detail from home mp") {
+    "discount_center.detail.from_home_mp"(description: "Counts a user access to the discount detail from home mp", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
       experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
@@ -297,7 +300,7 @@ metrics {
       }
     }
 
-    "discount_center.detail.from_marketplace"(description: "Counts a user access to the discount detail from the marketplace") {
+    "discount_center.detail.from_marketplace"(description: "Counts a user access to the discount detail from the marketplace", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
       experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
@@ -308,7 +311,7 @@ metrics {
       }
     }
 
-    "discount_center.detail.from_detail"(description: "Counts a user access to the discount detail from another detail") {
+    "discount_center.detail.from_detail"(description: "Counts a user access to the discount detail from another detail", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
       experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
@@ -319,7 +322,7 @@ metrics {
       }
     }
 
-  "charge"(description: "Counts when a user makes a Charge in Wallet", tags:[TagType.CoreMetric]) {
+  "charge"(description: "Counts when a user makes a Charge in Wallet", tags:[TagType.CoreMetric], bu: BuType.MercadoPago, extent: ExtentType.Company) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -333,7 +336,7 @@ metrics {
     }
   }
 
-  "charge.point"(description: "Counts when a user makes a Charge with Point", tags:[TagType.CoreMetric]) {
+  "charge.point"(description: "Counts when a user makes a Charge with Point", tags:[TagType.CoreMetric], bu: BuType.MercadoPago, extent: ExtentType.Product) {
       experiment(regex("wallet/.*"))
 
       countsOn {
@@ -343,7 +346,7 @@ metrics {
       }
   }
 
-  "charge.link"(description: "Counts when a user makes a Charge with Link") {
+  "charge.link"(description: "Counts when a user makes a Charge with Link", bu: BuType.MercadoPago, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -353,7 +356,7 @@ metrics {
     }
   }
 
-  "charge.qr"(description: "Counts when a user makes a Charge with QR") {
+  "charge.qr"(description: "Counts when a user makes a Charge with QR", bu: BuType.MercadoPago, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
     
     countsOn {
@@ -363,7 +366,7 @@ metrics {
     }
   }
 
-  "charge.cash"(description: "Counts when a user makes a Charge with Cash") {
+  "charge.cash"(description: "Counts when a user makes a Charge with Cash", bu: BuType.MercadoPago, extent: ExtentType.Product) {
     experiment(regex("wallet/.*"))
 
     countsOn {
@@ -373,7 +376,7 @@ metrics {
     }
   }
 
-  "payment_intent.first_payment_method"(description: "Counts when a user confirms pay with first suggested payment method", compute_payment: true) {
+  "payment_intent.first_payment_method"(description: "Counts when a user confirms pay with first suggested payment method", compute_payment: true, bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment("px_nativo/payment_method_recommendation")
 
     countsOn {
@@ -384,7 +387,7 @@ metrics {
     }
   }
 
-  "payment_intent.second_payment_method"(description: "Counts when a user confirms pay with second suggested payment method", compute_payment: true) {
+  "payment_intent.second_payment_method"(description: "Counts when a user confirms pay with second suggested payment method", compute_payment: true, bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment("px_nativo/payment_method_recommendation")
 
     countsOn {

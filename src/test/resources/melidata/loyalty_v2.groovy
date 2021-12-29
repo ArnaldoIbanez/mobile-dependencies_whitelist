@@ -508,7 +508,26 @@ trackTests {
         "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             status = "timeout"
         }
+
+        "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
+
+        "/loyalty/interstitial/data"(platform: "/", type: TrackType.Event, business: "mercadolibre") {}
+
+        "/loyalty/interstitial"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
+
+        "/loyalty/interstitial"(platform: "/", type: TrackType.Event, business: "mercadolibre") {}
     }
+
+    test("Loyalty WebView") {
+        "/loyalty/webview"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            url = "https://www.mercadolibre.com.ar/suscripciones/comboplus"
+        }
+
+        "/loyalty/webview"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            url = "https://www.mercadolibre.com.ar/suscripciones/comboplus"
+        }
+    }
+
 
     test("Loyalty Level Buy") {
         "/loyalty/buylevel"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -544,5 +563,12 @@ trackTests {
             content = "special-promo"
         }
 
+    }
+
+    test("Loyalty Drawer") {
+
+        "/loyalty/drawer/pill"(platform: "/", type: TrackType.View, business: "mercadopago") {}
+
+        "/loyalty/drawer/pill"(platform: "/", type: TrackType.View, business: "mercadolibre") {}
     }
 }

@@ -870,9 +870,10 @@ tracks {
 
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
         sellGroupSYI
+        mshopsGroup
         item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
         item_from(required: false, type: PropertyType.Map(item_from_map), description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL/LIST AGAIN/CHANGE_CATEGORY  V4 flows.")
-        mshopsGroup
+        listing_type_id(required: false, description: "Item listing type id")
     }
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
@@ -892,6 +893,7 @@ tracks {
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {
         categoryFlow
         productFinderGroup
+        listing_type_id(required: false, description: "Item listing type id")
     }
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
@@ -954,7 +956,9 @@ tracks {
     "/sell/item_data/variations/pictures_education"(platform: "/web", type: TrackType.Event) {
         domain_id(required: true, type: PropertyType.String, description: "Item's domain_id")
     }
-    "/sell/item_data/specifications"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/specifications"(platform: "/web", isAbstract: true) {
+        listing_type_id(required: false, description: "Item listing type id")
+    }
     "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/specifications/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {
@@ -1085,6 +1089,7 @@ tracks {
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
         category_id(required: false, type: PropertyType.String, description: "Category Id")
         category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Category path")
+        listing_type_id(required: false, description: "Item listing type id")
     }
     "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1096,6 +1101,9 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
+        category_id(required: false, type: PropertyType.String, description: "Category Id")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Category path")
+        listing_type_id(required: false, description: "Item listing type id")
     }
     "/sell/item_data/license_plate/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/license_plate/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1109,6 +1117,7 @@ tracks {
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
         category_id(required: false, type: PropertyType.String, description: "Category Id")
         category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Category path")
+        listing_type_id(required: false, description: "Item listing type id")
     }
     "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1259,6 +1268,19 @@ tracks {
         sellGroupSYI
         mshopsGroup
     }
+    "/sell/item_data/chart/create"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+    }
+    "/sell/item_data/chart/modify"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+        chart_id(required: false, description: "Product chart id", type: PropertyType.String)
+        chart_type(required: false, type: PropertyType.String, description: "Product chart type", values: ["BRAND", "STANDARD", "SPECIFIC"])
+    }
+    "/sell/item_data/chart/clone"(platform: "/", type: TrackType.Event){
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+        chart_id(required: false, description: "Product chart id", type: PropertyType.String)
+        chart_type(required: false, type: PropertyType.String, description: "Product chart type", values: ["BRAND", "STANDARD", "SPECIFIC"])
+    }
 
     "/sell/item_conditions/seller_contact/phone"(platform: "/web", type: TrackType.View) {}
     "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1277,6 +1299,8 @@ tracks {
         share_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for share in social network card")
         decision_flow_label(required: false, type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing", values: ["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE", "NONE"])
         mshopsGroup
+        chart_id(required: false, description: "Product chart id", type: PropertyType.String)
+        chart_type(required: false, type: PropertyType.String, description: "Product chart type", values: ["BRAND", "STANDARD", "SPECIFIC"])
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {

@@ -43,6 +43,7 @@ tracks {
      *       Abstract definitions
      ******************************************/
     "/credits/credit_card/upgrade"(platform: "/", isAbstract: true) {}
+    "/credits/credit_card/waitlist"(platform: "/", isAbstract: true){}
 
 
     /***********************************************
@@ -192,6 +193,18 @@ tracks {
         )
     }
 
+    "/credits/credit_card/upgrade/congrats/go_card_options"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Status from tap in go_card_options",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "approved",
+                        "pending"
+                ]
+        )
+    }
+
     // Error
     "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
         reason(type: PropertyType.String, required: false)
@@ -248,5 +261,33 @@ tracks {
 
     /*********************************************
      *       End: Credit Card Upgrade
+     *********************************************/
+
+    /***********************************************
+     *       Start: Credit Card Wait List
+     ***********************************************/
+    // Landings
+    "/credits/credit_card/waitlist/landing"(platform: "/", type: TrackType.View) { }
+
+    // Congrats
+    "/credits/credit_card/waitlist/congrats"(platform: "/", type: TrackType.View) {
+        status(
+                description: "Status from the user in Wait list",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "registered",
+                        "already_registered",
+                ]
+        )
+    }
+
+    // Error
+    "/credits/credit_card/waitlist/error"(platform: "/", type: TrackType.View) {
+        reason(type: PropertyType.String, required: false)
+    }
+
+    /*********************************************
+     *       End: Credit Card Wait List
      *********************************************/
 }

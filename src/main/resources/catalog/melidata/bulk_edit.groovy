@@ -117,6 +117,16 @@ tracks {
 
     "/seller_central/bulk/list/massive_action/status"(platform: "/", type: TrackType.Event) {}
 
+    "/seller_central/bulk/list/massive_action/open_modal"(platform: "/", type: TrackType.Event) {
+        column_id(required: true, type: PropertyType.String, description: "Column affected")
+        action(required: false, type: PropertyType.String, description: "The action type", values: ["Reactivar", "Pausar"])
+        operation_id(required: true, type: PropertyType.String, description: "Operation Id change")
+        seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation",  values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "none", "no_reputation", "newbie"])
+        user_type(required: true, type: PropertyType.String, description: "The user type", values: ["normal", "brand", "car_dealer", "real_state", "real_estate_agency", "official_store", "franchise", "seller_reg"])
+        user_shops_status(required: true, type: PropertyType.String, description: "Indicates if seller has mshops experience", values: ["active", "inactive", "none", "precreated"])
+        session_id(required: true, type:PropertyType.String, description: "Session id")
+    }
+
     "/seller_central/bulk/list/help_option"(platform: "/", type: TrackType.View) {
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation",  values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "none", "no_reputation", "newbie"])
         user_type(required: true, type: PropertyType.String, description: "The user type", values: ["normal", "brand", "car_dealer", "real_state", "real_estate_agency", "official_store", "franchise", "seller_reg"])

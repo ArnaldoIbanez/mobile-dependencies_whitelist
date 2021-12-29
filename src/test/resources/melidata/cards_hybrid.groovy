@@ -603,6 +603,20 @@ trackTests {
             ]
         }
     }
+    test("cards hybrid dashboard dynamic carousel show item") {
+        "/cards/hybrid/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "3",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 0
+            ]
+        }
+    }
     test("cards hybrid dashboard dynamic carousel Closed") {
         "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
             description = [
@@ -765,6 +779,17 @@ trackTests {
             error = "keyGenerationError"
             from = "CEEncryptTextBrickPresenter"
         }
+    }
+
+    // Contextual help
+    test("Test contextual help in dashboard") {
+        "/cards/hybrid/dashboard/contextual_help"(platform:"/", type: TrackType.Event) {
+            faq_id = 22464
+        }
+    }
+
+    test("More contextual help in dashboard") {
+        "/cards/hybrid/dashboard/more_help"(platform:"/", type: TrackType.Event) { }
     }
 
     // SETUP VIRTUAL
@@ -1102,6 +1127,12 @@ trackTests {
     
     test("cards hybrid change pin congrats") {
         "/cards/hybrid/change_pin/congrats"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("cards hybrid change pin reauth") {
+        "/cards/hybrid/change_pin/reauth"(platform:"/", type: TrackType.Event) {}
+        "/cards/hybrid/change_pin/reauth/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/hybrid/change_pin/reauth/error"(platform:"/", type: TrackType.Event) {}
     }
     
     // LIMITS
@@ -1471,6 +1502,9 @@ trackTests {
         }
         "/cards/hybrid/setup/options"(platform:"/", type: TrackType.View) {
             cards = []
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            action = "overlimit_credit_card"
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
             product_type = "chip_prepaid"
@@ -1997,6 +2031,10 @@ trackTests {
         "/cards/nfc/enrollment/fetch_card_data/error"(platform:"/", type: TrackType.Event) {
             action = "fetch_data_http_error"
             information = "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error"
+        }
+        "/cards/nfc/enrollment/fetch_card_data/error"(platform:"/", type: TrackType.Event) {
+            action = "fetch_data_http_error"
+            information = "invalid reauth token"
         }
     }
 
@@ -3123,6 +3161,10 @@ trackTests {
             action = "digitize_card_result"
             result = "CAN_NOT_PROCEED"
         }
+        "/cards/nfc/enrollment/digitize_card/result"(platform:"/", type:TrackType.Event) {
+            action = "digitize_card_result"
+            result = "RETRY"
+        }
     }
 
     test("cards hybrid nfc enrollment digitalize card error") {
@@ -4167,6 +4209,13 @@ trackTests {
             are_payment_keys_avaliable = false
         }
     }
+
+    // NFC Button Mini Card
+    test("show button nfc in mini card") {
+        "/cards/cardwidget/button/nfc"(platform: "/mobile", type: TrackType.View) {
+            delay_in_seconds = 18500
+        }
+    }
     
     // NFC status
     test ("cards hybrid nfc feature nfc status") {
@@ -4239,7 +4288,34 @@ trackTests {
         "/cards/nfc/enrollment/ondemand/error"(platform:"/", type: TrackType.Event) {
             error_message = "Empty nfc_command userId"
         }
+        "/cards/nfc/enrollment/ondemand/stopped_by_reauth_validation"(platform: "/", type: TrackType.Event) {}
     }
+
+    // NFC REAUTH INTEGRATION
+
+    test("test reauth nfc integration events") {
+        "/cards/nfc/reauth_integration"(platform: "/mobile", type: TrackType.App) {}
+
+        "/cards/nfc/reauth_integration/ondemand_tokenization"(platform: "/mobile", type: TrackType.App) {
+            status = "switched to on"
+        }
+
+        "/cards/nfc/reauth_integration/ondemand_tokenization"(platform: "/mobile", type: TrackType.App) {
+            status = "switched to off"
+        }
+
+        "/cards/nfc/reauth_integration/pending"(platform: "/mobile", type: TrackType.App) {
+            status = "operation insecure"
+        }
+
+        "/cards/nfc/reauth_integration/pending"(platform: "/mobile", type: TrackType.App) {
+            status = "operation safe"
+        }
+
+        "/cards/nfc/reauth_integration/successfully"(platform: "/mobile", type: TrackType.App) {}
+
+        "/cards/nfc/reauth_integration/error"(platform: "/mobile", type: TrackType.App) {}
+    } 
     
     // NFC_IDENTITY_CONFIRMATION_SCREEN AKA LUK_STOP
     test("/cards/nfc/identity_confirmation") {
@@ -4277,6 +4353,20 @@ trackTests {
         }
         "/cards/nfc/disabled_payment_error"(platform: "/", type: TrackType.Event) {
             user_id_is_null = true
+        }
+    }
+    
+    // NFC_IDENTITY_FALLBACK
+    test("/cards/nfc/identity_fallback") {
+        "/cards/nfc/identity_fallback"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/identity_fallback/action"(platform: "/", type: TrackType.Event) {
+            event_type = "primary_button"
+        }
+         "/cards/nfc/identity_fallback/action"(platform: "/", type: TrackType.Event) {
+            event_type = "secondary_button"
+        }
+        "/cards/nfc/identity_fallback/action"(platform: "/", type: TrackType.Event) {
+            event_type = "close"
         }
     }
 }

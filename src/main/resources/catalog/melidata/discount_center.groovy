@@ -189,13 +189,6 @@ tracks {
         moreInfoGroup
     }
 
-    def amount_definition = objectSchemaDefinitions {
-        final_price(type: PropertyType.Numeric, required: true, description: "The final price with discount if exits")
-        currency(type: PropertyType.String, required: true, description: "The currency")
-        discount(type: PropertyType.Numeric, required: false, description: "The discount in percent")
-        original_price(type: PropertyType.Numeric, required: false, description: "The price without discount")
-    }
-
     def section_option_definition = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true, description: "The option's identifier")
         title(type: PropertyType.String, required: true, description: "The options's title")
@@ -228,7 +221,9 @@ tracks {
 
     "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
         vipGroup
-        amount(type: PropertyType.Map(amount_definition), required: true, description: "The price")
+        price(type: PropertyType.String, required: true, description: "The item price")
+        price_with_discount(type: PropertyType.String, required: false, description: "The item price with the discount applied")
+        discount(type: PropertyType.String, required: false, description: "The item discount")
         context_info(type: PropertyType.Map(context_info_definition), required: true, description: "The context information")
         quantity(type: PropertyType.Numeric, required: true, description: "The item quantity default value")
         element_id(type: PropertyType.Numeric, required: false, description: "The identifier for a item with kit configuration")
@@ -343,6 +338,12 @@ tracks {
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(store_item_definition)), description: "Items shown in the last viewed section")
     }
 
+    def landing_definition = objectSchemaDefinitions {
+        marketplace_state(required: true, type: PropertyType.String, description: "Marketplace actual state", values:['normal', 'empty', 'update_app_shield'])
+        marketplace_state_reason(required: true, type: PropertyType.String, description: "The reason of the actual marketplace state")
+        marketplace_filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The filters selected in the marketplace")
+    }
+
     def marketplace_filters_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the image banner we are showing")
         selected(type: PropertyType.String, required: true, values: ['selected', 'unselected', 'none'], description: "The state of the displayed filters")
@@ -384,6 +385,7 @@ tracks {
         row(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_row_definition)), description: "Row components")
         image_banner(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_image_banner_definition)), description: "Image banner components")
         last_viewed(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_last_viewed_definition)), description: "Last Viewed components")
+        landing(required: false, type: PropertyType.ArrayList(PropertyType.Map(landing_definition)), description: "Landing components")
         hybrid_last_viewed(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_last_viewed_definition)), description: "Last Viewed components")
         hybrid_row(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_row_definition)), description: "Hybrid Row components")
         hybrid_carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_carousel_definition)), description: "Carousel components")
@@ -397,6 +399,11 @@ tracks {
     "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
         session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
         product_type(required: false, type: PropertyType.String, description: "Marketplace product type representing the use case", values:['delivery', 'proximity'])
+        address_id(required:false, type: PropertyType.String, description: "The Address ID of the user used to load the Marketplace for Delivery")
+        marketplace_state(required: false, type: PropertyType.String, description: "Marketplace actual state", values:['normal', 'empty', 'update_app_shield'])
+        marketplace_state_reason(required: false, type: PropertyType.String, description: "The reason of the actual marketplace state")
+        marketplace_filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The filters selected in the marketplace")
+        search_query(required: false, type: PropertyType.String, description: "User's query")
     }
 
     "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.Event, isAbstract: true) { }
@@ -460,4 +467,10 @@ tracks {
     "/discount_center/payers/addresses/hub/current_location/tap" (platform: "/mobile", type: TrackType.Event) {}
 
     "/discount_center/payers/addresses/hub/add_address/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+    // SEARCHBAR
+
+    "/discount_center/payers/search" (platform: "/mobile", type: TrackType.View) {
+        session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
 }

@@ -20,12 +20,8 @@ trackTests {
             context_info = [
                     has_cart: true
             ]
-            amount = [
-                    final_price   : 40.2,
-                    currency      : "ARS\$",
-                    discount      : 31,
-                    original_price: 58
-            ]
+            price = "ARS\$ 40.2"
+            price_with_discount = "ARS\$ 30.2"
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
             quantity = 1
             element_id = 11111111
@@ -294,6 +290,14 @@ trackTests {
         "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             product_type = "delivery"
+            address_id = "123456789"
+            marketplace_state = "empty"
+            marketplace_state_reason = "no stores in zone"
+            marketplace_filters = [
+                    "sushi",
+                    "pizza"
+            ]
+            search_query= "sushi"
         }
     }
 
@@ -452,6 +456,13 @@ trackTests {
                                             coupon_used: true
                                         ]
                                 ]
+                        ]
+                ],
+                landing: [
+                        [
+                                marketplace_state: "empty",
+                                marketplace_state_reason: "There is no delivery in the zone.",
+                                marketplace_filters: []
                         ]
                 ],
                 hybrid_last_viewed: [
@@ -728,13 +739,18 @@ trackTests {
                                               color: "#FFFFFF"
                                       ]
                               ]
-                     ]   
+                     ]
                 ]
             ]
             product_type = "proximity"
+            address_id = "123456789"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            product_type= "delivery"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            marketplace_state = "update_app_shield"
+            marketplace_filters = [
+                    "sushi"
+            ]
+            search_query= "sushi"
         }
     }
 
@@ -1075,12 +1091,14 @@ trackTests {
                                               ]
                                 ]
                             ]
-                ] 
+                ]
             ]
             product_type = "delivery"
+            address_id = "123456789"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            product_type= "proximity"
+            marketplace_state = "empty"
+            search_query= "sushi"
         }
     }
 
@@ -1132,6 +1150,8 @@ trackTests {
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            address_id = "123456789"
+            search_query= "sushi"
         }
 
         "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
@@ -1181,6 +1201,7 @@ trackTests {
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            address_id = "123456789"
         }
 
         "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
@@ -1312,5 +1333,10 @@ trackTests {
             result = "enabled"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
+
+         "/discount_center/payers/search" (platform: "/mobile", type: TrackType.View) {
+             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+         }
+
     }
 }

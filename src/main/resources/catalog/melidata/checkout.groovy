@@ -120,7 +120,7 @@ tracks {
         first_for_order(serverSide: true)
 
         // Checkout flows
-        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase","onetap"])
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase", "onetap", "cart"], description:"All different kinds of checkout flow")
 
         //Billing info
         billing_info(required:false, description: "Dictionary containing the user selected billing info")
@@ -207,8 +207,8 @@ tracks {
 
     "/checkout/payment"(platform: "/", isAbstract: true) {
     }
-    "/checkout/payment/input_sec_code"(platform: "/web", type: TrackType.View) {}
-    "/checkout/payment/esc_input_sec_code"(platform: "/web", type: TrackType.View) {}
+    "/checkout/payment/input_sec_code"(platform: "/", type: TrackType.View) {}
+    "/checkout/payment/esc_input_sec_code"(platform: "/", type: TrackType.View) {}
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 
@@ -285,6 +285,7 @@ tracks {
     //Address Hub
     "/checkout/shipping/delivery_instructions"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/address_hub"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/address_hub/change_address"(platform:"/", type: TrackType.Event) {}
 
     //First Visit
     //Page
@@ -736,6 +737,10 @@ tracks {
         //    free_shipping: true
         //  ]
         //]
+    }
+    "/checkout/review/select_shipping#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        shipping(required: true, type: PropertyType.String, description: "shipping option selected on modal review")
     }
     "/checkout/review/inconsistency/edit_shipping"(platform: "/mobile") {
         error_code(required: true, type: PropertyType.String)
@@ -1645,6 +1650,9 @@ tracks {
 
     //Billing info
     "/checkout/onetap/billing"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/onetap/billing/physical_person"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/onetap/billing/legal_person"(platform: "/mobile", type: TrackType.View) {}
+
 
     //ERROR
     "/checkout/onetap/error"(platform: "/mobile", type: TrackType.View) {}
@@ -1661,11 +1669,26 @@ tracks {
     //SHIPPING
     "/checkout/onetap/shipping"(platform: "/mobile", isAbstract: true) {}
     "/checkout/onetap/shipping/select_option"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/onetap/shipping/address_hub"(platform: "/mobile", type: TrackType.View) {}
 
     //PAYMENT
     "/checkout/onetap/payment"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/onetap/payment/input_card"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/onetap/payment/input_card"(platform: "/mobile", type: TrackType.View) {}
     "/checkout/onetap/payment/input_sec_code"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/onetap/payment/select_installments"(platform: "/mobile", type: TrackType.View) {}
+
+    //LAST CALL
+    "/checkout/onetap/last_call"(platform: "/mobile", type: TrackType.View) {}
+    
+    //FTU
+    "/checkout/onetap/ftu"(platform: "/mobile", type: TrackType.View) {}
+    
+    //DISCOUNT
+    "/checkout/onetap/discount_info"(platform: "/mobile", type: TrackType.View) {}
+   
+    //SELECT INSTALLMENTS
+    "/checkout/onetap/main/select_installments"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/onetap/main/error_select_installments"(platform: "/mobile", type: TrackType.Event) {}
 
     // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     // Fin mobile platform onetap

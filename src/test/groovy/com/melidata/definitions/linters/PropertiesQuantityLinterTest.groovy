@@ -13,7 +13,7 @@ class PropertiesQuantityLinterTest {
     def linter = new PropertiesQuantityLinter(1)
 
     @Test void allowsLimitQuantityOfProperties() {
-        def td = new TrackDefinition("/search_snake_case")
+        def td = new TrackDefinition("/something_snake_case")
         td.addProperty(new TrackDefinitionProperty(name: "query", required: true,
                 description: "searched string", type: PropertyType.String))
 
@@ -26,7 +26,16 @@ class PropertiesQuantityLinterTest {
     }
 
     @Test void validateTrackAlwaysTrue() {
-        def td = new TrackDefinition("/search_snake_case")
+        def td = new TrackDefinition("/something_snake_case")
+        assertTrue(linter.validateProperties(td))
+    }
+
+    @Test void validateAllowListIsTrue() {
+        def td = new TrackDefinition("/search/input")
+        td.addProperty(new TrackDefinitionProperty(name: "query", required: true,
+                description: "searched string", type: PropertyType.String))
+        td.addProperty(new TrackDefinitionProperty(name: "limit", required: true,
+                description: "number of results", type: PropertyType.Numeric))
         assertTrue(linter.validateProperties(td))
     }
 }

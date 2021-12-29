@@ -25,19 +25,12 @@ trackTests {
                         ],
                         free_shipping: false,
                         official_store: null,
-                        listing_type_id: "gold_special",
                         score: 0.89,
                         score_prior: 0.7,
                         position_prior: 1,
-                        posterior_score: 0.6,
                         position_posterior: 1,
                         benefit: 0.05,
-                        credibility: 1,
-                        interest: 0.98,
-                        logistic_type: "xd_drop_off",
-                        sold_quantity: 15,
                         available_quantity: 62,
-                        health: 0.75,
                         tags: [
                           "brand_verified",
                           "good_quality_picture",
@@ -51,8 +44,6 @@ trackTests {
                           "MLA1235",
                           "MLA1236"
                         ],
-                        warranty: "",
-                        accepts_mercadopago: true,
                         boosted: true,
                         model_version: "0.0.1",
                         position: 1,
@@ -83,17 +74,11 @@ trackTests {
                         ],
                         free_shipping: false,
                         official_store: null,
-                        listing_type_id: "gold_special",
                         score: 0.89,
                         score_prior: 0.7,
                         position_prior: 1,
-                        posterior_score: 0.6,
                         position_posterior: 1,
                         benefit: 0.05,
-                        credibility: 1,
-                        interest: 0.98,
-                        logistic_type: "xd_drop_off",
-                        sold_quantity: 15,
                         available_quantity: 62,
                         tags: [
                           "brand_verified",
@@ -108,8 +93,6 @@ trackTests {
                           "MLA2235",
                           "MLA2236"
                         ],
-                        accepts_mercadopago: true,
-                        rebate: 1,
                         one_p: 0,
                         private_label: 1,
                         promotion_type: "DEAL_OF_THE_DAY",
@@ -132,19 +115,12 @@ trackTests {
                         ],
                         free_shipping: false,
                         official_store: null,
-                        listing_type_id: "gold_special",
                         score: 0.89,
                         score_prior: 0.7,
                         position_prior: 1,
-                        posterior_score: 0.6,
                         position_posterior: 1,
                         benefit: 0.05,
-                        credibility: 1,
-                        interest: 0.98,
-                        logistic_type: "xd_drop_off",
-                        sold_quantity: 15,
                         available_quantity: 62,
-                        health: 0.75,
                         tags: [
                           "brand_verified",
                           "good_quality_picture",
@@ -158,9 +134,6 @@ trackTests {
                           "MLA3235",
                           "MLA3236"
                         ],
-                        warranty: "",
-                        accepts_mercadopago: true,
-                        rebate: 1,
                         one_p: 0,
                         private_label: 1,
                         promotion_type: "LIGHTNING_DEAL",
@@ -169,7 +142,6 @@ trackTests {
                         pos: 3,
                       ]
                     ]
-            // algorithms = [scoring: "threshold", selection: "bci_v1", sorting: "max_10pct_l2"]
             page = [limit: 52, total: "200", offset: 0]
             selected_filters = [price: "0.0-2000.0"] 
             origin = "scut"

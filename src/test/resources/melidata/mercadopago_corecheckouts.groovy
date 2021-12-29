@@ -31,4 +31,28 @@ trackTests {
           payment_id = 2345
       }
     }
+
+    test("Copy code") {
+      "/ticket_render/copy_code"(platform:"/", type: TrackType.Event) {
+          is_guest = true
+          payment_method_id = "bolbradesco"
+          payment_id = 2345
+      }
+    }
+
+    test("Show items") {
+      "/ticket_render/show_items"(platform:"/", type: TrackType.Event) {
+          is_guest = true
+          payment_method_id = "bolbradesco"
+          payment_id = 2345
+      }
+    }
+
+    test("Branch offices") {
+      "/ticket_render/branch_offices"(platform:"/", type: TrackType.Event) {
+          is_guest = true
+          payment_method_id = "bolbradesco"
+          payment_id = 2345
+      }
+    }
 }
