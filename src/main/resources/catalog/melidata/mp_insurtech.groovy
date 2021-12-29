@@ -156,6 +156,22 @@ tracks {
         status(required: true, type: PropertyType.String, description: "Claim status")
     }
 
+    // INSURTECH GAREX Structures
+
+    def claim_garex = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "ID of claim associated to the GAREX protection.")
+        claim_number(required: false, type: PropertyType.String, description: "Number of claim associated to the GAREX protection.")
+        status(required: false, type: PropertyType.String, description: "Status of the claim", , values: ["IN_PROGRESS", "OPEN", "SERVICE_CENTER_ASSIGNED", "SERVICE_CENTER_DERIVATION", "IN_DIAGNOSIS", "RESOLVED", "DELIVERED", "REJECTED", "CANCELLED"])
+    }
+
+    def protection_base_garex = objectSchemaDefinitions {
+        insurance_purchase_key(required: false, type: PropertyType.String, description: "Insurance purchase key associated to the GAREX protection.")
+        entity_type(required: false, type: PropertyType.String, description: "Entity type insurtech product ", values: ["quote", "order", "item_id"])
+        entity_id(required: false, type: PropertyType.String, description: "Entity id of the insurtech product")
+        product_id(required: false, type: PropertyType.String, description: "Id insurtech product")
+        has_open_claim(required: false, type: PropertyType.Boolean, description: "This is true if the protection has an open claim.")
+    }
+
     // INSURTECH RODA QPage Abstract
     "/insurtech"(platform: "/", isAbstract: true) {}
 
@@ -731,11 +747,21 @@ tracks {
     }
 
     // GAREX
-    "/insurtech/protections/detail/garex"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
-
+    "/insurtech/protections/detail/garex"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {
+    }
     "/insurtech/protections/detail/garex"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-        protection(required: true, type: PropertyType.Map(protection_base), description: "Product data")
+        protection(required: true, type: PropertyType.Map(protection_base_garex), description: "Product data")
         product(required: false, type: PropertyType.Map(protection_particular_garex), description: "Particular information for Garex.")
+    }
+    "/insurtech/protections/detail/garex/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+    }
+    "/insurtech/protections/detail/garex/claim_detail"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        insurance_purchase_key(required: true, type: PropertyType.String, description: 'Insurance purchase key associated to the protection.')
+        claim(required: true, type: PropertyType.Map(claim_garex), description: "GAREX Protection claim data")
+    }
+    "/insurtech/protections/detail/garex/claim_detail/navigate"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        insurance_purchase_key(required: true, type: PropertyType.String, description: 'Insurance purchase key associated to the protection.')
+        claim(required: true, type: PropertyType.Map(claim_garex), description: "GAREX Protection claim data")
     }
     "/insurtech/protections/detail/garex/use_service"(platform:"/", type: TrackType.Event) {
     }
@@ -749,9 +775,25 @@ tracks {
     }
     "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
     }
-    "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
+    "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        protection(required: true, type: PropertyType.Map(protection_base_garex), description: "Product data")
+        claim(required: true, type: PropertyType.Map(claim_garex), description: "GAREX Protection claim data")
+    }
+    "/insurtech/protections/detail/garex/begin_claim"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        protection(required: true, type: PropertyType.Map(protection_base_garex), description: "Product data")
+        product(required: false, type: PropertyType.Map(protection_particular_garex), description: "Particular information for Garex.")
+    }
+    "/insurtech/protections/detail/garex/home"(platform:"/", type: TrackType.Event) {
+        protection(required: false, type: PropertyType.Map(protection_base_garex), description: "Product data")
+        product(required: false, type: PropertyType.Map(protection_particular_garex), description: "Particular information for Garex.")
+    }
+    "/insurtech/protections/navigate"(platform:"/", type: TrackType.Event) {
+        protection(required: false, type: PropertyType.Map(protection_base_garex), description: "Product data")
+        product(required: false, type: PropertyType.Map(protection_particular_garex), description: "Particular information for Garex.")
     }
     "/insurtech/protections/detail/garex/feedback"(platform:"/", type: TrackType.Event) {
+    }
+    "/insurtech/protections/detail/garex/begin_claim_by_email"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
     }
 
     // CARDS
