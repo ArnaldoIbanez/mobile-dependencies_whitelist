@@ -646,4 +646,20 @@ tracks {
     "/logistics/login_ml/helper/route_sharing_disclaimer/qr_detected"(platform: "/mobile", type: TrackType.View) {
         status(required: true, type: PropertyType.String,  values: ["ok", "already_registered", "invalid_format"], description: "The feedback of the scan for an specific QR.", inheritable: false)
     }
+    // Exchange Point
+    "/logistics/exchange_point/list"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
+        destination_facilities_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The ids of the destinations", inheritable: false)
+        route_status(required: true, type: PropertyType.String, description: "Specifies the current route status", inheritable: false)
+    }
+    "/logistics/exchange_point/list/add_container"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
+        destination_facilities_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The ids of the destinations", inheritable: false)
+    }
+    "/logistics/exchange_point/list/finish_route"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
+    }
 }
