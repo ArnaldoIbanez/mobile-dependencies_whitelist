@@ -1273,9 +1273,13 @@ tracks {
     }
     "/sell/item_data/chart/modify"(platform: "/", type: TrackType.Event){
         domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+        chart_id(required: true, description: "Product chart id", type: PropertyType.String)
+        chart_type(required: true, type: PropertyType.String, description: "Product chart type", values: ["BRAND", "STANDARD", "SPECIFIC"])
     }
     "/sell/item_data/chart/clone"(platform: "/", type: TrackType.Event){
         domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+        chart_id(required: true, description: "Product chart id", type: PropertyType.String)
+        chart_type(required: true, type: PropertyType.String, description: "Product chart type", values: ["BRAND", "STANDARD", "SPECIFIC"])
     }
 
     "/sell/item_conditions/seller_contact/phone"(platform: "/web", type: TrackType.View) {}
@@ -1295,6 +1299,8 @@ tracks {
         share_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for share in social network card")
         decision_flow_label(required: false, type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing", values: ["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE", "NONE"])
         mshopsGroup
+        chart_id(required: true, description: "Product chart id", type: PropertyType.String)
+        chart_type(required: true, type: PropertyType.String, description: "Product chart type", values: ["BRAND", "STANDARD", "SPECIFIC"])
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
