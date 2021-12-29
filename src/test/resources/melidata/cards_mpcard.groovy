@@ -977,6 +977,11 @@ trackTests {
             action = "change_nip"
         }
     }
+    test("cards mpcard nip screen reauth") {
+        "/cards/mpcard/nip/physical/reauth"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/nip/physical/reauth/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/nip/physical/reauth/error"(platform:"/", type: TrackType.Event) { }
+    }
     test("cards mpcard nip, It_was_not_me link message tap") {
         "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
             action = "blocked_pin"
