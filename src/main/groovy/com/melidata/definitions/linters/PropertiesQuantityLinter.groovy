@@ -9,7 +9,7 @@ class PropertiesQuantityLinter extends AbstractLinter {
 
     PropertiesQuantityLinter(int maximumProperties) {
         this.maxProps = maximumProperties
-        this.errorMessage = "Track shouldn't have more than ${maxProps} properties."
+        this.errorMessage = "Track has a lot of lose properties (${maxProps}). Make sure you only track what you need. Create abstractions grouping certain properties as if you were modeling a class."
     }
 
     @Override
