@@ -432,6 +432,10 @@ trackTests {
         }
         "/crypto/load_error" (platform: "/mobile", type: TrackType.Event) {
             user_profile = "newbie"
+            errors = "error"
+        }
+        "/crypto/load_error" (platform: "/mobile", type: TrackType.Event) {
+            user_profile = "newbie"
             errors = "cant_show_data"
         }
     }

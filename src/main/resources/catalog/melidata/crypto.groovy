@@ -306,7 +306,8 @@ tracks
         event_action(type: PropertyType.String, required: true, description: 'Action name of event',values: ["opt_in"])
       }
       "/crypto/load_error" (platform: "/mobile", type: TrackType.View) {
-        errors(type: PropertyType.String, required: false, description: 'Type of error', values: ["no_internet_connection", "not_available_on_country", "no_site_connection","cant_show_data","error"])
+        errors(type: PropertyType.String, required: false, description: 'Type of error',
+        values: ["no_internet_connection", "not_available_on_country", "no_site_connection","cant_show_data","error"])
       }
       "/crypto/educational" (platform: "/", type: TrackType.View) {
         crypto(required: false, type: PropertyType.String, description: "Currency Name")
