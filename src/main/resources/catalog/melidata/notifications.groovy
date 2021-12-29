@@ -1380,7 +1380,7 @@ tracks {
     "/notification/asset_management_underage_rejected"(platform: "/mobile") {}
     "/notification/asset_management_underage_request"(platform: "/mobile") {}
     "/notification/asset_management_missing_docs"(platform: "/mobile") {}
-    "/notification/asset_management_cryto_paxos_validate"(platform: "/mobile") {}
+    "/notification/asset_management_crypto_paxos_validate"(platform: "/mobile") {}
 
 
     //Campañas
