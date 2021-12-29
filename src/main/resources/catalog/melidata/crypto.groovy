@@ -122,7 +122,7 @@ tracks
         kyc_challenge_shown (type: PropertyType.String, required: false, description: 'If the user is KYC compliant',values:['yes','no'])
         crypto (type:  PropertyType.Map(crypto_definition), required: false, description: 'Cryptocurrency information')
       }
-      "/crypto/tap_educational" (platform: "/mobile", type: TrackType.Event) {
+      "/crypto/select_educational" (platform: "/mobile", type: TrackType.Event) {
         kyc_challenge_shown(type: PropertyType.String, required: true, description: 'If the user is KYC compliant',values:['yes','no'])
         crypto(type: PropertyType.Map(crypto_definition), required: true, description: 'Cryptocurrency information')
         event_category(type: PropertyType.String, required: true, description: 'Category of event', values:['crypto'])
@@ -306,7 +306,8 @@ tracks
         event_action(type: PropertyType.String, required: true, description: 'Action name of event',values: ["opt_in"])
       }
       "/crypto/load_error" (platform: "/mobile", type: TrackType.View) {
-        errors(type: PropertyType.String, required: false, description: 'Type of error', values: ["no_internet_connection", "not_available_on_country", "no_site_connection","cant_show_data"])
+        errors(type: PropertyType.String, required: false, description: 'Type of error',
+        values: ["no_internet_connection", "not_available_on_country", "no_site_connection","cant_show_data","error"])
       }
       "/crypto/educational" (platform: "/", type: TrackType.View) {
         crypto(required: false, type: PropertyType.String, description: "Currency Name")
