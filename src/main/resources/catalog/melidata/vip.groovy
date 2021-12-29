@@ -80,7 +80,7 @@ tracks {
         // PRICING 2.0
         available_promotions(required: false, type: PropertyType.ArrayList(PropertyType.Map(available_promotions_map)),
                 description: "Lists the available promotions for the item")
-        discount_reasons(required: false, type: PropertyType.ArrayList, description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
+        discount_reasons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
 
         //afterDispatch: if unknown or unknown_frame (true/false)
         //min_days: minimum number of days of the promise. (int)
@@ -520,7 +520,7 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to a2c")
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
-        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String) , description:  "Category path of the the item")
         is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
         vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
@@ -536,7 +536,7 @@ tracks {
         listing_type_id(required: false, type: PropertyType.String,
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
-        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
         power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
                 description: "Seller's Mercado Lider level")
         attribute_combinations(required: false, type: PropertyType.Numeric, description: "Indicates the amount of variation pickers an item has")

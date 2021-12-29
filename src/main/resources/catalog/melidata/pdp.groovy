@@ -111,7 +111,7 @@ tracks {
         // PRICING 2.0
         available_promotions(required: false, type: PropertyType.ArrayList(PropertyType.Map(available_promotions_map)),
                 description: "Lists the available promotions for the item")
-        discount_reasons(required: false, type: PropertyType.ArrayList, description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
+        discount_reasons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
 
     }
 
@@ -394,7 +394,7 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
-        category_path(required: false, type: PropertyType.ArrayList, description: "Category path of the the item")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Category path of the the item")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
         vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
