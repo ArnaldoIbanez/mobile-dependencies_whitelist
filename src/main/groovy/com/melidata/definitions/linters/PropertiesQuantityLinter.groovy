@@ -6,6 +6,7 @@ import com.ml.melidata.catalog.TrackDefinitionProperty
 class PropertiesQuantityLinter extends AbstractLinter {
 
     private int maxProps
+    private List allowList = ["/pdp", "/vip", "/search", "/checkout", "/cart/checkout"]
 
     PropertiesQuantityLinter(int maximumProperties) {
         this.maxProps = maximumProperties
@@ -14,7 +15,7 @@ class PropertiesQuantityLinter extends AbstractLinter {
 
     @Override
     boolean validateTrack(TrackDefinition trackDefinition) {
-        if(trackDefinition.path.startsWith("/pdp", "/vip", "/search", "/checkout", "/cart/checkout")) return true
+        if(allowList.any {trackDefinition.path.startsWith(it)}) return true
         return trackDefinition.properties.size() <= maxProps
     }
 
