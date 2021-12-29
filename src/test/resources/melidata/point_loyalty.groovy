@@ -28,13 +28,11 @@ trackTests {
 
     test("Point loyalty register view") {
         "/point/loyalty/register/link"(platform: "/web", type: TrackType.View) {
-            status = "active"
         }
     }
 
     test("Point loyalty register view token expired") {   
-        "/point/loyalty/register/link"(platform: "/web", type: TrackType.View) {
-            status = "expired"
+        "/point/loyalty/register/link_expired"(platform: "/web", type: TrackType.View) {
         }
     }
 
