@@ -4692,7 +4692,7 @@ trackTests {
             share_card_shown = true
             user_shops_status = "active"
             chart_id = "215004"
-            chart_type = "SPECIFIC"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -5416,7 +5416,7 @@ trackTests {
             list_mode = "LIST"
             user_shops_status = "active"
             chart_id = "215004"
-            chart_type = "SPECIFIC"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -5432,7 +5432,7 @@ trackTests {
             list_mode = "LIST"
             user_shops_status = "active"
             chart_id = "215004"
-            chart_type = "SPECIFIC"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -5978,7 +5978,7 @@ trackTests {
             debug_domain_discovery = [{debug_model_name:{model_name:"DOMAINSEARCH" score:0.33333334}}]
             user_shops_status = "active"
             chart_id = "215004"
-            chart_type = "SPECIFIC"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6000,7 +6000,7 @@ trackTests {
             decision_flow_label = "BY_CATALOG"
             user_shops_status = "active"
             chart_id = "215004"
-            chart_type = "SPECIFIC"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6065,7 +6065,7 @@ trackTests {
             listing_type_id = "free"
             user_shops_status = "active"
             chart_id = "215004"
-            chart_type = "SPECIFIC"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6221,7 +6221,7 @@ trackTests {
             item_id = "MLA123"
             user_shops_status = "active"
             chart_id = "215004"
-            chart_type = "SPECIFIC"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6241,7 +6241,7 @@ trackTests {
             item_id = "MLA123"
             user_shops_status = "active"
             chart_id = "215004"
-            chart_type = "SPECIFIC"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6261,7 +6261,7 @@ trackTests {
             item_id = "MLA123"
             user_shops_status = "active"
             chart_id = "215004"
-            chart_type = "SPECIFIC"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6282,7 +6282,7 @@ trackTests {
             action = "picture"
             user_shops_status = "active"
             chart_id = "215004"
-            chart_type = "SPECIFIC"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
@@ -6304,7 +6304,7 @@ trackTests {
             seller_id = 123
             user_shops_status = "active"
             chart_id = "215004"
-            chart_type = "SPECIFIC"
+            chart_type = "BRAND"
             sales_channels = ["marketplace", "mshops"]
         }
     }
