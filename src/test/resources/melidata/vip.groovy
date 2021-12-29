@@ -1277,6 +1277,13 @@ trackTests {
             shipping_pay_before = false
         }
 
+        "/vip/remove_from_cart_action"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            vip_version = "new"
+        }
+
         def shipping_method = {
             shipping_method = {
                 id = 531332827
