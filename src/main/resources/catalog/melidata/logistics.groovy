@@ -662,4 +662,21 @@ tracks {
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
         vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
     }
+    "/logistics/exchange_point/detail"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
+        exchange_point_id(required: false, type: PropertyType.String, description: "Specifies the exchange point id", inheritable: false)
+        containers(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the containers list", inheritable: false)
+    }
+    "/logistics/exchange_point/detail/how_to_arrive"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
+        exchange_point_id(required: false, type: PropertyType.String, description: "Specifies the exchange point id", inheritable: false)
+    }
+    "/logistics/exchange_point/detail/arrive_waypoint"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
+        exchange_point_id(required: false, type: PropertyType.String, description: "Specifies the exchange point id", inheritable: false)
+        containers(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the containers list", inheritable: false)
+    }
 }

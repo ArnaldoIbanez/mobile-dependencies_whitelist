@@ -276,6 +276,23 @@ trackTests {
             driver_id = 234
             vehicle_id = 345
         }
+        "/logistics/exchange_point/detail"(platform: "/mobile", type: TrackType.View){
+            driver_id = 234
+            vehicle_id = 345
+            exchange_point_id = "123"
+            containers = ["1"]
+        }
+        "/logistics/exchange_point/detail/how_to_arrive"(platform: "/mobile", type: TrackType.View){
+            driver_id = 234
+            vehicle_id = 345
+            exchange_point_id = "123"
+        }
+        "/logistics/exchange_point/detail/arrive_waypoint"(platform: "/mobile", type: TrackType.View){
+            driver_id = 234
+            vehicle_id = 345
+            exchange_point_id = "123"
+            containers = [1]
+        }
     }
 
     test("Testing Logistics Last Mile") {
