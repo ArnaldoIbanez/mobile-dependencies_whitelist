@@ -14,6 +14,7 @@ class PropertiesQuantityLinter extends AbstractLinter {
 
     @Override
     boolean validateTrack(TrackDefinition trackDefinition) {
+        if(trackDefinition.path.startsWith("/pdp", "/vip", "/search", "/checkout", "/cart/checkout")) return true
         return trackDefinition.properties.size() <= maxProps
     }
 
