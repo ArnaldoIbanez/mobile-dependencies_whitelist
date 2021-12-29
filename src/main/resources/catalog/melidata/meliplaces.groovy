@@ -26,6 +26,7 @@ tracks {
     "/meliplaces/home/other_options/tap"(platform: "/", type: TrackType.Event) {
         row_id(required: true, type: PropertyType.String, description: "The id of the tapped row")
     }
+    "/meliplaces/home/navigation/tyc"(platform: "/", type: TrackType.View) {}
     "/meliplaces/transaction/start"(platform: "/", type: TrackType.Event) {
         service_id(required: true, type: PropertyType.String, description: "The service id of the new transaction", inheritable: false)
     }
