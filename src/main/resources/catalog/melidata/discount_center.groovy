@@ -403,6 +403,7 @@ tracks {
         marketplace_state(required: false, type: PropertyType.String, description: "Marketplace actual state", values:['normal', 'empty', 'update_app_shield'])
         marketplace_state_reason(required: false, type: PropertyType.String, description: "The reason of the actual marketplace state")
         marketplace_filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The filters selected in the marketplace")
+        search_query(required: false, type: PropertyType.String, description: "User's query")
     }
 
     "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.Event, isAbstract: true) { }
@@ -471,10 +472,5 @@ tracks {
 
     "/discount_center/payers/search" (platform: "/mobile", type: TrackType.View) {
         session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
-    }
-
-    "/discount_center/payers/search/tap" (platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
-        search_query(required: true, type: PropertyType.String, description: "User's query")
     }
 }
