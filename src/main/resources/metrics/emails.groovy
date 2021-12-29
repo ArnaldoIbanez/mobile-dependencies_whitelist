@@ -1,9 +1,12 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 
 metrics {
 
-    "email.open"(description: "path: /email/orders and event_type: open") {
+    "email.open"(description: "path: /email/orders and event_type: open", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
         countsOn {
             condition {
                 path("/email/orders")

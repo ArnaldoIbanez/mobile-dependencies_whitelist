@@ -280,6 +280,9 @@ trackTests {
         "/prepaid/change_pin/phone_info" (platform: "/", type: TrackType.View) {}
         "/prepaid/change_pin/new_pin" (platform: "/", type: TrackType.View) {}
         "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {}
+        "/prepaid/change_pin/reauth" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/change_pin/reauth/success" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/change_pin/reauth/error" (platform: "/", type: TrackType.Event) {}
         "/prepaid/reissue" (platform: "/", type: TrackType.View) {}
         "/prepaid/reissue/inactivate_card" (platform: "/", type: TrackType.View) {}
         "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}

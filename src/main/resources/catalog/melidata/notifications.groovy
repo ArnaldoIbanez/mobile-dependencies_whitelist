@@ -1817,6 +1817,7 @@ tracks {
     "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {}
     "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {}
+    "/notification/card_transactions_rejected_authorization_by_minors"(platform: "/mobile") {}
 
 
     // PREPAID, HYBRID, MPCARD
@@ -2312,4 +2313,8 @@ tracks {
 
     //Open Finance
     "/notification/open_finance_consent_recovery"(platform: "/mobile") {}
+    "/notification/open_finance_consent_to_expire"(platform: "/mobile") {}
+    "/notification/open_finance_consent_expired"(platform: "/mobile") {}
+    "/notification/open_finance_consent_revoked"(platform: "/mobile") {}
+    "/notification/open_finance_data_available"(platform: "/mobile") {}
 }

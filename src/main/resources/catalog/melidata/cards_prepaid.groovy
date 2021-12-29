@@ -278,6 +278,12 @@ tracks {
 
     // Prepaid Change Pin Congrats
     "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change Pin Reauth
+    "/prepaid/change_pin/reauth" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/change_pin/reauth/success" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/change_pin/reauth/error" (platform: "/", type: TrackType.Event) {}
+
     // Prepaid Reissue
     "/prepaid/reissue" (platform: "/", isAbstract: true) {}
 

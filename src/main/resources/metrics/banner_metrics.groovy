@@ -1,10 +1,13 @@
 package metrics
 
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-        "deal_banner"(description: "Search deal banner", acceptMultiVariantSession: true) {
+        "deal_banner"(description: "Search deal banner", acceptMultiVariantSession: true, bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
                 startWith {
                         condition {
                                 path("/search")
@@ -55,7 +58,7 @@ metrics {
                 }
         }
 
-        "deal_banner_click"(description: "Search deal banner clicked", deprecation_date:"2020/04/20") {
+        "deal_banner_click"(description: "Search deal banner clicked", deprecation_date:"2020/04/20", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
                 experiment("deal_banner_shown")
 
                 countsOn() {

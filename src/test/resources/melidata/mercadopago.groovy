@@ -22,15 +22,32 @@ trackTests {
             count = 10
         }
 
-        "/melidata/statistics"(platform: "/mobile", type: TrackType.Event) {
-            errors_counter = ["java.io.EOFException": 2, "nullpointer": 3]
-            last_send_timestamp = "2015-01-21T13:14:09.415-0300"
-            total_pending_tracks = 2
-            send_counter = 6
-            database_size = 16384
-            tracks_counter = 12
-            average_ok_time = 10
-            average_error_time = 11
+        "/melidata/statistics"(platform:"/mobile/android", type:TrackType.Event){
+            errors_counter=["java.io.EOFException":2, "nullpointer":3]
+            last_send_timestamp="2015-01-21T13:14:09.415-0300"
+            total_pending_tracks=2
+            stream_pending_tracks=10
+            melidata_pending_tracks=20
+            send_counter=6
+            database_size=16384
+            tracks_counter=12
+            stream_tracks_counter=20
+            melidata_tracks_counter=15
+            average_ok_time=10
+            average_error_time=11
+            last_statistics_timestamp="2015-01-21T13:14:09.415-0300"
+            melidata_complete_dispatch_counter=5
+            stream_complete_dispatch_counter=2
+        }
+
+        "/melidata/statistics"(platform:"/mobile/ios", type:TrackType.Event){
+            error_counter=5
+            errors_array=["Error1","Error2"]
+            total_tracks_generated=10
+            total_pending_tracks=2
+            send_counter=6
+            database_size=16384
+            last_statistics_timestamp="2015-01-21T13:14:09.415-0300"
         }
 
         "/melidata/statistics/experiments"(platform:"/mobile", type:TrackType.Control){
@@ -42,16 +59,17 @@ trackTests {
             execution_status="successful"
         }
 
-        "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control) {
-            delete_records = 40
-            current_size = 69632
-            previous_size = 110592
+        "/melidata/shrink_database"(platform:"/mobile/android", type:TrackType.Control ) {
+            current_size=69632
+            previous_size=110592
+            most_common_path="/search"
+            deleted_records=40
         }
 
-        "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event) {
-            delete_records = 50
-            current_size = 82322
-            previous_size = 122592
+        "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {
+            current_size=82322
+            previous_size=122592
+            delete_records=50
         }
     }
 
@@ -4460,10 +4478,18 @@ trackTests {
         "/auth/totp_in_app/validation/no_app"(platform: "/", type: TrackType.View) {
             id = "id"
         }
+        "/auth/totp_in_app/validation/onboarding"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
         "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             status = "approved"
             event_type = "polling"
+        }
+        "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "open_modal"
+            event_type = "click"
         }
         "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
             id = "id"
@@ -4483,6 +4509,11 @@ trackTests {
         "/auth/totp_in_app/validation/no_app/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             target = "decline_challenge"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "continue"
             event_type = "click"
         }
     }
@@ -4971,7 +5002,7 @@ trackTests {
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
-            from = "campaign"
+            from = "flow_enrollment"
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
@@ -5002,6 +5033,7 @@ trackTests {
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+            from = "flow_enrollment"
             enrollment_status = "disabled"
             os_status = "basic_screenlock"
             dismissible = "disabled"
@@ -5013,7 +5045,7 @@ trackTests {
                     "transaction_custom": "0",
                     "opening_custom": "0"
             ]
-            scenario = "never_auto_enrolled"
+            scenario = "flow_enrollment_no_security"
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
@@ -5149,19 +5181,49 @@ trackTests {
         }
 
         "/screenlock/anom/os_biometrics_changed"(platform: "/mobile/android", type: TrackType.App) {
-            old_value = "biometrics"
-            new_value = "basic_screenlock"
-        }
+                old_value = "biometrics"
+                new_value = "basic_screenlock"
+                enrollment_status = "enabled"
+                os_status = "touch_id"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
 
-        "/screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
-            old_value = false
-            new_value = true
-        }
+            "/screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
+                old_value = false
+                new_value = true
+                enrollment_status = "disabled"
+                os_status = "face_id"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
 
-        "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
-            old_value = "hash_random_1234"
-            new_value = "hash_random_4321"
-        }
+            "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
+                old_value = "hash_random_1234"
+                new_value = "hash_random_4321"
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "5"
+                ]
+            }
 
         "/screenlock/anom/storage_error"(platform: "/mobile/ios", type: TrackType.App) {
             error_type = "failed_put_value"
