@@ -161,7 +161,7 @@ tracks {
     def claim_garex = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "ID of claim associated to the GAREX protection.")
         claim_number(required: false, type: PropertyType.String, description: "Number of claim associated to the GAREX protection.")
-        status(required: false, type: PropertyType.String, description: "Detailed status of the claim")
+        status(required: false, type: PropertyType.String, description: "Status of the claim", , values: ["IN_PROGRESS", "OPEN", "SERVICE_CENTER_ASSIGNED", "SERVICE_CENTER_DERIVATION", "IN_DIAGNOSIS", "RESOLVED", "DELIVERED", "REJECTED", "CANCELLED"])
     }
 
     def protection_base_garex = objectSchemaDefinitions {
