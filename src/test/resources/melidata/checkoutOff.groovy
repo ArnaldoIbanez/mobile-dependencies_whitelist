@@ -133,6 +133,10 @@ trackTests {
             openSeaDefaultProperties()
         }
 
+        "/checkout_off/payment/select_type/combination"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -171,6 +175,10 @@ trackTests {
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/input_credits/select_installment/combination"(platform: "/web/mobile") {
             defaultProperties()
         }
 
@@ -316,6 +324,11 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/combination"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -340,6 +353,10 @@ trackTests {
         }
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/select_type/combination"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
@@ -380,6 +397,10 @@ trackTests {
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/input_credits/select_installment/combination"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
@@ -514,6 +535,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/combination"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -684,6 +710,10 @@ trackTests {
             openSeaDefaultProperties()
         }
 
+        "/checkout_off/payment/select_type/combination"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -722,6 +752,10 @@ trackTests {
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/input_credits/select_installment/combination"(platform: "/web/mobile") {
             defaultProperties()
         }
 
@@ -872,6 +906,11 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/combination"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         // ONLY REQUIRED TESTS
         // EVENTS
         "/checkout_off/init"(platform: "/web/mobile") {
@@ -891,6 +930,10 @@ trackTests {
         }
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/select_type/combination"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
@@ -931,6 +974,10 @@ trackTests {
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/input_credits/select_installment/combination"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
@@ -1065,6 +1112,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/combination"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
