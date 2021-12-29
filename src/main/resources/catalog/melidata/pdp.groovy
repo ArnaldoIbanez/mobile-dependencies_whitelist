@@ -413,7 +413,7 @@ tracks {
         add_cart_info
         shipping_info
         pickup_info
-        seller_id(required: true, type: PropertyType.Numeric)
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         seller_name(required: false, type: PropertyType.String, description: "The name of the seller")
         pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
         credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
