@@ -65,10 +65,10 @@ tracks {
     }
 
     "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control ) {
-        deleted_records( type: PropertyType.Numeric, description: "Number of records/tracks deleted when shrinking")
+        deleted_records( type: PropertyType.Numeric, required: true, description: "Number of records/tracks deleted when shrinking")
     }
     "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {
-        delete_records( type: PropertyType.Numeric, description: "Number of records/tracks deleted when shrinking")
+        delete_records( type: PropertyType.Numeric, required: true, description: "Number of records/tracks deleted when shrinking")
     }
     
     "/melidata/ab_split"(platform: "/", type: TrackType.Event ) {}
