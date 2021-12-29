@@ -41,7 +41,7 @@ tracks {
 
     // HUB
     "/my_business/challenges/subscribe" (platform: "/", type: TrackType.Event) {
-      challenge_id (required: true, type: PropertyType.String, description: "ID of the challenge, example: tpv-challenge-1"),
+      challenge_id (required: true, type: PropertyType.String, description: "ID of the challenge, example: tpv-challenge-1")
       challenges (required: true, inheritable: false, type: PropertyType.ArrayList, description: "Array of challenges")
     }
     
@@ -50,7 +50,7 @@ tracks {
     }
 
     "/my_business/challenges/terms_and_conditions" (platform: "/", type: TrackType.Event) {
-      challenge_id (required: false, type: PropertyType.String, description: "ID of the challenge, example: tpv-challenge-1"),
+      challenge_id (required: false, type: PropertyType.String, description: "ID of the challenge, example: tpv-challenge-1")
       challenges (required: true, inheritable: false, type: PropertyType.ArrayList, description: "Array of challenges")
     }
 
