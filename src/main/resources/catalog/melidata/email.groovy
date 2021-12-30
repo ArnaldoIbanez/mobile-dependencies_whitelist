@@ -20,7 +20,7 @@ tracks {
         mailbox_provider(required: false, type: PropertyType.String, description: "Recipient mailbox provider, e.g. gmail.com, hotmail.com, etc")
         email_client(required: false, type: PropertyType.String, description: "Recipient email client, e.g. Gmail Webmail, Gmail App, etc")
         provider(required: false,
-                values: ["ironport","sendgrid","sparkpost"],
+                values: ["ironport","sendgrid","sparkpost", "sendgrid-transactional"],
                 type: PropertyType.String, description: "Email Service Provider which generated this track event")
         communication_id(required: false, type: PropertyType.String, description: "Email campaign id")
         communication_version(required: false, type: PropertyType.String, description: "Email campaign version")

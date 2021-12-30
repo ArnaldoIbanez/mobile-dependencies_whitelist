@@ -104,4 +104,10 @@ metrics {
         }
     }
 
+     "vip/hiddenView"(description: "define properties for item_id in vip/hiddenView experiment") {
+        startWith {
+            set_property("item_id", "event_data.item_id")
+        }
+    }
+
 }

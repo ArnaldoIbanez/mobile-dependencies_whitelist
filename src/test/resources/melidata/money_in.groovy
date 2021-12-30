@@ -283,7 +283,7 @@ trackTests {
             key_type = "cpf"
             key_value_from_profile = "false"
         }
-        "/money_in/pix_keys/admin"(platform: "/", type: TrackType.View) {}
+        "/pix/admin_keys"(platform: "/", type: TrackType.View) {}
         "/money_in/pix_keys/admin/resolve_request"(platform: "/", type: TrackType.Event) {}
         "/money_in/pix_keys/admin/resolve_request"(platform: "/", type: TrackType.Event) {
             claim_type = "ownership"
@@ -291,24 +291,24 @@ trackTests {
         "/money_in/pix_keys/admin/resolve_request"(platform: "/", type: TrackType.Event) {
             claim_type = "portability"
         }
-        "/money_in/pix_keys/admin/detail_key"(platform: "/", type: TrackType.Event) {}
-        "/money_in/pix_keys/admin/detail_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/detail_key"(platform: "/", type: TrackType.Event) {}
+        "/pix/admin_keys/detail_key"(platform: "/", type: TrackType.Event) {
             key_type = "cnpj"
         }
-        "/money_in/pix_keys/admin/detail_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/detail_key"(platform: "/", type: TrackType.Event) {
             key_type = "cpf"
         }
-        "/money_in/pix_keys/admin/detail_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/detail_key"(platform: "/", type: TrackType.Event) {
             key_type = "telephone"
         }
-        "/money_in/pix_keys/admin/detail_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/detail_key"(platform: "/", type: TrackType.Event) {
             key_type = "email"
         }
-        "/money_in/pix_keys/admin/detail_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/detail_key"(platform: "/", type: TrackType.Event) {
             key_type = "evp"
         }
         "/money_in/pix_keys/admin/add_key"(platform: "/", type: TrackType.Event) {}
-        "/money_in/pix_keys/key_detail"(platform: "/", type: TrackType.View) {}
+        "/pix/pix_detail"(platform: "/", type: TrackType.View) {}
         "/money_in/pix_keys/key_detail/remove_key"(platform: "/", type: TrackType.Event) {}
         "/money_in/pix_keys/key_detail/remove_key"(platform: "/", type: TrackType.Event) {
             key_type = "cnpj"
@@ -331,36 +331,69 @@ trackTests {
         "/money_in/pix_keys/admin/carousel/swipe"(platform: "/", type: TrackType.Event) {
             swipe_direction = "right"
         }
-        "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/create_key"(platform: "/", type: TrackType.Event) {
             key_type = "evp"
         }
-        "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/create_key"(platform: "/", type: TrackType.Event) {
             key_type = "email"
         }
-        "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/create_key"(platform: "/", type: TrackType.Event) {
             key_type = "telephone"
         }
-        "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/create_key"(platform: "/", type: TrackType.Event) {
             key_type = "cpf"
         }
-        "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/create_key"(platform: "/", type: TrackType.Event) {
             key_type = "cnpj"
         }
-        "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/share"(platform: "/", type: TrackType.Event) {
             key_type = "evp"
         }
-        "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/share"(platform: "/", type: TrackType.Event) {
             key_type = "email"
         }
-        "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/share"(platform: "/", type: TrackType.Event) {
             key_type = "telephone"
         }
-        "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/share"(platform: "/", type: TrackType.Event) {
             key_type = "cpf"
         }
-        "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+        "/pix/admin_keys/share"(platform: "/", type: TrackType.Event) {
             key_type = "cnpj"
         }
+        "/pix/pix_detail/share"(platform: "/", type: TrackType.Event) {
+            key_type = "evp"
+        }
+        "/pix/pix_detail/share"(platform: "/", type: TrackType.Event) {
+            key_type = "email"
+        }
+        "/pix/pix_detail/share"(platform: "/", type: TrackType.Event) {
+            key_type = "telephone"
+        }
+        "/pix/pix_detail/share"(platform: "/", type: TrackType.Event) {
+            key_type = "cpf"
+        }
+        "/pix/pix_detail/share"(platform: "/", type: TrackType.Event) {
+            key_type = "cnpj"
+        }
+        "/pix/pix_detail/copy"(platform: "/", type: TrackType.Event) {
+            key_type = "evp"
+        }
+        "/pix/pix_detail/copy"(platform: "/", type: TrackType.Event) {
+            key_type = "email"
+        }
+        "/pix/pix_detail/copy"(platform: "/", type: TrackType.Event) {
+            key_type = "telephone"
+        }
+        "/pix/pix_detail/copy"(platform: "/", type: TrackType.Event) {
+            key_type = "cpf"
+        }
+        "/pix/pix_detail/copy"(platform: "/", type: TrackType.Event) {
+            key_type = "cnpj"
+        }
+        "/pix/pix_detail/home_pix_back"(platform: "/", type: TrackType.Event) {}
+        "/pix/admin_keys/faq"(platform: "/", type: TrackType.Event) {}
+        "/pix/admin_keys/my_keys_tooltip"(platform: "/", type: TrackType.Event) {}
         "/money_in/pix_keys/key_claim_detail"(platform: "/", type: TrackType.View) {}
         "/money_in/pix_keys/key_claim_detail/approve"(platform: "/", type: TrackType.Event) {}
         "/money_in/pix_keys/key_claim_detail/approve"(platform: "/", type: TrackType.Event) {
@@ -746,6 +779,12 @@ trackTests {
         "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
             action_id="pix_qr"
         }
+
+        // Money In Hub - v2 - Web
+        "/money_in/hub/modal"(platform:"/", type: TrackType.View){}
+        "/money_in/hub/modal/close"(platform:"/", type: TrackType.Event){}
+        "/money_in/hub/modal/primary_button"(platform:"/", type: TrackType.Event){}
+        "/money_in/hub/modal/secondary_button"(platform:"/", type: TrackType.Event){}
 
         // -------------Open Finance - Money In-------------
         //Onboarding

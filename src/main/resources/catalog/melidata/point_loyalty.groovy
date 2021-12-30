@@ -18,7 +18,9 @@ tracks {
     }
 
     "/point/loyalty/register/link"(platform: "/web", type: TrackType.View) {
-        status(required: true, description: "Status of token user", values: ["active", "expired"])
+    }
+
+    "/point/loyalty/register/link_expired"(platform: "/web", type: TrackType.View) {
     }
 
     "/point/loyalty/register/tyc"(platform: "/web", type: TrackType.Event) {

@@ -1,10 +1,13 @@
 package metrics
 
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-  "digital_account/app_download_button"(description: "define which type of download app button shows to see which converts better", deprecation_date:"2021/09/01") {
+  "digital_account/app_download_button"(description: "define which type of download app button shows to see which converts better", deprecation_date:"2021/09/01", bu: BuType.ITTech, extent: ExtentType.Feature) {
     experiment("digital_account/stickyButton")
   
     countsOn {
@@ -17,7 +20,7 @@ metrics {
     }
   }
 
-  "app_download_intention"(description: "Measure the intention of downloading the App by clicking in several spots/buttons distributed in different sites", deprecation_date:"2021/11/01") {
+  "app_download_intention"(description: "Measure the intention of downloading the App by clicking in several spots/buttons distributed in different sites", deprecation_date:"2021/11/01", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
     experiment("home-landing/appDownloadDesktop", "home-landing/appDownloadMobile", "business-landing/stickyButton", "digital-account-landing/appDownloadDesktop", "digital-account-landing/appDownloadMobile")
   
     countsOn {

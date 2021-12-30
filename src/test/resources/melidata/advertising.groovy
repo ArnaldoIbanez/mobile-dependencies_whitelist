@@ -1401,6 +1401,8 @@ trackTests {
             query = "search"
         }
 
+        "/advertising/pads2/sads_new/landing/help"(platform: "/", type: TrackType.Event) {}
+
     }
 
     test("Advertising multicampaña Sads Paused") {
@@ -1475,6 +1477,8 @@ trackTests {
                     query: "search"
             ]
         }
+
+        "/advertising/pads2/sads_paused/landing/help"(platform: "/", type: TrackType.Event) {}
 
     }
 
@@ -2841,6 +2845,30 @@ trackTests {
 
     }
 
+    test("Page bulk") {
+        "/advertising/pads2/bulk"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
+        }
+    }
+
+    test("Page action bulk") {
+        "/advertising/pads2/bulk/action"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+        }
+    }
+    
+    test("Action page download worksheet") {
+        "/advertising/pads2/bulk/action/create"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+        }
+    }
+
+     test("Action page upload worksheet") {
+        "/advertising/pads2/bulk/action/upload"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+        }
+    }
+
     test("Download Worksheet") {
         "/advertising/pads2/bulk/download"(platform: "/", type: TrackType.View) {
             campaign_management_type = "custom"
@@ -2850,7 +2878,7 @@ trackTests {
     test("Download Action") {
         "/advertising/pads2/bulk/download/action"(platform: "/", type: TrackType.Event) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             filters = [:]
             number_of_rows = 1000
         }
@@ -2859,7 +2887,7 @@ trackTests {
     test("Download action create worksheet success") {
         "/advertising/pads2/bulk/download/action/create"(platform: "/", type: TrackType.Event) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             filters = [:]
             number_of_rows = 1000
         }
@@ -2868,7 +2896,7 @@ trackTests {
     test("Download create worksheet error") {
         "/advertising/pads2/bulk/download/action/create/error"(platform: "/", type: TrackType.Event) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             filters = [:]
             number_of_rows = 1000
         }
@@ -2883,7 +2911,7 @@ trackTests {
     test("Download action filter") {
         "/advertising/pads2/bulk/download/action/filter"(platform: "/", type: TrackType.Event) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             filters = [:]
         }
     }
@@ -2891,7 +2919,7 @@ trackTests {
     test("Download action filter warning") {
         "/advertising/pads2/bulk/download/action/filter/warning"(platform: "/", type: TrackType.Event) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             filters = [:]
             number_of_rows = 1000
         }
@@ -2900,7 +2928,7 @@ trackTests {
     test("Download modal action upload") {
         "/advertising/pads2/bulk/download/modal"(platform: "/", type: TrackType.Event) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             number_of_rows = 1000
         }
     }
@@ -2908,7 +2936,7 @@ trackTests {
     test("Download Modal action email") {
         "/advertising/pads2/bulk/download/modal/action/email"(platform: "/", type: TrackType.Event) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             number_of_rows = 1000
         }
     }
@@ -2916,7 +2944,7 @@ trackTests {
     test("Download Modal action retry") {
         "/advertising/pads2/bulk/download/modal/action/retry"(platform: "/", type: TrackType.Event) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             number_of_rows = 1000
         }
     }
@@ -2924,35 +2952,120 @@ trackTests {
     test("Download feedback") {
         "/advertising/pads2/bulk/download/feedback"(platform: "/", type: TrackType.View) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             operation_id = "1223BC"
+            number_of_rows = 1000
         }
     }
 
     test("Download feedback success") {
         "/advertising/pads2/bulk/download/feedback/success"(platform: "/", type: TrackType.View) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             operation_id = "1223BC"
+            number_of_rows = 1000
         }
     }
 
+    test("Download feedback success action") {
+        "/advertising/pads2/bulk/download/feedback/success/action"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+        }
+    }
+
+    test("Download feedback success action upload") {
+        "/advertising/pads2/bulk/download/feedback/success/action/upload"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+        }
+    }
+
+    test("Download feedback success action return") {
+        "/advertising/pads2/bulk/download/feedback/success/action/return"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+        }
+    }
+
+    test("Download feedback success action return") {
+        "/advertising/pads2/bulk/download/feedback/success/action/return"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+        }
+    }
+
+    test("Download feedback success action retry") {
+        "/advertising/pads2/bulk/download/feedback/success/action/retry"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+        }
+    }
+    
     test("Download feedback error") {
         "/advertising/pads2/bulk/download/feedback/error"(platform: "/", type: TrackType.View) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             operation_id = "1223BC"
+            number_of_rows = 1000
+        }
+    }
+
+    test("Download feedback error action") {
+        "/advertising/pads2/bulk/download/feedback/error/action"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+        }
+    }
+
+    test("Download feedback action error") {
+        "/advertising/pads2/bulk/download/feedback/error/action/retry"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
         }
     }
 
     test("Download feedback waiting") {
         "/advertising/pads2/bulk/download/feedback/waiting"(platform: "/", type: TrackType.View) {
             campaign_management_type = "custom"
-            action_type= "bulk-status-pads"
+            action_type= "bulk-pads-status"
             operation_id = "1223BC"
+            number_of_rows = 1000
         }
     }
 
+    test("Download feedback waiting action") {
+        "/advertising/pads2/bulk/download/feedback/waiting/action"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+        }
+    }
+
+    test("Download feedback waiting action return") {
+        "/advertising/pads2/bulk/download/feedback/waiting/action/return"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+        }
+    }
+    
     test("file upload view") {
         "/advertising/pads2/bulk/upload"(platform: "/", type: TrackType.View) {
             campaign_management_type = "custom"
@@ -3010,6 +3123,240 @@ trackTests {
         "/advertising/pads2/bulk/upload/modal/action/retry"(platform: "/", type: TrackType.Event) {
             campaign_management_type = "custom"
             operation_id = "1223BC"
+        }
+    }
+
+    test("Download errors in process upload") {
+        "/advertising/pads2/bulk/upload/errors"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("Actions in feedback errors in process upload") {
+        "/advertising/pads2/bulk/upload/errors/action"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("Action to re-upload the file") {
+        "/advertising/pads2/bulk/upload/errors/action/upload"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("Action to return to the advertising page") {
+        "/advertising/pads2/bulk/upload/errors/action/return"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("retry action download the error sheet") {
+        "/advertising/pads2/bulk/upload/errors/action/retry"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+    
+    test("upload feedback") {
+        "/advertising/pads2/bulk/upload/feedback"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("upload feedback success") {
+        "/advertising/pads2/bulk/upload/feedback/success"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("upload feedback success action") {
+        "/advertising/pads2/bulk/upload/feedback/success/action"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("upload feedback success action upload") {
+        "/advertising/pads2/bulk/upload/feedback/success/action/upload"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("upload feedback success action return") {
+        "/advertising/pads2/bulk/upload/feedback/success/action/return"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("upload feedback success action return") {
+        "/advertising/pads2/bulk/upload/feedback/success/action/return"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("upload feedback success action retry") {
+        "/advertising/pads2/bulk/upload/feedback/success/action/retry"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+    
+    test("upload feedback error") {
+        "/advertising/pads2/bulk/upload/feedback/error"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("upload feedback error action") {
+        "/advertising/pads2/bulk/upload/feedback/error/action"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("upload feedback action error") {
+        "/advertising/pads2/bulk/upload/feedback/error/action/retry"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("upload feedback waiting") {
+        "/advertising/pads2/bulk/upload/feedback/waiting"(platform: "/", type: TrackType.View) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("upload feedback waiting action") {
+        "/advertising/pads2/bulk/upload/feedback/waiting/action"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
+        }
+    }
+
+    test("upload feedback waiting action return") {
+        "/advertising/pads2/bulk/upload/feedback/waiting/action/return"(platform: "/", type: TrackType.Event) {
+            campaign_management_type = "custom"
+            action_type= "process-bulk-pads-status"
+            operation_id = "1223BC"
+            number_of_rows = 1000
+            number_of_unchanged_rows = 10
+            number_of_changed_rows = 0
+            number_of_error_rows = 0
+            number_of_disable_rows = 0
         }
     }
    

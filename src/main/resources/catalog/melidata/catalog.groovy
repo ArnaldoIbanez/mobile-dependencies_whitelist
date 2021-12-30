@@ -105,6 +105,7 @@ catalog {
         include business, "device_health.groovy"
         include business, "taxes.groovy"
         include business, "billing.groovy"
+        include business, "sellers.groovy"
     }
 
     mercadolibre.each { business ->
@@ -204,6 +205,7 @@ catalog {
         include business, "listings.groovy"
         include business, "vis_supply.groovy"
         include business, "crypto.groovy"
+        include business, "mercadoshops_cdp.groovy"
     }
 
     mercadopago.each { business ->
@@ -305,6 +307,8 @@ catalog {
         include business, "investment.groovy"
         include business, "pricing_point.groovy"
         include business, "splinter.groovy"
+        include business, "shipping_off.groovy"
+        include business, "selling_flow.groovy"
     }
 
     mercadoshops.each { business ->
