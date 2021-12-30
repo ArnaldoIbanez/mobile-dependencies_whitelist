@@ -108,7 +108,7 @@ tracks {
     }
 
     "/melilive/webview"(platform: "/mobile", type: TrackType.View) {
-        uri(required: true, type: PropertyType.String, description: "Live URL")
+        uri(required: false, type: PropertyType.String, description: "Live URL")
     }
 
     "/melilive/stream/exit"(platform: "/", type: TrackType.Event) {
