@@ -459,10 +459,10 @@ trackTests {
        "/pix/home/collect"(platform: "/", type: TrackType.Event) {}
        "/pix/home/pay"(platform: "/", type: TrackType.Event) {}
 
-        "/pix/home/error_snackbar"(platform: "/", type: TrackType.View) {
-            error = "Deeplink params [snackBarMessage|snackBarState] are null or empty"
-            view = "Indicate the view where the error happened"
-        }
+      "/pix/home/snackbar"(platform: "/", type: TrackType.View) {
+          message (required:true, description: "Deeplink value param [snackBarMessage]")
+          state (required:true, description: "Deeplink value param [snackBarState]")
+      }
 
        //Home Pix MLB - Keys
        "/pix/home/keys/copy"(platform: "/", type: TrackType.Event) {}
