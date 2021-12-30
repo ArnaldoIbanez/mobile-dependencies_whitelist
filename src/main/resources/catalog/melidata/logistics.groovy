@@ -647,36 +647,32 @@ tracks {
         status(required: true, type: PropertyType.String,  values: ["ok", "already_registered", "invalid_format"], description: "The feedback of the scan for an specific QR.", inheritable: false)
     }
     // Exchange Point
+    "/logistics/exchange_point"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: true)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: true)
+    }
     "/logistics/exchange_point/list"(platform: "/mobile", type: TrackType.View) {
-        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
-        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
-        destination_facilities_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The ids of the destinations", inheritable: false)
-        route_status(required: true, type: PropertyType.String, description: "Specifies the current route status", inheritable: false)
+        destination_facilities_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The ids of the destinations")
+        route_status(required: true, type: PropertyType.String, values: ["active", "close"], description: "Specifies the current route status")
     }
-    "/logistics/exchange_point/list/add_container"(platform: "/mobile", type: TrackType.View) {
-        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
-        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
-        destination_facilities_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The ids of the destinations", inheritable: false)
+    "/logistics/exchange_point/list/add_container"(platform: "/mobile", type: TrackType.Event) {
+        destination_facilities_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The ids of the destinations")
     }
-    "/logistics/exchange_point/list/finish_route"(platform: "/mobile", type: TrackType.View) {
-        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
-        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
+    "/logistics/exchange_point/list/finish_route"(platform: "/mobile", type: TrackType.Event) {
+    }
+    "/logistics/exchange_point/list/how_to_arrive"(platform: "/mobile", type: TrackType.Event) {
+        destination_facility_id(required: false, type: PropertyType.String, description: "The id of the destination")
     }
     "/logistics/exchange_point/detail"(platform: "/mobile", type: TrackType.View) {
-        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
-        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
-        exchange_point_id(required: false, type: PropertyType.String, description: "Specifies the exchange point id", inheritable: false)
-        containers(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the containers list", inheritable: false)
+        destination_facility_id(required: false, type: PropertyType.String, description: "Specifies the destination id")
+        containers(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the containers list")
     }
-    "/logistics/exchange_point/detail/how_to_arrive"(platform: "/mobile", type: TrackType.View) {
-        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
-        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
-        exchange_point_id(required: false, type: PropertyType.String, description: "Specifies the exchange point id", inheritable: false)
+    "/logistics/exchange_point/detail/how_to_arrive"(platform: "/mobile", type: TrackType.Event) {
     }
-    "/logistics/exchange_point/detail/arrive_waypoint"(platform: "/mobile", type: TrackType.View) {
-        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
-        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the vihicle id", inheritable: false)
-        exchange_point_id(required: false, type: PropertyType.String, description: "Specifies the exchange point id", inheritable: false)
-        containers(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the containers list", inheritable: false)
+    "/logistics/exchange_point/detail/arrive_waypoint"(platform: "/mobile", type: TrackType.Event) {
+        containers(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the containers list")
+    }
+    "/logistics/exchange_point/detail/containers/list"(platform: "/mobile", type: TrackType.View) {
+        containers(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the containers list")
     }
 }
