@@ -76,6 +76,11 @@ tracks
                   type: PropertyType.String,
                   required: true
           )
+          status_detail(
+                  description: "Detail of payment status",
+                  type: PropertyType.String,
+                  required: false
+          )
           paid_amount(
                   description: "the amount paid",
                   type:  PropertyType.Numeric,
@@ -261,7 +266,7 @@ tracks
 
       // Congrats
       "/crypto/buy/congrats" (platform: "/mobile", type: TrackType.View) {
-        amount(type: PropertyType.Numeric, required: true, description: 'Amount of the operation in local currency')
+        amount(type: PropertyType.Numeric, required: false, description: 'Amount of the operation in local currency')
         crypto(type: PropertyType.String, required: true, description: 'Type of crypto', values: ["bitcoin", "ethereum","melicoin","usdp" ])
         payment(type: PropertyType.Map(payment_definition), required: false, description: 'Info about payment')
         quote(type: PropertyType.Map(quote_definition), required: false, description: 'Quote offer by proveedor')
@@ -269,7 +274,7 @@ tracks
       }
 
       "/crypto/sell/congrats" (platform: "/mobile", type: TrackType.View) {
-        amount(type: PropertyType.Numeric, required: true, description: 'Amount of the operation in local currency')
+        amount(type: PropertyType.Numeric, required: false, description: 'Amount of the operation in local currency')
         crypto(type: PropertyType.String, required: true, description: 'Type of crypto', values: ["bitcoin", "ethereum","melicoin","usdp" ])
         payment(type: PropertyType.Map(payment_definition), required: false, description: 'Info about payment')
         quote(type: PropertyType.Map(quote_definition), required: false, description: 'Quote offer by proveedor')
