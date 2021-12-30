@@ -1423,6 +1423,8 @@ trackTests {
       action = "create"
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
+      chart_id = "217021"
+      chart_type = "SPECIFIC"
     }
   }
 

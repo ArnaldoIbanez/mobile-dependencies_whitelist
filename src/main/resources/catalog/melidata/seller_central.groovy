@@ -1049,6 +1049,14 @@ tracks {
     "/seller_central/modify/chart/confirm"(platform: "/", type: TrackType.Event){
         domain_id(required: true, description: "Product domain id", type: PropertyType.String)
         action(required: true, description: "Action to confirm", type: PropertyType.String)
+        chart_id(required: true, description: "Product chart id", type: PropertyType.String)
+        chart_type(required: true, type: PropertyType.String, description: "Product chart type",
+                values: ["BRAND", "STANDARD", "SPECIFIC"])
+        parent_chart_id(required: false, description: "Product chart parent id",
+                type: PropertyType.String)
+        parent_chart_type(required: false, type: PropertyType.String,
+                description: "Product chart parent type", values: ["BRAND", "STANDARD", "SPECIFIC"])
+
     }
 
     "/seller_central/modify/chart/return"(platform: "/", type: TrackType.Event){
