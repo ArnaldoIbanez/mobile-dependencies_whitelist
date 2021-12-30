@@ -459,10 +459,10 @@ trackTests {
        "/pix/home/collect"(platform: "/", type: TrackType.Event) {}
        "/pix/home/pay"(platform: "/", type: TrackType.Event) {}
 
-      "/pix/home/snackbar"(platform: "/", type: TrackType.View) {
-          message = "Você excluiu sua chave"
-          state = "success"
-      }
+       "/pix/home/snackbar"(platform: "/", type: TrackType.View) {
+           message = "Você excluiu sua chave"
+           state = "success"
+       }
 
        //Home Pix MLB - Keys
        "/pix/home/keys/copy"(platform: "/", type: TrackType.Event) {}
