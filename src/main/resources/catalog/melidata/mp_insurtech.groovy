@@ -777,8 +777,9 @@ tracks {
     "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
     }
     "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-        protection(required: true, type: PropertyType.Map(protection_base_garex), description: "Product data")
-        claim(required: true, type: PropertyType.Map(claim_garex), description: "GAREX Protection claim data")
+        protection(required: false, type: PropertyType.Map(protection_base_garex), description: "Product data")
+        claim(required: false, type: PropertyType.Map(claim_garex), description: "GAREX Protection claim data")
+        product(required: false, type: PropertyType.Map(protection_particular_garex), description: "Particular information for Garex.")
     }
     "/insurtech/protections/detail/garex/begin_claim"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_base_garex), description: "Product data")
