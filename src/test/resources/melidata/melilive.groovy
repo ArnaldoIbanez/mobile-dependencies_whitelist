@@ -274,6 +274,7 @@ trackTests {
             chat = [
                 "room_id": "room-v3-03"
             ]
+            ban_type = "PERMANENT"
         }
 
         "/melilive/creator/chat/first_message"(platform: "/") {
