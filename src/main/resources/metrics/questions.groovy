@@ -1,9 +1,12 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 import com.ml.melidata.metrics.TagType
 
 metrics {
 
-    "questions"(description: "questions count", tags:[TagType.Important, TagType.CoreMetric]) {
+    "questions"(description: "questions count", tags:[TagType.Important, TagType.CoreMetric], bu: BuType.MercadoLibre, extent: ExtentType.Company) {
         countsOn {
             condition {
                 path("/questions/ask/post")
@@ -15,7 +18,7 @@ metrics {
         }
     }
 
-    "qadb_search"(description: "qadb zqps generated ", tags:[TagType.CoreMetric]) {
+    "qadb_search"(description: "qadb zqps generated ", tags:[TagType.CoreMetric], bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("qadb/.*"))
 	    
         countsOn {
@@ -25,7 +28,7 @@ metrics {
         }
     }	
 	
-   "qadb_zqp"(description: "qadb searches perform by user ") {
+   "qadb_zqp"(description: "qadb searches perform by user ", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("qadb/.*"))
 	    
         countsOn {
@@ -36,7 +39,7 @@ metrics {
         }
     }		
 
-    "questions.pdp"(description: "Track PDP questions") {
+    "questions.pdp"(description: "Track PDP questions", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("qadb/.*"))
 
 		countsOn {
@@ -61,7 +64,7 @@ metrics {
 	}
     }
 
-	"questions.sameItem"(description: "questions count over same item") {
+	"questions.sameItem"(description: "questions count over same item", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("qadb/.*"))
 
 		countsOn {

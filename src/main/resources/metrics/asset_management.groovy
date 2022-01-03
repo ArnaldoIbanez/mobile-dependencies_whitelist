@@ -1,9 +1,12 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 
 metrics {
 
-    "asset_management_congrats"(description: "Arrival to congrats for Asset Management", deprecation_date:"2020/08/12") {
+    "asset_management_congrats"(description: "Arrival to congrats for Asset Management", deprecation_date:"2020/08/12", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
         experiment("mpmobile/asset_management")
 
         countsOn {
@@ -13,7 +16,7 @@ metrics {
         }
     }
 
-    "asset_management_start_investing"(description: "Touches the button 'Quiero invertir' from onboarding", deprecation_date:"2020/08/12") {
+    "asset_management_start_investing"(description: "Touches the button 'Quiero invertir' from onboarding", deprecation_date:"2020/08/12", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
         experiment("mpmobile/asset_management")
 
         countsOn {

@@ -1,9 +1,12 @@
 package metrics
 
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
-    "home_placement_click"(description: "Clicks on placements of Home") {
+    "home_placement_click"(description: "Clicks on placements of Home", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
         experiment(regex("mkplc/.*sitemerch.*"))
 
         countsOn {

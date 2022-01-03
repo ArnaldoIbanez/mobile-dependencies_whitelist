@@ -69,7 +69,7 @@ trackTests {
     }
 
     test("MeliLive stream broadcast recorded") {
-        "/melilive/stream/recorded"(platform: "/") {
+        "/melilive/recorded"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
                     "title"       : "Melilive",
@@ -124,7 +124,7 @@ trackTests {
 
     test("Melilive PreLive") {
 
-        "/melilive/stream/prelive"(platform: "/") {
+        "/melilive/prelive"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
                     "title": "Melilive Stream",
@@ -168,33 +168,11 @@ trackTests {
         }
     }
 
-    test("Melilive Bookmark Added") {
-
-        "/melilive/stream/bookmark/add"(platform: "/") {
-            stream = [
-                    "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
-            ]
-            item_id = "MLA5646513"
-            context = "/melilive"
-        }
-    }
-
-    test("Melilive Bookmark Removed") {
-
-        "/melilive/stream/bookmark/remove"(platform: "/") {
-            stream = [
-                    "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
-            ]
-            item_id = "MLA5646513"
-            context = "/melilive"
-        }
-    }
-
     // ***************** CREATOR ******************
 
     test("Melilive Start Live From Creator") {
 
-        "/melilive/creator/start_live"(platform: "/") {
+        "/melilive/creator/settings/start_live"(platform: "/") {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             groups = [
                 [
@@ -214,14 +192,14 @@ trackTests {
 
     test("Melilive End Live From Creator") {
 
-        "/melilive/creator/end_live"(platform: "/") {
+        "/melilive/creator/settings/end_live"(platform: "/") {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
         }
     }
 
     test("Melilive Share Broadcast Link From Creator") {
 
-        "/melilive/creator/share"(platform: "/") {
+        "/melilive/creator/settings/share"(platform: "/") {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             url = "http://2ecee02e-49fc-48d7-94b0-1a19adb2a1fb"
         }
@@ -229,8 +207,8 @@ trackTests {
 
     test("Melilive Item Event") {
 
-        "/melilive/creator/item/event"(platform: "/") {
-            event_type = "HIGHLIGHT"
+        "/melilive/creator/settings/item_action"(platform: "/") {
+            context = "HIGHLIGHT"
             item_id = "MLA231546"
             group_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
         }

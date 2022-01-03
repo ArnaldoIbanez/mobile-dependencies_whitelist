@@ -182,4 +182,48 @@ tracks {
             description: "Business hours"
         )
     }
+
+    "/proximity_order_manager/shipment" (platform: "/", type: TrackType.Event) {
+        shipment_id(
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Shipment id"
+        )
+        pack_id(
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Pack id"
+        )
+        seller_id(
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Seller id"
+        )
+        type(
+            required: true,
+            type: PropertyType.String,
+            description: "Event type",
+            values: ["CREATE", "CHANGE_STATUS", "DELAY"]
+        )
+        status(
+            required: true,
+            type: PropertyType.String,
+            description: "Shipment status"
+        )
+        sub_status(
+            required: true,
+            type: PropertyType.String,
+            description: "Shipment sub status"
+        )
+        elapsed_seconds(
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Relative to each event type, could be seconds to be created, to change to current status, or an unexpected delay"
+        )
+        purchase_id(
+            required: false,
+            type: PropertyType.Numeric,
+            description: "Purchase id, currently not available in all event types"
+        )
+    }
 }

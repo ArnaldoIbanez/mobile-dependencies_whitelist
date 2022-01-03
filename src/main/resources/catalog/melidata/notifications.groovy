@@ -137,6 +137,7 @@ tracks {
     "/notification/claim_closed_seller_refund_decorator"(platform: "/") {}
     "/notification/claim_complainant_to_respondent_message"(platform: "/") {}
     "/notification/claim_respondent_to_complainant_message"(platform: "/") {}
+    "/notification/return_pick_product_wh_by_seller"(platform: "/") {}
 
     // Credits - Credit Card
     // Collection
@@ -183,6 +184,13 @@ tracks {
     "/notification/credit_card_waitlist_10"(platform: "/") {}
     "/notification/credit_card_waitlist_40"(platform: "/") {}
     "/notification/credit_card_waitlist_blacklist"(platform: "/") {}
+
+    // MoneyOut - TransferOnline
+    "/notification/transfer_online_approved"(platform: "/") {}
+    "/notification/transfer_online_in_process"(platform: "/") {}
+    "/notification/transfer_online_rejected"(platform: "/") {}
+    "/notification/transfer_online_review_manual"(platform: "/") {}
+    "/notification/transfer_online_scheduled"(platform: "/") {}
 
     // CardUpdater
     "/notification/card_updater_expiry"(platform: "/mobile") { }
@@ -1372,7 +1380,7 @@ tracks {
     "/notification/asset_management_underage_rejected"(platform: "/mobile") {}
     "/notification/asset_management_underage_request"(platform: "/mobile") {}
     "/notification/asset_management_missing_docs"(platform: "/mobile") {}
-    "/notification/asset_management_cryto"(platform: "/mobile") {}
+    "/notification/asset_management_crypto_paxos_validate"(platform: "/mobile") {}
 
 
     //Campañas
@@ -1809,6 +1817,7 @@ tracks {
     "/notification/card_transactions_approved_authorization_cashplus"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_cashplus_mute"(platform: "/mobile") {}
     "/notification/card_transactions_approved_withdraw_with_fee_cashplus"(platform: "/mobile") {}
+    "/notification/card_transactions_rejected_authorization_by_minors"(platform: "/mobile") {}
 
 
     // PREPAID, HYBRID, MPCARD
@@ -2304,4 +2313,8 @@ tracks {
 
     //Open Finance
     "/notification/open_finance_consent_recovery"(platform: "/mobile") {}
+    "/notification/open_finance_consent_to_expire"(platform: "/mobile") {}
+    "/notification/open_finance_consent_expired"(platform: "/mobile") {}
+    "/notification/open_finance_consent_revoked"(platform: "/mobile") {}
+    "/notification/open_finance_data_available"(platform: "/mobile") {}
 }
