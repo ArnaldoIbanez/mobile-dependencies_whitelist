@@ -38,7 +38,7 @@ tracks {
     }
 
     propertyGroups {
-            mandatory(flow, session_id)
+        mandatory(flow, session_id)
         step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge, parent_key, origin_source)
         item_structure(item_id, type, content)
         view_time(view_time)
