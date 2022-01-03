@@ -52,43 +52,52 @@ trackTests {
         }
     }
 
-    test("places reception remove shipment confirmed event") {
+    test("places inbounds remove shipment confirmed event") {
 
         def defaultTrackInformation = {
             place_id = "123456"
             shipment_id = "12345678901"
             display = "browser"
+            operator_id = 1234
         }
 
-        "/places/reception/list/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
+        "/places/inbounds/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
     }
 
-    test("places reception manual input event") {
+    test("places validate content with scanner manual input event") {
 
         def defaultTrackInformation = {
             place_id = "123456"
-            shipment_id = "12345678901"
+            operator_id = 1234
+            scanner_input = "12345678901"
+            content = "{value: '12345678901'}"
+            input_type = "manual_input"
             display = "browser"
+            validation_error = null
+            flow = "unified"
         }
 
-        "/places/reception/manual"(platform: "/web", type: TrackType.Event) {
+        "/places/scanner/validate_content"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
     }
 
-    test("places reception external scan") {
+    test("places validate content with error") {
 
         def defaultTrackInformation = {
             place_id = "123456"
-            code_type = "QR"
-            scanner_input = "{'id':'12345678901', hash: 'jndiSD_FSGXn289352hjfXF'}"
-            scanner_output = "{'id':'12345678901'}"
-            scanner_end_char = 13
+            operator_id = 1234
+            scanner_input = "12345678901"
+            content = "{value: '12345678901'}"
+            input_type = "camera"
+            display = "browser"
+            validation_error = "internal_error"
+            flow = "unified"
         }
 
-        "/places/reception/external_scan"(platform: "/web", type: TrackType.Event) {
+        "/places/scanner/validate_content"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
     }
@@ -139,9 +148,10 @@ trackTests {
             place_id = "123456"
             display = "browser"
             camera_error = "not_allowed"
+            operator_id = 1234
         }
 
-        "/places/reception/access_camera/error"(platform: "/web", type: TrackType.Event) {
+        "/places/scanner/error/access_camera"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
     }

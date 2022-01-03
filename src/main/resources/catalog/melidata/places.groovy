@@ -14,31 +14,37 @@ tracks {
                 description: "ID of place (agency) user operates in.")
         shipment_id(required: true, type: PropertyType.String,
                 description: "ID of shipment being validated for reception.")
+        content(required: true, type: PropertyType.String,
+                description: "ID of content being validated.")
         display(required: false, type: PropertyType.String, values: ["browser", "standalone", "none"],
                 description: "Specifies the display mode app is running as.")
-        validation_error(required: true, type: PropertyType.String,
-                values: ["duplicated", "invalid_shipment", "not_found", "internal_error", "no_connection", "invalid_data"],
+        validation_error(required: false, type: PropertyType.String,
                 description: "Specifies what kind of validation error happened.")
-        invalid_data(required: false, type: PropertyType.String,
-                description: "Specifies the value sent that caused a validation error.")
+        input_type(required: true, type: PropertyType.String,
+                values: ["camera", "external_scan", "manual_input"],
+                description: "Specifies by what means you entered the input")
+        flow(required: true, type: PropertyType.String,
+                description: "Specifies the flow that is being operated")
         camera_error(required: true, type: PropertyType.String,
                 description: "Specifies what kind of camera error happened.")
         code_type(required: true, type: PropertyType.String,
                 values: ["QR", "Datamatrix", "Barcode", "Unknown"],
                 description: "Specifies what kind of 1D/2D code were scanned")
-        scanner_input(required: true, type: PropertyType.String,
+        scanner_input(required: false, type: PropertyType.String,
                 description: "Specifies the raw input of the external scanner")
-        scanner_output(required: true, type: PropertyType.String,
+        scanner_output(required: false, type: PropertyType.String,
                 description: "Specifies the processed output of the external scanner")
-        scanner_end_char(required: true, type: PropertyType.Numeric,
+        scanner_end_char(required: false, type: PropertyType.Numeric,
                 description: "Specifies which character uses the external scanner as ending")
+        operator_id(required: false, type: PropertyType.Numeric,
+                description: "ID of user.")
     }
 
     propertyGroups {
         place_view(place_id, display)
-        place_shipment(place_id, shipment_id, display)
-        place_validation(place_id, shipment_id, display, invalid_data, validation_error)
-        place_camera(place_id, display, camera_error)
+        place_shipment(place_id, shipment_id, display, operator_id)
+        place_validation(place_id, operator_id, scanner_input, content, input_type, display, validation_error, flow)
+        place_camera(place_id, display, camera_error, operator_id)
         place_external_scanner(place_id, code_type, scanner_input, scanner_output, scanner_end_char)
     }
 
@@ -71,26 +77,16 @@ tracks {
         place_view
     }
 
-    "/places/reception/list/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
+    "/places/inbounds/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
         place_shipment
     }
 
-    "/places/reception/manual"(platform: "/web", type: TrackType.Event) {
-        place_shipment
-    }
-
-    "/places/reception/validate_shipment/error"(platform: "/web", type: TrackType.Event) {
+    "/places/scanner/validate_content"(platform: "/web", type: TrackType.Event) {
         place_validation
-        shipment_id(required: false, type: PropertyType.String,
-                description: "ID of shipment being validated for reception.")
     }
 
-    "/places/reception/access_camera/error"(platform: "/web", type: TrackType.Event) {
+    "/places/scanner/error/access_camera"(platform: "/web", type: TrackType.Event) {
         place_camera
-    }
-
-    "/places/reception/external_scan"(platform: "/web", type: TrackType.Event) {
-        place_external_scanner
     }
 
     "/places/reception/geolocation_error"(platform: "/web", type: TrackType.Event) {
