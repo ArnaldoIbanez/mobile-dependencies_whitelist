@@ -27,25 +27,16 @@ tracks {
                 description: "Specifies the flow that is being operated")
         camera_error(required: true, type: PropertyType.String,
                 description: "Specifies what kind of camera error happened.")
-        code_type(required: true, type: PropertyType.String,
-                values: ["QR", "Datamatrix", "Barcode", "Unknown"],
-                description: "Specifies what kind of 1D/2D code were scanned")
         scanner_input(required: false, type: PropertyType.String,
                 description: "Specifies the raw input of the external scanner")
-        scanner_output(required: false, type: PropertyType.String,
-                description: "Specifies the processed output of the external scanner")
-        scanner_end_char(required: false, type: PropertyType.Numeric,
-                description: "Specifies which character uses the external scanner as ending")
         operator_id(required: false, type: PropertyType.Numeric,
                 description: "ID of user.")
     }
 
     propertyGroups {
-        place_view(place_id, display)
         place_shipment(place_id, shipment_id, display, operator_id)
         place_validation(place_id, operator_id, scanner_input, content, input_type, display, validation_error, flow)
         place_camera(place_id, display, camera_error, operator_id)
-        place_external_scanner(place_id, code_type, scanner_input, scanner_output, scanner_end_char)
         mandatory(place_id)
     }
 
