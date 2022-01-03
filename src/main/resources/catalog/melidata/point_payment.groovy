@@ -4,7 +4,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1046"
+    initiative = "1296"
 
     // MP Mobile Point
     "/point_payment"(platform: "/mobile", type: TrackType.View) {

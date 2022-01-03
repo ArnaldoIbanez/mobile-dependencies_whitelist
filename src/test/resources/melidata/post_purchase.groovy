@@ -42,14 +42,17 @@ trackTests {
 
         "/post_purchase/channel_selection_hub"(platform: "/") {
             med_on_user_action = "online"
+            claim_id = 123456
         }
 
         "/post_purchase/channel_selection_hub"(platform: "/") {
             med_on_user_action = "offline"
+            claim_id = 123456
         }
 
         "/post_purchase/channel_selection_hub"(platform: "/") {
             med_on_user_action = "back"
+            claim_id = 123456
         }
     }
 }

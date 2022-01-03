@@ -105,23 +105,47 @@ tracks {
         page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
     }
 
-	// wrap up
+	// wrap up mensual
 	"/merchant_acquisition/flows/wrap_up"(platform: "/", isAbstract: true) {}
 	"/merchant_acquisition/flows/wrap_up/home"(platform:"/", type: TrackType.View) {}
-	"/merchant_acquisition/flows/wrap_up/home/x_sell"(platform:"/", type: TrackType.View) {}
-	"/merchant_acquisition/flows/wrap_up/home/closing"(platform:"/", type: TrackType.View) {}
+	"/merchant_acquisition/flows/wrap_up/home/x_sell"(platform:"/", isAbstract: true) {}
 	"/merchant_acquisition/flows/wrap_up/home/x_sell/see_more"(platform:"/", type: TrackType.Event) {
         product_sell_name(required: true, type: PropertyType.String, description: "The product sell name")
         link(required: true, type: PropertyType.String, description: "Link to execute")
     }
+	"/merchant_acquisition/flows/wrap_up/home/closing"(platform:"/", isAbstract: true) {}
     "/merchant_acquisition/flows/wrap_up/home/closing/like"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/flows/wrap_up/home/closing/dislike"(platform:"/", type: TrackType.Event) {}
-	"/merchant_acquisition/flows/wrap_up/home/sellers_central"(platform:"/", type: TrackType.View) {}
+	"/merchant_acquisition/flows/wrap_up/home/sellers_central"(platform:"/", isAbstract: true) {}
     "/merchant_acquisition/flows/wrap_up/home/sellers_central/see_more"(platform:"/", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Link to execute")
     }
     "/merchant_acquisition/flows/wrap_up/home/value_prop"(platform:"/", type: TrackType.Event) {
         section(required: true, type: PropertyType.String, description: "Name of section where the user clicked the link.")
+    }
+
+    // wrap up anual
+	"/merchant_acquisition/flows/wrap_up/yearly"(platform:"/", type: TrackType.View) {}
+	"/merchant_acquisition/flows/wrap_up/yearly/x_sell"(platform:"/", isAbstract: true) {}
+	"/merchant_acquisition/flows/wrap_up/yearly/x_sell/see_more"(platform:"/", type: TrackType.Event) {
+        product_sell_name(required: true, type: PropertyType.String, description: "The product sell name")
+        link(required: true, type: PropertyType.String, description: "Link to execute")
+    }
+	"/merchant_acquisition/flows/wrap_up/yearly/closing"(platform:"/", isAbstract: true) {}
+    "/merchant_acquisition/flows/wrap_up/yearly/closing/like"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/wrap_up/yearly/closing/dislike"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/wrap_up/yearly/mgm"(platform:"/", isAbstract: true) {}
+    "/merchant_acquisition/flows/wrap_up/yearly/mgm/app"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/wrap_up/yearly/mgm/point"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/wrap_up/yearly/loyalty"(platform:"/", isAbstract: true) {}
+	"/merchant_acquisition/flows/wrap_up/yearly/loyalty/see_more"(platform:"/", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Link to execute")
+    }
+    "/merchant_acquisition/flows/wrap_up/yearly/sellers_credits/x_sell"(platform:"/", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Link to redirect")
+    }
+    "/merchant_acquisition/flows/wrap_up/yearly/consumer_credits/x_sell"(platform:"/", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Link to redirect")
     }
 
     //mgm
@@ -235,6 +259,12 @@ tracks {
     "/merchant_acquisition/flows/point_reverse/info"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/point_reverse/address"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/point_reverse/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/chip/reactivation"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/shipping/details"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/repair/screening/details"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/devolution/screening"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/devolution/info"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/repair/info"(platform:"/", type: TrackType.View) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}

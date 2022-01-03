@@ -53,7 +53,7 @@ If you want to run the tests, you should execute **```make test```**
 ### CONTACT 📞
 <melidata_dev@mercadolibre.com>
 
-We internally 🔄  **� rotate in the Melidata team to periodically take PRs at this catalog**. This rotation should give you an assignee of the PR in a bunch of hours. We try to guide conversation through the PR in order to have traceability and public visibility. We try not to be blocker but to asssit the teams in [commmon styles and best-practices](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/Tracking-Style-Guide) and also check cohesion with other parts of the site/product we already know. We value the context you can add to the PR as far as MELI is a big ecosystem of products.
+We internally 🔄  **� rotate in the Melidata team to periodically take PRs at this catalog**. This rotation should give you an assignee of the PR in a bunch of hours. We try to guide conversation through the PR in order to have traceability and public visibility. We try not to be blocker but to assist the teams in [commmon styles and best-practices](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/Tracking-Style-Guide) and also check cohesion with other parts of the site/product we already know. We value the context you can add to the PR as far as MELI is a big ecosystem of products.
 
 In case of a hurry ( just in that case ) you can reach catalog owner of the week by checking [this rotation](https://nasdaq-meli.app.opsgenie.com/settings/schedule/detail/e9e18d88-3536-4572-9351-6ab680d4b1ed) and follow conversation on slack of private channels ( not recommended! )
 

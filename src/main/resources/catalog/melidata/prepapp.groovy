@@ -22,7 +22,7 @@ tracks {
         seller(required: true, type: PropertyType.Map(seller_definition), description: "Object that represent seller id")
         // meli_id
 
-            pickup(required: true, type: PropertyType.Map(pickup_definition), description: "Object that represent the pack order")
+        pickup(required: true, type: PropertyType.Map(pickup_definition), description: "Object that represent the pack order")
 
         context(required: true, type: PropertyType.String, description: "Action that represent open navigation or logout from any screen")
         // picking_product
@@ -58,24 +58,31 @@ tracks {
         // ml
 
         finish_enabled(required: true, type: PropertyType.Boolean, description: "Status true when the picked is finished")
+
         items_total(required: true, type: PropertyType.Numeric, description: "Total items in the pack")
         items_found(required: true, type: PropertyType.Numeric, description: "Total found items in the pack")
         items_not_found(required: true, type: PropertyType.Numeric, description: "Total not found items in the pack")
         item_id(required: true, type: PropertyType.String, description: "Id item")
         variation_id(required: true, type: PropertyType.String, description: "Id variation item")
+
         page(required: true, type: PropertyType.Numeric, description: "Number of the page the user is on")
         page_count(required: true, type: PropertyType.Numeric, description: "Number of the total pages in the backlog")
-        filters(required: true, type: PropertyType.ArrayList, description: "Object that represent the filters implemented in the list")
+        filters(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Object that represent the filters implemented in the list")
+
         item_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about item temperature")
         parcel_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about parcel temperature")
+
+        packs(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Packs being handled")
+        order_number(required: true, type: PropertyType.Numeric, description:  "Order number of the pack")
+        status(required: true, type: PropertyType.String, description: "Information about pack status")
     }
 
     propertyGroups {
         error_data(seller, context, error)
         home_data(seller, available_sections)
         label_data(label)
-        context_data(context)
-        pickup_data(pickup)
+        context_data(seller, context)
+        pickup_data(seller, pickup)
         pickup_list(finish_enabled, items_total, items_found, items_not_found)
         picked_list(items_total, items_found, items_not_found)
         product_scan(item_id, variation_id, scan_mode, items_total, items_found)
@@ -87,6 +94,8 @@ tracks {
         oms_list(page, page_count, filters)
         override_temperature_data(item_id, variation_id, item_temperature, parcel_temperature)
         item_ids_data(item_id, variation_id)
+        packs_data(packs)
+        pack_details(order_number, status)
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -151,9 +160,11 @@ tracks {
     }
 
     "/prepapp/picking/pickup_list/filter_pending"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        seller_data
     }
 
     "/prepapp/picking/pickup_list/filter_not_found"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        seller_data
     }
 
     "/prepapp/picking/picked_list"(platform:"/", type: TrackType.View) {
@@ -205,6 +216,7 @@ tracks {
     }
 
     "/prepapp/picking/no_pickup"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        seller_data
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -232,6 +244,28 @@ tracks {
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS PREPARATION APP TOTE DETAIL SECTION
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/prepapp/parcel"(platform:"/", isAbstract: true) {
+        seller_data
+    }
+
+    "/prepapp/parcel/scan"(platform:"/", type: TrackType.View) {
+        scan_mode_data
+    }
+
+    "/prepapp/parcel/input"(platform:"/", type: TrackType.View) {
+        scan_mode_data
+    }
+
+    "/prepapp/parcel/no_pickup"(platform:"/", type: TrackType.View) {
+    }
+
+    "/prepapp/parcel/detail"(platform:"/", type: TrackType.View) {
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS PREPARATION APP ORDER MANAGEMENT SYSTEM
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -243,26 +277,39 @@ tracks {
         oms_list
     }
 
-    "/prepapp/oms/backlog/filter"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/prepapp/oms/backlog/filter"(platform:"/", type: TrackType.Event) {
     }
 
-    "/prepapp/oms/backlog/download"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/prepapp/oms/backlog/download"(platform:"/", type: TrackType.Event) {
+        packs_data
     }
 
-    "/prepapp/oms/backlog/prioritize"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/prepapp/oms/backlog/prioritize"(platform:"/", type: TrackType.Event) {
+    }
+
+    "/prepapp/oms/backlog/unbind"(platform:"/", type: TrackType.Event) {
+    }
+
+    "/prepapp/oms/backlog/detail"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        seller_data
+        pack_details
     }
 
     "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
         oms_list
     }
 
-    "/prepapp/oms/routes/delete"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/prepapp/oms/routes/delete"(platform:"/", type: TrackType.Event) {
     }
 
-    "/prepapp/oms/routes/print"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/prepapp/oms/routes/filter"(platform:"/", type: TrackType.Event) {
+    }
+
+    "/prepapp/oms/routes/print"(platform:"/", type: TrackType.Event) {
         label_data
     }
 
-    "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View) {
+    "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        seller_data
     }
 }

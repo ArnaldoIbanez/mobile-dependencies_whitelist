@@ -886,6 +886,10 @@ trackTests {
                     ]
             ]
         }
+        "/checkout/review/select_shipping#submit"(platform:"/mobile", type: TrackType.Event) {
+            //shipping
+            shipping = "Llegará mañana"
+        }
         "/checkout/review/inconsistency/edit_shipping"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             error_code = "invalid_volume_for_quantity"
@@ -951,6 +955,9 @@ trackTests {
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
         }
+
+        "/checkout/generic_error"(platform:"/web", type:TrackType.View) {}
+        "/checkout/session_expired"(platform:"/web", type:TrackType.View) {}
         "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -2130,6 +2137,8 @@ trackTests {
         }
         "/checkout/items_not_available"(platform:"/web", dataSet)
         "/checkout/error"(platform:"/web", dataSet)
+        "/checkout/generic_error"(platform:"/web", dataSet)
+        "/checkout/session_expired"(platform:"/web", dataSet)
         "/checkout/payment/select_type"(platform:"/web", type: TrackType.View){
             dataSet()
         }
@@ -2237,7 +2246,7 @@ trackTests {
         "/checkout/call_for_auth/input_code"(platform:"/web", dataSet)
         "/checkout/shipping"(platform:"/web", dataSet)
         "/checkout/shipping/edit_address"(platform:"/web", dataSet)
-        "/checkout/session_expire"(platform:"/", dataSet)
+        "/checkout/session_expired"(platform:"/", dataSet)
         "/checkout/loading"(platform: "/web", dataSet)
         "/checkout/loading/error"(platform: "/web", dataSet)
         "/checkout/shipping/select_option"(platform:"/web", dataSet)
@@ -2246,6 +2255,7 @@ trackTests {
         //Address Hub
         "/checkout/shipping/delivery_instructions"(platform:"/",dataSet)
         "/checkout/shipping/address_hub"(platform:"/", dataSet)
+        "/checkout/shipping/address_hub/change_address"(platform:"/", dataSet)
         // Addresses
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
@@ -2888,8 +2898,10 @@ trackTests {
 
     }
 
-    test("Mobile platform onetap") {
+        test("Mobile platform onetap") {
         "/checkout/onetap/billing" (platform:"/mobile/android", type: TrackType.View) {}
+        "/checkout/onetap/billing/physical_person"(platform:"/mobile/android", type: TrackType.View) {}
+        "/checkout/onetap/billing/legal_person"(platform:"/mobile/android", type: TrackType.View) {}
 
         "/checkout/onetap/error" (platform:"/mobile/android", type: TrackType.View) {}
 
@@ -2900,10 +2912,21 @@ trackTests {
         "/checkout/onetap/screenlock" (platform:"/mobile/android", type: TrackType.View) {}
 
         "/checkout/onetap/shipping/select_option" (platform:"/mobile/android", type: TrackType.View) {}
+        "/checkout/onetap/shipping/address_hub"(platform:"/mobile/android", type: TrackType.View) {}
 
         "/checkout/onetap/payment/input_card" (platform:"/mobile/android", type: TrackType.View) {}
 
         "/checkout/onetap/payment/input_sec_code" (platform:"/mobile/android", type: TrackType.View) {}
+        "/checkout/onetap/payment/select_installments"(platform:"/mobile/android", type: TrackType.View) {}
+        
+        "/checkout/onetap/last_call"(platform:"/mobile/android", type: TrackType.View) {}
+    
+        "/checkout/onetap/ftu"(platform:"/mobile/android", type: TrackType.View) {}
+    
+        "/checkout/onetap/discount_info"(platform:"/mobile/android", type: TrackType.View) {}
+   
+        "/checkout/onetap/main/select_installments"(platform:"/mobile/android", type: TrackType.Event) {}
+        "/checkout/onetap/main/error_select_installments"(platform:"/mobile/android", type: TrackType.Event) {}
     }
 
     test("Mobile platform split") {

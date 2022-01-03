@@ -276,6 +276,18 @@ tracks {
 
     "/shops/hub/content_center"(platform: "/", type: TrackType.Event) {}
 
+    "/shops/hub/play_video"(platform: "/", type: TrackType.Event) {
+        video_id(name: "video_id", description: "Unique video identifier", required: true, type: PropertyType.Numeric)
+    }
+
+    "/shops/hub/not_interested"(platform: "/", type: TrackType.Event) {
+        note_id(name: "note_id", description: "Unique note identifier", required: true, type: PropertyType.Numeric)
+    }
+
+    "/shops/hub/read_note"(platform: "/", type: TrackType.Event) {
+        note_id(name: "note_id", description: "Unique note identifier", required: true, type: PropertyType.Numeric)
+    }
+
     // TIPS AND NEWS
 
     "/shops/hub/more_about"(platform: "/", isAbstract: true) {}

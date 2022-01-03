@@ -109,6 +109,7 @@ tracks {
         payment_installments (type: PropertyType.Numeric, required: false, description: "Flag that shows the quantity of installments")
         payment_type_id (type: PropertyType.String, required: false, description: "Flag that shows the type of selected payment")
         payment_id (type: PropertyType.Numeric, required: false, description: "ID that identifies the payment")
+        error_code (type: PropertyType.Numeric, required: false, description: "Error code")
     }
 
     "/point/buyingflow/shipping/invalid_address"(platform: "/", type: TrackType.View) {

@@ -22,15 +22,32 @@ trackTests {
             count = 10
         }
 
-        "/melidata/statistics"(platform: "/mobile", type: TrackType.Event) {
-            errors_counter = ["java.io.EOFException": 2, "nullpointer": 3]
-            last_send_timestamp = "2015-01-21T13:14:09.415-0300"
-            total_pending_tracks = 2
-            send_counter = 6
-            database_size = 16384
-            tracks_counter = 12
-            average_ok_time = 10
-            average_error_time = 11
+        "/melidata/statistics"(platform:"/mobile/android", type:TrackType.Event){
+            errors_counter=["java.io.EOFException":2, "nullpointer":3]
+            last_send_timestamp="2015-01-21T13:14:09.415-0300"
+            total_pending_tracks=2
+            stream_pending_tracks=10
+            melidata_pending_tracks=20
+            send_counter=6
+            database_size=16384
+            tracks_counter=12
+            stream_tracks_counter=20
+            melidata_tracks_counter=15
+            average_ok_time=10
+            average_error_time=11
+            last_statistics_timestamp="2015-01-21T13:14:09.415-0300"
+            melidata_complete_dispatch_counter=5
+            stream_complete_dispatch_counter=2
+        }
+
+        "/melidata/statistics"(platform:"/mobile/ios", type:TrackType.Event){
+            error_counter=5
+            errors_array=["Error1","Error2"]
+            total_tracks_generated=10
+            total_pending_tracks=2
+            send_counter=6
+            database_size=16384
+            last_statistics_timestamp="2015-01-21T13:14:09.415-0300"
         }
 
         "/melidata/statistics/experiments"(platform:"/mobile", type:TrackType.Control){
@@ -42,16 +59,17 @@ trackTests {
             execution_status="successful"
         }
 
-        "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control) {
-            delete_records = 40
-            current_size = 69632
-            previous_size = 110592
+        "/melidata/shrink_database"(platform:"/mobile/android", type:TrackType.Control ) {
+            current_size=69632
+            previous_size=110592
+            most_common_path="/search"
+            deleted_records=40
         }
 
-        "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event) {
-            delete_records = 50
-            current_size = 82322
-            previous_size = 122592
+        "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {
+            current_size=82322
+            previous_size=122592
+            delete_records=50
         }
     }
 
@@ -628,7 +646,6 @@ trackTests {
         }
     }
 
-	
 
 	test("Share MGM Invite and Win") {
         "/merchant_acquisition/flows/share_mgm/invite_and_win"(platform:"/", type: TrackType.View) {}
@@ -638,14 +655,14 @@ trackTests {
         }
 
         "/merchant_acquisition/flows/share_mgm/invite_and_win/click_button_social_network"(platform:"/", type: TrackType.Event) {
-		  media = "WhatsApp" 
+		  media = "WhatsApp"
 		  product = "Point Plus"
         }
 
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_dashboard_awards" (platform: "/", type: TrackType.Event) {}
 
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_terms_of_use" (platform: "/", type: TrackType.Event) {}
-		
+
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_mgm_wallet" (platform: "/", type: TrackType.Event) {}
     }
 
@@ -767,17 +784,9 @@ trackTests {
     "/merchant_acquisition/flows/resellers/register_device/bundle"(platform:"/", type: TrackType.View) {}
     }
 
-	// wrap up
-	test("Wrap Up") {
+	// wrap up mensual
+	test("Wrap Up mensual") {
         "/merchant_acquisition/flows/wrap_up/home"(platform: "/", type: TrackType.View) {}
-    }
-
-	test("Wrap Up") {
-        "/merchant_acquisition/flows/wrap_up/home/x_sell"(platform: "/", type: TrackType.View) {}
-    }
-
-    test("Wrap Up Closing section") {
-        "/merchant_acquisition/flows/wrap_up/home/closing"(platform: "/", type: TrackType.View) {}
     }
 
     test("Wrap Up X-Sell click see more") {
@@ -801,13 +810,55 @@ trackTests {
         }
     }
 
-    test("Wrap Up") {
-        "/merchant_acquisition/flows/wrap_up/home/sellers_central"(platform: "/", type: TrackType.View) {}
-    }
-
     test("Wrap Up Value prop section click see more") {
         "/merchant_acquisition/flows/wrap_up/home/value_prop" (platform: "/", type: TrackType.Event) {
             section = 'Opciones de financiamiento'
+        }
+    }
+
+    // wrap up anual
+	test("Wrap Up anual") {
+        "/merchant_acquisition/flows/wrap_up/yearly"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Wrap Up X-Sell click see more") {
+        "/merchant_acquisition/flows/wrap_up/yearly/x_sell/see_more" (platform: "/", type: TrackType.Event) {
+            product_sell_name = 'Créditos a tu medida'
+            link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
+        }
+    }
+
+    test("Wrap Up Closing click Like") {
+        "/merchant_acquisition/flows/wrap_up/yearly/closing/like" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up Closing click Dislike") {
+        "/merchant_acquisition/flows/wrap_up/yearly/closing/dislike" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up MGM click Recommend App") {
+        "/merchant_acquisition/flows/wrap_up/yearly/mgm/app" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up MGM click Recommend Point") {
+        "/merchant_acquisition/flows/wrap_up/yearly/mgm/point" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up Loyalty click see more") {
+        "/merchant_acquisition/flows/wrap_up/yearly/loyalty/see_more" (platform: "/", type: TrackType.Event) {
+            link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
+        }
+    }
+
+    test("Wrap Up Sellers Credits click xsell") {
+        "/merchant_acquisition/flows/wrap_up/yearly/sellers_credits/x_sell" (platform: "/", type: TrackType.Event) {
+            link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
+        }
+    }
+
+    test("Wrap Up Consumers Credits click xsell") {
+        "/merchant_acquisition/flows/wrap_up/yearly/consumer_credits/x_sell" (platform: "/", type: TrackType.Event) {
+            link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
         }
     }
 
@@ -833,6 +884,12 @@ trackTests {
         "/merchant_acquisition/flows/point_reverse/info"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/point_reverse/address"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/point_reverse/success"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/chip/reactivation"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/shipping/details"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/repair/screening/details"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/devolution/screening"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/devolution/info"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/repair/info"(platform:"/", type: TrackType.View) {}
     }
 
     test("MP-MA Flow QR") {
@@ -2303,6 +2360,19 @@ trackTests {
             collector_id = "123456"
         }
 
+        // Onboarding
+        "/bill_payments/onboarding"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/onboarding/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/onboarding/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Home
          "/bill_payments/home"(platform: "/mobile") {
             mandatory()
@@ -2329,6 +2399,10 @@ trackTests {
         }
 
         "/bill_payments/home/activity"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/home/activate_digital_invoices"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2404,6 +2478,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/invoices/delete/success/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/invoices/delete/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -2447,8 +2525,12 @@ trackTests {
             mandatory()
         }
 
-        // Invoices susucription
-        "/bill_payments/invoices/suscription"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/menu/to_subscription_detail"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Invoices subscription
+        "/bill_payments/invoices/subscription"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             entity = "HBO"
         }
@@ -2538,6 +2620,10 @@ trackTests {
         }
 
         "/bill_payments/info_screen/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/revision_data"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2676,6 +2762,11 @@ trackTests {
             entity = "Monterrey"
             item = "item 2"
         }
+        "/bill_payments/main_category/recent_payments"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
         "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
@@ -2710,11 +2801,19 @@ trackTests {
             mandatory()
             categoryProperties()
         }
+        "/bill_payments/main_category/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
         "/bill_payments/category_details/close"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
         }
         "/bill_payments/category_details/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+        "/bill_payments/category_details/pay"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
         }
@@ -2800,6 +2899,10 @@ trackTests {
         }
 
         "/bill_payments/new_scan/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/scan_barcode"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2964,11 +3067,15 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
-        "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/congrats/success/warning_pay_hour"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2991,6 +3098,10 @@ trackTests {
         }
 
         "/bill_payments/contingency_screen/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/contingency_screen/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -3094,6 +3205,10 @@ trackTests {
         }
 
         "/bill_payments/schedule_payment/cancel/pay_another_service"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/cancel/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -3227,6 +3342,10 @@ trackTests {
         }
 
         "/bill_payments/empty_state_ftu/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state_ftu/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -3562,6 +3681,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/congrats_optin/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/congrats_optin/automatic_debit/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -3618,6 +3741,11 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/adhesion_detail/automatic_debit/to_subscription_detail"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+
         // congrat optout dda
         "/bill_payments/optout/automatic_debit"(platform: "/mobile") {
             mandatory()
@@ -3640,7 +3768,20 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/congrats_optout/automatic_debit/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/congrats_optout/automatic_debit/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Withoutbill
+        "/bill_payments/withoutbill"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/withoutbill/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -4167,47 +4308,65 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/restrict"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/confirm"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/expired"(platform: "/", type: TrackType.View) {
             id = "id--fury"
         }
-        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/confirm"(platform: "/", type: TrackType.View) {
             id = "id--fury"
-            event_type = "click"
-            target = "validate_identity_button"
         }
-        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {
             id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
         }
-        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/start"(platform: "/", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
         }
-        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "confirm_button"
+            dismiss_type = "decline_button"
         }
-        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "cancel_button"
+            dismiss_type = "decline_button"
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
             id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
+            dismiss_type = "back_button"
+        }
+        "/auth/account_recovery/landing/dismiss"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            dismiss_type = "back_native"
+        }
+        "/auth/account_recovery/on_hold/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/expired/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/accept"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/cancel"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/confirm/back"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            back_type = "back_button"
+        }
+        "/auth/account_recovery/confirm/back"(platform: "/mobile", type: TrackType.Event) {
+            id = "id--fury"
+            back_type = "back_native"
+        }
+        "/auth/account_recovery/congrats/go_home"(platform: "/", type: TrackType.Event) {
+            id = "id--fury"
         }
     }
 
@@ -4307,16 +4466,35 @@ trackTests {
         "/auth/totp_in_app/validation/scan"(platform: "/", type: TrackType.View) {
             id = "id"
         }
+        "/auth/totp_in_app/validation/web_mobile"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
         "/auth/totp_in_app/validation/rejected"(platform: "/", type: TrackType.View) {
             id = "id"
         }
         "/auth/totp_in_app/validation/max_attempts"(platform: "/", type: TrackType.View) {
             id = "id"
         }
+        "/auth/totp_in_app/validation/no_app"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/onboarding"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
         "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             status = "approved"
             event_type = "polling"
+        }
+        "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "open_modal"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/web_mobile/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "go_to_app"
+            event_type = "click"
         }
         "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
             id = "id"
@@ -4326,6 +4504,16 @@ trackTests {
         "/auth/totp_in_app/validation/max_attempts/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             target = "go_home"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/no_app/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "decline_challenge"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "continue"
             event_type = "click"
         }
     }
@@ -4517,7 +4705,7 @@ trackTests {
         "/screenlock/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
             flow_id = "flow"
             enrollment_status = "disabled"
-            os_status = "biometrics"
+            os_status = "face_id"
         }
 
         "/screenlock/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -4543,12 +4731,15 @@ trackTests {
                 "transaction_custom": "0",
                 "opening_custom": "0"
             ]
+            fallback_disabled = false
+            screenlock_method_used = "biometrics"
+            biometrics_hash = "af21213819faed1923182dfc4217"
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
             flow_id = "flow"
             enrollment_status = "enabled"
-            os_status = "basic_screenlock"
+            os_status = "touch_id"
             elapsed_time = 50
             result = "error"
             errors = ["user_cancelled"]
@@ -4564,6 +4755,7 @@ trackTests {
                 "transaction_custom": "0",
                 "opening_custom": "0"
             ]
+            fallback_disabled = false
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -4584,6 +4776,30 @@ trackTests {
                 "transaction_custom": "0",
                 "opening_custom": "0"
             ]
+            fallback_disabled = false
+            screenlock_method_used = "basic_screenlock"
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            elapsed_time = 50
+            result = "success"
+            transaction_information = [
+                "amount": "0",
+                "type": "other"
+            ]
+            config = [
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "100",
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
+            fallback_disabled = true
+            screenlock_method_used = "unknown"
         }
 
         "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -4606,6 +4822,22 @@ trackTests {
         "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
+            from = "force_block_refresh"
+            config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            remote_config = "enabled"
+            called = true
+        }
+
+        "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "face_id"
             from = "force_block_refresh"
             config = [
                     "transaction_granularity_option": "daily_amount",
@@ -4642,6 +4874,21 @@ trackTests {
         "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
+            result = "error"
+            from = "force_block_refresh"
+            config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+        }
+
+        "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "face_id"
             result = "error"
             from = "force_block_refresh"
             config = [
@@ -4755,7 +5002,7 @@ trackTests {
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
-            from = "campaign"
+            from = "flow_enrollment"
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
@@ -4786,6 +5033,7 @@ trackTests {
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+            from = "flow_enrollment"
             enrollment_status = "disabled"
             os_status = "basic_screenlock"
             dismissible = "disabled"
@@ -4797,7 +5045,21 @@ trackTests {
                     "transaction_custom": "0",
                     "opening_custom": "0"
             ]
-            scenario = "never_auto_enrolled"
+            scenario = "flow_enrollment_no_security"
+        }
+
+        "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "touch_id"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "0",
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "both_enrolled"
         }
 
         "/screenlock/security_blocker/ok"(platform: "/mobile/android", type: TrackType.Event) {
@@ -4830,6 +5092,22 @@ trackTests {
                     "opening_custom": "0"
             ]
             scenario = "auto_enroll"
+        }
+
+        "/screenlock/security_blocker/ok"(platform: "/mobile/ios", type: TrackType.Event) {
+            from = "login"
+            enrollment_status = "enabled"
+            dismissible = "disabled"
+            os_status = "face_id"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "0",
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "blocker_enrolled"
         }
 
         "/screenlock/security_blocker/configure"(platform: "/mobile/android", type: TrackType.Event) {
@@ -4879,17 +5157,82 @@ trackTests {
             ]
             scenario = "auto_enroll"
         }
+
+        "/screenlock/security_blocker/dismiss"(platform: "/mobile/ios", type: TrackType.Event) {
+            from = "campaign"
+            enrollment_status = "enabled"
+            dismissible = "enabled"
+            os_status = "touch_id"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "0",
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "auto_enroll"
+        }
         
         "/screenlock/multiple_sessions_shield"(platform: "/mobile/android", type: TrackType.View) {
         }
 
         "/screenlock/multiple_sessions_shield"(platform: "/mobile/ios", type: TrackType.View) {
         }
+
+        "/screenlock/anom/os_biometrics_changed"(platform: "/mobile/android", type: TrackType.App) {
+                old_value = "biometrics"
+                new_value = "basic_screenlock"
+                enrollment_status = "enabled"
+                os_status = "touch_id"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/anom/jb_changed"(platform: "/mobile/ios", type: TrackType.App) {
+                old_value = false
+                new_value = true
+                enrollment_status = "disabled"
+                os_status = "face_id"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/anom/biometric_hash_changed"(platform: "/mobile/ios", type: TrackType.App) {
+                old_value = "hash_random_1234"
+                new_value = "hash_random_4321"
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "5"
+                ]
+            }
+
+        "/screenlock/anom/storage_error"(platform: "/mobile/ios", type: TrackType.App) {
+            error_type = "failed_put_value"
+        }
     }
 
     test("Screenlock config") {
         "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
-            os_status = "biometrics"
+            os_status = "face_id"
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
@@ -4902,7 +5245,7 @@ trackTests {
         }
 
         "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
-            os_status = "basic_screenlock"
+            os_status = "touch_id"
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
@@ -5260,6 +5603,12 @@ trackTests {
             valid_params = false
         }
 
+        "/screenlock/challenge"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "face_id"
+            valid_params = false
+        }
+
         "/screenlock/challenge/start"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
@@ -5278,6 +5627,8 @@ trackTests {
             transaction_id = "123"
             elapsed_time = 3
             result = "success"
+            fallback_disabled = false
+            screenlock_method_used = "biometrics"
         }
 
         "/screenlock/challenge/end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5287,6 +5638,9 @@ trackTests {
             error = "error in screenlock"
             elapsed_time = 5
             result = "error"
+            fallback_disabled = false
+            screenlock_method_used = "biometrics"
+            biometrics_hash = "af21213819faed1923182dfc4217"
         }
 
         "/screenlock/challenge/finish"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5314,6 +5668,11 @@ trackTests {
             os_status = "basic_screenlock"
         }
 
+        "/screenlock/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "face_id"
+        }
+
         "/screenlock/challenge/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
@@ -5323,6 +5682,12 @@ trackTests {
         "/screenlock/challenge/error/retry"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "none"
+            transaction_id = "123"
+        }
+
+        "/screenlock/challenge/error/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "touch_id"
             transaction_id = "123"
         }
     }
@@ -5441,12 +5806,183 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
-                "transaction_granularity_option": "daily_amount",
-                "transaction_accumulated_amount": "150",
-                "transaction": "disabled",
-                "opening_lock": "enabled",
-                "transaction_custom": "0",
-                "opening_custom": "0"
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "compile",
+                        "i": true,
+                ],
+                "r": [
+                        "b": "app_installed",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "runtime",
+                        "i": true,
+                ],
+                "r": [
+                        "b": "directory",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "files",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "symb",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "fail",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "fail",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "undetectable",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "undetectable",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "unknown",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                    "e": [
+                            "b": "off",
+                            "i": false,
+                    ],
+                    "r": [
+                            "b": "off",
+                            "i": false,
+                    ]
             ]
         }
     }
@@ -5875,100 +6411,6 @@ trackTests {
         }
         "/single_player/open_deep_link"(platform: "/web/mobile", type: TrackType.Event) {
             activity = "transport"
-        }
-    }
-
-    test("Stores frontend admin") {
-        "/stores/create"(platform: "/web", type: TrackType.View) {}
-        "/stores/create_poses"(platform: "/web", type: TrackType.View) {}
-        "/stores/create_schedule/start"(platform: "/web", type: TrackType.View) {}
-        "/stores/create_schedule/end"(platform: "/web", type: TrackType.Event) {}
-        "/stores/create_delivery/start"(platform: "/web", type: TrackType.View) {}
-        "/stores/create_delivery/end"(platform: "/web", type: TrackType.Event) {
-        types = 'both'
-        }
-        "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
-        "/stores/list"(platform: "/web", type: TrackType.View) {}
-        "/stores/update"(platform: "/web", type: TrackType.View) {}
-        "/stores/update_schedule/start"(platform: "/web", type: TrackType.View) {}
-        "/stores/update_schedule/end"(platform: "/web", type: TrackType.Event) {}
-        "/stores/update_delivery/start"(platform: "/web", type: TrackType.View) {}
-        "/stores/update_delivery/end"(platform: "/web", type: TrackType.Event) {
-        types = 'both'
-        }
-        "/stores/details"(platform: "/web", type: TrackType.View) {}
-        "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
-        "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
-        "/stores/standalone_pos"(platform: "/web", type: TrackType.View) {}
-        "/stores/move_pos"(platform: "/web", type: TrackType.View) {}
-        "/stores/details_pos"(platform: "/web", type: TrackType.View) {}
-        "/stores/details_devices"(platform: "/web", type: TrackType.View) {}
-        "/stores/details_collaborators"(platform: "/web", type: TrackType.View) {}
-        "/stores/device/device_issues"(platform: "/web", type: TrackType.Event) {}
-        "/stores/device/out_of_paper"(platform: "/web", type: TrackType.Event) {}
-        "/stores/device/associate/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-        "/stores/device/associate/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
-        }
-        "/stores/device/associate/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-        "/stores/device/associate/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
-        }
-        "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-         "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
-        }
-        "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-         "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
-        }
-
-        "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/create_poses"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/create_schedule/start"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/create_schedule/end"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/stores/create_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/create_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
-        types = 'pickup'
-        }
-        "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/list"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/update"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/update_schedule/start"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/update_schedule/end"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/stores/update_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/update_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
-        types = 'pickup'
-        }
-        "/stores/details"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/pos/create"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/standalone_pos"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/move_pos"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/details_pos"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/details_devices"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/details_collaborators"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/device/device_issues"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/stores/device/out_of_paper"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/stores/device/associate/start"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-        "/stores/device/associate/start"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
-        }
-        "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_pos"
-        }
-        "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details_devices"
         }
     }
 
@@ -6627,5 +7069,4 @@ trackTests {
             browser_id = "9e588da2-f853-4266-a933-0f62f960345c"
         }
     }
-
 }

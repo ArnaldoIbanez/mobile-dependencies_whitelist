@@ -154,9 +154,13 @@ trackTests {
         "/prepaid/activation/last_digits"(platform: "/web/desktop") {}
         "/prepaid/activation/marital_status"(platform: "/web/desktop") {}
         "/prepaid/activation/congrats"(platform: "/web/desktop") {}
+        "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {
+            type = "compromised_card"
+        }
         "/prepaid/activation/congrats/change_pin_tap"(platform: "/", type: TrackType.Event) {}
         "/prepaid/activation/congrats/home_tap"(platform: "/", type: TrackType.Event) {}
         "/prepaid/activation/congrats/add_money_tap"(platform: "/", type: TrackType.Event) {}
+        "/prepaid/activation/congrats/request_card_tap"(platform: "/", type: TrackType.Event) {}
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "main_error" }
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "not_found" }
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "max_attempt" }
@@ -276,6 +280,9 @@ trackTests {
         "/prepaid/change_pin/phone_info" (platform: "/", type: TrackType.View) {}
         "/prepaid/change_pin/new_pin" (platform: "/", type: TrackType.View) {}
         "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {}
+        "/prepaid/change_pin/reauth" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/change_pin/reauth/success" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/change_pin/reauth/error" (platform: "/", type: TrackType.Event) {}
         "/prepaid/reissue" (platform: "/", type: TrackType.View) {}
         "/prepaid/reissue/inactivate_card" (platform: "/", type: TrackType.View) {}
         "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}

@@ -189,6 +189,8 @@ tracks {
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
          dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
+
+    "/cards/mpcard/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
     
     "/cards/mpcard/dashboard/virtual"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -363,6 +365,16 @@ tracks {
         logic(required: false, type: PropertyType.String)
         position(required: true, type: PropertyType.Numeric)
     }
+    def dynamic_carousel_description_standarized = objectSchemaDefinitions {
+        audience(required: false, type: PropertyType.String, name: "audience", description: "Field required by merch engine")
+        bu(required: false, type: PropertyType.String, name: "bu", description: "Field required by merch engine")
+        bu_line(required: false, type: PropertyType.String, name: "bu_line", description: "Field required by merch engine")
+        component_id(required: false, type: PropertyType.String, name: "component_id", description: "Field required by merch engine")
+        content_id(required: false, type: PropertyType.String, name: "content_id", description: "Field required by merch engine")
+        flow(required: false, type: PropertyType.String, name: "flow", description: "Field required by merch engine")
+        logic(required: false, type: PropertyType.String, name: "logic", description: "Field required by merch engine")
+        position(required: true, type: PropertyType.Numeric, name: "position", description: "Field required by merch engine")
+    }
     "/cards/mpcard/dashboard/dynamic_carousel"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
         description (
@@ -376,6 +388,14 @@ tracks {
             required: true,
             type: PropertyType.Map(dynamic_carousel_description),
             description: "Carousel item swiped"
+          )
+    }
+    "/cards/mpcard/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description_standarized),
+            description: "Carousel item displayed",
+            name: "description"
           )
     }
     "/cards/mpcard/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
@@ -921,6 +941,9 @@ tracks {
             description: "Help, Back and change nip button tapped"
         )
     }
+    "/cards/mpcard/nip/physical/reauth"(platform:"/", type: TrackType.Event) {}
+    "/cards/mpcard/nip/physical/reauth/success"(platform:"/", type: TrackType.Event) {}
+    "/cards/mpcard/nip/physical/reauth/error"(platform:"/", type: TrackType.Event) {}
     "/cards/mpcard/nip/message"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
         action (

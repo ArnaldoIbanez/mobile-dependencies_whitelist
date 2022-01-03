@@ -312,6 +312,30 @@ trackTests {
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
         }
+
+        "/shops/hub/play_video"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            video_id = 1
+        }
+
+        "/shops/hub/not_interested"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            note_id = 1
+        }
+
+        "/shops/hub/read_note"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            note_id = 1
+        }
     }
 
     test("Mercado Shops tips and news") {
