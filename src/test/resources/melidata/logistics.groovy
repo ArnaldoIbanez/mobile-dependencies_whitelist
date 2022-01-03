@@ -269,7 +269,7 @@ trackTests {
             driver_id = 234
             vehicle_id = 345
             destination_facilities_ids = ["1"]
-            route_status = "123"
+            route_status = "active"
         }
         "/logistics/exchange_point/list/add_container"(platform: "/mobile", type: TrackType.Event){
             driver_id = 234

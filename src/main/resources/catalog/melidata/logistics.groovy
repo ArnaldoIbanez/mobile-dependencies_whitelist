@@ -653,7 +653,7 @@ tracks {
     }
     "/logistics/exchange_point/list"(platform: "/mobile", type: TrackType.View) {
         destination_facilities_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The ids of the destinations")
-        route_status(required: true, type: PropertyType.String, values: ["active", "close"], description: "Specifies the current route status")
+        route_status(required: true, type: PropertyType.String, values: ["active", "close"], description: "Specifies the current route status", inheritable: false)
     }
     "/logistics/exchange_point/list/add_container"(platform: "/mobile", type: TrackType.Event) {
         destination_facilities_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The ids of the destinations")
@@ -665,7 +665,7 @@ tracks {
     }
     "/logistics/exchange_point/detail"(platform: "/mobile", type: TrackType.View) {
         destination_facility_id(required: false, type: PropertyType.String, description: "Specifies the destination id")
-        containers(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the containers list")
+        containers(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the containers list", inheritable: false)
     }
     "/logistics/exchange_point/detail/how_to_arrive"(platform: "/mobile", type: TrackType.Event) {
     }
