@@ -213,7 +213,7 @@ tracks {
      }
 
     "/melilive/creator/chat/ban"(platform: "/", type: TrackType.Event) {
-        ban_type(required: true, type: PropertyType.String, values: ["PERMANENT"], description: "Chat ban type")
+        ban_type(required: true, type: PropertyType.String, values: ["perma_ban"], description: "Chat ban type")
      }
 
 }
