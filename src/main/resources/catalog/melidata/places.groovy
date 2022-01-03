@@ -28,7 +28,7 @@ tracks {
         camera_error(required: true, type: PropertyType.String,
                 description: "Specifies what kind of camera error happened.")
         scanner_input(required: false, type: PropertyType.String,
-                description: "Specifies the raw input of the external scanner")
+                description: "Specifies the raw input")
         operator_id(required: false, type: PropertyType.Numeric,
                 description: "ID of user.")
     }
