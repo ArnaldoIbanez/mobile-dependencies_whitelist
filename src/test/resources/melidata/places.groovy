@@ -506,7 +506,7 @@ trackTests {
             place_id = "123456"
             operator_id = 1234
             scanner_input = "12345678901"
-            content = "{value: '12345678901'}"
+            content = "{\"type\":\"shipment\",\"content\":{\"value\":\"12345678901\"}}"
             input_type = "manual_input"
             display = "browser"
             validation_error = null
@@ -524,7 +524,7 @@ trackTests {
             place_id = "123456"
             operator_id = 1234
             scanner_input = "12345678901"
-            content = "{value: '12345678901'}"
+            content = "{\"type\":\"shipment\",\"content\":{\"value\":\"12345678901\"}}"
             input_type = "camera"
             display = "browser"
             validation_error = "internal_error"
