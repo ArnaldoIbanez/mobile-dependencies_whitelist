@@ -599,7 +599,7 @@ trackTests {
   }
 
   test("Seller coach module display") {
-    "/seller_central/seller_coach/module/display"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/seller_coach/module/display"(platform: "/web", type: TrackType.View) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       seller_experience = "ADVANCED"
