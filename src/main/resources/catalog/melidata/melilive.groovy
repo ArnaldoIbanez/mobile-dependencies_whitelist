@@ -227,7 +227,7 @@ tracks {
      }
 
     "/melilive/creator/chat/ban"(platform: "/", type: TrackType.Event) {
-
+        ban_type(required: true, type: PropertyType.String, values: ["SLOW_MODE"])
      }
 
 }
