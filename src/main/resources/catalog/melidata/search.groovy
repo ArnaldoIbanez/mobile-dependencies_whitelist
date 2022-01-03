@@ -49,7 +49,6 @@ tracks {
     def seo_item_definition = objectSchemaDefinitions {
         allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
         seo_experiments(type: PropertyType.Map(seo_experiments_definition), required: false, description: "seo experiments data")
-        mouse_event(type: PropertyType.String, required: false, description: "mouse event data", values: ['buttonLink.rightClickEvent'])
     }
 
     def location_info_definition = objectSchemaDefinitions {
@@ -250,6 +249,7 @@ tracks {
         seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
         user_profile_type(required: true, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
         top_keywords(required: false, description: 'lists the seo keywords', type: PropertyType.ArrayList(PropertyType.Map(top_keyword_definition)))
+        mouse_event(type: PropertyType.String, required: false, description: "mouse event data", values: ['buttonLink.rightClickEvent'])
     }
 
     propertyGroups {
