@@ -876,6 +876,10 @@ tracks {
     "/cart/checkout/billing/physical_person/back"(platform: "/mobile", type: TrackType.Event) {}
     "/cart/checkout/billing/legal_person/back"(platform: "/mobile", type: TrackType.Event) {}
 
+//Opt-in check
+    "/checkout/review/check_opt_in_checked"(platform: "/", type: TrackType.Event) {}
+    "/checkout/review/check_opt_in_unchecked"(platform: "/", type: TrackType.Event) {}
+
 // 2MP Inconsistencias
     "/cart/checkout/review/discard_payment_combination"(platform: "/mobile") {}
 
