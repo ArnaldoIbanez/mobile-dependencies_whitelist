@@ -38,7 +38,7 @@ tracks {
     }
 
     propertyGroups {
-            (flow, session_id)
+            mandatory(flow, session_id)
         step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge, parent_key, origin_source)
         item_structure(item_id, type, content)
         view_time(view_time)
@@ -662,7 +662,116 @@ tracks {
         view_time
     }
 
-    // Congrats Cancel
+    // RA 500
+    "/single_player/prepaid/automatic_recharge/500"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/500/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/500/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Congrats
+    "/single_player/prepaid/automatic_recharge/congrats"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/congrats/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/congrats/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/congrats/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA FTU
+    "/single_player/prepaid/automatic_recharge/ftu"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/ftu/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/ftu/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Product list
+    "/single_player/prepaid/automatic_recharge/product_list"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/product_list/recommended_products"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/product_list/product"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/product_list/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Time Period
+    "/single_player/prepaid/automatic_recharge/time_period"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/time_period/frequency"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/time_period/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Pick Date
+    "/single_player/prepaid/automatic_recharge/pick_date"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/pick_date/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/pick_date/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Confirm subscription
+    "/single_player/prepaid/automatic_recharge/confirm_subscription"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/confirm_subscription/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/confirm_subscription/frequency"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/confirm_subscription/date"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/confirm_subscription/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Detail
+    "/single_player/prepaid/automatic_recharge/detail"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/detail/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/detail/recharge"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/detail/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Detail modal
+    "/single_player/prepaid/automatic_recharge/modal/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/modal/back_to_detail"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/modal/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Congrats Cancel
     "/single_player/prepaid/automatic_recharge/cancel/congrats"(platform: "/mobile", type: TrackType.View) {}
 
     "/single_player/prepaid/automatic_recharge/cancel/congrats/confirm"(platform: "/mobile", type: TrackType.Event) {
@@ -677,6 +786,8 @@ tracks {
     "/single_player/prepaid/automatic_recharge/cancel/congrats/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+
+
 
 
     /**
