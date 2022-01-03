@@ -2853,8 +2853,8 @@ trackTests {
         "/checkout/payment/curp"(platform:"/", dataSet)
         
         //Opt-in check
-         "checkout/review/check_opt_in_checked"(platform: "/", type: TrackType.Event) {}
-         "checkout/review/check_opt_in_unchecked"(platform: "/", type: TrackType.Event) {}
+         "/checkout/review/check_opt_in_checked"(platform: "/", type: TrackType.Event) {}
+         "/checkout/review/check_opt_in_unchecked"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Checkout recovery with recos - push notification flow") {
