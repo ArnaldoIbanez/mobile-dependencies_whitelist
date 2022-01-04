@@ -564,7 +564,7 @@ tracks {
     }
 
     "/vip/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
-         item_id(required: true, type: PropertyType.String, description: "Item ID")
+         item_id(required: false, type: PropertyType.String, description: "Item ID")
          referer(required: false, type: PropertyType.String, description: "Size chart referer")
          size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
          grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
