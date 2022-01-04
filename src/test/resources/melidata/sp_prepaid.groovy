@@ -393,6 +393,12 @@ trackTests {
             view_time()
             item_structure()
         }
+        "/single_player/prepaid/one_device/automatic_recharge"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+            item_structure()
+        }
 
 
         // Multiple devices
@@ -865,25 +871,211 @@ trackTests {
             view_time()
         }
 
-        // Congrats Cancel
+        // RA create error
+        "/single_player/prepaid/automatic_recharge/create/error"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/create/error/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/create/error/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Congrats
+        "/single_player/prepaid/automatic_recharge/create/congrats"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/create/congrats/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/create/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/create/congrats/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/create/congrats/close"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA FTU
+        "/single_player/prepaid/automatic_recharge/ftu"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/ftu/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/ftu/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Product list
+        "/single_player/prepaid/automatic_recharge/product_list"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/product_list/selected_recommended_product"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/product_list/selected_product"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/product_list/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Time Period
+        "/single_player/prepaid/automatic_recharge/time_period_list"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/time_period_list/selected_time_period"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/time_period_list/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Pick Date
+        "/single_player/prepaid/automatic_recharge/pick_date"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/pick_date/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/pick_date/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Confirm subscription
+        "/single_player/prepaid/automatic_recharge/subscription"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/subscription/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/subscription/edit_time_period"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/subscription/edit_date"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/subscription/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Detail
+        "/single_player/prepaid/automatic_recharge/detail"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/detail/cancel_subscription"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/detail/add_money"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/detail/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/detail/modal/confirm_cancel_subscription"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/detail/modal/back_to_detail"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/detail/modal/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Congrats Cancel
         "/single_player/prepaid/automatic_recharge/cancel/congrats"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             step_information()
         }
 
-        "/single_player/prepaid/automatic_recharge/cancel/confirm"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/automatic_recharge/cancel/congrats/confirm"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
-        "/single_player/prepaid/automatic_recharge/cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/automatic_recharge/cancel/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
-        "/single_player/prepaid/automatic_recharge/cancel/close"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/automatic_recharge/cancel/congrats/close"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
-            "/single_player/prepaid/automatic_recharge/cancel/back"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/automatic_recharge/cancel/congrats/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Congrats Cancel error
+        "/single_player/prepaid/automatic_recharge/cancel/error"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/cancel/error/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/cancel/error/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Congrats Cancel timeout
+        "/single_player/prepaid/automatic_recharge/cancel/timeout"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/cancel/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/cancel/timeout/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -1184,6 +1376,12 @@ trackTests {
             view_time()
         }
         "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+            item_structure()
+        }
+        "/single_player/prepaid/one_device/automatic_recharge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             step_information()
             view_time()
@@ -1662,25 +1860,211 @@ trackTests {
             view_time()
         }
 
-        // Congrats Cancel
+        // RA create error
+        "/single_player/prepaid/automatic_recharge/create/error"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/create/error/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/create/error/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Congrats
+        "/single_player/prepaid/automatic_recharge/create/congrats"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/create/congrats/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/create/congrats/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/create/congrats/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/create/congrats/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA FTU
+        "/single_player/prepaid/automatic_recharge/ftu"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/ftu/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/ftu/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Product list
+        "/single_player/prepaid/automatic_recharge/product_list"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/product_list/selected_recommended_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/product_list/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/product_list/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Time Period
+        "/single_player/prepaid/automatic_recharge/time_period_list"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/time_period_list/selected_time_period"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/time_period_list/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Pick Date
+        "/single_player/prepaid/automatic_recharge/pick_date"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/pick_date/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/pick_date/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Confirm subscription
+        "/single_player/prepaid/automatic_recharge/subscription"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/subscription/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/subscription/edit_time_period"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/subscription/edit_date"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/subscription/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Detail
+        "/single_player/prepaid/automatic_recharge/detail"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/detail/cancel_subscription"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/detail/add_money"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/detail/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/detail/modal/confirm_cancel_subscription"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/detail/modal/back_to_detail"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/detail/modal/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Congrats Cancel
         "/single_player/prepaid/automatic_recharge/cancel/congrats"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
             step_information()
         }
 
-        "/single_player/prepaid/automatic_recharge/cancel/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/automatic_recharge/cancel/congrats/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
-        "/single_player/prepaid/automatic_recharge/cancel/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/automatic_recharge/cancel/congrats/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
-        "/single_player/prepaid/automatic_recharge/cancel/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/automatic_recharge/cancel/congrats/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
-            "/single_player/prepaid/automatic_recharge/cancel/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/automatic_recharge/cancel/congrats/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Congrats Cancel error
+        "/single_player/prepaid/automatic_recharge/cancel/error"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/cancel/error/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/cancel/error/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // RA Congrats Cancel timeout
+        "/single_player/prepaid/automatic_recharge/cancel/timeout"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/cancel/timeout/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/cancel/timeout/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -2048,6 +2432,9 @@ trackTests {
             mandatory()
         }
         "/single_player/paygo/congrats_success/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/single_player/prepaid/congrats_success/automatic_recharge"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2795,6 +3182,9 @@ trackTests {
             mandatory()
         }
         "/single_player/paygo/congrats_success/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }
+        "/single_player/prepaid/congrats_success/automatic_recharge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
         }
 

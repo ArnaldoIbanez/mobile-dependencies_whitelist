@@ -683,18 +683,18 @@ tracks {
     }
 
     // RA Congrats
-    "/single_player/prepaid/automatic_recharge/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/automatic_recharge/create/congrats"(platform: "/mobile", type: TrackType.View) {}
 
-    "/single_player/prepaid/automatic_recharge/congrats/confirm"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/automatic_recharge/create/congrats/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/prepaid/automatic_recharge/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/automatic_recharge/create/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/prepaid/automatic_recharge/congrats/back"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/automatic_recharge/create/congrats/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/prepaid/automatic_recharge/congrats/close"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/automatic_recharge/create/congrats/close"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
@@ -711,10 +711,10 @@ tracks {
     // RA Product list
     "/single_player/prepaid/automatic_recharge/product_list"(platform: "/mobile", type: TrackType.View) {}
 
-    "/single_player/prepaid/automatic_recharge/product_list/recommended_products"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/automatic_recharge/product_list/selected_recommended_product"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/prepaid/automatic_recharge/product_list/product"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/automatic_recharge/product_list/selected_product"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
     "/single_player/prepaid/automatic_recharge/product_list/back"(platform: "/mobile", type: TrackType.Event) {
@@ -724,7 +724,7 @@ tracks {
     // RA Time Period
     "/single_player/prepaid/automatic_recharge/time_period_list"(platform: "/mobile", type: TrackType.View) {}
 
-    "/single_player/prepaid/automatic_recharge/time_period_list/time_period"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/automatic_recharge/time_period_list/selected_time_period"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
     "/single_player/prepaid/automatic_recharge/time_period_list/back"(platform: "/mobile", type: TrackType.Event) {
@@ -760,7 +760,7 @@ tracks {
     // RA Detail
     "/single_player/prepaid/automatic_recharge/detail"(platform: "/mobile", type: TrackType.View) {}
 
-    "/single_player/prepaid/automatic_recharge/detail/confirm"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/automatic_recharge/detail/cancel_subscription"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
     "/single_player/prepaid/automatic_recharge/detail/add_money"(platform: "/mobile", type: TrackType.Event) {
@@ -769,7 +769,7 @@ tracks {
     "/single_player/prepaid/automatic_recharge/detail/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/prepaid/automatic_recharge/detail/modal/confirm"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/automatic_recharge/detail/modal/confirm_cancel_subscription"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
     "/single_player/prepaid/automatic_recharge/detail/modal/back_to_detail"(platform: "/mobile", type: TrackType.Event) {
@@ -795,7 +795,25 @@ tracks {
         view_time
     }
 
+    // RA Congrats Cancel error
+    "/single_player/prepaid/automatic_recharge/cancel/error"(platform: "/mobile", type: TrackType.View) {}
 
+    "/single_player/prepaid/automatic_recharge/cancel/error/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/cancel/error/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Congrats Cancel timeout
+    "/single_player/prepaid/automatic_recharge/cancel/timeout"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/cancel/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/cancel/timeout/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
 
     /**
