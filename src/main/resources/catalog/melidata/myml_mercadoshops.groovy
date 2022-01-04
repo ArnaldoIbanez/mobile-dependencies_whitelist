@@ -119,7 +119,7 @@ tracks {
 
     "/mercado_shops/cda/preview"(platform: "/", type: TrackType.View) {}
 
-    "/mercado_shops/cda/download/success"(platform: "/", type: TrackType.View) {}
+    "/mercado_shops/cda/download/congrats"(platform: "/", type: TrackType.View) {}
 
     "/mercado_shops/cda/download/error"(platform: "/", type: TrackType.View) {}
 

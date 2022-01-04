@@ -1159,7 +1159,7 @@ trackTests {
     }
 
     test("CDA Download Success") {
-        "/mercado_shops/cda/download/success"(platform: "/", type: TrackType.View) {
+        "/mercado_shops/cda/download/congrats"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_name = "Test Shop"
         }
