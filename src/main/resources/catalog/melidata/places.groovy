@@ -34,9 +34,9 @@ tracks {
     }
 
     propertyGroups {
-        place_shipment(place_id, shipment_id, display, operator_id)
-        place_validation(place_id, operator_id, scanner_input, content, input_type, display, validation_error, flow)
-        place_camera(place_id, display, camera_error, operator_id)
+        places_shipment(place_id, shipment_id, display, operator_id)
+        places_validation(place_id, operator_id, scanner_input, content, input_type, display, validation_error, flow)
+        places_camera(place_id, display, camera_error, operator_id)
         mandatory(place_id)
     }
 
