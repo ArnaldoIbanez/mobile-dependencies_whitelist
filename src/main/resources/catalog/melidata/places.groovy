@@ -245,6 +245,6 @@ tracks {
     }
 
     "/places/scanner/error/access_camera"(platform: "/web", type: TrackType.Event) {
-        place_camera
+        places_camera
     }
 }
