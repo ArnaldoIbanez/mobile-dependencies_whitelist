@@ -589,6 +589,9 @@ tracks {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
 
+      "/notification/shipping_not_delivered_returned_xd_xddo"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+      }
 
     "/notification/shipping_shipped_withdrawal_to_agency_places"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
