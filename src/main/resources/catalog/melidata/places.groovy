@@ -30,7 +30,7 @@ tracks {
         scanner_input(required: false, type: PropertyType.String,
                 description: "Specifies the raw scanner input.")
         operator_id(required: false, type: PropertyType.Numeric,
-                description: "ID of user.")
+                description: "ID of operator.")
     }
 
     propertyGroups {
