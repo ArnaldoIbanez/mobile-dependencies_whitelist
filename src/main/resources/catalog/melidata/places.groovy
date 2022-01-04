@@ -15,7 +15,7 @@ tracks {
         shipment_id(required: true, type: PropertyType.String,
                 description: "ID of shipment being validated for reception.")
         content(required: true, type: PropertyType.String,
-                description: "ID of content being validated.")
+                description: "Content being validated.")
         display(required: false, type: PropertyType.String, values: ["browser", "standalone", "none"],
                 description: "Specifies the display mode app is running as.")
         validation_error(required: false, type: PropertyType.String,
