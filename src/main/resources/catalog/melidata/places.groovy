@@ -237,7 +237,7 @@ tracks {
     }
 
     "/places/inbounds/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
-        place_shipment
+        places_shipment
     }
 
     "/places/scanner/validate_content"(platform: "/web", type: TrackType.Event) {
