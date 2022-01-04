@@ -537,12 +537,10 @@ metrics {
 				path("/orders/ordercreated")
 				or(
 						and(
-								equals("event_data.recommendations.track_info.recommended_items.recommended_item.id", property("recommendation_id")),
-								equals("application.business", "mercadolibre")
+								equals("event_data.recommendations.track_info.recommended_items.recommended_item.id", property("item_ids"))
 						),
 						and(
-								equals("event_data.recommendations.track_info.recommended_products.recommended_product.id", property("recommendation_id")),
-								equals("application.business", "mercadolibre")
+								equals("event_data.recommendations.track_info.recommended_products.recommended_product.id",  property("catalog_product_id"))
 						)
 				)
 			}
@@ -568,12 +566,10 @@ metrics {
 						),
 						or(
 								and(
-										equals("event_data.recommendations.track_info.recommended_items.recommended_item.id", property("recommendation_id")),
-										equals("application.business", "mercadolibre")
+										equals("event_data.recommendations.track_info.recommended_items.recommended_item.id", property("item_ids"))
 								),
 								and(
-										equals("event_data.recommendations.track_info.recommended_products.recommended_product.id", property("recommendation_id")),
-										equals("application.business", "mercadolibre")
+										equals("event_data.recommendations.track_info.recommended_products.recommended_product.id",  property("catalog_product_id"))
 								)
 						)
 				)
