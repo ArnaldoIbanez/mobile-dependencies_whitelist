@@ -1145,28 +1145,32 @@ trackTests {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("Customer Data Access") {
-        "/mercado_shops/cda"(platform: "/", type: TrackType.View){
+        "/mercado_shops/cda"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_name = "Test Shop"
         }
+    }
 
     test("CDA Preview") {
-        "/mercado_shops/cda/preview"(platform: "/", type: TrackType.View){
+        "/mercado_shops/cda/preview"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_name = "Test Shop"
         }
+    }
 
     test("CDA Download Success") {
-        "/mercado_shops/cda/download/success"(platform: "/", type: TrackType.View){
+        "/mercado_shops/cda/download/success"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_name = "Test Shop"
         }
+    }
 
     test("CDA Download Error") {
-        "/mercado_shops/cda/download/error"(platform: "/", type: TrackType.View){
+        "/mercado_shops/cda/download/error"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_name = "Test Shop"
         }
+    }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML-MARKETING Mercadoshops
     //------------------------------------------------------------------------------------------------------------------------------------------------------
