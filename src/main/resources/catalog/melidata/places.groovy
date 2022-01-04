@@ -13,7 +13,7 @@ tracks {
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")
         shipment_id(required: true, type: PropertyType.String,
-                description: "ID of shipment being validated for reception.")
+                description: "ID of shipment being validated.")
         content(required: true, type: PropertyType.String,
                 description: "Content being validated.")
         display(required: false, type: PropertyType.String, values: ["browser", "standalone", "none"],
