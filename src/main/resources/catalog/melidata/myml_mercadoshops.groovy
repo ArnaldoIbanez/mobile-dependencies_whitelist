@@ -109,7 +109,12 @@ tracks {
                 required: true,
                 type: PropertyType.String,
         )
-        shop_domain(required: false, type: PropertyType.String)
+        shop_domain(
+                description: "Domain registered by the seller",
+                name: "shop_domain",
+                required: false,
+                type: PropertyType.String,
+        )
     }
 
     "/mercado_shops/cda/preview"(platform: "/", type: TrackType.View) {}
