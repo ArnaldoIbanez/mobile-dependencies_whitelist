@@ -241,7 +241,7 @@ tracks {
     }
 
     "/places/scanner/validate_content"(platform: "/web", type: TrackType.Event) {
-        place_validation
+        places_validation
     }
 
     "/places/scanner/error/access_camera"(platform: "/web", type: TrackType.Event) {
