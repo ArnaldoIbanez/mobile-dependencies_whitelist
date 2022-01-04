@@ -24,7 +24,7 @@ tracks {
                 values: ["camera", "external_scan", "manual_input"],
                 description: "Specifies which type of input was used to insert the value.")
         flow(required: true, type: PropertyType.String,
-                description: "Specifies the flow that is being operated")
+                description: "Specifies the operational flow from where the track was sent.")
         camera_error(required: true, type: PropertyType.String,
                 description: "Specifies what kind of camera error happened.")
         scanner_input(required: false, type: PropertyType.String,
