@@ -22,7 +22,7 @@ tracks {
                 description: "Specifies what kind of validation error happened.")
         input_type(required: true, type: PropertyType.String,
                 values: ["camera", "external_scan", "manual_input"],
-                description: "Specifies by what means you entered the input")
+                description: "Specifies which type of input was used to insert the value.")
         flow(required: true, type: PropertyType.String,
                 description: "Specifies the flow that is being operated")
         camera_error(required: true, type: PropertyType.String,
