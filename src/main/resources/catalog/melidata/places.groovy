@@ -26,7 +26,7 @@ tracks {
         flow(required: true, type: PropertyType.String,
                 description: "Specifies the operational flow from where the track was sent.")
         camera_error(required: true, type: PropertyType.String,
-                description: "Specifies what kind of camera error happened.")
+                description: "Specifies the error happened with the camera.")
         scanner_input(required: false, type: PropertyType.String,
                 description: "Specifies the raw input")
         operator_id(required: false, type: PropertyType.Numeric,
