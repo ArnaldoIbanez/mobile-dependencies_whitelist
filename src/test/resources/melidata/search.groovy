@@ -289,8 +289,8 @@ trackTests {
                                             }
                                     ]
                     ],
-                    mouse_event: "buttonLink.rightClickEvent"
             ]
+            mouse_event: "buttonLink.rightClickEvent"
             merch_data = [
                     audience         : "all",
                     bu             : "3",
