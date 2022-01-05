@@ -46,7 +46,7 @@ tracks {
                 description: "Free trial matching status bar"
         )
         amount_invested(required: false, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
-        matching_amount_target(required: false, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        matching_target_amount(required: false, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
         mode(required: false, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
         has_shops(required: false, type: PropertyType.Boolean, description: "User's Shops")
         has_shops_integration(required: false, type: PropertyType.Boolean, description: "User shared Ads with Shops")
@@ -642,17 +642,16 @@ tracks {
 
     //Filters
     def filters_definition = objectSchemaDefinitions {
-        status(required: false, type: PropertyType.String)
-        release_date(required: false, type: PropertyType.String)
-        category(required: false, type: PropertyType.String)
-        features(required: false, type: PropertyType.String)
-        mode(required: false, type: PropertyType.String)
-        query(required: false, type: PropertyType.String)
-        catalog(required: false, type: PropertyType.String)
+        status(required: false, type: PropertyType.String, description: "status to filter")
+        release_date(required: false, type: PropertyType.String, description: "release_date to filter")
+        category(required: false, type: PropertyType.String, description: "category to filter")
+        features(required: false, type: PropertyType.String, description: "features to filter")
+        query(required: false, type: PropertyType.String, description: "query to filter")
+        catalog(required: false, type: PropertyType.String, description: "catalog to filter")
         // Successful Live Listing
-        sll(required: false, type: PropertyType.String)
+        sll(required: false, type: PropertyType.String, description: "sll to filter")
         // Item Publish Date
-        date_created(required: false, type: PropertyType.String)
+        date_created(required: false, type: PropertyType.String, description: "date_created to filter")
     }
 
     //Campaigns
@@ -771,7 +770,7 @@ tracks {
                 description: "Free trial matching status bar"
         )
         amount_invested(required: false, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
-        matching_amount_target(required: false, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        matching_target_amount(required: false, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
     }
 
     "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -1113,14 +1112,14 @@ tracks {
 
     // Multicampaña - Sads New
 
-    "/advertising/pads2/hub/card"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/advertising/pads2/hub/card"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
-    "/advertising/pads2/hub/card/sads_new"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/hub/card/sads_new"(platform: "/", type: TrackType.View) {
         tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
     }
 
-    "/advertising/pads2/hub/card/sads_new/go"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/hub/card/sads_new/go"(platform: "/", type: TrackType.Event) {
         tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
     }
@@ -1155,6 +1154,8 @@ tracks {
     "/advertising/pads2/hub/sads_new/moveads/filters"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         query(required: true, type:PropertyType.String , description: "Indicates the query searched by the user")
     }
+
+    "/advertising/pads2/sads_new/landing/help"(platform: "/", type: TrackType.Event) {}
 
     // Multicampaña - Sads paused
 
@@ -1211,6 +1212,9 @@ tracks {
     "/advertising/pads2/sads_paused/landing/filters"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
     }
+
+    "/advertising/pads2/sads_paused/landing/help"(platform: "/", type: TrackType.Event) {}
+
 
     // Multicampaña - Upselling
 
@@ -2030,7 +2034,7 @@ tracks {
     //Data transparency
     "/advertising/pads2/reports"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         mode(required: true, type: PropertyType.String,  description: "user mode", values: ['custom', 'automatic'])
-        type(required: false, type: PropertyType.String,  description: "Report type", values: ['ads', 'campaigns'])
+        type(required: false, type: PropertyType.String,  description: "Report type", values: ['unselected','pads_report', 'campaigns_report', 'sales_report'])
         days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
@@ -2042,23 +2046,27 @@ tracks {
         days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
+        type(required: true, type: PropertyType.String, description: "report type", values: ['unselected', 'pads_report', 'campaigns_report', 'sales_report'])
     }
 
     "/advertising/pads2/reports/group"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total', 'daily', 'weekly'])
+        type(required: true, type: PropertyType.String, description: "report type", values: ['unselected', 'pads_report', 'campaigns_report', 'sales_report'])
     }
 
     "/advertising/pads2/reports/filters"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         filters(required: false, type: PropertyType.Map(filters_definition), description: "List of applied filters")
+        type(required: true, type: PropertyType.String, description: "report type", values: ['unselected', 'pads_report', 'campaigns_report', 'sales_report'])
     }
 
     "/advertising/pads2/reports/rows_warning"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         rows(required: false, type: PropertyType.Numeric,  description: "Number of data rows in report 0 - 10.000")
+        type(required: true, type: PropertyType.String, description: "report type", values: ['unselected', 'pads_report', 'campaigns_report', 'sales_report'])
     }
 
     "/advertising/pads2/reports/create"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         mode(required: true, type: PropertyType.String,  description: "user mode", values: ['custom', 'automatic'])
-        type(required: false, type: PropertyType.String,  description: "Report type", values: ['ads', 'campaigns'])
+        type(required: false, type: PropertyType.String,  description: "Report type", values: ['unselected', 'pads_report', 'campaigns_report', 'sales_report'])
         days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
@@ -2068,6 +2076,7 @@ tracks {
     }
 
     "/advertising/pads2/reports/confirmation"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        type(required: true, type: PropertyType.String, description: "report type", values: ['unselected', 'pads_report', 'campaigns_report', 'sales_report'])
     }
 
     "/advertising/pads2/reports/empty_state"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
@@ -2075,6 +2084,7 @@ tracks {
 
     "/advertising/pads2/reports/download"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         status(required: false, type: PropertyType.String,  description: "Report download status", values: ['success', 'fail'])
+        type(required: true, type: PropertyType.String, description: "report type", values: ['unselected', 'pads_report', 'campaigns_report', 'sales_report'])
     }
 
     "/advertising/pads2/reports/delete_text_filter"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -2195,6 +2205,7 @@ tracks {
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
         matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        adv_management_mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/manager/matching/pause_modal/close"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -2202,6 +2213,7 @@ tracks {
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
         matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        adv_management_mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/manager/matching/pause_modal/continue"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -2209,6 +2221,7 @@ tracks {
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
         matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        adv_management_mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/manager/matching/pause_modal/pause"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -2216,6 +2229,7 @@ tracks {
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
         matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        adv_management_mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/hub/matching/pause_modal/open"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -2223,6 +2237,7 @@ tracks {
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
         matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        adv_management_mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/hub/matching/pause_modal/close"(platform: "/", type: TrackType.Event,parentPropertiesInherited: false) {
@@ -2230,6 +2245,7 @@ tracks {
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
         matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        adv_management_mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/hub/matching/pause_modal/continue"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -2237,6 +2253,7 @@ tracks {
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
         matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        adv_management_mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/hub/matching/pause_modal/pause"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -2244,7 +2261,266 @@ tracks {
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
         matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        adv_management_mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
+    //Buybox Modal
 
+    "/advertising/pads2/hub/bb_campaign/modal"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        acos(required: true, type: PropertyType.Numeric, description: "ACOS related to the new campaign")
+        bb_quantity(required: true, type: PropertyType.Numeric, description: "Buybox quantity items related to the new campaign")
+        budget(required: true, type: PropertyType.Numeric, description: "Budget related to the new campaign")
+        credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
+    }
+
+    "/advertising/pads2/hub/bb_campaign/modal/open"(platform: "/", type: TrackType.View) {}
+
+    "/advertising/pads2/hub/bb_campaign/modal/continue"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/bb_campaign/modal/close"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/bb_campaign/modal/bb_quantity_tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/advertising/pads2/hub/bb_campaign/modal/budget_tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    //Buybox Card
+
+    "/advertising/pads2/hub/card/bb_campaign"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
+    }
+
+    "/advertising/pads2/hub/card/bb_campaign/go"(platform: "/", type: TrackType.Event) {}
+
+    //Buybox Congrats
+
+    "/advertising/pads2/hub/bb_campaign"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        bb_quantity(required: true, type: PropertyType.Numeric, description: "Buybox quantity items related to the new campaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/hub/bb_campaign/congrats"(platform: "/", type: TrackType.View) {
+        acos(required: true, type: PropertyType.Numeric, description: "ACOS related to the new campaign")
+        budget(required: true, type: PropertyType.Numeric, description: "Budget related to the new campaign")
+        credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
+    }
+
+    "/advertising/pads2/hub/bb_campaign/view_ads"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/bb_campaign/view_campaign"(platform: "/", type: TrackType.Event) {}
+
+    //Buybox Retention Modal
+
+    "/advertising/pads2/hub/paused_modal/bb_campaign"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/hub/paused_modal/bb_campaign/reverse"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/paused_modal/bb_campaign/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/paused_modal/bb_campaign"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/paused_modal/bb_campaign/reverse"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/paused_modal/bb_campaign/confirm"(platform: "/", type: TrackType.Event) {}
+
+
+    "/advertising/pads2/manager/comp_metrics"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_name(required: true, type: PropertyType.String, description: "Current name related to the campaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: true, type: PropertyType.String, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget(required: true, type: PropertyType.Numeric, description: "Current budget related to the campaign")
+        trtarget (required: false, type: PropertyType.Numeric, description: "Take Rate selected")
+        strategy(required: false, type: PropertyType.String, description: "Campaign strategy")
+        impression_share(required: false, type: PropertyType.Numeric, description: "Impression share related to campaign")
+        lost_impression_share_by_budget(required: false, type: PropertyType.Numeric, description: "Impression share lost by budget related to campaig")
+        lost_impression_share_by_ad_rank(required: false, type: PropertyType.Numeric, description: "Impression share lost by ad rank related to campaig")
+    }
+
+    "/advertising/pads2/manager/comp_metrics/is_helper"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/comp_metrics/lisb_helper"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/comp_metrics/lisar_helper"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/comp_metrics/more_info"(platform: "/", type: TrackType.Event) {}
+
+    // Page bulk
+    "/advertising/pads2/bulk"(platform: "/", type: TrackType.View, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])   
+    }
+    
+    "/advertising/pads2/bulk/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+    
+    "/advertising/pads2/bulk/action/upload"(platform: "/", type: TrackType.Event) {}
+    
+    "/advertising/pads2/bulk/action/create"(platform: "/", type: TrackType.Event) {}
+    
+    // Download ad sheet 
+    "/advertising/pads2/bulk/download"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        number_of_rows(required: false, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+    }
+
+    //Download action
+    "/advertising/pads2/bulk/download/action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status'])
+        filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
+        number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+    }    
+    
+    "/advertising/pads2/bulk/download/action/create"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/download/action/create/error"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/download/action/return"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+    }
+
+    "/advertising/pads2/bulk/download/action/filter"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status'])
+        filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
+    }
+
+    "/advertising/pads2/bulk/download/action/filter/warning"(platform: "/", type: TrackType.Event) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status'])
+        filters(required: true, type: PropertyType.Map(filters_definition), description: "Indicates the filters applied for the view")
+        number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+    }
+
+    "/advertising/pads2/bulk/download/modal"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status'])
+        number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+    }
+
+    "/advertising/pads2/bulk/download/modal/action/email"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/download/modal/action/retry"(platform: "/", type: TrackType.Event) {}
+
+    //download feedback
+    "/advertising/pads2/bulk/download/feedback"(platform: "/", type: TrackType.View, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status'])
+        operation_id(required: true, type: PropertyType.String, description: "Value of id operation")
+        number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+    }
+
+    //feedback success
+    "/advertising/pads2/bulk/download/feedback/success"(platform: "/", type: TrackType.View) {}
+    
+    "/advertising/pads2/bulk/download/feedback/success/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/advertising/pads2/bulk/download/feedback/success/action/upload"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/download/feedback/success/action/return"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/download/feedback/success/action/retry"(platform: "/", type: TrackType.Event) {}
+
+    //feedback error
+    "/advertising/pads2/bulk/download/feedback/error"(platform: "/", type: TrackType.View) {}
+    
+    "/advertising/pads2/bulk/download/feedback/error/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/advertising/pads2/bulk/download/feedback/error/action/retry"(platform: "/", type: TrackType.Event) {}
+
+    //feedback waiting
+    "/advertising/pads2/bulk/download/feedback/waiting"(platform: "/", type: TrackType.View) {}
+
+    "/advertising/pads2/bulk/download/feedback/waiting/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/advertising/pads2/bulk/download/feedback/waiting/action/return"(platform: "/", type: TrackType.Event) {}
+
+    //Upload Action
+    "/advertising/pads2/bulk/upload"(platform: "/", type: TrackType.View, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+    }
+
+    "/advertising/pads2/bulk/upload/file_uploaded"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/upload/file_uploaded/error"(platform: "/", type: TrackType.Event) {
+        error_type(required: true, type: PropertyType.String, description: "Indicates the type of error generated when loading the file")
+    }
+
+    "/advertising/pads2/bulk/upload/action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        operation_id(required: true, type: PropertyType.String, description: "Value of id operation")
+    }
+
+    "/advertising/pads2/bulk/upload/action/update"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/upload/action/return"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+    }
+
+    "/advertising/pads2/bulk/upload/modal"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        operation_id(required: true, type: PropertyType.String, description: "Value of id operation")
+    }
+
+    "/advertising/pads2/bulk/upload/modal/action/email"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/upload/modal/action/retry"(platform: "/", type: TrackType.Event) {}
+
+    //upload errors
+    "/advertising/pads2/bulk/upload/errors"(platform: "/", type: TrackType.View, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status', 'process-bulk-pads-status'])
+        operation_id(required: true, type: PropertyType.String, description: "Value of id operation")
+        number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+        number_of_unchanged_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of rows unchanged")
+        number_of_changed_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of rows changed")
+        number_of_error_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of rows with errors")
+        number_of_disable_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of rows disable")
+    }
+
+    "/advertising/pads2/bulk/upload/errors/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/advertising/pads2/bulk/upload/errors/action/upload"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/upload/errors/action/return"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/upload/errors/action/retry"(platform: "/", type: TrackType.Event) {}
+
+    //upload feedback
+    "/advertising/pads2/bulk/upload/feedback"(platform: "/", type: TrackType.View, isAbstract: true) {
+        campaign_management_type(required: true, type: PropertyType.String, description: "Indicates the ad management", values: ['custom', 'automatic'])
+        action_type(required: true, type: PropertyType.String, description: "Indicates the type of action to be carried out to generate the spreadsheet", values: ['unselected', 'bulk-pads-status', 'process-bulk-pads-status'])
+        operation_id(required: true, type: PropertyType.String, description: "Value of id operation")
+        number_of_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of elements found under the applied filters")
+        number_of_unchanged_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of rows unchanged")
+        number_of_changed_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of rows changed")
+        number_of_error_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of rows with errors")
+        number_of_disable_rows(required: true, type: PropertyType.Numeric, description: "Indicates the number of rows disable")
+    }
+
+    //upload feedback success
+    "/advertising/pads2/bulk/upload/feedback/success"(platform: "/", type: TrackType.View) {}
+    
+    "/advertising/pads2/bulk/upload/feedback/success/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/advertising/pads2/bulk/upload/feedback/success/action/upload"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/upload/feedback/success/action/return"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/bulk/upload/feedback/success/action/retry"(platform: "/", type: TrackType.Event) {}
+
+    //upload feedback error
+    "/advertising/pads2/bulk/upload/feedback/error"(platform: "/", type: TrackType.View) {}
+    
+    "/advertising/pads2/bulk/upload/feedback/error/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/advertising/pads2/bulk/upload/feedback/error/action/retry"(platform: "/", type: TrackType.Event) {}
+
+    //upload feedback waiting
+    "/advertising/pads2/bulk/upload/feedback/waiting"(platform: "/", type: TrackType.View) {}
+
+    "/advertising/pads2/bulk/upload/feedback/waiting/action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/advertising/pads2/bulk/upload/feedback/waiting/action/return"(platform: "/", type: TrackType.Event) {}
 }

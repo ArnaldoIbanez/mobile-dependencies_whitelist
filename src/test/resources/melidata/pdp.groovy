@@ -200,6 +200,14 @@ trackTests {
             cart_content = true
         }
 
+        def apparel = {
+            apparel = [
+                    "size_chart_version": "V2",
+                    "grid_id": "17005",
+                    "grid_type": "BRAND"
+            ]
+        }
+
         def shipping = {
             shipping_mode = "not_specified"
             free_shipping = false
@@ -274,6 +282,12 @@ trackTests {
             discount_reasons = ["deal"]
         }
 
+        def creditsConsumer = {
+            credits_consumer = {
+                type = "acquisition"
+            }
+        }
+
         "/pdp"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
@@ -315,6 +329,10 @@ trackTests {
             shipping()
             pickup()
             pricingTwoPointO()
+            creditsConsumer()
+            apparel()
+
+            has_unselected_pickers = true
         })
 
         "/pdp/buy_action"(platform: "/", {
@@ -348,6 +366,35 @@ trackTests {
         })
 
         "/pdp/add_to_cart_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            seller_id = 1234
+            domain_id = "MLA-CELLPHONES"
+
+            item_id = "MLA533657947"
+            quantity = 3
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            loyalty_level = 2
+            vertical = "core"
+            review_rate = 4.6
+            official_store_id = 1
+            reputation_level = "5_green"
+            installment_info = "6f"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            power_seller_status = "platinum"
+            seller_name = "fulanito"
+
+            cart()
+            shipping()
+            pickup()
+            pricingTwoPointO()
+
+            price = 8400
+            currency_id = "ARS"
+        })
+
+        "/pdp/remove_from_cart_action"(platform: "/", {
             catalog_product_id = "MLA1234"
             seller_id = 1234
             domain_id = "MLA-CELLPHONES"
@@ -631,6 +678,20 @@ trackTests {
             catalog_product_id = "MLA1234"
             item_id = "MLA112341"
         })
+    }
+
+    test("Apparel size char tracking") {
+        "/pdp/apparel/size_chart_preview"(platform: "/", type: TrackType.View) {
+            size_chart_version = "V2"
+            grid_id = "17005"
+            grid_type = "BRAND"
+        }
+
+        "/pdp/sizechart"(platform: "/", type: TrackType.View) {
+            size_chart_version = "V2"
+            grid_id = "17005"
+            grid_type = "BRAND"
+        }
     }
 
     //Sellers page FLOW
@@ -1071,5 +1132,38 @@ trackTests {
             has_garex = false
             label = "PICKER"
         }
+    }
+
+    test("Pdp tracking with crypto data"){
+        def dataSet= {
+            best_seller_position = 3
+            highlights = [
+                    "id": "id_highlight",
+                    "best_seller_position": 5,
+                    "melichoice_domain": "CELLPHONES",
+                    "melichoice_origin": "killer",
+                    "melichoice_score": 0.3
+            ]
+            cac_item = false
+            cac_status = "normal"
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            seller_id = 131662738
+            pickers = pickers_data()
+            shipping_conditions = "free_other"
+            bo_pick_up_conditions = "free_other"
+            crypto = {
+                type = "melicoin"
+                amount = 200.25
+            }
+        }
+
+        "/pdp"(platform: "/", {
+            dataSet()
+        })
     }
 }

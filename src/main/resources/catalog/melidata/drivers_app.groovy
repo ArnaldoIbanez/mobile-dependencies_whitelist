@@ -61,6 +61,28 @@ tracks
         vehicle_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
     }
 
+    //Module Stops-listing
+    def route_info_listing_definition = objectSchemaDefinitions {
+        route_id(required: true, type: PropertyType.String,
+                description: "Specifies the driver route's id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
+        vehicle_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
+        logistics_type(required: true, type: PropertyType.String,
+                values: ["FLEX", "LOGISTICS", "CROWD"],
+                description: "Specifies the kind of logistics type", inheritable: false)
+        logistics_subtype(required: true, type: PropertyType.String,
+                values: ["LIGHTWEIGHT", "SUPERMARKET", "PROXIMITY","LASTMILE","FIRSTMILE","EXCHANGE_POINT","MELIONE"],
+                description: "Specifies the kind of logistics subtype", inheritable: false)
+    }
+    //Module Stops-listing
+    def stops_status_listing_definition = objectSchemaDefinitions{
+        pending(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of pending")
+        retryable(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of retryable")
+        deliver(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of deliver")
+        partial(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of partial")
+    }
+
+
 //Tracks for Sorting Flow in every driver App
 
     "/sorting"(platform: "/mobile", isAbstract: true) {
@@ -387,6 +409,98 @@ tracks
     "/driver/return_to_station/success"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+    }
+
+    //Tracks for module stops-listing
+
+    "/driver/listing"(platform: "/mobile" , isAbstract:true ) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+    }
+
+    "/driver/listing/list"(platform: "/mobile", type: TrackType.View) {
+        route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
+        stops_info(type: PropertyType.Map(stops_status_listing_definition), required: true, description: "Specifies the current list of stops status", inheritable:false)
+    }
+
+    "/driver/listing/list/go_to_scanner"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/list/go_to_profile"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/list/go_to_map"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/list/go_to_there"(platform: "/mobile", type: TrackType.View) {
+        stop_id(required: false, type: PropertyType.String, description: "Specifies the current stop id")
+        stop_status(required: false, type: PropertyType.String, description: "Specifies the current stop status")
+    }
+
+    "/driver/listing/list/collapse"(platform: "/mobile", type: TrackType.View) {
+        group(required: true, type: PropertyType.String,
+                values: ["PENDING", "FINISHED"],
+                description: "Specifies the current group collapse")
+    }
+
+    "/driver/listing/list/go_to_rts"(platform: "/mobile", type: TrackType.View) {
+        stops_info(type: PropertyType.Map(stops_status_listing_definition), required: true, description: "Specifies the current list of stops status")
+    }
+
+    "/driver/listing/map"(platform: "/mobile", type: TrackType.View) {
+        route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
+        stops_info(type: PropertyType.Map(stops_status_listing_definition), required: true, description: "Specifies the current list of stops status", inheritable:false)
+    }
+
+    "/driver/listing/map/go_to_scanner"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/stop"(platform: "/mobile", type: TrackType.View) {
+        route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
+        stop_id(required: true, type: PropertyType.String, description: "Specifies the current stop id")
+        stop_status(required: true, type: PropertyType.String, description: "Specifies the current stop status")
+        points(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of points", inheritable:false)
+        cargos(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of cargos", inheritable:false)
+    }
+
+    "/driver/listing/stop/go_to_there"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/stop/how_to_get"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/point"(platform: "/mobile", type: TrackType.View) {
+        route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
+        point_id(required: true, type: PropertyType.String, description: "Specifies the current point id")
+        point_status(required: true, type: PropertyType.String, description: "Specifies the current point status")
+        cargos(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of cargos")
+    }
+
+    "/driver/listing/point/call_buyer"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/point/send_messages"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/scanner"(platform: "/mobile", type: TrackType.View) {
+        route_info(type: PropertyType.Map(route_info_listing_definition), required: true, description: "Specifies the current route info")
+        type(required: true, type: PropertyType.String, values: ["ADD_PACKAGE", "AMBULANCE"], description: "Specifies the current flow", inheritable:false)
+    }
+
+    "/driver/listing/scanner/finish_scan"(platform: "/mobile", type: TrackType.View) {
+        type(required: true, type: PropertyType.String, values: ["ADD_PACKAGE", "AMBULANCE"], description: "Specifies the current flow")
+        package_amount(required: true, type: PropertyType.Numeric, description: "Specifies the package amount")
+    }
+
+    "/driver/listing/scanner/input_manual"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/scanner/input_manual/confirm"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/listing/scanner/collapse"(platform: "/mobile", type: TrackType.View) {
+        type(required: true, type: PropertyType.String, values: ["COLLAPSE", "EXPAND"], description: "Specifies the current group collapse")
+        packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of packages")
     }
 }
 

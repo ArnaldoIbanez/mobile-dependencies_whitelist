@@ -111,7 +111,7 @@ tracks {
         // PRICING 2.0
         available_promotions(required: false, type: PropertyType.ArrayList(PropertyType.Map(available_promotions_map)),
                 description: "Lists the available promotions for the item")
-        discount_reasons(required: false, type: PropertyType.ArrayList, description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
+        discount_reasons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
 
     }
 
@@ -197,6 +197,14 @@ tracks {
         price(required: true, type: PropertyType.Numeric, description: "price of the item that is offered a protection")
     }
 
+    def credits_consumer_map = objectSchemaDefinitions {
+        type(required: true, values: ["acquisition", "activation"], type: PropertyType.String, description: "Indicates the type of product")
+    }
+
+    def crypto_definition = objectSchemaDefinitions {
+        type(required: false, type: PropertyType.String, description: "Indicates the type of the crypto returned by the item")
+        amount(required: false, type: PropertyType.Numeric, description: "Returned amount in local currency")
+    }
     //VPP FLOW
 
     "/pdp"(platform: "/") {
@@ -302,6 +310,18 @@ tracks {
 
         // ITEM_ATTRIBUTES
         item_attributes(required: false, type: PropertyType.String, description: "Attributes of the winner item")
+
+        // CREDITS CONSUMER
+        credits_consumer(required: false, type: PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
+
+        // REPRESENTATIVE PICKERS
+        has_unselected_pickers(required: false, type: PropertyType.Boolean, description: 'Indicates if products has unselected pickers')
+
+        // Apparel
+        apparel(required: false, type: PropertyType.Map(apparel_definition), description: "Apparel tracks")
+
+        // Crypto
+        crypto(required: false, type: PropertyType.Map(crypto_definition), description: "Indicates whether the item has a return amount in crypto")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
@@ -361,6 +381,39 @@ tracks {
         shipping_info
         pickup_info
         seller_id(required: true, type: PropertyType.Numeric)
+        seller_name(required: false, type: PropertyType.String, description: "The name of the seller")
+        pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
+        credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
+        pricing_info
+        option_selected(required: false, type: PropertyType.Map(protection_quote_data), description: "information about the chosen protection")
+    }
+
+    "/pdp/remove_from_cart_action"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+        quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Category path of the the item")
+        loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+        vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
+        official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
+        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
+        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: false, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
+                description: "Seller's Mercado Lider level")
+        add_cart_info
+        shipping_info
+        pickup_info
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         seller_name(required: false, type: PropertyType.String, description: "The name of the seller")
         pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
         credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
@@ -856,5 +909,17 @@ tracks {
         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
         label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/pdp/apparel/size_chart_preview"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
+        grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
+        grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
+    }
+
+    "/pdp/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
+        grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
+        grid_type(required: false, type: PropertyType.String, description: "Indicate the type of size chart")
     }
 }

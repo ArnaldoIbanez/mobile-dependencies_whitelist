@@ -446,6 +446,8 @@ tracks {
          credits (required:false, type: PropertyType.Map(credits_data), description: "Credit Card", inheritable: false)
          dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
+
+    "/cards/hybrid/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
     
     "/cards/hybrid/dashboard/virtual"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -612,6 +614,16 @@ tracks {
         logic(required: false, type: PropertyType.String)
         position(required: true, type: PropertyType.Numeric)
     }
+    def dynamic_carousel_description_standard = objectSchemaDefinitions {
+        audience(required: false, type: PropertyType.String, name: "audience", description: "Field required by merch engine")
+        bu(required: false, type: PropertyType.String, name: "bu", description: "Field required by merch engine")
+        bu_line(required: false, type: PropertyType.String, name: "bu_line", description: "Field required by merch engine")
+        component_id(required: false, type: PropertyType.String, name: "component_id", description: "Field required by merch engine")
+        content_id(required: false, type: PropertyType.String, name: "content_id", description: "Field required by merch engine")
+        flow(required: false, type: PropertyType.String, name: "flow", description: "Field required by merch engine")
+        logic(required: false, type: PropertyType.String, name: "logic", description: "Field required by merch engine")
+        position(required: true, type: PropertyType.Numeric, name: "position", description: "Field required by merch engine")
+    }
     "/cards/hybrid/dashboard/dynamic_carousel"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
         description (
@@ -627,11 +639,20 @@ tracks {
             description: "Carousel item swiped"
           )
     }
+    "/cards/hybrid/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description_standard),
+            description: "Carousel item displayed",
+            name: "description"
+          )
+    }
     "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
         description (
             required: true,
             type: PropertyType.Map(dynamic_carousel_description),
-            description: "Carousel item closed"
+            description: "Carousel item closed",
+            name: "description"
           )
     }
 
@@ -711,6 +732,18 @@ tracks {
             description: "ftu carousel onboarding item swiped"
           )
     }
+
+    // Contextual help
+    // ----
+    "/cards/hybrid/dashboard/contextual_help"(platform: "/", type: TrackType.Event){
+        faq_id (
+            required: true,
+            description: "Indicates the faq identifier that was tapped",
+            type: PropertyType.Numeric
+        )
+    }
+
+    "/cards/hybrid/dashboard/more_help"(platform: "/", type: TrackType.Event) { }
 
     // SETUP VIRTUAL
     // --------
@@ -1120,6 +1153,9 @@ tracks {
           )
     }
     "/cards/hybrid/change_pin/congrats"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/change_pin/reauth"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/change_pin/reauth/success"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/change_pin/reauth/error"(platform:"/", type: TrackType.Event) { }
     
     // LIMITS
     // --------
@@ -1460,7 +1496,8 @@ tracks {
                 'reissue',
                 'change_limits',
                 'change_pin',
-                'disable_credit_card'
+                'disable_credit_card',
+                'overlimit_credit_card'
             ]
         )
     }
@@ -2150,7 +2187,8 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ["fetchTokenizationDataWorker error",
-                     "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error"],
+                     "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error",
+                     "invalid reauth token"],
             description: "Fetch data error information"
         )
     }
@@ -2649,7 +2687,7 @@ tracks {
         result (
             type: PropertyType.String,
             required: true,
-            values: ["SUCCESS", "FAILURE", "CAN_NOT_PROCEED"],
+            values: ["SUCCESS", "FAILURE", "CAN_NOT_PROCEED", "RETRY"],
             description: "Type of digitize card result values"
         )
     }
@@ -3236,7 +3274,17 @@ tracks {
             required: true,
             type: PropertyType.Boolean,
         )
+    }  
+
+    // NFC Button Mini Card
+    "/cards/cardwidget/button/nfc"(platform: "/mobile", type: TrackType.View) {
+        delay_in_seconds (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Delay to show nfc button"
+        )
     }
+
     
     // NFC-PRODUCT-METRICS
     // -------------------
@@ -3277,6 +3325,8 @@ tracks {
 
     "/cards/nfc/enrollment/ondemand/success"(platform: "/", type: TrackType.Event) {}
 
+    "/cards/nfc/enrollment/ondemand/stopped_by_reauth_validation"(platform: "/", type: TrackType.Event) {}
+
     "/cards/nfc/enrollment/ondemand/error"(platform: "/", type: TrackType.Event) {
         error_message (
             required: true,
@@ -3284,6 +3334,32 @@ tracks {
             description: "Cause of on-demand enrollment error"
         )
     }
+
+    // NFC REAUTH INTEGRATION
+    "/cards/nfc/reauth_integration"(platform: "/mobile", type: TrackType.App) {}
+
+    "/cards/nfc/reauth_integration/ondemand_tokenization"(platform: "/mobile", type: TrackType.App) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values: ["switched to on", "switched to off"],
+            description: "Only when this property changes from middle configuration should tracks this event"
+        )
+    }
+
+    "/cards/nfc/reauth_integration/pending"(platform: "/mobile", type: TrackType.App) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values: ["operation insecure", "operation safe"],
+            description: "Only when this property changes from middle configuration should tracks this event"
+        )
+    }
+
+    "/cards/nfc/reauth_integration/successfully"(platform: "/mobile", type: TrackType.App) {}
+
+    "/cards/nfc/reauth_integration/error"(platform: "/mobile", type: TrackType.App) {}
+
     
     // NFC_IDENTITY_CONFIRMATION_SCREEN AKA LUK_STOP
     // -----------------------
@@ -3329,6 +3405,19 @@ tracks {
             required: true,
             type: PropertyType.Boolean,
             description: "UserId status at the moment of the error"
+        )
+    }
+    
+    // NFC_IDENTITY_FALLBACK
+    // -----------------------
+    "/cards/nfc/identity_fallback"(platform: "/", type: TrackType.View) {}
+
+    "/cards/nfc/identity_fallback/action"(platform: "/", type: TrackType.Event) {
+        event_type (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary_button", "secondary_button", "close"],
+            description: "Button tapped"
         )
     }
 }

@@ -560,6 +560,24 @@ trackTests {
             shop_name = "Test Shop"
             ref = ""
         }
+        "/mercado_shops/marketing/phone_verification"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
+        "/mercado_shops/marketing/phone_verification/choose_verification_method"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
+        "/mercado_shops/marketing/phone_verification/provide_verification_code"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
         "/mercado_shops/marketing/google_analytics"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
@@ -1077,14 +1095,82 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            discount_type = "COUPON"
         }
-        "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){
+        "/mercado_shops/discounts/create/save"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            discount_type = "COUPON"
+            success = true
+        }
+        "/mercado_shops/discounts/create/save"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            discount_type = "TRADITIONAL"
+            target = "LISTED_PRODUCTS"
+            success = true
+        }
+        "/mercado_shops/discounts/create/save"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            discount_type = "COUPON"
+            success = true
+            use_limit = 3
+        }
+        "/mercado_shops/discounts/select_promotion"(platform: "/", type: TrackType.View){
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
         }
+        "/mercado_shops/discounts/edit"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            discount_type = "TRADITIONAL"
+        }
+         "/mercado_shops/discounts/edit/save"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            discount_type = "COUPON"
+            success = true
+        }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Customer Data Access - CDA
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Customer Data Access") {
+        "/mercado_shops/cda"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_name = "Test Shop"
+        }
+    }
+
+    test("CDA Preview") {
+        "/mercado_shops/cda/preview"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_name = "Test Shop"
+        }
+    }
+
+    test("CDA Download Success") {
+        "/mercado_shops/cda/download/congrats"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_name = "Test Shop"
+        }
+    }
+
+    test("CDA Download Error") {
+        "/mercado_shops/cda/download/error"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_name = "Test Shop"
+        }
+    }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML-MARKETING Mercadoshops
     //------------------------------------------------------------------------------------------------------------------------------------------------------

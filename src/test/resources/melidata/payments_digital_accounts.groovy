@@ -204,6 +204,15 @@ trackTests {
                   content_id: ['cards_list', 'accounts_list']
             ]
         }
+
+        "/banking/balance/crypto_balance_component"(platform: "/", type: TrackType.View) {
+             my_money_crypto_balance = [
+                  component_id: 'crypto',
+                  component_data: [
+                      status: 'printed'
+                 ]
+             ]
+         }
     }
 
     test("Balance to release") {
@@ -251,6 +260,9 @@ trackTests {
         "/banking/balance/footer_action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
+        "/banking/calendar/footer_action"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
         "/banking/balance/row"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
@@ -270,6 +282,9 @@ trackTests {
             action_id = 'test'
         }
         "/banking/activities/row"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/activities/action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
         "/banking/debts/action"(platform: "/", type: TrackType.Event) {
@@ -297,6 +312,7 @@ trackTests {
             shortcuts = ['money_in', 'money_out']
             debts = true
             cerc = true
+            crypto = false
             activities = false
         }
     }
@@ -323,6 +339,11 @@ trackTests {
         }
         "/banking/movements/filters/open_datepicker"(platform: "/", type: TrackType.Event) {}
 
+
+        "/banking/movements/links/enter"(platform: "/", type: TrackType.Event) {
+            action = 'DOWNLOAD_BILLS'
+        }   
+
         "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
         "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {
             action_type = 'income'
@@ -334,6 +355,8 @@ trackTests {
             begin_date = '2020-12-22T00:00:00.000Z'
             end_date = '2021-01-06T23:59:59.999Z'
         }
+
+        "/banking/movements/message_uf/close_message"(platform: "/", type: TrackType.Event) {}
     }
 
     test("PNF") {
@@ -393,21 +416,6 @@ trackTests {
             bu_line = 'banking'
             flow = '1'
         }
-    }
-
-    test("Vouchers") {
-        "/banking/vouchers"(platform: "/", type: TrackType.View) {}
-
-        "/banking/vouchers/benefits/categories"(platform: "/", type: TrackType.Event) {}
-
-        "/banking/vouchers/account-money/switch"(platform: "/", type: TrackType.Event) {}
-
-        "/banking/vouchers/activities/row"(platform: "/", type: TrackType.Event) {}
-        "/banking/vouchers/activities/footer"(platform: "/", type: TrackType.Event) {}
-
-        "/banking/vouchers/card"(platform: "/", type: TrackType.Event) {}
-
-        "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Regulations Cerc") {

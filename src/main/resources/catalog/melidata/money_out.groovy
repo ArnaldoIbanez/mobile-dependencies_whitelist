@@ -15,6 +15,7 @@ tracks {
     "/money_out/cashout"(platform: "/", isAbstract: true) {}
     "/money_out/cashout/onboarding"(platform: "/", isAbstract: true) {}
     "/money_out/transfers/mlm"(platform: "/", isAbstract: true) {}
+    "/money_out/transfers/home"(platform: "/", isAbstract: true) {}
 
     // Cashout ticket tracks
     "/money_out/cashout/ticket"(platform: "/", type: TrackType.View) {}
@@ -114,22 +115,36 @@ tracks {
     "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/account_selected"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
+        type (required:false, description: "Recent account type")
+        search_account_filter (required:false, description: "Indicate if user has applied a filter for recents")
+        search_account_value (required:false, description: "Applied text filter value")
+        account_id (required:false, description: "Account id associated to recent transfer")
+    }
+    "/money_out/transfers/home/delete_account_button_clicked"(platform: "/", type: TrackType.Event) {
+        type (required:false, description: "Recent account type")
+        search_account_filter (required:false, description: "Indicate if user has applied a filter for recents")
+        search_account_value (required:false, description: "Applied text filter value")
+        account_id (required:false, description: "Account id associated to recent transfer")
     }
     "/money_out/transfers/home/account_mark_favorite"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
+        type (required:false, description: "Indicate if account is ted or mp")
     }
     "/money_out/transfers/home/account_unmark_favorite"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
+        type (required:false, description: "Indicate if account is ted or mp")
     }
     "/money_out/transfers/home/account_deleted"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
+        type (required:false, description: "Indicate if account is ted or mp")
     }
     "/money_out/transfers/home/recents_tab_selected"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/favs_tab_selected"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/faq_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/profile_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/scheduled_transfers_selected"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/recent_filter_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/filter_recents"(platform: "/", type: TrackType.View) {}
+    "/money_out/transfers/home/filter_recents/back_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/filter_recents/clear_field_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/filter_recents/empty_view"(platform: "/", type: TrackType.View) {}
 
     //Transfer Hub - Scheduled Transfers
     "/money_out/transfers/scheduled_transfers_list"(platform: "/", type: TrackType.View) {}
@@ -249,7 +264,7 @@ tracks {
     //Transfer Hub - Pix
     "/money_out/transfers/pix_dashboard"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
-        type(required_:false, description: "Indicates the type selected ")
+        type(required:false, description: "Indicates the type selected ")
     }
 
     //Bottom Sheet - Unified P2P
@@ -314,7 +329,7 @@ tracks {
     "/money_out/transfers/home/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
 
     "/money_out/transfers/bottom_sheet/restrictions"(platform:"/", type: TrackType.View){
-        type(required:true, description:"Indicate type of restriction for example: rate_limit_pix", values=["rate_limit_pix", "rate_limit_p2p", "rate_limit_pix_p2p", "inactive_account", "user_blacklist", "same_sender_collector", "collector"])
+        type(required:true, description:"Indicate type of restriction for example: rate_limit_pix", values=["rate_limit_pix", "rate_limit_p2p", "rate_limit_pix_p2p", "inactive_account", "user_blacklist", "same_sender_collector", "collector", "invalid_account_type"])
     }
     "/money_out/transfers/bottom_sheet/restrictions/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/bottom_sheet/restrictions/back"(platform: "/", type: TrackType.Event) {}
@@ -405,6 +420,13 @@ tracks {
     "/pix/home/keys/copy"(platform: "/", type: TrackType.Event) {}
     "/pix/home/keys/share"(platform: "/", type: TrackType.Event) {}
     "/pix/home/keys/new"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/qr"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/detail"(platform: "/", type: TrackType.Event) {}
+
+    //Home Pix MLB - Action Keys
+    "/pix/home/keys/action"(platform: "/", isAbstract: true) {}
+    "/pix/home/keys/action/cpf"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/action/pix_keys"(platform: "/", type: TrackType.Event) {}
 
     //Home Pix MLB - Cadastrar Keys
     "/pix/home/banner"(platform: "/", isAbstract: true) {}
@@ -434,4 +456,7 @@ tracks {
     "/pix/home/ftu/close"(platform: "/", type: TrackType.Event) {}  
     "/pix/home/ftu/confirm"(platform: "/", type: TrackType.Event) {}
     "/pix/home/ftu/cancel"(platform: "/", type: TrackType.Event) {}
+
+    //Home Pix MLB - Insurtech Banner
+    "/pix/home/insurtech_banner"(platform: "/", type: TrackType.Event) {}
 }

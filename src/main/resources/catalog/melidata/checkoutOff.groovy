@@ -9,6 +9,19 @@ tracks {
 
     initiative = "1066"
 
+    def preference_object = objectSchemaDefinitions {
+        back_urls(required: false, description: "Information about previous urls, e.g: success: https://www.bionutrients.com.ar/compra-confirmada.html", type: PropertyType.String)
+        redirect_urls(required: false, description: "Information about previous urls, e.g: success: https://www.bionutrients.com.ar/compra-confirmada.html", type: PropertyType.String)
+        default_card_id(required: false, description: "The ID that identify the default card, e.g: 342528580", type: PropertyType.String)
+        default_installments(required: false, description: "The quantity default shows to the user, e.g: 2", type: PropertyType.Numeric)
+        default_payment_method_id(required:false, description: "The ID of the payment method that is defult for the user", type: PropertyType.String)
+        excluded_payment_methods(required: false, description: "Identify the payment methods that was excluded for the user", type: PropertyType.ArrayList(PropertyType.Map(PropertyType.String, PropertyType.String)))
+        excluded_payment_types(required: false, description: "Identify the payment types that was excluded for the user", type: PropertyType.ArrayList(PropertyType.Map(PropertyType.String, PropertyType.String)))
+        coupon_code(required: false, description: "The code that identifies the coupon", type: PropertyType.String)
+        coupon_labels(required: false, description: "The list of labels of coupon", type: PropertyType.ArrayList(PropertyType.String))
+        auto_return(required: false, description: "Identify the possible values that can reach the application through the 'auto_return' option", type: PropertyType.String)
+    }
+
     "/checkout_off"(platform: "/", isAbstract: true) {
         checkout_flow_id(required: true, description: "Unique ID of the current flow, e.g: 'b24bcffe-4b26-46c9-8646-61891dbd978b'", type: PropertyType.String)
         product_id(required: true, description: "Unique ID of the current flow, e.g: 'BC32A4JU643001OI3920'", type: PropertyType.String)
@@ -43,6 +56,8 @@ tracks {
         shipping_method(required: false, description: "The shipping method selected by the user, e.g: 'standard|express|six_days'", type: PropertyType.String, values: ["super_express", "same_day", "next_day", "two_days", "express", "three_days", "four_days", "five_days", "six_days", "sedex", "standard"])
         shipping_local_pickup(required: false, description: "Whether or not the user chose local pickup", type: PropertyType.Boolean)
         shipping_free(required: false, description: "Wether or not the payer is exempt from additional shipping taxes and the seller pays for it", type: PropertyType.Boolean)
+        preference(required: false, description: "Every non PII contain within a preference", type: PropertyType.Map(preference_object))
+        router_request_id(required: false, description: "Identifies an unique router requisition", type: PropertyType.String)
     }
 
     // EVENTS
@@ -63,6 +78,7 @@ tracks {
         client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
         flow_context(required: false, description: "Information about current flow's status, e.g: 'no_sniffing'", type: PropertyType.String)
         sponsor_id(required: false, description: "Identifies the plugin platform as shopify, magento", type: PropertyType.Numeric)
+        router_request_id(required: false, description: "Identifies an unique router requisition", type: PropertyType.String)
     }
 
     // Login
@@ -75,7 +91,10 @@ tracks {
     "/checkout_off/payment/select_type"(platform: "/", type: TrackType.View) {
         opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
         opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
     }
+
+    "/checkout_off/payment/select_type/combination"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/payment/select_stores"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/select_transfer"(platform: "/", type: TrackType.View) {}
@@ -88,7 +107,9 @@ tracks {
     "/checkout_off/payment/input_card/input_security_code"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/input_card/select_installment"(platform: "/", type: TrackType.View) {}
 
-    "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
+    }
 
     // Paypal tracks
     "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
@@ -113,9 +134,16 @@ tracks {
     "/checkout_off/payment/input_credits/select_installment"(platform: "/", type: TrackType.View) {
         opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
         opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
     }
 
     "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/payment/input_credits/select_installment/combination"(platform: "/", type: TrackType.View) {
+        opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
+        opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
+    }
 
     // Tokenizer product final screen.
     "/checkout_off/payment/processing"(platform: "/", type: TrackType.View) {}
@@ -124,7 +152,10 @@ tracks {
     "/checkout_off/billing"(platform: "/", isAbstract: true) {}
     "/checkout_off/billing/input_info"(platform: "/", type: TrackType.View) {}
 
-    "/checkout_off/review"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review"(platform: "/", type: TrackType.View) {
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
+    }
+
     "/checkout_off/review/shield_kyc"(platform: "/", type: TrackType.View) {}
     "/checkout_off/review/challenge_kyc"(platform: "/", type: TrackType.View) {}
     "/checkout_off/review/challenge_second_factor_auth"(platform: "/", type: TrackType.View) {}
@@ -166,6 +197,8 @@ tracks {
         shipping_method(required: false, description: "The shipping method selected by the user, e.g: 'standard|express|six_days'", type: PropertyType.String, values: ["super_express", "same_day", "next_day", "two_days", "express", "three_days", "four_days", "five_days", "six_days", "sedex", "standard"])
         shipping_local_pickup(required: false, description: "Whether or not the user chose local pickup", type: PropertyType.Boolean)
         shipping_free(required: false, description: "Wether or not the payer is exempt from additional shipping taxes and the seller pays for it", type: PropertyType.Boolean)
+        preference(required: false, description: "Every non PII contain within a preference", type: PropertyType.Map(preference_object))
+        router_request_id(required: false, description: "Identifies an unique router requisition", type: PropertyType.String)
     }
 
     // For this path, none is required
@@ -178,6 +211,7 @@ tracks {
         total_amount(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
         currency_id(required: false, description: "currency according to https://api.mercadolibre.com/currencies", type: PropertyType.String)
         items_quantity(required: false, description: "quantity of items configured in the preference, e.g: 2", type: PropertyType.Numeric)
+        preference(required: false, description: "Every non PII contain within a preference", type: PropertyType.Map(preference_object))
     }
 
     //Final Views
@@ -206,6 +240,9 @@ tracks {
     "/checkout_off/congrats/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/congrats/recovered"(platform: "/", type: TrackType.View) {
+    }
+
+    "/checkout_off/congrats/combination"(platform: "/", type: TrackType.View) {
     }
 
     //MP personalFrontend

@@ -1,3 +1,5 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
 import com.ml.melidata.metrics.TagType
 
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
@@ -8,7 +10,7 @@ def visRegex="(vis|vip)/.*"
 
 metrics {
 
-	"reservation"(description: "orders that belong to a are a reservation", compute_order: true) {
+	"reservation"(description: "orders that belong to a are a reservation", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Company) {
 		experiment(regex(searchVipClassifiedExperiments))
 
 		countsOn {
@@ -21,7 +23,7 @@ metrics {
 		}
 	}
 
-	"vip/reservation_intention"(description: "track vip reservations init process for classifieds") {
+	"vip/reservation_intention"(description: "track vip reservations init process for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Company) {
 		experiment(regex(searchVipClassifiedExperiments))
 
 		countsOn {
@@ -31,7 +33,7 @@ metrics {
 		}
 	}
 
-	"seller_contacted"(description: "track vip contact seller as success for classifieds", tags:[TagType.CoreMetric]) {
+	"seller_contacted"(description: "track vip contact seller as success for classifieds", tags:[TagType.CoreMetric], bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(searchVipClassifiedExperiments))
 
 		countsOn {
@@ -42,7 +44,7 @@ metrics {
 	}
 
 
-	"classifieds_user_contact"(description: "track vip user interaction as success for classifieds") {
+	"classifieds_user_contact"(description: "track vip user interaction as success for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(searchVipClassifiedExperiments))
 
 		countsOn {
@@ -52,7 +54,7 @@ metrics {
 		}
 	}
 
-	"classifieds_user_contact_mobile"(description: "track vip user interaction as success for classifieds mobile") {
+	"classifieds_user_contact_mobile"(description: "track vip user interaction as success for classifieds mobile", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(searchVipClassifiedExperiments))
 
 		countsOn {
@@ -62,7 +64,7 @@ metrics {
 		}
 	}
 
-	"call_seller"(description: "track vip call seller as success for classifieds") {
+	"call_seller"(description: "track vip call seller as success for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(searchVipClassifiedExperiments))
 
 		countsOn {
@@ -72,7 +74,7 @@ metrics {
 		}
 	}
 
-	"show_phone"(description: "track vip show phone as success for classifieds") {
+	"show_phone"(description: "track vip show phone as success for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(searchVipClassifiedExperiments))
 
 		countsOn {
@@ -82,7 +84,7 @@ metrics {
 		}
 	}
 
-	"contact_seller"(description: "track vip contact seller as success for classifieds") {
+	"contact_seller"(description: "track vip contact seller as success for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(searchVipClassifiedExperiments))
 
 		countsOn {
@@ -92,7 +94,7 @@ metrics {
 		}
 	}
 
-	"contact_whatsapp"(description: "track vip contact whatsapp as success for classifieds") {
+	"contact_whatsapp"(description: "track vip contact whatsapp as success for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(searchVipClassifiedExperiments))
 
 		countsOn {
@@ -102,8 +104,17 @@ metrics {
 		}
 	}
 
+	"whatsapp_support"(description: "track vip whatsapp support as success for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
+		experiment(regex(searchVipClassifiedExperiments))
 
-	"quotations"(description: "track quotation as success for classifieds") {
+		countsOn {
+			condition {
+				path("/vip/whatsapp_support")
+			}
+		}
+	}
+
+	"quotations"(description: "track quotation as success for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(searchVipClassifiedExperiments))
 
 		countsOn {
@@ -113,7 +124,7 @@ metrics {
 		}
 	}
 
-	"vis_credits_intention"(description: "track credits intention as success for vis") {
+	"vis_credits_intention"(description: "track credits intention as success for vis", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(visRegex))
 
 		countsOn {
@@ -123,7 +134,7 @@ metrics {
 		}
 	}
 
-	"vis_credits_congrats"(description: "track credits congrats as success for vis") {
+	"vis_credits_congrats"(description: "track credits congrats as success for vis", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(visRegex))
 
 		countsOn {
@@ -136,7 +147,7 @@ metrics {
 		}
 	}
 
-	"vis_credits.contact_intention"(description: "track contact intention as success for vis") {
+	"vis_credits.contact_intention"(description: "track contact intention as success for vis", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(visRegex))
 
 		countsOn {
@@ -146,7 +157,7 @@ metrics {
 		}
 	}
 
-	"quotations.services"(description: "track quotation as success for services (classifieds)") {
+	"quotations.services"(description: "track quotation as success for services (classifieds)", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(viewItemPageMigration))
 
 		countsOn {
@@ -156,7 +167,7 @@ metrics {
 		}
 	}
 
-	"contract_intention"(description: "track contract intention for classifieds") {
+	"contract_intention"(description: "track contract intention for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(viewItemPageMigration))
 
 		countsOn {
@@ -166,7 +177,7 @@ metrics {
 		}
 	}
 
-	"quotation.intention"(description: "track quotation intention for classifieds") {
+	"quotation.intention"(description: "track quotation intention for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(viewItemPageMigration))
 
 		countsOn {
@@ -176,7 +187,7 @@ metrics {
 		}
 	}
 
-	"quotation.details"(description: "track quotation details of models for classifieds") {
+	"quotation.details"(description: "track quotation details of models for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(viewItemPageMigration))
 
 		countsOn {

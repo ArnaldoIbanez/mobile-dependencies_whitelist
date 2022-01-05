@@ -7,7 +7,7 @@ import com.ml.melidata.TrackType
 
     tracks {
 
-        initiative = "1046"
+        initiative = "1296"
 
         /**
         * pos seller screen tracks
@@ -350,4 +350,117 @@ import com.ml.melidata.TrackType
             to_flow(required: true, type: PropertyType.String, description: "Contains the result of the router's redirection", values: ["fcu","legacy"])
             reason(required: true, type: PropertyType.String, description: "Why the router chose that flow", values: ["user_in_whitelist","user_not_in_whitelist","network_request_failed"])
         }
-}
+
+        // Flow Paths
+        "/pos_seller/point/ftu/continue"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            is_ftu(required: true, type: PropertyType.Boolean, description: "User is FTU")
+        }
+
+        "/pos_seller/point/ftu/buy"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            url(required: true, type: PropertyType.String, description: "Url to buy device")
+        }
+
+        "/pos_seller/point/pairing/selection"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            poi_type(required: true, type: PropertyType.String, description: "poi device type selected")
+        }
+
+        "/settings/point/device"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+            poi_type(required: true, type: PropertyType.String, description: "poi device type")
+        }
+        "/pos_seller/point/device/update/error"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+            type(required: true, type: PropertyType.String, description:"Type of Error", values: ["USB", "Battery", "Disconnect", "Unknown"])
+        }
+
+        // SPoC Paths
+        "/pos_seller/point/spoc/shield"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+            shield_type(required: true, type: PropertyType.String, description: "Type of shield", values: ["download", "outdated"])
+        }
+        "/pos_seller/point/spoc/shield/select"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            option(required: true, type: PropertyType.String, description: "Cta selected", values: ["download", "updated"])
+        }
+
+        "/pos_seller/point/spoc/installments/method"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+            amount(required: true, type: PropertyType.Numeric, description: "payment Amount")
+            items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
+        }
+
+        "/pos_seller/point/spoc/installments/method/select"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            method(required: true, type: PropertyType.String, description:"For Seller o Buyer", values: ["1X", "PSJ", "PCJ"])
+        }
+        "/pos_seller/point/installments/select"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            installment(required: true, type: PropertyType.Numeric, description:"Installment selected", values: [1,3,6,9,12,16,18,21,24])
+        }
+        "/settings/device/update/error/shield"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+            type(required: true, type: PropertyType.String, description:"Type of Error", values: ["USB", "Battery", "Disconnect", "Unknown"])
+        }
+
+        "/pos_seller/point/spoc/sp_actions"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            redirect(required: true, type: PropertyType.String, description:"Redirect to view", values: ["payment", "help"])
+        }
+
+        "/pos_seller/point/error/declined"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            poi(required: true, type: PropertyType.String, description: "serial device")
+            code(required: true, type: PropertyType.String, description: "Error code")
+            error_type(required: true, type: PropertyType.String, description: "Error declined type ", values: ["offline", "online"])
+        }
+
+        "/pos_seller/point/signature"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+            payment_id(required: true, type: PropertyType.String, description: "payment id")
+        }
+
+        "/pos_seller/point/congrats"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+            payment_id(required: true, type: PropertyType.String, description: "payment id")
+        }
+
+        // Tables update
+        "/pos_seller/point/tables_update"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            flow_id(required: false, type: PropertyType.String, description: "Flow id.")
+            poi_id(required: true, type: PropertyType.String, description: "poi device id")
+            poi_type(required: true, type: PropertyType.String, description: "poi device type")
+        }
+
+        "/pos_seller/point/tables_update/congrats"(platform: "/mobile", type: TrackType.Event) {
+            tables_version(required: true, type: PropertyType.String, description: "current table version")
+            total_aids(required: true, type: PropertyType.String, description: "total aids")
+            total_loaded_aids(required: true, type: PropertyType.String, description: "total aids loaded into the reader")
+            total_capks(required: false, type: PropertyType.String, description: "total capks")
+            total_loaded_capks(required: false, type: PropertyType.String, description: "total capks loaded into the reader")
+        }
+
+        "/pos_seller/point/waiting_for_card/error"(platform: "/mobile", isAbstract: true, parentPropertiesInherited: false) {
+            flow_id(required: true, type: PropertyType.String, description: "Flow id.")
+            poi_id(required: true, type: PropertyType.String, description: "poi device id")
+            poi_type(required: true, type: PropertyType.String, description: "poi device type")
+            firmware(required: true, type: PropertyType.String, description: "Device firmware version")
+            aid(required: false, type: PropertyType.String, description: "Current device used aid")
+            tag_95(required: false, type: PropertyType.String, description: "Device tag 95 - TVR")
+            tag_9f33(required: false, type: PropertyType.String, description: "Device tag 9f33 - ")
+            tag_9b(required: false, type: PropertyType.String, description: "Device tag 9b - ")
+            tag_9f06(required: false, type: PropertyType.String, description: "Device tag 9f06 - ")
+        }
+
+        "/pos_seller/point/waiting_for_card/error/card_read"(platform: "/mobile", type: TrackType.Event) {
+            supported_aid(required: false, type: PropertyType.Boolean, description: "Aid supported in current device flag")
+            execute_rslt(required: true, type: PropertyType.String, description: "Execute result from transaction")
+        }
+
+        "/pos_seller/point/waiting_for_card/error/offline_rejected"(platform: "/mobile", type: TrackType.Event) {}
+
+        //Multiadquaring
+        "/pos_seller/point/waiting_for_card/multiadquaring"(platform: "/mobile", isAbstract: true, parentPropertiesInherited: false) {
+            flow_id(required: true, type: PropertyType.String, description: "Flow id.")
+            poi_id(required: true, type: PropertyType.String, description: "poi device id")
+            poi_type(required: true, type: PropertyType.String, description: "poi device type")
+            prioritized_processors(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Array of prioritized processors")
+        }
+
+        "/pos_seller/point/waiting_for_card/multiadquaring/rejected"(platform: "/mobile", type: TrackType.Event) {
+            rejected_processor(required: true, type: PropertyType.String, description: "Rejected processor")
+            processor_key_index(required: false, type: PropertyType.String, description: "Rejected processor key index")
+        }
+
+        "/pos_seller/point/waiting_for_card/multiadquaring/approved"(platform: "/mobile", type: TrackType.Event) {
+            processor(required: true, type: PropertyType.String, description: "Current approved processor")
+            processor_key_index(required: false, type: PropertyType.String, description: "Current approved processor key index")
+        }
+    }

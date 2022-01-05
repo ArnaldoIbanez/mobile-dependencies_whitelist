@@ -29,9 +29,7 @@ trackTests {
             has_reason = true
         }
 
-        "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile") {
-            position = 2
-        }
+        "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile") {}
 
         "/mplayer/send_money/manual_amount/collector_info"(platform: "/mobile") {
             isAmbiguous = true
@@ -66,6 +64,8 @@ trackTests {
         }
 
         "/mplayer/send_money/result/in_process"(platform: "/mobile") {}
+
+        "/mplayer/send_money/result/pending"(platform: "/mobile") {}
 
         "/mplayer/send_money/redirector/manual_amount"(platform: "/mobile") {
             flow = "flow"
@@ -150,6 +150,8 @@ trackTests {
 
         "/mplayer/closed_request/result/in_process"(platform: "/mobile") {}
 
+        "/mplayer/closed_request/result/pending"(platform: "/mobile") {}
+
         "/mplayer/closed_request/contact_picker/search"(platform: "/mobile") {}
         "/mplayer/closed_request/contact_picker/search/not_found"(platform: "/mobile") {}
         "/mplayer/closed_request/contact_picker/add_new_contact"(platform: "/mobile") {}
@@ -201,6 +203,8 @@ trackTests {
 
         "/mplayer/open_request/result/in_process"(platform: "/mobile") {}
 
+        "/mplayer/open_request/result/pending"(platform: "/mobile") {}
+
          // Money Split
         "/mplayer/money_split/onboarding"(platform: "/mobile") {}
         "/mplayer/money_split/activities_selection"(platform: "/mobile") {}
@@ -214,6 +218,7 @@ trackTests {
         }
 
         "/mplayer/money_split/new_activity"(platform: "/mobile") {}
+        "/mplayer/money_split/new_activity/continue"(platform: "/mobile") {}
 
         "/mplayer/money_split/reason"(platform: "/mobile") {}
         "/mplayer/money_split/reason/emoji_selected"(platform: "/mobile") {}
@@ -256,6 +261,8 @@ trackTests {
         }
         "/mplayer/money_split/result/in_process"(platform: "/mobile") {}
 
+        "/mplayer/money_split/result/pending"(platform: "/mobile") {}
+
         "/mplayer/money_split/contact_picker/search"(platform: "/mobile") {}
         "/mplayer/money_split/contact_picker/search/not_found"(platform: "/mobile") {}
         "/mplayer/money_split/contact_picker/add_new_contact"(platform: "/mobile") {}
@@ -265,6 +272,7 @@ trackTests {
         "/mplayer/money_split/bottom_sheet/new_contact_phone"(platform: "/mobile") {}
         "/mplayer/money_split/bottom_sheet/continue"(platform: "/mobile") {}
 
+        "/mplayer/money_split/external"(platform: "/mobile") {}
 
         // Tracing
         "/mplayer/tracing/onboarding"(platform: "/mobile") {}

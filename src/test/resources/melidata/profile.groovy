@@ -71,103 +71,130 @@ trackTests {
 
     test("Email") {
 
-        "/profile/email/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             is_compliant = true
             user_type = "CO"
             status = "verified"
         }
 
-        "/profile/email/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
             status = "not-verified"
         }
 
-        "/profile/email/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
             status = "not-verified"
         }
 
-        "/profile/email/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             is_compliant = true
             user_type = "BU"
             status = "verified"
         }
 
-        "/profile/email/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
             status = "information"
         }
 
-        "/profile/email/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = true
             user_type = "BU"
             status = "verified"
         }
-    }
 
-    test("Identity") {
-
-        "/profile/identity/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email/edit"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             is_compliant = true
             user_type = "CO"
-            access = "full"
-            registered_by_phone = true
-            has_identification = false
+            status = "verified"
         }
 
-        "/profile/identity/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
-            access = "restricted"
-            registered_by_phone = false
-            has_identification = true
+            status = "not-verified"
         }
 
-        "/profile/identity/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
-            access = "denied"
-            registered_by_phone = true
-            has_identification = false
+            status = "not-verified"
         }
 
-        "/profile/identity/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email/edit"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             is_compliant = true
             user_type = "BU"
-            access = "partial"
-            registered_by_phone = false
-            has_identification = false
+            status = "verified"
         }
 
-        "/profile/identity/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
-            access = "denied"
-            registered_by_phone = true
-            has_identification = true
+            status = "information"
         }
 
-        "/profile/identity/action"(platform: "/", type: TrackType.Event) {
+        "/profile/email/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = true
             user_type = "BU"
-            access = "full"
-            registered_by_phone = false
-            has_identification = true
+            status = "verified"
+        }
+
+        "/profile/email/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "CO"
+            status = "verified"
+        }
+
+        "/profile/email/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            status = "not-verified"
+        }
+
+        "/profile/email/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            status = "not-verified"
+        }
+
+        "/profile/email/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "BU"
+            status = "verified"
+        }
+
+        "/profile/email/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            status = "information"
+        }
+
+        "/profile/email/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = true
+            user_type = "BU"
+            status = "verified"
         }
     }
 
@@ -181,7 +208,15 @@ trackTests {
             status = "verified"
         }
 
-        "/profile/phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/phone/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "CO"
+            registered_by_phone = true
+            status = "verified"
+        }
+
+        "/profile/phone/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
             is_compliant = true
             user_type = "CO"
@@ -197,7 +232,15 @@ trackTests {
             status = "information"
         }
 
-        "/profile/phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            registered_by_phone = false
+            status = "information"
+        }
+
+        "/profile/phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -213,7 +256,15 @@ trackTests {
             status = "not-verified"
         }
 
-        "/profile/phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            registered_by_phone = true
+            status = "not-verified"
+        }
+
+        "/profile/phone/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -229,7 +280,15 @@ trackTests {
             status = "verified"
         }
 
-        "/profile/phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/phone/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "BU"
+            registered_by_phone = false
+            status = "verified"
+        }
+
+        "/profile/phone/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
             is_compliant = true
             user_type = "BU"
@@ -245,7 +304,15 @@ trackTests {
             status = "not-verified"
         }
 
-        "/profile/phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/phone/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            registered_by_phone = true
+            status = "not-verified"
+        }
+
+        "/profile/phone/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -261,7 +328,15 @@ trackTests {
             status = "information"
         }
 
-        "/profile/phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = true
+            user_type = "BU"
+            registered_by_phone = false
+            status = "information"
+        }
+
+        "/profile/phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = true
             user_type = "BU"
@@ -272,7 +347,15 @@ trackTests {
 
     test("Alternative phone") {
 
-        "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/alternative_phone/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "CO"
+            registered_by_phone = true
+            status = "verified"
+        }
+
+        "/profile/alternative_phone/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
             is_compliant = true
             user_type = "CO"
@@ -288,7 +371,15 @@ trackTests {
             status = "verified"
         }
 
-        "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/alternative_phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            registered_by_phone = false
+            status = "information"
+        }
+
+        "/profile/alternative_phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -304,7 +395,15 @@ trackTests {
             status = "information"
         }
 
-        "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/alternative_phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            registered_by_phone = true
+            status = "not-verified"
+        }
+
+        "/profile/alternative_phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -320,7 +419,15 @@ trackTests {
             status = "not-verified"
         }
 
-        "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/alternative_phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "BU"
+            registered_by_phone = false
+            status = "verified"
+        }
+
+        "/profile/alternative_phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             is_compliant = true
             user_type = "BU"
@@ -336,7 +443,15 @@ trackTests {
             status = "verified"
         }
 
-        "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/alternative_phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            registered_by_phone = true
+            status = "not-verified"
+        }
+
+        "/profile/alternative_phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -352,7 +467,15 @@ trackTests {
             status = "not-verified"
         }
 
-        "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/alternative_phone/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = true
+            user_type = "BU"
+            registered_by_phone = false
+            status = "information"
+        }
+
+        "/profile/alternative_phone/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = true
             user_type = "BU"
@@ -371,7 +494,15 @@ trackTests {
 
     test("Contact phone") {
 
-        "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/contact_phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "CO"
+            registered_by_phone = true
+            status = "verified"
+        }
+
+        "/profile/contact_phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             is_compliant = true
             user_type = "CO"
@@ -387,7 +518,15 @@ trackTests {
             status = "verified"
         }
 
-        "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/contact_phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            registered_by_phone = false
+            status = "information"
+        }
+
+        "/profile/contact_phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -403,7 +542,15 @@ trackTests {
             status = "information"
         }
 
-        "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/contact_phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            registered_by_phone = true
+            status = "not-verified"
+        }
+
+        "/profile/contact_phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -419,7 +566,15 @@ trackTests {
             status = "not-verified"
         }
 
-        "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/contact_phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "BU"
+            registered_by_phone = false
+            status = "verified"
+        }
+
+        "/profile/contact_phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             is_compliant = true
             user_type = "BU"
@@ -435,7 +590,15 @@ trackTests {
             status = "verified"
         }
 
-        "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/contact_phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            registered_by_phone = true
+            status = "not-verified"
+        }
+
+        "/profile/contact_phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -451,7 +614,15 @@ trackTests {
             status = "not-verified"
         }
 
-        "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
+        "/profile/contact_phone/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = true
+            user_type = "BU"
+            registered_by_phone = false
+            status = "information"
+        }
+
+        "/profile/contact_phone/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = true
             user_type = "BU"
@@ -470,7 +641,14 @@ trackTests {
 
     test("Preferred name") {
 
-        "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/preferred_name/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "CO"
+            status = "verified"
+        }
+
+        "/profile/preferred_name/edit"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             is_compliant = true
             user_type = "CO"
@@ -484,7 +662,14 @@ trackTests {
             status = "verified"
         }
 
-        "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/preferred_name/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            status = "information"
+        }
+
+        "/profile/preferred_name/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -498,7 +683,14 @@ trackTests {
             status = "information"
         }
 
-        "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/preferred_name/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            status = "not-verified"
+        }
+
+        "/profile/preferred_name/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -512,7 +704,14 @@ trackTests {
             status = "not-verified"
         }
 
-        "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/preferred_name/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "BU"
+            status = "verified"
+        }
+
+        "/profile/preferred_name/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
             is_compliant = true
             user_type = "BU"
@@ -526,7 +725,14 @@ trackTests {
             status = "verified"
         }
 
-        "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/preferred_name/edit/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            status = "not-verified"
+        }
+
+        "/profile/preferred_name/edit"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -540,7 +746,14 @@ trackTests {
             status = "not-verified"
         }
 
-        "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/preferred_name/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = true
+            user_type = "BU"
+            status = "information"
+        }
+
+        "/profile/preferred_name/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = true
             user_type = "BU"
@@ -557,7 +770,14 @@ trackTests {
 
     test("User name") {
 
-        "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/user_name/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "CO"
+            status = "verified"
+        }
+
+        "/profile/user_name/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
             is_compliant = true
             user_type = "CO"
@@ -571,7 +791,14 @@ trackTests {
             status = "verified"
         }
 
-        "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/user_name/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            status = "information"
+        }
+
+        "/profile/user_name/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -585,7 +812,14 @@ trackTests {
             status = "information"
         }
 
-        "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/user_name/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            status = "not-verified"
+        }
+
+        "/profile/user_name/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -599,7 +833,14 @@ trackTests {
             status = "not-verified"
         }
 
-        "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/user_name/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "BU"
+            status = "verified"
+        }
+
+        "/profile/user_name/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
             is_compliant = true
             user_type = "BU"
@@ -613,7 +854,14 @@ trackTests {
             status = "verified"
         }
 
-        "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/user_name/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "CO"
+            status = "not-verified"
+        }
+
+        "/profile/user_name/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = false
             user_type = "CO"
@@ -627,7 +875,14 @@ trackTests {
             status = "not-verified"
         }
 
-        "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
+        "/profile/user_name/edit"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = true
+            user_type = "BU"
+            status = "information"
+        }
+
+        "/profile/user_name/edit/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = true
             user_type = "BU"
@@ -642,7 +897,7 @@ trackTests {
         }
     }
 
-    test("Identity View") {
+    test("Identity") {
 
         "/profile/identity"(platform: "/", type: TrackType.View) {
             entity_type = "person"
@@ -958,6 +1213,166 @@ trackTests {
             user_type = "BU"
             is_compliant = true
             event_type = "redirect"
+        }
+    }
+
+    test("Legal representative") {
+        "/profile/legal_representative"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = false
+        }
+
+        "/profile/legal_representative"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = false
+            registered_by_phone = false
+            has_identification = false
+        }
+    }
+
+    test("Account data") {
+        "/profile/account_data"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile/account_data"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = false
+        }
+
+        "/profile/account_data/edit"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile/account_data/edit"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = false
+        }
+    }
+
+    test("Fiscal data") {
+        "/profile/fiscal_data"(platform: "/", type: TrackType.Event) {
+            status = "verified"
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile/fiscal_data"(platform: "/", type: TrackType.Event) {
+            status = "not-verified"
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile/fiscal_data"(platform: "/", type: TrackType.Event) {
+            status = "information"
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile/fiscal_data/fiscal_condition"(platform: "/", type: TrackType.Event) {
+            entity_type = "person"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile/fiscal_data/fiscal_condition"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile/fiscal_data/fiscal_condition"(platform: "/", type: TrackType.Event) {
+            entity_type = "unknown"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile/fiscal_data/gross_income_regime"(platform: "/", type: TrackType.Event) {
+            user_type = "CO"
+            entity_type = "company"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile/fiscal_data/gross_income_regime"(platform: "/", type: TrackType.Event) {
+            user_type = "BU"
+            entity_type = "company"
+            access = "full"
+            status = "information"
+            is_compliant = true
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile/fiscal_data/gross_income_exclusion"(platform: "/", type: TrackType.Event) {
+            is_compliant = true
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile/fiscal_data/gross_income_exclusion"(platform: "/", type: TrackType.Event) {
+            is_compliant = false
+            entity_type = "company"
+            user_type = "BU"
+            access = "full"
+            status = "information"
+            registered_by_phone = false
+            has_identification = true
         }
     }
 }

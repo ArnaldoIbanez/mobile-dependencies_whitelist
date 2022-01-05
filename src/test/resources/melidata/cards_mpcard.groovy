@@ -166,6 +166,12 @@ trackTests {
             action = "header_help"
         }
     }
+
+    // Dasboard Header Help  
+    test("cards mpcard dashboard header help") {
+        "/cards/mpcard/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
+    }
+
     // DASHBOARD Physical Unlock
     test("cards mpcard dashboard physical unlock") {
         "/cards/mpcard/dashboard/physical/unlock"(platform:"/", type: TrackType.Event) {
@@ -431,6 +437,20 @@ trackTests {
             ]
         }
     }
+    test("cards hybrid dashboard dynamic carousel displayed") {
+        "/cards/mpcard/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "3",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 0
+            ]
+        }
+    }
     test("cards hybrid dashboard dynamic carousel Closed") {
         "/cards/mpcard/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
             description = [
@@ -511,6 +531,17 @@ trackTests {
         "/cards/mpcard/dashboard/ftu_single_onboarding/tap"(platform: "/", type: TrackType.Event) {
             action = "continue"
         }
+    }
+
+    // Contextual help
+    test("Test contextual help in dashboard") {
+        "/cards/mpcard/dashboard/contextual_help"(platform:"/", type: TrackType.Event) {
+            faq_id = 22464
+        }
+    }
+
+    test("More contextual help in dashboard") {
+        "/cards/mpcard/dashboard/more_help"(platform:"/", type: TrackType.Event) { }
     }
 
     // SETUP VIRTUAL
@@ -956,6 +987,11 @@ trackTests {
         "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
             action = "change_nip"
         }
+    }
+    test("cards mpcard nip screen reauth") {
+        "/cards/mpcard/nip/physical/reauth"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/nip/physical/reauth/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/nip/physical/reauth/error"(platform:"/", type: TrackType.Event) { }
     }
     test("cards mpcard nip, It_was_not_me link message tap") {
         "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {

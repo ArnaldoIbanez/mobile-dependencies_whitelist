@@ -23,6 +23,7 @@ trackTests {
             city = "Santo André"
             domain_id = "MLB-CARS_AND_VANS"
             flow_type = "INVALID"
+            context = "HIGH_SCORE"
             map_item_attributes = [
                     [ attribute_id:"BRAND", value_id:"60297", value_name:"Toyota"],
                     [ attribute_id:"MODEL", value_id:"60337", value_name:"Yaris" ],
@@ -117,58 +118,60 @@ trackTests {
             optionals()
         }
 
+        "/vis_credits/application_form/step_5"(platform: "/", type: TrackType.View) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/application_form/step_5/next_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
         "/vis_credits/congrats"(platform: "/", type: TrackType.View) {
             congrats_status = "APPROVED"
-            context = "high_score"
             mandatory()
             optionals()
         }
 
         "/vis_credits/congrats/whatsapp_intention"(platform: "/", type: TrackType.Event) {
             congrats_status = "APPROVED"
-            context = "high_score"
             mandatory()
             optionals()
         }
 
         "/vis_credits/congrats/call_intention"(platform: "/", type: TrackType.Event) {
             congrats_status = "APPROVED"
-            context = "high_score"
             mandatory()
             optionals()
         }
 
         "/vis_credits/congrats/contact_intention"(platform: "/", type: TrackType.Event) {
             congrats_status = "APPROVED"
-            context = "high_score"
             mandatory()
             optionals()
         }
 
         "/vis_credits/congrats/dni_retry_button"(platform: "/", type: TrackType.Event) {
             congrats_status = "APPROVED"
-            context = "high_score"
             mandatory()
             optionals()
         }
 
         "/vis_credits/congrats/similar_items_button"(platform: "/", type: TrackType.Event) {
             congrats_status = "APPROVED"
-            context = "high_score"
             mandatory()
             optionals()
         }
 
         "/vis_credits/congrats/item_return_button"(platform: "/", type: TrackType.Event) {
             congrats_status = "APPROVED"
-            context = "high_score"
             mandatory()
             optionals()
         }
 
         "/vis_credits/congrats/dni_change_button"(platform: "/", type: TrackType.Event) {
             congrats_status = "APPROVED"
-            context = "high_score"
             mandatory()
             optionals()
         }
