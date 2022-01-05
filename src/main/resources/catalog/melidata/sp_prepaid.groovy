@@ -815,6 +815,85 @@ tracks {
         view_time
     }
 
+    // RA Info cancel pay
+    "/single_player/prepaid/automatic_recharge/info_cancel_pay"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/info_cancel_pay/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_cancel_pay/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_cancel_pay/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_cancel_pay/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Info cancel product
+    "/single_player/prepaid/automatic_recharge/info_cancel_product"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/info_cancel_product/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_cancel_product/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_cancel_product/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_cancel_product/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Info cancel unrecover
+    "/single_player/prepaid/automatic_recharge/info_cancel_unrecover"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/info_cancel_unrecover/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_cancel_unrecover/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_cancel_unrecover/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_cancel_unrecover/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Info fail pay
+    "/single_player/prepaid/automatic_recharge/info_fail_pay"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/info_fail_pay/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_fail_pay/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_fail_pay/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_fail_pay/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // RA Info fail rech
+    "/single_player/prepaid/automatic_recharge/info_fail_rech"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/info_fail_rech/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_fail_rech/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_fail_rech/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/info_fail_rech/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
     /**
     * Single Player Paygo Tracks
