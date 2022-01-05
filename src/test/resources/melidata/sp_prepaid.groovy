@@ -2790,6 +2790,8 @@ trackTests {
         }
         "/single_player/prepaid/congrats_success/automatic_recharge"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            view_time()
+            payment_id()
         }
 
 
