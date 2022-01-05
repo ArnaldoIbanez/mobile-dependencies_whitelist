@@ -113,11 +113,13 @@ tracks {
         debug_domain_discovery(required: false, type: PropertyType.ArrayList(PropertyType.Map(debug_domain_discovery_map)), description: "Domain Discovery Model")
         user_shops_status(required: false, type: PropertyType.String, description: "MShops status", values: ["active", "inactive", "none", "precreated"])
         sales_channels(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Selected sales channels")
+        chart_id(required: false, description: "Product chart id", type: PropertyType.String)
+        chart_type(required: false, type: PropertyType.String, description: "Product chart type", values: ["BRAND", "STANDARD", "SPECIFIC"])
     }
 
     propertyGroups {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type, business, platform)
-        sellGroupSYI(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type)
+        sellGroupSYI(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type, chart_id, chart_type)
         sellGroupMobile( seller_segment, seller_profile, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
         categoryFlowMobile(categorization_flow_successful, category_id, category_path, chosen_categorization_model, title_predicted)
@@ -1273,13 +1275,11 @@ tracks {
     }
     "/sell/item_data/chart/modify"(platform: "/", type: TrackType.Event){
         domain_id(required: true, description: "Product domain id", type: PropertyType.String)
-        chart_id(required: false, description: "Product chart id", type: PropertyType.String)
-        chart_type(required: false, type: PropertyType.String, description: "Product chart type", values: ["BRAND", "STANDARD", "SPECIFIC"])
+        sellGroupSYI
     }
     "/sell/item_data/chart/clone"(platform: "/", type: TrackType.Event){
         domain_id(required: true, description: "Product domain id", type: PropertyType.String)
-        chart_id(required: false, description: "Product chart id", type: PropertyType.String)
-        chart_type(required: false, type: PropertyType.String, description: "Product chart type", values: ["BRAND", "STANDARD", "SPECIFIC"])
+        sellGroupSYI
     }
 
     "/sell/item_conditions/seller_contact/phone"(platform: "/web", type: TrackType.View) {}
@@ -1299,8 +1299,6 @@ tracks {
         share_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for share in social network card")
         decision_flow_label(required: false, type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing", values: ["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE", "NONE"])
         mshopsGroup
-        chart_id(required: false, description: "Product chart id", type: PropertyType.String)
-        chart_type(required: false, type: PropertyType.String, description: "Product chart type", values: ["BRAND", "STANDARD", "SPECIFIC"])
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
