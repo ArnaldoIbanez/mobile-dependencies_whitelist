@@ -1,11 +1,14 @@
 package metrics
 
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 import com.ml.melidata.metrics.TagType
 
 metrics {
 
-	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true, tags:[TagType.Important, TagType.CoreMetric]) {
+	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true, tags:[TagType.Important, TagType.CoreMetric], bu: BuType.MercadoLibre, extent: ExtentType.Company) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -14,7 +17,7 @@ metrics {
 		}
 	}
 
-	"bids.pdp"(description: "/orders/ordercreated from feed (carrito included) from PDP", compute_order: true, tags:[TagType.Important, TagType.CoreMetric]) {
+	"bids.pdp"(description: "/orders/ordercreated from feed (carrito included) from PDP", compute_order: true, tags:[TagType.Important, TagType.CoreMetric], bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -26,7 +29,7 @@ metrics {
 		}
 	}
 
-	"bids.quick"(description: "/orders/ordercreated from feed (carrito included) with short attribution time (3h)", compute_order: true, ttl: 180) {
+	"bids.quick"(description: "/orders/ordercreated from feed (carrito included) with short attribution time (3h)", compute_order: true, ttl: 180, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("qadb/.*"))
 
 		countsOn {
@@ -37,7 +40,7 @@ metrics {
 		}
 	}
 
-	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, tags:[TagType.Important]) {
+	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, tags:[TagType.Important], bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -61,7 +64,7 @@ metrics {
 		}
 	}
 
-	"bids.pdp.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+	"bids.pdp.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -83,7 +86,7 @@ metrics {
 		}
 	}
 	
-	"bids.cbt.paid"(description: "/orders/ordercreated that belong to our CBT vertical and are currently paid", compute_order: true) {
+	"bids.cbt.paid"(description: "/orders/ordercreated that belong to our CBT vertical and are currently paid", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(".*(cbt/|/cbt).*"))
 		
 		countsOn {
@@ -107,7 +110,7 @@ metrics {
 		}
 	}
 	
-	"bids.cpg.paid"(description: "/orders/ordercreated that belong to our CPG vertical and are currently paid", compute_order: true) {
+	"bids.cpg.paid"(description: "/orders/ordercreated that belong to our CPG vertical and are currently paid", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("cpg/.*"))
 		
 		countsOn {
@@ -131,7 +134,7 @@ metrics {
 		}
 	}
 
-	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd  && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, tags:[TagType.Important]) {
+	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd  && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, tags:[TagType.Important], bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -165,7 +168,7 @@ metrics {
 		}
 	}
 
-	"bids.official_stores"(description: "Checkout congrats for items in any official store", compute_order: true) {
+	"bids.official_stores"(description: "Checkout congrats for items in any official store", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("(search|vip)/.*"))
 
 		countsOn {
@@ -179,7 +182,7 @@ metrics {
 		}
 	}
 
-	"mediations"(description: "/orders/ordercreated that had mediations.", compute_order: true) {
+	"mediations"(description: "/orders/ordercreated that had mediations.", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Company) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -200,7 +203,7 @@ metrics {
 		}
 	}
 
-	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true, tags:[TagType.CoreMetric]) {
+	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true, tags:[TagType.CoreMetric], bu: BuType.MercadoLibre, extent: ExtentType.Company) {
 		countsOn {
 			condition {
 				path("/purchases/purchasecreated")
@@ -209,7 +212,7 @@ metrics {
 		}
 	}
 
-	"purchases.free_shipping"(description: "purchases with all free shipping packs from /purchase/purchasecreated", compute_order: true) {
+	"purchases.free_shipping"(description: "purchases with all free shipping packs from /purchase/purchasecreated", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		countsOn {
 			condition {
 				path("/purchases/purchasecreated")
@@ -221,7 +224,7 @@ metrics {
 		}
 	}
 
-	"buys"(description: "orders or purchases created from feed", compute_order: true) {
+	"buys"(description: "orders or purchases created from feed", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Company) {
 		countsOn {
 			condition {
 				or(
@@ -239,7 +242,7 @@ metrics {
 		}
 	}
 
-	"bids.sameItem"(description: "/orders/ordercreated from feed in the same item of experiement", compute_order: true) {
+	"bids.sameItem"(description: "/orders/ordercreated from feed in the same item of experiement", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -251,7 +254,7 @@ metrics {
 		}
 	}
 
-	"bids.sameItemQuick"(description: "Quick attribution of bids", compute_order: true, ttl: 30) {
+	"bids.sameItemQuick"(description: "Quick attribution of bids", compute_order: true, ttl: 30, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("qadb/.*"))
 
 		countsOn {
@@ -265,7 +268,7 @@ metrics {
 		}
 	}
 
-	"bids.sameProduct"(description: "/orders/ordercreated from feed in the same product of experiement", compute_order: true) {
+	"bids.sameProduct"(description: "/orders/ordercreated from feed in the same product of experiement", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -277,7 +280,7 @@ metrics {
 		}
 	}
 
-	"bids.sameProduct.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation and in the same product of experiement", compute_order: true) {
+	"bids.sameProduct.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation and in the same product of experiement", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -299,7 +302,7 @@ metrics {
 		}
 	}
 
-	"bids.sameProduct.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, tags:[TagType.Important]) {
+	"bids.sameProduct.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, tags:[TagType.Important], bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("qadb/.*"))
 
 		countsOn {
@@ -333,7 +336,7 @@ metrics {
 		}
 	}
 
-	"bids.sameProductQuick"(description: "/orders/ordercreated from feed", compute_order: true, ttl: 30) {
+	"bids.sameProductQuick"(description: "/orders/ordercreated from feed", compute_order: true, ttl: 30, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("qadb/.*"))
 
 		countsOn {
@@ -347,7 +350,7 @@ metrics {
 		}
 	}
 
-	"bids.sameParent"(description: "/orders/ordercreated from feed in the same parent product of experiement", compute_order: true) {
+	"bids.sameParent"(description: "/orders/ordercreated from feed in the same parent product of experiement", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("(vip|pdp|qadb)/.*"))
 
 		countsOn {
@@ -362,7 +365,7 @@ metrics {
 	}
 
 
-	"bids.sameSearch"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
+	"bids.sameSearch"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("(search|filters)/.*"))
 
 		countsOn {
@@ -376,7 +379,7 @@ metrics {
 		}
 	}
 
-	"bids.sameSearch.paid"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
+	"bids.sameSearch.paid"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("(search|filters)/.*"))
 
 		countsOn {
@@ -400,7 +403,7 @@ metrics {
 		}
 	}
 
-	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
+	"buys.pdp"(description: "Track PDP buys", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		countsOn {
 			condition {
 				or(
@@ -420,7 +423,7 @@ metrics {
 		}
 	}
 
-	"buys.qadb_domains"(description: "Track buys only in qadb-enabled domains") {
+	"buys.qadb_domains"(description: "Track buys only in qadb-enabled domains", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("qadb/(qadb-on-vip|qadb-on-viewport-vip)"))
 
 		countsOn {
@@ -444,7 +447,7 @@ metrics {
 		}
 	}
 
-	"buys.fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true, deprecation_date:"2020/08/12") {
+	"buys.fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true, deprecation_date:"2020/08/12", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("sparkle/.*"))
 
 		countsOn {
@@ -467,7 +470,7 @@ metrics {
 		}
 	}
 
-	"bids.sameOrder.paid"(description: "/orders/ordercreated from feed in the same order with Orders-API confirmation of experiement", compute_order: true) {
+	"bids.sameOrder.paid"(description: "/orders/ordercreated from feed in the same order with Orders-API confirmation of experiement", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("(checkout|buyingflow)/.*"))
 
 		countsOn {
@@ -491,7 +494,7 @@ metrics {
 		}
 	}
 
-	"bids.with_garex"(description: "/orders/ordercreated that has a meli_warranty in internal tags meaning that garex has been purchased.", compute_order: true) {
+	"bids.with_garex"(description: "/orders/ordercreated that has a meli_warranty in internal tags meaning that garex has been purchased.", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex("insurtech/.*"))
 
 		countsOn {
@@ -514,7 +517,7 @@ metrics {
 		}
 	}
 
-	"bids.noUid"(description: "/orders/ordercreated from feed with no UID", compute_order: true, tags:[TagType.CoreMetric]) {
+	"bids.noUid"(description: "/orders/ordercreated from feed with no UID", compute_order: true, tags:[TagType.CoreMetric], bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")

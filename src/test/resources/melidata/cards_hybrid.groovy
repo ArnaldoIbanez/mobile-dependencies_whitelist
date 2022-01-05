@@ -1128,6 +1128,12 @@ trackTests {
     test("cards hybrid change pin congrats") {
         "/cards/hybrid/change_pin/congrats"(platform: "/", type: TrackType.View) {}
     }
+
+    test("cards hybrid change pin reauth") {
+        "/cards/hybrid/change_pin/reauth"(platform:"/", type: TrackType.Event) {}
+        "/cards/hybrid/change_pin/reauth/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/hybrid/change_pin/reauth/error"(platform:"/", type: TrackType.Event) {}
+    }
     
     // LIMITS
     // --------
@@ -4347,6 +4353,20 @@ trackTests {
         }
         "/cards/nfc/disabled_payment_error"(platform: "/", type: TrackType.Event) {
             user_id_is_null = true
+        }
+    }
+    
+    // NFC_IDENTITY_FALLBACK
+    test("/cards/nfc/identity_fallback") {
+        "/cards/nfc/identity_fallback"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/identity_fallback/action"(platform: "/", type: TrackType.Event) {
+            event_type = "primary_button"
+        }
+         "/cards/nfc/identity_fallback/action"(platform: "/", type: TrackType.Event) {
+            event_type = "secondary_button"
+        }
+        "/cards/nfc/identity_fallback/action"(platform: "/", type: TrackType.Event) {
+            event_type = "close"
         }
     }
 }

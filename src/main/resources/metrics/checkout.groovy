@@ -1,3 +1,5 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
 import com.ml.melidata.metrics.TagType
 
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
@@ -6,7 +8,7 @@ def checkoutExperiments = "(checkout|buyingflow)/.*"
 
 metrics {
 
-	"checkout_congrats"( description: "all congrats, including carrito and checkout congrats", compute_order:true){
+	"checkout_congrats"( description: "all congrats, including carrito and checkout congrats", compute_order:true, bu: BuType.MercadoLibre, extent: ExtentType.Company){
 
 		countsOn {
 			condition{
@@ -15,7 +17,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.single"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1)", compute_order: true) {
+	"checkout_congrats.single"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1)", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(checkoutExperiments))
 
 		countsOn {
@@ -27,7 +29,7 @@ metrics {
 	}
 
 
-	"checkout_congrats.cart"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true) {
+	"checkout_congrats.cart"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(checkoutExperiments))
 
 		countsOn {
@@ -38,7 +40,7 @@ metrics {
 		}
 	}
 
-	"checkout.loading"(description: "The checkout V5 first-page after performing a buy_intention ", tags:[TagType.CoreMetric]) {
+	"checkout.loading"(description: "The checkout V5 first-page after performing a buy_intention ", tags:[TagType.CoreMetric], bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
 		experiment(regex(checkoutExperiments))
 
 		countsOn {
@@ -48,7 +50,7 @@ metrics {
 		}
 	}
 
-	"checkout.login"(description: "path: /checkout/login/confirm_authenticated or /checkout/login/first_purchase_not_authenticated or /checkout/login/confirm_not_authenticated") {
+	"checkout.login"(description: "path: /checkout/login/confirm_authenticated or /checkout/login/first_purchase_not_authenticated or /checkout/login/confirm_not_authenticated", bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
 		experiment(regex("(search|vip)/.*"))
 
 		countsOn {
@@ -59,7 +61,7 @@ metrics {
 	}
 
 
-	"checkout_congrats.with_payment.sameOrder"(description: "congrats view with payments containing 'payment' string", compute_order: true) {
+	"checkout_congrats.with_payment.sameOrder"(description: "congrats view with payments containing 'payment' string", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Feature) {
 		experiment(regex("(.*email/order.*)"))
 
 		countsOn {

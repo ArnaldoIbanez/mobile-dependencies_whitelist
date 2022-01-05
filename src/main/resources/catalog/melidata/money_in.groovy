@@ -244,27 +244,16 @@ tracks {
         key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
         key_value_from_profile (required:false, description: "Indicate if the key is loaded from vault")
     }
-    "/money_in/pix_keys/admin"(platform: "/", type: TrackType.View) {}
     "/money_in/pix_keys/admin/resolve_request"(platform: "/", type: TrackType.Event) {
         claim_type (required:false, description: "Request type", values: ["ownership", "portability"])
     }
-    "/money_in/pix_keys/admin/detail_key"(platform: "/", type: TrackType.Event) {
-        key_type (required:false, description: "key_type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
-    }
     "/money_in/pix_keys/admin/add_key"(platform: "/", type: TrackType.Event) {}
-    "/money_in/pix_keys/key_detail"(platform: "/", type: TrackType.View) {}
     "/money_in/pix_keys/key_detail/remove_key"(platform: "/", type: TrackType.Event) {
         key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
     }
     "/money_in/pix_keys/admin/carousel"(platform:"/", isAbstract: true){}
-    "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
-        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
-    }
     "/money_in/pix_keys/admin/carousel/swipe"(platform: "/", type: TrackType.Event) {
         swipe_direction (required:false, description: "carousel swipe direction", values: ["left", "right"])
-    }
-    "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
-        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
     }
     "/money_in/pix_keys/key_claim_detail"(platform: "/", type: TrackType.View) {}
     "/money_in/pix_keys/key_claim_detail/approve"(platform: "/", type: TrackType.Event) {
@@ -518,6 +507,12 @@ tracks {
         action_id(required:false, type: PropertyType.String, description:"indicates what widget action is selected")
     }
 
+    // Money In Hub - v2 - Web
+    "/money_in/hub/modal"(platform:"/", type: TrackType.View){}
+    "/money_in/hub/modal/close"(platform:"/", type: TrackType.Event){}
+    "/money_in/hub/modal/primary_button"(platform:"/", type: TrackType.Event){}
+    "/money_in/hub/modal/secondary_button"(platform:"/", type: TrackType.Event){}
+
     // -------------Open Finance - Money In-------------
     //Onboarding
     "/money_in/open_finance"(platform:"/", isAbstract: true){}
@@ -620,4 +615,25 @@ tracks {
         flow_id(required:true,type: PropertyType.String, description:"Indicates the flow where the message is displayed")
         message_id(required:true,type: PropertyType.String, description:"Indicates the message Id")
     }
+    "/pix/admin_keys"(platform: "/", type: TrackType.View) {}
+    "/pix/admin_keys/detail_key"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key_type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/pix/admin_keys/create_key"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/pix/admin_keys/share"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/pix/pix_detail"(platform: "/", type: TrackType.View) {}
+    "/pix/pix_detail/share"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/pix/pix_detail/copy"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/pix/pix_detail/home_pix_back"(platform: "/", type: TrackType.Event) {}
+    "/pix/admin_keys/faq"(platform: "/", type: TrackType.Event) {}
+    "/pix/admin_keys/my_keys_tooltip"(platform: "/", type: TrackType.Event) {}
+
 }

@@ -420,12 +420,12 @@ tracks {
         sub_category(description: "The SubCategory of selected notice")
     }
     "/seller_central/news/primary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        notice_id(required: true, type: PropertyType.Numeric, description: "The NoticeId of selected notice")
         category(required: true, type: PropertyType.String, description: "The Category of selected notice")
         sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
     }
     "/seller_central/news/secondary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        notice_id(required: true, type: PropertyType.Numeric, description: "The NoticeId of selected notice")
         category(required: true, type: PropertyType.String, description: "The Category of selected notice")
         sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
     }
@@ -439,13 +439,13 @@ tracks {
         page(description: "The Page of selected notice")
     }
     "/seller_central/news/lib/primary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        notice_id(required: true, type: PropertyType.Numeric, description: "The NoticeId of selected notice")
         category(required: true, type: PropertyType.String, description: "The Category of selected notice")
         sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
         page(required: true, type: PropertyType.String, description: "The Page of selected notice")
     }
     "/seller_central/news/lib/secondary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        notice_id(required: true, type: PropertyType.Numeric, description: "The NoticeId of selected notice")
         category(required: true, type: PropertyType.String, description: "The Category of selected notice")
         sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
         page(required: true, type: PropertyType.String, description: "The Page of selected notice")
@@ -2475,7 +2475,7 @@ tracks {
     }
 
     "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
-        action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "CREATE_REBATE", "CREATE_TIER", "MODIFY_TIER", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN", "DELETE_TIER", "DELETE_REBATE"])
+        action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "CREATE_REBATE", "CREATE_TIER", "MODIFY", "MODIFY_TIER", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN", "DELETE_TIER", "DELETE_REBATE"])
         promo_card_applied(required: false, type: PropertyType.String, description: "Card that was applied at the moment of confirmation, if any")
     }
 

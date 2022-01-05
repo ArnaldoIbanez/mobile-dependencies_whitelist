@@ -12,6 +12,10 @@ trackTests {
         }
     }
 
+    test("Home navigation loads successfully") {
+        "/meliplaces/home/navigation/tyc"(platform: "/", type: TrackType.View) {}
+    }
+
     test("Home shield view is shown") {
         "/meliplaces/home/shield"(platform: "/", type: TrackType.View) {
             shield_id = "shield_1"
@@ -81,8 +85,8 @@ trackTests {
 
     test("Activity detail view loads successfully") {
         "/meliplaces/activities/detail"(platform: "/", type: TrackType.View) {}
-    }  
-    
+    }
+
     test("Activity detail shield view is shown") {
         "/meliplaces/activities/detail/shield"(platform: "/", type: TrackType.View) {
             shield_id = "shield_1"
@@ -101,7 +105,7 @@ trackTests {
             status = "approved"
         }
     }
-    
+
     test("Result shield view is shown") {
         "/meliplaces/result/shield"(platform: "/mobile", type: TrackType.View) {
             shield_id = "shield_1"

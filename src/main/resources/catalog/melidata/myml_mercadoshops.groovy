@@ -96,6 +96,33 @@ tracks {
         is_show_dday_banner(required: true, type: PropertyType.Boolean, description: "Banner DDay is being shown")
     }
 
+    "/mercado_shops/cda"(platform: "/", type: TrackType.View) {
+        shop_id(
+                description: "Unique Shop identifier",
+                name: "shop_id",
+                required: true,
+                type: PropertyType.Numeric,
+        )
+        shop_name(
+                description: "Name of the shop",
+                name: "shop_name",
+                required: true,
+                type: PropertyType.String,
+        )
+        shop_domain(
+                description: "Domain registered by the seller",
+                name: "shop_domain",
+                required: false,
+                type: PropertyType.String,
+        )
+    }
+
+    "/mercado_shops/cda/preview"(platform: "/", type: TrackType.View) {}
+
+    "/mercado_shops/cda/download/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/mercado_shops/cda/download/error"(platform: "/", type: TrackType.View) {}
+
     "/mercado_shops/access_denied"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/admin"(platform: "/", type: TrackType.View){

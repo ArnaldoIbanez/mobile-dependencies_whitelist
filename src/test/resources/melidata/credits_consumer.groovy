@@ -93,6 +93,10 @@ trackTests {
         "/credits/consumer/upsell/shared_data_congrats"(platform: "/", type: TrackType.View, business:"mercadopago") {}
         "/credits/consumer/upsell/shared_data_congrats/admin"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
         "/credits/consumer/upsell/shared_data_congrats/admin"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/upsell/brake"(platform: "/", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/upsell/brake"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+        "/credits/consumer/upsell/brake/know_more"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/upsell/brake/know_more"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
         /******************************************
         *       End: Flujo Upsell Consumer
         ******************************************/

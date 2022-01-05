@@ -780,6 +780,7 @@ tracks {
             values: [
                 'quanto',
                 'open_finance',
+                'belvo',
             ]
         )
     }
@@ -788,11 +789,31 @@ tracks {
         reason(
             type: PropertyType.String,
             required: true,
-            description: "Quanto integration error",
+            description: "Financial integration error",
             values: [
                 'integration_error',
                 'generic',
             ]
+        )
+        provider(
+            type: PropertyType.String,
+            required: true,
+            description: "Which provider failed",
+            values: [
+                'quanto',
+                'open_finance',
+                'belvo',
+            ]
+        )
+        requestId(
+            type: PropertyType.String,
+            required: false,
+            description: "Belvo requestID to ease troubleshooting",
+        )
+        institution(
+            type: PropertyType.String,
+            required: false,
+            description: "Belvo institution name which integration failed"
         )
     }
 
