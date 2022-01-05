@@ -1,9 +1,12 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 
 metrics {
 
-    "point_congrats"(description: "Arrival to congrats page from Point landings") {
+    "point_congrats"(description: "Arrival to congrats page from Point landings", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
         experiment(regex("mpos/.*"))
 
         countsOn {
@@ -18,7 +21,7 @@ metrics {
         }
     }
 
-    "point_buy_intention"(description: "Point Landings buy intention") {
+    "point_buy_intention"(description: "Point Landings buy intention", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
         experiment(regex("mpos/.*"))
 
         countsOn {

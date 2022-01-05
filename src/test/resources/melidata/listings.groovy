@@ -240,7 +240,9 @@ trackTests {
     }
 
     test("seller central listings row description") {
-        "/seller_central/listings/row/item_description"(platform: "/", type: TrackType.Event) {}
+        "/seller_central/listings/row/item_description"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA123459"
+        }
     }
 
     test("seller central listings row 4ta cell") {

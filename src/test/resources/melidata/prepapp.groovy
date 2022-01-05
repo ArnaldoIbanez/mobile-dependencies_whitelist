@@ -89,7 +89,6 @@ trackTests {
                     wave_id: 123456
             ]
             item_id = "ID123456"
-            variation_id = "VAR123456"
             scan_mode = "handheld"
             items_total = 10
             items_found = 8
@@ -115,7 +114,6 @@ trackTests {
                     wave_id: 123456
             ]
             item_id = "ID123456"
-            variation_id = "VAR123456"
             scan_mode = "handheld"
             measure = "g"
             items_total = 10
@@ -130,7 +128,6 @@ trackTests {
                     wave_id: 123456
             ]
             item_id = "ID123456"
-            variation_id = "VAR123456"
             measure = "g"
             items_total = 10
             seller = [

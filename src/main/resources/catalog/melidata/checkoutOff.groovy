@@ -78,6 +78,7 @@ tracks {
         client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
         flow_context(required: false, description: "Information about current flow's status, e.g: 'no_sniffing'", type: PropertyType.String)
         sponsor_id(required: false, description: "Identifies the plugin platform as shopify, magento", type: PropertyType.Numeric)
+        router_request_id(required: false, description: "Identifies an unique router requisition", type: PropertyType.String)
     }
 
     // Login
@@ -92,6 +93,8 @@ tracks {
         opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
         credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
     }
+
+    "/checkout_off/payment/select_type/combination"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/payment/select_stores"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/select_transfer"(platform: "/", type: TrackType.View) {}
@@ -135,6 +138,12 @@ tracks {
     }
 
     "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/payment/input_credits/select_installment/combination"(platform: "/", type: TrackType.View) {
+        opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
+        opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+        credits_pre_approved_line(required: false, description: "Indicates if the user has credis pre approved", type: PropertyType.Boolean)
+    }
 
     // Tokenizer product final screen.
     "/checkout_off/payment/processing"(platform: "/", type: TrackType.View) {}
@@ -189,6 +198,7 @@ tracks {
         shipping_local_pickup(required: false, description: "Whether or not the user chose local pickup", type: PropertyType.Boolean)
         shipping_free(required: false, description: "Wether or not the payer is exempt from additional shipping taxes and the seller pays for it", type: PropertyType.Boolean)
         preference(required: false, description: "Every non PII contain within a preference", type: PropertyType.Map(preference_object))
+        router_request_id(required: false, description: "Identifies an unique router requisition", type: PropertyType.String)
     }
 
     // For this path, none is required
@@ -230,6 +240,9 @@ tracks {
     "/checkout_off/congrats/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/congrats/recovered"(platform: "/", type: TrackType.View) {
+    }
+
+    "/checkout_off/congrats/combination"(platform: "/", type: TrackType.View) {
     }
 
     //MP personalFrontend

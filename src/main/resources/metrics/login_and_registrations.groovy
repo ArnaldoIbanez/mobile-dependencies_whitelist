@@ -1,9 +1,12 @@
+import com.ml.melidata.metrics.BuType
+import com.ml.melidata.metrics.ExtentType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 import com.ml.melidata.metrics.TagType
 
 
 metrics {
-    "logins"(description: "logins count", tags:[TagType.CoreMetric]) {
+    "logins"(description: "logins count", tags:[TagType.CoreMetric], bu: BuType.MercadoLibre, extent: ExtentType.Company) {
         experiment(regex("login/.*"))
 
         countsOn {
@@ -13,7 +16,7 @@ metrics {
         }
     }
 
-    "registrations"(description: "registrations count", tags:[TagType.Important]) {
+    "registrations"(description: "registrations count", tags:[TagType.Important], bu: BuType.MercadoLibre, extent: ExtentType.Company) {
         countsOn {
             condition {
                 path("/register/success")
