@@ -29,7 +29,7 @@ trackTests {
                         holdings : 0.000214 ]
                 ]
             }
-            "/crypto/tap_educational" (platform: "/mobile", type: TrackType.Event) {
+            "/crypto/select_educational" (platform: "/mobile", type: TrackType.Event) {
                 user_profile = "newbie"
                 kyc_challenge_shown = 'yes'
                 crypto = [
@@ -429,6 +429,10 @@ trackTests {
         "/crypto/load_error" (platform: "/mobile", type: TrackType.Event) {
             user_profile = "newbie"
             errors = "no_site_connection"
+        }
+        "/crypto/load_error" (platform: "/mobile", type: TrackType.Event) {
+            user_profile = "newbie"
+            errors = "error"
         }
         "/crypto/load_error" (platform: "/mobile", type: TrackType.Event) {
             user_profile = "newbie"

@@ -76,6 +76,11 @@ tracks
                   type: PropertyType.String,
                   required: true
           )
+          status_detail(
+                  description: "Detail of payment status",
+                  type: PropertyType.String,
+                  required: false
+          )
           paid_amount(
                   description: "the amount paid",
                   type:  PropertyType.Numeric,
@@ -122,7 +127,7 @@ tracks
         kyc_challenge_shown (type: PropertyType.String, required: false, description: 'If the user is KYC compliant',values:['yes','no'])
         crypto (type:  PropertyType.Map(crypto_definition), required: false, description: 'Cryptocurrency information')
       }
-      "/crypto/tap_educational" (platform: "/mobile", type: TrackType.Event) {
+      "/crypto/select_educational" (platform: "/mobile", type: TrackType.Event) {
         kyc_challenge_shown(type: PropertyType.String, required: true, description: 'If the user is KYC compliant',values:['yes','no'])
         crypto(type: PropertyType.Map(crypto_definition), required: true, description: 'Cryptocurrency information')
         event_category(type: PropertyType.String, required: true, description: 'Category of event', values:['crypto'])
@@ -261,7 +266,7 @@ tracks
 
       // Congrats
       "/crypto/buy/congrats" (platform: "/mobile", type: TrackType.View) {
-        amount(type: PropertyType.Numeric, required: true, description: 'Amount of the operation in local currency')
+        amount(type: PropertyType.Numeric, required: false, description: 'Amount of the operation in local currency')
         crypto(type: PropertyType.String, required: true, description: 'Type of crypto', values: ["bitcoin", "ethereum","melicoin","usdp" ])
         payment(type: PropertyType.Map(payment_definition), required: false, description: 'Info about payment')
         quote(type: PropertyType.Map(quote_definition), required: false, description: 'Quote offer by proveedor')
@@ -269,7 +274,7 @@ tracks
       }
 
       "/crypto/sell/congrats" (platform: "/mobile", type: TrackType.View) {
-        amount(type: PropertyType.Numeric, required: true, description: 'Amount of the operation in local currency')
+        amount(type: PropertyType.Numeric, required: false, description: 'Amount of the operation in local currency')
         crypto(type: PropertyType.String, required: true, description: 'Type of crypto', values: ["bitcoin", "ethereum","melicoin","usdp" ])
         payment(type: PropertyType.Map(payment_definition), required: false, description: 'Info about payment')
         quote(type: PropertyType.Map(quote_definition), required: false, description: 'Quote offer by proveedor')
@@ -306,7 +311,8 @@ tracks
         event_action(type: PropertyType.String, required: true, description: 'Action name of event',values: ["opt_in"])
       }
       "/crypto/load_error" (platform: "/mobile", type: TrackType.View) {
-        errors(type: PropertyType.String, required: false, description: 'Type of error', values: ["no_internet_connection", "not_available_on_country", "no_site_connection","cant_show_data"])
+        errors(type: PropertyType.String, required: false, description: 'Type of error',
+        values: ["no_internet_connection", "not_available_on_country", "no_site_connection","cant_show_data","error"])
       }
       "/crypto/educational" (platform: "/", type: TrackType.View) {
         crypto(required: false, type: PropertyType.String, description: "Currency Name")

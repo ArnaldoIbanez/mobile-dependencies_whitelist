@@ -260,6 +260,54 @@ trackTests {
         "/logistics/login_ml/helper/route_sharing_disclaimer/qr_detected"(platform: "/mobile", type: TrackType.View){
             status ="invalid_format"
         }
+        // Exchange Point
+        "/logistics/exchange_point"(platform: "/mobile", type: TrackType.View){
+            driver_id = 234
+            vehicle_id = 345
+        }
+        "/logistics/exchange_point/list"(platform: "/mobile", type: TrackType.View){
+            driver_id = 234
+            vehicle_id = 345
+            destination_facilities_ids = ["1"]
+            route_status = "active"
+        }
+        "/logistics/exchange_point/list/add_container"(platform: "/mobile", type: TrackType.Event){
+            driver_id = 234
+            vehicle_id = 345
+            destination_facilities_ids = ["1"]
+        }
+        "/logistics/exchange_point/list/finish_route"(platform: "/mobile", type: TrackType.Event){
+            driver_id = 234
+            vehicle_id = 345
+        }
+        "/logistics/exchange_point/list/how_to_arrive"(platform: "/mobile", type: TrackType.Event){
+            driver_id = 234
+            vehicle_id = 345
+            destination_facility_id = "123"
+        }
+        "/logistics/exchange_point/detail"(platform: "/mobile", type: TrackType.View){
+            driver_id = 234
+            vehicle_id = 345
+            destination_facility_id = "123"
+            containers = ["1"]
+        }
+        "/logistics/exchange_point/detail/how_to_arrive"(platform: "/mobile", type: TrackType.Event){
+            driver_id = 234
+            vehicle_id = 345
+            destination_facility_id = "123"
+        }
+        "/logistics/exchange_point/detail/arrive_waypoint"(platform: "/mobile", type: TrackType.Event){
+            driver_id = 234
+            vehicle_id = 345
+            destination_facility_id = "123"
+            containers = [1]
+        }
+        "/logistics/exchange_point/detail/containers/list"(platform: "/mobile", type: TrackType.View){
+            driver_id = 234
+            vehicle_id = 345
+            destination_facility_id = "123"
+            containers = ["1"]
+        }
     }
 
     test("Testing Logistics Last Mile") {

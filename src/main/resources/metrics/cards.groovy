@@ -3,8 +3,8 @@ import com.ml.melidata.metrics.ExtentType
 
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
-def experimentsRegex = '(cards|wallet_home)/.*'
-def experimentsHome = 'wallet_home/.*'
+def experimentsRegex = '(cards|wallet)/.*'
+def experimentsHome = 'wallet/.*'
 
 metrics {
     'cards.acquisition'(description: 'Counts when a user request a card using Mercado Pago app', bu: BuType.MercadoPago, extent: ExtentType.Product) {

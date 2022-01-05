@@ -67,6 +67,8 @@ tracks {
     }
     "/credits/consumer/upsell/shared_data_congrats"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/upsell/shared_data_congrats/admin"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/upsell/brake"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/upsell/brake/know_more"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
     *       End: Flujo Upsell Consumer

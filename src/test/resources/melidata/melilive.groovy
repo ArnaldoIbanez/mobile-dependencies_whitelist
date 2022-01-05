@@ -8,7 +8,7 @@ trackTests {
 
     test("MeliLive stream broadcast live") {
 
-        "/melilive/stream/live"(platform: "/") {
+        "/melilive/stream"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
                     "title": "Melilive",
@@ -252,6 +252,7 @@ trackTests {
             chat = [
                 "room_id": "room-v3-03"
             ]
+            ban_type = "perma_ban"
         }
 
         "/melilive/creator/chat/first_message"(platform: "/") {
