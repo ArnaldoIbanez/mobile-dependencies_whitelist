@@ -521,10 +521,10 @@ tracks {
     }
     "/seller_central/seller_coach/module/display"(platform: "/", type: TrackType.View) {}
     "/seller_central/seller_coach/module/open"(platform: "/", type: TrackType.Event) {
-        card(required: false, type: PropertyType.Map(sellerCoachCard), description: "Card displayed when the module was actioned")
+        card(required: false, type: PropertyType.Map(sellerCoachCard), description: "Card displayed when the module was opened")
     }
     "/seller_central/seller_coach/module/close"(platform: "/", type: TrackType.Event) {
-        card(required: false, type: PropertyType.Map(sellerCoachCard), description: "Card displayed when the module was actioned")
+        card(required: false, type: PropertyType.Map(sellerCoachCard), description: "Card displayed when the module was closed")
     }
     "/seller_central/seller_coach/coachmark/display"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/coachmark/action"(platform: "/", type: TrackType.Event) {}
