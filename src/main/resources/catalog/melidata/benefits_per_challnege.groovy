@@ -53,6 +53,10 @@ tracks {
   "/instore/challenge/onboarding" (platform: "/", type: TrackType.View) {}
 
   "/instore/challenge/onboarding/start" (platform: "/", type: TrackType.Event) {}
+
+  "/instore/challenge/onboarding/success" (platform: "/", type: TrackType.Event) {}
+
+  "/instore/challenge/onboarding/fail" (platform: "/", type: TrackType.Event) {}
   
   // ----- Error pages -----
   "/instore/challenge/error" (platform: "/", type: TrackType.View) {}

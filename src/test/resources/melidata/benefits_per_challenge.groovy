@@ -120,6 +120,18 @@ trackTests {
       traffic_from = "mercadopago"
     }
   }
+  test("Start button") {
+    "/instore/challenge/onboarding/success" (platform: "/", type: TrackType.Event) {
+      session_id = "11"
+      traffic_from = "mercadopago"
+    }
+  }
+  test("Start button") {
+    "/instore/challenge/onboarding/fail" (platform: "/", type: TrackType.Event) {
+      session_id = "11"
+      traffic_from = "mercadopago"
+    }
+  }
 
   test("Error Page") {
     "/instore/challenge/error" (platform: "/", type: TrackType.View) {
