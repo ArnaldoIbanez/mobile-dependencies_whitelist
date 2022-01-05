@@ -3542,6 +3542,8 @@ trackTests {
         }
         "/single_player/prepaid/congrats_success/automatic_recharge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
+            payment_id = 252
         }
 
 
