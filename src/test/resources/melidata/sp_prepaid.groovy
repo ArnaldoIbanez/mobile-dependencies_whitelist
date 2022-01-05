@@ -908,18 +908,22 @@ trackTests {
             step_information()
             view_time()
         }
+
         "/single_player/prepaid/scanner/help"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             step_information()
         }
+
         "/single_player/prepaid/scanner/error"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             step_information()
         }
+
         "/single_player/prepaid/scanner/to_confirm"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             step_information()
         }
+
         "/single_player/prepaid/scanner/confirm_number"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             step_information()
