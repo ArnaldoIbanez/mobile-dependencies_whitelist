@@ -51,7 +51,7 @@ tracks {
 
     def bookmark_stream_info_definition = objectSchemaDefinitions {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
-        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
+        status(required: true, type: PropertyType.String, values: ["SCHEDULED","LIVE", "ENDED", "RECORDED"], description: "Current status of broadcast")
     }
 
     def product_info_definition = objectSchemaDefinitions {
@@ -127,6 +127,18 @@ tracks {
 
     "/melilive/stream/share"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         stream(required: true, type: PropertyType.Map(share_stream_info_definition), description: "Stream information")
+    }
+
+    "/melilive/bookmark"("platform": "/", type: TrackType.Event, isAbstract: true) {
+        stream(required: true, type: PropertyType.Map(bookmark_stream_info_definition), description: "Stream information")
+        item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
+        catalog_product_id(required: false, type: PropertyType.String, description:  "Product Id")
+    }
+
+    "/melilive/bookmark/add"("platform": "/", type: TrackType.Event) {
+    }
+
+    "/melilive/bookmark/delete"("platform": "/", type: TrackType.Event) {
     }
 
     // ************** CREATOR **************
