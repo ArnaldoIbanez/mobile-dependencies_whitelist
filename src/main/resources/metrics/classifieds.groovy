@@ -104,6 +104,15 @@ metrics {
 		}
 	}
 
+	"whatsapp_support"(description: "track vip whatsapp support as success for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
+		experiment(regex(searchVipClassifiedExperiments))
+
+		countsOn {
+			condition {
+				path("/vip/whatsapp_support")
+			}
+		}
+	}
 
 	"quotations"(description: "track quotation as success for classifieds", bu: BuType.MercadoLibre, extent: ExtentType.Product) {
 		experiment(regex(searchVipClassifiedExperiments))
