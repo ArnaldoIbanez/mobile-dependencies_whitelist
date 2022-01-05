@@ -473,6 +473,19 @@ tracks {
           )
     }
 
+    // Contextual help
+    // ----
+    "/cards/mpcard/dashboard/contextual_help"(platform: "/", type: TrackType.Event){
+        faq_id (
+            required: true,
+            description: "Indicates the faq identifier that was tapped",
+            type: PropertyType.Numeric
+        )
+    }
+
+    "/cards/mpcard/dashboard/more_help"(platform: "/", type: TrackType.Event) { }
+
+
     // SETUP VIRTUAL
     // --------
 

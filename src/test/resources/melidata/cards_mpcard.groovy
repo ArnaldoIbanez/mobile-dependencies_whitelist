@@ -533,6 +533,17 @@ trackTests {
         }
     }
 
+    // Contextual help
+    test("Test contextual help in dashboard") {
+        "/cards/mpcard/dashboard/contextual_help"(platform:"/", type: TrackType.Event) {
+            faq_id = 22464
+        }
+    }
+
+    test("More contextual help in dashboard") {
+        "/cards/mpcard/dashboard/more_help"(platform:"/", type: TrackType.Event) { }
+    }
+
     // SETUP VIRTUAL
     // --------
 
