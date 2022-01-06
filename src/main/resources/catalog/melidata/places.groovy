@@ -14,9 +14,9 @@ tracks {
                 description: "ID of place (agency) user operates in.")
         shipment_id(required: true, type: PropertyType.String,
                 description: "ID of shipment being validated for reception.")
-        content(required: true, type: PropertyType.String,
+        validation_content(required: true, type: PropertyType.String,
                 description: "Content being validated.")
-        display(required: false, type: PropertyType.String, values: ["browser", "standalone", "none"],
+        display(required: false, type: PropertyType.String, values: ["browser", "standalone"],
                 description: "Specifies the display mode app is running as.")
         validation_error(required: false, type: PropertyType.String,
                 description: "Specifies what kind of validation error happened.")
@@ -35,7 +35,7 @@ tracks {
 
     propertyGroups {
         place_shipment(place_id, shipment_id, display, operator_id)
-        place_validation(place_id, operator_id, scanner_input, content, input_type, display, validation_error, flow)
+        place_validation(place_id, operator_id, scanner_input, validation_content, input_type, display, validation_error, flow)
         place_camera(place_id, display, camera_error, operator_id)
         mandatory(place_id)
     }
