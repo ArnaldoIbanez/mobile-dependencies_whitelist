@@ -66,6 +66,16 @@ metrics {
     }
   }
 
+  "wallet_home.pendings"(description: "Counts when an user taps the Pendings Section in the Home", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
+    experiment(regex("wallet/.*"))
+
+    countsOn {
+      condition {
+        path("/wallet_home/section/tap/pendings")
+      }
+    }
+  }
+
   "wallet_home.ads_top_banner"(description: "Counts when an user taps on the advertising section", bu: BuType.MercadoPago, extent: ExtentType.Feature) {
     experiment(regex("wallet/.*"))
 

@@ -1153,6 +1153,9 @@ tracks {
           )
     }
     "/cards/hybrid/change_pin/congrats"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/change_pin/reauth"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/change_pin/reauth/success"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/change_pin/reauth/error"(platform:"/", type: TrackType.Event) { }
     
     // LIMITS
     // --------

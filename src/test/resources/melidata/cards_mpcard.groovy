@@ -533,6 +533,17 @@ trackTests {
         }
     }
 
+    // Contextual help
+    test("Test contextual help in dashboard") {
+        "/cards/mpcard/dashboard/contextual_help"(platform:"/", type: TrackType.Event) {
+            faq_id = 22464
+        }
+    }
+
+    test("More contextual help in dashboard") {
+        "/cards/mpcard/dashboard/more_help"(platform:"/", type: TrackType.Event) { }
+    }
+
     // SETUP VIRTUAL
     // --------
 
@@ -976,6 +987,11 @@ trackTests {
         "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
             action = "change_nip"
         }
+    }
+    test("cards mpcard nip screen reauth") {
+        "/cards/mpcard/nip/physical/reauth"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/nip/physical/reauth/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/nip/physical/reauth/error"(platform:"/", type: TrackType.Event) { }
     }
     test("cards mpcard nip, It_was_not_me link message tap") {
         "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {

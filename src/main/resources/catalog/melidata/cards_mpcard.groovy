@@ -473,6 +473,19 @@ tracks {
           )
     }
 
+    // Contextual help
+    // ----
+    "/cards/mpcard/dashboard/contextual_help"(platform: "/", type: TrackType.Event){
+        faq_id (
+            required: true,
+            description: "Indicates the faq identifier that was tapped",
+            type: PropertyType.Numeric
+        )
+    }
+
+    "/cards/mpcard/dashboard/more_help"(platform: "/", type: TrackType.Event) { }
+
+
     // SETUP VIRTUAL
     // --------
 
@@ -941,6 +954,9 @@ tracks {
             description: "Help, Back and change nip button tapped"
         )
     }
+    "/cards/mpcard/nip/physical/reauth"(platform:"/", type: TrackType.Event) {}
+    "/cards/mpcard/nip/physical/reauth/success"(platform:"/", type: TrackType.Event) {}
+    "/cards/mpcard/nip/physical/reauth/error"(platform:"/", type: TrackType.Event) {}
     "/cards/mpcard/nip/message"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
         action (

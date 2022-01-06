@@ -1380,7 +1380,7 @@ tracks {
     "/notification/asset_management_underage_rejected"(platform: "/mobile") {}
     "/notification/asset_management_underage_request"(platform: "/mobile") {}
     "/notification/asset_management_missing_docs"(platform: "/mobile") {}
-    "/notification/asset_management_cryto"(platform: "/mobile") {}
+    "/notification/asset_management_crypto_paxos_validate"(platform: "/mobile") {}
 
 
     //Campañas
@@ -2313,4 +2313,8 @@ tracks {
 
     //Open Finance
     "/notification/open_finance_consent_recovery"(platform: "/mobile") {}
+    "/notification/open_finance_consent_to_expire"(platform: "/mobile") {}
+    "/notification/open_finance_consent_expired"(platform: "/mobile") {}
+    "/notification/open_finance_consent_revoked"(platform: "/mobile") {}
+    "/notification/open_finance_data_available"(platform: "/mobile") {}
 }

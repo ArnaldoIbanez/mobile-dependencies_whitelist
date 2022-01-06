@@ -34,6 +34,7 @@ trackTests {
 
         "/my_business/challenges/subscribe" (platform: "/", type: TrackType.Event) {
           challenge_id = "tpv-challenge-1"
+          challenges = [123, 456]
         }
 
         "/my_business/challenges/progress" (platform: "/", type: TrackType.Event) {
@@ -42,6 +43,7 @@ trackTests {
 
         "/my_business/challenges/terms_and_conditions" (platform: "/", type: TrackType.Event) {
           challenge_id = "tpv-challenge-1"
+          challenges = [123, 456]
         }
 
         "/my_business/challenges/in_game/terms_and_conditions" (platform: "/", type: TrackType.Event) {

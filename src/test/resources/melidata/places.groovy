@@ -485,4 +485,69 @@ trackTests {
             defaultTrackInformation()
         }
     }
+
+    test("places inbounds remove shipment confirmed event") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+            shipment_id = "12345678901"
+            display = "browser"
+            operator_id = 1234
+        }
+
+        "/places/inbounds/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places validate content with scanner manual input event") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+            operator_id = 1234
+            scanner_input = "12345678901"
+            validation_content = "{\"type\":\"shipment\",\"content\":{\"value\":\"12345678901\"}}"
+            input_type = "manual_input"
+            display = "browser"
+            validation_error = null
+            flow = "unified"
+        }
+
+        "/places/scanner/validate_content"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places validate content with error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+            operator_id = 1234
+            scanner_input = "12345678901"
+            validation_content = "{\"type\":\"shipment\",\"content\":{\"value\":\"12345678901\"}}"
+            input_type = "camera"
+            display = "browser"
+            validation_error = "internal_error"
+            flow = "unified"
+        }
+
+        "/places/scanner/validate_content"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places reception camera error event") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+            display = "browser"
+            camera_error = "not_allowed"
+            operator_id = 1234
+        }
+
+        "/places/scanner/error/access_camera"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
 }

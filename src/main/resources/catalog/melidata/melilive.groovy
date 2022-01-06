@@ -51,7 +51,7 @@ tracks {
 
     def bookmark_stream_info_definition = objectSchemaDefinitions {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
-        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
+        status(required: true, type: PropertyType.String, values: ["SCHEDULED","LIVE", "ENDED", "RECORDED"], description: "Current status of broadcast")
     }
 
     def product_info_definition = objectSchemaDefinitions {
@@ -93,9 +93,7 @@ tracks {
 
     "/melilive"(platform: "/" , isAbstract:true ) {}
 
-    "/melilive/stream"(platform: "/" , isAbstract:true ) {}
-
-    "/melilive/stream/live"(platform: "/", type: TrackType.View) {
+    "/melilive/stream"(platform: "/", type: TrackType.View) {
         streamStatusGroup
     }
 
@@ -108,10 +106,10 @@ tracks {
     }
 
     "/melilive/webview"(platform: "/mobile", type: TrackType.View) {
-        uri(required: true, type: PropertyType.String, description: "Live URL")
+        uri(required: false, type: PropertyType.String, description: "Live URL")
     }
 
-    "/melilive/stream/exit"(platform: "/", type: TrackType.Event) {
+    "/melilive/stream/exit"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         stream(required: true, type: PropertyType.Map(exit_stream_info_definition), description: "Stream information")
         viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
     }
@@ -121,14 +119,26 @@ tracks {
         viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
     }
 
-    "/melilive/stream/group"(platform: "/", type: TrackType.Event) {
+    "/melilive/stream/group"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         stream(required: true, type: PropertyType.Map(group_stream_info_definition), description: "Stream information")
         group_id(required: true, type: PropertyType.String, description: "Group ID selected")
         products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_group_info_definition)), description: "Product added to the group")
     }
 
-    "/melilive/stream/share"(platform: "/", type: TrackType.Event) {
+    "/melilive/stream/share"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         stream(required: true, type: PropertyType.Map(share_stream_info_definition), description: "Stream information")
+    }
+
+    "/melilive/bookmark"("platform": "/", type: TrackType.Event, isAbstract: true) {
+        stream(required: true, type: PropertyType.Map(bookmark_stream_info_definition), description: "Stream information")
+        item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
+        catalog_product_id(required: false, type: PropertyType.String, description:  "Product Id")
+    }
+
+    "/melilive/bookmark/add"("platform": "/", type: TrackType.Event) {
+    }
+
+    "/melilive/bookmark/delete"("platform": "/", type: TrackType.Event) {
     }
 
     // ************** CREATOR **************
@@ -182,7 +192,7 @@ tracks {
 
     // ************** VIEWER **************
 
-    "/melilive/stream/chat"(platform: "/" , isAbstract:true ) {
+    "/melilive/stream/chat"(platform: "/" , isAbstract:true, parentPropertiesInherited:false) {
         stream(required: true, type: PropertyType.Map(chat_stream_info_definition), description: "Broadcast object")
         chat(required: true, type: PropertyType.Map(chat_room_info_definition), description: "Chat object")
     }
@@ -213,7 +223,7 @@ tracks {
      }
 
     "/melilive/creator/chat/ban"(platform: "/", type: TrackType.Event) {
-
+        ban_type(required: true, type: PropertyType.String, values: ["perma_ban"], description: "Chat ban type, it will store all of the ban types available for moderators and publisher")
      }
 
 }

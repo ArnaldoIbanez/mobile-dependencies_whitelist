@@ -111,7 +111,7 @@ metrics {
             condition {
                 path("/loyalty/buylevel/congrats")
                 and(
-                        equals("event_data.payment_status", "approve"),
+                        equals("event_data.payment_status", "approved"),
                         or(
                                 equals("event_data.payment_status", "pending"),
                                 equals("event_data.payment_status", "in_process")

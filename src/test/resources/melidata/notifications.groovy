@@ -6088,7 +6088,7 @@ trackTests {
             news_id = "asset-management_missing_docs-12345678-123123"
             event_type = "shown"
         }
-         "/notification/asset_management_cryto"(platform: "/mobile") {
+         "/notification/asset_management_crypto_paxos_validate"(platform: "/mobile") {
             news_id = "asset-management_missing_docs-12345678-123123"
             event_type = "shown"
         }
@@ -15618,6 +15618,18 @@ trackTests {
         }
 
         "/notification/open_finance_consent_recovery"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/open_finance_consent_to_expire"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/open_finance_consent_expired"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/open_finance_consent_revoked"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/open_finance_data_available"(platform: "/mobile") {
             event_type = "open"
         }
     }

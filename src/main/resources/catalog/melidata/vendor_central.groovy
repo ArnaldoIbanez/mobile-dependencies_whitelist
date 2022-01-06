@@ -41,7 +41,7 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/vendor_central/offerings_listing"(platform: "/", type: TrackType.View) {}
-    "/vendor_central/bulk/offerings_listing/filter"(platform: "/", type: TrackType.Event) {
+    "/vendor_central/offerings_listing/filter"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Type of filtering criteria")
         values(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Applied filters value")
         criteria(required: false, type: PropertyType.String, description: "Applied filter criteria type value on single search type filter")

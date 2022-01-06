@@ -415,6 +415,11 @@ tracks {
     "/pix/home/collect"(platform: "/", type: TrackType.Event) {}
     "/pix/home/pay"(platform: "/", type: TrackType.Event) {}
 
+    "/pix/home/snackbar"(platform: "/", type: TrackType.View) {
+        message (required:true, description: "Deeplink value param [snackBarMessage]")
+        state (required:true, description: "Deeplink value param [snackBarState]")
+    }
+
     //Home Pix MLB - Keys
     "/pix/home/keys"(platform: "/", isAbstract: true) {}
     "/pix/home/keys/copy"(platform: "/", type: TrackType.Event) {}

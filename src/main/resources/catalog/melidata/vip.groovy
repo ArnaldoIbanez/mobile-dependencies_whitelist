@@ -80,7 +80,7 @@ tracks {
         // PRICING 2.0
         available_promotions(required: false, type: PropertyType.ArrayList(PropertyType.Map(available_promotions_map)),
                 description: "Lists the available promotions for the item")
-        discount_reasons(required: false, type: PropertyType.ArrayList, description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
+        discount_reasons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
 
         //afterDispatch: if unknown or unknown_frame (true/false)
         //min_days: minimum number of days of the promise. (int)
@@ -516,6 +516,38 @@ tracks {
         variation_info
     }
 
+    "/vip/remove_from_cart_action"(platform: "/", parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to a2c")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String) , description:  "Category path of the the item")
+        is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
+        loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+        vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        return_available(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free return for the item")
+        has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
+        official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
+        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "none"], description: "Seller's reputation level")
+        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: false, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
+        power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
+                description: "Seller's Mercado Lider level")
+        attribute_combinations(required: false, type: PropertyType.Numeric, description: "Indicates the amount of variation pickers an item has")
+        credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
+        add_cart_info
+        shipping_info
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
+        pricing_info
+        option_selected(required: false, type: PropertyType.Map(protection_quote_data), description: "information about the chosen protection")
+    }
+
     "/vip/input_zip_code"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
 
     "/vip/input_zip_code/dont_know_my_zip_code"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
@@ -532,7 +564,7 @@ tracks {
     }
 
     "/vip/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
-         item_id(required: true, type: PropertyType.String, description: "Item ID")
+         item_id(required: false, type: PropertyType.String, description: "Item ID")
          referer(required: false, type: PropertyType.String, description: "Size chart referer")
          size_chart_version(required: false, type: PropertyType.String, description: "Indicate the size chart version")
          grid_id(required: false, type: PropertyType.String, description: "Indicate the id of the size chart")
