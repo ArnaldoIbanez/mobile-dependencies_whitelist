@@ -799,9 +799,6 @@ tracks {
     // RA Product list
     "/single_player/prepaid/automatic_recharge/product_list"(platform: "/mobile", type: TrackType.View) {}
 
-    "/single_player/prepaid/automatic_recharge/product_list/selected_recommended_product"(platform: "/mobile", type: TrackType.Event) {
-        view_time
-    }
     "/single_player/prepaid/automatic_recharge/product_list/selected_product"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }

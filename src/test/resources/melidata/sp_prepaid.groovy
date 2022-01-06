@@ -993,10 +993,6 @@ trackTests {
             step_information()
         }
 
-        "/single_player/prepaid/automatic_recharge/product_list/selected_recommended_product"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-            view_time()
-        }
         "/single_player/prepaid/automatic_recharge/product_list/selected_product"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
@@ -2157,10 +2153,6 @@ trackTests {
             step_information()
         }
 
-        "/single_player/prepaid/automatic_recharge/product_list/selected_recommended_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
-            mandatory()
-            view_time()
-        }
         "/single_player/prepaid/automatic_recharge/product_list/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
