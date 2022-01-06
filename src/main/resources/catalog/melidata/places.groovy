@@ -12,9 +12,33 @@ tracks {
     propertyDefinitions {
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")
+        shipment_id(required: true, type: PropertyType.String,
+                description: "ID of shipment being validated.")
+        validation_content(required: true, type: PropertyType.String,
+                description: "Content being validated.")
+        display(required: false, type: PropertyType.String, values: ["browser", "standalone"],
+                description: "Specifies the display mode app is running as.")
+        // WIP - once finished define array of possible values
+        // ['invalid_flow', 'duplicated', 'invalid_step', 'invalid_entity', 'invalid_data', 'internal_error', 'no_connection']
+        validation_error(required: false, type: PropertyType.String,
+                description: "Specifies what kind of validation error happened.")
+        input_type(required: true, type: PropertyType.String,
+                values: ["camera", "external_scan", "manual_input"],
+                description: "Specifies which type of input was used to insert the value.")
+        flow(required: true, type: PropertyType.String,
+                description: "Specifies the operational flow from where the track was sent.")
+        camera_error(required: true, type: PropertyType.String,
+                description: "Specifies the error happened with the camera.")
+        scanner_input(required: false, type: PropertyType.String,
+                description: "Specifies the raw scanner input.")
+        operator_id(required: false, type: PropertyType.Numeric,
+                description: "ID of operator.")
     }
 
     propertyGroups {
+        places_shipment(place_id, shipment_id, display, operator_id)
+        places_validation(place_id, operator_id, scanner_input, validation_content, input_type, display, validation_error, flow)
+        places_camera(place_id, display, camera_error, operator_id)
         mandatory(place_id)
     }
 
@@ -212,5 +236,17 @@ tracks {
                 description: "Specifies the error occurred when trying to get geolocation.")
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/inbounds/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
+        places_shipment
+    }
+
+    "/places/scanner/validate_content"(platform: "/web", type: TrackType.Event) {
+        places_validation
+    }
+
+    "/places/scanner/error/access_camera"(platform: "/web", type: TrackType.Event) {
+        places_camera
     }
 }
