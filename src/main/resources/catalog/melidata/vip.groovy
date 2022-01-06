@@ -675,6 +675,26 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
     }
 
+    "/vip/whatsapp_suppport"(platform: "/web", type: TrackType.Event) {
+        category_id(required: true, type: PropertyType.String, description: "Item's category ID")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: true, description: "Vertical name over show phone event is displayed")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        event_source(required: true, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        catalog_listing(required: true, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        source(required: true,  type: PropertyType.String, description: "Source of the referred")
+    }
+
+    "/vip/whatsapp_suppport"(platform: "/mobile", type: TrackType.Event) {
+        catalog_listing(required: false, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        event_source(required: false, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
+
     "/vip/call_seller_intention"(platform: "/", type: TrackType.Event) {
         category_id(required: true, type: PropertyType.String, description: "Item's category ID")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
