@@ -18,6 +18,8 @@ tracks {
                 description: "Content being validated.")
         display(required: false, type: PropertyType.String, values: ["browser", "standalone"],
                 description: "Specifies the display mode app is running as.")
+        // WIP - once finished define array of possible values
+        // ['invalid_flow', 'duplicated', 'invalid_step', 'invalid_entity', 'invalid_data']
         validation_error(required: false, type: PropertyType.String,
                 description: "Specifies what kind of validation error happened.")
         input_type(required: true, type: PropertyType.String,
