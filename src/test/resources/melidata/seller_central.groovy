@@ -598,6 +598,16 @@ trackTests {
     }
   }
 
+  test("Seller coach module display") {
+    "/seller_central/seller_coach/module/display"(platform: "/web", type: TrackType.View) {
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
+    }
+  }
+
   test("Seller coach module open") {
     "/seller_central/seller_coach/module/open"(platform: "/web", type: TrackType.Event) {
       power_seller_status = "4_light_green"
