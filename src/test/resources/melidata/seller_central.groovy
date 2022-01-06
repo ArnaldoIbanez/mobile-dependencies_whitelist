@@ -172,7 +172,6 @@ trackTests {
   test("seller central listing hotjar survey") {
     "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
       hotjar_survey = "1"
-      hotjar_message = "user message"
       view_id = "listing"
     }
   }
