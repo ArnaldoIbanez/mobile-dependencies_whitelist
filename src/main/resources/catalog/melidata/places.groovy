@@ -13,7 +13,7 @@ tracks {
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")
         shipment_id(required: true, type: PropertyType.String,
-                description: "ID of shipment being validated for reception.")
+                description: "ID of shipment being validated.")
         validation_content(required: true, type: PropertyType.String,
                 description: "Content being validated.")
         display(required: false, type: PropertyType.String, values: ["browser", "standalone"],
@@ -22,21 +22,21 @@ tracks {
                 description: "Specifies what kind of validation error happened.")
         input_type(required: true, type: PropertyType.String,
                 values: ["camera", "external_scan", "manual_input"],
-                description: "Specifies by what means you entered the input")
+                description: "Specifies which type of input was used to insert the value.")
         flow(required: true, type: PropertyType.String,
-                description: "Specifies the flow that is being operated")
+                description: "Specifies the operational flow from where the track was sent.")
         camera_error(required: true, type: PropertyType.String,
-                description: "Specifies what kind of camera error happened.")
+                description: "Specifies the error happened with the camera.")
         scanner_input(required: false, type: PropertyType.String,
-                description: "Specifies the raw input")
+                description: "Specifies the raw scanner input.")
         operator_id(required: false, type: PropertyType.Numeric,
-                description: "ID of user.")
+                description: "ID of operator.")
     }
 
     propertyGroups {
-        place_shipment(place_id, shipment_id, display, operator_id)
-        place_validation(place_id, operator_id, scanner_input, validation_content, input_type, display, validation_error, flow)
-        place_camera(place_id, display, camera_error, operator_id)
+        places_shipment(place_id, shipment_id, display, operator_id)
+        places_validation(place_id, operator_id, scanner_input, validation_content, input_type, display, validation_error, flow)
+        places_camera(place_id, display, camera_error, operator_id)
         mandatory(place_id)
     }
 
@@ -237,14 +237,14 @@ tracks {
     }
 
     "/places/inbounds/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
-        place_shipment
+        places_shipment
     }
 
     "/places/scanner/validate_content"(platform: "/web", type: TrackType.Event) {
-        place_validation
+        places_validation
     }
 
     "/places/scanner/error/access_camera"(platform: "/web", type: TrackType.Event) {
-        place_camera
+        places_camera
     }
 }
