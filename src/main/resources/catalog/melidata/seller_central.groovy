@@ -707,6 +707,8 @@ tracks {
     }
 
     "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
+        hotjar_message(required: false, type: PropertyType.String, description: "Users feedback message")
         hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
     }
 
