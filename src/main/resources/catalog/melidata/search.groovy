@@ -258,7 +258,7 @@ tracks {
             original_search_filter, containers_flow, backend_data,  merch_data,  official_stores_carousel_shown,  items_with_logos,  pdp_grouped_search,  pdp_info,  promoted_items,  location_info, shop_status,
             shop_id, shop_name, shop_domain, interventions)
         add_data_search_web(only_in_type, click_banner, banner, related_searches, related_searches_info, canonical, autosuggest, landing, upper_funnel, geolocation, layout_forced, shown_as_product,
-            has_logos, geo_search, available_filters, user_zone, is_googlebot, pdp_rows, carousel_filters, pdp_highlight_enabled, seo, user_profile_type, top_keywords)
+            has_logos, geo_search, available_filters, user_zone, is_googlebot, pdp_rows, carousel_filters, pdp_highlight_enabled, seo, user_profile_type, top_keywords, mouse_event)
     }
 
     "/search"(platform: "/") {
