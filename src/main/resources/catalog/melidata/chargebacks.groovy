@@ -189,6 +189,9 @@ tracks {
     "/chargebacks/payer/select_remedy/chargeback_management"(platform: "/", type: TrackType.View) {
     }
 
+    "/chargebacks/payer/select_remedy/tipification_list"(platform: "/", type: TrackType.View) {
+    }
+
     "/chargebacks/payer/action_chargeback_detail"(platform: "/", type: TrackType.Event) {
     }
 

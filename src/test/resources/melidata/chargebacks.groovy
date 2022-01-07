@@ -451,6 +451,16 @@ trackTests {
             category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
+        "/chargebacks/payer/select_remedy/tipification_list"(platform: "/", business:"mercadolibre", type: TrackType.View) {
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            case_id = "987987987004"
+            payment_id = "3536747103"
+            user_disabled = false
+            payer_id = 306162056
+            category_path = ["MLA1000", "MLA189492", "MLA190998"]
+        }
+
         "/chargebacks/payer/action_chargeback_detail"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
             category_id = "MLA407408"
             item_id = "MLA673024191"
