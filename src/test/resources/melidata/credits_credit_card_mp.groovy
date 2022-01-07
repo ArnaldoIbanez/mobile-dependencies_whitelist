@@ -199,26 +199,33 @@ trackTests {
 
         def statement_open_status = "open"
         def statement_closed_status = "closed"
+        def sections_ok = "barchart, payment, movements"
+        def sections_barchart_fallback = "barchart_fallback, payment, movements"
+        def sections_movements_fallback = "barchart, movements_fallback"
 
         // Statement
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_open_status
             account = account_pending_data
+            sections = sections_ok
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_closed_status
             account = account_pending_data
+            sections = sections_barchart_fallback
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_open_status
             account = account_pending_data
+            sections = sections_movements_fallback
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_open_status
             account = account_pending_data
+            sections = sections_movements_fallback
         }
 
         "/credits/credit_card/statement/download_pdf_action"(platform: "/", type: TrackType.Event) {
@@ -234,6 +241,16 @@ trackTests {
 
         "/credits/credit_card/statement/payment_action"(platform: "/", type: TrackType.Event) {
             statement_status = statement_open_status
+        }
+
+        "/credits/credit_card/statement/fallback_retry_action"(platform: "/", type: TrackType.Event) {
+            error_type = "failed_dependency"
+            origin = "barchart"
+        }
+
+        "/credits/credit_card/statement/fallback_retry_action"(platform: "/", type: TrackType.Event) {
+            error_type = "failed_dependency"
+            origin = "movements"
         }
 
         /*********************************************
