@@ -288,11 +288,9 @@ tracks {
                 type: PropertyType.String,
                 required: false,
                 values: [
-                        "barchart",
-                        "barchart_fallback",
-                        "payment",
-                        "movements",
-                        "movements_fallback"
+                        "barchart, payment, movements",
+                        "barchart_fallback, payment, movements",
+                        "barchart, movements_fallback"
                 ]
         )
         error_type(
