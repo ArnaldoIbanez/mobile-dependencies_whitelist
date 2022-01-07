@@ -110,12 +110,10 @@ metrics {
         countsOn {
             condition {
                 path("/loyalty/buylevel/congrats")
-                and(
-                        equals("event_data.payment_status", "approve"),
-                        or(
-                                equals("event_data.payment_status", "pending"),
-                                equals("event_data.payment_status", "in_process")
-                        )
+                or(
+                        equals("event_data.payment_status", "approved"),
+                        equals("event_data.payment_status", "pending"),
+                        equals("event_data.payment_status", "in_process")
                 )
             }
         }
