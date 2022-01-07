@@ -451,7 +451,7 @@ trackTests {
             category_path = ["MLA1000", "MLA189492", "MLA190998"]
         }
 
-        "/chargebacks/payer/select_remedy/remedy_selection"(platform: "/", business:"mercadolibre", type: TrackType.View) {
+        "/chargebacks/payer/select_remedy/tipification_list"(platform: "/", business:"mercadolibre", type: TrackType.View) {
             category_id = "MLA407408"
             item_id = "MLA673024191"
             case_id = "987987987004"
