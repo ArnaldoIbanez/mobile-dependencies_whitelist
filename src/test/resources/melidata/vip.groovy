@@ -246,6 +246,30 @@ trackTests {
             seller_id = 210183916
         })
 
+        "/vip/whatsapp_support"(platform: "/mobile", type: TrackType.Event, {
+            mandatory()
+        })
+
+        "/vip/whatsapp_support"(platform: "/mobile", type: TrackType.Event, {
+            item_id = "MLB1246990714"
+            catalog_listing = false
+            buying_mode = "classified"
+            vertical = "motors"
+            from_view = "vip"
+            deal_ids = ["MLB2633"]
+            event_source = "button"
+            source = ""
+            item_status = "active"
+            category_id = "MLB1744"
+            category_path = ["MLA1234", "MLA6789"]
+            item_seller_type = "car_dealer"
+            item_condition = "new"
+            listing_type_id = "gold_premium"
+            has_good_price = false
+            has_highlighted_sale_specs=false
+            seller_id = 210183916
+        })
+
         "/vip/call_seller_intention"(platform: "/mobile", type: TrackType.Event, {
             mandatory()
             item_id = "MLA533657947"
@@ -283,6 +307,25 @@ trackTests {
         })
 
         "/vip/contact_whatsapp"(platform: "/web/mobile", type: TrackType.Event, {
+            mandatory()
+            item_seller_type="normal"
+            event_source="button"
+            from_view="vip"
+            event_source = "link"
+            catalog_listing=false
+            source=""
+        })
+
+        "/vip/whatsapp_support"(platform: "/web", type: TrackType.Event, {
+            mandatory()
+            item_seller_type="normal"
+            event_source="button"
+            from_view="vip"
+            catalog_listing=false
+            source=""
+        })
+
+        "/vip/whatsapp_support"(platform: "/web/mobile", type: TrackType.Event, {
             mandatory()
             item_seller_type="normal"
             event_source="button"

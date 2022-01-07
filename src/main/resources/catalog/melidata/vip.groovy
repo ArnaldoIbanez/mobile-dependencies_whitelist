@@ -677,6 +677,7 @@ tracks {
 
     "/vip/whatsapp_support"(platform: "/web", type: TrackType.Event) {
         category_id(required: true, type: PropertyType.String, description: "Item's category ID")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         vertical(required: true, description: "Vertical name over show phone event is displayed")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
