@@ -536,12 +536,8 @@ metrics {
 			condition {
 				path("/orders/ordercreated")
 				or(
-						and(
-								equals("event_data.recommendations.track_info.recommended_items.recommended_item.id", property("item_ids"))
-						),
-						and(
-								equals("event_data.recommendations.track_info.recommended_products.recommended_product.id",  property("catalog_product_id"))
-						)
+						equals("event_data.recommendations.track_info.recommended_items.recommended_item.id", property("item_ids")),
+						equals("event_data.recommendations.track_info.recommended_products.recommended_product.id",  property("catalog_product_id"))
 				)
 			}
 		}
@@ -565,12 +561,8 @@ metrics {
 								"paid"
 						),
 						or(
-								and(
-										equals("event_data.recommendations.track_info.recommended_items.recommended_item.id", property("item_ids"))
-								),
-								and(
-										equals("event_data.recommendations.track_info.recommended_products.recommended_product.id",  property("catalog_product_id"))
-								)
+								equals("event_data.recommendations.track_info.recommended_items.recommended_item.id", property("item_ids")),
+								equals("event_data.recommendations.track_info.recommended_products.recommended_product.id",  property("catalog_product_id"))
 						)
 				)
 			}
