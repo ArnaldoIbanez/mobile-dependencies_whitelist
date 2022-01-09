@@ -308,6 +308,7 @@ tracks {
         payment_group(account, statement_status)
         full_payment_group(account, statement_status, payment_option, amount_input, payment_plan)
         statement_status_group(statement_status, account, sections)
+        payment_action_group(statement_status)
         statement_period(month, year)
         disable_group(account, disable_option)
         disable_full_group(account, disable_option, reasons, other_reason)
@@ -375,7 +376,7 @@ tracks {
     }
 
     "/credits/credit_card/statement/payment_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        statement_status
+        payment_action_group
     }
 
     "/credits/credit_card/statement/download_pdf_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
