@@ -286,14 +286,7 @@ tracks {
         sections(
                 description: "Sections rendered in statements view",
                 type: PropertyType.ArrayList(PropertyType.String),
-                required: true,
-                values: [
-                        "barchart",
-                        "payment",
-                        "movements",
-                        "barchart_fallback",
-                        "movements_fallback"
-                ]
+                required: true
         )
         error_type(
                 description: "Error type",
