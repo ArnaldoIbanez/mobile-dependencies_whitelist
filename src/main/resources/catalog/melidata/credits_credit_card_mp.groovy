@@ -285,34 +285,27 @@ tracks {
         )
         sections(
                 description: "Sections rendered in statements view",
-                type: PropertyType.String,
-                required: false,
+                type: PropertyType.ArrayList(PropertyType.String),
+                required: true,
                 values: [
-                        "barchart, payment, movements",
-                        "barchart_fallback, payment, movements",
-                        "barchart, movements_fallback"
+                        "barchart",
+                        "payment",
+                        "movements",
+                        "barchart_fallback",
+                        "movements_fallback"
                 ]
         )
         error_type(
                 description: "Error type",
                 type: PropertyType.String,
-                required: false,
+                required: true,
                 values: [
                         "timeout",
                         "failed_dependency",
                         "internal_error"
                 ]
         )
-        origin(
-                description: "Represent the button retry clicked in the fallback",
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        "barchart",
-                        "movements",
-                        "all"
-                ]
-        )
+
     }
 
     propertyGroups {
@@ -326,7 +319,7 @@ tracks {
         disable_group(account, disable_option)
         disable_full_group(account, disable_option, reasons, other_reason)
         error_group(error)
-        fallback_group(error_type, origin)
+        fallback_group(error_type, sections)
     }
 
     /******************************************

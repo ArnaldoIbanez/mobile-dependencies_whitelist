@@ -199,9 +199,9 @@ trackTests {
 
         def statement_open_status = "open"
         def statement_closed_status = "closed"
-        def sections_ok = "barchart, payment, movements"
-        def sections_barchart_fallback = "barchart_fallback, payment, movements"
-        def sections_movements_fallback = "barchart, movements_fallback"
+        def sections_ok = ["barchart", "payment", "movements"]
+        def sections_barchart_fallback = ["barchart_fallback", "payment", "movements"]
+        def sections_movements_fallback = ["barchart", "movements_fallback"]
 
         // Statement
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
