@@ -62,6 +62,8 @@ trackTests {
                 campaign_id = "2345"
                 position = 2
                 print_id = "a"
+                line_item_id = 10
+                content_source = "test"
             }
         }
 

@@ -1435,6 +1435,9 @@ tracks {
     "/checkout/review/edit_unique_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_first_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_second_installment"(platform:"/", type: TrackType.View) {}
+    //Opt-in check
+    "/checkout/review/check_opt_in_checked"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/review/check_opt_in_unchecked"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     //Switch track
     "/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {}

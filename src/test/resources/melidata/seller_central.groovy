@@ -230,7 +230,7 @@ trackTests {
   test("Seller central Central of News view") {
     "/seller_central/news"(platform: "/web", type: TrackType.View) {}
     "/seller_central/news/lib"(platform: "/web", type: TrackType.View) {
-      notice_id = "2426"
+      notice_id = 2426
       page = "cdn"
     }
   }
@@ -242,39 +242,39 @@ trackTests {
       tag = "FULL"
     }
     "/seller_central/news/expand"(platform: "/web", type: TrackType.Event) {
-      notice_id = "2426"
+      notice_id = 2426
       category = "NEW"
       sub_category = "CHANGE_IN_BUSINESS_RULES"
     }
     "/seller_central/news/primary"(platform: "/web", type: TrackType.Event) {
-      notice_id = "2426"
+      notice_id = 2426
       category = "NEW"
       sub_category = "CHANGE_IN_BUSINESS_RULES"
     }
     "/seller_central/news/secondary"(platform: "/web", type: TrackType.Event) {
-      notice_id = "2426"
+      notice_id = 2426
       category = "NEW"
       sub_category = "CHANGE_IN_BUSINESS_RULES"
     }
     "/seller_central/news/close"(platform: "/web", type: TrackType.Event) {
-      notice_id = "2426"
+      notice_id = 2426
       category = "NEW"
       sub_category = "CHANGE_IN_BUSINESS_RULES"
     }
     "/seller_central/news/lib/primary"(platform: "/web", type: TrackType.Event) {
-      notice_id = "2426"
+      notice_id = 2426
       category = "NEW"
       sub_category = "CHANGE_IN_BUSINESS_RULES"
       page = "cdn"
     }
     "/seller_central/news/lib/secondary"(platform: "/web", type: TrackType.Event) {
-      notice_id = "2426"
+      notice_id = 2426
       category = "NEW"
       sub_category = "CHANGE_IN_BUSINESS_RULES"
       page = "cdn"
     }
     "/seller_central/news/lib/close"(platform: "/web", type: TrackType.Event) {
-      notice_id = "2426"
+      notice_id = 2426
       category = "NEW"
       sub_category = "CHANGE_IN_BUSINESS_RULES"
       page = "cdn"
@@ -592,6 +592,16 @@ trackTests {
       reputation = "4_light_green"
       page = 2
       scroll_type = "next"
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
+    }
+  }
+
+  test("Seller coach module display") {
+    "/seller_central/seller_coach/module/display"(platform: "/web", type: TrackType.View) {
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
       source = "summary"
@@ -1423,6 +1433,8 @@ trackTests {
       action = "create"
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
+      chart_id = "217021"
+      chart_type = "SPECIFIC"
     }
   }
 

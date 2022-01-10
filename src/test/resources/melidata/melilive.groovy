@@ -168,6 +168,28 @@ trackTests {
         }
     }
 
+    test("Melilive Bookmark Added") {
+
+        "/melilive/bookmark/add"(platform: "/") {
+            stream = [
+                    "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
+                    "status": "RECORDED"
+            ]
+            item_id = "MLA5646513"
+        }
+    }
+
+    test("Melilive Bookmark Removed") {
+
+        "/melilive/bookmark/delete"(platform: "/") {
+            stream = [
+                    "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
+                    "status": "LIVE"
+            ]
+            item_id = "MLA5646513"
+        }
+    }
+
     // ***************** CREATOR ******************
 
     test("Melilive Start Live From Creator") {
@@ -252,6 +274,7 @@ trackTests {
             chat = [
                 "room_id": "room-v3-03"
             ]
+            ban_type = "perma_ban"
         }
 
         "/melilive/creator/chat/first_message"(platform: "/") {

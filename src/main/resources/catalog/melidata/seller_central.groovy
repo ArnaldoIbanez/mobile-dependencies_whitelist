@@ -420,12 +420,12 @@ tracks {
         sub_category(description: "The SubCategory of selected notice")
     }
     "/seller_central/news/primary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        notice_id(required: true, type: PropertyType.Numeric, description: "The NoticeId of selected notice")
         category(required: true, type: PropertyType.String, description: "The Category of selected notice")
         sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
     }
     "/seller_central/news/secondary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        notice_id(required: true, type: PropertyType.Numeric, description: "The NoticeId of selected notice")
         category(required: true, type: PropertyType.String, description: "The Category of selected notice")
         sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
     }
@@ -439,13 +439,13 @@ tracks {
         page(description: "The Page of selected notice")
     }
     "/seller_central/news/lib/primary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        notice_id(required: true, type: PropertyType.Numeric, description: "The NoticeId of selected notice")
         category(required: true, type: PropertyType.String, description: "The Category of selected notice")
         sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
         page(required: true, type: PropertyType.String, description: "The Page of selected notice")
     }
     "/seller_central/news/lib/secondary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        notice_id(required: true, type: PropertyType.Numeric, description: "The NoticeId of selected notice")
         category(required: true, type: PropertyType.String, description: "The Category of selected notice")
         sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
         page(required: true, type: PropertyType.String, description: "The Page of selected notice")
@@ -519,11 +519,13 @@ tracks {
         page(required: true, type: PropertyType.Numeric, description: "Target page scrolled")
         scroll_type(required: true, type: PropertyType.String, values: ['prev', 'next'], description: "Direction of the scroll")
     }
-    "/seller_central/seller_coach/module"(platform: "/", isAbstract: true) {
-        card(required: false, type: PropertyType.Map(sellerCoachCard), description: "Card displayed when the module was actioned")
+    "/seller_central/seller_coach/module/display"(platform: "/", type: TrackType.View) {}
+    "/seller_central/seller_coach/module/open"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.Map(sellerCoachCard), description: "Card displayed when the module was opened")
     }
-    "/seller_central/seller_coach/module/open"(platform: "/", type: TrackType.Event) {}
-    "/seller_central/seller_coach/module/close"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/module/close"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.Map(sellerCoachCard), description: "Card displayed when the module was closed")
+    }
     "/seller_central/seller_coach/coachmark/display"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/coachmark/action"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/accompaniment"(platform: "/", isAbstract: true) {
@@ -1049,6 +1051,14 @@ tracks {
     "/seller_central/modify/chart/confirm"(platform: "/", type: TrackType.Event){
         domain_id(required: true, description: "Product domain id", type: PropertyType.String)
         action(required: true, description: "Action to confirm", type: PropertyType.String)
+        chart_id(required: true, description: "Product chart id", type: PropertyType.String)
+        chart_type(required: true, type: PropertyType.String, description: "Product chart type",
+                values: ["BRAND", "STANDARD", "SPECIFIC"])
+        parent_chart_id(required: false, description: "Product chart parent id",
+                type: PropertyType.String)
+        parent_chart_type(required: false, type: PropertyType.String,
+                description: "Product chart parent type", values: ["BRAND", "STANDARD", "SPECIFIC"])
+
     }
 
     "/seller_central/modify/chart/return"(platform: "/", type: TrackType.Event){
