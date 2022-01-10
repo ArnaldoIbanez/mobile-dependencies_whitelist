@@ -245,12 +245,12 @@ trackTests {
 
         "/credits/credit_card/statement/fallback_retry_action"(platform: "/", type: TrackType.Event) {
             error_type = "failed_dependency"
-            sections = "barchart"
+            section = "barchart"
         }
 
         "/credits/credit_card/statement/fallback_retry_action"(platform: "/", type: TrackType.Event) {
             error_type = "failed_dependency"
-            sections = "movements"
+            section = "movements"
         }
 
         /*********************************************

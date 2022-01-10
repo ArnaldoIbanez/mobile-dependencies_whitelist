@@ -288,6 +288,16 @@ tracks {
                 type: PropertyType.ArrayList(PropertyType.String),
                 required: true
         )
+        section(
+                description: "Section reloaded in statements view",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "barchart",
+                        "movements",
+                        "all"
+                ]
+        )
         error_type(
                 description: "Error type",
                 type: PropertyType.String,
@@ -313,7 +323,7 @@ tracks {
         disable_group(account, disable_option)
         disable_full_group(account, disable_option, reasons, other_reason)
         error_group(error)
-        fallback_group(error_type, sections)
+        fallback_group(error_type, section)
     }
 
     /******************************************
