@@ -14,7 +14,21 @@ tracks {
      * Init claim steps.
      */
     "/claims/init"(platform: "/") {
-        pageName(required: true, type: PropertyType.String, description: 'The page name.', values: ['create_claim', 'cancel_purchase', 'creation_denied', 'contention', 'congrats', 'mp_contention', 'error-view'])
+        pageName(
+                required: true,
+                type: PropertyType.String,
+                description: 'The page name.',
+                values: [
+                        'create_claim',
+                        'cancel_purchase',
+                        'cancel-purchase-express',
+                        'creation_denied',
+                        'contention',
+                        'congrats',
+                        'mp_contention',
+                        'error-view',
+                        'congrats_express'
+                ])
     }
 
     /**
