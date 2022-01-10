@@ -589,6 +589,9 @@ tracks {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
 
+      "/notification/shipping_not_delivered_returned_xd_xddo"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+      }
 
     "/notification/shipping_shipped_withdrawal_to_agency_places"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
@@ -704,9 +707,6 @@ tracks {
       //Orders Deliver Confirmation
       "/notification/orders_deliver_confirmation"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric)
-      }
-      "/notification/orders_deliver_confirmation_newbie_seller"(platform: "/") {
-          order_id(required: true, type: PropertyType.Numeric, description: "Order Id")
       }
 
       //Deprecated - typo @TODO Revisar este path para eliminarlo en el mediano plazo cuando las apps no lo envien mas

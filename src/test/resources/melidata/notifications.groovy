@@ -4069,11 +4069,6 @@ trackTests {
             event_type = "open"
             order_id = 12132
         }
-        "/notification/orders_deliver_confirmation_newbie_seller"(platform: "/mobile") {
-            news_id = "orders-deliver_confirmation_newbie_seller-1004906131"
-            event_type = "open"
-            order_id = 12132
-        }
         "/notification/orders_delivered"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -4494,6 +4489,12 @@ trackTests {
             shipment_id = 1234
         }
         "/notification/shipping_not_delivered_returning_to_hub_xd_xddo"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_not_delivered_returned_xd_xddo"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
@@ -12001,11 +12002,6 @@ trackTests {
             event_type = "open"
             order_id = 12132
         }
-        "/notification/orders_deliver_confirmation_newbie_seller"(platform: "/mobile") {
-            news_id = "orders-deliver_confirmation_newbie_seller-1004906131"
-            event_type = "open"
-            order_id = 12132
-        }
         "/notification/orders_delivered"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -12743,6 +12739,12 @@ trackTests {
             shipment_id = 1234
         }
         "/notification/shipping_not_delivered_returning_to_hub_xd_xddo"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_not_delivered_returned_xd_xddo"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
