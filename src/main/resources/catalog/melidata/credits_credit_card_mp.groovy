@@ -283,6 +283,32 @@ tracks {
                 type: PropertyType.Map(agreement_data),
                 required: false
         )
+        sections(
+                description: "Sections rendered in statements view",
+                type: PropertyType.ArrayList(PropertyType.String),
+                required: true
+        )
+        section(
+                description: "Section reloaded in statements view",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "barchart",
+                        "movements",
+                        "all"
+                ]
+        )
+        error_type(
+                description: "Error type",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "timeout",
+                        "failed_dependency",
+                        "internal_error"
+                ]
+        )
+
     }
 
     propertyGroups {
@@ -291,11 +317,13 @@ tracks {
         dashboard_agreement_event_group(account, statement_status, agreement)
         payment_group(account, statement_status)
         full_payment_group(account, statement_status, payment_option, amount_input, payment_plan)
-        statement_status_group(statement_status , account)
+        statement_status_group(statement_status, account, sections)
+        payment_action_group(statement_status)
         statement_period(month, year)
         disable_group(account, disable_option)
         disable_full_group(account, disable_option, reasons, other_reason)
         error_group(error)
+        fallback_group(error_type, section)
     }
 
     /******************************************
@@ -357,7 +385,9 @@ tracks {
         statement_status_group
     }
 
-    "/credits/credit_card/statement/payment_action"(platform: "/", type: TrackType.Event) {}
+    "/credits/credit_card/statement/payment_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        payment_action_group
+    }
 
     "/credits/credit_card/statement/download_pdf_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         statement_period
@@ -370,6 +400,10 @@ tracks {
             type: PropertyType.Numeric,
             required: true
         )
+    }
+
+    "/credits/credit_card/statement/fallback_retry_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        fallback_group
     }
 
     /*********************************************
