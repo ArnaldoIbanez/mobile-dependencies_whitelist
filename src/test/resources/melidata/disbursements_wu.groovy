@@ -97,7 +97,7 @@ trackTests {
         "/disbursements/wu/congrats/home"(platform: "/", type: TrackType.Event) {}
         "/disbursements/wu/congrats/help"(platform: "/", type: TrackType.Event) {}
         "/disbursements/wu/congrats/copy"(platform: "/", type: TrackType.Event) {}
-        "/disbursements/wu/congrats/contact-wu"(platform: "/", type: TrackType.Event) {}
+        "/disbursements/wu/congrats/contact_wu"(platform: "/", type: TrackType.Event) {}
 
         // Error
         "/disbursements/wu/error"(platform: "/", type: TrackType.View) {}
