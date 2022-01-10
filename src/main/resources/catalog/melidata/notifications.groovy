@@ -708,9 +708,6 @@ tracks {
       "/notification/orders_deliver_confirmation"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric)
       }
-      "/notification/orders_deliver_confirmation_newbie_seller"(platform: "/") {
-          order_id(required: true, type: PropertyType.Numeric, description: "Order Id")
-      }
 
       //Deprecated - typo @TODO Revisar este path para eliminarlo en el mediano plazo cuando las apps no lo envien mas
       "/notification/orders_buyer"(platform: "/") {

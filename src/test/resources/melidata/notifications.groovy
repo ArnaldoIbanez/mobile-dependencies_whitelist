@@ -4069,11 +4069,6 @@ trackTests {
             event_type = "open"
             order_id = 12132
         }
-        "/notification/orders_deliver_confirmation_newbie_seller"(platform: "/mobile") {
-            news_id = "orders-deliver_confirmation_newbie_seller-1004906131"
-            event_type = "open"
-            order_id = 12132
-        }
         "/notification/orders_delivered"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -12004,11 +11999,6 @@ trackTests {
         }
         "/notification/orders_deliver_confirmation"(platform: "/mobile") {
             news_id = "12332323"
-            event_type = "open"
-            order_id = 12132
-        }
-        "/notification/orders_deliver_confirmation_newbie_seller"(platform: "/mobile") {
-            news_id = "orders-deliver_confirmation_newbie_seller-1004906131"
             event_type = "open"
             order_id = 12132
         }
