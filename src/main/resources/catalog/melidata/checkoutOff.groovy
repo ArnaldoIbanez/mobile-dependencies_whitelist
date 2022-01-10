@@ -79,6 +79,7 @@ tracks {
         flow_context(required: false, description: "Information about current flow's status, e.g: 'no_sniffing'", type: PropertyType.String)
         sponsor_id(required: false, description: "Identifies the plugin platform as shopify, magento", type: PropertyType.Numeric)
         router_request_id(required: false, description: "Identifies an unique router requisition", type: PropertyType.String)
+        app_no_candidate_reasons(required: false, description: "Reason for not sniffing, e.g: ['pref_expiration', 'operator_id']", type: PropertyType.ArrayList(PropertyType.String))
     }
 
     // Login
