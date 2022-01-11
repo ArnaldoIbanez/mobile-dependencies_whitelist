@@ -1741,7 +1741,6 @@ trackTests {
             event_type = "open"
             provider = "hbo"
             provider_name = "Disney"
-            site_id = "MLA"
             female_gender = true
         }
         "/notification/subscription_free_content_grace_period"(platform: "/mobile") {

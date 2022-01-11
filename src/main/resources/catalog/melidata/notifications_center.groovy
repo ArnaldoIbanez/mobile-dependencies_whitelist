@@ -1335,7 +1335,6 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
         provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
-        site_id(required: false, type: PropertyType.String, description: "Site of the user")
         female_gender(required: false, type: PropertyType.Boolean, description: "Female Gender.")
     }
 
