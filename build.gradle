@@ -464,7 +464,8 @@ task uploadAllCatalog(type:JavaExec) {
     "mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving-app",
     "mlo-mon-consumer-upsell-no-neg", "mlo-mon-consumer-bhv-mlm", "mlo-mon-consumers-upsell-full", "mlo-mon-cx-male-med-mld", "mlo-mon-cx-oneclick-mld-nlp",
     "mlo-mon-iv-tools-same-person-model", "mlo-mon-fraud-mktplace-conflictbuyer-m","mlo-mon-fraud-marketplace-vis-denounce", "mlo-mon-pf-mktplace-fco-partner",
-    "mlo-mon-cx-confirm-mld", "mlo-mon-fda-fraud-marketplace", "mlo-mon-bpp-deferral-v2", "mlo-mon-iv-tools-same-person-model-mlm"]
+    "mlo-mon-cx-confirm-mld", "mlo-mon-fda-fraud-marketplace", "mlo-mon-bpp-deferral-v2", "mlo-mon-iv-tools-same-person-model-mlm",
+    "mlo-mon-modeling-xgboost-score"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
