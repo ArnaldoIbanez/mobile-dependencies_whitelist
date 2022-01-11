@@ -1383,7 +1383,17 @@ tracks {
     }
 
     //No options money advance
-    "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {
+        from(
+                description: "Request Origin (could be from same flow or not)",
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'default',
+                        'withdraw',
+                ]
+        )
+    }
 
     // Error money advance
     "/credits/merchant/money_advance/error"(platform: "/", type: TrackType.View) {

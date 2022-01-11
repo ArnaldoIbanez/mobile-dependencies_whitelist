@@ -1008,7 +1008,26 @@ trackTests {
         "/credits/merchant/money_advance/congrats"(platform: "/mobile/ios", type: TrackType.View) {
             offer = 'express_money'
         }
-        "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {}
+
+        "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {
+            from = 'default'
+        }
+        "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {
+            from = 'withdraw'
+        }
+        "/credits/merchant/money_advance/no_options"(platform: "/mobile/android") {
+            from = 'default'
+        }
+        "/credits/merchant/money_advance/no_options"(platform: "/mobile/android") {
+            from = 'withdraw'
+        }
+        "/credits/merchant/money_advance/no_options"(platform: "/mobile/ios") {
+            from = 'default'
+        }
+        "/credits/merchant/money_advance/no_options"(platform: "/mobile/ios") {
+            from = 'withdraw'
+        }
+
         "/credits/merchant/money_advance/error"(platform: "/web/desktop") {
             reason = 'bad_request'
         }
