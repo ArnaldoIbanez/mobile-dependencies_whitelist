@@ -1741,7 +1741,6 @@ trackTests {
             event_type = "open"
             provider = "hbo"
             provider_name = "Disney"
-            female_gender = true
         }
         "/notification/subscription_free_content_grace_period"(platform: "/mobile") {
             news_id = "subscription_free_content_grace_period-186785675-hbo-20181211"
@@ -9417,7 +9416,6 @@ trackTests {
             status= "read"
             provider = "hbo"
             provider_name = "Disney"
-            female_gender = true
         }
         "/notification_center/subscription_free_content_level_drop"(platform: "/mobile") {
             newsgroup_id = "subscription_free_content_level_drop-186785675"
