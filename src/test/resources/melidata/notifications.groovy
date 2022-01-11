@@ -1736,6 +1736,14 @@ trackTests {
             date = "20181211"
             female_gender = true
         }
+        "/notification/subscription_recurring_on_payment_account_money"(platform: "/mobile") {
+            news_id = "subscription_recurring_on_payment_account_money-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
         "/notification/subscription_free_content_grace_period"(platform: "/mobile") {
             news_id = "subscription_free_content_grace_period-186785675-hbo-20181211"
             event_type = "open"
@@ -9397,6 +9405,16 @@ trackTests {
             newsgroup_id = "subscription_free_content_grace_period-186785675"
             latest_news_id= "subscription_free_content_grace_period-186785675"
             latest_news_type= "subscription_free_content_grace_period"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification_center/subscription_recurring_on_payment_account_money"(platform: "/mobile") {
+            newsgroup_id = "subscription_recurring_on_payment_account_money-186785675"
+            latest_news_id= "subscription_recurring_on_payment_account_money-186785675"
+            latest_news_type= "subscription_recurring_on_payment_account_money"
             status= "read"
             provider = "hbo"
             provider_name = "Disney"
