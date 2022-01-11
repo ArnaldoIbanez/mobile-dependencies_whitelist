@@ -2562,6 +2562,7 @@ trackTests {
         // Input data
         "/bill_payments/input_data"(platform: "/mobile") {
             mandatory()
+            entity = "Monterrey"
         }
 
         "/bill_payments/input_data/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2573,6 +2574,10 @@ trackTests {
         }
 
         "/bill_payments/input_data/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/input_data/help"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 

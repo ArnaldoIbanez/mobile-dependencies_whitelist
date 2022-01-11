@@ -102,10 +102,13 @@ tracks {
     "/bill_payments/input_option/back"(platform: "/mobile", type: TrackType.Event) {}
 
     // Input data
-    "/bill_payments/input_data"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/input_data"(platform: "/mobile", type: TrackType.View) {
+        entity (required:false, type: PropertyType.String, description: "The chosen entitie name")
+    }
     "/bill_payments/input_data/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/input_data/continue"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/input_data/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/input_data/help"(platform: "/mobile", type: TrackType.Event) {}
 
     // Input debt id
     "/bill_payments/input_option_debt"(platform: "/mobile", type: TrackType.View) {}
