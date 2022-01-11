@@ -1433,8 +1433,8 @@ tracks {
     "/notification/subscription_recurring_on_payment_account_money"(platform: "/mobile") {
         provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
         provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
-        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
-        type(required: false, type: PropertyType.String, description: "Failure for the first payment attempt on the subscription.")
+        site_id(required: true, type: PropertyType.String, description: "Site of the user")
+        female_gender(required: false, type: PropertyType.Boolean, description: "Female Gender.")
     }
     "/notification/subscription_free_content_level_drop"(platform: "/mobile") {
         provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
