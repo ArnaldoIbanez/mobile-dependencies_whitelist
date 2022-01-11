@@ -110,4 +110,12 @@ metrics {
         }
     }
 
+    "recommendations_properties"(description: "define properties for order_id") {
+        startWith {
+            set_property("catalog_product_id", "event_data.catalog_product_id")
+            set_property("item_ids", "event_data.results")
+            experiment(regex("recommendations/.*"))
+        }
+    }
+    
 }

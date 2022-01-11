@@ -528,4 +528,45 @@ metrics {
 			}
 		}
 	}
+
+	"bids.sameReco"(description: "/orders/ordercreated from feed in recommendations where the item or product was recommended", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
+		experiment(regex("recommendations/.*"))
+
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				or(
+						equals("event_data.recommendations.track_info.recommended_items.recommended_item.id", property("item_ids")),
+						equals("event_data.recommendations.track_info.recommended_products.recommended_product.id",  property("catalog_product_id"))
+				)
+			}
+		}
+	}
+
+	"bids.sameReco.paid"(description: "/orders/ordercreated from feed in recommendations where the item or product was recommended", compute_order: true, bu: BuType.MercadoLibre, extent: ExtentType.Product) {
+		experiment(regex("recommendations/.*"))
+
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and (
+						equals(
+								externalCondition {
+									url("internal/orders/\$0")
+									replace("event_data.order_id")
+									method("get")
+									successfulCodes(200,206)
+									jsonPath("status")
+								},
+								"paid"
+						),
+						or(
+								equals("event_data.recommendations.track_info.recommended_items.recommended_item.id", property("item_ids")),
+								equals("event_data.recommendations.track_info.recommended_products.recommended_product.id",  property("catalog_product_id"))
+						)
+				)
+			}
+		}
+	}
+
 }
