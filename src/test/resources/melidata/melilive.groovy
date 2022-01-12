@@ -38,8 +38,8 @@ trackTests {
         }
     }
 
-    test("MeliLive stream broadcast ended") {
-        "/melilive/stream/end"(platform: "/") {
+    test("MeliLive broadcast ended") {
+        "/melilive/ended"(platform: "/") {
             stream = [
                     "broadcast_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
                     "title"       : "Melilive",

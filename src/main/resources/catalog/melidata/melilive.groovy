@@ -97,7 +97,7 @@ tracks {
         streamStatusGroup
     }
 
-    "/melilive/stream/end"(platform: "/", type: TrackType.View) {
+    "/melilive/ended"(platform: "/", type: TrackType.View) {
         streamStatusGroup
     }
 
