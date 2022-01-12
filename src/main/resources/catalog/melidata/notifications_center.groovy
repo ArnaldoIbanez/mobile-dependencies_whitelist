@@ -1330,6 +1330,12 @@ tracks {
         date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
         type(required: false, type: PropertyType.String, description: "Failure for the first payment attempt on the subscription.")
     }
+    "/notification_center/subscription_recurring_on_payment_account_money"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+    }
 
     "/notification_center/subscription_free_content_payment_pending"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")

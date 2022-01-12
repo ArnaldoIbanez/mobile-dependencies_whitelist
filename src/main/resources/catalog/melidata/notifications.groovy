@@ -1430,6 +1430,10 @@ tracks {
         date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
         type(required: false, type: PropertyType.String, description: "Failure for the first payment attempt on the subscription.")
     }
+    "/notification/subscription_recurring_on_payment_account_money"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+    }
     "/notification/subscription_free_content_level_drop"(platform: "/mobile") {
         provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
         provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
