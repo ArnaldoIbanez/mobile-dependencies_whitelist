@@ -294,6 +294,8 @@ tracks {
 	    component_version(type: PropertyType.Numeric, required: true, description: "the version of order status")
         status_label(type: PropertyType.Map(order_status_label_definition), required: true, description: "The status label information")
 	    stepper(type: PropertyType.Map(stepper_definition), required: false, description: "The stepper information")
+        date_cancelled(type: ropertyType.String, required: false, description: "The date when order was canceled")
+        date_delivered(type: ropertyType.String, required: false, description: "The date the order was delivered")
     }
 
     def marketplace_main_slider_definition = objectSchemaDefinitions {

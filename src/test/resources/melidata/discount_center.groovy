@@ -705,6 +705,7 @@ trackTests {
                                 store_name: "Mc Donalds",
                                 purchase_id: 12345678,
                                 purchase_state: "paid",
+                                date_delivered: "2022-01-07T10:08:43.152-04:00"
                                 purchase_detail_label: "Sigue el estado de tu pedido",
                                 action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                 component_version: 3,
@@ -730,6 +731,7 @@ trackTests {
                                       name: "Mc Donalds",
                                       purchase_id: 1234583,
                                       purchase_state: "canceled",
+                                      date_cancelled: "2022-01-07T10:08:43.152-04:00"
                                       purchase_detail_label: "Sigue el estado de tu pedido",
                                       action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                       component_version: 2,
@@ -1081,6 +1083,7 @@ trackTests {
                                 store_name: "Mc Donalds",
                                 purchase_id: 12345678,
                                 purchase_state: "paid",
+                                date_delivered: "2022-01-07T10:08:43.152-04:00"
                                 purchase_detail_label: "Sigue el estado de tu pedido",
                                 action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                 component_version: 2,
