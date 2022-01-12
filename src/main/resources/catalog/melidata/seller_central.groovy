@@ -709,7 +709,8 @@ tracks {
     }
 
     "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
-        hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
+        view_id(required: false, type: PropertyType.String, description: "Listing view where the event has been called")
+        hotjar_survey(required: true, type: PropertyType.String, description: "Hotjar survey value")
     }
 
     "/seller_central/listings/action/open_modal"(platform: "/", type: TrackType.Event) {
